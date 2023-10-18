@@ -1,0 +1,7 @@
+.idea
+.vscode
+*~
+.directory
+.DS_Store
+
+*.pdf

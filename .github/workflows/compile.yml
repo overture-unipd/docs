@@ -1,0 +1,27 @@
+name: Compile Typst documents
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+# permissions:
+#   contents: write
+
+jobs:
+  compile:
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/typst/typst:latest
+    steps:
+      - name: Checkout repository contents
+        uses: actions/checkout@v3
+      - name: Compile typst documents
+        run: |
+         sh compile.sh
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: documents
+          path: |
+            documents
