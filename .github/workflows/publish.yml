@@ -1,0 +1,48 @@
+name: Publish documents
+on:
+  push:
+    branches:
+      - master
+    tags:
+      - '*'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write
+  pages: write
+
+jobs:
+  compile:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: restore timestamps
+        uses: chetan/git-restore-mtime-action@v2
+      - name: create release if it is a tag
+        if: startsWith(github.ref, 'refs/tags/')
+        run: |
+          pushd "documents/${GITHUB_REF_NAME}" 
+          zip -r "${GITHUB_REF_NAME}.zip" .
+          popd
+          mv "documents/${GITHUB_REF_NAME}/${GITHUB_REF_NAME}.zip" .
+          gh release create "$GITHUB_REF_NAME" -t "$GITHUB_REF_NAME" "${GITHUB_REF_NAME}.zip"
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+      - name: generate directory listings
+        uses: jayanta525/github-pages-directory-listing@v3.0.0
+        with:
+          FOLDER: documents
+      - name: upload pages artifact
+        uses: actions/upload-pages-artifact@v2
+        with: 
+          path: documents/
+      - name: deploy to github pages
+        id: deployment
+        uses: actions/deploy-pages@v2
