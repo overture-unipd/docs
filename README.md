@@ -1,5 +1,4 @@
 # Documentazione
 
-## programmi usati
-- [Typst](https://typst.app/)
-- [Typst Preview VSCode extension](https://marketplace.visualstudio.com/items?itemName=mgt19937.typst-preview)
+- In questa repo sono presenti i *sorgenti* della documentazione di gruppo.
+- I PDF vengono creati tramite GH actions e "trasferiti" nella [repository dedicata](https://github.com/overture-unipd/docs).
