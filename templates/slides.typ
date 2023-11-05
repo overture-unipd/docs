@@ -4,19 +4,20 @@
 #import themes.clean: *
 
 #let project(title: "", slides) = {
-  set document(author: group_details.at("name"), title: title)
+  set document(author: g.name, title: title)
   
   show: clean-theme.with(
     short-title: title,
     color: black,
-    logo: image(group_details.at("logo")),
+    logo: image(g.logo),
   )
   
   title-slide(
-    title: "Gruppo Overture",
+    title: g.name,
     subtitle: title,
-    authors: group_details.at("email"),
+    authors: text(link("mailto:"+g.mail), style: "italic"),
   )
   
+  show link: underline
   show: slides
 }
