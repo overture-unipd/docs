@@ -16,19 +16,22 @@
 #let project(
   title: none,
   managers: none,
-  verifiers: none,
-  editors: none,
   recipients: none,
   changelog: none,
   show_outline: true,
   outline_depth: none,
-  version: none,
-  date: none,
   body,
 ) = {
-  set document(author: g.name, title: title)
   set text(font: "Linux Libertine", lang: "it")
   set heading(numbering: "1.1)")
+
+  let date = changelog.at(1, default: none);
+  let version = changelog.at(0, default: none);
+  let document_title = title
+  if version != none {
+    document_title += " - v" + version
+  }
+  set document(author: g.name, title: document_title, date: none)
 
   show heading: it => {
     it.body
@@ -38,29 +41,23 @@
   set align(center)
   text(2.3em, weight: 700, title) + [\ #v(1.5em)]
 
-  if changelog != none {
-    let date = changelog.at(1, default: none);
-    let version = changelog.at(0, default: none);
-    [#date]
-    if version != none {
-      [ — v#version]
-    }
+  [#date]
+  if version != none {
+    [ — v#version]
   }
 
   set align(horizon)
   image(g.logo, width: 42%)
   text(1.1em, link("mailto:"+g.mail), style: "italic")
 
-  if changelog != none {
-    let changelog_header = ([*Versione*], [*Data*], [*Autori*], [*Verificatori*], [*Dettaglio*])
-    let keep(r) = {
-      changelog.enumerate().filter(i => r.contains(i.first())).map(i => i.last())
-    }
-    let r_editors = array.range(2, changelog.len(), step: changelog_header.len())
-    let r_verifiers = r_editors.map(i => i+1)
-    let editors = keep(r_editors)
-    let verifiers = keep(r_verifiers)
+  let changelog_header = ([*Versione*], [*Data*], [*Autori*], [*Verificatori*], [*Dettaglio*])
+  let keep(r) = {
+    changelog.enumerate().filter(i => r.contains(i.first())).map(i => i.last())
   }
+  let r_editors = array.range(2, changelog.len(), step: changelog_header.len())
+  let r_verifiers = r_editors.map(i => i+1)
+  let editors = keep(r_editors)
+  let verifiers = keep(r_verifiers)
 
   set align(bottom)
   gridx(
@@ -70,7 +67,7 @@
     row-gutter: 1.1em,
     [Destinatari],
     vlinex(),
-    sortBySurname(recipients).join([\ ]),
+    recipients.join([\ ]),
     [Responsabile],
     sortBySurname(managers).join([\ ]),
     [Redattori],
@@ -78,7 +75,7 @@
     [Verificatori],
     sortBySurname(verifiers).join([\ ]),
   )
-  
+
   pagebreak()
 
   set page(
@@ -93,7 +90,7 @@
 
   set align(start + top)
 
-  if version != none and changelog != none and changelog.len() > 2 {
+  if version != none and changelog.len() > 2 {
     changelog = changelog_header + changelog;
     heading(
       outlined: false,
@@ -146,7 +143,7 @@
   }
   let r = array.range(0, t.len(), step: tasks_header.len())
   t = tasks_header + map_issue(r, t)
-  
+
   align(center,
     block(width: 90%,
       table(

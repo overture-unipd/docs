@@ -2,31 +2,20 @@
 
 #show: project.with(
   title: "Lettera di presentazione",
-  managers: (
-    "Alex Vedovato",
-  ),
-  verifiers: (
-    "Francesco Costantino Bulychov",
-    "Michele Bettin",
-    "Riccardo Bonavigo",
-  ),
-  editors: (
-    "Eleonora Amadori",
-    "Riccardo Fabbian",
-    "Francesco Furno",
-  ),
+  managers: p.vedovato,
   recipients: (
-    "Prof. Tullio Vardanega",
-    "Prof. Riccardo Cardin",
+    p.vardanega,
+    p.cardin,
   ),
-  version: "1.0",
-  date: "2023-10-25",
+  changelog: (
+    none, "2023-10-25", (p.amadori, p.fabbian, p.furno), (p.bulychov, p.bettin, p.bonavigo), none,
+  ),
   show_outline: false,
 )
 
-Egregio Prof. Tullio Vardanega,
+Egregio #p.vardanega,
 
-Egregio Prof. Riccardo Cardin,
+Egregio #p.cardin,
 
 con la presente il gruppo #emph("Overture") intende comunicarVi ufficialmente l’intenzione di candidarsi alla realizzazione del prodotto da Voi commissionato, denominato:
 
@@ -39,7 +28,7 @@ proposto dall’azienda #emph("Zextras").
 La documentazione relativa alla valutazione dei capitolati è consultabile presso la sezione Candidatura al seguente link:
 
 #align(center, text(12.5pt)[
-  #link("https://github.com/overture-unipd/docs")
+  #link(g.org+"/"+g.docs)
 ])
 
 dove si possono trovare:
@@ -60,13 +49,13 @@ Di seguito si riportano i nominativi dei componenti del gruppo e i corrispondent
     inset: 10pt,
     align: auto,
     [*Nominativo*], [*Matricola*], 
-    [Eleonora Amadori], [2089254], 
-    [Michele Bettin], [2042883],
-    [Riccardo Bonavigo], [1225420],
-    [Francesco Constantino Bulychov], [2010004],
-    [Riccardo Fabbian], [2009110],
-    [Francesco Furno], [2042327],
-    [Alex Vedovato], [2042353]
+    [#p.amadori], [2089254], 
+    [#p.bettin], [2042883],
+    [#p.bonavigo], [1225420],
+    [#p.bulychov], [2010004],
+    [#p.fabbian], [2009110],
+    [#p.furno], [2042327],
+    [#p.vedovato], [2042353]
   )
 )
 

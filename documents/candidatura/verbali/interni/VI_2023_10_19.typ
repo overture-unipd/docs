@@ -2,23 +2,16 @@
 
 #show: project.with(
   title: "Verbale interno del 2023-10-19",
-  managers: (
-    "Alex Vedovato",
-  ),
-  verifiers: (
-    "Eleonora Amadori",
-    "Francesco Costantino Bulychov",
-    "Riccardo Fabbian",
-  ),
-  editors: (
-    "Michele Bettin",
-    "Riccardo Bonavigo",
-    "Francesco Furno",
-  ),
+  managers: p.vedovato,
   recipients: (
-    "Gruppo Overture",
+    p.vardanega,
+    p.cardin,
+    g.name,
   ),
-  version: "1.0",
+  changelog: (
+    "1.1", "2023-11-09", p.bonavigo, p.amadori, "Aggiunta del registro delle modifiche e riorganizzazione dell'indice",
+    "1.0", "2023-10-19", (p.bettin, p.bonavigo, p.furno), (p.amadori, p.bulychov, p.fabbian), "Stesura del verbale",
+  ),
 )
 
 = Contenuti del verbale
@@ -27,7 +20,7 @@
 - Luogo: Aula 1BC45 Torre Archimede
 - Ora di inizio: 14:15
 - Ora di fine: 16:15
-- Partecipanti: Michele Bettin, Riccardo Bonavigo, Riccardo Fabbian, Francesco Furno, Alex Vedovato, Eleonora Amadori 
+- Partecipanti: #p.amadori, #p.bettin, #p.bonavigo, #p.fabbian, #p.furno, #p.vedovato
 
 == Ordine del giorno
 - Terminazione obblighi operativi;
@@ -35,9 +28,7 @@
 - Contatto con l'azienda Zextras;
 - Individuazione materiale da produrre.
 
-= Resoconto
-
-== Sintesi dell'incontro
+= Sintesi dell'incontro
 
 Nella riunione odierna innanzitutto il gruppo si è dotato di un riflettore di posta elettronica e generato un logo con le potenti tecnologie moderne.
 
@@ -51,10 +42,10 @@ Dopo di che sono stati avviati i primi contatti con l'azienda Zextras, proponent
 
 Infine si è individuato il materiale da produrre in ottica della presentazione della candidatura, di modo da organizzarsi ed iniziare la stesura dei documenti necessari.
 
-== Decisioni prese
+= Decisioni prese
 
-- Si è scelto l'indirizzo mail "riflettore" #link("mailto:overture.unipd@gmail.com");
-- Sito web per repo: GitHub.
+- Sito web per repository: GitHub;
 - Strumenti per le comunicazioni interne: Telegram e Discord;
 - Strumento per la stesura dei documenti: Typst;
-- Strumento per il tracciamento delle attività: GitHub.
+- Strumento per il tracciamento delle attività: GitHub;
+- Indirizzo mail "riflettore" #text(link("mailto:overture.unipd@gmail.com"), style: "italic")

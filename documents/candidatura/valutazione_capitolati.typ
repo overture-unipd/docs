@@ -2,25 +2,19 @@
 
 #show: project.with(
   title: "Valutazione capitolati",
-  managers: (
-    "Alex Vedovato",
-  ),
-  verifiers: (
-    "Riccardo Bonavigo",
-    "Francesco Costantino Bulychov",
-  ),
-  editors: (
-    "Eleonora Amadori",
-    "Michele Bettin",
-    "Riccardo Fabbian",
-    "Francesco Furno",
-  ),
+  managers: p.vedovato,
   recipients: (
-    "Prof. Tullio Vardanega",
-    "Prof. Riccardo Cardin",
+    p.vardanega,
+    p.cardin,
   ),
-  version: "1.0",
-  date: "2023-10-28",
+  changelog: (
+    "1.1", "2023-11-09", p.bonavigo, p.amadori, "Aggiunta del registro delle modifiche",
+    "1.0", "2023-10-28", (p.bettin, p.amadori), (p.bonavigo, p.bulychov), "Sistemazione di alcuni errori grammaticali e formulazione frasi",
+    "0.4", "2023-10-26", p.furno, p.bulychov, "Valutazione di C7, C8 e C9",
+    "0.3", "2023-10-25", p.fabbian, p.bulychov, "Valutazione di C3 e C4",
+    "0.2", "2023-10-24", p.amadori, p.bulychov, "Valutazione di C5 e C6",
+    "0.1", "2023-10-24", p.bettin, p.bonavigo, "Valutazione di C1 e C2",
+  ),
   outline_depth: 1,
 )
 
@@ -47,13 +41,7 @@ L'azienda ha concesso piena autonomia sulla scelta del linguaggio di programmazi
 Il servizio sviluppato deve essere eseguibile all'interno di un ambiente di container, come ad esempio Docker. Questa scelta è finalizzata a semplificare la fase di testing delle funzionalità e delle prestazioni, consentendo l'avvio di molteplici istanze del servizio in parallelo. #linebreak()
 Il servizio deve essere sviluppato in modo che sia facilmente scalabile: deve essere possibile l'utilizzo di più nodi "stateless", in modo che ciascuna istanza del servizio sia in grado di rispondere alle richieste dei client senza la necessità di mantenere dati di stato specifici.
 
-\
-\
-\
-\
-\
-\
-\
+#pagebreak()
 
 == Motivazioni della scelta
 - Il proponente è stato chiaro durante l'esposizione del capitolato
@@ -119,8 +107,8 @@ Per realizzare questo progetto, saranno utilizzate le seguenti tecnologie:
 - Nonostante l'interesse iniziale all'interno del team di sviluppo, la presentazione del progetto da parte del proponente non è risultata abbastanza convincente;
 - Poiché il progetto implica l'addestramento di un modello di intelligenza artificiale, potrebbe risultare in un processo in gran parte automatico e quindi poco interattivo (parere espresso precedentemente anche nel capitolato C1).
 
-\ 
-\
+#pagebreak()
+
 == Conclusioni
 Sebbene l'idea di integrare l'analisi dei big data con l'intelligenza artificiale abbia suscitato interesse tra alcuni membri del team di sviluppo, l'obiettivo principale è trovare un progetto in grado di catturare l'interesse del maggior numero possibile di sviluppatori.
 
@@ -150,14 +138,7 @@ Il ristoratore può:
 - Consultare le ordinazioni per ogni prenotazione (garantendo quindi una migliore gestione delle scorte alimentari in magazzino);
 - Consultare lo stato di pagamento di un'ordinazione;
 
-\
-\
-\
-\
-\
-\
-\
-\
+#pagebreak()
 
 == Dominio tecnologico
 Si prevede la creazione di una web application responsive, in modo che si possa utilizzare comodamente dal browser di un computer desktop o di uno smartphone senza doversi preoccupare del sistema operativo del dispositivo cliente.\
@@ -197,12 +178,9 @@ Si prevede l'utilizzo della tecnologia Nuvolaris serverless per scrivere codice 
 Il lavoro del progetto consiste nel creare:
 - Un template dell'applicazione con i relativi file di configurazione;
 - Fornire una API per aggiornare questo file di configurazione;
-- Fare il rebuil dell'applicazione basandosi sul file di configurazione.
+- Fare il rebuild dell'applicazione basandosi sul file di configurazione.
 
-\
-\
-\
-\
+#pagebreak()
 
 == Aspetti positivi
 - Lavorare un un progetto che si distacca dalla normale concezione di applicazione informatica per risolvere processi lavorativi non digitalizzati (vedi Capitolato 3)
