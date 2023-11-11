@@ -4,6 +4,8 @@
   title: "Verbale interno del 2023-11-03",
   managers: p.vedovato,
   recipients: (
+    p.vardanega,
+    p.cardin,
     g.name,
   ),
   changelog: (
@@ -30,8 +32,7 @@ Nel breve incontro odierno, avvenuto in attesa dell'aggiudicazione degli appalti
 
 - La rotazione dei ruoli avverrà ogni due settimane, in modo da fornire il tempo necessario per adattarsi al cambiamento ed al contempo evitare periodi troppo lunghi all'interno di un singolo ruolo;
 - Si è deciso di organizzare per processi il documento Norme di Progetto seguendo lo standard ISO/IEC 12207:1995;
-- É stata bloccata la possibilità di eseguire modifiche direttamente sul ramo principale delle varie repository. D'ora in poi ogni aggiornamento verrà richiesto tramite "pull-request", ed  
-    ed approvato da un terzo (il verificatore);
+- É stata bloccata la possibilità di eseguire modifiche direttamente sul ramo principale delle varie repository. D'ora in poi ogni aggiornamento verrà richiesto tramite "pull-request", ed approvato da un terzo (il verificatore);
 - Si è deciso di iniziare ad associare le decisioni prese in seguito alle riunioni che scatenano delle azioni con le loro corrispondenti issue tramite link;
 
 = Attività individuate

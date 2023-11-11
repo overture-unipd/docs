@@ -2,31 +2,20 @@
 
 #show: project.with(
   title: "Dichiarazione degli impegni",
-  managers: (
-    "Alex Vedovato",
-  ),
-  verifiers: (
-    "Eleonora Amadori",
-    "Michele Bettin",
-    "Riccardo Bonavigo",
-  ),
-  editors: (
-    "Francesco Costantino Bulychov",
-    "Riccardo Fabbian",
-    "Francesco Furno",
-  ),
+  managers: p.vedovato,
   recipients: (
-    "Prof. Tullio Vardanega",
-    "Prof. Riccardo Cardin",
+    p.vardanega,
+    p.cardin,
   ),
-  version: "1.0",
-  date: "2023-10-25"
+  changelog: (
+    "1.1", "2023-11-09", p.bonavigo, p.amadori, "Aggiunta del registro delle modifiche",
+    "1.0", "2023-10-25", (p.bulychov, p.fabbian, p.furno), (p.amadori, p.bettin, p.bonavigo), "Stesura del documento",
+  ),
 )
 
 \
 = Scopo del documento
 In questo documento vengono riportati il preventivo per il progetto, calcolato in base alla suddivisone in ruoli delle ore di lavoro e relativi costi, il totale di ore produttive assegnate a persona e la scadenza ultima di consegna prevista.
-
 
 = Impegni orari
 Ogni componente del gruppo Overture si impegna a dedicare al progetto un totale di 90 ore produttive, suddivise equamente tra i membri nello svolgimento dei vari ruoli previsti.

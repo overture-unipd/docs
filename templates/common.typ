@@ -24,4 +24,5 @@
   cardin: "Prof. Riccardo Cardin",
   crestani: "Alessio Crestani",
   rispo: "Federico Rispo",
+  zextras: "Zextras"
 )
