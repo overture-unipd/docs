@@ -41,9 +41,11 @@ jobs:
           docker run -e "XDG_CACHE_HOME=/root" --user $(id -u):$(id -g) -v ${{ github.workspace }}:/root --rm ghcr.io/typst/typst:latest find documents -type f -name "*\.typ" -exec typst compile --root . {} \;
       - name: set .pdf timestamps from .typ and delete .typ
         run: |
-          modified=${{ steps.changed-files.outputs.all_changed_files }}
-          files=$(echo "$modified" | tr "," "\n")
-          for f in "$files"; do
+          # modified=${{ steps.changed-files.outputs.all_changed_files }}
+          # modified=$(echo "$modified" | tr "," "\n")
+          # for f in "$modified"; do
+          shopt -s globstar
+          for f in documents/**/*.typ; do
             rm -f "${RUNNER_TEMP}/master/${f%.typ}*"
             touch -amd "$( date -R -r "$f" )" "${f%.typ}.pdf"
             version=$(grep --context 1 "changelog:" "$f" | tail -n1 | cut -d ',' -f1 | sed 's/\s//g; s/"//g')
