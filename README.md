@@ -1,4 +1,4 @@
 # Documentazione
 
-- In questa repo sono presenti i *sorgenti* della documentazione di gruppo.
-- I PDF vengono creati tramite GH actions e "trasferiti" nella [repository dedicata](https://github.com/overture-unipd/docs).
+- In questo branch sono presenti i sorgenti `.typ` della documentazione di progetto.
+- Per maggiori informazioni, si faccia riferimento al README nel [branch principale](https://github.com/overture-unipd/docs).
