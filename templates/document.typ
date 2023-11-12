@@ -164,3 +164,8 @@
     )
   )
 }
+
+#let glossary(a)= {
+  set text(fill: rgb("#33805d"), style: "italic") 
+  a
+}
