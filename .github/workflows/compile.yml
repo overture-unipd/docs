@@ -21,6 +21,7 @@ jobs:
         with:
           ref: master
           path: master
+          token: ${{secrets.PUSH_TOKEN}} # yeah i know this is a _bad_ workaround
       - name: move master to runner.temp
         run: |
           mv master "${RUNNER_TEMP}"
