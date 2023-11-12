@@ -36,10 +36,10 @@ jobs:
             documents/**/*.typ
       - name: delete ignored and unchanged typst documents
         run: |
-          #shopt -s globstar
-          #ls documents/**/*.typ > .all
-          #echo ${{ steps.changed-files.outputs.all_changed_files }} | tr "," "\n" > .changed
-          #comm -23 .all .changed >> .typstignore
+          shopt -s globstar
+          ls documents/**/*.typ > .all
+          echo ${{ steps.changed-files.outputs.all_changed_files }} | tr "," "\n" > .changed
+          comm -23 .all .changed >> .typstignore
           while IFS= read -r f; do rm -rf "${f}"; done < .typstignore
       - name: typst compile
         run:  |
