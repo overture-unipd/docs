@@ -2,12 +2,11 @@ name: Compile Typst documents
 on:
   push:
     branches:
-      - master
+      - sources
   workflow_dispatch:
 
 permissions:
-  contents: read
-  id-token: write
+  contents: write
 
 jobs:
   compile:
@@ -17,37 +16,47 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+      - name: checkout the builds repo
+        uses: actions/checkout@v4
+        with:
+          ref: master
+          path: master
+      - name: move master to runner.temp
+        run: |
+          mv master "${RUNNER_TEMP}"
+      - name: delete ignored typst documents
+        run: |
+          while IFS= read -r f; do rm -rf "documents/${f}"; done < .typstignore
       - name: restore timestamps
         uses: chetan/git-restore-mtime-action@v2
-      - name: delete "ignored" typst documents
-        run: |
-          while IFS= read -r f; do rm -r "documents/${f}"; done < .typstignore
+      - name: Get changed files
+        id: changed-files
+        uses: tj-actions/changed-files@v40
+        with:
+          separator: ","
+          files: |
+            documents/**/*.typ
       - name: typst compile
         run:  |
           docker run -e "XDG_CACHE_HOME=/root" --user $(id -u):$(id -g) -v ${{ github.workspace }}:/root --rm ghcr.io/typst/typst:latest find documents -type f -name "*\.typ" -exec typst compile --root . {} \;
       - name: set .pdf timestamps from .typ and delete .typ
         run: |
+          # modified=${{ steps.changed-files.outputs.all_changed_files }}
+          # modified=$(echo "$modified" | tr "," "\n")
+          # for f in "$modified"; do
           shopt -s globstar
           for f in documents/**/*.typ; do
+            rm -f "${RUNNER_TEMP}/master/${f%.typ}*"
             touch -amd "$( date -R -r "$f" )" "${f%.typ}.pdf"
-            rm "$f"
+            version=$(grep --context 1 "changelog:" "$f" | tail -n1 | cut -d ',' -f1 | sed 's/\s//g; s/"//g')
+            [[ "$version" != 'none' ]] && mv "${f%.typ}.pdf" "${f%.typ}_v${version}.pdf" && f="${f%.typ}_v${version}.pdf"
+            rsync -aR "./$f" "${RUNNER_TEMP}/master"
           done
-      - name: checokut the builds repo
-        uses: actions/checkout@v4
-        with:
-          repository: ${{ github.repository_owner }}/docs
-          path: docs
-          token: ${{secrets.PUSH_TOKEN}}
-          fetch-depth: 0
       - name: push to builds repo
         run: |
-          mv docs "${RUNNER_TEMP}"
-          rsync -a --delete documents "${RUNNER_TEMP}/docs"
-          pushd "${RUNNER_TEMP}/docs"
+          pushd "${RUNNER_TEMP}/master"
           git config --local user.name "github-actions[bot]"
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
           git commit -m "$(TZ=Europe/Rome date)"
-          git push -f
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
+          git push
