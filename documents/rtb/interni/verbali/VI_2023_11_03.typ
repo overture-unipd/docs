@@ -9,6 +9,7 @@
     g.name,
   ),
   changelog: (
+    "1.1", "2023-11-12", p.bonavigo, p.amadori, "Punta a nuovo nome repository: da `docs-sources` a `docs`",
     "1.0", "2023-11-09", p.vedovato, p.amadori, "Correzioni finali",
     "0.1", "2023-11-03", p.vedovato, p.amadori, "Prima bozza"
   ),
@@ -39,12 +40,12 @@ Nel breve incontro odierno, avvenuto in attesa dell'aggiudicazione degli appalti
 
 #tasks(
   (
-    (g.docs-sources, 9), [Stesura di _questo_ verbale], p.vedovato,
-    (g.docs-sources, 10), [Norme di Progetto: struttura base], p.vedovato,
-    (g.docs-sources, 11), [Norme di Progetto: stesura dell'introduzione], p.vedovato,
-    (g.docs-sources, 12), [Norme di Progetto: stesura del processo di supporto "Documentazione"], p.furno,
-    (g.docs-sources, 13), [Norme di Progetto: stesura del processo di supporto "Verifica"], p.fabbian,
-    (g.docs-sources, 14), [Norme di Progetto: stesura del processo di supporto "Validazione"], p.fabbian,
-    (g.docs-sources, 15), [Norme di Progetto: stesura del processo di organizzativo "Gestione dei processi"], p.furno,
+    (g.docs, 9), [Stesura di _questo_ verbale], p.vedovato,
+    (g.docs, 10), [Norme di Progetto: struttura base], p.vedovato,
+    (g.docs, 11), [Norme di Progetto: stesura dell'introduzione], p.vedovato,
+    (g.docs, 12), [Norme di Progetto: stesura del processo di supporto "Documentazione"], p.furno,
+    (g.docs, 13), [Norme di Progetto: stesura del processo di supporto "Verifica"], p.fabbian,
+    (g.docs, 14), [Norme di Progetto: stesura del processo di supporto "Validazione"], p.fabbian,
+    (g.docs, 15), [Norme di Progetto: stesura del processo di organizzativo "Gestione dei processi"], p.furno,
   )
 )

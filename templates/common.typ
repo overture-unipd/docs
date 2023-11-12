@@ -7,7 +7,6 @@
   website: "https://overture-unipd.github.io",
   org: "https://github.com/overture-unipd",
   docs: "docs",
-  docs-sources: "docs-sources",
   progetto: "progetto",
   logo: "//imgs/group_logo.png",
 )
