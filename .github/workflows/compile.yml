@@ -25,9 +25,6 @@ jobs:
       - name: move master to runner.temp
         run: |
           mv master "${RUNNER_TEMP}"
-      - name: delete ignored typst documents
-        run: |
-          while IFS= read -r f; do rm -rf "documents/${f}"; done < .typstignore
       - name: restore timestamps
         uses: chetan/git-restore-mtime-action@v2
       - name: Get changed files
@@ -37,21 +34,26 @@ jobs:
           separator: ","
           files: |
             documents/**/*.typ
+      - name: delete ignored and unchanged typst documents
+        run: |
+          #shopt -s globstar
+          #ls documents/**/*.typ > .all
+          #echo ${{ steps.changed-files.outputs.all_changed_files }} | tr "," "\n" > .changed
+          #comm -23 .all .changed >> .typstignore
+          while IFS= read -r f; do rm -rf "${f}"; done < .typstignore
       - name: typst compile
         run:  |
           docker run -e "XDG_CACHE_HOME=/root" --user $(id -u):$(id -g) -v ${{ github.workspace }}:/root --rm ghcr.io/typst/typst:latest find documents -type f -name "*\.typ" -exec typst compile --root . {} \;
-      - name: set .pdf timestamps from .typ and delete .typ
+      - name: set timestamp and version for builds of changed files and replace the old ones in the local copy of `master`
         run: |
-          # modified=${{ steps.changed-files.outputs.all_changed_files }}
-          # modified=$(echo "$modified" | tr "," "\n")
-          # for f in "$modified"; do
           shopt -s globstar
           for f in documents/**/*.typ; do
-            rm -f "${RUNNER_TEMP}/master/${f%.typ}*"
+            [[ ! -f "$f" ]] && continue # skip if nothing to build
+            rm -f "${RUNNER_TEMP}/master/${f%.typ}"*
             touch -amd "$( date -R -r "$f" )" "${f%.typ}.pdf"
             version=$(grep --context 1 "changelog:" "$f" | tail -n1 | cut -d ',' -f1 | sed 's/\s//g; s/"//g')
-            [[ "$version" != 'none' ]] && mv "${f%.typ}.pdf" "${f%.typ}_v${version}.pdf" && f="${f%.typ}_v${version}.pdf"
-            rsync -aR "./$f" "${RUNNER_TEMP}/master"
+            [[ "$version" != 'none' ]] && mv "${f%.typ}.pdf" "${f%.typ}_v${version}.pdf" && f="${f%.typ}_v${version}.typ"
+            rsync -aR "${f%.typ}.pdf" "${RUNNER_TEMP}/master"
           done
       - name: push to builds repo
         run: |
@@ -59,5 +61,5 @@ jobs:
           git config --local user.name "github-actions[bot]"
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
-          git commit -m "$(TZ=Europe/Rome date)"
+          git commit -m "$(TZ=Europe/Rome date)" || continue
           git push
