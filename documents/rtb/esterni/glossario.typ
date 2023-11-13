@@ -12,7 +12,7 @@
   changelog: (
     "0.0.1", "2023-11-13", p.vedovato, p.amadori, "Struttura di base ed introduzione",
   ),
-  head: none,
+  heading_numbers: none,
 )
 
 = Introduzione

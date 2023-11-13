@@ -20,11 +20,12 @@
   changelog: none,
   show_outline: true,
   outline_depth: none,
-  head: "1.1)",
+  heading_numbers: "1.1)",
   body,
 ) = {
   set text(font: "Linux Libertine", lang: "it")
-  set heading(numbering: head)
+  set heading(numbering: heading_numbers)
+  set page(numbering: "1 / 1")
 
   let date = changelog.at(1, default: none);
   let version = changelog.at(0, default: none);
@@ -46,10 +47,10 @@
   image(g.logo, width: 42%)
   text(1.1em, link("mailto:"+g.mail), style: "italic")
 
-  let changelog_header = ([*Versione*], [*Data*], [*Autori*], [*Verificatori*], [*Dettaglio*])
   let keep(r) = {
     changelog.enumerate().filter(i => r.contains(i.first())).map(i => i.last())
   }
+  let changelog_header = ([*Versione*], [*Data*], [*Autori*], [*Verificatori*], [*Dettaglio*])
   let r_editors = array.range(2, changelog.len(), step: changelog_header.len())
   let r_verifiers = r_editors.map(i => i+1)
   let editors = keep(r_editors)
@@ -116,14 +117,12 @@
   }
 
   show heading: it => {
-    if head != none {
-      counter(heading).display() + [ ]
+    if heading_numbers != none {
+      counter(heading).display() + " "
     }
     it.body
     v(0.3em)
   }
-  set page(numbering: "1 / 1")
-  counter(page).update(1)
   set align(start+top)
   set par(justify: true)
   set text(hyphenate: true)
