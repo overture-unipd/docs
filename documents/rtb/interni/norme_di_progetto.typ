@@ -4,7 +4,7 @@
   title: "Norme di progetto",
   managers: p.vedovato,
   recipients: (
-p.vardanega,
+    p.vardanega,
     p.cardin,
     g.name,        
   ),
@@ -145,7 +145,7 @@ Verranno prodotti i seguenti documenti:
 I documenti PDF presenti nella #link(g.org+"/"+g.docs)[repository #g.docs], rispettano le seguenti regole per la nominazione dei file:
 - minuscolo per i nomi, tranne che per i verbali (marcati `VI` e `VE`, rispettivamente per interni ed esterni)
 - spaziatura fra le parole sostituita da un underscore
-- per i verbali, la data dell'incontro è presente nel nome in formato `ISO 8601`
+- per i verbali, la data dell'incontro è presente nel nome
 - versione del documento alla fine del nome del file
 
 I nomi dei documenti presenti nel progetto saranno quindi del tipo:
@@ -164,7 +164,7 @@ Usare lo stesso nome per i documenti consente di utilizzare Git in modo appropri
 //link sottolineati, grassetto per elenchi puntati nei documenti (non verbali altrimenti bisogna correggere) e parole importanti. Font "New Computer Modern Mono" per nomi di file, documenti, esempi di codice. Maiuscolo per iniziali dei nomi e dei ruoli, 
 Nei documenti, esclusi i verbali, verranno utilizzati:
 - il _corsivo_ per:
-  - il nome del gruppo (_Ouverture_)
+  - il nome del gruppo (_Overture_)
   - il nome dell'azienda proponente (_Zextras_)
   
 - il *grassetto* per:
