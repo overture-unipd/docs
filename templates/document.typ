@@ -20,10 +20,11 @@
   changelog: none,
   show_outline: true,
   outline_depth: none,
+  head: "1.1)",
   body,
 ) = {
   set text(font: "Linux Libertine", lang: "it")
-  set heading(numbering: "1.1)")
+  set heading(numbering: head)
 
   let date = changelog.at(1, default: none);
   let version = changelog.at(0, default: none);
@@ -32,11 +33,6 @@
     document_title += " - v" + version
   }
   set document(author: g.name, title: document_title, date: none)
-
-  show heading: it => {
-    it.body
-    v(0.3em)
-  }
 
   set align(center)
   text(2.3em, weight: 700, title) + [\ #v(1.5em)]
@@ -120,7 +116,10 @@
   }
 
   show heading: it => {
-    counter(heading).display() + [ ] + it.body
+    if head != none {
+      counter(heading).display() + [ ]
+    }
+    it.body
     v(0.3em)
   }
   set page(numbering: "1 / 1")
@@ -139,7 +138,7 @@
 #let tasks(t) = {
   let tasks_header = ([*ID*], [*Dettaglio*], [*Assegnatari*])
   let map_issue(r, t) = {
-    t.enumerate().map(a => if r.contains(a.first()) { return issue_to_link(a.last().first(), a.last().last()) } else { a.last() }) 
+    t.enumerate().map(a => if r.contains(a.first()) and type(a.last()) == array { return issue_to_link(a.last().first(), a.last().last()) } else { a.last() }) 
   }
   let r = array.range(0, t.len(), step: tasks_header.len())
   t = tasks_header + map_issue(r, t)
