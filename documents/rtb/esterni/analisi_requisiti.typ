@@ -10,8 +10,8 @@
     g.name,        
   ),
   changelog: (
-    "0.2", "2023-11-08", (p.bulychov, p.amadori), p.bonavigo, "Stesura dei primi Use Case",
-    "0.1", "2023-11-08", p.bettin, p.bonavigo, "Struttura di base ed introduzione",
+    "0.0.2", "2023-11-12", p.bulychov, p.amadori, "Stesura dei primi Use Case",
+    "0.0.1", "2023-11-10", p.bettin, p.amadori, "Struttura di base ed introduzione",
   ),
 )
 
@@ -32,14 +32,14 @@ Il documento di analisi dei requisiti fonda le sue basi sulle esigenze del propo
 - *Tracciare i requisiti del sistema*:\
 Una volta raccolte le esigenze del proponente, il documento di analisi dei requisiti deve identificare i requisiti del sistema suddividendoli in requisiti funzionali e non funzionali.\
 
--*Verificazione e validazione dei requisiti*:\
+- *Verificazione e validazione dei requisiti*:\
 Il processo di verifica dei requisiti ha lo scopo di garantire che le attività siano svolte in modo corretto, senza errori, ponendo in primo piano il way of working del gruppo.\
 La validazione dei requisiti invece consiste nel accertare che il prodotto corrisponda alle attese, ponendo attenzione al prdotto software finale.\
 
--*Fornire una base per la progettazione del sistema*:\
+- *Fornire una base per la progettazione del sistema*:\
 Il documento di analisi dei requisiti fornisce una base per la progettazione del sistema, in quanto definisce le funzionalità che il sistema deve offrire. I programmatori possono utilizzare il documento per comprendere le esigenze dei proponenti e identificare le soluzioni più appropriate per soddisfare tali esigenze.\
 
--*Fornire una base per la progettazione del sistema*:\
+- *Fornire una base per la progettazione del sistema*:\
 Un documento di analisi dei requisiti completo e accurato può aiutare a ridurre i rischi del progetto. Ciò è dovuto al fatto che il documento aiuta a garantire che i requisiti siano effettivamente corretti e completi, evitando così errori e ritardi nello sviluppo del sistema.
 
 Arrivati al punto in cui si ha una chiara visione dei requisiti e degli attori del sistema software in questo documento se ne darà una formale rappresentazione grafica utilizzando il diagramma dei casi d'uso.
@@ -119,11 +119,11 @@ Postcondizioni:
 - L’utente ha effettuato correttamente l’accesso ed è stato riconosciuto sulla base dei propri permessi.
 Scenario principale:
 - L’utente:
- \ ○ inserisce la propria email nel modulo di accesso (UC1.1);
- \ ○ inserire la propria password nel modulo di accesso (UC1.2).
+  - inserisce la propria email nel modulo di accesso (UC1.1);
+  - inserire la propria password nel modulo di accesso (UC1.2).
 - Il sistema:
- \ ○ verifica la correttezza delle credenziali inserite dall’utente e concede l’accesso alla propria area riservata sulla base dei permessi rilevati;
- \ ○ se le credenziali non sono corrette, il sistema mostra un messaggio di errore esplicativo all'utente (UC3).
+  - verifica la correttezza delle credenziali inserite dall’utente e concede l’accesso alla propria area riservata sulla base dei permessi rilevati;
+  - se le credenziali non sono corrette, il sistema mostra un messaggio di errore esplicativo all'utente (UC3).
 Generalizzazioni:
 - UC1.1 - Inserimento email;
 - UC1.2 - Inserimento password.
@@ -146,10 +146,10 @@ Postcondizioni:
 - L’utente ha inserito correttamente la propria email e verrà utilizzata per l’autenticazione dell’utente.
 Scenario principale:
 - L'Utente/Il SuperAdmin:
- \ ○ inserisce la propria email nell’apposito campo.
+  - inserisce la propria email nell’apposito campo.
 - Il sistema:
- \ ○ verifica la correttezza dell’indirizzo email;
- \ ○ continua con l'autenticazione dell'utente utilizzando l'email inserita.
+  - verifica la correttezza dell’indirizzo email;
+  - continua con l'autenticazione dell'utente utilizzando l'email inserita.
 
 == UC 1.2 - Inserimento password
 
@@ -163,10 +163,10 @@ Postcondizioni:
 - L’utente ha inserito correttamente la propria password e verrà utilizzata per l’autenticazione dell'utente.
 Scenario principale:
 - L'Utente:
- \ ○ inserisce la propria password nell’apposito campo.
+  - inserisce la propria password nell’apposito campo.
 - Il sistema:
- \ ○ verifica la correttezza della pawwword inserita;
- \ ○ continua con l'autenticazione dell'utente.
+  - verifica la correttezza della pawwword inserita;
+  - continua con l'autenticazione dell'utente.
 
 
 === UC 2 - Recupero password
@@ -183,15 +183,15 @@ Postcondizioni:
 - La password dell'utente è stata reimpostata e la vecchia password non è più valida e può provare ad utilizzarla per accedere.
 Scenario principale:
 - L’utente:
- \ ○ accede alla pagina di login dedicata;
- \ ○ utilizza l’opzione apposita “Password Dimenticata”;
- \ ○ inserisce il proprio indirizzo email;
- \ ○ inserisce la nuova password;
- \ ○ conferma la nuova password da inserire.
+  - accede alla pagina di login dedicata;
+  - utilizza l’opzione apposita “Password Dimenticata”;
+  - inserisce il proprio indirizzo email;
+  - inserisce la nuova password;
+  - conferma la nuova password da inserire.
 - Il sistema:
- \ ○ chiede all'utente di inserire il proprio indirizzo email;
- \ ○ chiede all'utente di inserire una nuova password;
- \ ○ aggiorna la password dell'utente correttamente.
+  - chiede all'utente di inserire il proprio indirizzo email;
+  - chiede all'utente di inserire una nuova password;
+  - aggiorna la password dell'utente correttamente.
 
 === UC 3 - Errore login: visualizzazione messaggio
 
@@ -204,8 +204,8 @@ Postcondizioni:
 - L'utente visualizza un messaggio di errore relativo all'autenticazione fallita.
 Scenario principale:
 - L’utente:
- \ ○ accede alla pagina di login dedicata;
- \ ○ visualizza il messaggio di errore e può scegliere di reinserire le credenziali o di utilizzare la funzione di recupero password (UC2).
+  - accede alla pagina di login dedicata;
+  - visualizza il messaggio di errore e può scegliere di reinserire le credenziali o di utilizzare la funzione di recupero password (UC2).
 - Il sistema:
- \ ○ verifica che le credenziali inserite dall'utente siano corrette;
- \ ○ se le credenziali inserite dall'utente non sono corrette, il sistema visualizza un messaggio di errore relativo all'autenticazione fallita.
+  - verifica che le credenziali inserite dall'utente siano corrette;
+  - se le credenziali inserite dall'utente non sono corrette, il sistema visualizza un messaggio di errore relativo all'autenticazione fallita.
