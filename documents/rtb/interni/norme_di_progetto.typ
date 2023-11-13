@@ -9,7 +9,8 @@
     g.name,        
   ),
   changelog: (
-    "0.0.2", "2023-11-11", p.fabbian, p.amadori, "Aggiunta delle sezioni 'Verifica' e 'Validazione'",  // Stando alla board: fab deve fare "verifica" e "validazione", mentre boba deve fare "documentazione" e "gestione dei processi". sistemate questo changelog accordingly con quello che avete fatto
+    "0.0.3", "2023-11-13", p.furno, p.amadori, "Aggiunta della sezione 'Documentazione'",
+    "0.0.2", "2023-11-11", p.fabbian, p.amadori, "Aggiunta delle sezioni 'Verifica' e 'Validazione'",
     "0.0.1", "2023-11-11", p.vedovato, p.amadori, "Struttura iniziale del documento ed introduzione",
   ),
 )
@@ -47,9 +48,152 @@ La presenza di un termine all'interno del glossario viene indicata applicando #g
 
 #pagebreak()
 
+
 = Processi primari
 
 = Processi di supporto
+== Documentazione
+=== Scopo
+Il processo di documentazione serve a tenere traccia di tutti processi e attività relativi al ciclo di vita
+del software, riportando le decisioni adottate e le norme attuate dal grupppo durante lo svolgimento del progetto. Le norme stabilite all'interno di questo documento verranno rispettate da tutti i membri del gruppo _Overture_. 
+
+=== Descrizione
+La documentazione software traccia il lavoro svolto e le decisioni prese. Questa sezione del documento si occupa di tutte le norme adottate dal gruppo relative alla documentazione.
+
+=== Aspettative
+- Definire delle regole chiare e concise per la stesura di tutti i documenti relativi al progetto
+- Creare template per tutti i tipi di documenti per garantire omogeneità
+
+=== Ciclo di vita
+Il ciclo di vita di un documento è composto da sette fasi:
++ Creazione o adattamento del template: la prima fase prevede la creazione o l'adattamento di un template per il documento corrente. Il template contiene la struttura e la formattazione del documento, nonché le informazioni di base, come titolo, autore e data.
++ Pianificazione e assegnazione delle sezioni: nella seconda fase le sezioni del documento vengono pianificate e assegnate ai Redattori incaricati. I Redattori sono responsabili della stesura delle proprie sezioni in conformità con le norme di progetto.
++ Raccolta dei contenuti e creazione della prima bozza: nella terza fase i Redattori raccolgono i contenuti da discutere e creano una prima bozza del documento. La bozza viene utilizzata come punto di partenza per la discussione e la revisione.
++ Stesura effettiva del documento: la quarta fase vede i Redattori redirigere le proprie sezioni in conformità con il modello e le norme di progetto.
++ Controllo dei contenuti: nella quinta fase i Redattori verificano che il contenuto delle proprie sezioni sia conforme alle norme di progetto e non contenga errori di compilazione.
++ Revisione: la sesta fase prevede che un Verificatore incaricato revisioni il documento per assicurarsi che le modifiche apportate siano corrette.
++ Approvazione e rilascio: nell'ultima fase il documento viene approvato da un Responsabile e rilasciato in versione finale.
+
+=== Sistema di composizione tipografica
+Per la composizione tipografica dei documenti, abbiamo deciso di utilizzare Typst, al posto del noto LaTeX. Offre diversi vantaggi rispetto a LaTeX:
+- semplicità di utilizzo (simile a Markdown)
+- programmabilità reale invece di un sistema di macro 
+- compilazione pressochè immediata.\
+L'utilizzo di Typst semplifica la creazione e la manutenzione dei documenti, liberando i redattori dalla responsabilità della visualizzazione grafica e garantendo una certa coerenza nella documentazione del progetto.\
+Il template sviluppato ed utilizzato è presente nella #link(g.org+"/"+g.docs)[repository #g.docs], nella cartella `templates`.
+
+=== Struttura dei documenti
+Ogni documento prodotto viene organizzato nelle seguenti sezioni:
+
+==== Intestazione
+La prima pagina funge da intestazione del documento e presenta gli elementi di seguito:
+- *Nome del documento*
+- *Data*: la data in cui è stata approvata l'ultima versione del documento
+- *Versione*: la versione corrente del documento
+- *Logo del gruppo*: presente nel percorso `imgs/group_logo.png`
+- *Email*: #link("mailto:overture.unipd@gmail.com")
+- *Destinatari*: a chi è il rivolto il documento
+- *Responsabile*: chi ha approvato il documento
+- *Redattori*: incaricati della stesura del documento
+- *Verificatori*: incaricati della verifica del documento
+
+==== Registro delle modifiche
+La seconda pagina è dedicata al registro delle modifiche. Le informazioni sono organizzate in una tabella e permettono di tenere traccia dei cambiamenti subiti dal documento. La tabella riporta i seguenti dati: 
+- *Versione*: il numero di versione del documento
+- *Data*: data di approvazione del documento
+- *Autori*: chi ha effettuato le modifiche
+- *Verificatori*: chi ha approvato le modifiche
+- *Dettaglio*: una breve descrizione
+
+==== Indice
+Nella terza pagina è presente l'indice che elenca le sezioni contenute nel documento.
+
+==== Corpo del documento
+Il contenuto del documento è suddiviso in capitoli, ognuno dei quali è formato da più sezioni ed eventuali sottosezioni.
+
+==== Corpo del verbale
+Il contenuto del verbale è suddiviso nelle seguenti sezioni:
+
+- *Informazioni sulla riunione*: 
+  - *Luogo*: può essere il luogo fisico dove si è tenuto l'incontro oppure il nome della piattaforma online utilizzata
+  - *Ora di inizio*
+  - *Ora di fine* 
+  - *Partecipanti*: i nomi dei componenti del gruppo che hanno partecipato alla riunione
+  - *Partecipanti esterni*: i nomi di eventuali partecipanti esterni
+- *Ordine del giorno*: un elenco di ciò che verrà discusso durante la riunione
+- *Sintesi dell'incontro*: contiene un breve riassunto delle discussioni e dei temi affrontati durante l'incontro. 
+- *Decisioni prese*: sezione che elenca in forma testuale le decisioni prese durante l'incontro. Alcune di queste potrebbero risultare in "attività individuate"
+- *Attività individuate*: illustrazione dettagliata delle attività assegnate ai diversi membri del gruppo a conclusione dell'incontro. Queste informazioni, inserite in un'apposita tabella, riportano:
+  - *ID*: collegamento alla relativa issue su GitHub
+  - *Dettaglio*: breve spiegazione dell'attività
+  - *Assegnatari*: i nomi degli incaricati a svolgere l'attività
+
+==== Documenti del progetto
+Verranno prodotti i seguenti documenti:
+- `Norme di Progetto`
+- `Piano di Progetto`
+- `Piano di Qualifica`
+- `Analisi dei requisiti`
+- `Glossario`
+- `Verbali Interni`
+- `Verbali Esterni`
+
+
+=== Regole stilistiche
+
+==== Nomi assegnati ai file
+I documenti PDF presenti nella #link(g.org+"/"+g.docs)[repository #g.docs], rispettano le seguenti regole per la nominazione dei file:
+- minuscolo per i nomi, tranne che per i verbali (marcati `VI` e `VE`, rispettivamente per interni ed esterni)
+- spaziatura fra le parole sostituita da un underscore
+- per i verbali, la data dell'incontro è presente nel nome
+- versione del documento alla fine del nome del file
+
+I nomi dei documenti presenti nel progetto saranno quindi del tipo:
+- *Norme di Progetto*: `norme_di_progetto_vX.X.X`
+- *Piano di Progetto*: `piano_di_progetto_vX.X.X`
+- *Piano di Qualifica*: `piano_di_qualifica_vX.X.X`
+- *Analisi dei Requisiti*: `analisi_dei_requisiti_vX.X.X`
+- *Glossario*: `glossario_vX.X.X`
+- *Verbali Interni*: `VI_YYYY_MM_DD_vX.X.X`
+- *Verbali Esterni*: `VE_YYYY_MM_DD_vX.X.X`
+
+Si noti che i sorgenti `.typ` non includono la versione nel nome, ma è aggiunta ai PDF dopo la compilazione.\
+Usare lo stesso nome per i documenti consente di utilizzare Git in modo appropriato: tracciare i cambiamenti di file di testo, con relativa facilità di utilizzo della funzione di "diff".
+
+==== Stile del testo
+//link sottolineati, grassetto per elenchi puntati nei documenti (non verbali altrimenti bisogna correggere) e parole importanti. Font "New Computer Modern Mono" per nomi di file, documenti, esempi di codice. Maiuscolo per iniziali dei nomi e dei ruoli, 
+Nei documenti, esclusi i verbali, verranno utilizzati:
+- il _corsivo_ per:
+  - il nome del gruppo (_Overture_)
+  - il nome dell'azienda proponente (_Zextras_)
+  
+- il *grassetto* per:
+  - le voci degli elenchi puntati
+  - parole importanti
+- un `font monospace` per:
+  - i nomi dei documenti
+  - i nomi dei file
+  - i nomi delle cartelle o repository
+  - esempi di codice
+- il #underline("sottolineato") per:
+  - i link 
+  - l'indirizzo email
+- le lettere maiuscole per:
+  - le iniziali dei nomi
+  - gli acronimi
+  - le iniziali dei ruoli svolti dai componenti del gruppo
+  
+==== Formato delle date
+Viene adottato lo standard internazionale *ISO 8601*, nella forma `YYYY-MM-DD`, indicante rispettivamente
+- `YYYY`: l'anno con 4 cifre
+- `MM`: il mese con 2 cifre
+- `DD`: il giorno con 2 cifre
+
+=== Strumenti
+I seguenti strumenti sono stati scelti dal gruppo per la realizzazione della documentazione:
+- *Typst*: linguaggio per la stesura dei documenti, tramite #link("typst.app")
+- *GitHub*: servizio di hosting di repository
+
 == Verifica
 === Scopo ed aspettative
 La verifica nel ciclo di vita del software è un processo continuo che inizia dalla fase iniziale di progettazione e si estende fino alla manutenzione successiva. Questo elemento cruciale mira a garantire la conformità tra gli output del software (codice sorgente, documentazione, test e così via) e le relative aspettative, fondandosi su criteri come coerenza, completezza e correttezza dei risultati.\
