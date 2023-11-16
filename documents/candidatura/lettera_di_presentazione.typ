@@ -7,6 +7,7 @@
     p.vardanega,
     p.cardin,
   ),
+  group_is_recipient: false,
   changelog: (
     none, "2023-10-25", (p.amadori, p.fabbian, p.furno), (p.bulychov, p.bettin, p.bonavigo), none,
   ),
@@ -17,13 +18,13 @@ Egregio #p.vardanega,
 
 Egregio #p.cardin,
 
-con la presente il gruppo #emph("Overture") intende comunicarVi ufficialmente l’intenzione di candidarsi alla realizzazione del prodotto da Voi commissionato, denominato:
+con la presente il gruppo _#(g.name)_ intende comunicarVi ufficialmente l’intenzione di candidarsi alla realizzazione del prodotto da Voi commissionato, denominato:
 
 #align(center, text(13pt)[
   *JMAP: il nuovo protocollo per la posta elettronica*
 ])
 
-proposto dall’azienda #emph("Zextras"). 
+proposto dall’azienda _#(p.zextras)_.
 
 La documentazione relativa alla valutazione dei capitolati è consultabile presso la sezione Candidatura al seguente link:
 
@@ -34,12 +35,12 @@ La documentazione relativa alla valutazione dei capitolati è consultabile press
 dove si possono trovare:
 - Dicharazione degli impegni e preventivo dei costi;
 - Valutazione dei capitolati e motivazione della scelta;
-- Verbale esterno dell'incontro con Zextras del 26-10-2023;
-- Verbale interno del 17-10-2023;
-- Verbale interno del 19-10-2023;
-- Verbale interno del 25-10-2023.
+- Verbale esterno dell'incontro con _#(p.zextras)_ del 2023-10-26;
+- Verbale interno del 2023-10-17;
+- Verbale interno del 2023-10-19;
+- Verbale interno del 2023-10-25.
 
-Come specificato nel documento di dichiarazione degli impegni, il gruppo Overture ha preventivato un costo totale per la realizzazione del progetto di #emph(text(weight: "bold")[12635€]) e prevede di consegnare il prodotto richiesto entro la data #emph(text(weight: "bold")[15-03-2024]).
+Come specificato nel documento di dichiarazione degli impegni, il gruppo _#(g.name)_ ha preventivato un costo totale per la realizzazione del progetto di _*12635€*_ e prevede di consegnare il prodotto richiesto entro la data _*2024-03-15*_.
 
 Di seguito si riportano i nominativi dei componenti del gruppo e i corrispondenti numeri di matricola:
 
@@ -61,5 +62,5 @@ Di seguito si riportano i nominativi dei componenti del gruppo e i corrispondent
 
 Per qualsiasi chiarificazione rimaniamo a Vostra completa disposizione.
 
-#align(right,"Cordiali Saluti,")
-#align(right, "il gruppo "+emph("Overture"))
+#align(right, "Cordiali Saluti,")
+#align(right, [il gruppo _#(g.name)_])

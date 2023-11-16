@@ -6,8 +6,7 @@
   recipients: (
     p.vardanega,
     p.cardin,
-    p.zextras,
-    g.name,        
+    [_#(p.zextras)_],
   ),
   changelog: (
     "0.0.2", "2023-11-12", p.bulychov, p.amadori, "Stesura dei primi Use Case",
@@ -19,28 +18,28 @@
 
 //TODO: Individuare i termini da aggiungere nel glossario
 
-= Introduzione
+= *Introduzione*
 == Scopo del documento
-L'analisi dei requisiti è un documento fondamentale per tutti i progetti di sviluppo software che vogliono essere in ottemperanza con gli standard di qualità definiti dalla materia di ingegneria del software.\
-Lo scopo del documento è quello di definire le funzionalità che il sistema sarà in grado di offire, ovvero i requisiti obbligatori, desiderati e opzionali che devono essere soddisfatti dal software sviluppato al fine di rispondere alle richieste fatte dal proponente.\
+L'`Analisi dei Requisiti` è un documento fondamentale per tutti i progetti di sviluppo software che vogliono essere in ottemperanza con gli standard di qualità definiti dalla materia di ingegneria del software.\
+Lo scopo del documento è quello di definire le funzionalità che il sistema sarà in grado di offire, ovvero i requisiti obbligatori, desiderati e opzionali che devono essere soddisfatti dal software sviluppato al fine di essere conforme alle richieste fatte dal proponente.\
 L'analisi quindi non deve fornire la soluzione al problema, ma deve essere consapevole della sua fattibilità tecnologica (costruendo quindi un confine tra analisi del problema e il suo design, quindi la soluzione).
 In particolare, le finalità di questo documento possono essere definite e sintentizzate nei seguenti punti:\
 
 - *Definire le esigenze dei proponenti*:\
-Il documento di analisi dei requisiti fonda le sue basi sulle esigenze del proponente, ovvero le sue aspettative in merito al prodotto software che dovremmo andare a sviluppare. Queste richieste verranno raccolte tramite i documenti forniti dal proponente Zextras e dalle varie interviste svolte durante lo svolgimento del progetto.\
+Il documento di `Analisi dei Requisiti` fonda le sue basi sulle esigenze del proponente, ovvero le sue aspettative in merito al prodotto software che dovremmo andare a sviluppare. Queste richieste verranno raccolte tramite i documenti forniti dal proponente _#(p.zextras)_ e dalle varie interviste svolte durante lo svolgimento del progetto.\
 
 - *Tracciare i requisiti del sistema*:\
-Una volta raccolte le esigenze del proponente, il documento di analisi dei requisiti deve identificare i requisiti del sistema suddividendoli in requisiti funzionali e non funzionali.\
+Una volta raccolte le esigenze del proponente, il documento di `Analisi dei Requisiti` deve identificare i requisiti del sistema suddividendoli in requisiti funzionali e non funzionali.\
 
 - *Verificazione e validazione dei requisiti*:\
 Il processo di verifica dei requisiti ha lo scopo di garantire che le attività siano svolte in modo corretto, senza errori, ponendo in primo piano il way of working del gruppo.\
 La validazione dei requisiti invece consiste nel accertare che il prodotto corrisponda alle attese, ponendo attenzione al prdotto software finale.\
 
 - *Fornire una base per la progettazione del sistema*:\
-Il documento di analisi dei requisiti fornisce una base per la progettazione del sistema, in quanto definisce le funzionalità che il sistema deve offrire. I programmatori possono utilizzare il documento per comprendere le esigenze dei proponenti e identificare le soluzioni più appropriate per soddisfare tali esigenze.\
+Il documento di `Analisi dei Requisiti` fornisce una base per la progettazione del sistema, in quanto definisce le funzionalità che il sistema deve offrire. I programmatori possono utilizzare il documento per comprendere le esigenze dei proponenti e identificare le soluzioni più appropriate per soddisfare tali esigenze.\
 
 - *Fornire una base per la progettazione del sistema*:\
-Un documento di analisi dei requisiti completo e accurato può aiutare a ridurre i rischi del progetto. Ciò è dovuto al fatto che il documento aiuta a garantire che i requisiti siano effettivamente corretti e completi, evitando così errori e ritardi nello sviluppo del sistema.
+Un documento di `Analisi dei Requisiti` completo e accurato può aiutare a ridurre i rischi del progetto. Ciò è dovuto al fatto che il documento aiuta a garantire che i requisiti siano effettivamente corretti e completi, evitando così errori e ritardi nello sviluppo del sistema.
 
 Arrivati al punto in cui si ha una chiara visione dei requisiti e degli attori del sistema software in questo documento se ne darà una formale rappresentazione grafica utilizzando il diagramma dei casi d'uso.
 #pagebreak()
@@ -68,15 +67,15 @@ La presenza di un termine all'interno del glossario viene indicata applicando #g
 
 == Riferimenti
 === Riferimenti normativi
-- Norme di progetto
-- Capitolato d'appalto C8: JMAP, il nuovo protocollo standard per la comunicazione email
- \ https://www.math.unipd.it/~tullio/IS-1/2023/Progetto/C8.pdf
+- `Norme di Progetto`
+- Capitolato d'appalto C8: JMAP, il nuovo protocollo standard per la comunicazione email \
+  https://www.math.unipd.it/~tullio/IS-1/2023/Progetto/C8.pdf
 
 === Riferimenti informativi
-- T5 - Analisi dei requisiti
- \ https://www.math.unipd.it/~tullio/IS-1/2023/Dispense/T5.pdf
-- P2 - I Diagrammi dei Casi d'Uso (UML)
- \ https://www.math.unipd.it/~rcardin/swea/2022/Diagrammi%20Use%20Case.pdf
+- T5 - `Analisi dei requisiti` \
+  https://www.math.unipd.it/~tullio/IS-1/2023/Dispense/T5.pdf
+- P2 - I Diagrammi dei Casi d'Uso (UML) \
+  https://www.math.unipd.it/~rcardin/swea/2022/Diagrammi%20Use%20Case.pdf
 #pagebreak()
 
 = Descrizione
@@ -96,7 +95,7 @@ Inoltre il prodotto puó essere eseguito in un container Docker, permettendo all
 // TODO: Non so se mettere anche le funzionalitá opzionali, probabilmente andranno messe solo nel caso in cui vengano effettivamente implementate
 
 == Caratteristiche utente
-Gli utenti del prodotto sono principalmente aziende e organizzazioni che desiderano implementare un sistema di posta elettronica avanzato all'interno della propria infrastruttura. Questi utenti includono sia coloro che utilizzano già la soluzione Carbonio di Zextras, i quali potrebbero quindi richiedere nuove funzionalitá, che nuovi clienti.
+Gli utenti del prodotto sono principalmente aziende e organizzazioni che desiderano implementare un sistema di posta elettronica avanzato all'interno della propria infrastruttura. Questi utenti includono sia coloro che utilizzano già la soluzione Carbonio di _#(p.zextras)_, i quali potrebbero quindi richiedere nuove funzionalitá, che nuovi clienti.
 
 = Casi d'uso
 == Obiettivi
@@ -165,7 +164,7 @@ Scenario principale:
 - L'Utente:
   - inserisce la propria password nell’apposito campo.
 - Il sistema:
-  - verifica la correttezza della pawwword inserita;
+  - verifica la correttezza della password inserita;
   - continua con l'autenticazione dell'utente.
 
 

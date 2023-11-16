@@ -17,6 +17,7 @@
   title: none,
   managers: none,
   recipients: none,
+  group_is_recipient: true,
   changelog: none,
   show_outline: true,
   outline_depth: none,
@@ -26,6 +27,7 @@
   set text(font: "Linux Libertine", lang: "it")
   set heading(numbering: heading_numbers)
   set page(numbering: "1 / 1")
+  show link: underline
 
   let date = changelog.at(1, default: none);
   let version = changelog.at(0, default: none);
@@ -45,7 +47,7 @@
 
   set align(horizon)
   image(g.logo, width: 42%)
-  text(1.1em, link("mailto:"+g.mail), style: "italic")
+  text(1.1em, link("mailto:"+g.mail))
 
   let keep(r) = {
     changelog.enumerate().filter(i => r.contains(i.first())).map(i => i.last())
@@ -55,6 +57,10 @@
   let r_verifiers = r_editors.map(i => i+1)
   let editors = keep(r_editors)
   let verifiers = keep(r_verifiers)
+
+  if group_is_recipient == true {
+    recipients += ([Gruppo _#(g.name)_],)
+  }
 
   set align(bottom)
   gridx(
@@ -126,7 +132,6 @@
   set align(start+top)
   set par(justify: true)
   set text(hyphenate: true)
-  show link: underline
   body
 }
 

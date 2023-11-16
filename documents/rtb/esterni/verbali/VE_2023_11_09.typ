@@ -6,8 +6,7 @@
   recipients: (
     p.vardanega,
     p.cardin,
-    p.zextras,
-    g.name,      
+    [_#(p.zextras)_],
   ),
   changelog: (
     "1.0", "2023-11-14", p.bonavigo, p.amadori, "Finalizzazione: riscrittura delle varie sezioni",
@@ -18,11 +17,11 @@
 = Contenuti del verbale
 
 == Informazioni sulla riunione
-- Luogo: Chiamata sulla piattaforma dell'azienda Zextras
-- Ora di inizio: 15:30
-- Ora di fine: 16:00
-- Partecipanti: #p.amadori, #p.bettin, #p.bonavigo, #p.bulychov, #p.fabbian, #p.furno, #p.vedovato
-- Partecipanti esterni: #p.crestani, #p.rispo
+- *Luogo*: Chiamata sulla piattaforma dell'azienda _#(p.zextras)_
+- *Ora di inizio*: 15:30
+- *Ora di fine*: 16:00
+- *Partecipanti*: #p.amadori, #p.bettin, #p.bonavigo, #p.bulychov, #p.fabbian, #p.furno, #p.vedovato
+- *Partecipanti esterni*: #p.crestani, #p.rispo
 
 == Ordine del giorno
 - Richiesta di approfondimento di alcuni aspetti tecnici del prodotto da sviluppare
@@ -45,7 +44,7 @@ Il committente ha espresso una preferenza netta sulle priorità dei requisiti op
 + *Supporto a Rubrica e Calendario*: le specifiche sono ancora in via di sviluppo e le librerie proposte non le implentano. Sarebbe quindi necessario apportare importanti modifiche alle librerie proposte, richiedendo elevata difficoltà ed impegno orario.
 
 == Disponibilità di un server per lo sviluppo
-#p.zextras si impegnerà a fornire un server il prima possibile, per agevolare lo sviluppo del server e dei test richiesti.
+_#(p.zextras)_ si impegnerà a fornire un server il prima possibile, per agevolare lo sviluppo del server e dei test richiesti.
 
 == Disponibilità a rapidi chiarimenti tecnici
 I proponenti, #p.crestani e #p.rispo, hanno dato la disponibilità ad essere inseriti nel server Discord del gruppo.\
@@ -66,6 +65,6 @@ Tuttavia, #p.crestani e #p.rispo riconoscono la necessità di informarsi su tutt
 
 #tasks(
   (
-    "-",  "Esplorazione delle librerie JMAP disponibili.", "Tutto il " + g.name,
+    "-", "Esplorazione delle librerie JMAP disponibili.", [Tutto il gruppo _#(g.name)_],
   )
 )

@@ -6,8 +6,7 @@
   recipients: (
     p.vardanega,
     p.cardin,
-    p.zextras,
-    g.name,
+    [_#(p.zextras)_],
   ),
   changelog: (
     "1.1", "2023-11-09", p.bonavigo, p.amadori, "Aggiunta del registro delle modifiche e riorganizzazione dell'indice",
@@ -19,11 +18,11 @@
 = Contenuti del verbale
 
 == Informazioni sulla riunione
-- Luogo: Chiamata sulla piattaforma dell'azienda Zextras
-- Ora di inizio: 16:30
-- Ora di fine: 17:30
-- Partecipanti: #p.amadori, #p.bettin, #p.bonavigo, #p.bulychov, #p.fabbian, #p.vedovato
-- Partecipanti esterni: #p.crestani
+- *Luogo*: Chiamata sulla piattaforma dell'azienda _#(p.zextras)_
+- *Ora di inizio*: 16:30
+- *Ora di fine*: 17:30
+- *Partecipanti*: #p.amadori, #p.bettin, #p.bonavigo, #p.bulychov, #p.fabbian, #p.vedovato
+- *Partecipanti esterni*: #p.crestani
 
 == Ordine del giorno
 - Stabilire metodologie pratiche per la possibile collaborazione 
@@ -31,7 +30,7 @@
 - Discutere di procedure di carattere tecnico riguardanti il capitolato
 
 = Sintesi dell'incontro
-Nella riunione il team si è confrontato con Alessio Crestani (engineering manager dell'azienda Zextras) riguardo il capitolato C8, preso in considerazione come prima scelta dal gruppo. L'incontro è stato incentrato sul tema trasparente del chiarire i dubbi che sono stati riscontrati, sia tecnici e realizzativi che di interazione.
+Nella riunione il team si è confrontato con Alessio Crestani (engineering manager dell'azienda _#(p.zextras)_) riguardo il capitolato C8, preso in considerazione come prima scelta dal gruppo. L'incontro è stato incentrato sul tema trasparente del chiarire i dubbi che sono stati riscontrati, sia tecnici e realizzativi che di interazione.
 
 =  Domande effettuate e relative risposte
 

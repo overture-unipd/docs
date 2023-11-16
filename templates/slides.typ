@@ -5,7 +5,8 @@
 
 #let project(title: "", slides) = {
   set document(author: g.name, title: title)
-  
+  show link: underline
+
   show: clean-theme.with(
     short-title: title,
     color: black,
@@ -13,11 +14,10 @@
   )
   
   title-slide(
-    title: g.name,
+    title: [Gruppo _#(g.name)_],
     subtitle: title,
-    authors: text(link("mailto:"+g.mail), style: "italic"),
+    authors: link("mailto:"+g.mail),
   )
   
-  show link: underline
   show: slides
 }
