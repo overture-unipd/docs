@@ -10,16 +10,16 @@
       - Meeting iniziale con il proponente
     ][
       \
-      - Cominciato la stesura delle norme di progetto (WoW)
-      - Cominciato la stesura del glossario
-      - Cominciato l'analisi dei requisiti
+      - Cominciato la stesura delle `Norme di Progetto` (WoW)
+      - Cominciato la stesura del `Glossario`
+      - Cominciato l'`Analisi dei Requisiti`
     ]
   ]
 
   #slide(title: "Attività")[
       Da svolgere:
-      - Eseguire una prima identificazione ed analisi dei rischi
-      - Cominciare il piano di qualifica
+      - Eseguire una prima identificazione ed `Analisi dei Rischi`
+      - Cominciare il `Piano di Qualifica`
   ]
 
   #slide(title: "Problemi")[

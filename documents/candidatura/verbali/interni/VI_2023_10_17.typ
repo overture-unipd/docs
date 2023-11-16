@@ -6,7 +6,6 @@
   recipients: (
     p.vardanega,
     p.cardin,
-    g.name,
   ),
   changelog: (
     "1.1", "2023-11-09", p.bonavigo, p.amadori, "Aggiunta del registro delle modifiche e riorganizzazione dell'indice",
@@ -17,10 +16,10 @@
 = Contenuti del verbale
 
 == Informazioni sulla riunione
-- Luogo: Chiamata Discord
-- Ora di inizio: 16:00
-- Ora di fine: 18:30
-- Partecipanti: #p.amadori, #p.bettin, #p.bonavigo, #p.bulychov, #p.fabbian, #p.furno, #p.vedovato
+- *Luogo*: Chiamata Discord
+- *Ora di inizio*: 16:00
+- *Ora di fine*: 18:30
+- *Partecipanti*: #p.amadori, #p.bettin, #p.bonavigo, #p.bulychov, #p.fabbian, #p.furno, #p.vedovato
 
 == Ordine del giorno
 - Scelta del nome e del logo del gruppo;
@@ -37,6 +36,6 @@ Infine il gruppo si è organizzato per decidere quando trattare altri argomenti 
 
 = Decisioni prese
 
-- Si è deciso il nome Overture ed il logo del gruppo;
+- Si è deciso il nome _#(g.name)_ ed il logo del gruppo;
 - Abbiamo concluso, a votazione, che i capitolati di maggiore interesse del gruppo fossero C8, C6 e C3;
 - Abbiamo fissato una nuova riunione in data 19-10-2023 e deciso, per il futuro, di impegnarci ad effettuare almeno una riunione interna a settimana.

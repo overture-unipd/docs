@@ -6,7 +6,6 @@
   recipients: (
     p.vardanega,
     p.cardin,
-    g.name,
   ),
   changelog: (
     "1.1", "2023-11-09", p.bonavigo, p.amadori, "Aggiunta del registro delle modifiche e riorganizzazione dell'indice",
@@ -17,15 +16,15 @@
 = Contenuti del verbale
 
 == Informazioni sulla riunione
-- Luogo: Aula 1BC45 Torre Archimede
-- Ora di inizio: 14:15
-- Ora di fine: 16:15
-- Partecipanti: #p.amadori, #p.bettin, #p.bonavigo, #p.fabbian, #p.furno, #p.vedovato
+- *Luogo*: Aula 1BC45 Torre Archimede
+- *Ora di inizio*: 14:15
+- *Ora di fine*: 16:15
+- *Partecipanti*: #p.amadori, #p.bettin, #p.bonavigo, #p.fabbian, #p.furno, #p.vedovato
 
 == Ordine del giorno
 - Terminazione obblighi operativi;
 - Definizione degli strumenti di gestione;
-- Contatto con l'azienda Zextras;
+- Contatto con l'azienda _#(p.zextras)_;
 - Individuazione materiale da produrre.
 
 = Sintesi dell'incontro
@@ -38,7 +37,7 @@ Il gruppo ha deciso di utilizzare GitHub per la gestione dei repository, creando
 
 Successivamente sono stati definiti gli strumenti di gestione che verranno utilizzati d'ora in poi per la comunicazione interna al gruppo, per la stesura dei documenti e per il tracciamento delle attività.
 
-Dopo di che sono stati avviati i primi contatti con l'azienda Zextras, proponente del capitolato C8, che è risultato essere il capitolato di maggior interesse del gruppo.
+Dopo di che sono stati avviati i primi contatti con l'azienda _#(p.zextras)_, proponente del capitolato C8, che è risultato essere il capitolato di maggior interesse del gruppo.
 
 Infine si è individuato il materiale da produrre in ottica della presentazione della candidatura, di modo da organizzarsi ed iniziare la stesura dei documenti necessari.
 
@@ -48,4 +47,4 @@ Infine si è individuato il materiale da produrre in ottica della presentazione 
 - Strumenti per le comunicazioni interne: Telegram e Discord;
 - Strumento per la stesura dei documenti: Typst;
 - Strumento per il tracciamento delle attività: GitHub;
-- Indirizzo mail "riflettore" #text(link("mailto:overture.unipd@gmail.com"), style: "italic")
+- Indirizzo mail "riflettore": #link("mailto:"+g.mail)

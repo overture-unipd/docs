@@ -7,7 +7,7 @@
       - Soddisfatti gli obblighi operativi
       - Eseguite le prime scelte organizzative e tecnologiche
       - Valutato i capitolati presentati
-      - Fatto colloquio con Zextras (C8)
+      - Fatto colloquio con _#(p.zextras)_ (C8)
       - Prodotti i documenti necessari
     ][
       Da svolgere:

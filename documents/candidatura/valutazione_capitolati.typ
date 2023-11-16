@@ -7,6 +7,7 @@
     p.vardanega,
     p.cardin,
   ),
+  group_is_recipient: false,
   changelog: (
     "1.1", "2023-11-09", p.bonavigo, p.amadori, "Aggiunta del registro delle modifiche",
     "1.0", "2023-10-28", (p.bettin, p.amadori), (p.bonavigo, p.bulychov), "Sistemazione di alcuni errori grammaticali e formulazione frasi",
@@ -20,9 +21,9 @@
 
 = Capitolato scelto: C8 - JMAP: il nuovo protocollo per la posta elettronica
 == Descrizione
-- Proponente: Zextras
-- Committenti: Prof Tullio Vardanega e Prof. Riccardo Cardin
-- Obiettivo: valutare se conviene investire tempo e denaro per integrare il protocollo JMAP su Carbonio, il prodotto principale di Zextras (attualmente basato su protocolli standard come IMAP e POP). Il risultato finale deve essere compatibile con i client attualmente supportati, offrendo nuove funzionalità ai client più moderni.
+- *Proponente*: _#(p.zextras)_
+- *Committenti*: #p.vardanega e #p.cardin
+- *Obiettivo*: valutare se conviene investire tempo e denaro per integrare il protocollo JMAP su Carbonio, il prodotto principale di _#(p.zextras)_ (attualmente basato su protocolli standard come IMAP e POP). Il risultato finale deve essere compatibile con i client attualmente supportati, offrendo nuove funzionalità ai client più moderni.
 
 == Dominio applicativo
 Si richiede lo sviluppo e la valutazione di un'estensione dello standard in Carbonio: questa estensione deve mantenere la compatibilità con i client attualmente supportati e permettere l'espansione delle funzionalità per i client di nuova generazione. 
@@ -55,9 +56,9 @@ Dopo un'attenta valutazione il gruppo ha deciso di candidarsi per questo capitol
 
 = Capitolato C1 - Knowledge management AI
 == Descrizione
-- Proponente: Azzurrodigitale
-- Committenti: Prof Tullio Vardanega e Prof. Riccardo Cardin
-- Obiettivo: migliorare l'accessibilità delle informazioni aziendali, semplificare la comunicazione con macchine e processi, e abbattere barriere all'ingresso per i dipendenti.
+- *Proponente*: Azzurrodigitale
+- *Committenti*: #p.vardanega e #p.cardin
+- *Obiettivo*: migliorare l'accessibilità delle informazioni aziendali, semplificare la comunicazione con macchine e processi, e abbattere barriere all'ingresso per i dipendenti.
 Il knowledge management riguarda l'acquisizione, l'organizzazione e la diffusione della conoscenza all'interno di un'organizzazione. In passato, ci si basava su archiviazione manuale o su sistemi di gestione documentale, tuttavia, con l'avanzare dell'intelligenza artificiale, sono emerse soluzioni più avanzate. AzzurroDigitale, rivolgendosi alle fabbriche, esplora l'utilizzo dell'IA per agevolare il dialogo naturale tra gli operatori e le postazioni di lavoro, semplificando l'accesso alle informazioni e rendendo più agevole la formazione sul campo.
 
 == Dominio applicativo
@@ -65,8 +66,8 @@ Il progetto si concentra sulla realizzazione di una piattaforma web dedicata all
 
 == Dominio tecnologico
 L'applicazione sarà sviluppata utilizzando le seguenti tecnologie:
-- Frontend: HTML/CSS/JavaScript (con la possibilità di utilizzare framework come Angular);
-- Backend: NodeJS (JavaScript), con integrazione delle API di OpenAI ed LangChain.
+- *Frontend*: HTML/CSS/JavaScript (con la possibilità di utilizzare framework come Angular);
+- *Backend*: NodeJS (JavaScript), con integrazione delle API di OpenAI ed LangChain.
 Azzurrodigitale mette a disposizione la libertà di cambiare il motore per le funzionalità di NLP e fornisce una repository git che il team potrà utilizzare per tutte le attività di sviluppo del progetto.
 
 == Aspetti positivi
@@ -76,7 +77,7 @@ Azzurrodigitale mette a disposizione la libertà di cambiare il motore per le fu
 == Fattori critici
 - Nonostante l'interesse generale per l'intelligenza artificiale, il campo non ha suscitato la stessa passione di altri capitolati
 - Il progetto implica l'addestramento di un'intelligenza artificiale, un processo in gran parte automatico e quindi poco interattivo
-- Come discusso nell'incontro del 17-10-2023, il progetto deve essere formulato in modo molto generico per evitare problemi legati all'overfitting in un settore specifico
+- Come discusso nell'incontro del 2023-10-17, il progetto deve essere formulato in modo molto generico per evitare problemi legati all'overfitting in un settore specifico
 
 == Conclusioni
 Inizialmente il capitolato sembrava affascinante per l'utilizzo di tecnologie all'avanguardia come l'intelligenza artificiale, ma si è rivelato essere troppo focalizzato su quest'unica tecnologia, riducendo l'interesse dell'intero gruppo.
@@ -85,9 +86,9 @@ Inizialmente il capitolato sembrava affascinante per l'utilizzo di tecnologie al
 
 = Capitolato C2 - Sistemi di raccomandazione
 == Descrizione
-- Proponente: Ergon
-- Committenti: Prof Tullio Vardanega e Prof. Riccardo Cardin
-- Obiettivo: sviluppare un sistema di raccomandazione che possa suggerire attività di marketing e commerciali mirate a clienti specifici, prodotti con obiettivi di vendita, e prodotti correlati a un cliente.
+- *Proponente*: Ergon
+- *Committenti*: #p.vardanega e #p.cardin
+- *Obiettivo*: sviluppare un sistema di raccomandazione che possa suggerire attività di marketing e commerciali mirate a clienti specifici, prodotti con obiettivi di vendita, e prodotti correlati a un cliente.
 Nel contesto delle strategie di marketing e dei piani commerciali, le aziende adottano principalmente due approcci distinti. Uno di essi è di tipo "ampio spettro," in cui tutte le offerte promozionali vengono indirizzate a tutti i clienti in maniera uniforme, senza tener conto delle singole preferenze. Il secondo approccio è più mirato, basandosi su criteri commerciali o sull'intuizione del reparto vendite per selezionare specifici clienti a cui rivolgere offerte personalizzate. Questi approcci beneficiano dell'analisi dei dati interconnessi resa possibile dall'evoluzione dell'IT e dall'uso del Machine Learning, che permette alle aziende di agire in modo tempestivo basandosi su correlazioni e insight rilevanti.
 
 == Dominio applicativo
@@ -116,9 +117,9 @@ Sebbene l'idea di integrare l'analisi dei big data con l'intelligenza artificial
 
 = Capitolato C3 - EasyMeal
 == Descrizione
-- Proponente: Imola Informatica
-- Committenti: Prof. Tullio Vardanega e Prof. Riccardo Cardin
-- Obiettivo: sviluppare una web application che permetetta di digitalizzare i processi di prenotazione e ordinazione in un contesto riguardante il settore della ristorazione.
+- *Proponente*: Imola Informatica
+- *Committenti*: #p.vardanega e #p.cardin
+- *Obiettivo*: sviluppare una web application che permetetta di digitalizzare i processi di prenotazione e ordinazione in un contesto riguardante il settore della ristorazione.
 
 In un contesto di crescente digitalizzazione a livello internazionale, si sono sviluppati negli ultimi anni numerosi software con l'obiettivo di ottimizzare le attività quotidiane. In questo caso, EasyMeal cerca di migliorare l'esperienza culinaria nei ristoranti, mirando a risolvere le due principali problematiche che affliggono i clienti di questo mercato: la complessità delle prenotazioni e l'inefficienza nell'ordinazione.\
 Le prenotazioni effettuate in modo tradizionale (ad esempio, tramite chiamate al ristoratore) costituiscono spesso un ostacolo alle attività lavorative del ristorante e sono soggette a errori di comunicazione e fraintendimenti. Allo stesso modo, le ordinazioni dei pasti sono spesso un processo dispendioso, considerando che ogni gruppo di persone ha preferenze eterogenee, e sono soggette agli errori umani.\
@@ -161,16 +162,17 @@ La scelta di questo progetto come terza opzione è stata il risultato di una vot
 
 = Capitolato C4 - A ChatGPT plugin with Nuvolaris
 == Descrizione
-- Proponente: Imola Informatica
-- Committenti: Prof. Tullio Vardanega e Prof. Riccardo Cardin
-- Obiettivo: sviluppare un plugin con la tecnologia Nuvolaris capace di esporre una serie di funzioni invocabili da ChatGPT in seguito ad una richiesta testuale di un utente capaci di creare una applicazione web e performare modifiche sulla stessa.
+- *Proponente*: Imola Informatica
+- *Committenti*: #p.vardanega e #p.cardin
+- *Obiettivo*: sviluppare un plugin con la tecnologia Nuvolaris capace di esporre una serie di funzioni invocabili da ChatGPT in seguito ad una richiesta testuale di un utente capaci di creare una applicazione web e performare modifiche sulla stessa.
 
 Questo progetto prende vita grazie all'impennata che il settore dell'intelligenza artificiale ha riscontrato negli ultimi mesi, grazie all'avvento del chatbot ChatGPT.\
 Tuttavia, questo progetto introduce il concetto che ChatGPT non è soltanto un sito in cui è possibile porre domande testuali e ricevere risposte, ma piuttosto un sistema completo capace di interagire con dei plugin.\
 In effetti, in questo progetto, l'obiettivo principale è di esporre una serie di servizi utilizzando Nuvolaris, un sistema in grado di interagire non solo con Apache ma anche con numerosi altri sistemi. Successivamente, l'idea è quella di mettere a disposizione le API di questi servizi a ChatGPT mediante un plugin. Questo plugin potrà essere attivato dagli utenti che desiderano utilizzare le complesse funzioni offerte dal servizio Nuvolaris in maniera del tutto automatica, semplicemente ponendo domande al chatbot.
 
 == Dominio applicativo
-Il plugin richiesto per questo progetto è utile in diversi contesti e per varie categorie di utenti.\ Rappresenta un notevole vantaggio per coloro che desiderano sviluppare progetti web ma hanno limitate competenze tecnologiche. Questi utenti possono sfruttare ChatGPT per richiedere la creazione di una semplice applicazione web in grado di eseguire specifiche operazioni CRUD con un database, fornendo dettagli relativi al web server e al database. A differenza del comportamento standard di ChatGPT, il plugin non fornisce istruzioni su come completare il lavoro, ma piuttosto chiama automaticamente le API di Nuvolaris per eseguire il lavoro. ChatGPT diventa quindi il mezzo per interpretare la richiesta dell'utente e invocare i servizi appropriati che abbiamo sviluppato.\
+Il plugin richiesto per questo progetto è utile in diversi contesti e per varie categorie di utenti.\
+Rappresenta un notevole vantaggio per coloro che desiderano sviluppare progetti web ma hanno limitate competenze tecnologiche. Questi utenti possono sfruttare ChatGPT per richiedere la creazione di una semplice applicazione web in grado di eseguire specifiche operazioni CRUD con un database, fornendo dettagli relativi al web server e al database. A differenza del comportamento standard di ChatGPT, il plugin non fornisce istruzioni su come completare il lavoro, ma piuttosto chiama automaticamente le API di Nuvolaris per eseguire il lavoro. ChatGPT diventa quindi il mezzo per interpretare la richiesta dell'utente e invocare i servizi appropriati che abbiamo sviluppato.\
 Inoltre, questo progetto rappresenta una risorsa inestimabile per chi desidera effettuare ricerche intelligenti sul web. Ad esempio, pensiamo a una situazione in cui si chiedono informazioni a ChatGPT su un repository specifico su GitHub, ma ChatGPT non ha accesso diretto a queste informazioni. Con questo plugin, possiamo creare API che consentono a ChatGPT di recuperare informazioni su elementi a cui non ha accesso nativamente, fornendo le relative risposte.
 
 == Dominio tecnologico
@@ -197,9 +199,9 @@ A causa della complessità della richiesta di ciò che realmente deve fare il pl
 
 = Capitolato C5 - WMS3: wharehouse management 3D
 == Descrizione
-- Proponente: SanMarco Informatica
-- Commmittenti: Prof. Tullio Vardanega e Prof. Riccardo Cardin
-- Obiettivo: controllo della dislocazione e della movimentazione dei materiali e ottimizzazione degli spazi fisici del magazzino grazie ad una vista in 3D dello stesso; gestione dei processi di spedizione garantendo il rispetto delle tempistiche
+- *Proponente*: SanMarco Informatica
+- *Commmittenti*: #p.vardanega e #p.cardin
+- *Obiettivo*: controllo della dislocazione e della movimentazione dei materiali e ottimizzazione degli spazi fisici del magazzino grazie ad una vista in 3D dello stesso; gestione dei processi di spedizione garantendo il rispetto delle tempistiche
 Il capitolato affronta i problemi della gestione dei magazzini tradizionale: implementare un Warehouse Management System, con l’obiettivo di monitorare le performance e ottimizzare i processi di logistica, è spesso una sfida complessa: richiede tempo, risorse e un’adeguata personalizzazione a seconda delle esigenze specifiche delle aziende. Un WMS deve essere integrabile facilmente con altri sistemi (per esempio di gestione degli ordini), adattarsi alle necessità delle aziende (che possono mutare nel tempo) e offire dati in tempo reale sull’efficienza operativa e controllo dello stock.
 
 == Dominio applicativo
@@ -230,9 +232,9 @@ Nonostante l’ottima impressione che l’azienda ha lasciato sul gruppo, il cap
 
 = Capitolato C6 - SyncCity: Smart city monitoring platform
 == Descrizione
-- Proponente: Sync Lab
-- Commmittenti: Prof. Tullio Vardanega e Prof. Riccardo Cardin
-- Obiettivo: raccolta e analisi di grandi quantità di dati provenienti da dispositivi e sensori disposti all’interno della città per ottenere una visione d’insieme delle sue condizioni in tempo reale.
+- *Proponente*: Sync Lab
+- *Commmittenti*: #p.vardanega e #p.cardin
+- *Obiettivo*: raccolta e analisi di grandi quantità di dati provenienti da dispositivi e sensori disposti all’interno della città per ottenere una visione d’insieme delle sue condizioni in tempo reale.
 Il capitolato affronta la questione delle smart cities, il cui obiettivo principale è il miglioramento costante della qualità della vita dei suoi cittadini.
 Una piattaforma di monitoraggio si occuperà di mostrare in tempo reale tutti gli aspetti cruciali della città, dotata di numerosi sensori e dispositivi per la raccolta di dati.
 
@@ -241,10 +243,10 @@ Si richiede la realizzazione di un’architettura software in grado di ingerire,
 
 == Dominio tecnologico
 Per questo progetto l’azienda suggerisce l’utilizzo di:
-- Python Faker, framework per la simulazione di dati;
-- Apache Kafka, per gestire il flusso di dati;
-- database OLAP, per assicurare la persistenza di dati con numerosità elevata;
-- Grafana, piattaforma di datavisualization frontend.
+- *Python Faker*: framework per la simulazione di dati;
+- *Apache Kafka*: per gestire il flusso di dati;
+- *database OLAP*: per assicurare la persistenza di dati con numerosità elevata;
+- *Grafana*: piattaforma di datavisualization frontend.
 
 == Aspetti positivi
 - Parte delle tecnologie sono già conosciute ad alcuni membri del gruppo 
@@ -261,9 +263,9 @@ Il gruppo è stato colpito positivamente dalla presentazione di questo capitolat
 
 = Capitolato C7 - ChatGPT vs BedRock developer analysis
 == Descrizione
-- Proponente: zero12
-- Commmittenti: Prof. Tullio Vardanega e Prof. Riccardo Cardin
-- Obiettivo: creare un middleware che riceva in input business requirements e produca epic e user stories associate a questi tramite chatGPT e BedRock, in particolare creando dei plugin per VScode di microsoft e Xcode di Apple. Seguendo poi con un' analisi delle prestazioni di chatGPT e AWS BedRock in questo compito di accopagnamento alla creazione di stories tramite il codice sorgente.
+- *Proponente*: zero12
+- *Commmittenti*: #p.vardanega e #p.cardin
+- *Obiettivo*: creare un middleware che riceva in input business requirements e produca epic e user stories associate a questi tramite chatGPT e BedRock, in particolare creando dei plugin per VScode di microsoft e Xcode di Apple. Seguendo poi con un'analisi delle prestazioni di chatGPT e AWS BedRock in questo compito di accopagnamento alla creazione di stories tramite il codice sorgente.
 
 == Dominio applicativo
 Questo progetto si propone di fornire ai developer dei tool per la creazione di di epic e user stories, interpretando il source code quindi automatizzando la mansione di redarle, verificandone la precisione con dovuti test ponendo particolare attenzione sull'efficacia nella produzione delle stesse all' interno dell'ecosistema aziendale.
@@ -271,12 +273,12 @@ Questo progetto si propone di fornire ai developer dei tool per la creazione di 
 == Dominio tecnologico
 L'azienda per lo sviluppo di questo progetto raccomanda Amazon Web Services,
 in particolare:
-- AWS fargate: servizio serverless per gestione containerizzata;
-- MongoDB: database documentale ideale per la gestione event-based di progetti.
+- *AWS fargate*: servizio serverless per gestione containerizzata;
+- *MongoDB*: database documentale ideale per la gestione event-based di progetti.
 Con i seguenti linguaggi di programmazione:
-- NodeJs;
-- Python;
-- Typescript.
+- *NodeJs*;
+- *Python*;
+- *Typescript*.
 
 == Aspetti positivi
 - Chiarezza nell'esposizione del progetto, in particolare sui vincoli da rispettare
@@ -294,9 +296,9 @@ Nonostante la chiara intenzione dell'azienda al supporto e alla formazione, le t
 
 = Capitolato C9 - ChatSQL: creare frasi SQL da linguaggio naturale
 == Descrizione
-- Proponente: Zucchetti
-- Committenti: Prof. Tullio Vardanega e Prof. Riccardo Cardin
-- Obiettivo: sviluppare un sistema di «prompt» in grado di tradurre una frase da linguaggio naturale a comando SQL.
+- *Proponente*: Zucchetti
+- *Committenti*: #p.vardanega e #p.cardin
+- *Obiettivo*: sviluppare un sistema di «prompt» in grado di tradurre una frase da linguaggio naturale a comando SQL.
 L'azienda Zucchetti propone un interessante progetto incentrato sull'uso di Large Language Models (LLM), in particolare ChatGPT, per automatizzare la generazione di codice SQL a partire da specifiche in linguaggio naturale. Il progetto mira a creare un'applicazione che faciliti la scrittura di query SQL in modo intuitivo e semplificato attraverso l'interazione con l'IA.
 
 == Dominio applicativo

@@ -2,7 +2,7 @@
 #import "@preview/codelst:1.0.0": sourcecode
 
 #let g = (
-  name: "Gruppo Overture",
+  name: "Overture",
   mail: "overture.unipd@gmail.com",
   website: "https://overture-unipd.github.io",
   org: "https://github.com/overture-unipd",
@@ -10,7 +10,7 @@
   progetto: "progetto",
   logo: "//imgs/group_logo.png",
 )
-  
+
 #let p = (
   amadori: "Eleonora Amadori",
   bonavigo: "Riccardo Bonavigo",
