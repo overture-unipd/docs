@@ -8,6 +8,7 @@
     p.cardin,
   ),
   changelog: (
+    "0.0.4", "2023-11-16", (p.furno, p.fabbian), p.amadori, "Aggiunta della sezione 'Gestione dei processi'",
     "0.0.3", "2023-11-13", p.furno, p.amadori, "Aggiunta della sezione 'Documentazione'",
     "0.0.2", "2023-11-11", p.fabbian, p.amadori, "Aggiunta delle sezioni 'Verifica' e 'Validazione'",
     "0.0.1", "2023-11-11", p.vedovato, p.amadori, "Struttura iniziale del documento ed introduzione",
@@ -238,3 +239,144 @@ Durante la fase di validazione, concentreremo l'attenzione sull'utilizzo dei tes
 == Gestione della qualità
 
 = Processi organizzativi
+
+== Gestione dei processi
+
+=== Scopo
+Il processo di gestione, come stabilito dallo standard ISO/IEC 12207:1997, identifica le attività generali e compiti che ogni membro del gruppo dovrà attuare per la gestione dei processi di progetto.
+
+=== Descrizione
+Questo processo è suddiviso nelle seguenti attività:
+- Inizio e definizione dello scopo
+- Pianificazione
+- Esecuzione e controllo
+- Revisione e valutazione
+- Chiusura
+
+=== Pianificazione
+==== Scopo
+Come stabilito dallo standard ISO/IEC 12207:1997, il Responsabile ha il compito di predisporre i piani per l'esecuzione di tutte le attività relative alla pianificazione. I piani dovranno contenere la descrizione delle attività e dei compiti associati. \
+Il Responsabile redigerà questa pianificazione all'interno del documento `Piano di Progetto`, che riporterà una descrizione delle attività e dei compiti necessari a raggiungere l'obiettivo prefissato in un determinato periodo.
+
+==== Descrizione
+L'attività di pianificazione verrà articolata nelle seguenti sezioni:
+- Ruoli
+- Ticketing
+
+==== Aspettative
+L'attività di pianificazione serve a stabilire delle regole comuni che il gruppo _Ouverture_ attuerà per la sua organizzazione lavorativa.
+
+==== Ruoli
+I ruoli svolti dai membri
+del gruppo per il progetto sono decisi dal Responsabile di Progetto. Al termine del progetto ogni componente dovrà aver ricoperto tutti i ruoli, che sono di seguito descritti.
+
+*Responsabile di Progetto*\
+Il Responsabile ha il compito fondamentale di coordinare i membri del gruppo e rappresentarlo presso il proponente e i committenti. \
+I suoi principali compiti sono:
+- approvare la documentazione
+- gestire la pianificazione del progetto: determina le attività da svolgere e la loro priorità
+- coordinare i membri: assegna e verifica l'avanzamento dei compiti che devono essere protati a termine
+- studiare e gestire l'analisi dei rischi
+- curare i rapporti tra i membri del gruppo e soggetti esterni
+
+*Amministratore di Progetto*\
+L'Amministratore definisce, controlla e gestisce l'ambiente e gli strumenti di lavoro del gruppo, con piena responsabilità sull'efficacia ed efficienza del Way of Working.\
+I suoi principali compiti sono:
+- migliorare l'ambiente di lavoro: ricercare gli strumenti necessari ad automatizzare i processi
+- gestione dei processi: atta a risolverne i problemi legati
+- redigere e mantenere la documentazione: gestisce il versionamento
+- gestire la configurazione di prodotto: controllo sul prodotto software
+
+
+*Analista*\
+L'Analista approfondisce le richieste del Capitolato ed è presente principalmente nelle fasi iniziali del progetto. E' fondamentale che l' `Analisi dei Requisiti` sia adeguata: l'identificazione errata dei requisiti può compromettere in modo significato la fase di Progettazione e l'esito del progetto. Conosce meglio degli altri componenti il dominio del problema. \
+Ha il compito di:
+- studiare il problema e il relativo contesto applicativo
+- raccogliere e studiare i bisogni dei committenti
+- scrivere i documenti `Analisi dei Requisiti` e `Studio di Fattibilità`
+- studiare i requisiti definendo la loro complessità
+
+*Progettista*\
+Il Progettista determina le scelte realizzative del progetto, trasformando i requisiti individuati dagli Analisti in un'architettura che modelli il problema. Il Progettista seguirà lo sviluppo particolarmente, ma non la manutenzione. \
+Ha il compito di:
+- sviluppare un prodotto economico, facilmente manutenibile a partire dal lavoro dell'analista
+- favorire efficienza ed efficacia grazie alle scelte tecniche effettuate
+- garantire un basso grado di accoppiamento grazie ad un sistema ben strutturato
+
+*Verificatore*\
+Il Verificatore controlla il lovoro svolto dagli altri componenti del gruppo, assicurandosi che le norme vengano attuate correttamente. \
+Ha il compito di:
+- verificare la correttezza delle attività tramite gli strumenti e tecniche definiti nelle `Norme di Progetto`
+- redigere la sezione "Retrospettiva" del `Piano di Qualifica`, in cui descriverà che tipo di verifiche e metriche sono state adottare per le revisioni
+
+*Programmatore*\
+Il Programmatore è incaricato a svolgere l'attività di codifica del progetto e delle componenti di supporto con lo scopo di realizzare l'architettura proposta dal progettista. \
+Ha il compito di:
+- implementare la Specifica Tecnica scritta dal Progettista
+- scrivere codice mantenibile, che rispetti le `Norme di Progetto`
+- creare test per la verifica e validazione del codice
+- scrivere il manuale utente
+
+==== Ticketing
+Il gruppo _Ouverture_ adotta l'*Issue Tracking System* (ITS) interno di GitHub. GitHub permette una gestione semplice e chiara dei compiti da svolgere: le Issue vengono create molto velocemente e possono essere chiuse con altrettanta rapidità.\
+È compito del Responsabile creare i task ed assegnarli ai vari membri del gruppo, il cui stato di avanzamento è consultabile all'interno della Board. \
+Le Issue sono create dal Responsabile e hanno:
+- *titolo*: identifica in modo univoco il compito da svolgere
+- *descrizione*: una lista dei nomi dei file coinvolti nel task
+- *assegnatario*: il componente incaricato a svolgere il task
+- *verificatore*: il componente incaricato ad accertare il corretto completamento del task
+- *milestone*: il traguardo da raggiungere
+- *etichetta*: il tipo di task
+- *stato*: avanzamento del task
+Ogni qualvolta ci sia la necessità di portare a termine un compito è necessario seguire la seguente procedura:
++ il Responsabile crea una nuova Issue su GitHub e la assegna. La Issue ha stato "to do"
++ all'inizio del lavoro di produzione la Issue cambia stato, passando a "in progress". Viene creato un nuovo branch per ogni Issue
++ finito il lavoro di produzione, viene aperta una pull request su GitHub, inserendo nella descrizione il comando `closes(#X)`, dove X identifica univocamente la Issue. Viene assegnato il Verificatore
++ il Verificatore si accerta del lavoro svolto:
+  - se la verifica ha esito *positivo*:
+    + il Verificatore conferma su GitHub la pull requet ED effettua il merge al ramo principale
+    + la Issue viene marcata "Done" su GitHub automaticamente
+  - se la verifica ha esito *negativo*:
+    + il Verificatore rilascia una lista di cambiamenti suggeriti nella relativa Issue su GitHub
+    + l'incaricato apporta le modifiche suggerite e si torna al punto 3
+
+=== Coordinamento
+Il Coordinamento è l'attività responsabile della gestione delle comunicazioni e degli incontri tra le diverse parti coinvolte nel progetto, ovvero membri del team, proponente e committenti. Il coordinamento assume un ruolo di rilievo nell'assicurare l'efficienza del progetto e il coinvolgimento di tutte le parti interessate.\
+Le attività di coordinamento comprendono la gestione della comunicazione interna ed esterna, la conduzione delle riunioni e la definizione di comportamenti comuni per i membri del team.\
+La comunicazione, cruciale per garantire chiarezza e concisione nel dialogo tra le parti coinvolte, si configura, seppur complessa, come un elemento essenziale per il successo del progetto.
+
+==== Comunicazioni
+*Comunicazioni interne*
+Le comunicazioni saranno gestite attraverso due canali principali: *Telegram* e *Discord.* Telegram, un servizio di messaggistica istantanea, sarà utilizzato per consentire conversazioni rapide, informali e accessibili via smartphone. Le riunnioni remote, invece, avverranno in videcohiamata su Discord.\
+Per organizzare efficacemente il lavoro di gruppo le discussioni saranno condotte su Telegram e si organizzerà un incontro straordinario tramite videochiamata su Discord per trattare eventuali temi critici. In caso di malfunzionamenti di Telegram, il gruppo si sposterà temporaneamente su Discord, includendo anche gli scambi informali.
+
+*Comunicazioni esterne*
+Il Responsabile del progetto sarà incaricato di gestire il dialogo esterno attraverso l'indirizzo email: #link("mailto:"+g.mail). Si assicurerà che ogni membro del gruppo sia informato sulle corrispondenze con committenti e proponente, seguendo le norme precedentemente stabilite per le comunicazioni interne.
+
+==== Riunioni
+Al fine di garantire l'efficienza delle riunioni il responsabile corrente avrà il compito di introdurre l'agenda e trattare in modo chiaro gli argomenti di discussione, inoltre sarà responsabile di riepilogare i punti principali e l'esito delle votazioni nel verbale successivo alla riunione.
+
+*Riunioni Interne:*\
+Le riunioni interne sono programmate settimanalmente alle ore 16:00 di ogni mercoledì, concordate di comune accordo tra i membri del gruppo. In caso di necessità, è possibile richiedere riunioni straordinarie durante la settimana tramite il canale dedicato su Telegram, con data e orario stabiliti attraverso un sondaggio. Tutte le riunioni online si svolgeranno nel canale Discord appositamente designato.
+
+*Compiti del responsabile*
+- Esporre i punti all'ordine del giorno relativamente alla loro priorità
+- Aggiornare il resto del gruppo in caso di variazioni orarie
+- Pianificare le attività da svolgere
+- Assegnare i task ai membri del gruppo
+- Approvare il verbale
+
+*Doveri partecipanti*
+- Essere presenti e puntuali alle riunioni settimanali
+- Mantenere un comportamento consono durante lo svolgimento della riunione
+
+*Riunioni Esterne:*\
+Le riunioni esterne coinvolgono i membri del gruppo _#(g.name)_, il proponente e i committenti.\
+Per le riunioni con il proponente, viene utilizzata la piattaforma #glossary("Carbonio"), e l'indirizzo viene comunicato al team di volta in volta. I membri del gruppo si impegnano a partecipare costantemente, cercando di adattare i propri impegni per garantire la presenza a tali incontri. Nel caso in cui gli impegni irrinunciabili dei membri rendano impossibile la partecipazione, il responsabile si assicurerà di informare tempestivamente il proponente o i committenti, proponendo di posticipare la riunione a una data successiva.
+
+==== Verbali
+*Verbali Interni:*\
+L'obiettivo di una sessione di incontri è affrontare e risolvere gli argomenti specificati nell'ordine del giorno. Al termine di ogni incontro, viene aperta una Issue su Github per la preparazione, la verifica e l'approvazione del verbale. Il compito di redigere il verbale, seguendo il formato indicato nella sezione 3.1 di questo documento, è affidato al Responsabile, il quale deve assicurarsi di includere tutte le informazioni rilevanti discusse.
+
+*Verbali Esterni*\
+Come per il caso delle riunioni interne verrà redatto un Verbale con le stesse modalità descritte in precedenza.
