@@ -168,6 +168,27 @@
   )
 }
 
+#let risks(r) = {
+  let headers = (([*Descrizione*], [*Probabilità*], [*Pericolosità*], [*Rilevamento*], [*Piano di contingenza*]))
+  r = headers.zip(r).flatten()
+  
+  align(center,
+    block(width: 90%,
+      table(
+        fill: (_, row) => if calc.odd(row) { luma(215) } else { white },
+        inset: 0.5em,
+        columns: (auto, 1fr),
+        align: left,
+        ..r.map(el => text(size: 0.9em)[
+          #par(justify: false,
+            el
+          )
+        ]),
+      )
+    )
+  )
+}
+
 #let glossary(a)= {
   set text(fill: rgb("#33805d"), style: "italic") 
   a
