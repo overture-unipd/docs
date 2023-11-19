@@ -1,13 +1,14 @@
 #import "//templates/document.typ": *
 
 #show: project.with(
-  title: "Norme di progetto",
+  title: "Norme di Progetto",
   managers: p.vedovato,
   recipients: (
     p.vardanega,
     p.cardin,
   ),
   changelog: (
+    "0.0.6", "2023-11-18", p.vedovato, p.amadori, "Aggiunta della sezione 'Formazione'",
     "0.0.5", "2023-11-17", p.vedovato, p.amadori, "Aggiunta della sezione 'Miglioramento'",
     "0.0.4", "2023-11-16", (p.furno, p.fabbian), p.amadori, "Aggiunta della sezione 'Gestione dei processi'",
     "0.0.3", "2023-11-13", p.furno, p.amadori, "Aggiunta della sezione 'Documentazione'",
@@ -411,3 +412,20 @@ La misurazione del miglioramento nello sviluppo del software può coinvolgere di
 === Strumenti
 I seguenti strumenti sono stati scelti dal gruppo per il miglioramento:
 - *GitHub*: per valutare tramite issues o project board fattori come la velocità di sviluppo, ed inoltre per automatizzare molte attività ripetitive nel processo di sviluppo, come la build degli artefatti, migliorando l'efficienza complessiva.
+
+== Formazione
+
+=== Scopo
+Dato che alla base di un progetto di successo troviamo un personale esperto e qualificato, per fare in modo che tutti i componenti del gruppo siano preparati ed aggiornati nel ricoprire i ruoli di progetto è fondamentale il processo di formazione. \
+In esso definiamo come approfondire i temi necessari per il lavoro che andiamo a svolgere, al fine di essere tempestivi ed efficaci nell'apprendimento.
+
+=== Descrizione
+Per poter formare i membri del gruppo è necessario innanzitutto comprendere a pieno il dominio del problema. Occorre quindi capire quali sono i temi da approfondire ed identificare nei vari processi da svolgere quali nozioni è necessario apprendere. \
+Fatto ciò si deve passare all'individuazione del materiale di formazione, il quale crescerà nel tempo, dato che man mano che il progetto avanza anche il nostro grado di conoscenza e comprensione del problema dovrà aumentare il più possibile. \
+Infine, una volta capito cosa e da dove studiare, è necessario che ognuno dei componenti del gruppo vada ad aggiornarsi individualmente oppure, quando possibile, tramite supporto di altri membri più esperti.
+
+=== Aspettative
+È previsto che ciascun membro del gruppo acquisisca le competenze fondamentali per lo svolgimento del progetto attraverso un adeguato percorso formativo. Questo non riguarda soltanto le tecnologie necessarie, ma si estende anche a ogni altro aspetto coinvolto nell'ingegneria del software.
+
+=== Strumenti
+Al fine di agevolare il processo di formazione, abbiamo optato per l'adozione di un repository privato, accessibile esclusivamente ai membri del gruppo, nel quale tutte le risorse utili sono organizzate in categorie per favorire un accesso efficiente e ordinato.
