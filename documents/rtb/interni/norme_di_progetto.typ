@@ -8,6 +8,7 @@
     p.cardin,
   ),
   changelog: (
+    "0.0.8", "2023-11-20", p.fabbian, p.vedovato, "Aggiunta prima parte della sezione 'Sviluppo'",
     "0.0.7", "2023-11-20", p.furno, p.vedovato, "Aggiunta della sezione 'Fornitura'",
     "0.0.6", "2023-11-18", p.vedovato, p.amadori, "Aggiunta della sezione 'Formazione'",
     "0.0.5", "2023-11-17", p.vedovato, p.amadori, "Aggiunta della sezione 'Miglioramento'",
@@ -141,6 +142,83 @@ Il prodotto principale dell'azienda _Zextras_; è utilizzato dal gruppo _#(g.nam
 
 ==== Discord //vediamo se toglierlo
 Piattaforma di messaggistica e videochat utilizzata dal gruppo per le riunioni interne e come metodo informale per contattare l'azienda proponente.
+
+== Sviluppo
+=== Scopo
+Facendo riferimento allo standard ISO/IEC 1995: lo scopo del processo di sviluppo è definire le attività di analisi, progettazione, codifica, integrazione, testing, installazione ed accettazione dei requisiti richiesti nel contratto.
+
+=== Descrizione
+Le attività che compongono il processo di sviluppo sono:
++ Implementazione del processo;
++ Analisi dei requisiti di sistema;
++ Progettazione architetturale del sistema;
++ Analisi dei requisiti software;
++ Progettazione architetturale del software;
++ Progettazione dettagliata del software;
++ Codifica e testing del software;
++ Integrazione del software;
++ Test di qualifica del software;
++ Integrazione di sistema;
++ Test di qualifica di sistema;
++ Installazione del software;
++ Supporto all'accettazione del software.
+
+==== Implementazione del processo
+Nel processo di implementazione per lo sviluppo del software, il primo passo consiste nella scelta di un modello di ciclo di vita adatto al progetto. Dopo aver definito le responsabilità dello sviluppatore, che includono aspetti come la documentazione, la gestione delle configurazioni, la risoluzione dei problemi e l'esecuzione dei processi di supporto, si procede ad affinare ulteriormente il processo mediante la specifica dell'utilizzo di standard, metodi, strumenti e linguaggi di programmazione.\
+Segue la richiesta di formulare piani dettagliati, inclusivi di standard, metodi, strumenti e responsabilità, allo scopo di guidare le attività di sviluppo. Infine, si sottolinea l'importanza di garantire che, nonostante elementi non consegnabili possano essere impiegati durante lo sviluppo o la manutenzione del software, l'operatività e la manutenzione del prodotto software, dopo la consegna all'acquirente, siano indipendenti da tali elementi.
+
+==== Analisi dei requisiti di sistema
+Nel contesto dell'Analisi dei Requisiti di Sistema, il processo coinvolge il developer nell'esecuzione o supporto di attività contrattualmente previste. La prima fase richiede l'analisi dell'uso specifico del sistema in sviluppo per definire accuratamente i requisiti di sistema. Questi requisiti devono dettagliare funzioni, capacità, requisiti aziendali, organizzativi e utente, nonché aspetti come sicurezza, ingegneria dei fattori umani, interfaccia, operazioni e manutenzione, insieme a vincoli di progettazione e requisiti di qualifica, tutti documentati in modo approfondito.\
+La fase successiva richiede la valutazione dei requisiti di sistema secondo criteri come rintracciabilità ai bisogni di acquisizione, coerenza con tali bisogni, testabilità e fattibilità della progettazione architettonica del sistema, oltre alla fattibilità delle operazioni e della manutenzione. Anche i risultati di queste valutazioni devono essere accuratamente documentati.
+
+==== Progettazione architetturale del sistema
+Nel contesto della progettazione architetturale del sistema, la prima fase prevede la definizione di un'architettura di alto livello del sistema, identificando gli elementi hardware, software e le operazioni manuali. Si assicura l'allocazione di tutti i requisiti di sistema tra gli elementi e successivamente si individuano gli elementi di configurazione hardware, gli elementi di configurazione software e le operazioni manuali. L'architettura del sistema e i requisiti di sistema allocati agli elementi vengono documentati.\
+La fase successiva comporta la valutazione dell'architettura di sistema e dei requisiti degli elementi, con attenzione ai criteri di rintracciabilità, coerenza, adeguatezza degli standard e metodi di progettazione, fattibilità degli elementi software nel soddisfare i requisiti loro allocati, e la fattibilità di operazione e manutenzione. I risultati di tali valutazioni vengono accuratamente documentati.
+
+==== Analisi dei requisiti software
+L'Analisi dei Requisiti Software richiede che, per ciascun elemento software o elemento di configurazione software identificato, lo sviluppatore esegua i seguenti compiti:
+- Definizione e documentazione dei requisiti software, inclusi dettagliati orientamenti per le caratteristiche qualitative consultando la norma ISO/IEC 9126. Tale definizione comprende:
+	+ Specifiche funzionali e di capacità, con considerazioni su prestazioni, caratteristiche fisiche e condizioni ambientali in cui l'elemento software opererà;
+	+ Identificazione delle interfacce esterne all'elemento software;
+	+ Stipula dei requisiti di qualifica;
+	+ Specifiche di sicurezza, riguardanti i metodi di operazione e manutenzione, le influenze ambientali e il rischio di lesioni al personale;
+	+ Specifiche di sicurezza, focalizzate sui compromessi di informazioni sensibili;
+	+ Specifiche di ingegneria dei fattori umani (ergonomia), comprendenti operazioni manuali, interazioni umano-apparecchio, vincoli sul personale e ambiti che richiedono concentrazione umana, sensibili agli errori umani e formazione;
+	+ Definizione dei dati e requisiti del database;
+	+ Requisiti di installazione e accettazione del prodotto software presso i siti di operazione e manutenzione;
+	+ Documentazione per l'utente;
+	+ Requisiti di operazione ed esecuzione dell'utente;
+	+ Requisiti di manutenzione dell'utente.
+- Valutazione dei requisiti software secondo i seguenti criteri, con documentazione dei risultati:
+	+ Rintracciabilità ai requisiti di sistema e di progettazione del sistema;
+	+ Coerenza esterna con i requisiti di sistema;
+	+ Coerenza interna;
+	+ Testabilità;
+	+ Fattibilità della progettazione software;
+	+ Fattibilità di operazione e manutenzione.
+- Conduzione di una o più revisioni congiunte al cui completamento con successo, sarà istituita una baseline per i requisiti dell'elemento software.
+
+==== Progettazione architetturale del software
+Per ogni elemento software (o elemento di configurazione software, se identificato), l'attività include i seguenti compiti:
+- Lo sviluppatore converte i requisiti dell'elemento software in un'architettura, delineandone la struttura di alto livello e identificando i componenti software. L'assegnazione di tutti i requisiti dell'elemento software ai suoi componenti e la loro ulteriore definizione per agevolare la progettazione dettagliata sono garantite. L'architettura dell'elemento software dovrà essere documentata.
+- Sviluppo e documentazione di un progetto di alto livello per le interfacce esterne all'elemento software e tra i componenti software dello stesso.
+- Sviluppo e documentazione di un progetto di alto livello per il database.
+- Sviluppo e documentazione di versioni preliminari della documentazione per l'utente.
+- Definizione e documentazione dei requisiti preliminari di prova e della pianificazione per l'integrazione del software.
+- Valutazione dell'architettura dell'elemento software e dei progetti delle interfacce e del database, considerando criteri come rintracciabilità, coerenza interna ed esterna, appropriata utilizzo di metodi e standard di progettazione, fattibilità della progettazione dettagliata, e fattibilità di operazione e manutenzione. I risultati di queste valutazioni sono documentati.
+- Conduzione di una o più revisioni.
+
+
+==== Progettazione dettagliata del software
+Per ogni elemento software (o elemento di configurazione software, se identificato), l'attività include i seguenti compiti:
+- Sviluppo della progettazione dettagliata dei componenti software, ovvero, lo sviluppatore crea una progettazione dettagliata per ciascun componente software, definendo livelli inferiori con unità software che possono essere codificate, compilate e testate;
+- Sviluppo e documentazione di una progettazione dettagliata per le interfacce esterne all'elemento software, tra i componenti software e tra le unità software. La progettazione dettagliata delle interfacce deve consentire la codifica senza ulteriori informazioni;
+- Sviluppo e documentazione di una progettazione dettagliata per il database;
+- Aggiornamento della documentazione utente;
+- Definizione e documentazione dei requisiti di prova e pianificazione per i test delle unità software;
+- Aggiornamento dei requisiti di prova e pianificazione per l'integrazione del software;
+- Valutazione della progettazione dettagliata del software e dei requisiti di prova in base a criteri come rintracciabilità, coerenza interna ed esterna, appropriato utilizzo di metodi e standard di progettazione, fattibilità dei test, e fattibilità di operazione e manutenzione. I risultati vengono documentati;
+- Conduzione di una o più revisioni.
 
 = Processi di supporto
 == Documentazione
@@ -284,6 +362,8 @@ Viene adottato lo standard internazionale *ISO 8601*, nella forma `YYYY-MM-DD`, 
 I seguenti strumenti sono stati scelti dal gruppo per la realizzazione della documentazione:
 - *Typst*: linguaggio per la stesura dei documenti, tramite #link("typst.app")
 - *GitHub*: servizio di hosting di repository
+
+//=== Metriche, più avanti
 
 == Verifica
 === Scopo ed aspettative
