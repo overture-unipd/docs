@@ -62,25 +62,25 @@ Una volta trovato l'accordo con il proponente sarà possibile passare alla fase 
 
 === Descrizione
 Questo processo è diviso nelle seguenti fasi:
-- Inizializzazione
-- Preparazione delle risposte alla richieste
-- Contrattazione
-- Pianificazione
-- Esecuzione e controllo
-- Revisione e valutazione
-- Consegna e completamento
+- Inizializzazione;
+- Preparazione delle risposte alle richieste;
+- Contrattazione;
+- Pianificazione;
+- Esecuzione e controllo;
+- Revisione e valutazione;
+- Consegna e completamento.
 
 === Aspettative
 Il gruppo _#(g.name)_ intende instaurare e mantenere uno stretto rapporto di collaborazione con l'azienda proponente _Zextras_ e, in particolare, con le figure dei referenti: Alessio Crestani e Federico Rispo.  Grazie ad un dialogo continuo, il gruppo vuole:
-- ricevere feedback sul lavoro svolto
-- verificare che i vincoli e i requisiti individuati corrispondano a quanto richiesto dal capitolato e dall'azienda proponente
+- ricevere feedback sul lavoro svolto;
+- verificare che i vincoli e i requisiti individuati corrispondano a quanto richiesto dal capitolato e dall'azienda proponente.
 
 === Comunicazioni con il proponente
 L'azienda proponente _Zextras_ mette a disposizione l'email, i profili discord dei referenti e la piattaforma Carbonio come canali di comunicazione attraverso i quali chiarire dubbi e stabilire futuri incontri telematici. Le riunioni esterne non hanno una cadenza regolare, ma vengono richieste in base alle necessità dal gruppo o dall'azienda. \
 Un incontro può essere richiesto, per esempio, per alcune delle seguenti necessità:
-- chiarimenti relativi a requisiti o vincoli del capitolato
-- chiarimenti relativi alle tecnologie utilizzate
-- richieste di feedback su quanto prodotto
+- chiarimenti relativi a requisiti o vincoli del capitolato;
+- chiarimenti relativi alle tecnologie utilizzate;
+- richieste di feedback su quanto prodotto.
 
 Per ogni colloquio con l'azienda proponente verrà redatto un resoconto sotto forma di `Verbale Esterno`, che riporterà nel nome e all'interno del documento la data del relativo incontro. \
 I verbali redatti potranno essere consultati all'interno della relativa cartella presente sul repository #link("https://github.com/overture-unipd/docs/tree/master/documents"), disponibile per ogni baseline del progetto. 
@@ -91,36 +91,36 @@ Vengono elencati di seguito i documenti che il gruppo _#(g.name)_ consegnerà al
 ==== `Valutazione dei Capitolati`
 La `Valutazione dei capitolati` è un documento che fornisce una panoramica dettagliata sui capitolati d'appalto, presentati il giorno 2023-10-17. Per ogni progetto si individuano le richieste del proponente, le possibili soluzioni ed eventuali criticità. \
 È suddiviso nelle seguenti sezioni:
-- *Descrizione*: nome del progetto, azienda proponente, informazioni generali relative al prodotto da sviluppare secondo quanto descritto nella presentazione del capitolato
-- *Dominio applicativo*: contesto del progetto
-- *Dominio tecnologico*: tecnologie da utilizzare per lo sviluppo
-- *Aspetti positivi*
-- *Fattori critici*
-- *Conclusione*: motivazioni sulla scelta/non scelta del capitolato
+- *Descrizione*: nome del progetto, azienda proponente, informazioni generali relative al prodotto da sviluppare secondo quanto descritto nella presentazione del capitolato;
+- *Dominio applicativo*: contesto del progetto;
+- *Dominio tecnologico*: tecnologie da utilizzare per lo sviluppo;
+- *Aspetti positivi*;
+- *Fattori critici*;
+- *Conclusione*: motivazioni sulla scelta/non scelta del capitolato.
 
 ==== `Analisi dei Requisiti`
 L'`Analisi dei Requisiti` è un documento che definisce le funzionalità che il prodotto è in grado di offrire ed i requisiti da soddisfare affinchè il software sviluppato sia conforme alle richieste fatte dal proponente.
 Contiene le seguenti informazioni:
-- *Descrizione del prodotto*: obiettivo finale del prodotto e le sue funzionalità principali
-- *Lista dei casi d'uso*: identificazione di tutti gli scenari di utilizzo del sistema da parte degli utenti. Per ogni caso d'uso sono analizzati: lo scenario, gli attori coinvolti e le azioni che possono compiere
+- *Descrizione del prodotto*: obiettivo finale del prodotto e le sue funzionalità principali;
+- *Lista dei casi d'uso*: identificazione di tutti gli scenari di utilizzo del sistema da parte degli utenti. Per ogni caso d'uso sono analizzati: lo scenario, gli attori coinvolti e le azioni che possono compiere;
 - *Lista dei requisiti*: tutte le richieste o vincoli definiti dal proponente o dedotti dal team per la realizzazione del prodotto finale. I requisiti possono essere obbligatori, desiderabili e opzionali e verranno classificati dal gruppo a seconda della loro importanza.
 
 ==== `Piano di Progetto`
 Il `Piano di Progetto` è un documento soggetto a versionamento e approvazione, redatto e aggiornato dal Responsabile con il supporto degli Amministratori durante tutta la durata del progetto. Ha l'obiettivo di delineare la pinaificarzione e la gestione delle attività necessarie per la realizzazione del progetto. \
 Contiene le seguenti informazioni:
-- *Analisi dei Rischi*: identificazione di eventuali problematiche riscontrate durante lo sviluppo che potrebbero rallentare o ostacolare le attività di progetto. Al fine di fare prevenzione sui problemi, il gruppo metterà a disposizione delle soluzioni per il team il prima possibile. Sono classificati in: rischi organizzativi e rischi tecnologici.
-- *Modello di sviluppo*: descrizione dell'approccio metodologico e strutturato utilizzato dal gruppo per lo sviluppo del prodotto
-- *Pianificazione*: scansione dei periodi, con i relativi eventi e attività da svolgere, all'interno di un calendario. Per ogni periodo verranno inserite le suddivisioni dei ruoli e una stima dell'impegno richiesto da ogni componente del gruppo per svolgere le proprie attività.
-- *Preventivo*: stima della durata di ogni singolo periodo; il tempo necessario per poter completare tutte le attività.
+- *Analisi dei Rischi*: identificazione di eventuali problematiche riscontrate durante lo sviluppo che potrebbero rallentare o ostacolare le attività di progetto. Al fine di fare prevenzione sui problemi, il gruppo metterà a disposizione delle soluzioni per il team il prima possibile. Sono classificati in: rischi organizzativi e rischi tecnologici;
+- *Modello di sviluppo*: descrizione dell'approccio metodologico e strutturato utilizzato dal gruppo per lo sviluppo del prodotto;
+- *Pianificazione*: scansione dei periodi, con i relativi eventi e attività da svolgere, all'interno di un calendario. Per ogni periodo verranno inserite le suddivisioni dei ruoli e una stima dell'impegno richiesto da ogni componente del gruppo per svolgere le proprie attività;
+- *Preventivo*: stima della durata di ogni singolo periodo; il tempo necessario per poter completare tutte le attività;
 - *Consuntivo*: confronto del lavoro svolto rispetto al preventivo per ottentere lo stato di avanzamento del progetto alla fine di ogni periodo.
 
 ==== `Piano di Qualifica`
 Il `Piano di Qualifica` è un documento formale che descrive i compiti e le attività svolte dal Verificatore all'interno del progetto, necessarie a garantire qualità al prodotto software che si intende sviluppare. È uno strumento fondamentale per la gestione del processo di sviluppo software: assicura che il prodotto finale sia conforme alle specifiche richieste e alle aspettative del committente, monitorando il suo stato di avanzamento rispetto agli obiettivi prefissati. Ogni membro del gruppo che parteciperà allo sviluppo farà riferimento a questo documento al fine di garantire la qualità richiesta.\
 È suddiviso nelle seguenti sezioni:
-- *Qualità di processo*: definizione dei parametri e delle metriche da rispettare per garantire processi di qualità elevata
-- *Qualità di prodotto*: definizione dei parametri e delle metriche da rispettare per garantire un prodotto finale di qualità elevata
-- *Test*: descrizione dei test necessari per assicurare che i requisiti stabiliti vengano soddisfatti nel prodotto
-- *Valutazioni per il miglioramento*: resoconto dell'attività di verifica svolta e delle criticità riscontrate durante il processo di sviluppo del software
+- *Qualità di processo*: definizione dei parametri e delle metriche da rispettare per garantire processi di qualità elevata;
+- *Qualità di prodotto*: definizione dei parametri e delle metriche da rispettare per garantire un prodotto finale di qualità elevata;
+- *Test*: descrizione dei test necessari per assicurare che i requisiti stabiliti vengano soddisfatti nel prodotto;
+- *Valutazioni per il miglioramento*: resoconto dell'attività di verifica svolta e delle criticità riscontrate durante il processo di sviluppo del software.
 
 ==== `Glossario`
 Il `Glossario` è un documento di supporto concepito sia per i membri del gruppo, ma anche per i committenti e l'azienda proponente. La sua stesura permette di evitare ambiguitá o incomprensioni riguardanti la terminologia utilizzata in tutta la documentazione del progetto. 
@@ -200,12 +200,12 @@ L'Analisi dei Requisiti Software richiede che, per ciascun elemento software o e
 
 ==== Progettazione architetturale del software
 Per ogni elemento software (o elemento di configurazione software, se identificato), l'attività include i seguenti compiti:
-- Lo sviluppatore converte i requisiti dell'elemento software in un'architettura, delineandone la struttura di alto livello e identificando i componenti software. L'assegnazione di tutti i requisiti dell'elemento software ai suoi componenti e la loro ulteriore definizione per agevolare la progettazione dettagliata sono garantite. L'architettura dell'elemento software dovrà essere documentata.
-- Sviluppo e documentazione di un progetto di alto livello per le interfacce esterne all'elemento software e tra i componenti software dello stesso.
-- Sviluppo e documentazione di un progetto di alto livello per il database.
-- Sviluppo e documentazione di versioni preliminari della documentazione per l'utente.
-- Definizione e documentazione dei requisiti preliminari di prova e della pianificazione per l'integrazione del software.
-- Valutazione dell'architettura dell'elemento software e dei progetti delle interfacce e del database, considerando criteri come rintracciabilità, coerenza interna ed esterna, appropriata utilizzo di metodi e standard di progettazione, fattibilità della progettazione dettagliata, e fattibilità di operazione e manutenzione. I risultati di queste valutazioni sono documentati.
+- Lo sviluppatore converte i requisiti dell'elemento software in un'architettura, delineandone la struttura di alto livello e identificando i componenti software. L'assegnazione di tutti i requisiti dell'elemento software ai suoi componenti e la loro ulteriore definizione per agevolare la progettazione dettagliata sono garantite. L'architettura dell'elemento software dovrà essere documentata;
+- Sviluppo e documentazione di un progetto di alto livello per le interfacce esterne all'elemento software e tra i componenti software dello stesso;
+- Sviluppo e documentazione di un progetto di alto livello per il database;
+- Sviluppo e documentazione di versioni preliminari della documentazione per l'utente;
+- Definizione e documentazione dei requisiti preliminari di prova e della pianificazione per l'integrazione del software;
+- Valutazione dell'architettura dell'elemento software e dei progetti delle interfacce e del database, considerando criteri come rintracciabilità, coerenza interna ed esterna, appropriata utilizzo di metodi e standard di progettazione, fattibilità della progettazione dettagliata, e fattibilità di operazione e manutenzione. I risultati di queste valutazioni sono documentati;
 - Conduzione di una o più revisioni.
 
 
@@ -230,23 +230,23 @@ del software, riportando le decisioni adottate e le norme attuate dal grupppo du
 La documentazione software traccia il lavoro svolto e le decisioni prese. Questa sezione del documento si occupa di tutte le norme adottate dal gruppo relative alla documentazione.
 
 === Aspettative
-- Definire delle regole chiare e concise per la stesura di tutti i documenti relativi al progetto
-- Creare template per tutti i tipi di documenti per garantire omogeneità
+- Definire delle regole chiare e concise per la stesura di tutti i documenti relativi al progetto;
+- Creare template per tutti i tipi di documenti per garantire omogeneità.
 
 === Ciclo di vita
 Il ciclo di vita di un documento è composto da sette fasi:
-+ Creazione o adattamento del template: la prima fase prevede la creazione o l'adattamento di un template per il documento corrente. Il template contiene la struttura e la formattazione del documento, nonché le informazioni di base, come titolo, autore e data.
-+ Pianificazione e assegnazione delle sezioni: nella seconda fase le sezioni del documento vengono pianificate e assegnate ai Redattori incaricati. I Redattori sono responsabili della stesura delle proprie sezioni in conformità con le `Norme di Progetto`.
-+ Raccolta dei contenuti e creazione della prima bozza: nella terza fase i Redattori raccolgono i contenuti da discutere e creano una prima bozza del documento. La bozza viene utilizzata come punto di partenza per la discussione e la revisione.
-+ Stesura effettiva del documento: la quarta fase vede i Redattori redirigere le proprie sezioni in conformità con il modello e le `Norme di Progetto`.
-+ Controllo dei contenuti: nella quinta fase i Redattori verificano che il contenuto delle proprie sezioni sia conforme alle `Norme di Progetto` e non contenga errori di compilazione.
-+ Revisione: la sesta fase prevede che un Verificatore incaricato revisioni il documento per assicurarsi che le modifiche apportate siano corrette.
++ Creazione o adattamento del template: la prima fase prevede la creazione o l'adattamento di un template per il documento corrente. Il template contiene la struttura e la formattazione del documento, nonché le informazioni di base, come titolo, autore e data;
++ Pianificazione e assegnazione delle sezioni: nella seconda fase le sezioni del documento vengono pianificate e assegnate ai Redattori incaricati. I Redattori sono responsabili della stesura delle proprie sezioni in conformità con le `Norme di Progetto`;
++ Raccolta dei contenuti e creazione della prima bozza: nella terza fase i Redattori raccolgono i contenuti da discutere e creano una prima bozza del documento. La bozza viene utilizzata come punto di partenza per la discussione e la revisione;
++ Stesura effettiva del documento: la quarta fase vede i Redattori redirigere le proprie sezioni in conformità con il modello e le `Norme di Progetto`;
++ Controllo dei contenuti: nella quinta fase i Redattori verificano che il contenuto delle proprie sezioni sia conforme alle `Norme di Progetto` e non contenga errori di compilazione;
++ Revisione: la sesta fase prevede che un Verificatore incaricato revisioni il documento per assicurarsi che le modifiche apportate siano corrette;
 + Approvazione e rilascio: nell'ultima fase il documento viene approvato da un Responsabile e rilasciato in versione finale.
 
 === Sistema di composizione tipografica
 Per la composizione tipografica dei documenti, abbiamo deciso di utilizzare Typst, al posto del noto LaTeX. Offre diversi vantaggi rispetto a LaTeX:
-- semplicità di utilizzo (simile a Markdown)
-- programmabilità reale invece di un sistema di macro
+- semplicità di utilizzo (simile a Markdown);
+- programmabilità reale invece di un sistema di macro;
 - compilazione pressochè immediata.\
 L'utilizzo di Typst semplifica la creazione e la manutenzione dei documenti, liberando i redattori dalla responsabilità della visualizzazione grafica e garantendo una certa coerenza nella documentazione del progetto.\
 Il template sviluppato ed utilizzato è presente nella #link(g.org+"/"+g.docs)[repository #g.docs], nella cartella `templates`.
@@ -256,23 +256,23 @@ Ogni documento prodotto viene organizzato nelle seguenti sezioni:
 
 ==== Intestazione
 La prima pagina funge da intestazione del documento e presenta gli elementi di seguito:
-- *Nome del documento*
-- *Data*: la data in cui è stata approvata l'ultima versione del documento
-- *Versione*: la versione corrente del documento
-- *Logo del gruppo*: presente nel percorso `imgs/group_logo.png`
-- *Email*: #link("mailto:"+g.mail)
-- *Destinatari*: a chi è il rivolto il documento
-- *Responsabile*: chi ha approvato il documento
-- *Redattori*: incaricati della stesura del documento
-- *Verificatori*: incaricati della verifica del documento
+- *Nome del documento*;
+- *Data*: la data in cui è stata approvata l'ultima versione del documento;
+- *Versione*: la versione corrente del documento;
+- *Logo del gruppo*: presente nel percorso `imgs/group_logo.png`;
+- *Email*: #link("mailto:"+g.mail);
+- *Destinatari*: a chi è il rivolto il documento;
+- *Responsabile*: chi ha approvato il documento;
+- *Redattori*: incaricati della stesura del documento;
+- *Verificatori*: incaricati della verifica del documento.
 
 ==== Registro delle modifiche
 La seconda pagina è dedicata al registro delle modifiche. Le informazioni sono organizzate in una tabella e permettono di tenere traccia dei cambiamenti subiti dal documento. La tabella riporta i seguenti dati:
-- *Versione*: il numero di versione del documento
-- *Data*: data di approvazione del documento
-- *Autori*: chi ha effettuato le modifiche
-- *Verificatori*: chi ha approvato le modifiche
-- *Dettaglio*: una breve descrizione
+- *Versione*: il numero di versione del documento;
+- *Data*: data di approvazione del documento;
+- *Autori*: chi ha effettuato le modifiche;
+- *Verificatori*: chi ha approvato le modifiche;
+- *Dettaglio*: una breve descrizione.
 
 ==== Indice
 Nella terza pagina è presente l'indice che elenca le sezioni contenute nel documento.
@@ -284,28 +284,28 @@ Il contenuto del documento è suddiviso in capitoli, ognuno dei quali è formato
 Il contenuto del verbale è suddiviso nelle seguenti sezioni:
 
 - *Informazioni sulla riunione*:
-  - *Luogo*: può essere il luogo fisico dove si è tenuto l'incontro oppure il nome della piattaforma online utilizzata
-  - *Ora di inizio*
-  - *Ora di fine*
-  - *Partecipanti*: i nomi dei componenti del gruppo che hanno partecipato alla riunione
-  - *Partecipanti esterni*: i nomi di eventuali partecipanti esterni
-- *Ordine del giorno*: un elenco di ciò che verrà discusso durante la riunione
-- *Sintesi dell'incontro*: contiene un breve riassunto delle discussioni e dei temi affrontati durante l'incontro.
-- *Decisioni prese*: sezione che elenca in forma testuale le decisioni prese durante l'incontro. Alcune di queste potrebbero risultare in "attività individuate"
+  - *Luogo*: può essere il luogo fisico dove si è tenuto l'incontro oppure il nome della piattaforma online utilizzata;
+  - *Ora di inizio*;
+  - *Ora di fine*;
+  - *Partecipanti*: i nomi dei componenti del gruppo che hanno partecipato alla riunione;
+  - *Partecipanti esterni*: i nomi di eventuali partecipanti esterni.
+- *Ordine del giorno*: un elenco di ciò che verrà discusso durante la riunione;
+- *Sintesi dell'incontro*: contiene un breve riassunto delle discussioni e dei temi affrontati durante l'incontro;
+- *Decisioni prese*: sezione che elenca in forma testuale le decisioni prese durante l'incontro. Alcune di queste potrebbero risultare in "attività individuate";
 - *Attività individuate*: illustrazione dettagliata delle attività assegnate ai diversi membri del gruppo a conclusione dell'incontro. Queste informazioni, inserite in un'apposita tabella, riportano:
-  - *ID*: collegamento alla relativa issue su GitHub
-  - *Dettaglio*: breve spiegazione dell'attività
-  - *Assegnatari*: i nomi degli incaricati a svolgere l'attività
+  - *ID*: collegamento alla relativa issue su GitHub;
+  - *Dettaglio*: breve spiegazione dell'attività;
+  - *Assegnatari*: i nomi degli incaricati a svolgere l'attività.
 
 ==== Documenti del progetto
 Verranno prodotti i seguenti documenti:
-- *`Norme di Progetto`*
-- *`Piano di Progetto`*
-- *`Piano di Qualifica`*
-- *`Analisi dei requisiti`*
-- *`Glossario`*
-- *`Verbali Interni`*
-- *`Verbali Esterni`*
+- *`Norme di Progetto`*;
+- *`Piano di Progetto`*;
+- *`Piano di Qualifica`*;
+- *`Analisi dei requisiti`*;
+- *`Glossario`*;
+- *`Verbali Interni`*;
+- *`Verbali Esterni`*;
 
 
 === Regole stilistiche
@@ -318,13 +318,13 @@ I documenti PDF presenti nella #link(g.org+"/"+g.docs)[repository #g.docs], risp
 - versione del documento alla fine del nome del file
 
 I nomi dei documenti presenti nel progetto saranno quindi del tipo:
-- *`Norme di Progetto`*: `norme_di_progetto_vX.X.X`
-- *`Piano di Progetto`*: `piano_di_progetto_vX.X.X`
-- *`Piano di Qualifica`*: `piano_di_qualifica_vX.X.X`
-- *`Analisi dei Requisiti`*: `analisi_dei_requisiti_vX.X.X`
-- *`Glossario`*: `glossario_vX.X.X`
-- *`Verbali Interni`*: `VI_YYYY_MM_DD_vX.X`
-- *`Verbali Esterni`*: `VE_YYYY_MM_DD_vX.X`
+- *`Norme di Progetto`*: `norme_di_progetto_vX.X.X`;
+- *`Piano di Progetto`*: `piano_di_progetto_vX.X.X`;
+- *`Piano di Qualifica`*: `piano_di_qualifica_vX.X.X`;
+- *`Analisi dei Requisiti`*: `analisi_dei_requisiti_vX.X.X`;
+- *`Glossario`*: `glossario_vX.X.X`;
+- *`Verbali Interni`*: `VI_YYYY_MM_DD_vX.X`;
+- *`Verbali Esterni`*: `VE_YYYY_MM_DD_vX.X`.
 
 Si noti che i sorgenti `.typ` non includono la versione nel nome, ma è aggiunta ai PDF dopo la compilazione.\
 Usare lo stesso nome per i documenti consente di utilizzare Git in modo appropriato: tracciare i cambiamenti di file di testo, con relativa facilità di utilizzo della funzione di "diff".
@@ -333,35 +333,35 @@ Usare lo stesso nome per i documenti consente di utilizzare Git in modo appropri
 //link sottolineati, grassetto per elenchi puntati nei documenti (non verbali altrimenti bisogna correggere) e parole importanti. Font "New Computer Modern Mono" per nomi di file, documenti, esempi di codice. Maiuscolo per iniziali dei nomi e dei ruoli,
 Nei documenti, esclusi i verbali, verranno utilizzati:
 - il _corsivo_ per:
-  - il nome del gruppo (_#(g.name)_)
-  - il nome dell'azienda proponente (_#(p.zextras)_)
+  - il nome del gruppo (_#(g.name)_);
+  - il nome dell'azienda proponente (_#(p.zextras)_).
 
 - il *grassetto* per:
-  - parole seguite da descrizione negli elenchi puntati
-  - termini importanti
+  - parole seguite da descrizione negli elenchi puntati;
+  - termini importanti;
 - un `font monospace` per:
-  - i nomi dei documenti
-  - i nomi dei file
-  - i nomi delle cartelle o repository
-  - esempi di codice
+  - i nomi dei documenti;
+  - i nomi dei file;
+  - i nomi delle cartelle o repository;
+  - esempi di codice.
 - il #underline("sottolineato") per:
-  - i link
-  - l'indirizzo email
+  - i link;
+  - l'indirizzo email.
 - le lettere maiuscole per:
-  - le iniziali dei nomi
-  - gli acronimi
-  - le iniziali dei ruoli svolti dai componenti del gruppo
+  - le iniziali dei nomi;
+  - gli acronimi;
+  - le iniziali dei ruoli svolti dai componenti del gruppo.
 
 ==== Formato delle date
-Viene adottato lo standard internazionale *ISO 8601*, nella forma `YYYY-MM-DD`, indicante rispettivamente
-- *`YYYY`*: l'anno con 4 cifre
-- *`MM`*: il mese con 2 cifre
-- *`DD`*: il giorno con 2 cifre
+Viene adottato lo standard internazionale *ISO 8601*, nella forma `YYYY-MM-DD`, indicante rispettivamente:
+- *`YYYY`*: l'anno con 4 cifre;
+- *`MM`*: il mese con 2 cifre;
+- *`DD`*: il giorno con 2 cifre.
 
 === Strumenti
 I seguenti strumenti sono stati scelti dal gruppo per la realizzazione della documentazione:
-- *Typst*: linguaggio per la stesura dei documenti, tramite #link("typst.app")
-- *GitHub*: servizio di hosting di repository
+- *Typst*: linguaggio per la stesura dei documenti, tramite #link("typst.app");
+- *GitHub*: servizio di hosting di repository.
 
 //=== Metriche, più avanti
 
@@ -395,9 +395,9 @@ Diversi tipi di test sono disponibili, differenziandosi sulla base della dimensi
 === Scopo ed aspettative
 La validazione costituisce l'essenziale verifica che il prodotto software sia in linea con i requisiti e le aspettative del cliente, rappresentando una fase cruciale nello sviluppo del software.\
 Questo processo si concentra attentamente su diversi aspetti:
-- *Conformità ai requisiti*: Il prodotto deve soddisfare integralmente tutti i requisiti specificati dal cliente.
-- *Funzionamento corretto*: Il prodotto deve operare correttamente, in conformità con la logica di progettazione.
-- *Usabilità*: Il prodotto deve essere intuitivo e di facile utilizzo.
+- *Conformità ai requisiti*: Il prodotto deve soddisfare integralmente tutti i requisiti specificati dal cliente;
+- *Funzionamento corretto*: Il prodotto deve operare correttamente, in conformità con la logica di progettazione;
+- *Usabilità*: Il prodotto deve essere intuitivo e di facile utilizzo;
 - *Efficacia*: Il prodotto deve dimostrarsi efficace nel soddisfare le necessità dei clienti.
 L'aspettativa finale è di giungere ad un prodotto che risponda pienamente ai requisiti identificati ed operi.
 
@@ -418,11 +418,11 @@ Il processo di gestione, come stabilito dallo standard ISO/IEC 12207:1997, ident
 
 === Descrizione
 Questo processo è suddiviso nelle seguenti attività:
-- Inizio e definizione dello scopo
-- Pianificazione
-- Esecuzione e controllo
-- Revisione e valutazione
-- Chiusura
+- Inizio e definizione dello scopo;
+- Pianificazione;
+- Esecuzione e controllo;
+- Revisione e valutazione;
+- Chiusura.
 
 === Pianificazione
 ==== Scopo
@@ -431,8 +431,8 @@ Il Responsabile redigerà questa pianificazione all'interno del documento `Piano
 
 ==== Descrizione
 L'attività di pianificazione verrà articolata nelle seguenti sezioni:
-- Ruoli
-- Ticketing
+- Ruoli;
+- Ticketing.
 
 ==== Aspettative
 L'attività di pianificazione serve a stabilire delle regole comuni che il gruppo _Ouverture_ attuerà per la sua organizzazione lavorativa.
@@ -444,72 +444,72 @@ del gruppo per il progetto sono decisi dal Responsabile di Progetto. Al termine 
 *Responsabile di Progetto*\
 Il Responsabile ha il compito fondamentale di coordinare i membri del gruppo e rappresentarlo presso il proponente e i committenti. \
 I suoi principali compiti sono:
-- approvare la documentazione
-- gestire la pianificazione del progetto: determina le attività da svolgere e la loro priorità
-- coordinare i membri: assegna e verifica l'avanzamento dei compiti che devono essere protati a termine
-- studiare e gestire l'analisi dei rischi
-- curare i rapporti tra i membri del gruppo e soggetti esterni
+- approvare la documentazione;
+- gestire la pianificazione del progetto: determina le attività da svolgere e la loro priorità;
+- coordinare i membri: assegna e verifica l'avanzamento dei compiti che devono essere protati a termine;
+- studiare e gestire l'analisi dei rischi;
+- curare i rapporti tra i membri del gruppo e soggetti esterni.
 
 *Amministratore di Progetto*\
 L'Amministratore definisce, controlla e gestisce l'ambiente e gli strumenti di lavoro del gruppo, con piena responsabilità sull'efficacia ed efficienza del Way of Working.\
 I suoi principali compiti sono:
-- migliorare l'ambiente di lavoro: ricercare gli strumenti necessari ad automatizzare i processi
-- gestione dei processi: atta a risolverne i problemi legati
-- redigere e mantenere la documentazione: gestisce il versionamento
-- gestire la configurazione di prodotto: controllo sul prodotto software
+- migliorare l'ambiente di lavoro: ricercare gli strumenti necessari ad automatizzare i processi;
+- gestione dei processi: atta a risolverne i problemi legati;
+- redigere e mantenere la documentazione: gestisce il versionamento;
+- gestire la configurazione di prodotto: controllo sul prodotto software.
 
 
 *Analista*\
 L'Analista approfondisce le richieste del Capitolato ed è presente principalmente nelle fasi iniziali del progetto. E' fondamentale che l' `Analisi dei Requisiti` sia adeguata: l'identificazione errata dei requisiti può compromettere in modo significato la fase di Progettazione e l'esito del progetto. Conosce meglio degli altri componenti il dominio del problema. \
 Ha il compito di:
-- studiare il problema e il relativo contesto applicativo
-- raccogliere e studiare i bisogni dei committenti
-- scrivere i documenti `Analisi dei Requisiti` e `Studio di Fattibilità`
-- studiare i requisiti definendo la loro complessità
+- studiare il problema e il relativo contesto applicativo;
+- raccogliere e studiare i bisogni dei committenti;
+- scrivere i documenti `Analisi dei Requisiti` e `Studio di Fattibilità`;
+- studiare i requisiti definendo la loro complessità.
 
 *Progettista*\
 Il Progettista determina le scelte realizzative del progetto, trasformando i requisiti individuati dagli Analisti in un'architettura che modelli il problema. Il Progettista seguirà lo sviluppo particolarmente, ma non la manutenzione. \
 Ha il compito di:
-- sviluppare un prodotto economico, facilmente manutenibile a partire dal lavoro dell'analista
-- favorire efficienza ed efficacia grazie alle scelte tecniche effettuate
-- garantire un basso grado di accoppiamento grazie ad un sistema ben strutturato
+- sviluppare un prodotto economico, facilmente manutenibile a partire dal lavoro dell'analista;
+- favorire efficienza ed efficacia grazie alle scelte tecniche effettuate;
+- garantire un basso grado di accoppiamento grazie ad un sistema ben strutturato.
 
 *Verificatore*\
 Il Verificatore controlla il lovoro svolto dagli altri componenti del gruppo, assicurandosi che le norme vengano attuate correttamente. \
 Ha il compito di:
-- verificare la correttezza delle attività tramite gli strumenti e tecniche definiti nelle `Norme di Progetto`
-- redigere la sezione "Retrospettiva" del `Piano di Qualifica`, in cui descriverà che tipo di verifiche e metriche sono state adottare per le revisioni
+- verificare la correttezza delle attività tramite gli strumenti e tecniche definiti nelle `Norme di Progetto`;
+- redigere la sezione "Retrospettiva" del `Piano di Qualifica`, in cui descriverà che tipo di verifiche e metriche sono state adottare per le revisioni.
 
 *Programmatore*\
 Il Programmatore è incaricato a svolgere l'attività di codifica del progetto e delle componenti di supporto con lo scopo di realizzare l'architettura proposta dal progettista. \
 Ha il compito di:
-- implementare la Specifica Tecnica scritta dal Progettista
-- scrivere codice mantenibile, che rispetti le `Norme di Progetto`
-- creare test per la verifica e validazione del codice
-- scrivere il manuale utente
+- implementare la Specifica Tecnica scritta dal Progettista;
+- scrivere codice mantenibile, che rispetti le `Norme di Progetto`;
+- creare test per la verifica e validazione del codice;
+- scrivere il manuale utente.
 
 ==== Ticketing
 Il gruppo _Ouverture_ adotta l'*Issue Tracking System* (ITS) interno di GitHub. GitHub permette una gestione semplice e chiara dei compiti da svolgere: le Issue vengono create molto velocemente e possono essere chiuse con altrettanta rapidità.\
 È compito del Responsabile creare i task ed assegnarli ai vari membri del gruppo, il cui stato di avanzamento è consultabile all'interno della Board. \
 Le Issue sono create dal Responsabile e hanno:
-- *titolo*: identifica in modo univoco il compito da svolgere
-- *descrizione*: una lista dei nomi dei file coinvolti nel task
-- *assegnatario*: il componente incaricato a svolgere il task
-- *verificatore*: il componente incaricato ad accertare il corretto completamento del task
-- *milestone*: il traguardo da raggiungere
-- *etichetta*: il tipo di task
-- *stato*: avanzamento del task
+- *titolo*: identifica in modo univoco il compito da svolgere;
+- *descrizione*: una lista dei nomi dei file coinvolti nel task;
+- *assegnatario*: il componente incaricato a svolgere il task;
+- *verificatore*: il componente incaricato ad accertare il corretto completamento del task;
+- *milestone*: il traguardo da raggiungere;
+- *etichetta*: il tipo di task;
+- *stato*: avanzamento del task.
 Ogni qualvolta ci sia la necessità di portare a termine un compito è necessario seguire la seguente procedura:
-+ il Responsabile crea una nuova Issue su GitHub e la assegna. La Issue ha stato "to do"
-+ all'inizio del lavoro di produzione la Issue cambia stato, passando a "in progress". Viene creato un nuovo branch per ogni Issue
-+ finito il lavoro di produzione, viene aperta una pull request su GitHub, inserendo nella descrizione il comando `closes(#X)`, dove X identifica univocamente la Issue. Viene assegnato il Verificatore
++ il Responsabile crea una nuova Issue su GitHub e la assegna. La Issue ha stato "to do";
++ all'inizio del lavoro di produzione la Issue cambia stato, passando a "in progress". Viene creato un nuovo branch per ogni Issue;
++ finito il lavoro di produzione, viene aperta una pull request su GitHub, inserendo nella descrizione il comando `closes(#X)`, dove X identifica univocamente la Issue. Viene assegnato il Verificatore;
 + il Verificatore si accerta del lavoro svolto:
   - se la verifica ha esito *positivo*:
-    + il Verificatore conferma su GitHub la pull requet ED effettua il merge al ramo principale
-    + la Issue viene marcata "Done" su GitHub automaticamente
+    + il Verificatore conferma su GitHub la pull requet ED effettua il merge al ramo principale;
+    + la Issue viene marcata "Done" su GitHub automaticamente.
   - se la verifica ha esito *negativo*:
-    + il Verificatore rilascia una lista di cambiamenti suggeriti nella relativa Issue su GitHub
-    + l'incaricato apporta le modifiche suggerite e si torna al punto 3
+    + il Verificatore rilascia una lista di cambiamenti suggeriti nella relativa Issue su GitHub;
+    + l'incaricato apporta le modifiche suggerite e si torna al punto 3.
 
 === Coordinamento
 Il Coordinamento è l'attività responsabile della gestione delle comunicazioni e degli incontri tra le diverse parti coinvolte nel progetto, ovvero membri del team, proponente e committenti. Il coordinamento assume un ruolo di rilievo nell'assicurare l'efficienza del progetto e il coinvolgimento di tutte le parti interessate.\
@@ -518,8 +518,9 @@ La comunicazione, cruciale per garantire chiarezza e concisione nel dialogo tra 
 
 ==== Comunicazioni
 *Comunicazioni interne*
-Le comunicazioni saranno gestite attraverso due canali principali: *Telegram* e *Discord.* Telegram, un servizio di messaggistica istantanea, sarà utilizzato per consentire conversazioni rapide, informali e accessibili via smartphone. Le riunnioni remote, invece, avverranno in videcohiamata su Discord.\
-Per organizzare efficacemente il lavoro di gruppo le discussioni saranno condotte su Telegram e si organizzerà un incontro straordinario tramite videochiamata su Discord per trattare eventuali temi critici. In caso di malfunzionamenti di Telegram, il gruppo si sposterà temporaneamente su Discord, includendo anche gli scambi informali.
+Le comunicazioni saranno gestite attraverso due canali principali: *Telegram* e *Discord*. Telegram, un servizio di messaggistica istantanea, sarà impiegato per facilitare conversazioni rapide, informali e accessibili tramite dispositivi mobili. Le riunioni a distanza e le discussioni più strutturate saranno invece condotte su Discord.\
+Al fine di coordinare in modo efficace le attività di gruppo, le discussioni di routine avverranno su Telegram, mentre eventuali questioni critiche saranno affrontate durante incontri straordinari attraverso videochiamate su Discord. In caso di inconvenienti tecnici con Telegram, il gruppo si trasferirà temporaneamente su Discord, comprese le conversazioni informali.\
+Il canale Discord includerà una sezione testuale informale dedicata alle comunicazioni rapide con il proponente e canali specifici saranno creati per tracciare le diverse conversazioni in base agli argomenti trattati.
 
 *Comunicazioni esterne*
 Il Responsabile del progetto sarà incaricato di gestire il dialogo esterno attraverso l'indirizzo email: #link("mailto:"+g.mail). Si assicurerà che ogni membro del gruppo sia informato sulle corrispondenze con committenti e proponente, seguendo le norme precedentemente stabilite per le comunicazioni interne.
@@ -531,15 +532,15 @@ Al fine di garantire l'efficienza delle riunioni il responsabile corrente avrà 
 Le riunioni interne sono programmate settimanalmente alle ore 16:00 di ogni mercoledì, concordate di comune accordo tra i membri del gruppo. In caso di necessità, è possibile richiedere riunioni straordinarie durante la settimana tramite il canale dedicato su Telegram, con data e orario stabiliti attraverso un sondaggio. Tutte le riunioni online si svolgeranno nel canale Discord appositamente designato.
 
 *Compiti del responsabile*
-- Esporre i punti all'ordine del giorno relativamente alla loro priorità
-- Aggiornare il resto del gruppo in caso di variazioni orarie
-- Pianificare le attività da svolgere
-- Assegnare i task ai membri del gruppo
-- Approvare il verbale
+- Esporre i punti all'ordine del giorno relativamente alla loro priorità;
+- Aggiornare il resto del gruppo in caso di variazioni orarie;
+- Pianificare le attività da svolgere;
+- Assegnare i task ai membri del gruppo;
+- Approvare il verbale.
 
 *Doveri partecipanti*
-- Essere presenti e puntuali alle riunioni settimanali
-- Mantenere un comportamento consono durante lo svolgimento della riunione
+- Essere presenti e puntuali alle riunioni settimanali;
+- Mantenere un comportamento consono durante lo svolgimento della riunione.
 
 *Riunioni Esterne:*\
 Le riunioni esterne coinvolgono i membri del gruppo _#(g.name)_, il proponente e i committenti.\
