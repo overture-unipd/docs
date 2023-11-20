@@ -8,6 +8,7 @@
     p.cardin,
   ),
   changelog: (
+    "0.0.7", "2023-11-20", p.furno, p.vedovato, "Aggiunta della sezione 'Fornitura'",
     "0.0.6", "2023-11-18", p.vedovato, p.amadori, "Aggiunta della sezione 'Formazione'",
     "0.0.5", "2023-11-17", p.vedovato, p.amadori, "Aggiunta della sezione 'Miglioramento'",
     "0.0.4", "2023-11-16", (p.furno, p.fabbian), p.amadori, "Aggiunta della sezione 'Gestione dei processi'",
@@ -52,6 +53,94 @@ La presenza di un termine all'interno del glossario viene indicata applicando #g
 
 
 = Processi primari
+
+== Fornitura
+=== Scopo
+Come stabilito dallo standard ISO/IEC 1995, il processo di fornitura contiene le attività e i compiti del fornitore necessari per lo svolgimento del progetto. Il fornitore dovrà accordarsi con il proponente per stabilire, all'interno di un contratto, i requisiti, i vincoli e la data di consegna del prodotto finale.\ Lo scopo di questo processo è di tracciare e descrivere le attività svolte da ogni componente del gruppo _#(g.name)_, per determinare quanto lavoro è ancora da completare oppure è stato ultimato rispetto alle richieste del proponente. \
+Una volta trovato l'accordo con il proponente sarà possibile passare alla fase esecutiva, redigendo il `Piano di Progetto`.
+
+=== Descrizione
+Questo processo è diviso nelle seguenti fasi:
+- Inizializzazione
+- Preparazione delle risposte alla richieste
+- Contrattazione
+- Pianificazione
+- Esecuzione e controllo
+- Revisione e valutazione
+- Consegna e completamento
+
+=== Aspettative
+Il gruppo _#(g.name)_ intende instaurare e mantenere uno stretto rapporto di collaborazione con l'azienda proponente _Zextras_ e, in particolare, con le figure dei referenti: Alessio Crestani e Federico Rispo.  Grazie ad un dialogo continuo, il gruppo vuole:
+- ricevere feedback sul lavoro svolto
+- verificare che i vincoli e i requisiti individuati corrispondano a quanto richiesto dal capitolato e dall'azienda proponente
+
+=== Comunicazioni con il proponente
+L'azienda proponente _Zextras_ mette a disposizione l'email, i profili discord dei referenti e la piattaforma Carbonio come canali di comunicazione attraverso i quali chiarire dubbi e stabilire futuri incontri telematici. Le riunioni esterne non hanno una cadenza regolare, ma vengono richieste in base alle necessità dal gruppo o dall'azienda. \
+Un incontro può essere richiesto, per esempio, per alcune delle seguenti necessità:
+- chiarimenti relativi a requisiti o vincoli del capitolato
+- chiarimenti relativi alle tecnologie utilizzate
+- richieste di feedback su quanto prodotto
+
+Per ogni colloquio con l'azienda proponente verrà redatto un resoconto sotto forma di `Verbale Esterno`, che riporterà nel nome e all'interno del documento la data del relativo incontro. \
+I verbali redatti potranno essere consultati all'interno della relativa cartella presente sul repository #link("https://github.com/overture-unipd/docs/tree/master/documents"), disponibile per ogni baseline del progetto. 
+
+=== Documentazione fornita
+Vengono elencati di seguito i documenti che il gruppo _#(g.name)_ consegnerà all'azienda proponente _Zextras_ e ai committenti _Prof. Tullio Vardanega_ e _Prof. Riccardo Cardin_.
+
+==== `Valutazione dei Capitolati`
+La `Valutazione dei capitolati` è un documento che fornisce una panoramica dettagliata sui capitolati d'appalto, presentati il giorno 2023-10-17. Per ogni progetto si individuano le richieste del proponente, le possibili soluzioni ed eventuali criticità. \
+È suddiviso nelle seguenti sezioni:
+- *Descrizione*: nome del progetto, azienda proponente, informazioni generali relative al prodotto da sviluppare secondo quanto descritto nella presentazione del capitolato
+- *Dominio applicativo*: contesto del progetto
+- *Dominio tecnologico*: tecnologie da utilizzare per lo sviluppo
+- *Aspetti positivi*
+- *Fattori critici*
+- *Conclusione*: motivazioni sulla scelta/non scelta del capitolato
+
+==== `Analisi dei Requisiti`
+L'`Analisi dei Requisiti` è un documento che definisce le funzionalità che il prodotto è in grado di offrire ed i requisiti da soddisfare affinchè il software sviluppato sia conforme alle richieste fatte dal proponente.
+Contiene le seguenti informazioni:
+- *Descrizione del prodotto*: obiettivo finale del prodotto e le sue funzionalità principali
+- *Lista dei casi d'uso*: identificazione di tutti gli scenari di utilizzo del sistema da parte degli utenti. Per ogni caso d'uso sono analizzati: lo scenario, gli attori coinvolti e le azioni che possono compiere
+- *Lista dei requisiti*: tutte le richieste o vincoli definiti dal proponente o dedotti dal team per la realizzazione del prodotto finale. I requisiti possono essere obbligatori, desiderabili e opzionali e verranno classificati dal gruppo a seconda della loro importanza.
+
+==== `Piano di Progetto`
+Il `Piano di Progetto` è un documento soggetto a versionamento e approvazione, redatto e aggiornato dal Responsabile con il supporto degli Amministratori durante tutta la durata del progetto. Ha l'obiettivo di delineare la pinaificarzione e la gestione delle attività necessarie per la realizzazione del progetto. \
+Contiene le seguenti informazioni:
+- *Analisi dei Rischi*: identificazione di eventuali problematiche riscontrate durante lo sviluppo che potrebbero rallentare o ostacolare le attività di progetto. Al fine di fare prevenzione sui problemi, il gruppo metterà a disposizione delle soluzioni per il team il prima possibile. Sono classificati in: rischi organizzativi e rischi tecnologici.
+- *Modello di sviluppo*: descrizione dell'approccio metodologico e strutturato utilizzato dal gruppo per lo sviluppo del prodotto
+- *Pianificazione*: scansione dei periodi, con i relativi eventi e attività da svolgere, all'interno di un calendario. Per ogni periodo verranno inserite le suddivisioni dei ruoli e una stima dell'impegno richiesto da ogni componente del gruppo per svolgere le proprie attività.
+- *Preventivo*: stima della durata di ogni singolo periodo; il tempo necessario per poter completare tutte le attività.
+- *Consuntivo*: confronto del lavoro svolto rispetto al preventivo per ottentere lo stato di avanzamento del progetto alla fine di ogni periodo.
+
+==== `Piano di Qualifica`
+Il `Piano di Qualifica` è un documento formale che descrive i compiti e le attività svolte dal Verificatore all'interno del progetto, necessarie a garantire qualità al prodotto software che si intende sviluppare. È uno strumento fondamentale per la gestione del processo di sviluppo software: assicura che il prodotto finale sia conforme alle specifiche richieste e alle aspettative del committente, monitorando il suo stato di avanzamento rispetto agli obiettivi prefissati. Ogni membro del gruppo che parteciperà allo sviluppo farà riferimento a questo documento al fine di garantire la qualità richiesta.\
+È suddiviso nelle seguenti sezioni:
+- *Qualità di processo*: definizione dei parametri e delle metriche da rispettare per garantire processi di qualità elevata
+- *Qualità di prodotto*: definizione dei parametri e delle metriche da rispettare per garantire un prodotto finale di qualità elevata
+- *Test*: descrizione dei test necessari per assicurare che i requisiti stabiliti vengano soddisfatti nel prodotto
+- *Valutazioni per il miglioramento*: resoconto dell'attività di verifica svolta e delle criticità riscontrate durante il processo di sviluppo del software
+
+==== `Glossario`
+Il `Glossario` è un documento di supporto concepito sia per i membri del gruppo, ma anche per i committenti e l'azienda proponente. La sua stesura permette di evitare ambiguitá o incomprensioni riguardanti la terminologia utilizzata in tutta la documentazione del progetto. 
+
+==== `Lettera di Presentazione`
+La `Lettera di Presentazione` è il documento con cui il gruppo _#(g.name)_ esprime la volontà di partecipare alla fase di revisione del prodotto software. All'interno del documento viene elencata la documentazione messa a disposizione dei committenti e del proponente e i termini stabiliti per la consegna del prodotto ultimato. 
+
+=== Strumenti
+Gli strumenti software utilizzati per il processo di fornitura sono di seguito descritti.
+
+==== Google Calendar
+È un sistema di calendari creato da Google, offre la possibilità di pianificare le riunioni interne e condividerle a tutti i membri del gruppo.
+
+==== Typst
+Linguaggio utilizzato per la creazione dei diari di bordo, attraverso l'omonimo sito #link("typst.app").
+
+==== Carbonio - Zextras Chats
+Il prodotto principale dell'azienda _Zextras_; è utilizzato dal gruppo _#(g.name)_ per organizzare videoconferenze con il proponente. 
+
+==== Discord //vediamo se toglierlo
+Piattaforma di messaggistica e videochat utilizzata dal gruppo per le riunioni interne e come metodo informale per contattare l'azienda proponente.
 
 = Processi di supporto
 == Documentazione
