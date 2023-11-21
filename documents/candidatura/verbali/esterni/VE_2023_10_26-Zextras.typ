@@ -18,16 +18,16 @@
 = Contenuti del verbale
 
 == Informazioni sulla riunione
-- *Luogo*: Chiamata sulla piattaforma dell'azienda _#(p.zextras)_
-- *Ora di inizio*: 16:30
-- *Ora di fine*: 17:30
-- *Partecipanti*: #p.amadori, #p.bettin, #p.bonavigo, #p.bulychov, #p.fabbian, #p.vedovato
-- *Partecipanti esterni*: #p.crestani
+- *Luogo*: Chiamata sulla piattaforma dell'azienda _#(p.zextras)_;
+- *Ora di inizio*: 16:30;
+- *Ora di fine*: 17:30;
+- *Partecipanti*: #p.amadori, #p.bettin, #p.bonavigo, #p.bulychov, #p.fabbian, #p.vedovato;
+- *Partecipanti esterni*: #p.crestani.
 
 == Ordine del giorno
-- Stabilire metodologie pratiche per la possibile collaborazione 
-- Approfondimento sul tipo di prodotto desiderato dalla proponente
-- Discutere di procedure di carattere tecnico riguardanti il capitolato
+- Stabilire metodologie pratiche per la possibile collaborazione;
+- Approfondimento sul tipo di prodotto desiderato dalla proponente;
+- Discutere di procedure di carattere tecnico riguardanti il capitolato.
 
 = Sintesi dell'incontro
 Nella riunione il team si è confrontato con Alessio Crestani (engineering manager dell'azienda _#(p.zextras)_) riguardo il capitolato C8, preso in considerazione come prima scelta dal gruppo. L'incontro è stato incentrato sul tema trasparente del chiarire i dubbi che sono stati riscontrati, sia tecnici e realizzativi che di interazione.

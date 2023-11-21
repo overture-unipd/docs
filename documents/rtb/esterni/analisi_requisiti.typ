@@ -63,7 +63,7 @@ Sulla base del prodotto software realizzato si andranno ad eseguire una serie di
 == Glossario
 Per evitare ambiguitá o incomprensioni riguardanti la terminologia usata nel documento, é stato deciso di adottare un glossario in cui vengono riportate le varie definizioni. In questa maniera in esso verranno riportati tutti i termini specifici del dominio d'uso con relativi significati.
 \
-La presenza di un termine all'interno del glossario viene indicata applicando #glossary("questo stile").
+La presenza di un termine all'interno del `Glossario` viene indicata applicando #glossary("questo stile").
 
 == Riferimenti
 === Riferimenti normativi
@@ -84,13 +84,13 @@ L'obiettivo del prodotto é lo sviluppo di un servizio di demo testabile per val
 
 == Funzionalitá del prodotto
 Le funzionalità chiave del prodotto includono:
-- Invio e ricezione di email
-- Gestione delle cartelle e dei relativi contenuti
-- Eliminazione di email e cartelle
-- Condivisione di cartelle tra gli utenti
-- Eliminazione delle condivisioni di cartelle tra gli utenti
+- Invio e ricezione di email;
+- Gestione delle cartelle e dei relativi contenuti;
+- Eliminazione di email e cartelle;
+- Condivisione di cartelle tra gli utenti;
+- Eliminazione delle condivisioni di cartelle tra gli utenti.
 
-Inoltre il prodotto puó essere eseguito in un container Docker, permettendo all'azienda di eseguire in batteria i test di funzionalità e di performance, ed é sviluppato per essere scalabile mediante l’inizializzazione di più nodi stateless(B).
+Inoltre il prodotto puó essere eseguito in un container Docker, permettendo all'azienda di eseguire in batteria i test di funzionalità e di performance, ed é sviluppato per essere scalabile mediante l’inizializzazione di più nodi stateless.
 
 // TODO: Non so se mettere anche le funzionalitá opzionali, probabilmente andranno messe solo nel caso in cui vengano effettivamente implementate
 
