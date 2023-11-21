@@ -420,8 +420,8 @@ Il gruppo _#(g.name)_ ha deciso di adottare il seguente formato per il versionam
 `X.Y.Z`
 #set align(left) 
 dove:
-- *`X`*: rappresenta il completamento di una delle fasi del progetto (`RTB` o `PB`). Viene creata dal Responsabile del progetto.
-- *`Y`*: rappresenta una versione intermedia, che integra più di una modifica incrementale (`Z`) in maniera coerente. Il documento ad una versione del tipo `X.Y.0` è considerato stabile e coerente, seppur incompleto.
+- *`X`*: rappresenta il completamento in vista di una delle fasi del progetto. Viene creata dal Responsabile al momento della validazione;
+- *`Y`*: rappresenta una versione intermedia, che integra più di una modifica incrementale (`Z`) in maniera coerente. Il documento ad una versione del tipo `X.Y.0` è considerato stabile e coerente, seppur potenzialmente incompleto;
 - *`Z`*: rappresenta una qualsiasi modifica incrementale. Un esempio è l'aggiunta e/o modifica di una sezione.
 
 Le versioni dei verbali variano da questa convenzione: la versione è formata solamente da due cifre, dovuta alla brevità del testo e relativo tempo di scrittura.
