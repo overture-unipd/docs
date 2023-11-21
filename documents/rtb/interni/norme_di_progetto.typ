@@ -8,6 +8,7 @@
     p.cardin,
   ),
   changelog: (
+    "0.0.9", "2023-11-21", p.furno, p.vedovato, "Aggiunta della sezione 'Gestione della configurazione'",
     "0.0.8", "2023-11-20", p.fabbian, p.vedovato, "Aggiunta prima parte della sezione 'Sviluppo'",
     "0.0.7", "2023-11-20", p.furno, p.vedovato, "Aggiunta della sezione 'Fornitura'",
     "0.0.6", "2023-11-18", p.vedovato, p.amadori, "Aggiunta della sezione 'Formazione'",
@@ -406,6 +407,91 @@ Durante la fase di validazione, concentreremo l'attenzione sull'utilizzo dei tes
 
 
 == Gestione della configurazione
+=== Descrizione
+Il processo di gestione della configurazione viene attuato durante tutta la vita del software e identifica le norme adottate dal gruppo al fine di garantire la tracciabilità della documentazione e del codice prodotto.
+
+=== Scopo
+Lo scopo di questo processo è di gestire e organizzare la procedura di modifica sulla documentazione e sul codice prodotto relative al progetto. Le modifiche passate saranno accessibili in qualsiasi momento: in questo modo sarà possibile controllare rapidamente le motivazioni alla base dei cambiamenti effettuati e i relativi autori.  
+
+=== Versionamento
+Il versionamento consente di tracciare le modifiche avvenute all'interno di un documento. In questo modo è possibile visualizzare i cambiamenti avvenuti nel tempo e, nel caso ce ne fosse bisogno, riportare il documento ad uno stadio precedente.\
+Il gruppo _#(g.name)_ ha deciso di adottare il seguente formato per il versionamento dei documenti:
+#set align(center)
+`X.Y.Z`
+#set align(left) 
+dove:
+- *`X`*: rappresenta il completamento di una delle fasi del progetto (`RTB` o `PB`). Viene creata dal Responsabile del progetto.
+- *`Y`*: rappresenta una versione intermedia, che integra più di una modifica incrementale (`Z`) in maniera coerente. Il documento ad una versione del tipo `X.Y.0` è considerato stabile e coerente, seppur incompleto.
+- *`Z`*: rappresenta una qualsiasi modifica incrementale. Un esempio è l'aggiunta e/o modifica di una sezione.
+
+Le versioni dei verbali variano da questa convenzione: la versione è formata solamente da due cifre, dovuta alla brevità del testo e relativo tempo di scrittura.
+
+Ogni cambiamento, seguito dalla relativa approvazione, produce un incremento di versione che ha un peso diverso a seconda dell'entità della modifica effettuata. Inoltre, l'incremento di una qualsiasi cifra produrrà l'azzerameto di tutte le cifre alla sua destra.
+
+=== Tecnologie utilizzate
+- *Git*: software utilizzato per il controllo di versione dei documenti e del codice;
+- *Github*: servizio di hosting per progetti software utilizzato dal gruppo per coordinare le operazioni di versionamento. Viene utilizzato anche come Issue Tracking System.
+
+=== Repository
+
+==== Lista Repository
+Il gruppo utilizza 2 repository all'interno della propria "organizzazione #glossary("GitHub")":
+- #link("https://github.com/overture-unipd/docs"): contenente tutta la documentazione del progetto;
+- #link("https://github.com/overture-unipd/jmap"): contenente tutto il codice del progetto;
+
+È poi presente la repository contenente il sito web del gruppo. Questa non è rilevante al fine di questa discussione, poichè non riceve aggiornamenti.
+
+==== Struttura della repository `docs`
+La repository è divisa in due branch: `master` contenente i PDF e `sources` contente i sorgenti Typst.\
+Per fornire una netta separazione tra i documenti effettivi dal resto dei file (licenza, `README`, #glossary("action"), #glossary("template")), è stata creata la cartella `documents`. Questa contiene le cartelle rappresentanti la documentazione delle varie fasi del progetto: `candidatura` (per la gara di appalto dei capitolati), `rtb` (Requirements and Technology Baseline), e `pb` (Product Baseline).
+
+Le cartelle relative alle revisioni saranno organizzate quindi nel modo seguente: \
+- *`candidatura`* contenente in:
+  - `dichiarazione_impegni_v1.1.pdf`;
+  - `lettera_di_presentazione.pdf`;
+  - `valutazione_capitolati_v1.1.pdf`.
+  - una cartella *`verbali`* con i verbali divisi nelle cartelle:
+    - *`interni`*;
+    - *`esterni`*.
+- *`rtb`*, che contiene le cartelle:
+  - *`esterni`*, in cui si trovano:
+    - `piano_di_qualifica_v1.0.0.pdf`;
+    - `piano_di_progetto_v1.0.0.pdf`;
+    - `analisi_dei_requisiti_v1.0.0.pdf`;
+    - `glossario_v1.0.0.pdf`;
+    - *`verbali`*: cartella contenente i verbali esterni.
+  - *`interni`*, con all'interno:
+    - `norme_di_progetto_v1.0.0.pdf`;
+    - *`verbali`*: cartella contenente i verbali interni.
+- *`pb`* suddivisa in:
+  - *`esterni`*, in cui si trovano:
+    - `piano_di_qualifica_v2.0.0.pdf`;
+    - `piano_di_progetto_v2.0.0.pdf`;
+    - `analisi_dei_requisiti_v2.0.0.pdf`;
+    - `manuale_utente_v1.0.0.pdf`;
+    - `glossario_v2.0.0.pdf`;
+    - *`verbali`*: cartella contenente i verbali esterni.
+  - *`interni`*, con all'interno:
+    - `norme_di_progetto_v2.0.0.pdf`;
+    - *`verbali`*: cartella contenente i verbali interni.
+    
+==== Struttura della repository `jmap`
+
+
+=== Sincronizzazione
+La sincronizzazione avviene tramite repository condivise.
+
+Ogni attività da svolgere è tracciata da una specifica #glossary("issue"). All'inizio dello svolgimento di ognuna di esse, il componente interessato crea una diramazione del (#glossary("branch")) principale. Questo approccio consente di avere "workspace" indipendenti e quindi di poter lavorare parallelamente a più task, massimizzando il lavoro dei membri del team.\
+
+==== Branch
+Ogni attività è strettamente legata ad un branch, creato appositamente dall'incaricato a partire dal ramo principale:
+- Per la repository `jmap`, il ramo principale è `master`.
+- Per la repository `docs` è invece `sources`. Attenzione che `master` è comunque il branch di default; con "branch principale" si intende quindi quello in cui le modifiche devono venire aggiunte.
+
+I branch di questo tipo sono quindi single-purpose: una volta approvati e pubblicati tramite pull request vengono eliminati da un Amministratore o dal Responsabile.
+
+==== Pull Request
+Quando un'attività viene ultimata ed è pronta per la verifica, il membro del gruppo che ha creato il branch ha il compito di aprire una pull request. Il Verificatore è incaricato di controllare le modifiche attuate e, se non ci sono problemi, unirle al ramo principale.
 
 == Gestione della qualità
 
