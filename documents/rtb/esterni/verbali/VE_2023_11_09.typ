@@ -17,15 +17,15 @@
 = Contenuti del verbale
 
 == Informazioni sulla riunione
-- *Luogo*: Chiamata sulla piattaforma dell'azienda _#(p.zextras)_
-- *Ora di inizio*: 15:30
-- *Ora di fine*: 16:00
-- *Partecipanti*: #p.amadori, #p.bettin, #p.bonavigo, #p.bulychov, #p.fabbian, #p.furno, #p.vedovato
-- *Partecipanti esterni*: #p.crestani, #p.rispo
+- *Luogo*: Chiamata sulla piattaforma dell'azienda _#(p.zextras)_;
+- *Ora di inizio*: 15:30;
+- *Ora di fine*: 16:00;
+- *Partecipanti*: #p.amadori, #p.bettin, #p.bonavigo, #p.bulychov, #p.fabbian, #p.furno, #p.vedovato;
+- *Partecipanti esterni*: #p.crestani, #p.rispo.
 
 == Ordine del giorno
-- Richiesta di approfondimento di alcuni aspetti tecnici del prodotto da sviluppare
-- Discussione sulle modalità di approvazione dei verbali esterni
+- Richiesta di approfondimento di alcuni aspetti tecnici del prodotto da sviluppare;
+- Discussione sulle modalità di approvazione dei verbali esterni.
 
 = Sintesi dell'incontro
 Nell'incontro di oggi sono stati discussi argomenti di natura puramente tecnica.\
@@ -51,7 +51,7 @@ I proponenti, #p.crestani e #p.rispo, hanno dato la disponibilità ad essere ins
 Questo permette di avere un feedback veloce su eventuali dubbi "urgenti" incontrati durante il percorso, senza la necessità di organizzare un incontro formale per ciascuno.\
 Gli incontri periodici (circa ogni 2 settimane) con l'azienda rimangono il canale di comunicazione ufficiale per il tracciamento dell'avanzamento del progetto, oltre che dedicati a chiarire tutti i dubbi "meno urgenti".
 
-== Modalità di approvazine dei documenti
+== Modalità di approvazione dei documenti
 È stato concordato l'invio tramite email a verbale terminato. L'azienda risponderà poi con la versione firmata del documento.
 
 == Linguaggio consigliato per lo sviluppo

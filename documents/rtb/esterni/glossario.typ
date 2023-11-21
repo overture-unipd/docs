@@ -18,12 +18,12 @@
 = Introduzione
 Il seguente documento nasce con lo scopo di evitare ambiguitá o incomprensioni riguardanti la terminologia utilizzata nella varia documentazione del progetto. Per questo motivo qui vengono riportate le definizioni dei termini specifici del dominio d'uso, adottando nel farlo una struttura alfabetica per navigare con facilità internamente al documento.
 \
-La presenza di un termine all'interno del glossario negli altri documenti viene indicata applicando #glossary("questo stile").
+La presenza di un termine all'interno del `Glossario` negli altri documenti viene indicata applicando #glossary("questo stile").
 
 #pagebreak()
 = A
-- Analisi dei requisiti
-L'analisi dei requisiti è un processo fondamentale nel ciclo di vita dello sviluppo del software che mira a comprendere a fondo i bisogni e a definire e documentare le necessità e le aspettative degli utenti o degli stakeholder relativamente a un sistema software. \
+- `Analisi dei Requisiti`
+L'`Analisi dei Requisiti` è un processo fondamentale nel ciclo di vita dello sviluppo del software che mira a comprendere a fondo i bisogni e a definire e documentare le necessità e le aspettative degli utenti o degli stakeholder relativamente a un sistema software. \
 Definisce quindi cosa deve succedere per rispondere alle richieste fatte al prodotto e riflette la struttura funzionale di quest'ultimo, e non quella architetturale, infatti non deve costruire l’algoritmo di soluzione ma deve essere consapevole della fattibilità tecnologica.
 
 - API

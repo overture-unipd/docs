@@ -16,10 +16,10 @@
 = Contenuti del verbale
 
 == Informazioni sulla riunione
-- *Luogo*: Chiamata Discord
-- *Ora di inizio*: 16:00
-- *Ora di fine*: 18:30
-- *Partecipanti*: #p.amadori, #p.bettin, #p.bonavigo, #p.bulychov, #p.fabbian, #p.furno, #p.vedovato
+- *Luogo*: Chiamata Discord;
+- *Ora di inizio*: 16:00;
+- *Ora di fine*: 18:30;
+- *Partecipanti*: #p.amadori, #p.bettin, #p.bonavigo, #p.bulychov, #p.fabbian, #p.furno, #p.vedovato.
 
 == Ordine del giorno
 - Scelta del nome e del logo del gruppo;

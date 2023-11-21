@@ -24,8 +24,7 @@
 == Scopo del documento
 Questo documento ha lo scopo di descrivere le regole relative al Way of Working adottato da parte del gruppo per lo svolgimento del progetto didattico. In esso, dunque, appaiono tutte le best practices da seguire per ciascun processo e correlate attività che lo compongono, seguendo nel fare ciò la struttura definita dallo standard ISO/IEC 12207:1995.
 \
-Per la stesura è stato intrapreso un approccio di tipo incrementale, ovvero che prevede una realizzazione in più passi con aggiunte successive ad un impianto base. Di conseguenza ogni aggiornamento avverrà in
-funzione delle decisioni prese dal gruppo durante lo svolgimento del progetto stesso.
+Per la stesura è stato intrapreso un approccio di tipo incrementale, ovvero che prevede una realizzazione in più passi con aggiunte successive ad un impianto base. Di conseguenza ogni aggiornamento avverrà in funzione delle decisioni prese dal gruppo durante lo svolgimento del progetto stesso.
 \
 I membri del gruppo si impegnano a visionare regolarmente questo documento e a rispettare con disciplina le regole definite in esso, per fare in modo di essere professionali, coerenti, sistematici ed uniformi nello svolgere il lavoro necessario.
 
@@ -244,7 +243,7 @@ Il ciclo di vita di un documento è composto da sette fasi:
 + Approvazione e rilascio: nell'ultima fase il documento viene approvato da un Responsabile e rilasciato in versione finale.
 
 === Sistema di composizione tipografica
-Per la composizione tipografica dei documenti, abbiamo deciso di utilizzare Typst, al posto del noto LaTeX. Offre diversi vantaggi rispetto a LaTeX:
+Per la composizione tipografica dei documenti, abbiamo deciso di utilizzare Typst, al posto del noto LaTeX. Typst offre diversi vantaggi rispetto a LaTeX:
 - semplicità di utilizzo (simile a Markdown);
 - programmabilità reale invece di un sistema di macro;
 - compilazione pressochè immediata.\
@@ -312,10 +311,10 @@ Verranno prodotti i seguenti documenti:
 
 ==== Nomi assegnati ai file
 I documenti PDF presenti nella #link(g.org+"/"+g.docs)[repository #g.docs], rispettano le seguenti regole per la nominazione dei file:
-- minuscolo per i nomi, tranne che per i verbali (marcati `VI` e `VE`, rispettivamente per interni ed esterni)
-- spaziatura fra le parole sostituita da un underscore
-- per i verbali, la data dell'incontro è presente nel nome
-- versione del documento alla fine del nome del file
+- minuscolo per i nomi, tranne che per i verbali (marcati `VI` e `VE`, rispettivamente per interni ed esterni);
+- spaziatura fra le parole sostituita da un underscore;
+- per i verbali, la data dell'incontro è presente nel nome;
+- versione del documento alla fine del nome del file.
 
 I nomi dei documenti presenti nel progetto saranno quindi del tipo:
 - *`Norme di Progetto`*: `norme_di_progetto_vX.X.X`;
@@ -330,8 +329,8 @@ Si noti che i sorgenti `.typ` non includono la versione nel nome, ma è aggiunta
 Usare lo stesso nome per i documenti consente di utilizzare Git in modo appropriato: tracciare i cambiamenti di file di testo, con relativa facilità di utilizzo della funzione di "diff".
 
 ==== Stile del testo
-//link sottolineati, grassetto per elenchi puntati nei documenti (non verbali altrimenti bisogna correggere) e parole importanti. Font "New Computer Modern Mono" per nomi di file, documenti, esempi di codice. Maiuscolo per iniziali dei nomi e dei ruoli,
 Nei documenti, esclusi i verbali, verranno utilizzati:
+
 - il _corsivo_ per:
   - il nome del gruppo (_#(g.name)_);
   - il nome dell'azienda proponente (_#(p.zextras)_).
@@ -339,18 +338,26 @@ Nei documenti, esclusi i verbali, verranno utilizzati:
 - il *grassetto* per:
   - parole seguite da descrizione negli elenchi puntati;
   - termini importanti;
+
 - un `font monospace` per:
   - i nomi dei documenti;
   - i nomi dei file;
-  - i nomi delle cartelle o repository;
+  - i nomi delle repository;
+  - i nomi delle cartelle;
   - esempi di codice.
+
 - il #underline("sottolineato") per:
   - i link;
   - l'indirizzo email.
+
 - le lettere maiuscole per:
   - le iniziali dei nomi;
   - gli acronimi;
   - le iniziali dei ruoli svolti dai componenti del gruppo.
+
+=== Elenchi puntati
+Ogni voce dell'elenco termina con un ";" tranne per l'ultima, che finisce con un ".". Fanno eccezione le voci composte da più di una frase, che possono terminare con ".", indipendentemente dalla posizione nell'elenco.
+Inoltre, il grassetto è usato dove necessario, come descritto nella sezione subito sopra.
 
 ==== Formato delle date
 Viene adottato lo standard internazionale *ISO 8601*, nella forma `YYYY-MM-DD`, indicante rispettivamente:

@@ -16,10 +16,10 @@
 = Contenuti del verbale
 
 == Informazioni sulla riunione
-- *Luogo*: Aula 1BC45 Torre Archimede
-- *Ora di inizio*: 14:15
-- *Ora di fine*: 16:15
-- *Partecipanti*: #p.amadori, #p.bettin, #p.bonavigo, #p.fabbian, #p.furno, #p.vedovato
+- *Luogo*: Aula 1BC45 Torre Archimede;
+- *Ora di inizio*: 14:15;
+- *Ora di fine*: 16:15;
+- *Partecipanti*: #p.amadori, #p.bettin, #p.bonavigo, #p.fabbian, #p.furno, #p.vedovato.
 
 == Ordine del giorno
 - Terminazione obblighi operativi;
@@ -33,7 +33,7 @@ Nella riunione odierna innanzitutto il gruppo si è dotato di un riflettore di p
 
 Il gruppo ha deciso di utilizzare GitHub per la gestione dei repository, creando poi la struttura di base delle repo.
 
-È stato poi individuato Typst come software per stesura e l'impaginazione di tutta la documentazione. È un' alternativa moderna a LaTeX.
+È stato poi individuato Typst come software per stesura e l'impaginazione di tutta la documentazione. È un'alternativa moderna a LaTeX.
 
 Successivamente sono stati definiti gli strumenti di gestione che verranno utilizzati d'ora in poi per la comunicazione interna al gruppo, per la stesura dei documenti e per il tracciamento delle attività.
 
@@ -47,4 +47,4 @@ Infine si è individuato il materiale da produrre in ottica della presentazione 
 - Strumenti per le comunicazioni interne: Telegram e Discord;
 - Strumento per la stesura dei documenti: Typst;
 - Strumento per il tracciamento delle attività: GitHub;
-- Indirizzo mail "riflettore": #link("mailto:"+g.mail)
+- Indirizzo mail "riflettore": #link("mailto:"+g.mail).
