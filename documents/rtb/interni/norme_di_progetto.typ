@@ -7,7 +7,8 @@
     p.vardanega,
     p.cardin,
   ),
-  changelog: (
+  changelog: ( 
+    "0.0.10", "2023-11-22", p.amadori, p.vedovato, "Aggiunta della sezione 'Gestione della qualità'",
     "0.0.9", "2023-11-21", p.furno, p.vedovato, "Aggiunta della sezione 'Gestione della configurazione'",
     "0.0.8", "2023-11-20", p.fabbian, p.vedovato, "Aggiunta prima parte della sezione 'Sviluppo'",
     "0.0.7", "2023-11-20", p.furno, p.vedovato, "Aggiunta della sezione 'Fornitura'",
@@ -483,7 +484,7 @@ Le cartelle relative alle revisioni saranno organizzate quindi nel modo seguente
     - *`verbali`*: cartella contenente i verbali interni.
     
 ==== Struttura della repository `jmap`
-
+// TODO. Invio della sezione vuota per ora.
 
 === Sincronizzazione
 La sincronizzazione avviene tramite repository condivise.
@@ -501,6 +502,18 @@ I branch di questo tipo sono quindi single-purpose: una volta approvati e pubbli
 Quando un'attività viene ultimata ed è pronta per la verifica, il membro del gruppo che ha creato il branch ha il compito di aprire una pull request. Il Verificatore è incaricato di controllare le modifiche attuate e, se non ci sono problemi, unirle al ramo principale.
 
 == Gestione della qualità
+
+=== Scopo
+Il processo di gestione della qualità mira a garantire in modo adeguato che il software, gli artefatti ed i processi nel ciclo di vita del progetto siano allineati ai piani stabiliti e conformi ai canoni di qualità rispetto ai requisiti specificati. 
+
+=== Descrizione
+Per poter garantire un determinato livello di qualità, abbiamo scelto di fare affidamento sui processi di verifica e validazione. Difatti, una volta definiti gli standard qualitativi da rispettare nel `Piano di Qualifica`, ciò che resta da fare è assicurarsi che questi vengano effettivamente applicati. Dunque inizialmente sono state definite le best practices per guidare l'esecuzione dei vari processi, oltre ai diversi canoni di qualità per i prodotti del progetto, e poi per certificare l'adesione a quest'ultimi abbiamo delegato tale responsabilità ai Verificatori.
+
+=== Aspettative
+Ci si attende che il gruppo rispetti gli standard qualitativi definiti di comune accordo, realizzando documentazione adeguata e prodotti software all'altezza delle aspettative.
+
+=== Metriche e strumenti
+Per poter garantire la gestione della qualità utilizziamo delle metriche che sono differenti a seconda del processo coinvolto; in questa maniera abbiamo uno strumento oggettivo per valutare il lavoro svolto.
 
 = Processi organizzativi
 
