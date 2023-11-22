@@ -484,7 +484,7 @@ Le cartelle relative alle revisioni saranno organizzate quindi nel modo seguente
     - *`verbali`*: cartella contenente i verbali interni.
     
 ==== Struttura della repository `jmap`
-// TODO. Invio della sezione vuota per ora.
+
 
 === Sincronizzazione
 La sincronizzazione avviene tramite repository condivise.
