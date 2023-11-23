@@ -38,8 +38,8 @@ L'ultimo punto affrontato riguradava lo stato del documento Piano di Progetto. A
 - decisione di utilizzare la libreria proposta da _#(p.zextras)_;
 - decisione di utilizzare Scala come linguaggio di programmazione;
 
+= Attività individuate
 
-= Attività da svolgere
 #tasks((
   (g.docs, 71), [Stesura di _questo_ verbale], p.fabbian,
   (g.docs, 73), [`Analisi dei Requisiti`: continuazione Use Case], p.bettin,
