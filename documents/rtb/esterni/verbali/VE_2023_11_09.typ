@@ -9,6 +9,7 @@
     [_#(p.zextras)_],
   ),
   changelog: (
+    "1.1", "2023-11-23", p.bonavigo, p.vedovato, "Rimossa sezione 'attività individuate' (spostata in `VI_2023_11_09`)",
     "1.0", "2023-11-14", p.bonavigo, p.amadori, "Finalizzazione: riscrittura delle varie sezioni",
     "0.1", "2023-11-09", p.bonavigo, p.amadori, "Prima bozza: stuttura e appunti dalla riunione",
   ),
@@ -60,11 +61,3 @@ Tuttavia, #p.crestani e #p.rispo riconoscono la necessità di informarsi su tutt
 
 = Decisioni prese
 - Modalità di approvazione dei verbali esterni.
-
-= Attività individuate
-
-#tasks(
-  (
-    "-", "Esplorazione delle librerie JMAP disponibili.", [Tutto il gruppo _#(g.name)_],
-  )
-)
