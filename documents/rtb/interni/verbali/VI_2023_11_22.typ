@@ -8,7 +8,8 @@
     p.cardin,
   ),
   changelog: (
-    "1.0", "2023-11-23", p.fabbian, p.vedovato, "Prima bozza con riassunto incontro",
+    "1.1", "2023-11-23", p.fabbian, p.vedovato, "Correzione alla tabella delle attività individuate",
+    "1.0", "2023-11-23", p.fabbian, p.vedovato, "Finalizzazione del verbale",
     "0.1", "2023-11-22", p.fabbian, p.vedovato, "Prima bozza con riassunto incontro",
   ),
 )
@@ -46,10 +47,10 @@ L'ultimo punto affrontato riguradava lo stato del documento Piano di Progetto. A
   (g.docs, 72), [`Glossario`: arricchimento del dizionario], p.amadori,
   (g.docs, 74), [`Norme di Progetto`: standard di qualità], p.bulychov,
   (g.docs, 75), [`Norme di Progetto`: metriche di qualità], p.bulychov,
-  (g.docs, 78), [`Piano di Progetto`: Consuntivo dello sprint delle due settimane precedenti], p.vedovato,
-  (g.docs, 80), [`Piano di Progetto`: Dichiarare il modello di sviluppo], p.furno,
-  (g.docs, 79), [`Piano di Progetto`: Pianificazione dello sprint corrente], p.fabbian,
-  (g.docs, 76), [`Piano di Progetto`: Pianificazione dello sprint delle due settimane precedenti], p.vedovato,
-  (g.docs, 77), [`Piano di Progetto`: Preventivo dello sprint delle due settimane precedenti], p.furno,
+  (g.docs, 78), [`Piano di Progetto`: Consuntivo del periodo riguardante le due settimane precedenti], p.furno,
+  (g.docs, 80), [`Piano di Progetto`: Dichiarare il modello di sviluppo], p.vedovato,
+  (g.docs, 79), [`Piano di Progetto`: Pianificazione del periodo corrente], p.fabbian,
+  (g.docs, 76), [`Piano di Progetto`: Pianificazione del periodo riguardante le due settimane precedenti], p.vedovato,
+  (g.docs, 77), [`Piano di Progetto`: Preventivo del periodo riguardante le due settimane precedenti], p.furno,
   (g.docs, 81), [`jmap`: struttura base repo], (p.bettin, p.bonavigo),
 ))
