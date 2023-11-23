@@ -1,5 +1,6 @@
 #import "@preview/tablex:0.0.6": tablex, gridx, hlinex, vlinex, colspanx, rowspanx
 #import "@preview/codelst:1.0.0": sourcecode
+#import "@preview/plotst:0.2.0": *
 
 #let g = (
   name: "Overture",
@@ -7,7 +8,7 @@
   website: "https://overture-unipd.github.io",
   org: "https://github.com/overture-unipd",
   docs: "docs",
-  progetto: "progetto",
+  jmap: "jmap",
   logo: "//imgs/group_logo.png",
 )
 

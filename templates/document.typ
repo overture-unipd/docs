@@ -86,7 +86,7 @@
     header: gridx(
       columns: (1fr, 1fr),
       align: (left, horizon+right),
-      image(g.logo, width:  3.5em), title,
+      image(g.logo, width: 3.5em), title,
       hlinex(stroke: 0.07em)
     ),
   )
@@ -148,13 +148,13 @@
   t = tasks_header + map_issue(r, t)
 
   align(center,
-    block(width: 90%,
+    block(width: 95%,
       table(
         fill: (_, row) => if calc.odd(row) { luma(215) } else { white },
         inset: 0.5em,
         columns: (auto, 1fr, auto),
         align: left,
-        ..t.map(el => text(size: 0.8em)[
+        ..t.map(el => text(size: 0.9em)[
           #par(justify: false,
             if type(el) == array {
               sortBySurname(el).join([,\ ])
@@ -169,11 +169,11 @@
 }
 
 #let risks(r) = {
-  let headers = (([*Descrizione*], [*Probabilità*], [*Pericolosità*], [*Rilevamento*], [*Piano di contingenza*]))
-  r = headers.zip(r).flatten()
+  let risks_header = (([*Descrizione*], [*Probabilità*], [*Pericolosità*], [*Rilevamento*], [*Piano di contingenza*]))
+  r = risks_header.zip(r).flatten()
   
   align(center,
-    block(width: 90%,
+    block(width: 95%,
       table(
         fill: (_, row) => if calc.odd(row) { luma(215) } else { white },
         inset: 0.5em,
@@ -189,7 +189,49 @@
   )
 }
 
-#let glossary(a)= {
-  set text(fill: rgb("#33805d"), style: "italic") 
-  a
+#let requirements(color, r) = {
+  let requirements_header = (([*ID Requisito*], [*Descrizione*], [*Fonti*]))
+  r = requirements_header + r
+  
+  align(center,
+    block(width: 95%,
+      table(
+        fill: (_, row) => if row == 0 { rgb(color) } else { white },
+        inset: 0.8em,
+        columns: (auto, 1fr, auto),
+        align: (x, _) => (horizon, left, horizon).at(x),
+        ..r.map(el => text(size: 0.9em)[
+          #par(justify: false,
+            el
+          )
+        ]),
+      )
+    )
+  )
+}
+
+#let tracking(t) = {
+  let tracking_header = (([*ID Requisito*], [*Fonte*]))
+  t = tracking_header + t
+  
+  align(center,
+    block(width: 60%,
+      table(
+        fill: (_, row) => if row == 0 { luma(215) } else { white },
+        inset: 0.8em,
+        columns: (1fr, 1fr),
+        align: horizon,
+        ..t.map(el => text(size: 0.9em)[
+          #par(justify: false,
+            el
+          )
+        ]),
+      )
+    )
+  )
+}
+
+#let glossary(word)= {
+  text(fill: rgb("#33805d"), style: "italic")[#word]
+  // text(style: "italic")[#word#sub("G")]
 }
