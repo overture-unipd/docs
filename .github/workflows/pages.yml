@@ -24,7 +24,7 @@ jobs:
       - name: restore timestamps
         uses: chetan/git-restore-mtime-action@v2
       - name: generate directory listings
-        uses: jayanta525/github-pages-directory-listing@v3.0.0
+        uses: jayanta525/github-pages-directory-listing@main
         with:
           FOLDER: documents
         env:
