@@ -8,6 +8,7 @@
     p.cardin,
   ),
   changelog: ( 
+    "0.0.11", "2023-11-22", p.bulychov, p.vedovato, "Aggiunta delle sezioni 'Standard ISO/IEC 12207' e 'Standard ISO/IEC 9126'",
     "0.0.10", "2023-11-22", p.amadori, p.vedovato, "Aggiunta della sezione 'Gestione della qualità'",
     "0.0.9", "2023-11-21", p.furno, p.vedovato, "Aggiunta della sezione 'Gestione della configurazione'",
     "0.0.8", "2023-11-20", p.fabbian, p.vedovato, "Aggiunta prima parte della sezione 'Sviluppo'",
@@ -705,3 +706,102 @@ Infine, una volta capito cosa e da dove studiare, è necessario che ognuno dei c
 
 === Strumenti
 Al fine di agevolare il processo di formazione, abbiamo optato per l'adozione di un repository privato, accessibile esclusivamente ai membri del gruppo, nel quale tutte le risorse utili sono organizzate in categorie per favorire un accesso efficiente e ordinato.
+
+
+
+= Standard ISO/IEC 12207
+La norma ISO/IEC 12207 rappresenta uno standard internazionale che stabilisce un modello per la gestione del ciclo di vita del software, delineando perció il percorso che quest'ultimo deve percorrere dalla sua concenzione alla sua dismissione. \
+Lo scopo principale è quello di stabilire i processi chiave coinvolti nello sviluppo, nell'operazione e nel mantenimento del software, contribuendo a migliorare la qualità del prodotto finale e a facilitare la collaborazione tra le diverse fasi del ciclo di vita. \
+I processi sono divisi in tre categorie:
+- *Processi primari*;
+- *Processi organizzativi*;
+- *Processi di supporto*.
+
+== Processi primari
+I processi primari rappresentano le attività principali coinvolte nello sviluppo, nell'operazione e nella manutenzione del software. \
+I punti chiave sono:
+- *Acquisizione*: riguarda l'identificazione e la valutazione dei bisogni degli acquirenti rispetto al software. Include la definizione dei requisiti, la selezione dei fornitori e la stipula di contratti;
+- *Fornitura*: coinvolge l'adempimento dei requisiti contrattuali attraverso la progettazione, lo sviluppo e la consegna del software da parte dei fornitori;
+- *Sviluppo*: copre l'intero ciclo di vita dello sviluppo del software, dalla concezione alla consegna. Include l'analisi dei requisiti, la progettazione, l'implementazione e la verifica del software;
+- *Operazione*: gestisce l'esecuzione effettiva del software in un ambiente operativo. Include la gestione delle prestazioni, il supporto agli utenti, la gestione delle configurazioni e la risoluzione degli incidenti;
+- *Manutenzione*: si occupa delle modifiche e delle migliorie al software dopo la sua distribuzione. Include attività come correzioni di errori, adattamenti ai cambiamenti dell'ambiente e aggiornamenti delle funzionalità.
+
+== Processi organizzativi
+I processi organizzativi forniscono una struttura per la gestione delle risorse umane, la formazione, la gestione della qualità nell'organizzazione e la gestione delle infrastrutture. \
+I punti chiave sono:
+- *Gestione delle risorse umane*: si occupa della gestione del personale coinvolto nello sviluppo del software. Include la pianificazione delle risorse umane, la formazione, la valutazione delle prestazioni e la gestione delle competenze;
+- *Gestione dell'organizzazione*: tratta della gestione generale dell'organizzazione, inclusa la definizione di politiche, strategie e obiettivi;
+- *Gestione delle infrastrutture*: si occupa della gestione delle infrastrutture necessarie per supportare l'ambiente di sviluppo e operativo del software. Ciò include hardware, software, reti e altri componenti tecnologici;
+- *Valutazione organizzativa*: si concentra sulla valutazione delle performance dell'organizzazione nel suo complesso, identificando opportunità di miglioramento e adattamento alle esigenze del contesto.
+
+== Processi di supporto
+I processi di supporto servono a garantire la coerenza e l'efficacia del ciclo di vita del software. \
+I punti chiave sono:
+- *Documentazione*: si occupa della produzione e della gestione della documentazione associata al ciclo di vita del software. Ciò include la creazione di documenti di requisiti, specifiche di progettazione, manuali utente e altro;
+- *Gestione della configurazione*: tratta dell'identificazione e del controllo delle modifiche apportate al software e alla sua documentazione durante l'intero ciclo di vita;
+- *Qualitá*: si concentra sulla definizione e sull'applicazione delle attività di assicurazione della qualità necessarie per garantire che il software soddisfi gli standard di qualità stabiliti;
+- *Verifica*: consiste nel valutare i prodotti del software e i risultati dei processi per garantire che siano conformi ai requisiti specificati;
+- *Validazione*: è il processo di valutazione del software durante o alla fine del suo sviluppo per determinare se soddisfa i bisogni specifici dell'utente e il suo contesto operativo;
+- *Risoluzione dei problemi*: tratta della gestione e della risoluzione dei problemi e delle non conformità identificate durante le attività del ciclo di vita del software;
+- *Revisione congiunta*: è un processo che coinvolge il coinvolgimento di diverse parti interessate nella revisione di un prodotto del software o di un processo specifico;
+- *Audit*: è un processo sistematico di valutazione per determinare la conformità rispetto agli standard e ai requisiti specificati.
+
+= Standard ISO/IEC 9126
+La norma ISO/IEC 9126 è uno standard internazionale che ha contribuito a definire i parametri essenziali per valutare la qualità del software. Questa norma rappresenta un insieme di linee guida dettagliate e criteri di valutazione per gli attributi chiave della qualità del software. In particolare, identifica sei macro-categorie di attributi di qualità del software, ognuna delle quali è ulteriormente scomposta in sottoattributi specifici:
+- *Funzionalità*;
+- *Affidabilità*;
+- *Usabilità*;
+- *Efficienza*;
+- *Manutenibilità*;
+- *Portabilità*.
+
+== Funzionalitá
+La funzionalità si concentra sulla valutazione della capacità del software di fornire funzioni che soddisfano i requisiti specificati e impliciti. \
+I suoi sottoattributi sono:
+- *Adeguatezza*: é la capacità del software di fornire un insieme di funzionalità che soddisfano i requisiti specifici dell'utente e del contesto d'uso;
+- *Accuratezza*: é la capacità del software di fornire risultati corretti con il grado di precisione richiesto;
+- *Interoperabilità*: é la capacità del software di cooperare ed interagire efficacemente con altri sistemi;
+- *Sicurezza*: é la capacitá del software di proteggere i dati dagli accessi non autorizzati;
+- *Conformità*: é la conformità del software agli standard, alle norme e alle specifiche funzionali pertinenti.
+
+== Affidabilitá
+L'affidabilità si concentra sulla valutazione della capacità del software di mantenere un adeguato livello di prestazioni anche in presenza di errori o malfunzionamenti.
+I suoi sottoattributi sono:
+- *Maturitá*: é la capacitá del software di mantenere una stabilitá durante l'esecuzione evitando errori e risultati non corretti;
+- *Tolleranza agli Errori*: é la capacità del software di gestire e tollerare errori;
+- *Capacità di Recupero*: é la capacità del software di ripristinare le prestazioni desiderate dopo che si è verificato un errore;
+- *Affidabilità delle Informazioni*: é la precisione e l'affidabilità delle informazioni fornite dal software.
+
+== Usabilitá
+L'usabilità è un aspetto critico nella valutazione della qualità del software, poiché influenza direttamente l'esperienza dell'utente durante l'interazione con il sistema. \
+I suoi sottoattributi sono:
+- *Comprensibilità*: é la facilità con cui l'utente può comprendere l'interfaccia utente, le informazioni presentate e il modo in cui eseguire le operazioni;
+- *Apprendibilità*: é la facilità con cui nuovi utenti possono imparare ad utilizzare il software, attraverso una curva di apprendimento rapida e un accesso chiaro alle funzionalità;
+- *Operabilità*: é la facilità con cui gli utenti possono eseguire le operazioni desiderate in modo efficiente, senza errori e con un utilizzo ottimale delle risorse;
+- *Attrattività*: é la piacevolezza estetica dell'interfaccia utente e del design complessivo del software;
+- *Aderenza all'usabilità*: si riferisce alla misura in cui il software rispetta le linee guida e le convenzioni dell'usabilità.
+
+== Efficienza
+L'efficienza si concentra sulla capacità del software di utilizzare in modo ottimale le risorse a sua disposizione, garantendo prestazioni elevate e tempi di risposta rapidi. \
+I suoi sottoattributi sono:
+- *Utilizzo delle Risorse*: misura quanto efficientemente il software sfrutti la capacità delle risorse di sistema durante l'esecuzione;
+- *Aderenza all'Efficienza*: indica quanto il software rispetti le linee guida e le migliori pratiche per l'ottimizzazione del codice e delle risorse;
+- *Comportamento rispetto al Tempo*: Rappresenta la capacità del software di rispondere rapidamente alle richieste degli utenti e di adattarsi dinamicamente alle variazioni di carico.
+
+== Manutenibilità
+La manutenibilità si concentra sulla facilità con cui il software può essere modificato, corretto, adattato e migliorato nel tempo. \
+I suoi sottoattributi sono:
+- *Analizzabilità*: é la facilità con cui è possibile analizzare il codice sorgente per identificare errori, problemi di progettazione o aree di miglioramento;
+- *Modificabilità*: é la facilità con cui il software può essere modificato senza causare effetti indesiderati o introduzione di nuovi errori;
+- *Stabilità*: é la capacità del software di evitare effetti collaterali indesiderati durante le modifiche o l'introduzione di nuove funzionalità;
+- *Testabilità*: é la facilità con cui è possibile testare il software per garantire che le modifiche apportate non abbiano effetti indesiderati su funzionalità esistenti;
+- *Aderenza alla manutenibilità*: si riferisce alla misura in cui il software rispetta le linee guida e le convenzioni della manutenibilità.
+
+== Portabilità
+La portabilità si riferisce alla facilità con cui il software può essere trasferito da un ambiente a un altro senza dover apportare modifiche sostanziali. \
+I suoi sottoattributi sono:
+- *Adattabilità*: é la capacità del software di adattarsi a diversi ambienti senza richiedere modifiche sostanziali al codice sorgente o all'architettura;
+- *Installabilità*: é la facilità con cui il software può essere installato in un nuovo ambiente;
+- *Sostituibilità*: é la facilità con cui il software può sostituire o essere sostituito da altre applicazioni nello stesso ambiente;
+- *Coesistenza*: é la capacità del software di operare in modo efficace e senza conflitti all'interno di un ambiente condiviso con altre applicazioni;
+- *Aderenza alla portabilità*: si riferisce alla misura in cui il software rispetta le linee guida e le convenzioni della portabilità.
