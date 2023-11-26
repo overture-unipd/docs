@@ -8,7 +8,7 @@
     p.cardin,
   ),
   changelog: ( 
-    "0.0.11", "2023-11-22", p.bulychov, p.vedovato, "Aggiunta della sezione'Standard ISO/IEC 9126'",
+    "0.0.11", "2023-11-22", p.bulychov, p.vedovato, "Aggiunta della sezione 'Standard ISO/IEC 9126'",
     "0.0.10", "2023-11-22", p.amadori, p.vedovato, "Aggiunta della sezione 'Gestione della qualità'",
     "0.0.9", "2023-11-21", p.furno, p.vedovato, "Aggiunta della sezione 'Gestione della configurazione'",
     "0.0.8", "2023-11-20", p.fabbian, p.vedovato, "Aggiunta prima parte della sezione 'Sviluppo'",
@@ -707,7 +707,7 @@ Infine, una volta capito cosa e da dove studiare, è necessario che ognuno dei c
 === Strumenti
 Al fine di agevolare il processo di formazione, abbiamo optato per l'adozione di un repository privato, accessibile esclusivamente ai membri del gruppo, nel quale tutte le risorse utili sono organizzate in categorie per favorire un accesso efficiente e ordinato.
 
-= Standard ISO/IEC 9126
+= Standard ISO/IEC 9126 
 La norma ISO/IEC 9126 è uno standard internazionale che ha contribuito a definire i parametri essenziali per valutare la qualità del software. Questa norma rappresenta un insieme di linee guida dettagliate e criteri di valutazione per gli attributi chiave della qualità del software. In particolare, identifica sei macro-categorie di attributi di qualità del software, ognuna delle quali è ulteriormente scomposta in sottoattributi specifici:
 - *Funzionalità*;
 - *Affidabilità*;
