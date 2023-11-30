@@ -231,7 +231,160 @@
   )
 }
 
+#let summary(t) = {
+  let tracking_header = (([*Tipologia*], [*Obbligatori*], [*Desiderabili*], [*Opzionali*]))
+  t = tracking_header + t
+  
+  align(center,
+    block(width: 70%,
+      table(
+        fill: (_, row) => if row == 0 { luma(215) } else { white },
+        inset: 0.8em,
+        columns: (1fr, 1fr, 1fr, 1fr),
+        align: horizon,
+        ..t.map(el => text(size: 0.9em)[
+          #par(justify: false,
+            el
+          )
+        ]),
+      )
+    )
+  )
+}
+
 #let glossary(word)= {
   text(fill: rgb("#33805d"), style: "italic")[#word]
   // text(style: "italic")[#word#sub("G")]
+}
+
+#let neg(word)= {
+  text(fill: rgb("#D2042D"))[(*#word*)]
+}
+
+#let pos(word)= {
+  text(fill: rgb("#437c17"))[(*#word*)]
+}
+
+#let consuntivo(r) = {
+  let period_header = ([], [*Res.*], [*Amm.*], [*Ver.*], [*Ana.*], [*Proge.*], [*Progr.*], [*Ore totali a persona*])
+  let people = (p.amadori, p.bettin, p.bonavigo, p.bulychov, p.fabbian, p.furno, p.vedovato, "Ore totali per ruolo").map(el => [*#el*])
+  r = period_header + people.zip(r).flatten()
+
+  align(center,
+    table(
+      fill: (_, row) => if calc.odd(row) { luma(215) } else { white },
+      inset: 0.5em,
+      columns: (auto,)*8,
+      align: center,
+      ..r.map(el => text(size: 0.85em, hyphenate: false)[#par(justify: false, el)],)
+    )
+  )
+}
+
+#let costi(r) = {
+  let period_header = ([*Ruolo*], [*Ore*], [*Costo*], [*Differenza*])
+  let people = ("Responsabile", "Amministratore", "Verificatore", "Analista", "Progettista", "Programmatore", "Totale preventivo", "Totale consuntivo").map(el => [#el])
+  r = period_header + people.zip(r).flatten()
+
+  align(center,
+    table(
+      fill: (_, row) => if calc.odd(row) { luma(215) } else { white },
+      inset: 0.5em,
+      columns: (auto,)*4,
+      align: center,
+      ..r.map(el => text(size: 0.85em, hyphenate: false)[#par(justify: false, el)],)
+    )
+  )
+}
+
+#let period(data) = {
+  let roles = ("Responsabile", "Amministratore", "Verificatore", "Analista", "Progettista", "Programmatore")
+  let period_header = ([],) + roles.map(r => [*#r*])
+  let people = (p.amadori, p.bettin, p.bonavigo, p.bulychov, p.fabbian, p.furno, p.vedovato).map(n => n.split().last())
+  let r = period_header + (people + ("Ore totali",)).map(el => [*#el*]).zip(data.map(x => x.map(y => str(y)))).flatten()
+  
+  align(center,
+    table(
+      fill: (_, row) => if calc.odd(row) { luma(215) } else { white },
+      inset: 0.5em,
+      columns: (auto,)*7,
+      align: center,
+      ..r.map(el => text(size: 0.85em, hyphenate: false)[#par(justify: false, el)],)
+    )
+  )
+
+  v(1em)
+  
+  let sums = ()
+  for j in range(data.first().len()) {
+    let t = ()
+    for i in range(data.len()) {
+      t += (data.at(i).at(j),)
+    }
+    sums += (t.sum(),)
+  }
+  
+  data = people.zip(data).map(x => x.flatten())
+
+  align(center,
+    canvas({
+      import draw: *
+      scale(1.8)
+      chart.columnchart(size:(auto,4), mode: "clustered", value-key: (1,2,3,4,5,6), data, y-tick-step: 1, bar-style: palette.rainbow)
+    })
+  )
+
+  v(1em)
+
+  align(center,
+    canvas({
+      import draw: *
+      let chart(..values, name: none) = {
+        let values = values.pos()
+        let offset = 0
+        let total = values.fold(0, (s, v) => s + v.at(0))
+        let segment(from, to) = {
+          merge-path(close: true, {
+            line((0, 0), (rel: (360deg * from, 1)))
+            arc((), start: from * 360deg, stop: to * 360deg, radius: 1)
+          })
+        }
+        group(name: name, {
+          stroke((paint: black, join: "round"))
+          for v in values {
+            fill(v.at(1))
+            let value = v.at(0) / total
+            // Draw the segment
+            segment(offset, offset + value)
+            // Place an anchor for each segment
+            anchor(v.at(2), (offset * 360deg + value * 180deg, 0.6))
+            offset += value
+          }
+        })
+      }
+      scale(2)
+
+      chart(
+        (sums.at(0), rgb("#9400D4"), roles.at(0)),
+        (sums.at(1), rgb("#4B0082"), roles.at(1)),
+        (sums.at(2), rgb("#0000FF"), roles.at(2)),
+        (sums.at(3), rgb("#00FF00"), roles.at(3)),
+        (sums.at(4), rgb("#FFFF00"), roles.at(4)),
+        (sums.at(5), rgb("#FF0000"), roles.at(5)),
+        name: "chart"
+      )
+
+      let positions = ((2,0),)*2+((-2,0),)*2+((2,0),)*2
+      let anchors = ("left",)*2+("right",)*2+("left",)*2
+      set-style(mark: (fill: white, start: "o", stroke: black),
+                content: (padding: .1))
+      for i in range(roles.len()) {
+        if sums.at(i) != 0 {
+          line("chart."+roles.at(i), ((), "-|", positions.at(i)))
+          let t = calc.quo(sums.at(i)*100, sums.sum())
+          content((), [#roles.at(i) - #t%], anchor: anchors.at(i))
+        }
+      }
+    })
+  )
 }
