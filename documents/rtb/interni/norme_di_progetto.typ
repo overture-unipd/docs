@@ -8,7 +8,8 @@
     p.cardin,
   ),
   changelog: ( 
-    "0.0.11", "2023-11-22", p.bulychov, p.vedovato, "Aggiunta delle sezioni 'Standard ISO/IEC 12207' e 'Standard ISO/IEC 9126'",
+    "0.1.0", "2023-11-30", p.bulychov, p.vedovato, "Aggiunta della sezione 'Metriche di qualitá del processo'",
+    "0.0.11", "2023-11-26", p.bulychov, p.vedovato, "Aggiunta della sezione 'Standard ISO/IEC 9126'",
     "0.0.10", "2023-11-22", p.amadori, p.vedovato, "Aggiunta della sezione 'Gestione della qualità'",
     "0.0.9", "2023-11-21", p.furno, p.vedovato, "Aggiunta della sezione 'Gestione della configurazione'",
     "0.0.8", "2023-11-20", p.fabbian, p.vedovato, "Aggiunta prima parte della sezione 'Sviluppo'",
