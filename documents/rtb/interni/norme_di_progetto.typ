@@ -805,3 +805,108 @@ I suoi sottoattributi sono:
 - *Sostituibilità*: é la facilità con cui il software può sostituire o essere sostituito da altre applicazioni nello stesso ambiente;
 - *Coesistenza*: é la capacità del software di operare in modo efficace e senza conflitti all'interno di un ambiente condiviso con altre applicazioni;
 - *Aderenza alla portabilità*: si riferisce alla misura in cui il software rispetta le linee guida e le convenzioni della portabilità.
+
+= Metriche di qualitá del processo
+
+== Processi primari
+
+=== Fornitura
+
+-  *MPC01 - Earned value (EV)*: misura il valore del lavoro effettivamente completato rispetto al valore pianificato;
+
+-  *MPC02 - Planned value(PA)*: rappresenta il valore pianificato del lavoro da completare in un determinato momento;
+
+-  *MPC03 - Actual cost (AC)*: indica il costo effettivamente sostenuto per completare il lavoro fino a un certo momento;
+
+-  *MPC04 - Cost variance (CV)*: misura la differenza tra il valore guadagnato e il costo effettivamente sostenuto;
+  #align(center)[$"CV" = "EV" - "AC"$]
+
+-  *MPC05 - Scheduled variance (SV)*: indica la differenza tra il valore guadagnato e il valore pianificato;
+  #align(center)[$"SV" = "EV" - "PA"$]
+
+-  *MPC06 - Estimated at completion (EAC)*: fornisce una stima del costo totale del progetto basato sul rendimento attuale;
+  #align(center)[$"EAC"="AC"+"ETC"$]
+
+-  *MPC07 - Estimate to complete (ETC)*: indica la stima dei costi rimanenti per completare il progetto;
+  #align(center)[$"ETC"="BAC"−"EV"$]
+=== Sviluppo
+
+-  *MPC07 - Requirements stability index (RSI)*: valuta la stabilità dei requisiti nel corso del tempo;
+  #align(center)[$"RSI"=("RA"+"RC"+"RR")/"TR" * 100$]
+  - *RA*: rappresenta il numero di requisiti aggiunti nel periodo considerato;
+  - *RC*: rappresenta il numero di requisiti cambiati nel periodo considerato;
+  - *RR*: rappresenta il numero di requisiti rimossi nel periodo considerato;
+  - *TR*: rappresenta il numero totale di requisiti al momento dell'analisi.
+
+== Processi organizzativi
+
+=== Gestione organizzativa
+
+-  *MPC09 - Non-calculated risk*: monitora i rischi non inclusi nelle stime e nelle previsioni.
+
+== Processi di supporto
+
+=== Documentazione
+
+-  *MPC10 - Indice Gulpease*: valuta la leggibilità di un documento in lingua italiana;
+  #align(center)[$"IG"= 89 + (300*N_f- 10*N_l)/N_p$]
+  - *N#sub[f]* : numero di frasi;
+  - *N#sub[l]* : numero di lettere;
+  - *N#sub[p]* : numero di parole.
+
+-  *MPC11 - Correttezza ortografica*: misura il numero di errori ortografici in un documento.
+
+=== Verifica
+
+-  *MPC12 - Code coverage*: indica la percentuale di codice sorgente testato rispetto al totale;
+
+-  *MPC13 - Passed test cases percentage*: valuta la percentuale di casi di test superati con successo.
+
+=== Gestione della qualitá
+
+-  *MPC14 - Quality metrics satisfied*: monitora il grado di soddisfacimento delle metriche di qualità stabilite.
+
+= Metriche di qualitá del prodotto
+
+== Funzionalitá
+
+-  *MPD01 - Copertura dei requisiti obbligatori*: misura la percentuale di requisiti obbligatori coperti;
+  #align(center)[$"CRO" = "ROC" / "TRO" * 100$]
+  - *ROC*: numero di requisiti obbligatori coperti dall’implementazione;
+  - *TRO*: numero totale di requisiti obbligatori.
+
+-  *MPD02 - Copertura dei requisiti desiderabili*: valuta la percentuale di requisiti desiderabili coperti;
+  #align(center)[$"CRD" = "RDC" / "TRD" * 100$]
+  - *RDC*: numero di requisiti desiderabili coperti dall’implementazione;
+  - *TRD*: numero totale di requisiti desiderabili.
+  
+-  *MPD03 - Copertura dei requisiti opzionali*: quantifica la percentuale di requisiti opzionali coperti;
+  #align(center)[$"CRP" = "RPC" / "TRP" * 100$]
+  - *RDC*: numero di requisiti opzionali coperti dall’implementazione;
+  - *TRD*: numero totale di requisiti opzionali.
+
+== Affidabilitá
+
+-  *MPD04 - Code coverage*: rappresenta la percentuale di codice sorgente eseguito durante i test rispetto al totale;
+
+-  *MPD05 - Branch coverage*: misura la percentuale di rami decisionali del codice coperti durante i test;
+
+-  *MPD06 - Statement coverage*: quantifica la percentuale di istruzioni del codice sorgente eseguite durante i test;
+
+-  *MPD07 - Failure density*: calcola il numero di fallimenti riscontrati durante i test per unità di dimensione del codice;
+
+== Usabilitá
+
+-  *MPD08 - Facilitá di utilizzo*: valuta la facilità con cui gli utenti possono interagire con il sistema.
+
+== Efficienza
+
+-  *MPD09 - Utilizzo risorse*: misura l'efficienza del sistema in termini di utilizzo delle risorse.
+
+== Manutenibilitá
+
+-  *MPD10 - Complessità ciclomatica*: valuta la complessità del codice sorgente attraverso la misurazione del numero di cammini indipendenti attraverso il grafo di controllo di flusso;
+
+-  *MPD11 - Comprensibilitá del codice*: esprime la facilità con cui il codice può essere compreso e interpretato da chi deve effettuare la manutenzione;
+
+-  *MPD12 - Code smell*: rileva potenziali problemi di progettazione o codice che potrebbe richiedere manutenzione.
