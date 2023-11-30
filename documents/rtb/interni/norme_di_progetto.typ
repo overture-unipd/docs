@@ -708,46 +708,7 @@ Infine, una volta capito cosa e da dove studiare, è necessario che ognuno dei c
 === Strumenti
 Al fine di agevolare il processo di formazione, abbiamo optato per l'adozione di un repository privato, accessibile esclusivamente ai membri del gruppo, nel quale tutte le risorse utili sono organizzate in categorie per favorire un accesso efficiente e ordinato.
 
-
-
-= Standard ISO/IEC 12207
-La norma ISO/IEC 12207 rappresenta uno standard internazionale che stabilisce un modello per la gestione del ciclo di vita del software, delineando perció il percorso che quest'ultimo deve percorrere dalla sua concenzione alla sua dismissione. \
-Lo scopo principale è quello di stabilire i processi chiave coinvolti nello sviluppo, nell'operazione e nel mantenimento del software, contribuendo a migliorare la qualità del prodotto finale e a facilitare la collaborazione tra le diverse fasi del ciclo di vita. \
-I processi sono divisi in tre categorie:
-- *Processi primari*;
-- *Processi organizzativi*;
-- *Processi di supporto*.
-
-== Processi primari
-I processi primari rappresentano le attività principali coinvolte nello sviluppo, nell'operazione e nella manutenzione del software. \
-I punti chiave sono:
-- *Acquisizione*: riguarda l'identificazione e la valutazione dei bisogni degli acquirenti rispetto al software. Include la definizione dei requisiti, la selezione dei fornitori e la stipula di contratti;
-- *Fornitura*: coinvolge l'adempimento dei requisiti contrattuali attraverso la progettazione, lo sviluppo e la consegna del software da parte dei fornitori;
-- *Sviluppo*: copre l'intero ciclo di vita dello sviluppo del software, dalla concezione alla consegna. Include l'analisi dei requisiti, la progettazione, l'implementazione e la verifica del software;
-- *Operazione*: gestisce l'esecuzione effettiva del software in un ambiente operativo. Include la gestione delle prestazioni, il supporto agli utenti, la gestione delle configurazioni e la risoluzione degli incidenti;
-- *Manutenzione*: si occupa delle modifiche e delle migliorie al software dopo la sua distribuzione. Include attività come correzioni di errori, adattamenti ai cambiamenti dell'ambiente e aggiornamenti delle funzionalità.
-
-== Processi organizzativi
-I processi organizzativi forniscono una struttura per la gestione delle risorse umane, la formazione, la gestione della qualità nell'organizzazione e la gestione delle infrastrutture. \
-I punti chiave sono:
-- *Gestione delle risorse umane*: si occupa della gestione del personale coinvolto nello sviluppo del software. Include la pianificazione delle risorse umane, la formazione, la valutazione delle prestazioni e la gestione delle competenze;
-- *Gestione dell'organizzazione*: tratta della gestione generale dell'organizzazione, inclusa la definizione di politiche, strategie e obiettivi;
-- *Gestione delle infrastrutture*: si occupa della gestione delle infrastrutture necessarie per supportare l'ambiente di sviluppo e operativo del software. Ciò include hardware, software, reti e altri componenti tecnologici;
-- *Valutazione organizzativa*: si concentra sulla valutazione delle performance dell'organizzazione nel suo complesso, identificando opportunità di miglioramento e adattamento alle esigenze del contesto.
-
-== Processi di supporto
-I processi di supporto servono a garantire la coerenza e l'efficacia del ciclo di vita del software. \
-I punti chiave sono:
-- *Documentazione*: si occupa della produzione e della gestione della documentazione associata al ciclo di vita del software. Ciò include la creazione di documenti di requisiti, specifiche di progettazione, manuali utente e altro;
-- *Gestione della configurazione*: tratta dell'identificazione e del controllo delle modifiche apportate al software e alla sua documentazione durante l'intero ciclo di vita;
-- *Qualitá*: si concentra sulla definizione e sull'applicazione delle attività di assicurazione della qualità necessarie per garantire che il software soddisfi gli standard di qualità stabiliti;
-- *Verifica*: consiste nel valutare i prodotti del software e i risultati dei processi per garantire che siano conformi ai requisiti specificati;
-- *Validazione*: è il processo di valutazione del software durante o alla fine del suo sviluppo per determinare se soddisfa i bisogni specifici dell'utente e il suo contesto operativo;
-- *Risoluzione dei problemi*: tratta della gestione e della risoluzione dei problemi e delle non conformità identificate durante le attività del ciclo di vita del software;
-- *Revisione congiunta*: è un processo che coinvolge il coinvolgimento di diverse parti interessate nella revisione di un prodotto del software o di un processo specifico;
-- *Audit*: è un processo sistematico di valutazione per determinare la conformità rispetto agli standard e ai requisiti specificati.
-
-= Standard ISO/IEC 9126
+= Standard ISO/IEC 9126 
 La norma ISO/IEC 9126 è uno standard internazionale che ha contribuito a definire i parametri essenziali per valutare la qualità del software. Questa norma rappresenta un insieme di linee guida dettagliate e criteri di valutazione per gli attributi chiave della qualità del software. In particolare, identifica sei macro-categorie di attributi di qualità del software, ognuna delle quali è ulteriormente scomposta in sottoattributi specifici:
 - *Funzionalità*;
 - *Affidabilità*;

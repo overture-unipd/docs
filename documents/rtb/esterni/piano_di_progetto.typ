@@ -9,6 +9,7 @@
     [_#(p.zextras)_],
   ),
   changelog: (
+    "0.0.4", "2023-11-26", p.vedovato, p.bettin, "Aggiunta la pianificazione del periodo I",
     "0.0.3", "2023-11-25", p.vedovato, p.bettin, "Aggiunta della sezione 'Modello di sviluppo'",
     "0.0.2", "2023-11-19", p.fabbian, p.amadori, "Aggiunta della sezione 'Analisi dei Rischi'",
     "0.0.1", "2023-11-15", p.bulychov, p.amadori, "Struttura di base ed introduzione",
@@ -66,7 +67,7 @@ I fattori fondamentali per identificare i rischi sono:
 Per questo motivo si è deciso di adottare la seguente convenzione `R[Tipologia][Indice]`.
 
 == Rischi Tecnologici
-*RT1 - Inesperienza*
+*RT1 - Inesperienza* <RT1>
 #risks((
  [Dato l'alto grado di specializzazione richiesto dal capitolato, alcuni membri del gruppo potrebbero non possedere le competenze necessarie inizialmente. Ciò potrebbe causare ritardi sia nella fase di progettazione che nello sviluppo, poiché la formazione sarà essenziale per acquisire le competenze richieste],
  [Alta],
@@ -75,7 +76,7 @@ Per questo motivo si è deciso di adottare la seguente convenzione `R[Tipologia]
  [I membri del gruppo che ritengono di non possedere le competenze necessarie per svolgere un compito specifico saranno affiancati da un membro più esperto del gruppo. Questo supporto consentirà la formazione necessaria attraverso l'istruzione diretta e la fornitura di documentazione rilevante per comprendere l'argomento in questione],
 ))
 
-*RT2 - Problemi legati all'utilizzo della libreria esterna*
+*RT2 - Problemi legati all'utilizzo della libreria esterna* <RT2>
 #risks((
   [Per lo sviluppo del progetto, il team ha scelto di adottare una libreria esterna per implementare lo standard JMAP. La presenza di malfunzionamenti o problematiche interne a questa libreria è al di fuori del controllo del team e potrebbe influire sulla velocità e sui costi del progetto],
   [Bassa],
@@ -84,7 +85,7 @@ Per questo motivo si è deciso di adottare la seguente convenzione `R[Tipologia]
   [Nel caso vengano identificati problemi legati al software o ai servizi di terze parti, i membri del team sono tenuti a segnalarli al Responsabile di progetto. Quest'ultimo dovrà prevedere, nel caso peggiore, la sostituzione della soluzione in uso con un'alternativa il più simile possibile al software adottato],
 ))
 
-*RT3 - Perdita di informazioni*
+*RT3 - Perdita di informazioni* <RT3>
 #risks((
   [La perdita di informazioni quali le mail degli utenti rappresenta un rischio significativo per il progetto. Questo può accadere a seguito di guasti hardware, errori umani, attacchi informatici o malfunzionamenti del sistema di archiviazione delle mail],
   [Media],
@@ -95,8 +96,8 @@ Per questo motivo si è deciso di adottare la seguente convenzione `R[Tipologia]
 
 == Rischi Organizzativi
 
-*RO1 - Imprecisioni nella pianificazione delle attività*
-#risks((
+*RO1 - Imprecisioni nella pianificazione delle attività* <RO1>
+#risks(( 
   [La pianificazione imprecisa delle attività può derivare dalla mancata conoscenza dei requisiti, dalla sottostima/sovrastima delle risorse/tempo necessari o dalla scarsa esperienza dei membri del team],
   [Alta],
   [Alta],
@@ -104,7 +105,7 @@ Per questo motivo si è deciso di adottare la seguente convenzione `R[Tipologia]
   [In caso di difficoltà, il `Piano di Progetto` viene revisionato per adeguare le date delle attività in base al progresso. Se un membro segnala impossibilità di rispettare la scadenza, il Responsabile assegnerà più risorse o posticiperà la data.],
 ))
 
-*RO2 - Elevati costi delle attività*
+*RO2 - Elevati costi delle attività* <RO2>
 #risks((
   [La sottostima/sovrastima dei costi delle attività a causa dell'inesperienza del team può causare ritardi o spreco di tempo],
   [Media],
@@ -113,7 +114,7 @@ Per questo motivo si è deciso di adottare la seguente convenzione `R[Tipologia]
   [In caso di cambiamenti non gravi, si cerca di implementare rapidamente quanto è rimasto aperto. Se significativo, si discute con il proponente per trovare un accordo su come affrontare i cambiamenti.],
 ))
 
-*RO3 - Impegni personali e universitari*
+*RO3 - Impegni personali e universitari* <RO3>
 #risks((
   [Gli impegni personali e universitari possono limitare la disponibilità temporale dei membri del team, causando ritardi nel progetto],
   [Media],
@@ -124,7 +125,7 @@ Per questo motivo si è deciso di adottare la seguente convenzione `R[Tipologia]
 
 == Rischi Comunicativi
 
-*RC1 - Rischio di conflitti interni*
+*RC1 - Rischio di conflitti interni* <RC1>
 #risks((
   [I conflitti interni possono derivare da diverse opinioni sulla direzione del progetto, soluzioni o allocazione delle risorse],
   [Media],
@@ -133,7 +134,7 @@ Per questo motivo si è deciso di adottare la seguente convenzione `R[Tipologia]
   [Il Responsabile interviene per gestire i conflitti, riassegna compiti se necessario e, se non si raggiunge un accordo, coinvolge i docenti.],
 ))
 
-*RC2 - Problemi di comunicazione*
+*RC2 - Problemi di comunicazione* <RC2>
 #risks((
   [Una comunicazione inefficace può causare ritardi e stress. La mancanza di contatto fisico può ostacolare lo sviluppo di uno spirito di squadra],
   [Media],
@@ -152,3 +153,45 @@ Questo modello di sviluppo è prevalso sugli altri per via dei seguenti grandi v
 - *ottima gestione dei rischi*: data la breve durata dei periodi, i problemi che possono essere riscontrati all'interno di essi saranno individuati velocemente ed inoltre avranno una dimensione ragionevole, permettendo dunque una risoluzione tempestiva e riducendo il rischio di fallimento del progetto;
 - *soddisfazione degli stakeholder*: il modello Agile promuove il coinvolgimento continuo degli stakeholder durante tutto il processo di sviluppo. Ciò garantisce che il prodotto finale soddisfi realmente le esigenze e le aspettative di chi l'ha commissionato, aumentandone così la soddisfazione complessiva;
 - *soddisfazione del team*: il modello Agile incoraggia l'auto-organizzazione dei membri del team e il coinvolgimento attivo in tutte le fasi del processo di sviluppo. Ciò porta a un maggiore senso di responsabilità e motivazione. Inoltre, consegnando risultati tangibili in periodi di tempo brevi, questo modello di sviluppo contribuisce anche a mantenere elevato il morale dei membri, i quali vedono il proprio lavoro tradursi in risultati concreti in tempi rapidi.
+
+#pagebreak()
+
+= *Periodi*
+Per ogni periodo si riportano di seguito le seguenti informazioni:
+- la pianificazione delle attività da svolgere al suo interno (avanzamento atteso), con tanto di potenziali rischi;
+- il tempo stimato per poter completare tutte le attività previste;
+- un confronto fra il lavoro svolto (avanzamento conseguito) e quello preventivato, con annessa analisi dei costi;
+- i rischi effettivamente occorsi, valutandone il loro impatto e la loro mitigazione;
+- una retrospettiva di periodo per capire cosa e come migliorare in futuro.
+I periodi vengono suddivisi in 3 grandi insiemi corrispondenti alle revisioni di avanzamento del progetto:
+- RTB (Requirements and Technology Baseline);
+- PB (Product Baseline);
+- CA (Customer Acceptance).
+Alla fine di ogni collettivo si trovano una revisione del calendario rimanente e un'aggiornamento della  stima dei costi finali, oltre ad un riepilogo del lavoro svolto.
+
+== RTB
+
+=== Periodo I
+Inizio: 2023-11-06\
+Fine: 2023-11-22\
+
+==== Pianificazione
+Questo periodo nasce contestualmente all'aggiudicazione dell'appalto da parte del gruppo, di conseguenza la prima azione pianificata è la risoluzione dei problemi segnalati in fase di candidatura. Fatto ciò, in queste due settimane si prevede di definire la struttura di base di ogni documento necessario e di andare ad automatizzare più operazioni possibili. Inoltre, parallelamente allo sviluppo della documentazione, si prevede anche uno studio approfondito del dominio del problema del capitolato e delle tecnologie coinvolte. \
+Le attività previste durante questo periodo sono quindi le seguenti:
+- aggiungere il Registro delle Modifiche ai documenti già prodotti;
+- aggiungere la versione come metadato dei documenti;
+- arricchire le `Norme di Progetto` consolidando il WoW del gruppo;
+- definire una struttura di base per il `Glossario` ed aggiungere i primi termini individuati al suo interno;
+- aggiornare il `Piano di Progetto` definendone la struttura di base;
+- definire una struttura di base per il `Piano di Qualifica`;
+- definire una struttura di base per il documento `Analisi dei requisiti` ed aggiungere i primi use case individuati dagli Analisiti al suo interno;
+- studiare approfonditamente la libreria java iNPUTmice/jmap per l’implementazione del protocollo JMAP ed altre alternative per la realizzazione del prodotto. 
+
+===== Rischi attesi
+I rischi che ci aspettiamo di correre in questo periodo sono i seguenti: 
+- #link(<RT1>)[*RT1 - Inesperienza*];
+- #link(<RO1>)[*RO1 - Imprecisioni nella pianificazione delle attività*];
+- #link(<RO2>)[*RO2 - Elevati costi delle attività*];
+- #link(<RC1>)[*RC1 - Rischio di conflitti interni*];
+- #link(<RC2>)[*RC2 - Problemi di comunicazione*];
+Questo perchè, essendo all'inizio del progetto, siamo ancora incerti su molti aspetti di quest'ultimo, ci stiamo attualmente organizzando e dobbiamo apprendere ancora molto, dunque la probabilità di incorrere in qualche problema tra quelli riportati è abbastanza elevata.
