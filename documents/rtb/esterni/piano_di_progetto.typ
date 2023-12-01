@@ -210,6 +210,7 @@ Ruoli coinvolti: Responsabile, Amministratore, Verificatore, Analista, Progettis
   (0, 0, 0, 5, 2, 0),
   (6, 0, 0, 0, 1, 0),
   ),
+  (2, 2, 2),
 )
 
 

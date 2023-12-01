@@ -266,8 +266,8 @@
 }
 
 #let consuntivo(r) = {
-  let period_header = ([], [*Res.*], [*Amm.*], [*Ver.*], [*Ana.*], [*Proge.*], [*Progr.*], [*Ore totali a persona*])
-  let people = (p.amadori, p.bettin, p.bonavigo, p.bulychov, p.fabbian, p.furno, p.vedovato, "Ore totali per ruolo").map(el => [*#el*])
+  let period_header = ("", "Res.", "Amm.", "Ver.", "Ana.", "Progett.", "Program.", "Totali per persona").map(r => [*#r*])
+  let people = ((p.amadori, p.bettin, p.bonavigo, p.bulychov, p.fabbian, p.furno, p.vedovato).map(n => n.split().last()) + ("Ore totali per ruolo",)).map(el => [*#el*])
   r = period_header + people.zip(r).flatten()
 
   align(center,
@@ -282,9 +282,9 @@
 }
 
 #let costi(r) = {
-  let period_header = ([*Ruolo*], [*Ore*], [*Costo*], [*Differenza*])
+  let costs_header = ([*Ruolo*], [*Ore*], [*Costo*], [*Differenza*])
   let people = ("Responsabile", "Amministratore", "Verificatore", "Analista", "Progettista", "Programmatore", "Totale preventivo", "Totale consuntivo").map(el => [#el])
-  r = period_header + people.zip(r).flatten()
+  r = costs_header + people.zip(r).flatten()
 
   align(center,
     table(
@@ -297,7 +297,7 @@
   )
 }
 
-#let period(data) = {
+#let period(data, dirs) = {
   let roles = ("Responsabile", "Amministratore", "Verificatore", "Analista", "Progettista", "Programmatore")
   let period_header = ([],) + roles.map(r => [*#r*])
   let people = (p.amadori, p.bettin, p.bonavigo, p.bulychov, p.fabbian, p.furno, p.vedovato).map(n => n.split().last())
@@ -325,12 +325,13 @@
   }
   
   data = people.zip(data).map(x => x.flatten())
+  let pal = (rgb("#e60049"), rgb("#0bb4ff"), rgb("#50e991"), rgb("#e6d800"), rgb("#9b19f5"), rgb("#ffa300"), rgb("#dc0ab4"), rgb("#b3d4ff"), rgb("#00bfa0"))
 
   align(center,
     canvas({
       import draw: *
       scale(1.8)
-      chart.columnchart(size:(auto,4), mode: "clustered", value-key: (1,2,3,4,5,6), data, y-tick-step: 1, bar-style: palette.rainbow)
+      chart.columnchart(size:(auto,4), mode: "clustered", value-key: (1,2,3,4,5,6), data, y-tick-step: 1, bar-style: palette.new(black, pal))
     })
   )
 
@@ -365,17 +366,17 @@
       scale(2)
 
       chart(
-        (sums.at(0), rgb("#9400D4"), roles.at(0)),
-        (sums.at(1), rgb("#4B0082"), roles.at(1)),
-        (sums.at(2), rgb("#0000FF"), roles.at(2)),
-        (sums.at(3), rgb("#00FF00"), roles.at(3)),
-        (sums.at(4), rgb("#FFFF00"), roles.at(4)),
-        (sums.at(5), rgb("#FF0000"), roles.at(5)),
+        (sums.at(0), pal.at(0), roles.at(0)),
+        (sums.at(1), pal.at(1), roles.at(1)),
+        (sums.at(2), pal.at(2), roles.at(2)),
+        (sums.at(3), pal.at(3), roles.at(3)),
+        (sums.at(4), pal.at(4), roles.at(4)),
+        (sums.at(5), pal.at(5), roles.at(5)),
         name: "chart"
       )
 
-      let positions = ((2,0),)*2+((-2,0),)*2+((2,0),)*2
-      let anchors = ("left",)*2+("right",)*2+("left",)*2
+      let positions = ((2,0),)*dirs.at(0)+((-2,0),)*dirs.at(1)+((2,0),)*dirs.at(2)
+      let anchors = ("left",)*dirs.at(0)+("right",)*dirs.at(1)+("left",)*dirs.at(2)
       set-style(mark: (fill: white, start: "o", stroke: black),
                 content: (padding: .1))
       for i in range(roles.len()) {
