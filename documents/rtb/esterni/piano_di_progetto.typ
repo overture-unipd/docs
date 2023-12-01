@@ -9,6 +9,8 @@
     [_#(p.zextras)_],
   ),
   changelog: (
+    "0.1.0", "2023-11-30", p.furno, p.bettin, "Aggiunto il consuntivo del periodo I",
+    "0.0.5", "2023-11-30", p.furno, p.bettin, "Aggiunto il preventivo del periodo I",
     "0.0.4", "2023-11-26", p.vedovato, p.bettin, "Aggiunta la pianificazione del periodo I",
     "0.0.3", "2023-11-25", p.vedovato, p.bettin, "Aggiunta della sezione 'Modello di sviluppo'",
     "0.0.2", "2023-11-19", p.fabbian, p.amadori, "Aggiunta della sezione 'Analisi dei Rischi'",
@@ -167,7 +169,7 @@ I periodi vengono suddivisi in 3 grandi insiemi corrispondenti alle revisioni di
 - RTB (Requirements and Technology Baseline);
 - PB (Product Baseline);
 - CA (Customer Acceptance).
-Alla fine di ogni collettivo si trovano una revisione del calendario rimanente e un'aggiornamento della  stima dei costi finali, oltre ad un riepilogo del lavoro svolto.
+Alla fine di ogni collettivo si trovano una revisione del calendario rimanente e un'aggiornamento della stima dei costi finali, oltre ad un riepilogo del lavoro svolto.
 
 == RTB
 
@@ -178,14 +180,14 @@ Fine: 2023-11-22\
 ==== Pianificazione
 Questo periodo nasce contestualmente all'aggiudicazione dell'appalto da parte del gruppo, di conseguenza la prima azione pianificata è la risoluzione dei problemi segnalati in fase di candidatura. Fatto ciò, in queste due settimane si prevede di definire la struttura di base di ogni documento necessario e di andare ad automatizzare più operazioni possibili. Inoltre, parallelamente allo sviluppo della documentazione, si prevede anche uno studio approfondito del dominio del problema del capitolato e delle tecnologie coinvolte. \
 Le attività previste durante questo periodo sono quindi le seguenti:
-- aggiungere il Registro delle Modifiche ai documenti già prodotti;
-- aggiungere la versione come metadato dei documenti;
-- arricchire le `Norme di Progetto` consolidando il WoW del gruppo;
-- definire una struttura di base per il `Glossario` ed aggiungere i primi termini individuati al suo interno;
-- aggiornare il `Piano di Progetto` definendone la struttura di base;
-- definire una struttura di base per il `Piano di Qualifica`;
-- definire una struttura di base per il documento `Analisi dei requisiti` ed aggiungere i primi use case individuati dagli Analisiti al suo interno;
-- studiare approfonditamente la libreria java iNPUTmice/jmap per l’implementazione del protocollo JMAP ed altre alternative per la realizzazione del prodotto. 
+- Aggiungere il Registro delle Modifiche ai documenti già prodotti;
+- Aggiungere la versione come metadato dei documenti;
+- Arricchire le `Norme di Progetto` consolidando il WoW del gruppo;
+- Definire una struttura di base per il `Glossario` ed aggiungere i primi termini individuati al suo interno;
+- Aggiornare il `Piano di Progetto` definendone la struttura di base;
+- Definire una struttura di base per il `Piano di Qualifica`;
+- Definire una struttura di base per il documento `Analisi dei requisiti` ed aggiungere i primi use case individuati dagli Analisiti al suo interno;
+- Studiare approfonditamente la libreria java iNPUTmice/jmap per l’implementazione del protocollo JMAP ed altre alternative per la realizzazione del prodotto. 
 
 ===== Rischi attesi
 I rischi che ci aspettiamo di correre in questo periodo sono i seguenti: 
@@ -195,3 +197,64 @@ I rischi che ci aspettiamo di correre in questo periodo sono i seguenti:
 - #link(<RC1>)[*RC1 - Rischio di conflitti interni*];
 - #link(<RC2>)[*RC2 - Problemi di comunicazione*];
 Questo perchè, essendo all'inizio del progetto, siamo ancora incerti su molti aspetti di quest'ultimo, ci stiamo attualmente organizzando e dobbiamo apprendere ancora molto, dunque la probabilità di incorrere in qualche problema tra quelli riportati è abbastanza elevata.
+
+==== Preventivo
+Ruoli coinvolti: Responsabile, Amministratore, Verificatore, Analista, Progettista.
+
+#period((
+  (0, 0, 8, 0, 0, 0),
+  (0, 0, 0, 6, 0, 0),
+  (2, 0, 0, 0, 4, 0),
+  (0, 0, 0, 5, 2, 0),
+  (0, 5, 0, 1, 0, 0),
+  (0, 0, 0, 5, 2, 0),
+  (6, 0, 0, 0, 1, 0),
+  ),
+  (2, 2, 2),
+)
+
+
+==== Consuntivo
+Le attività previste sono tutte state svolte con successo. \
+Come si può notare dal confronto tra preventivo e consuntivo:
+- Amministratori, Verificatori e Analisti hanno richiesto *più* ore;
+- Responsabili e Progettisti hanno richiesto *meno* ore.
+
+===== Prospetto orario
+#consuntivo(
+  (
+    ("0", "0","9 "+neg("+1"), "0", "0", "0", "9"),
+    ("0", "0","0", "6", "0", "0", "6"),
+    ("2", "0","0", "0", "5 "+neg("+1"), "0", "7"),
+    ("0", "0","0", "5", "1 "+pos("-1"), "0","6"),
+    ("0", "5","0", "2 "+neg("+1"), "0", "0","7"),
+    ("0", "0","0", "5", "1 "+pos("-1"), "0","6"),
+    ("5 "+pos("-1"), "1 "+neg("+1"),"0", "0", "1", "0","7"),
+    ("7", "6","9", "18", "8", "0", "48")
+  )
+)
+===== Prospetto economico
+#costi(
+  (
+    ("7 "+pos("-1"), "240€", pos("-30€")),
+    ("6 "+neg("+1"), "100€",neg("+20€")),
+    ("9 "+neg("+1"), "120€",neg("+15€")),
+    ("18 "+neg("+1"), "425€",neg("+25€")),
+    ("8 "+pos("-1"), "225€",pos("-25€")),
+    ("-", "-","-"),
+    ("47", "1110€","-"),
+    ("48 "+neg("+1"), "1115€",neg("+5€"))
+  )
+)
+
+===== Rischi occorsi, impatto e loro mitigazione
+In questo primo periodo il gruppo ha riscontrato dei leggeri rallentamenti nelle fasi iniziali dei lavori. In particolare, si è proceduto alla stesura in parallelo di diversi documenti senza aver ben definito le regole stilistiche per il testo all'interno delle `Norme di Progetto`; questo problema dovuto ad inesperienza e problemi di comunicazione, che rappresentano parte dei rischi attesi dal gruppo, ha richiesto del lavoro extra per la redazione e la verifica della documentazione, ma è stato prontamente mitigato una volta individuato. \
+Anche implementare le actions di GitHub ha richiesto ulteriore sforzo rispetto quanto preventivato: inizialmente non era chiaro ai Progettisti come e cosa automatizzare. Quest'ultimi quindi si sono formati e hanno successivamente provveduto a realizzare alcune automazioni relative alla build dei documenti, specialmente per quanto riguarda il versionamento. \
+In conclusione i rischi occorsi non hanno avuto un grosso impatto sul progetto e sono stati prontamente mitigati tramite discussione costruttiva mediante i membri del gruppo. 
+
+
+===== Retrospettiva
+Questo primo periodo di lavoro ci ha ribadito l'importanza delle best practice comuni che ogni membro del gruppo deve seguire per tutta la durata del progetto: per questo motivo verrà data la precedenza alla terminazione di una prima versione stabile delle `Norme di Progetto`, con la previsione di ultimarla nella prima settimana del Periodo II. \
+Lo studio condiviso delle librerie JMAP tra i diversi incaricati ha velocizzato l'apprendimento dei contenuti, risparmiando delle ore rispetto quanto preventivato. Questo metodo verrà sicuramente riproposto dal gruppo per lo studio di altre tecnologie. \
+L'approccio adottato dai Responsabili per assegnare le attività si è rivelato corretto: le task sono state distribuite in modo equo ai diversi componenti del gruppo che hanno impiegato un numero congruo di ore per il loro svolgimento e hanno ultimato il lavoro entro i tempi stabiliti. \
+Infine va migliorata la stima tramite preventivo del tempo necessario per poter completare tutte le attività, la quale è risultata essere leggermente imprecisa.

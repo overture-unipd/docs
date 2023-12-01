@@ -1,6 +1,6 @@
 #import "@preview/tablex:0.0.6": tablex, gridx, hlinex, vlinex, colspanx, rowspanx
 #import "@preview/codelst:1.0.0": sourcecode
-#import "@preview/plotst:0.2.0": *
+#import "@preview/cetz:0.1.2": *
 
 #let g = (
   name: "Overture",
