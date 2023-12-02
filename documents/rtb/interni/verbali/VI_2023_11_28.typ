@@ -8,6 +8,7 @@
     p.cardin,
   ),
   changelog: (
+    "1.1", "2023-12-02", p.vedovato, p.bettin, "Sistemati i link alle issue",
     "1.0", "2023-11-30", p.vedovato, p.bettin, "Aggiustamenti alla forma e finalizzazione del verbale",
     "0.1", "2023-11-28", p.vedovato, p.bettin, "Prima bozza con riassunto incontro",
   ),
@@ -47,7 +48,7 @@ Infine sono stati discussi i contenuti del diario di bordo di questa settimana e
   (g.docs, 98), [Stesura di _questo_ verbale], p.vedovato,
   (g.docs, 91), [Stesura del diario di bordo del 2023-11-29], p.fabbian,
   (g.docs, 99), [`Piano di Progetto`: Preventivo del periodo corrente], p.vedovato,
-  (g.docs, 100), [Containerizzazione del database e del server], p.bulychov,
-  (g.docs, 101), [Inserimento di una mail (tramite  accettazione del json e passaggio al db)], p.bonavigo,
-  (g.docs, 102), [Recupero di una mail dal server], p.bonavigo,
+  (g.jmap, 3), [Containerizzazione del database e del server], p.bulychov,
+  (g.jmap, 2), [Inserimento di una mail (tramite  accettazione del json e passaggio al db)], p.bonavigo,
+  (g.jmap, 1), [Recupero di una mail dal server], p.bonavigo,
 ))
