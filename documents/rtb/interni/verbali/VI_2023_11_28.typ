@@ -26,7 +26,7 @@
 - Riflettere sull'`Analisi dei Requisiti`;
 - Fare un bilancio sullo sviluppo del PoC;
 - Preparare il diario di bordo;
-- Definire le domande da presentare in vista delll'incontro imminente con _#(p.zextras)_.
+- Definire le domande da presentare in vista dell'incontro imminente con _#(p.zextras)_.
 
 = Sintesi dell'incontro
 L'incontro ha avuto inizio con una discussione riguardante il punto della situazione sullo stato della documentazione prodotta fino ad ora. Abbiamo quindi analizzato rapidamente la condizione di ogni documento, valutandone la qualità ed il grado di completezza, deducendo che siamo a buon punto con la maggior parte di ciò che è stato prodotto fino a questo momento, ad esclusione del `Piano di Qualifica`, il quale richiederà maggiore attenzione all'interno del prossimo periodo.
@@ -47,7 +47,7 @@ Infine sono stati discussi i contenuti del diario di bordo di questa settimana e
   (g.docs, 98), [Stesura di _questo_ verbale], p.vedovato,
   (g.docs, 91), [Stesura del diario di bordo del 2023-11-29], p.fabbian,
   (g.docs, 99), [`Piano di Progetto`: Preventivo del periodo corrente], p.vedovato,
-  (g.jmap, 100), [Containerizzazione del database e del server], p.bulychov,
-  (g.jmap, 101), [Inserimento di una mail (tramite  accettazione del json e passaggio al db)], p.bonavigo,
-  (g.jmap, 102), [Recupero di una mail dal server], p.bonavigo,
+  (g.docs, 100), [Containerizzazione del database e del server], p.bulychov,
+  (g.docs, 101), [Inserimento di una mail (tramite  accettazione del json e passaggio al db)], p.bonavigo,
+  (g.docs, 102), [Recupero di una mail dal server], p.bonavigo,
 ))
