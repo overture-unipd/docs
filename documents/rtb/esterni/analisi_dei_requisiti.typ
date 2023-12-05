@@ -9,6 +9,10 @@
     [_#(p.zextras)_],
   ),
   changelog: (
+	"0.0.8", "2023-12-2" , p.bettin, p.vedovato,
+    [
+      Casi d'uso: correzione degli stress test
+    ],
     "0.0.7", "2023-12-1" , p.amadori, p.bettin,
     [
       Casi d'uso: correzione creazione delle cartelle\
