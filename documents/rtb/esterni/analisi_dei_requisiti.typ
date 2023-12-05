@@ -9,7 +9,12 @@
     [_#(p.zextras)_],
   ),
   changelog: (
-	"0.0.8", "2023-12-2" , p.bettin, p.vedovato,
+    "0.0.9", "2023-12-2" , p.furno, p.vedovato,
+    [
+      Casi d'uso: rimozione dei requisiti di vincolo\
+      Casi d'uso: rimozione dei requisiti di prestazione
+    ],
+    "0.0.8", "2023-12-2" , p.bettin, p.vedovato,
     [
       Casi d'uso: correzione degli stress test
     ],
@@ -214,6 +219,10 @@ Gli attori che consideriamo nel prodotto che andremo a realizzare sono:
 Essendo questo un sistema con il fine di testare una nuova tecnologia (JMAP) non abbiamo bisogno di gestire particolari aspetti legati alla sicurezza informatica, i client hanno lo scopo di poter effettuare le seguenti funzionalità (#ref(<Funzionalità>, supplement: "Cap")) in modo che noi sviluppatori possiamo testare l'efficienza di queste operazioni con gli stress test.\
 Si nota però che in un sistema di posta elettronica, per poter visualizzare le email bisogna prima identificarsi con il server mail fornendo appunto la propria email e la password associata. Allo stesso modo per inviare una email il server mail avrà bisogno di sapere il mittente e quindi ha bisogno di riconoscere il client che intende effettuare questa operazione.\
 Per questo motivo nel nostro sistema andremo a prevedere un classico sistema di autenticazione composto da email e password.
+
+== Gestione degli Errori
+Spesso nei diagrammi dei casi d'uso troveremo degli errori non possono essere fisicamenti causati dagli attori del sistema: ad esempio, se un utente crea una rubrica che deve inserire al suo interno i contatti, se segue l'interfaccia grafica dell'applicazione è impossibile che provi ad aggiungere alla rubrica un Indirizzo Email che non esiste perchè l'Applicazione non dispone dei comandi per permettere questo errore (è tutto guidato e non ci sono input liberi).\
+D'altro canto però le API che vengono esposte possono essere chiamate inserendo come parametri qualsiasi tipo di valore e quindi ci siamo sentiti di citare nelle prossime sezioni anche gli errori che possono essere causati da utenti malintenzionati che possono modificare artificialmente i valori con il quale le API vengono chiamate
 
 #pagebreak()
 
@@ -787,7 +796,9 @@ Per questo motivo nel nostro sistema andremo a prevedere un classico sistema di 
 - *Descrizione*: Un utente autenticato vuole performare un'operazione di condivisione (aggiunta o rimozione);
 - *Precondizioni*: Operazione ancora non effettuata;
 - *Postcondizioni*: Operazione non effettuata e ricevimento da parte dell'utente di un messaggio di errore;
-- *Scenario principale*: L'utente riceverà un messaggio di errore se l'operazione di condivisione non va a buon fine.
+- *Scenario principale*: 
+  + L'utente effettua un'operazione di condivisione.
+  + L'utente riceverà un messaggio di errore se inserisce un Identificativo di una cartella che non esiste.
 
 #set list(marker: ([•], [--]))
 - *Estensioni*:/ - *Inclusioni*: / - *Generalizzazioni*: /
@@ -923,7 +934,9 @@ Per questo motivo nel nostro sistema andremo a prevedere un classico sistema di 
 - *Descrizione*: Il sistema è stato testato in maniera eccessiva e il numero di operazioni effettuate ha mandato in crash il sistema;
 - *Precondizioni*: Email non inviate;
 - *Postcondizioni*: Email non inviate e visualizzazione di un messaggio di errore;
-- *Scenario principale*: All'utente che effettua questa operazione viene mostrato un messaggio di errore che esplicita le motivazioni del crash del sistema.
+- *Scenario principale*: 
+  + Lo sviluppatore effettua un'operazione di quelle citate in precedenza;
+  + Se l'operazione è troppo onerosa viene mostrato un messaggio di errore che esplicita le motivazioni del crash del sistema.
 
 #set list(marker: ([•], [--]))
 - *Estensioni*:
@@ -978,7 +991,7 @@ Per questo motivo nel nostro sistema andremo a prevedere un classico sistema di 
 
 #pagebreak()
 
-=== UC 8 - Calendari
+/*=== UC 8 - Calendari
 
 #pagebreak()
 
@@ -1119,72 +1132,169 @@ Per questo motivo nel nostro sistema andremo a prevedere un classico sistema di 
 - *Generalizzazioni*: /
 
 #pagebreak()
+*/
 
-=== UC 10 - Contatti
+=== UC 8 - Contatti
 
 #figure(image("//imgs/use_cases/contatti-1.svg", width: 100%))
 #pagebreak()
+#figure(image("//imgs/use_cases/contatti-2.svg", width: 75%))
+#pagebreak()
 
-==== UC 10.1 - Creazione di un contatto
+==== UC 8.1 - Creazione di un contatto
 
 - *Attore principale*: Utente autenticato;
 - *Descrizione*: Un utente autenticato vuole creare un contatto;
 - *Precondizioni*: Contatto non creato;
-- *Postcondizioni*: Contatto creato;
-- *Scenario principale*: L'utente dovrà fornire le informazioni per creare un contatto (es. Nome, Cognome, Indirizzo Email).
+- *Postcondizioni*: Contatto creato.
+- *Scenario principale*: 
+  + L'utente deve fornire il Nome e Cognome del contatto;
+  + L'utente deve fornire l'Indirizzo Email del contatto che vuole creare.
 
 #set list(marker: ([•], [--]))
 - *Estensioni*: Indirizzo Email contatto duplicato o non valido
 - *Inclusioni*: /
 - *Generalizzazioni*: /
 
-==== UC 10.2 - Modifica di un contatto
+==== UC 8.1.1 - Inserimento Nome e Cognome contatto
+
+- *Attore principale*: Utente autenticato;
+- *Descrizione*: Un utente autenticato vuole creare un contatto e quindi deve inserire un campo obbligatorio;
+- *Precondizioni*: Contatto non creato;
+- *Postcondizioni*: Contatto non creato e l'Utente ha inserito il Nome e il Cognome per il contatto.
+- *Scenario principale*: 
+  + L'utente deve fornire il Nome e Cognome del contatto;
+
+#set list(marker: ([•], [--]))
+- *Estensioni*: / - *Inclusioni*: / - *Generalizzazioni*: /
+
+
+==== UC 8.1.2 - Inserimento Indirizzo Email contatto
+
+- *Attore principale*: Utente autenticato;
+- *Descrizione*: Un utente autenticato vuole creare un contatto e quindi deve inserire un campo obbligatorio;;
+- *Precondizioni*: Contatto non creato;
+- *Postcondizioni*: Contatto non creato e l'Utente ha inserito il Nome e il Cognome per il contatto.
+- *Scenario principale*: 
+  + L'utente deve fornire l'Indirizzo Email del contatto che vuole creare.
+
+#set list(marker: ([•], [--]))
+- *Estensioni*: / - *Inclusioni*: / - *Generalizzazioni*: /
+
+
+==== UC 8.2 - Modifica di un contatto
 
 - *Attore principale*: Utente autenticato;
 - *Descrizione*: Un utente autenticato vuole modificare un contatto;
 - *Precondizioni*: Contatto non modificato;
-- *Postcondizioni*: Contatto modificato;
-- *Scenario principale*: L'utente dovrà fornire le informazioni per modificare un contatto (es. Nome, Cognome, Indirizzo Email).
+- *Postcondizioni*: Contatto modificato.
+- *Scenario principale*: 
+  + L'utente deve fornire l'Indirizzo Email contatto da modificare;
+  + L'utente deve fornire il nuovo Nome, Cognome e Indirizzo Email da modificare.
 
 #set list(marker: ([•], [--]))
 - *Estensioni*: Indirizzo Email contatto duplicato o non valido
 - *Inclusioni*: /
 - *Generalizzazioni*: /
 
-==== UC 10.3 - Eliminazione di un contatto
+==== UC 8.2.1 - Inserimento Indirizzo Email contatto da modificare
+
+- *Attore principale*: Utente autenticato;
+- *Descrizione*: Un utente autenticato vuole creare un contatto e quindi deve inserire un campo obbligatorio;
+- *Precondizioni*: Contatto non creato;
+- *Postcondizioni*: Contatto non creato e l'Utente ha inserito il Nome e il Cognome per il contatto.
+- *Scenario principale*: 
+  + L'utente deve fornire il Nome e Cognome del contatto;
+
+#set list(marker: ([•], [--]))
+- *Estensioni*: / - *Inclusioni*: / - *Generalizzazioni*: /
+
+
+==== UC 8.2.2 - Inserimento nuovo Nome, Cognome e Indirizzo Email da modificare
+
+- *Attore principale*: Utente autenticato;
+- *Descrizione*: Un utente autenticato vuole creare un contatto e quindi deve inserire un campo obbligatorio;;
+- *Precondizioni*: Contatto non creato;
+- *Postcondizioni*: Contatto non creato e l'Utente ha inserito il nuovo nuovo Nome, Cognome e Indirizzo Email da modificare.
+- *Scenario principale*: 
+  + L'utente deve fornire il nuovo Nome, Cognome e Indirizzo Email da modificare.
+
+#set list(marker: ([•], [--]))
+- *Estensioni*: / - *Inclusioni*: / - *Generalizzazioni*: /
+
+==== UC 8.3 - Eliminazione di un contatto
 
 - *Attore principale*: Utente autenticato;
 - *Descrizione*: Un utente autenticato vuole eliminare un contatto;
 - *Precondizioni*: Contatto non eliminato;
 - *Postcondizioni*: Contatto eliminato;
-- *Scenario principale*: L'utente dovrà fornire l'indirizzo Email del contatto da eliminare.
+- *Scenario principale*: 
+  + L'utente dovrà fornire l'indirizzo Email del contatto da eliminare.
 
 #set list(marker: ([•], [--]))
 - *Estensioni*: Indirizzo Email contatto duplicato o non valido
 - *Inclusioni*: /
 - *Generalizzazioni*: /
 
-==== UC 10.4 - Condivisione di un contatto con un'altro utente
+==== UC 8.3.1 - Inserimento Indirizzo Email contatto da eliminare
+
+- *Attore principale*: Utente autenticato;
+- *Descrizione*: Un utente autenticato vuole eliminare un contatto e quindi deve inserire il campo obbligatorio;
+- *Precondizioni*: Contatto non eliminato;
+- *Postcondizioni*: Contatto non eliminato e inserito l'Indirizzo Email del contatto da eliminare.
+- *Scenario principale*: 
+  + L'utente dovrà fornire l'indirizzo Email del contatto da eliminare.
+
+#set list(marker: ([•], [--]))
+- *Estensioni*: / - *Inclusioni*: / - *Generalizzazioni*: /
+
+==== UC 8.4 - Condivisione di un contatto con un'altro utente
 
 - *Attore principale*: Utente autenticato;
 - *Descrizione*: Un utente autenticato vuole condividere un contatto con un'altro utente;
 - *Precondizioni*: Contatto non condiviso;
-- *Postcondizioni*: Contatto condiviso;
-- *Scenario principale*: L'utente dovrà fornire l'indirizzo Email del contatto che intende condividere e l'indirizzo Email dell'utente con il quale vuole effettaure la condivisione.
+- *Postcondizioni*: Contatto condiviso.
+- *Scenario principale*: 
+  + L'utente dovrà fornire l'indirizzo Email del contatto che intende condividere;
+  + L'utente dovrà fornire l'indirizzo Email del contatto con il quale vuole effettaure la condivisione.
 
 #set list(marker: ([•], [--]))
 - *Estensioni*: Indirizzo Email contatto duplicato o non valido
 - *Inclusioni*: /
 - *Generalizzazioni*: /
 
+==== UC 8.4.1 - Inserimento Indirizzo Email contatto da condividere
 
-==== UC 10.5 - Indirizzo Email contatto duplicato o non valido
+- *Attore principale*: Utente autenticato;
+- *Descrizione*: Un utente autenticato vuole creare un contatto e quindi deve inserire un campo obbligatorio;
+- *Precondizioni*: Contatto non creato;
+- *Postcondizioni*: Contatto non creato e l'Utente ha inserito l'Indirizzo Email del contatto da condividere.
+- *Scenario principale*: 
+  + L'utente deve fornire l'Indirizzo Email del contatto da condividere;
+
+#set list(marker: ([•], [--]))
+- *Estensioni*: / - *Inclusioni*: / - *Generalizzazioni*: /
+
+
+==== UC 8.4.2 - Inserimento Indirizzo Email del contatto con il quale si vuole condividere il contatto
+
+- *Attore principale*: Utente autenticato;
+- *Descrizione*: Un utente autenticato vuole creare un contatto e quindi deve inserire un campo obbligatorio;
+- *Precondizioni*: Contatto non creato;
+- *Postcondizioni*: Contatto non creato e l'Utente ha inserito l'Indirizzo Email del contatto con il quale si vuole condividere il contatto
+- *Scenario principale*: 
+  + L'utente deve fornire l'Indirizzo Email del contatto con il quale si vuole condividere il contatto.
+
+
+==== UC 8.5 - Indirizzo Email contatto duplicato o non valido
 
 - *Attore principale*: Utente autenticato;
 - *Descrizione*: Un utente autenticato vuole fare un'operazione di quelle citate in precedenza con i contatti;
 - *Precondizioni*: Operazione sul contatto non effettuata;
 - *Postcondizioni*: Operazione sul contatto non effettuata e utente informato con un messaggio di errore;
-- *Scenario principale*: L'utente in seguito ad aver fatto un'operazione sul contatto inserendo un indirizzo Email duplicato o non valido si vedrà apparire un messaggio di errore.
+- *Scenario principale*:
+  + L'utente esegue to un'operazione sul contatto inserendo un indirizzo Email duplicato o non valido;
+  + L'utente si vedrà apparire un messaggio di errore.
 
 #set list(marker: ([•], [--]))
 - *Estensioni*: /
@@ -1193,71 +1303,166 @@ Per questo motivo nel nostro sistema andremo a prevedere un classico sistema di 
 
 #pagebreak()
 
-=== UC 11 - Rubriche
+=== UC 9 - Rubriche
 
 #figure(image("//imgs/use_cases/rubriche-1.svg", width: 100%))
 #pagebreak()
+#figure(image("//imgs/use_cases/rubriche-2.svg", width: 75%))
+#pagebreak()
 
-==== UC 11.1 - Creazione di una rubrica
+==== UC 9.1 - Creazione di una rubrica
 
 - *Attore principale*: Utente autenticato;
 - *Descrizione*: Un utente autenticato vuole creare una rubrica;
 - *Precondizioni*: Rubrica non creata;
-- *Postcondizioni*: Rubrica creata;
-- *Scenario principale*: L'utente dovrà fornire il nome della rubrica che vuole creare e la lista dei contatti da includere nella rubrica.
+- *Postcondizioni*: Rubrica creata.
+- *Scenario principale*: 
+  + L'utente dovrà fornire il nome della rubrica che vuole creare;
+  + L'utente dovrà fornire la lista dei contatti da includere nella rubrica.
 
 #set list(marker: ([•], [--]))
 - *Estensioni*: Nome rubrica duplicato o non valido
 - *Inclusioni*: /
 - *Generalizzazioni*: /
 
-==== UC 11.2 - Modifica di una rubrica
+==== UC 9.1.1 - Creazione di una rubrica
+
+- *Attore principale*: Utente autenticato;
+- *Descrizione*: Un utente autenticato vuole creare una rubrica e inserisce uno dei campi obbligatori;
+- *Precondizioni*: Rubrica non creata;
+- *Postcondizioni*: Rubrica non creata ma è stato fornito il nome della rubrica.
+- *Scenario principale*: 
+  + L'utente dovrà fornire il nome della rubrica che vuole creare;
+  
+#set list(marker: ([•], [--]))
+- *Estensioni*: / - *Inclusioni*: / - *Generalizzazioni*: /
+
+==== UC 9.1.2 - Inserimento Indirizzi Email dei contatti da inserire nella rubrica
+
+- *Attore principale*: Utente autenticato;
+- *Descrizione*: Un utente autenticato vuole creare una rubrica e inserisce uno dei campi obbligatori;
+- *Precondizioni*: Rubrica non creata;
+- *Postcondizioni*: Rubrica non creata ma è stato fornita la lista dei contatti da aggiungere.
+- *Scenario principale*: 
+  + L'utente dovrà fornire la lista dei contatti da aggiungere alla rubrica;
+  
+#set list(marker: ([•], [--]))
+- *Estensioni*: / - *Inclusioni*: / - *Generalizzazioni*: /
+
+==== UC 9.2 - Modifica di una rubrica
 
 - *Attore principale*: Utente autenticato;
 - *Descrizione*: Un utente autenticato vuole modificare una rubrica;
 - *Precondizioni*: Rubrica non modificata;
-- *Postcondizioni*: Rubrica modficata;
-- *Scenario principale*: L'utente dovrà fornire le informazioni il nome della rubrica che vuole modificare e la nuova lista di contatti da associare a quella rubrica o in alternativa il nuovo nome della modifica in caso di rinominazione.
+- *Postcondizioni*: Rubrica modficata.
+- *Scenario principale*: 
+  + L'utente dovrà fornire le informazioni l'Identificativo della rubrica che si vuole modificare; 
+  + L'utente dovrà fornire la nuova lista di contatti da associare a quella rubrica.
 
 #set list(marker: ([•], [--]))
 - *Estensioni*: Nome rubrica duplicato o non valido
 - *Inclusioni*: /
 - *Generalizzazioni*: /
 
-==== UC 11.3 - Eliminazione di una rubrica
+==== UC 9.2.1 - Inserimento Identificativo della rubrica da modificare
+
+- *Attore principale*: Utente autenticato;
+- *Descrizione*: Un utente autenticato vuole modificare una rubrica e inserisce uno dei campi obbligatori;
+- *Precondizioni*: Rubrica non modificata;
+- *Postcondizioni*: Rubrica non modificata ma è stato fornito l'Identificativo della rubrica da modificare.
+- *Scenario principale*: 
+  + L'utente dovrà fornire l'Identificativo della rubrica da modificare.
+  
+#set list(marker: ([•], [--]))
+- *Estensioni*: / - *Inclusioni*: / - *Generalizzazioni*: /
+
+==== UC 9.2.2 - Inserimento Indirizzi Email dei contatti da inserire nella rubrica
+
+- *Attore principale*: Utente autenticato;
+- *Descrizione*: Un utente autenticato vuole modificare una rubrica e inserisce uno dei campi obbligatori;
+- *Precondizioni*: Rubrica non modificata;
+- *Postcondizioni*: Rubrica non modificata ma è stato fornita la nuova lista dei contatti.
+- *Scenario principale*: 
+  + L'utente dovrà fornire la nuova lista dei contatti della rubrica;
+  
+#set list(marker: ([•], [--]))
+- *Estensioni*: / - *Inclusioni*: / - *Generalizzazioni*: /
+
+==== UC 9.3 - Eliminazione di una rubrica
 
 - *Attore principale*: Utente autenticato;
 - *Descrizione*: Un utente autenticato vuole eliminare un una rubrica;
 - *Precondizioni*: Rubrica non eliminata;
 - *Postcondizioni*: Rubrica eliminata;
-- *Scenario principale*: L'utente dovrà fornire il nome della rubrica che intende eliminare.
+- *Scenario principale*: 
+  + L'utente dovrà fornire l'Identificativo della rubrica che intende eliminare.
 
 #set list(marker: ([•], [--]))
 - *Estensioni*: Nome rubrica duplicato o non valido
 - *Inclusioni*: /
 - *Generalizzazioni*: /
 
-==== UC 11.4 - Condivisione di una rubrica con un altro utente
+==== UC 9.3.1 - Inserimento Identificativo dela rubrica da eliminare
 
 - *Attore principale*: Utente autenticato;
-- *Descrizione*: Un utente autenticato vuole condividere una intera rubrica  con un'altro utente;
+- *Descrizione*: Un utente autenticato vuole eliminare una rubrica e inserisce uno dei campi obbligatori;
+- *Precondizioni*: Rubrica non eliminata;
+- *Postcondizioni*: Rubrica non eliminata ma è stato fornit l'Identificativo della rubrica che si vuole eliminare.
+- *Scenario principale*: 
+  + L'utente dovrà fornire l'Identificativo della rubrica che vuole eliminare.
+  
+#set list(marker: ([•], [--]))
+- *Estensioni*: / - *Inclusioni*: / - *Generalizzazioni*: /
+
+==== UC 9.4 - Condivisione di una rubrica con un altro utente
+
+- *Attore principale*: Utente autenticato;
+- *Descrizione*: Un utente autenticato vuole condividere una intera rubrica con un'altro utente;
 - *Precondizioni*: Rubrica non condivisa;
-- *Postcondizioni*: Rubrica condivisa;
-- *Scenario principale*: L'utente dovrà fornire il nome della rubrica che intende condividere e l'indirizzo Email dell'utente con il quale vuole effettuare la condivisione.
+- *Postcondizioni*: Rubrica non condivisa ;
+- *Scenario principale*: 
+  + L'utente dovrà fornire l'Identificativo della rubrica che intende condividere;
+  + L'utente dovrà fornire l'Indirizzo Email dell'utente con il quale vuole effettuare la condivisione.
 
 #set list(marker: ([•], [--]))
 - *Estensioni*: Nome calendario duplicato o non valido
 - *Inclusioni*: /
 - *Generalizzazioni*: /
 
+==== UC 9.4.1 - Inserimento Identificativo della rubrica da condividere
 
-==== UC 11.5 - Nome rubrica duplicato o non valido
+- *Attore principale*: Utente autenticato;
+- *Descrizione*: Un utente autenticato vuole condividere una intera rubrica con un'altro utente e quindi deve inserire un campo obbligatorio;
+- *Precondizioni*: Rubrica non condivisa;
+- *Postcondizioni*: Rubrica non condivisa e l'Utente ha inserito l'Identificativo della rubrica che intende condividere.
+- *Scenario principale*: 
+  + L'utente deve fornire l'Identificativo della rubrica che intende condividere.
+
+#set list(marker: ([•], [--]))
+- *Estensioni*: / - *Inclusioni*: / - *Generalizzazioni*: /
+
+
+==== UC 9.4.2 - Inserimento Indirizzo Email del contatto con il quale si vuole condividere la rubrica
+
+- *Attore principale*: Utente autenticato;
+- *Descrizione*: Un utente autenticato vuole condividere una intera rubrica con un'altro utente e quindi deve inserire un campo obbligatorio;
+- *Precondizioni*: Rubrica non condivisa;
+- *Postcondizioni*: Rubrica non condivisa e l'Utente ha inserito Indirizzo Email del contatto con il quale si vuole condividere la rubrica.
+- *Scenario principale*: 
+  + L'utente deve fornire l'Indirizzo Email del contatto con il quale si vuole condividere la rubrica.
+  
+#set list(marker: ([•], [--]))
+- *Estensioni*: / - *Inclusioni*: / - *Generalizzazioni*: /
+
+==== UC 9.5 - Nome rubrica duplicato o non valido
 
 - *Attore principale*: Utente autenticato;
 - *Descrizione*: Un utente autenticato vuole fare un'operazione di quelle citate in precedenza con le rubriche;
 - *Precondizioni*: Operazione sulla rubrica non effettuate;
 - *Postcondizioni*: Operazione sulla rubrica non effettuate e utente informato con un messaggio di errore;
-- *Scenario principale*: L'utente in seguito ad aver fatto un'operazione sulla rubrica inserendo un nome duplicato o non valido per la rubrica si vedrà apparire un messaggio di errore.
+- *Scenario principale*: 
+  + L'utente fa un'operazione sulla rubrica inserendo un nome duplicato o non valido per la rubrica 
+  + L'utente si vedrà apparire un messaggio di errore.
 
 #set list(marker: ([•], [--]))
 - *Estensioni*: /
@@ -1610,19 +1815,19 @@ In alcuni casi verrà esplicitato nella colonna relativa alle fonti se il requis
   [],
   [],
 
-  [R-030-F-1],
+  [R-048-F-1],
   [L'utente deve avere la possibilità di sincronizzare la propria casella di posta elettronica.],
   [
     UC7.1\
     Capitolato
   ],
-  [R-031-F-1],
+  [R-049-F-1],
   [L'utente deve avere la possibilità di sincronizzare la rubrica con gli ultimi contatti.],
   [
     UC7.2\
     Capitolato
   ],
-  [R-032-F-1],
+  [R-050-F-1],
   [L'utente deve avere la possibilità di sincronizzare il proprio calendario con gli ultimi eventi.],
   [
     UC7.3\
@@ -1633,168 +1838,149 @@ In alcuni casi verrà esplicitato nella colonna relativa alle fonti se il requis
   [],
   [],
 
-  [R-033-F-1],
-  [L'utente deve avere la possibilità di creare un calendario.],
+  [R-051-F-3],
+  [L'utente deve avere la possibilità di creare un contatto.],
   [
     UC8.1\
     Capitolato
   ],
-  [R-034-F-1],
-  [L'utente deve avere la possibilità di rinominare un calendario.],
+  [R-052-F-3],
+  [È necessario che l'utente inserisca il Nome e il Cognome del contatto che intende creare.],
+  [
+    UC8.1.1\
+    Interno
+  ],
+  [R-053-F-3],
+  [È necessario che l'utente inserisca l'Indirizzo Email del contatto che intende creare.],
+  [
+    UC8.1.2\
+    Interno
+  ],
+  [R-054-F-3],
+  [L'utente deve avere la possibilità di modificare un contatto.],
   [
     UC8.2\
     Capitolato
   ],
-  [R-035-F-1],
-  [L'utente deve avere la possibilità di eliminare un calendario.],
+  [R-055-F-3],
+  [È necessario che l'utente inserisca l'Indirizzo Email contatto da modificare.],
+  [
+    UC8.2.1\
+    Interno
+  ],
+  [R-056-F-3],
+  [È necessario che l'utente inserisca il nuovo Nome, Cognome e Indirizzo Email da modificare.],
+  [
+    UC8.2.2\
+    Interno
+  ],
+  [R-057-F-3],
+  [L'utente deve avere la possibilità di eliminare un contatto.],
   [
     UC8.3\
     Capitolato
   ],
-  [R-036-F-1],
-  [L'utente deve avere la possibilità di condividere un calendario con un altro utente.],
+  [R-058-F-3],
+  [È necessario che l'utente inserisca l'Indirizzo Email del contatto che intende eliminare.],
+  [
+    UC8.3.1\
+    Interno
+  ],
+  [R-059-F-3],
+  [L'utente deve avere la possibilità di condividere un contatto con un altro utente.],
   [
     UC8.4\
     Capitolato
   ],
-  [R-037-F-1],
-  [È necessario che l'utente visualizzi un messaggio di errore se inserisce un nome del calendario duplicato o non valido.],
+  [R-060-F-3],
+  [È necessario che l'utente inserisca l'Indirizzo Email del contatto che intende condividere.],
   [
-    UC8.5\
-    Capitolato
+    UC8.4.1\
+    Interno
   ],
-  
+  [R-061-F-3],
+  [È necessario che l'utente inserisca l'Indirizzo Email del contatto con il quale effettuare la condivisione.],
+  [
+    UC8.4.2\
+    Interno
+  ],
+
   [],
   [],
   [],
 
-  [R-038-F-1],
-  [L'utente deve avere la possibilità di creare un appuntamento per un calendario.],
+  [R-062-F-3],
+  [L'utente deve avere la possibilità di creare una rubrica.],
   [
     UC9.1\
     Capitolato
   ],
-  [R-039-F-1],
-  [L'utente deve avere la possibilità di modificare un appuntamento per un calendario.],
+  [R-063-F-3],
+  [È necessario che l'utente inserisca il Nome della rubrica che intende creare.],
+  [
+    UC9.1.1\
+    Interno
+  ],
+  [R-064-F-3],
+  [È necessario che l'utente inserisca i conttatti da aggiungere alla rubrica.],
+  [
+    UC9.1.2\
+    Interno
+  ],
+  [R-065-F-3],
+  [L'utente deve avere la possibilità di modificare una rubrica.],
   [
     UC9.2\
     Capitolato
   ],
-  [R-040-F-1],
-  [L'utente deve avere la possibilità di eliminare un appuntamento per un calendario.],
+  [R-066-F-3],
+  [È necessario che l'utente inserisca l'Identificativo della rubrica da modficare.],
+  [
+    UC9.2.1\
+    Interno
+  ],
+  [R-067-F-3],
+  [È necessario che l'utente inserisca i nuovi Indirizzi Email di cui la rubrica sarà composta.],
+  [
+    UC9.2.2\
+    Interno
+  ],
+  [R-068-F-3],
+  [L'utente deve avere la possibilità di eliminare una rubrica.],
   [
     UC9.3\
     Capitolato
   ],
-  [R-041-F-1],
-  [L'utente deve avere la possibilità di condividere un appuntamento con un calendario di un altro utente.],
+  [R-069-F-3],
+  [È necessario che l'utente inserisca l'Identificativo della rubrica che intende eliminare.],
+  [
+    UC9.3.1\
+    Interno
+  ],
+  [R-070-F-3],
+  [L'utente deve avere la possibilità di condividere una rubrica con un altro utente.],
   [
     UC9.4\
     Capitolato
   ],
-  [R-042-F-1],
-  [È necessario che l'utente visualizzi un messaggio di errore se inserisce un nome del calendario duplicato o non valido.],
+  [R-071-F-3],
+  [È necessario che l'utente inserisca l'Identificativo della rubrica che si vuole condividere.],
   [
-    UC9.5\
-    Capitolato
+    UC9.4.1\
+    Interno
   ],
-
-  [],
-  [],
-  [],
-
-  [R-043-F-1],
-  [L'utente deve avere la possibilità di creare un contatto.],
+  [R-072-F-3],
+  [È necessario che l'utente inserisca l'Indirizzo Email del contatto con il quale effettuare la condivisione.],
   [
-    UC10.1\
-    Capitolato
-  ],
-  [R-044-F-1],
-  [L'utente deve avere la possibilità di modificare un contatto.],
-  [
-    UC10.2\
-    Capitolato
-  ],
-  [R-045-F-1],
-  [L'utente deve avere la possibilità di eliminare un contatto.],
-  [
-    UC10.3\
-    Capitolato
-  ],
-  [R-046-F-1],
-  [L'utente deve avere la possibilità di condividere un contatto con un altro utente.],
-  [
-    UC10.4\
-    Capitolato
-  ],
-  [R-047-F-1],
-  [È necessario che l'utente visualizzi un messaggio di errore se inserisce un indirizzo Email duplicato o non valido per il contatto.],
-  [
-    UC10.5\
-    Capitolato
-  ],
-
-  [],
-  [],
-  [],
-
-  [R-048-F-1],
-  [L'utente deve avere la possibilità di creare una rubrica.],
-  [
-    UC11.1\
-    Capitolato
-  ],
-  [R-049-F-1],
-  [L'utente deve avere la possibilità di modificare una rubrica.],
-  [
-    UC11.2\
-    Capitolato
-  ],
-  [R-050-F-1],
-  [L'utente deve avere la possibilità di eliminare una rubrica.],
-  [
-    UC11.3\
-    Capitolato
-  ],
-  [R-051-F-1],
-  [L'utente deve avere la possibilità di condividere una rubrica con un altro utente.],
-  [
-    UC11.4\
-    Capitolato
-  ],
-  [R-052-F-1],
-  [È necessario che l'utente visualizzi un messaggio di errore se inserisce un nome duplicato o non valido per la rubrica.],
-  [
-    UC11.5\
-    Capitolato
+    UC9.4.2\
+    Interno
   ],
   
 
 
-  
 
-  
 ))
 
-
-== Requisiti di vincolo
-#requirements("#f7baba", ( 
-  [R-001-V-1],
-  [È necessario implementare un client di posta elettronica implementando una delle librerie nel seguente sito: https://jmap.io/, scegliendone una a scelta (e di conseguenza non c'è nessun vincolo sulla scelta del linguaggio di programmazione.)],
-  [
-    Capitolato
-  ],
-  [R-002-V-1],
-  [È necessario implementare un server con un linguaggio di programmazione a scelta ,compreso di database, che implementi gli endpoint che la libreria client di posta elettronica deve contattare per poter funzionare.],
-  [
-    Capitolato
-  ],
-  [R-003-V-1],
-  [È necessario che il server sia integrabile con una tecnologia containerizzabile come docker.],
-  [
-    Capitolato
-  ]
-))
 
 == Requisiti di qualità
 #requirements("#bbfabe", ( 
@@ -1826,15 +2012,6 @@ In alcuni casi verrà esplicitato nella colonna relativa alle fonti se il requis
   [Capitolato],
 ))
 
-== Requisiti prestazionali
-#requirements("#bffffd", ( 
-  [R-001-P-1],
-  [I benchmark del nostro sistema informatico deve equiparare o superare in termini di performance i test di carico effettuati sui sistemi che implementano l'attuale protocollo IMAP (a parità di hardware)],
-  [Capitolato],
-  [R-002-P-3],
-  [Sarebbe preferibile implementare una coda nel server mail capace di immagazzinare le email che non possono ancora essere elaborate a causa di un carico applicativo eccessivo],
-  [Capitolato],
-))
 
 #pagebreak()
 
