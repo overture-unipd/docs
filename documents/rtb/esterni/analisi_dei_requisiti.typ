@@ -9,6 +9,11 @@
     [_#(p.zextras)_],
   ),
   changelog: (
+    "0.0.6", "2023-12-1" , p.bulychov, p.bettin,
+    [
+      Casi d'uso: correzione login base\
+      Casi d'uso: correzione scambio delle email
+    ],
     "0.0.5", "2023-11-25", p.bettin, p.vedovato, 
     [
       Produzione completa dei diagrammi UML dei casi d'uso.\
@@ -216,22 +221,25 @@ Per questo motivo nel nostro sistema andremo a prevedere un classico sistema di 
 - *Attore principale*: Utente non autenticato;
 - *Descrizione*: Un utente non autenticato vuole effettuare l'accesso presso il server mail JMAP per poter successivamente inviare email, visualizzare le sue email o svolgere altre attività dettate dai requisiti;
 - *Precondizioni*: L'utente non è autenticato;
-- *Postcondizioni*: L'utente è autenticato o ha fallito la registrazione ottenendo un messaggio di errore;
-- *Scenario principale*: L'utente deve fornire l'email e la password necessarie per la registrazione.
+- *Postcondizioni*: L'utente è autenticato o ha fallito la registrazione ottenendo un messaggio di errore.
+- *Scenario principale*: \
+  + L'utente deve fornire il suo indirizzo Email;
+  + L'utente deve fornire la sua Password necessaria per l'autenticazione.
 
 #set list(marker: ([•], [--]))
 - *Estensioni*:
-  - Errore Login;
+  - Errore Login.
 - *Inclusioni*: /
 - *Generalizzazioni*: /
 
 ===== UC 1.1.1 - Inserimento Email
 
 - *Attore principale*: Utente non autenticato;
-- *Descrizione*: Un utente non autenticato vuole effettuare l'accesso presso il server mail JMAP per poter successivamente inviare email, visualizzare le sue email o svolgere altre attività dettate dai requisiti;
+- *Descrizione*: Un utente non autenticato vuole effettuare l'accesso presso il server mail JMAP e quindi inserisce uno dei campi obbligatori;
 - *Precondizioni*: L'utente non è autenticato;
-- *Postcondizioni*: L'utente ancora non autenticato ha inserito la sua email;
-- *Scenario principale*: L'utente deve fornire l'email necessaria per la registrazione.
+- *Postcondizioni*: L'utente non è ancora autenticato e ha inserito la sua email.
+- *Scenario principale*: 
+  + L'utente deve fornire il suo Indirizzo Email necessario per l'autenticazione.
 
 #set list(marker: ([•], [--]))
 - *Estensioni*: / - *Inclusioni*: / - *Generalizzazioni*: /
@@ -239,10 +247,11 @@ Per questo motivo nel nostro sistema andremo a prevedere un classico sistema di 
 ==== UC 1.1.2 - Inserimento Password
 
 - *Attore principale*: Utente non autenticato;
-- *Descrizione*: Un utente non autenticato vuole effettuare l'accesso presso il server mail JMAP per poter successivamente inviare email, visualizzare le sue email o svolgere altre attività dettate dai requisiti;
+- *Descrizione*: Un utente non autenticato vuole effettuare l'accesso presso il server mail JMAP e quindi inserisce uno dei campi obbligatori;
 - *Precondizioni*: L'utente non è autenticato;
-- *Postcondizioni*: L'utente ancora non autenticato ha inserito la sua password;
-- *Scenario principale*: L'utente deve fornire la password necessaria per la registrazione.
+- *Postcondizioni*: L'utente ancora non autenticato ha inserito la sua password.
+- *Scenario principale*: 
+  + L'utente deve fornire la Password necessaria per l'autenticazione.
 
 #set list(marker: ([•], [--]))
 - *Estensioni*: / - *Inclusioni*: / - *Generalizzazioni*: /
@@ -250,15 +259,15 @@ Per questo motivo nel nostro sistema andremo a prevedere un classico sistema di 
 ==== UC 1.2 - Errore Login
 
 - *Attore principale*: Utente non autenticato;
-- *Descrizione*: Un utente non autenticato vuole effettuare l'accesso presso il server mail JMAP per poter successivamente inviare email, visualizzare le sue email o svolgere altre attività dettate dai requisiti;
+- *Descrizione*: Un utente non autenticato vuole effettuare l'accesso presso il server mail JMAP per poter  inviare email, visualizzare le sue email o svolgere altre attività dettate dai requisiti;
 - *Precondizioni*: L'utente non è autenticato;
-- *Postcondizioni*: L'utente non è autenticato e ha ricevuto un messaggio di errore per il fallimento del login;
-- *Scenario principale*: L'utente ha inserito delle credenziali non valide e ha ricevuto quindi un messaggio di errore in seguito al fallimento del login.
+- *Postcondizioni*: L'utente non è autenticato e ha ricevuto un messaggio di errore per il fallimento del login.
+- *Scenario principale*: 
+  + L'utente ha inserito delle credenziali non valide;
+  + L'utente e ha ricevuto un messaggio di errore in seguito al fallimento del login.
 
 #set list(marker: ([•], [--]))
-- *Estensioni*:
-- *Inclusioni*: /
-- *Generalizzazioni*: /
+- *Estensioni*: / - *Inclusioni*: / - *Generalizzazioni*: /
 
 #pagebreak()
 
@@ -272,58 +281,104 @@ Per questo motivo nel nostro sistema andremo a prevedere un classico sistema di 
 - *Attore principale*: Utente autenticato;
 - *Descrizione*: Un utente autenticato vuole inviare una email a uno o più destinatari;
 - *Precondizioni*: Email non ancora inviata;
-- *Postcondizioni*: Email inviata;
-- *Scenario principale*: L'utente deve fornire l'oggetto del messaggio, il corpo del messaggio e la lista dei destinatari.
+- *Postcondizioni*: Email inviata o visualizzazione di un messaggio di errore.
+- *Scenario principale*: 
+  + L'utente deve fornire l'oggetto del messaggio;
+  + L'utente deve fornire il corpo del messaggio;
+  + L'utente deve fornrie la lista dei destinatari.
 
 #set list(marker: ([•], [--]))
 - *Estensioni*:
-  - Indirizzi Email non validi;
+  - Indirizzi Email non validi.
 - *Inclusioni*: /
 - *Generalizzazioni*: /
 
 ===== UC 2.1.1 - Inserimento Destinatari
 
 - *Attore principale*: Utente autenticato;
-- *Descrizione*: Un utente autenticato vuole inviare una email a uno o più destinatari;
+- *Descrizione*: Un utente autenticato vuole inviare una email a uno o più destinatari e quindi procede con l'inserimento della lista dei destinatari;
 - *Precondizioni*: Email non ancora inviata;
-- *Postcondizioni*: Email non ancora inviata ma l'utente ha inserito la lista dei destinatari della Email;
-- *Scenario principale*: L'utente deve fornire la lista dei destinatari.
+- *Postcondizioni*: Email non ancora inviata ma l'utente ha inserito la lista degli Indirizzi Email dei destinatari della Email;
+- *Scenario principale*: 
+  + L'utente deve fornire la lista dei destinatari.
 
 #set list(marker: ([•], [--]))
 - *Estensioni*: / - *Inclusioni*: / - *Generalizzazioni*: /
 
-===== UC 2.1.2 - Inserimento Oggetto o Corpo Messaggio
+===== UC 2.1.2 - Inserimento Oggetto della Email
 
 - *Attore principale*: Utente autenticato;
-- *Descrizione*: Un utente autenticato vuole inviare una email a uno o più destinatari;
+- *Descrizione*: Un utente autenticato vuole inviare una email a uno o più destinatari e quindi procede con l'inserimento dell'Oggetto della Email;
 - *Precondizioni*: Email non ancora inviata;
-- *Postcondizioni*: Email non ancora inviata ma l'utente ha inserito la password;
-- *Scenario principale*: L'utente deve fornire la password.
+- *Postcondizioni*: Email non ancora inviata ma l'utente ha inserito l'Oggetto della Email.
+- *Scenario principale*: 
+  + L'utente deve fornire l'Oggetto della Email.
 
 #set list(marker: ([•], [--]))
 - *Estensioni*: / - *Inclusioni*: / - *Generalizzazioni*: /
 
-==== UC 2.2 - Indirizzi Email non validi
+===== UC 2.1.3 - Inserimento Corpo del Messaggio della Email
+
+- *Attore principale*: Utente autenticato;
+- *Descrizione*: Un utente autenticato vuole inviare una email a uno o più destinatari e quindi procede con l'inserimento del Corpo del Messaggio della Email;
+- *Precondizioni*: Email non ancora inviata;
+- *Postcondizioni*: Email non ancora inviata ma l'utente ha inserito il Corpo del Messaggio della Email.
+- *Scenario principale*: 
+  + L'utente deve fornire il Corpo del Messaggio della Email.
+
+#set list(marker: ([•], [--]))
+- *Estensioni*: / - *Inclusioni*: / - *Generalizzazioni*: /
+
+==== UC 2.2 - Formato Indirizzi Email non validi
 
 - *Attore principale*: Utente autenticato;
 - *Descrizione*: Un utente autenticato vuole inviare una email a uno o più destinatari;
 - *Precondizioni*: Email non ancora inviata;
-- *Postcondizioni*: Email non inviata e ricevimento di un messaggio di errore che cita gli indirizzi email non validi;
-- *Scenario principale*: L'utente ha inviato l'Email ma ha subito ricevuto un messaggio di che segnalava l'errore.
+- *Postcondizioni*: Email non inviata e ricevimento di un messaggio di errore che cita gli Indirizzi Email di destinazione con un formato non valido;
+- *Scenario principale*: 
+  + L'utente ha inserito tutte le informazioni per inviare l'Email
+  + L'utente ha ricevuto un messaggio che segnalava l'errore sui formati.
 
 #set list(marker: ([•], [--]))
-- *Estensioni*: - *Inclusioni*: / - *Generalizzazioni*: /
+- *Estensioni*: / - *Inclusioni*: / - *Generalizzazioni*: /
 
-==== UC 2.3 - Visualizza Email
+==== UC 2.3 - Notifica di Indirizzi Email non esistenti
 
 - *Attore principale*: Utente autenticato;
-- *Descrizione*: Un utente autenticato vuole visualizzare i dettagli una email che gli è arrivata;
+- *Descrizione*: Un utente autenticato vuole inviare una email a uno o più destinatari;
+- *Precondizioni*: Email non ancora inviata;
+- *Postcondizioni*: Email non inviata e ricevimento di un messaggio di errore che cita gli Indirizzi Email di destinazione non esistenti;
+- *Scenario principale*: 
+  + L'utente ha inserito tutte le informazioni per inviare l'Email
+  + L'utente ha ricevuto un messaggio che segnalava l'inesistenza di alcuni degli Indirizzi Email di destinazione inseriti.
+
+#set list(marker: ([•], [--]))
+- *Estensioni*: / - *Inclusioni*: / - *Generalizzazioni*: /
+
+==== UC 2.4 - Visualizza Lista Email
+
+- *Attore principale*: Utente autenticato;
+- *Descrizione*: Un utente autenticato vuole visualizzare la lista di tutte le Email che gli sono arrivate nella casella di posta elettronica;
+- *Precondizioni*: L'utente vuole vedere la lista di tutte le Email;
+- *Postcondizioni*: L'utente ottiene la lista di tutte le Email e la vede a video.
+- *Scenario principale*: 
+  + Un utente dopo essersi autenticato, vuole visualizzare la lista di tutte le Email che gli sono arrivate nella casella di posta elettronica.
+
+#set list(marker: ([•], [--]))
+- *Estensioni*: / - *Inclusioni*: / - *Generalizzazioni*: /
+
+==== UC 2.4 - Visualizza Dettaglio Email
+
+- *Attore principale*: Utente autenticato;
+- *Descrizione*: Un utente autenticato vuole visualizzare i dettagli di una Email che gli è arrivata;
 - *Precondizioni*: Visualizzazione lista email;
 - *Postcondizioni*: Visualizzazione dettagli di una determinata email;
-- *Scenario principale*: Un utente autenticato ha visualizzato i dettagli di una Email presa dalla sua casella di posta elettronica.
+- *Scenario principale*: 
+  + Un utente visualizza la lista di tutte le sue Email;
+  + L'utente clicca su una delle email e ne visualizza quindi il dettaglio.
 
 #set list(marker: ([•], [--]))
-- *Estensioni*: - *Inclusioni*: / - *Generalizzazioni*: /
+- *Estensioni*: / - *Inclusioni*: / - *Generalizzazioni*: /
 
 #pagebreak()
 
@@ -671,7 +726,6 @@ Vedi UC 2.1.2
 
 === UC 8 - Calendari
 
-#figure(image("//imgs/use_cases/calendari.svg", width: 100%))
 #pagebreak()
 
 ==== UC 8.1 - Creazione di un calendario
@@ -743,7 +797,6 @@ Vedi UC 2.1.2
 
 === UC 9 - Appuntamenti
 
-#figure(image("//imgs/use_cases/appuntamenti.svg", width: 100%))
 #pagebreak()
 
 ==== UC 9.1 - Creazione di un appuntamento a calendario
@@ -815,7 +868,7 @@ Vedi UC 2.1.2
 
 === UC 10 - Contatti
 
-#figure(image("//imgs/use_cases/contatti.svg", width: 100%))
+#figure(image("//imgs/use_cases/contatti-1.svg", width: 100%))
 #pagebreak()
 
 ==== UC 10.1 - Creazione di un contatto
@@ -888,7 +941,7 @@ Vedi UC 2.1.2
 
 === UC 11 - Rubriche
 
-#figure(image("//imgs/use_cases/rubriche.svg", width: 100%))
+#figure(image("//imgs/use_cases/rubriche-1.svg", width: 100%))
 #pagebreak()
 
 ==== UC 11.1 - Creazione di una rubrica
@@ -984,26 +1037,26 @@ In alcuni casi verrà esplicitato nella colonna relativa alle fonti se il requis
 
 
 == Requisiti di funzionalità
-#requirements("#f9fac5", ( 
-  [R-001-F-1],
+#requirements("#f9fac5", (
+  [R-001-F-2],
   [L'utente deve avere la possibilità di autenticarsi all'interno del sistema.],
   [
     UC1.1\
     Interno
   ],
-  [R-002-F-1],
+  [R-002-F-2],
   [È necessario che l'utente fornisca la sua Email per procedere con l'autenticazione.],
   [
     UC1.1.1\
     Interno
   ],
-  [R-003-F-1],
+  [R-003-F-2],
   [È necessario che l'utente fornisca la sua Password per procedere con l'autenticazione.],
   [
     UC1.1.2\
     Interno
   ],
-  [R-004-F-1],
+  [R-004-F-2],
   [È necessario che l'utente riceva un messaggio di errore se l'autenticazione non va a buon fine.],
   [
     UC1.2\
@@ -1027,21 +1080,39 @@ In alcuni casi verrà esplicitato nella colonna relativa alle fonti se il requis
     Interno
   ],
   [R-007-F-1],
-  [È necessario che l'utente fornisca l'oggetto e il corpo del messaggio per procedere con l'invio.],
+  [È necessario che l'utente fornisca l'oggetto della Email prima di procedere con l'invio.],
   [
     UC2.1.2\
     Interno
   ],
   [R-008-F-1],
-  [È necessario che l'utente riceva un messaggio di errore se l'invio della Email non va a buon fine.],
+  [È necessario che l'utente fornisca il corpo del messaggio prima di procedere con l'invio.],
+  [
+    UC2.1.3\
+    Interno
+  ],
+  [R-009-F-1],
+  [È necessario che l'utente riceva un messaggio di errore se il formato di uno degli Indirizzi Email di destinazione forniti non ha un formato valido.],
   [
     UC2.2\
     Interno
   ],
-  [R-009-F-1],
-  [L'utente deve essere in grado di visualizzare nel dettaglio una Email che ha ricevuto.],
+  [R-010-F-1],
+  [È necessario che l'utente riceva una notifica che specifichi quali degli Indirizzi Email di destinazione forniti non esiste.],
   [
     UC2.3\
+    Interno
+  ],
+  [R-011-F-1],
+  [L'utente deve avere la possibilità di visualizzare tutte le Email che gli sono arrivate nella casella di arrivo di posta elettronica.],
+  [
+    UC2.4\
+    Capitolato
+  ],
+  [R-012-F-1],
+  [L'utente deve avere la possibilità di visualizzare i dettagli di una delle Email presenti nella casella di arrivo di posta elettronica.],
+  [
+    UC2.5\
     Capitolato
   ],
   
