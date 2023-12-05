@@ -9,6 +9,11 @@
     [_#(p.zextras)_],
   ),
   changelog: (
+    "0.0.7", "2023-12-1" , p.amadori, p.bettin,
+    [
+      Casi d'uso: correzione creazione delle cartelle\
+      Casi d'uso: correzione gestione contenuti delle cartelle
+    ],
     "0.0.6", "2023-12-1" , p.bulychov, p.bettin,
     [
       Casi d'uso: correzione login base\
@@ -384,7 +389,9 @@ Per questo motivo nel nostro sistema andremo a prevedere un classico sistema di 
 
 === UC 3 - Gestione delle cartelle
 
-#figure(image("//imgs/use_cases/gestione-cartelle.svg", width: 100%))
+#figure(image("//imgs/use_cases/gestione-cartelle-1.svg", width: 100%))
+#pagebreak()
+#figure(image("//imgs/use_cases/gestione-cartelle-2.svg", width: 80%))
 #pagebreak()
 
 ==== UC 3.1 - Creazione di una cartella
@@ -392,14 +399,39 @@ Per questo motivo nel nostro sistema andremo a prevedere un classico sistema di 
 - *Attore principale*: Utente autenticato;
 - *Descrizione*: Un utente autenticato vuole creare una cartella di posta elettronica;
 - *Precondizioni*: Cartella di posta elettronica non ancora creata;
-- *Postcondizioni*: Cartella di posta elettronica creata;
-- *Scenario principale*: L'utente deve fornire il nome della cartella di posta elettronica che intende creare.
+- *Postcondizioni*: Cartella di posta elettronica creata.
+- *Scenario principale*: 
+  + L'utente deve fornire il nome della cartella di posta elettronica che intende creare.
 
 #set list(marker: ([•], [--]))
 - *Estensioni*:
-  - Nome cartella inserito non valido;
+  - Nome o Identificativo cartella inserito non valido;
 - *Inclusioni*: /
 - *Generalizzazioni*: /
+
+==== UC 3.1.1 - Inserimento Nome cartella
+
+- *Attore principale*: Utente autenticato;
+- *Descrizione*: Un utente autenticato vuole creare una cartella di posta elettronica e quindi inserisce uno dei campi obbligatori; 
+- *Precondizioni*: Cartella di posta elettronica non ancora creata;
+- *Postcondizioni*: Cartella di posta elettronica non ancora creata ma l'utente ha inserito il Nome.
+- *Scenario principale*: 
+  + L'utente deve fornire il nome della cartella di posta elettronica che intende creare.
+
+#set list(marker: ([•], [--]))
+- *Estensioni*: / - *Inclusioni*: / - *Generalizzazioni*: /
+
+==== UC 3.1.2 - Inserimento Descrizione cartella
+
+- *Attore principale*: Utente autenticato;
+- *Descrizione*: Un utente autenticato vuole creare una cartella di posta elettronica e quindi inserisce uno dei campi obbligatori; 
+- *Precondizioni*: Cartella di posta elettronica non ancora creata;
+- *Postcondizioni*: Cartella di posta elettronica non ancora creata ma l'utente ha inserito la Descrizione.
+- *Scenario principale*: 
+  + L'utente deve fornire la Descrizione della cartella di posta elettronica che intende creare.
+
+#set list(marker: ([•], [--]))
+- *Estensioni*: / - *Inclusioni*: / - *Generalizzazioni*: /
 
 ==== UC 3.2 - Rinominazione di una cartella
 
@@ -407,13 +439,38 @@ Per questo motivo nel nostro sistema andremo a prevedere un classico sistema di 
 - *Descrizione*: Un utente autenticato vuole rinominare una cartella di posta elettronica;
 - *Precondizioni*: Cartella di posta elettronica non ancora rinominata;
 - *Postcondizioni*: Cartella di posta elettronica rinominata;
-- *Scenario principale*: L'utente deve fornire il nuovo nome per la cartella.
+- *Scenario principale*: 
+  + L'utente deve fornire il nuovo nome per la cartella.
 
 #set list(marker: ([•], [--]))
 - *Estensioni*:
-  - Nome cartella inserito non valido;
+  - Nome o Identificativo cartella inserito non valido;
 - *Inclusioni*: /
 - *Generalizzazioni*: /
+
+==== UC 3.2.1 - Inserimento Identificativo cartella da rinominare
+
+- *Attore principale*: Utente autenticato;
+- *Descrizione*: Un utente autenticato vuole rinominare una cartella di posta elettronica e quindi inserisce uno dei campi obbligatori; 
+- *Precondizioni*: Cartella di posta elettronica non ancora rinominata;
+- *Postcondizioni*: Cartella di posta elettronica non ancora rinominata ma l'utente ha fornito l'Identificativo della cartella che intende rinominare.
+- *Scenario principale*: 
+  + L'utente deve fornire l'identificativo della cartella di posta elettronica che intende rinominare.
+
+#set list(marker: ([•], [--]))
+- *Estensioni*: / - *Inclusioni*: / - *Generalizzazioni*: /
+
+==== UC 3.2.2 - Inserimento nuovo Nome cartella
+
+- *Attore principale*: Utente autenticato;
+- *Descrizione*: Un utente autenticato vuole rinominare una cartella di posta elettronica e quindi inserisce uno dei campi obbligatori; 
+- *Precondizioni*: Cartella di posta elettronica non ancora rinominata;
+- *Postcondizioni*: Cartella di posta elettronica non ancora rinominata ma l'utente ha fornito il nuovo Nome per la cartella.
+- *Scenario principale*: 
+  + L'utente deve fornire il nuovo Nome per la cartella di posta elettronica che intende rinominare.
+
+#set list(marker: ([•], [--]))
+- *Estensioni*: / - *Inclusioni*: / - *Generalizzazioni*: /
 
 ==== UC 3.3 - Eliminazione di una cartella
 
@@ -421,7 +478,8 @@ Per questo motivo nel nostro sistema andremo a prevedere un classico sistema di 
 - *Descrizione*: Un utente autenticato vuole eliminare una cartella di posta elettronica;
 - *Precondizioni*: Cartella di posta elettronica non ancora eliminare;
 - *Postcondizioni*: Cartella di posta elettronica eliminare;
-- *Scenario principale*: L'utente deve fornire il nome della cartella che intende eliminare.
+- *Scenario principale*: 
+  + L'utente deve fornire l'Identificativo della cartella che intende eliminare.
 
 #set list(marker: ([•], [--]))
 - *Estensioni*:
@@ -429,13 +487,38 @@ Per questo motivo nel nostro sistema andremo a prevedere un classico sistema di 
 - *Inclusioni*: /
 - *Generalizzazioni*: /
 
-==== UC 3.4 - Nome cartella non inserito
+==== UC 3.3.1 - Inserimento Identificativo cartella da eliminare
+
+- *Attore principale*: Utente autenticato;
+- *Descrizione*: Un utente autenticato vuole eliminare una cartella di posta elettronica e quindi inserisce uno dei campi obbligatori; 
+- *Precondizioni*: Cartella di posta elettronica non ancora rinominata;
+- *Postcondizioni*: Cartella di posta elettronica non ancora rinominata ma l'utente ha fornito l'Identificativo della cartella che intende eliminare.
+- *Scenario principale*: 
+  + L'utente deve fornire l'Identificativo della cartella che intende eliminare.
+
+#set list(marker: ([•], [--]))
+- *Estensioni*: / - *Inclusioni*: / - *Generalizzazioni*: /
+
+==== UC 3.4 - Nome cartella inserito non valido.
 
 - *Attore principale*: Utente autenticato;
 - *Descrizione*: Un utente autenticato vuole creare, rinominare o eliminare una cartella di posta elettronica;
 - *Precondizioni*: Operazione sulla cartella non ancora effettuata;
-- *Postcondizioni*: Operazione sulla cartella non effettuata, l'utente ha ricevuto un messaggio con il relativo errore;
-- *Scenario principale*: L'utente ha fornito un nome di cartella non valido per effettuare l'operazione che intendeva svolgere.
+- *Postcondizioni*: Operazione sulla cartella non effettuata, l'utente ha ricevuto un messaggio di errore.
+- *Scenario principale*: 
+  + L'utente ha fornito un Nome per la cartella in questione che non è valido.
+
+#set list(marker: ([•], [--]))
+- *Estensioni*: - *Inclusioni*: / - *Generalizzazioni*: /
+
+==== UC 3.5 - Identificativo cartella non esistente.
+
+- *Attore principale*: Utente autenticato;
+- *Descrizione*: Un utente autenticato vuole creare, rinominare o eliminare una cartella di posta elettronica;
+- *Precondizioni*: Operazione sulla cartella non ancora effettuata;
+- *Postcondizioni*: Operazione sulla cartella non effettuata, l'utente ha ricevuto un messaggio di errore.
+- *Scenario principale*: 
+  + L'utente ha fornito un Identificativo non esistente per una cartella.
 
 #set list(marker: ([•], [--]))
 - *Estensioni*: - *Inclusioni*: / - *Generalizzazioni*: /
@@ -452,10 +535,12 @@ Per questo motivo nel nostro sistema andremo a prevedere un classico sistema di 
 ==== UC 4.1 - Aggiungi oggetto alla cartella
 
 - *Attore principale*: Utente autenticato;
-- *Descrizione*: Un utente autenticato vuole aggiungere un oggetto ad una cartella;
-- *Precondizioni*: Oggetto ancora in nessuna cartella;
-- *Postcondizioni*: Oggetto trasferito nella cartella indicata;
-- *Scenario principale*: L'utente deve fornire l'identificativo univoco dell'oggetto e il nome della cartella.
+- *Descrizione*: Un utente autenticato vuole aggiungere una Email ad una cartella;
+- *Precondizioni*: Email ancora in nessuna cartella;
+- *Postcondizioni*: Email trasferita nella cartella indicata.
+- *Scenario principale*: 
+  + L'utente deve fornire l'identificativo univoco della cartella in cui intende aggiungere l'Email;
+  + L'utente deve fornire l'identificativo univoco dell'Email che intende aggiungere.
 
 #set list(marker: ([•], [--]))
 - *Estensioni*:
@@ -463,35 +548,92 @@ Per questo motivo nel nostro sistema andremo a prevedere un classico sistema di 
 - *Inclusioni*: /
 - *Generalizzazioni*: /
 
-===== UC 4.1.1 - Inserimento identificativo oggetto
+===== UC 4.1.1 - Inserimento Identificativo Email
 
 - *Attore principale*: Utente autenticato;
-- *Descrizione*: Un utente autenticato vuole aggiungere un'oggetto ad una cartella;
-- *Precondizioni*: Oggetto ancora in nessuna cartella;
-- *Postcondizioni*: Fornito l'identificativo dell'oggetto;
-- *Scenario principale*: L'utente deve fornire l'identificativo dell'oggetto.
+- *Descrizione*: Un utente autenticato vuole aggiungere una Email ad una cartella e fornisce un elemento obbligatorio;
+- *Precondizioni*: Email ancora in nessuna cartella;
+- *Postcondizioni*: Email ancora in nessuna cartella ma l'utente ha fornito l'identificativo della Email;
+- *Scenario principale*: 
+  + L'utente fornisce l'identificativo della Email che intende aggiungere.
 
 #set list(marker: ([•], [--]))
-- *Estensioni*: - *Inclusioni*: / - *Generalizzazioni*: /
+- *Estensioni*: / - *Inclusioni*: / - *Generalizzazioni*: /
 
-===== UC 4.1.2 - Inserimento nome cartella
+===== UC 4.1.2 - Inserimento Identificativo cartella
 
 - *Attore principale*: Utente autenticato;
-- *Descrizione*: Un utente autenticato vuole aggiungere un'oggetto ad una cartella;
-- *Precondizioni*: Oggetto ancora in nessuna cartella;
-- *Postcondizioni*: Fornito il nome della cartella;
-- *Scenario principale*: L'utente deve fornire il nome della cartella.
+- *Descrizione*: Un utente autenticato vuole aggiungere una Email ad una cartella e fornisce un elemento obbligatorio;
+- *Precondizioni*: Email ancora in nessuna cartella;
+- *Postcondizioni*: Email ancora in nessuna cartella ma l'utente ha fornito l'identificativo della cartella;
+- *Scenario principale*: 
+  + L'utente fornisce l'identificativo della cartella dove aggiungere l'Email.
 
 #set list(marker: ([•], [--]))
-- *Estensioni*: - *Inclusioni*: / - *Generalizzazioni*: /
+- *Estensioni*: / - *Inclusioni*: / - *Generalizzazioni*: /
 
-==== UC 4.2 - Spostamento oggetto da una cartella ad un'altra
+==== UC 4.2 - Spostamento Email da una cartella ad un'altra
 
 - *Attore principale*: Utente autenticato;
-- *Descrizione*: Un utente autenticato vuole spostare un oggetto da una cartella ad un'altra;
-- *Precondizioni*: Oggetto ancora nella cartella di partenza;
-- *Postcondizioni*: Oggetto trasferito nella cartella di destinazione;
-- *Scenario principale*: L'utente deve fornire l'identificativo univoco dell'oggetto e i nomi della cartella di partenza e della cartella di destinazione.
+- *Descrizione*: Un utente autenticato vuole spostare una Email da una cartella ad un'altra;
+- *Precondizioni*: Email ancora nella cartella di partenza;
+- *Postcondizioni*: Email trasferita nella cartella di destinazione.
+- *Scenario principale*: 
+  + L'utente fornisce l'identificativo della Email che intende spostare;
+  + L'utente fornisce l'Identificativo della cartella di partenza;
+  + L'utente fornisce l'Identificativo della cartella di destinazione.
+  
+#set list(marker: ([•], [--]))
+- *Estensioni*:
+  - Errore Operazione;
+- *Inclusioni*: /
+- *Generalizzazioni*: /
+
+===== UC 4.2.1 - Inserimento Identificativo Email
+
+- *Attore principale*: Utente autenticato;
+- *Descrizione*: Un utente autenticato vuole spostare una Email da una cartella ad un'altra e fornisce un elemento obbligatorio;
+- *Precondizioni*: Email ancora nella cartella di partenza;
+- *Postcondizioni*: Email ancora nella cartella di partenza ma l'utente ha fornito l'Identificativo della Email che intende spostare.
+- *Scenario principale*: 
+  + L'utente fornisce l'identificativo della Email che intende spostare.
+
+#set list(marker: ([•], [--]))
+- *Estensioni*: / - *Inclusioni*: / - *Generalizzazioni*: /
+
+===== UC 4.2.2 - Inserimento Identificativo cartella di partenza
+
+- *Attore principale*: Utente autenticato;
+- *Descrizione*: Un utente autenticato vuole spostare una Email da una cartella ad un'altra e fornisce un elemento obbligatorio;
+- *Precondizioni*: Email ancora nella cartella di partenza;
+- *Postcondizioni*: Email ancora nella cartella di partenza ma l'utente ha fornito l'Identificativo della cartella di partenza.
+- *Scenario principale*: 
+  + L'utente fornisce l'identificativo della cartella di partenza.
+
+#set list(marker: ([•], [--]))
+- *Estensioni*: / - *Inclusioni*: / - *Generalizzazioni*: /
+
+===== UC 4.2.3 - Inserimento Identificativo cartella di destinazione
+
+- *Attore principale*: Utente autenticato;
+- *Descrizione*: Un utente autenticato vuole spostare una Email da una cartella ad un'altra e fornisce un elemento obbligatorio;
+- *Precondizioni*: Email ancora nella cartella di destinazione;
+- *Postcondizioni*: Email ancora nella cartella di partenza ma l'utente ha fornito l'Identificativo della cartella di destinazione.
+- *Scenario principale*: 
+  + L'utente fornisce l'identificativo della cartella di destinazione.
+
+#set list(marker: ([•], [--]))
+- *Estensioni*: / - *Inclusioni*: / - *Generalizzazioni*: /
+
+==== UC 4.3 - Elimina Email cartella
+
+- *Attore principale*: Utente autenticato;
+- *Descrizione*: Un utente autenticato vuole eliminare una Email da una cartella;
+- *Precondizioni*: Email ancora nella cartella;
+- *Postcondizioni*: Email eliminata dalla cartella.
+- *Scenario principale*: 
+  + L'utente deve fornire l'identificativo univoco dell'Email;
+  + L'utente deve fornire l'identificativo univoco della cartella dove si trova;
 
 #set list(marker: ([•], [--]))
 - *Estensioni*:
@@ -499,48 +641,40 @@ Per questo motivo nel nostro sistema andremo a prevedere un classico sistema di 
 - *Inclusioni*: /
 - *Generalizzazioni*: /
 
-===== UC 4.2.1 - Inserimento identificativo oggetto
-
-Vedi  UC 4.1.1
-
-===== UC 4.2.2 - Inserimento nome cartella di partenza
-
-Vedi UC 4.1.2
-
-===== UC 4.2.3 - Inserimento nome cartella di destinazione
-
-Vedi UC 4.1.2
-
-==== UC 4.3 - Elimina oggetto cartella
+===== UC 4.3.1 - Inserimento Identificativo Email
 
 - *Attore principale*: Utente autenticato;
-- *Descrizione*: Un utente autenticato vuole eliminare un oggetto da una cartella;
-- *Precondizioni*: Oggetto ancora nella cartella;
-- *Postcondizioni*: Oggetto eliminato dalla cartella;
-- *Scenario principale*: L'utente deve fornire l'identificativo univoco dell'oggetto e il nome della cartella dove si trova.
+- *Descrizione*: Un utente autenticato vuole eliminare una Email da una cartella ad un'altra e fornisce un elemento obbligatorio;
+- *Precondizioni*: Email ancora nella cartella;
+- *Postcondizioni*: Email ancora nella cartella ma l'utente ha fornito l'Identificativo della Email che intende eliminare.
+- *Scenario principale*: 
+  + L'utente fornisce l'identificativo della Email che intende eliminare.
 
 #set list(marker: ([•], [--]))
-- *Estensioni*:
-  - Errore Operazione;
-- *Inclusioni*: /
-- *Generalizzazioni*: /
+- *Estensioni*: / - *Inclusioni*: / - *Generalizzazioni*: /
 
-===== UC 4.3.1 - Inserimento identificativo oggetto
+===== UC 4.3.2 - Inserimento Identificativo cartella
 
-Vedi  UC 4.1.1
+- *Attore principale*: Utente autenticato;
+- *Descrizione*: Un utente autenticato vuole eliminare una Email da una cartella ad un'altra e fornisce un elemento obbligatorio;
+- *Precondizioni*: Email ancora nella cartella;
+- *Postcondizioni*: Email ancora nella cartella ma l'utente ha fornito l'Identificativo della cartella dove si trova l'Email che intende eliminare.
+- *Scenario principale*: 
+  + L'utente fornisce l'identificativo della cartella dove si trova l'Email che intende eliminare.
 
-===== UC 4.3.2 - Inserimento nome cartella di partenza
-
-Vedi UC 4.1.2
+#set list(marker: ([•], [--]))
+- *Estensioni*: / - *Inclusioni*: / - *Generalizzazioni*: /
 
 ==== UC 4.4 - Errore operazione
 
 - *Attore principale*: Utente autenticato;
-- *Descrizione*: Un utente autenticato vuole performare un'operazione su un oggetto che è su una cartella;
+- *Descrizione*: Un utente autenticato vuole performare un'operazione su una Email che è su una cartella;
 - *Precondizioni*: Operazione ancora non effettuata;
 - *Postcondizioni*: Operazione non effettuata e ricevimento da parte dell'utente di un messaggio di errore;
-- *Scenario principale*: L'utente riceverà un messaggio di errore se l'operazione su un oggetto che vuole performare non va a buon fine.
-
+- *Scenario principale*: 
+  + L'utente performa un'operazione su una Email che è su una cartella;
+  + Se viene fornito o un Nome o un Identificativo non valido l'utente riceverà un messaggio di errore.
+  
 #set list(marker: ([•], [--]))
 - *Estensioni*:/ - *Inclusioni*: / - *Generalizzazioni*: /
 
@@ -556,33 +690,38 @@ Vedi UC 4.1.2
 - *Attore principale*: Utente autenticato;
 - *Descrizione*: Un utente autenticato vuole condividere una cartella con un altro utente;
 - *Precondizioni*: Cartella non ancora condivisa;
-- *Postcondizioni*: Cartella condivisa;
-- *Scenario principale*: L'utente deve fornire il nome della cartella e il nome dell'utente.
+- *Postcondizioni*: Cartella condivisa.
+- *Scenario principale*: 
+  + L'utente deve fornire l'identificativo della cartella che vuole condividere;
+  + L'utente deve condividere l'Indirizzo Email dell'utente con il quale vuole condividere la cartella.
 
 #set list(marker: ([•], [--]))
 - *Estensioni*:
-  - Errore Operazione;
+  - Errore Utente non esistenete;
+  - Errore Identificativo cartella non esistenete.
 - *Inclusioni*: /
 - *Generalizzazioni*: /
 
-===== UC 5.1.1 - Inserimento Email Utente
+===== UC 5.1.1 - Inserimento Indirizzo Email Utente
 
 - *Attore principale*: Utente autenticato;
-- *Descrizione*: Un utente autenticato vuole condividere una cartella con un altro utente;
+- *Descrizione*: Un utente autenticato vuole condividere una cartella con un altro utente e quindi inserisce uno dei campi obbligatori;
 - *Precondizioni*: Cartella non ancora condivisa;
-- *Postcondizioni*: Fornito l'Email dell'utente con il quale si vuole condividere la cartella;
-- *Scenario principale*: L'utente deve fornire l'Email dell'utente con il quale vuole condividere la cartella.
+- *Postcondizioni*: Cartella non ancora condivisa e fornita l'indirizzo Email dell'utente con il quale si vuole condividere la cartella.
+- *Scenario principale*: 
+  + L'utente deve fornire l'Indirizzo Email dell'utente con il quale vuole condividere la cartella.
 
 #set list(marker: ([•], [--]))
 - *Estensioni*: - *Inclusioni*: / - *Generalizzazioni*: /
 
-===== UC 5.1.2 - Inserimento nome cartella
+===== UC 5.1.2 - Inserimento Identificativo cartella
 
 - *Attore principale*: Utente autenticato;
-- *Descrizione*: Un utente autenticato vuole condividere una cartella con un altro utente;
+- *Descrizione*: Un utente autenticato vuole condividere una cartella con un altro utente e quindi inserisce uno dei campi obbligatori;
 - *Precondizioni*: Cartella non ancora condivisa;
-- *Postcondizioni*: Fornito il nome della cartella;
-- *Scenario principale*: L'utente deve fornire il nome della cartella che intende condividere.
+- *Postcondizioni*: Cartella non ancora condivisa e fornita l'Identificativo della cartella che vuole condividere.
+- *Scenario principale*: 
+  + L'utente deve fornire l'Indirizzo univoco della cartella che intende condividere.
 
 #set list(marker: ([•], [--]))
 - *Estensioni*: - *Inclusioni*: / - *Generalizzazioni*: /
@@ -597,22 +736,48 @@ Vedi UC 4.1.2
 
 #set list(marker: ([•], [--]))
 - *Estensioni*:
-  - Errore Operazione;
+  - Errore Utente non esistenete;
+  - Errore Identificativo cartella non esistenete.
 - *Inclusioni*: /
 - *Generalizzazioni*: /
 
+===== UC 5.2.1 - Inserimento Indirizzo Email Utente
 
-===== UC 5.2.1 - Inserimento Email Utente
+- *Attore principale*: Utente autenticato;
+- *Descrizione*: Un utente autenticato vuole condividere una cartella con un altro utente e quindi inserisce uno dei campi obbligatori;
+- *Precondizioni*: Cartella ancora condivisa;
+- *Postcondizioni*: Cartella ancora condivisa e fornita l'indirizzo Email dell'utente con il quale si vuole rimuovere la condivisione della cartella.
+- *Scenario principale*: 
+  + L'utente deve fornire l'Indirizzo Email dell'utente con il quale vuole rimuovere la condivisione della cartella.
 
-Vedi UC 5.2.1
+#set list(marker: ([•], [--]))
+- *Estensioni*: - *Inclusioni*: / - *Generalizzazioni*: /
+
+===== UC 5.2.2 - Inserimento Identificativo cartella
+
+- *Attore principale*: Utente autenticato;
+- *Descrizione*: Un utente autenticato vuole condividere una cartella con un altro utente e quindi inserisce uno dei campi obbligatori;
+- *Precondizioni*: Cartella ancora condivisa;
+- *Postcondizioni*: Cartella ancora condivisa e fornito l'Identificativo della cartella con il quale si vuole rimuovere la condivisione.
+- *Scenario principale*: 
+  + L'utente deve fornire l'Identificativo della cartella con il quale si vuole rimuovere la condivisione.
+
+#set list(marker: ([•], [--]))
+- *Estensioni*: - *Inclusioni*: / - *Generalizzazioni*: /
 
 
-===== UC 5.2.2 - Inserimento nome cartella
+==== UC 5.3 - Errore Utente non esistente
 
-Vedi UC 5.2.2
+- *Attore principale*: Utente autenticato;
+- *Descrizione*: Un utente autenticato vuole performare un'operazione di condivisione (aggiunta o rimozione);
+- *Precondizioni*: Operazione ancora non effettuata;
+- *Postcondizioni*: Operazione non effettuata e ricevimento da parte dell'utente di un messaggio di errore;
+- *Scenario principale*: L'utente riceverà un messaggio di errore se l'operazione di condivisione non va a buon fine.
 
+#set list(marker: ([•], [--]))
+- *Estensioni*:/ - *Inclusioni*: / - *Generalizzazioni*: /
 
-==== UC 5.3 - Errore operazione
+==== UC 5.4 - Errore Identificativo cartella non esistente
 
 - *Attore principale*: Utente autenticato;
 - *Descrizione*: Un utente autenticato vuole performare un'operazione di condivisione (aggiunta o rimozione);
@@ -635,35 +800,120 @@ Vedi UC 5.2.2
 - *Attore principale*: Utente autenticato;
 - *Descrizione*: Gli sviluppatori del sistema informativo vogliono poter effettuare un invio massivo di Email per fare dei benchmark sulla velocità di invio;
 - *Precondizioni*: Email non inviate;
-- *Postcondizioni*: Email inviate;
-- *Scenario principale*: L'utente deve fornire il numero di Email che intende inviare, l'oggetto, il titolo e i destinatari.
+- *Postcondizioni*: Email inviate.
+- *Scenario principale*: 
+  + L'utente deve fornire gli Indirizzi Email dei destinatari;
+  + L'utente deve fornire il Corpo del Messaggio dell'Email che voglio usare come test;
+  + L'utente deve fornire l'Oggetto dell'Email che voglio usare come test;
+  + L'utente deve fornire il numero di Email che intende inviare ad ogni destinatari.
 
 #set list(marker: ([•], [--]))
-- *Estensioni*: \
+- *Estensioni*:
   - Overflow 
 - *Inclusioni*: /
 - *Generalizzazioni*: /
 
 ===== UC 6.1.1 - Inserimento Destinatari
 
-Vedi UC 2.1.1
+- *Attore principale*: Utente autenticato;
+- *Descrizione*: Gli sviluppatori del sistema informativo vogliono poter effettuare un invio massivo di Email per fare dei benchmark sulla velocità di invio e quindi devono inserire un campo obbligatorio;
+- *Precondizioni*: Email non inviate;
+- *Postcondizioni*: Email non inviate ma si ha fornito l'Indirizzo Email dei destinatari.
+- *Scenario principale*: 
+  + L'utente deve fornire gli Indirizzi Email dei destinatari.
 
-===== UC 6.1.2 - Inserimento oggetto e corpo messaggio
+#set list(marker: ([•], [--]))
+- *Estensioni*: / - *Inclusioni*: / - *Generalizzazioni*: /
 
-Vedi UC 2.1.2
-
-===== UC 6.1.3 - Inserimento numero copie per destinatario
+===== UC 6.1.2 - Inserimento Corpo dell'Email
 
 - *Attore principale*: Utente autenticato;
-- *Descrizione*: Gli sviluppatori del sistema informativo vogliono poter effettuare un invio massivo di Email per fare dei benchmark sulla velocità di invio;
+- *Descrizione*: Gli sviluppatori del sistema informativo vogliono poter effettuare un invio massivo di Email per fare dei benchmark sulla velocità di invio e quindi devono inserire un campo obbligatorio;
 - *Precondizioni*: Email non inviate;
-- *Postcondizioni*: Email non inviate ma si ha fornito il numero di copie che vogliamo inviare per ogni destinatario;
-- *Scenario principale*: L'utente deve fornire il numero di copie che vuole inviare per ogni destinatario a scopo di test.
+- *Postcondizioni*: Email non inviate ma si ha fornito il Corpo del messaggio dell'Email.
+- *Scenario principale*: 
+  + L'utente deve fornire il Corpo del messaggio dell'Email.
+
+#set list(marker: ([•], [--]))
+- *Estensioni*: / - *Inclusioni*: / - *Generalizzazioni*: /
+
+===== UC 6.1.3 - Inserimento Oggetto dell'Email
+
+- *Attore principale*: Utente autenticato;
+- *Descrizione*: Gli sviluppatori del sistema informativo vogliono poter effettuare un invio massivo di Email per fare dei benchmark sulla velocità di invio e quindi devono inserire un campo obbligatorio;
+- *Precondizioni*: Email non inviate;
+- *Postcondizioni*: Email non inviate ma si ha fornito l'Oggetto dell'Email.
+- *Scenario principale*: 
+  + L'utente deve fornire l'Oggetto dell'Email.
+
+#set list(marker: ([•], [--]))
+- *Estensioni*: / - *Inclusioni*: / - *Generalizzazioni*: /
+
+===== UC 6.1.4 - Inserimento Numero di copie dell'email da inviare ad ogni destinatario
+
+- *Attore principale*: Utente autenticato;
+- *Descrizione*: Gli sviluppatori del sistema informativo vogliono poter effettuare un invio massivo di Email per fare dei benchmark sulla velocità di invio e quindi devono inserire un campo obbligatorio;
+- *Precondizioni*: Email non inviate;
+- *Postcondizioni*: Email non inviate ma si ha fornito il numero di copie che vogliamo inviare per ogni destinatario.
+- *Scenario principale*: 
+  + L'utente deve fornire il Numero di copie dell'email da inviare ad ogni destinatario.
 
 - *Estensioni*: - *Inclusioni*: / - *Generalizzazioni*: /
 
+==== UC 6.2 - Fetch Massivo Di Email
 
-==== UC 6.2 - Overflow
+- *Attore principale*: Utente autenticato;
+- *Descrizione*: Gli sviluppatori del sistema informativo vogliono poter effettuare un fetch massivo di Email da una cartella precedentemente riempita con un numero arbitrario di Email;
+- *Precondizioni*: Fetch non effettuato;
+- *Postcondizioni*: Fetch effettuato.
+- *Scenario principale*: 
+  + L'utente deve fornire l'Identificativo della cartella;
+  + L'utente deve fornire l'Identificativo della Email con la quale si vuole caricare la cartella;
+  + L'utente deve fornire il Numero di copie di Email da copiare nella cartella.
+
+#set list(marker: ([•], [--]))
+- *Estensioni*:
+  - Overflow 
+- *Inclusioni*: /
+- *Generalizzazioni*: /
+
+===== UC 6.2.1 - Inserimento Identificativo cartelle
+
+- *Attore principale*: Utente autenticato;
+- *Descrizione*: Gli sviluppatori del sistema informativo vogliono poter effettuare un fetch massivo di Email da una cartella precedentemente riempita con un numero arbitrario di Email e quindi devono inserire un campo obbligatorio;
+- *Precondizioni*: Fetch non effettuato;
+- *Postcondizioni*: Fetch non effettuato e inserito l'Identificativo della cartella a partire dalla quale si vuole effettuare il test.
+- *Scenario principale*: 
+  + L'utente deve fornire l'Identificativo della cartella a partire dalla quale si vuole effettuare il test.;
+
+#set list(marker: ([•], [--]))
+- *Estensioni*: / - *Inclusioni*: / - *Generalizzazioni*: /
+
+===== UC 6.2.2 - Inserimento Identificativo Email
+
+- *Attore principale*: Utente autenticato;
+- *Descrizione*: Gli sviluppatori del sistema informativo vogliono poter effettuare un fetch massivo di Email da una cartella precedentemente riempita con un numero arbitrario di Email e quindi devono inserire un campo obbligatorio;
+- *Precondizioni*: Fetch non effettuato;
+- *Postcondizioni*: Fetch non effettuato e inserito l'Identificativo dell'Email che si vuole caricare massivamente nella cartella.
+- *Scenario principale*: 
+  + L'utente deve fornire l'Identificativo dell'Email che si vuole caricare massivamente nella cartella.
+
+#set list(marker: ([•], [--]))
+- *Estensioni*: / - *Inclusioni*: / - *Generalizzazioni*: /
+
+===== UC 6.2.3 - Inserimento Numero di copie di Email da copiare nella cartella
+
+- *Attore principale*: Utente autenticato;
+- *Descrizione*: Gli sviluppatori del sistema informativo vogliono poter effettuare un fetch massivo di Email da una cartella precedentemente riempita con un numero arbitrario di Email e quindi devono inserire un campo obbligatorio;
+- *Precondizioni*: Fetch non effettuato;
+- *Postcondizioni*: Fetch non effettuato e inserito il  Numero di copie di Email da copiare nella cartella.
+- *Scenario principale*: 
+  + L'utente deve fornire il Numero di copie di Email da copiare nella cartella
+  
+#set list(marker: ([•], [--]))
+- *Estensioni*: / - *Inclusioni*: / - *Generalizzazioni*: /
+
+==== UC 6.3 - Overflow
 
 - *Attore principale*: Utente autenticato;
 - *Descrizione*: Il sistema è stato testato in maniera eccessiva e il numero di operazioni effettuate ha mandato in crash il sistema;
@@ -1120,28 +1370,64 @@ In alcuni casi verrà esplicitato nella colonna relativa alle fonti se il requis
   [],
   [],
 
-  [R-010-F-1],
+  [R-013-F-1],
   [L'utente deve avere la possibilità di creare una cartella di posta elettronica.],
   [
     UC3.1\
     Capitolato
   ],
-  [R-011-F-1],
+  [R-014-F-1],
+  [È necessario che l'utente fornisca un Nome per la cartella di posta elettronica che intende creare.],
+  [
+    UC3.1.1\
+    Interno
+  ],
+  [R-015-F-1],
+  [È necessario che l'utente fornisca una Descrizione per la cartella di posta elettronica che intende creare.],
+  [
+    UC3.1.2\
+    Interno
+  ],
+  [R-016-F-1],
   [L'utente deve avere la possibilità di rinominare una cartella di posta elettronica.],
   [
     UC3.2\
     Capitolato
   ],
-  [R-012-F-1],
+  [R-017-F-1],
+  [È necessario che l'utente fornisca l'Identificativo della cartella di posta elettronica che intende rinominare.],
+  [
+    UC3.2.1\
+    Interno
+  ],
+  [R-018-F-1],
+  [È necessario che l'utente fornisca il nuovo Nome per la cartella di posta elettronica che intende rinominare.],
+  [
+    UC3.2.2\
+    Interno
+  ],
+  [R-019-F-1],
   [L'utente deve avere la possibilità di eliminare una cartella di posta elettronica.],
   [
     UC3.3\
     Capitolato
   ],
-  [R-013-F-1],
-  [È necessario che l'utente riceva un messaggio di errore se inserisce un nome di cartella non valido nell'operazione che intende effettuare.],
+  [R-020-F-1],
+  [È necessario che l'utente fornisca l'Identificativo della cartella di posta elettronica che intende eliminare.],
+  [
+    UC3.3.1\
+    Interno
+  ],
+  [R-021-F-1],
+  [È necessario che l'utente riceva un messaggio di errore se inserisce un Nome non valido.],
   [
     UC3.4\
+    Interno
+  ],
+  [R-022-F-1],
+  [È necessario che l'utente riceva un messaggio di errore se inserisce un Identificativo non esistente.],
+  [
+    UC3.5\
     Interno
   ],
   
@@ -1149,105 +1435,171 @@ In alcuni casi verrà esplicitato nella colonna relativa alle fonti se il requis
   [],
   [],
 
-  [R-014-F-1],
-  [L'utente deve avere la possibilità di aggiungere un oggetto ad una cartella.],
+  [R-023-F-1],
+  [L'utente deve avere la possibilità di aggiungere una Email ad una cartella.],
   [
     UC4.1\
     Capitolato
   ],
-  [R-015-F-1],
-  [È necessario che l'utente fornisca l'identificativo univoco dell'oggetto.],
+  [R-024-F-1],
+  [È necessario che l'utente fornisca l'identificativo univoco della Email.],
   [
     UC4.1.1\
-    Capitolato
+    Interno
   ],
-  [R-016-F-1],
-  [È necessario che l'utente fornisca il nome della cartella.],
+  [R-025-F-1],
+  [È necessario che l'utente fornisca l'identificativo univoco della cartella dove aggiungere l'Email.],
   [
     UC4.1.2\
-    Capitolato
+    Interno
   ],
-  [R-017-F-1],
+  [R-026-F-1],
   [L'utente deve avere la possibilità di spostare un oggetto da una cartella di partenza ad una cartella di destinazione.],
   [
     UC4.2\
     Capitolato
   ],
-  [R-018-F-1],
-  [L'utente deve avere la possibilità di eliminare un oggetto da una cartella.],
+  [R-027-F-1],
+  [È necessario che l'utente fornisca l'identificativo univoco della Email.],
+  [
+    UC4.2.1\
+    Interno
+  ],
+  [R-028-F-1],
+  [È necessario che l'utente fornisca l'identificativo univoco della cartella dove si trova attualmente l'Email.],
+  [
+    UC4.2.2\
+    Interno
+  ],
+  [R-028-F-1],
+  [È necessario che l'utente fornisca l'identificativo univoco della cartella dove spostare l'Email.],
+  [
+    UC4.2.3\
+    Interno
+  ],
+  [R-029-F-1],
+  [L'utente deve avere la possibilità di eliminare una Email da una cartella.],
   [
     UC4.3\
     Capitolato
+  ],
+  [R-030-F-1],
+  [È necessario che l'utente fornisca l'identificativo univoco dell'Email che intende eliminare.],
+  [
+    UC4.3.1\
+    Interno
+  ],
+  [R-031-F-1],
+  [È necessario che l'utente fornisca l'identificativo univoco della cartella dove si trova attualmente l'Email da eliminare.],
+  [
+    UC4.3.2\
+    Interno
   ],
     
   [],
   [],
   [],
 
-  [R-019-F-1],
+  [R-032-F-1],
   [L'utente deve avere la possibilità di condividere una cartella con un altro utente.],
   [
     UC5.1\
     Capitolato
   ],
-  [R-020-F-1],
-  [È necessario che l'utente fornisca l'Email dell'utente con il quale effettuare la condivisione.],
+  [R-033-F-1],
+  [È necessario che l'utente fornisca l'Indirizzo Email dell'utente con il quale effettuare la condivisione.],
   [
     UC5.1.1\
-    Capitolato
+    Interno
   ],
-  [R-021-F-1],
-  [È necessario che l'utente fornisca il nome della cartella che vuole condividere.],
+  [R-034-F-1],
+  [È necessario che l'utente fornisca l'Identificativo della cartella che vuole condividere.],
   [
     UC5.1.2\
-    Capitolato
+    Interno
   ],
-  [R-022-F-1],
+  [R-035-F-1],
   [L'utente deve avere la possibilità di rimuovere la condivisione di una cartella con un utente.],
   [
     UC5.2\
     Capitolato
   ],
-  [R-023-F-1],
-  [È necessario che l'utente riceva un messaggio di errore se l'operazione non va a buon fine.],
+  [R-036-F-1],
+  [È necessario che l'utente l'Indirizzo Email dell'utente con il quale effettuare la condivisione.],
   [
-    UC5.3\
-    Capitolato
+    UC5.2.1\
+    Interno
+  ],
+  [R-037-F-1],
+  [È necessario che l'utente l'Identificativo della cartella che si vuole condividere.],
+  [
+    UC5.2.2\
+    Interno
   ],
 
   [],
   [],
   [],
 
-  [R-025-F-1],
+  [R-038-F-1],
   [L'utente deve avere la possibilità di effettuare un invio massivo di Email per testare il sistema informatico.],
   [
     UC6.1\
     Capitolato
   ],
-  [R-026-F-1],
+  [R-039-F-1],
   [È necessario che l'utente fornisca la lista dei destinatari.],
   [
     UC6.1.1\
-    Capitolato
+    Interno
   ],
-  [R-027-F-1],
-  [È necessario che l'utente fornisca l'oggetto e il corpo del messaggio.],
+  [R-040-F-1],
+  [È necessario che l'utente fornisca il Corpo dell'Email che si vuole inviare.],
   [
     UC6.1.2\
-    Capitolato
+    Interno
   ],
-  [R-028-F-1],
-  [È necessario che l'utente fornisca il numero di copie che vuole inviare ad ogni destinatario.],
+  [R-041-F-1],
+  [È necessario che l'utente fornisca l'Oggetto dell'Email che si vuole inviare.],
   [
     UC6.1.3\
-    Capitolato
+    Interno
   ],
-  [R-029-F-1],
-  [È necessario che l'utente venga informato se accade un overflow del sistema dovuto all'eccessivo carico applicativo.],
+  [R-042-F-1],
+  [È necessario che l'utente fornisca il Numero di copie dell'email da inviare ad ogni destinatario.],
+  [
+    UC6.1.4\
+    Interno
+  ],
+  [R-043-F-1],
+  [L'utente deve avere la possibilità di effettuare un fetch massivo delle Email da una cartella caricata artificialmente con un numero arbitrario di Email.],
   [
     UC6.2\
     Capitolato
+  ],
+  [R-044-F-1],
+  [È necessario che l'utente fornisca l'Identificativo cartella dove effettuare il fetch.],
+  [
+    UC6.2.1\
+    Interno
+  ],
+  [R-045-F-1],
+  [È necessario che l'utente fornisca l'Identificativo dell'Email che si vuole caricare massivamente nella cartellla.],
+  [
+    UC6.2.2\
+    Interno
+  ],
+  [R-046-F-1],
+  [È necessario che l'utente fornisca il Numero di copie di Email da copiare nella cartella.],
+  [
+    UC6.2.3\
+    Interno
+  ],
+  [R-047-F-1],
+  [È necessario che l'utente venga informato se accade un overflow del sistema dovuto all'eccessivo carico applicativo.],
+  [
+    UC6.3\
+    Interno
   ],
 
   [],
