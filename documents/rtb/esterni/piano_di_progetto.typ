@@ -8,8 +8,9 @@
     p.cardin,
     [_#(p.zextras)_],
   ),
-  changelog: (
-    "0.1.0", "2023-11-30", p.furno, p.bettin, "Aggiunto il consuntivo del periodo I",
+  changelog: ( 
+    "0.1.1", "2023-12-07", p.fabbian, p.vedovato, "Aggiunta la pianificazione del periodo II",
+    "0.1.0", "2023-11-30", p.fabbian, p.vedovato, "Aggiunto il consuntivo del periodo I",
     "0.0.5", "2023-11-30", p.furno, p.bettin, "Aggiunto il preventivo del periodo I",
     "0.0.4", "2023-11-26", p.vedovato, p.bettin, "Aggiunta la pianificazione del periodo I",
     "0.0.3", "2023-11-25", p.vedovato, p.bettin, "Aggiunta della sezione 'Modello di sviluppo'",
@@ -236,11 +237,11 @@ Come si può notare dal confronto tra preventivo e consuntivo:
 ===== Prospetto economico
 #costi(
   (
-    ("7 "+pos("-1"), "240€", pos("-30€")),
-    ("6 "+neg("+1"), "100€",neg("+20€")),
-    ("9 "+neg("+1"), "120€",neg("+15€")),
-    ("18 "+neg("+1"), "425€",neg("+25€")),
-    ("8 "+pos("-1"), "225€",pos("-25€")),
+    ("7 "+pos("-1"), "210€", pos("-30€")),
+    ("6 "+neg("+1"), "120€",neg("+20€")),
+    ("9 "+neg("+1"), "135€",neg("+15€")),
+    ("18 "+neg("+1"), "450€",neg("+25€")),
+    ("8 "+pos("-1"), "200€",pos("-25€")),
     ("-", "-","-"),
     ("47", "1110€","-"),
     ("48 "+neg("+1"), "1115€",neg("+5€"))
@@ -258,3 +259,34 @@ Questo primo periodo di lavoro ci ha ribadito l'importanza delle best practice c
 Lo studio condiviso delle librerie JMAP tra i diversi incaricati ha velocizzato l'apprendimento dei contenuti, risparmiando delle ore rispetto quanto preventivato. Questo metodo verrà sicuramente riproposto dal gruppo per lo studio di altre tecnologie. \
 L'approccio adottato dai Responsabili per assegnare le attività si è rivelato corretto: le task sono state distribuite in modo equo ai diversi componenti del gruppo che hanno impiegato un numero congruo di ore per il loro svolgimento e hanno ultimato il lavoro entro i tempi stabiliti. \
 Infine va migliorata la stima tramite preventivo del tempo necessario per poter completare tutte le attività, la quale è risultata essere leggermente imprecisa.
+
+=== Periodo II
+Inizio: 2023-11-22\
+Fine: 2023-12-07\
+
+==== Pianificazione
+Nel corso del secondo periodo ci si propone di proseguire lo sviluppo della documentazione, con particolare enfasi sull'`Analisi dei Requisiti`, al fine di identificare i casi d'uso fondamentali. Per garantire un dialogo attivo con l'azienda proponente e assicurare una corretta comprensione dei casi d'uso sarà fondamentale organizzare almeno un incontro telematico e comunicare frequentemente anche per via informale tramite Discord. In questa maniera otteremo numerosi feedback, fondamentali per un lavoro accurato e professionale.\
+Considerando il progresso compiuto nelle `Norme di Progetto` durante il primo periodo, l'attenzione sarà ora rivolta soprattutto verso il `Piano di Progetto`, la cui struttura di base è stata precedentemente definita. L'obiettivo sarà quello di consolidare ulteriormente il documento, riflettendo sui dettagli emersi durante lo sviluppo iniziale ed aggiungendo nuove informazioni.\
+In merito alle tecnologie esaminate nella fase precedente, si intende identificare quelle da adottare per il successivo sviluppo del progetto. Questa fase di valutazione punta a selezionare con attenzione le tecnologie più adatte alle esigenze specifiche del capitolato.\
+Infine, prevediamo di dedicare del tempo allo sviluppo simultaneo di diverse versioni di Proof of Concept (PoC). Questa scelta ci permetterà di affrontare il problema da varie prospettive, fornendo così molteplici approcci per lo sviluppo. Ciò contribuirà a ottenere una visione tangibile del progetto e a stabilire solide fondamenta per le fasi successive dello sviluppo.\
+Le attività previste durante questo periodo sono quindi le seguenti: 
+- Selezione della libreria da utilizzare nello sviluppo del progetto;
+- Scelta del linguaggio di programmazione da adottare per l'implementazione del progetto;
+- Scelta del database da impiegare nello sviluppo del progetto;
+- Selezione del framework per lo sviluppo degli stress test;
+- Sviluppo di versioni parallele di PoC;
+- Approfondimento e confronto in relazione ai casi d'uso precedentemente identificati;
+- Arricchimento del documento `Analisi dei Requisiti` precedentemente avviato;
+- Consolidamento del documento `Norme di Progetto`;
+- Ampliamento del documento `Piano di Progetto`;
+- Integrazione della terminologia mancante nel documento `Glossario`.
+
+===== Rischi attesi
+I rischi che ci aspettiamo di correre in questo periodo sono i seguenti: 
+- #link(<RT1>)[*RT1 - Inesperienza*];
+- #link(<RT2>)[*RT2 - Problemi legati all'utilizzo della libreria esterna*];
+- #link(<RO1>)[*RO1 - Imprecisioni nella pianificazione delle attività*];
+- #link(<RO2>)[*RO2 - Elevati costi delle attività*];
+- #link(<RC1>)[*RC1 - Rischio di conflitti interni*];
+- #link(<RC2>)[*RC2 - Problemi di comunicazione*];
+I rischi identificati per il periodo attuale non differiscono significativamente da quelli presentati nella pianificazione del periodo precedente. Ciò è attribuibile al fatto che l'esperienza del gruppo è ancora limitata, come evidenziato nei verbali, e persistono lievi difficoltà nelle attività, come la suddivisione dei compiti. La novità consiste nell'aggiunta di #link(<RT2>)[*RT2 - Problemi legati all'utilizzo della libreria esterna*] , ritenuto necessario poichè durante questo periodo inizieremo con lo sviluppo del codice per il Proof of Concept (PoC) interfacciandoci con la libreria esterna.
