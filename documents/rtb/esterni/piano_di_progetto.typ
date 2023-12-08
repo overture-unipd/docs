@@ -8,9 +8,10 @@
     p.cardin,
     [_#(p.zextras)_],
   ),
-  changelog: ( 
+  changelog: (
+    "0.1.2", "2023-12-07", p.vedovato, p.bettin, "Aggiunto il preventivo del periodo II",
     "0.1.1", "2023-12-07", p.fabbian, p.vedovato, "Aggiunta la pianificazione del periodo II",
-    "0.1.0", "2023-11-30", p.fabbian, p.vedovato, "Aggiunto il consuntivo del periodo I",
+    "0.1.0", "2023-11-30", p.furno, p.vedovato, "Aggiunto il consuntivo del periodo I",
     "0.0.5", "2023-11-30", p.furno, p.bettin, "Aggiunto il preventivo del periodo I",
     "0.0.4", "2023-11-26", p.vedovato, p.bettin, "Aggiunta la pianificazione del periodo I",
     "0.0.3", "2023-11-25", p.vedovato, p.bettin, "Aggiunta della sezione 'Modello di sviluppo'",
@@ -290,3 +291,18 @@ I rischi che ci aspettiamo di correre in questo periodo sono i seguenti:
 - #link(<RC1>)[*RC1 - Rischio di conflitti interni*];
 - #link(<RC2>)[*RC2 - Problemi di comunicazione*];
 I rischi identificati per il periodo attuale non differiscono significativamente da quelli presentati nella pianificazione del periodo precedente. Ciò è attribuibile al fatto che l'esperienza del gruppo è ancora limitata, come evidenziato nei verbali, e persistono lievi difficoltà nelle attività, come la suddivisione dei compiti. La novità consiste nell'aggiunta di #link(<RT2>)[*RT2 - Problemi legati all'utilizzo della libreria esterna*] , ritenuto necessario poichè durante questo periodo inizieremo con lo sviluppo del codice per il Proof of Concept (PoC) interfacciandoci con la libreria esterna.
+
+==== Preventivo
+Ruoli coinvolti: Responsabile, Amministratore, Verificatore, Analista, Programmatore.
+
+#period((
+  (0, 0, 0, 6, 0, 4),
+  (0, 0, 7, 5, 0, 0),
+  (0, 0, 0, 0, 0, 9),
+  (0, 0, 0, 3, 0, 6),
+  (7, 0, 0, 0, 0, 0),
+  (0, 6, 0, 3, 0, 0),
+  (0, 1, 11, 0, 0, 0),
+  ),
+  (2, 3, 1),
+)
