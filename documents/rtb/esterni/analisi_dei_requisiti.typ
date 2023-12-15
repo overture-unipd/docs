@@ -9,6 +9,12 @@
     [_#(p.zextras)_],
   ),
   changelog: (
+    "0.1.0", "2023-12-14" , (p.fabbian, p.vedovato, p.bonavigo), p.bulychov,
+    [
+      Casi d'uso: ridefinizione degli attori\
+      Casi d'uso: approfondire la gestione degli errori\
+      Casi d'uso: separare gli errori provenienti da condition differenti
+    ],
     "0.0.9", "2023-12-2" , p.furno, p.vedovato,
     [
       Casi d'uso: rimozione dei requisiti di vincolo\
@@ -80,18 +86,20 @@ Il processo di #glossary("verifica dei requisiti") ha lo scopo di garantire che 
 La #glossary("validazione dei requisiti") invece consiste nel accertare che il prodotto corrisponda alle attese, ponendo attenzione al prodotto software finale.\
 
 - *Fornire una base per la progettazione del sistema*:\
-Il documento di `Analisi dei Requisiti` fornisce una base per la progettazione del sistema, in quanto definisce le funzionalità che il sistema deve offrire. I programmatori possono utilizzare il documento per comprendere le esigenze dei proponenti e identificare le soluzioni più appropriate per soddisfare tali esigenze.\
+Il documento di `Analisi dei Requisiti` fornisce una base per la progettazione del sistema, in quanto definisce le funzionalità che il sistema deve offrire. I programmatori possono utilizzare il documento per comprendere le esigenze del proponente e identificare le soluzioni più appropriate per soddisfare tali esigenze.\
 
 - *Fornire una base per la progettazione del sistema*:\
-Un documento di `Analisi dei Requisiti` completo e accurato può aiutare a ridurre i rischi del progetto. Ciò è dovuto al fatto che il documento aiuta a garantire che i requisiti siano effettivamente corretti e completi, evitando così errori e ritardi nello sviluppo del sistema.
+Un documento di `Analisi dei Requisiti` completo e accurato può aiutare a ridurre i rischi del progetto e quantificare al meglio i suoi costi. Ciò è dovuto al fatto che il documento aiuta a garantire che i requisiti siano effettivamente corretti e completi, evitando così errori e ritardi nello sviluppo del sistema.
 
-Arrivati al punto in cui si ha una chiara visione dello scopo e delle funzionalità del prodotto, dei suoi requisiti e degli attori del sistema software, in questo documento se ne darà una formale rappresentazione grafica utilizzando il diagramma dei casi d'uso.
+Arrivati al punto in cui si ha una chiara visione dello scopo e delle funzionalità del prodotto, dei suoi requisiti e degli attori del sistema software, in questo documento se ne darà una formale rappresentazione grafica utilizzando i diagrammi dei casi d'uso.
+
 #pagebreak()
+
 
 == Scopo del prodotto
 
 === Spiegazione dello scenario di riferimento
-Il proponente del capitolato d'appalto C8 è l'azienda vicentina _#(p.zextras)_. Il core business di _#(p.zextras)_ si incentra sulla vendita del loro prodotto di punta: Carbonio. Carbonio possiamo definirlo come una suite di funzionalità volte a incrementare la produttività di un'organizzazione o team che si affida a questo prodotto.\
+Il proponente del capitolato d'appalto C8 è l'azienda vicentina _#(p.zextras)_. Il core business di _#(p.zextras)_ si incentra sulla vendita del loro prodotto di punta: Carbonio. Carbonio possiamo definirlo come una #glossary("suite di funzionalità") volte a incrementare la produttività di un'organizzazione o team che si affida a questo prodotto.\
 Infatti, questa soluzione software permette di raggruppare insieme un pool di utenti offrendo loro una serie di strumenti fondamentali per la collaborazione in un contesto aziendale, come:
 + *Messaggistica avanzata*: fornendo un tool di posta elettronica moderna, veloce e intuitiva, profili multipli, account e cartelle condivise, anteprima degli allegati e strumenti di gestione come tag e filtri;
 + Calendari ed eventi pianificati;
@@ -102,24 +110,19 @@ Infatti, questa soluzione software permette di raggruppare insieme un pool di ut
 Questo applicativo è implementato con un software backend (installabile solamente su un Server Ubuntu) e i client possono usufruire di questa soluzione comodamente tramite browser previo apposito login.
 
 === Il protocollo JMAP
-Tra tutte le funzionalità offerte da Carbonio, _#(p.zextras)_ pone particolare attenzione, nel suo capitolato, sulla funzionalità di messaggistica che utilizza come base per la sua implementazione la posta elettronica.\
-Questa tecnologia, in particolare il protocollo IMAP (Internet Message Access Protocol) è un #glossary("protocollo") di comunicazione utilizzato per
+Tra tutte le funzionalità offerte da Carbonio, _#(p.zextras)_ pone particolare attenzione, nel suo capitolato, sulla funzionalità di messaggistica che utilizza come base per la sua implementazione la posta elettronica. Questa tecnologia, in particolare il protocollo IMAP (Internet Message Access Protocol) è un #glossary("protocollo") di comunicazione utilizzato per
 accedere alle email conservate su un server di posta compatibile. Risale al lontano 1986, come
 successore del precedente protocollo POP (Post Office Protocol) e consente un accesso più
 avanzato e interattivo al contenuto delle caselle di posta elettronica, ad esempio permettendo la
 sincronizzazione di una casella di posta in più dispositivi.\
-Negli ultimi anni però è nato JMAP: un interessante alternativa a questo IMAP, il cui pregio principale rispetto a IMAP è la velocità, in quanto sfrutta il formato JSON (JavaScript Object Notation) e definisce un set di API per permettere ai client di accedere ai dati e gestirli in modo efficiente.
+Negli ultimi anni però è nato JMAP: un interessante alternativa a IMAP, il cui pregio principale rispetto a IMAP è la velocità, in quanto sfrutta il formato JSON (JavaScript Object Notation) e definisce un set di API per permettere ai client di accedere ai dati e gestirli in modo efficiente.
 
 === Cosa richiede _#(p.zextras)_?
-_#(p.zextras)_ non ci chiede direttamente di apporre modifiche a Carbonio, ma di progettare e realizzare un sistema di posta elettronica compreso di client mail e server mail (utilizzando delle apposite librerie) che rispetti determinati requisiti (di cui alcuni obbligatori e alcuni opzionali).
-A partire da questo sistema il gruppo Overture andrà ad effettuare dei stress test capaci di stabilire le performance di questo nuovo protocollo rispetto alle caratteristiche (hardware e software) del server che ci è stato fornito.\
-Basandosi sui risultati della nostra demo _#(p.zextras)_ deciderà quindi se è vantaggioso apportare delle modifiche a Carbonio e implementare un sistema di posta elettronica che sfrutti il protocollo JMAP come quello sviluppato nella nostra demo.
-
-
-
-
-
-
+_#(p.zextras)_ non ci chiede direttamente di apporre modifiche a Carbonio,
+ma di implementare un sistema informatico capace di sfruttare il protocollo JMAP per l'invio di email tra diversi utenti. In particolare dovremmo andare a programmare un *server mail* che metta a disposizione a un qualsiasi tipo di *client* (capace di supportare il protocollo JMAP ovviamente) una serie di funzionalità (che detteremo in seguito con la lista dei requisiti).\
+A questo punto, utilizzando uno dei client open source reperibili nelle repository pubbliche saremmo già in grado di sfruttare questa tecnologia di posta elettronica grazie al server che abbiamo implementato.\
+Il reale scopo di _#(p.zextras)_ però non è tanto quello di ricevere il #glossary("know how") che noi andremo ad acquisire programmando il server, ma quello di ricevere i risultati dei benchmark che andremo a realizzare sul sistema rapportandolo alle specifiche harware e software dell'impianto utilizzato.\
+Basandosi su questi risultati _#(p.zextras)_ deciderà quindi se è vantaggioso apportare delle modifiche a Carbonio e implementare un sistema di posta elettronica che sfrutti il protocollo JMAP come quello sviluppato nella nostra demo o se abbandonare l'idea.
 
 
 #pagebreak()
@@ -159,7 +162,7 @@ Nel sistema informatico che dovremmo andare a realizzare dobbiamo mettere a disp
 - [Opzionale] l’implementazione di un sistema di sincronizzazione che permetta ad un client di mantenersi aggiornato con gli ultimi aggiornamenti della casella di posta visualizzata, della rubrica e dei contatti;
 - [Opzionale] Implementazione degli stessi requisiti funzionali sopra elencati per contatti e rubriche contatti.
 
-Inoltre il prodotto puó essere eseguito in un container Docker, permettendo all'azienda di eseguire in batteria i test di funzionalità e di performance, ed é sviluppato per essere scalabile mediante l’inizializzazione di più nodi stateless.
+Inoltre il prodotto deve poter essere eseguibile in un container Docker, permettendo all'azienda di eseguire in batteria i test di funzionalità e di performance, ed é sviluppato per essere scalabile mediante l’inizializzazione di più nodi stateless.
 
 == Caratteristiche utente
 
@@ -172,12 +175,15 @@ Gli utenti della soluzione software Carbonio sono principalmente:
 === Utenti del nostro prodotto
 Il prodotto che il gruppo Overture andrà a sviluppare ha la sola funzionalità di testare una nuova tecnologia, quindi non ha né un segmento di mercato ben definito né un vero e proprio scopo commerciale.
 Gli utenti del nostro prodotto quindi sono tutti coloro che desiderano testare il nuovo protocollo JMAP e capire le motivazioni che hanno spinto gli
-sviluppatori di tutto il mondo e la #glossary("IETF") a rimettere in discussione un protocollo ampiamente
+sviluppatori di tutto il mondo e la #glossary("IETF") a mettere in discussione un protocollo ampiamente
 utilizzato come IMAP, cercando di crearne uno più efficiente e moderno
 
+#pagebreak()
+
 == Tecnologie e analisi della struttura di progetto
-Come discusso nei paragrafi precedenti, lo scopo finale del nostro prodotto è realizzare un'infrastruttura informatica composta di una parte client e una parte server con il fine di realizzare gli stress test sui requisiti funzionali richiesti dal proponente.\
-Per questo motivo, dato che il risultato finale è incentrato sulla performance del protocollo, non ci interessa andare a realizzare un vero e proprio client di posta elettronica completo (es. Thunderbird) ma solamente un client capace di eseguire quei task richiesti da _#(p.zextras)_ che ci permettono di fare un benchmark sull'efficienza del protocollo.
+Come discusso nei paragrafi precedenti, lo scopo finale del nostro prodotto è realizzare un'infrastruttura informatica composta di una parte client (non strettamente sotto il nostro dominio) e una parte server, con il fine di realizzare gli stress test sui requisiti funzionali richiesti dal proponente.\
+Per questo motivo, dato che il risultato finale è incentrato sulla performance del protocollo, non ci interessa andare a realizzare un vero e proprio client di posta elettronica completo (es. Thunderbird) perchè per testare i servizi messi a disposizione dal nostro server mail andremo ad utilizzare un client open source.\
+Per realizzare gli stress test invece, sappiamo che non ci sono client già pronti che forniscono una soluzione già pronta (i programmatori di tutto il mondo hanno realizzato dei client commerciali, non per svolgere test) quindi prevediamo che dovremmo andare a realizzare noi un piccolo client con una serie di funzionalità ristrette ma capace appunto di performare un benchmark sull'efficienza del protocollo.
 
 === Struttura del back-end
 Per realizzare il back-end per la nostra infrastruttura informatica ci verrà messo a disposizione un VPS (Virtual Private Server) direttamente da _#(p.zextras)_ con sistema operativo Linux già installato (l'hardware verrà scelto da _#(p.zextras)_ in base alle loro preferenze).\
@@ -185,20 +191,20 @@ Successivamente sul server andremo ad installare un sistema di container come Do
 Questo perchè Docker ci permette di lanciare in maniera molto semplice una o più istanze del servizio consentendoci di distribuire e ricalibrare le risorse in qualsiasi ambiente e di eseguire in batteria test di funzionalità e di performance.
 
 === Realizzazione del software client
-_#(p.zextras)_ non ci ha imposto dei vincoli sul design del software ma ci ha caldamente consigliato di utilizzare una delle seguenti librerie https://jmap.io/software.html per realizzare il client.\
-È importante sottolineare che con JMAP il client è capace di inviare e ricevere email utilizzando un unico protocollo (JMAP) e il corrispettivo server mail JMAP senza dover utilizzare i due protocolli SMTP e IMAP, tipici dei  comuni client mail.
+_#(p.zextras)_ non ci ha imposto dei vincoli sul design del software ma ci ha caldamente consigliato di utilizzare una delle seguenti librerie https://jmap.io/software.html per realizzare il client capace di effettuare i test e di scegliere uno tra i client già pronti per provare le funzionalità del nostro server sempre dallo stesso repository citato sopra.\
+È importante sottolineare che con JMAP il client e il corrispettivo server mail sono capaci di inviare e ricevere email utilizzando un unico protocollo (JMAP) senza dover utilizzare i due protocolli SMTP e IMAP, tipici dei  comuni sistemi di posta elettronica.
 
 ==== Realizzazione del software back-end
-Allo stesso modo del client, non abbiamo vincoli sul design del software ma dobbiamo chiaramente adattarlo alla libreria client scelta. Dunque il back-end dovrà esporre gli endpoint necessari per implementare le parti della libreria client che soddisfa i requisiti richiesti.\
-Il servizio sviluppato deve essere scalabile mediante l’inizializzazione di più nodi stateless.
-Per stateless si intende che alla richiesta di uno specifico client fatta ad un’architettura contenente più di un’istanza del servizio dato, può rispondere una qualsiasi istanza del servizio, perché nessuna istanza contiene dati specifici di stato rispetto alle richieste dei client.
+Allo stesso modo del client, non abbiamo vincoli sul design del software ma dobbiamo chiaramente adattarlo allo standard di posta elettronica JMAP. Dunque il back-end dovrà esporre i servizi necessari per soddisfare i requisiti richiesti mediante l'esposizione di determinati endpoint da cui ogni client che rispetta lo standard potrà usufruire.\
+Il servizio sviluppato deve essere scalabile mediante l’inizializzazione di più nodi #glossary("stateless").\
+Per stateless si intende che alla richiesta di uno specifico client fatta ad un’architettura contenente più di un’istanza del servizio dato, può rispondere una qualsiasi istanza del servizio, poichè nessuna istanza contiene dati specifici di stato rispetto alle richieste dei client.
 
 #pagebreak()
 
 
 = *Casi d'uso*
 == Obiettivi
-Questa sezione identifica e descrive tutti i casi d'uso individuati a seguito dell'analisi del capitolato d'appalto e del dialogo con l'azienda proponente.
+Questa sezione identifica e descrive tutti i casi d'uso individuati a seguito dell'analisi del capitolato d'appalto e dei dialoghi con l'azienda proponente.
 
 == Introduzione ai Casi d'Uso
 I casi d'uso seguono una struttura logica descrivendo ognuno di questi seguendo questo modello:
@@ -213,16 +219,20 @@ I casi d'uso seguono una struttura logica descrivendo ognuno di questi seguendo 
 
 == Attori
 Gli attori che consideriamo nel prodotto che andremo a realizzare sono:
-- Client di posta elettronica
+- Client di posta elettronica.
 
 === Alcuni dettagli sui client
-Essendo questo un sistema con il fine di testare una nuova tecnologia (JMAP) non abbiamo bisogno di gestire particolari aspetti legati alla sicurezza informatica, i client hanno lo scopo di poter effettuare le seguenti funzionalità (#ref(<Funzionalità>, supplement: "Cap")) in modo che noi sviluppatori possiamo testare l'efficienza di queste operazioni con gli stress test.\
+Il sistema informatico che andremo a sviluppare in questo progetto ha il fine di testare una nuova tecnologia (il protocollo JMAP) e riportare i risultati dei benchmark effettuati su un determinato server. Per questo motivo, essendo quindi tutto finalizzato a svolgere dei test, non ci è stato esplicitamente riferito si gestire particolari aspetti legati alla sicurezza informatica, i client hanno a disposizioni le seguenti funzionalità (#ref(<Funzionalità>, supplement: "Cap")) fruibili tramite API in modo che noi sviluppatori possiamo testare l'efficienza di queste operazioni con gli stress test.\
 Si nota però che in un sistema di posta elettronica, per poter visualizzare le email bisogna prima identificarsi con il server mail fornendo appunto la propria email e la password associata. Allo stesso modo per inviare una email il server mail avrà bisogno di sapere il mittente e quindi ha bisogno di riconoscere il client che intende effettuare questa operazione.\
 Per questo motivo nel nostro sistema andremo a prevedere un classico sistema di autenticazione composto da email e password.
 
+#pagebreak()
+
 == Gestione degli Errori
-Spesso nei diagrammi dei casi d'uso troveremo degli errori non possono essere fisicamenti causati dagli attori del sistema: ad esempio, se un utente crea una rubrica che deve inserire al suo interno i contatti, se segue l'interfaccia grafica dell'applicazione è impossibile che provi ad aggiungere alla rubrica un Indirizzo Email che non esiste perchè l'Applicazione non dispone dei comandi per permettere questo errore (è tutto guidato e non ci sono input liberi).\
-D'altro canto però le API che vengono esposte possono essere chiamate inserendo come parametri qualsiasi tipo di valore e quindi ci siamo sentiti di citare nelle prossime sezioni anche gli errori che possono essere causati da utenti malintenzionati che possono modificare artificialmente i valori con il quale le API vengono chiamate
+Nei diagrammi dei casi d'uso che andremo a riportare nelle sezioni successive, troveremo spesso dei casi d'uso di errore volti a garantire la consistenza dei dati.\
+Per esempio: se un utente vuole creare una rubrica gli verrà chiesto di fornire la lista dei contatti da inserire nella rubrica appena creata, se l'utente fornisce dei contatti che non sono associati al suo account è chiaro che il sistema debba fornire un errore.\
+A livello pratico però utilizzando un normale client di posta elettronica dotato di interfaccia grafica nel momento in cui vogliamo effettuare il tipo di operazione sopra descritta saremo totalmente guidati dall'interfaccia grafica: ci verrà messa a disposizione la nostra lista dei contatti e andremo a selezionare i contatti da aggiungere alla rubrica, dunque non c'è modo di fornire dei contatti non validi.\
+In seguito però ad una profonda analisi, il gruppo Overture ha stabilito che il focus principale del progetto è quello di implementare un backend che metta a disposizione un servizio tramite API dunque il client che fruisce dei nostri endpoints non è sotto il nostro dominio (potrebbe essere anche un #glossary("client CLI"), da linea di comando, dove è l'utente che manualmente digita con la tastiera i nomi dei contatti da inserire nella rubrica) e quindi dobbiamo prevedere dei controlli aggiuntivi che garantiscano l'integrità dei dati inviati da ogni client.
 
 #pagebreak()
 
@@ -236,147 +246,140 @@ D'altro canto però le API che vengono esposte possono essere chiamate inserendo
 
 ==== UC 1.1 - Effettuazione Login
 
-- *Attore principale*: Utente non autenticato;
-- *Descrizione*: Un utente non autenticato vuole effettuare l'accesso presso il server mail JMAP per poter successivamente inviare email, visualizzare le sue email o svolgere altre attività dettate dai requisiti;
-- *Precondizioni*: L'utente non è autenticato;
-- *Postcondizioni*: L'utente è autenticato o ha fallito la registrazione ottenendo un messaggio di errore.
+- *Attore principale*: Client di Posta Elettronica Non Autenticato;
+- *Descrizione*: Un client di posta elettronica che non ha ancora effettuato l'accesso vuole autenticarsi presso il server mail JMAP per poter successivamente inviare e visualizzare le proprie email o svolgere altre attività dettate dai requisiti;
+- *Precondizioni*: Un client di posta elettronica che non ha ancora effettuato l'accesso;
+- *Postcondizioni*: Un client di posta elettronica che ha effettuato l'accesso o che ha ricevuto un errore specifico sul motivo del fallimento dell'autenticazione.
 - *Scenario principale*: \
-  + L'utente deve fornire il suo indirizzo Email;
-  + L'utente deve fornire la sua Password necessaria per l'autenticazione.
+  + L'utente che utilizza il client deve fornire il suo Indirizzo Email;
+  + L'utente che utilizza il client deve fornire la sua Password necessaria per l'autenticazione.
 
 #set list(marker: ([•], [--]))
 - *Estensioni*:
-  - Errore Login.
+  - Errore formato Indirizzo Email non valido;
+  - Errore Password non valida.
 - *Inclusioni*: /
 - *Generalizzazioni*: /
 
-===== UC 1.1.1 - Inserimento Email
+===== UC 1.1.1 - Inserimento Indirizzo Email personale
 
-- *Attore principale*: Utente non autenticato;
-- *Descrizione*: Un utente non autenticato vuole effettuare l'accesso presso il server mail JMAP e quindi inserisce uno dei campi obbligatori;
-- *Precondizioni*: L'utente non è autenticato;
-- *Postcondizioni*: L'utente non è ancora autenticato e ha inserito la sua email.
+- *Attore principale*: Client di Posta Elettronica Non Autenticato;
+- *Descrizione*: Un client di posta elettronica che non ha ancora effettuato l'accesso vuole autenticarsi presso il server mail JMAP e quindi inserisce uno dei campi obbligatori;
+- *Precondizioni*: Un client di posta elettronica che non ha ancora effettuato l'accesso;
+- *Postcondizioni*: Un client di posta elettronica che non ha ancora effettuato l'accesso ma ha inserito il suo Indirizzo Email personale.
 - *Scenario principale*: 
-  + L'utente deve fornire il suo Indirizzo Email necessario per l'autenticazione.
-
-#set list(marker: ([•], [--]))
-- *Estensioni*: / - *Inclusioni*: / - *Generalizzazioni*: /
+  + L'utente che utilizza il client deve fornire il suo Indirizzo Email personale necessario per l'autenticazione.
 
 ==== UC 1.1.2 - Inserimento Password
 
-- *Attore principale*: Utente non autenticato;
-- *Descrizione*: Un utente non autenticato vuole effettuare l'accesso presso il server mail JMAP e quindi inserisce uno dei campi obbligatori;
-- *Precondizioni*: L'utente non è autenticato;
-- *Postcondizioni*: L'utente ancora non autenticato ha inserito la sua password.
+- *Attore principale*: Client di Posta Elettronica Non Autenticato;
+- *Descrizione*: Un client di posta elettronica che non ha ancora effettuato l'accesso vuole autenticarsi presso il server mail JMAP e quindi inserisce uno dei campi obbligatori;
+- *Precondizioni*: Un client di posta elettronica che non ha ancora effettuato l'accesso;
+- *Postcondizioni*: Un client di posta elettronica che non ha ancora effettuato l'accesso ma ha inserito la sua Password.
 - *Scenario principale*: 
-  + L'utente deve fornire la Password necessaria per l'autenticazione.
+  +  L'utente che utilizza il client deve fornire la Password necessaria per l'autenticazione.
 
-#set list(marker: ([•], [--]))
-- *Estensioni*: / - *Inclusioni*: / - *Generalizzazioni*: /
+==== UC 1.2 - Errore formato Indirizzo Email non valido
 
-==== UC 1.2 - Errore Login
-
-- *Attore principale*: Utente non autenticato;
-- *Descrizione*: Un utente non autenticato vuole effettuare l'accesso presso il server mail JMAP per poter  inviare email, visualizzare le sue email o svolgere altre attività dettate dai requisiti;
-- *Precondizioni*: L'utente non è autenticato;
-- *Postcondizioni*: L'utente non è autenticato e ha ricevuto un messaggio di errore per il fallimento del login.
+- *Attore principale*: Client di Posta Elettronica Non Autenticato;
+- *Descrizione*: Un client di posta elettronica che non ha ancora effettuato l'accesso vuole autenticarsi presso il server mail JMAP per poter successivamente inviare e visualizzare le proprie email o svolgere altre attività dettate dai requisiti;
+- *Precondizioni*: Un client di posta elettronica che non ha ancora effettuato l'accesso;
+- *Postcondizioni*: Un client di posta elettronica che ha provato ad effettuare l'accesso e ha ricevuto un messaggio di errore.
 - *Scenario principale*: 
-  + L'utente ha inserito delle credenziali non valide;
-  + L'utente e ha ricevuto un messaggio di errore in seguito al fallimento del login.
+  + L'utente ha inserito un Indirizzo Email che non aveva un formato valido;
+  + L'utente ha ricevuto un messaggio di errore specifico che descriveva il problema.
 
-#set list(marker: ([•], [--]))
-- *Estensioni*: / - *Inclusioni*: / - *Generalizzazioni*: /
+==== UC 1.3 - Errore Password non valida
 
+- *Attore principale*: Client di Posta Elettronica Non Autenticato;
+- *Descrizione*: Un client di posta elettronica che non ha ancora effettuato l'accesso vuole autenticarsi presso il server mail JMAP per poter successivamente inviare e visualizzare le proprie email o svolgere altre attività dettate dai requisiti;
+- *Precondizioni*: Un client di posta elettronica che non ha ancora effettuato l'accesso;
+- *Postcondizioni*: Un client di posta elettronica che ha provato ad effettuare l'accesso e ha ricevuto un messaggio di errore.
+- *Scenario principale*: 
+  + L'utente ha inserito una Password non valida per l'Indirizzo Email inserito in precedenza;
+  + L'utente ha ricevuto un messaggio di errore specifico che descriveva il problema.
+  
 #pagebreak()
 
 === UC 2 - Scambio Email
 
-#figure(image("//imgs/use_cases/scambio-email.svg", width: 100%))
+#figure(image("//imgs/use_cases/scambio-email-1.svg", width: 100%))
+#pagebreak()
+#figure(image("//imgs/use_cases/scambio-email-2.svg", width: 100%))
 #pagebreak()
 
 ==== UC 2.1 - Invio Email
 
-- *Attore principale*: Utente autenticato;
-- *Descrizione*: Un utente autenticato vuole inviare una email a uno o più destinatari;
+- *Attore principale*: Client di Posta Elettronica Autenticato;
+- *Descrizione*: Un client di posta elettronica autenticato vuole inviare una email a uno o più destinatari;
 - *Precondizioni*: Email non ancora inviata;
-- *Postcondizioni*: Email inviata o visualizzazione di un messaggio di errore.
+- *Postcondizioni*: Email inviata o visualizzazione di un messaggio di errore specifico.
 - *Scenario principale*: 
-  + L'utente deve fornire l'oggetto del messaggio;
-  + L'utente deve fornire il corpo del messaggio;
-  + L'utente deve fornrie la lista dei destinatari.
+  + L'utente che utilizza il client che deve fornire la lista degli Indirizzi Email dei destinatari;
+  + L'utente che utilizza il client deve fornire l'oggetto dell'Email;
+  + L'utente che utilizza il client deve fornire il corpo del messaggio dell'Email.
 
 #set list(marker: ([•], [--]))
 - *Estensioni*:
-  - Indirizzi Email non validi.
+  - Formato di Indirizzi Email non valido;
+  - Notifica di Indirizzi Email non esistenti.
 - *Inclusioni*: /
 - *Generalizzazioni*: /
 
-===== UC 2.1.1 - Inserimento Destinatari
+===== UC 2.1.1 - Inserimento Indirizzi Email Destinatari
 
-- *Attore principale*: Utente autenticato;
-- *Descrizione*: Un utente autenticato vuole inviare una email a uno o più destinatari e quindi procede con l'inserimento della lista dei destinatari;
+- *Attore principale*: Client di Posta Elettronica Autenticato;
+- *Descrizione*: Un client di posta elettronica autenticato vuole inviare una email a uno o più destinatari e quindi inserisce uno dei campi obbligatori;
 - *Precondizioni*: Email non ancora inviata;
-- *Postcondizioni*: Email non ancora inviata ma l'utente ha inserito la lista degli Indirizzi Email dei destinatari della Email;
+- *Postcondizioni*: Email non ancora inviata ma l'utente ha inserito la lista degli Indirizzi Email dei destinatari della Email.
 - *Scenario principale*: 
-  + L'utente deve fornire la lista dei destinatari.
-
-#set list(marker: ([•], [--]))
-- *Estensioni*: / - *Inclusioni*: / - *Generalizzazioni*: /
+  + L'utente che utilizza il client deve fornire la lista degli Indirizzi Email dei destinatari.
 
 ===== UC 2.1.2 - Inserimento Oggetto della Email
 
-- *Attore principale*: Utente autenticato;
-- *Descrizione*: Un utente autenticato vuole inviare una email a uno o più destinatari e quindi procede con l'inserimento dell'Oggetto della Email;
+- *Attore principale*: Client di Posta Elettronica Autenticato;
+- *Descrizione*: Un client di posta elettronica autenticato vuole inviare una email a uno o più destinatari e quindi inserisce uno dei campi obbligatori;
 - *Precondizioni*: Email non ancora inviata;
 - *Postcondizioni*: Email non ancora inviata ma l'utente ha inserito l'Oggetto della Email.
 - *Scenario principale*: 
-  + L'utente deve fornire l'Oggetto della Email.
+  + L'utente che utilizza il client deve fornire l'Oggetto della Email.
 
-#set list(marker: ([•], [--]))
-- *Estensioni*: / - *Inclusioni*: / - *Generalizzazioni*: /
 
 ===== UC 2.1.3 - Inserimento Corpo del Messaggio della Email
 
-- *Attore principale*: Utente autenticato;
-- *Descrizione*: Un utente autenticato vuole inviare una email a uno o più destinatari e quindi procede con l'inserimento del Corpo del Messaggio della Email;
-- *Precondizioni*: Email non ancora inviata;
-- *Postcondizioni*: Email non ancora inviata ma l'utente ha inserito il Corpo del Messaggio della Email.
+- *Attore principale*: Client di Posta Elettronica Autenticato;
+- *Descrizione*: Un client di posta elettronica autenticato vuole inviare una email a uno o più destinatari e quindi inserisce uno dei campi obbligatori;
+- *Postcondizioni*: Email non ancora inviata ma l'utente ha inserito il Corpo del Messaggio dell'Email.
 - *Scenario principale*: 
-  + L'utente deve fornire il Corpo del Messaggio della Email.
+  + L'utente che utlizza il client deve fornire il Corpo del Messaggio della Email.
 
-#set list(marker: ([•], [--]))
-- *Estensioni*: / - *Inclusioni*: / - *Generalizzazioni*: /
 
 ==== UC 2.2 - Formato Indirizzi Email non validi
 
-- *Attore principale*: Utente autenticato;
-- *Descrizione*: Un utente autenticato vuole inviare una email a uno o più destinatari;
+- *Attore principale*: Client di Posta Elettronica Autenticato;
+- *Descrizione*: Un client di posta elettronica autenticato vuole inviare una email a uno o più destinatari;
 - *Precondizioni*: Email non ancora inviata;
-- *Postcondizioni*: Email non inviata e ricevimento di un messaggio di errore che cita gli Indirizzi Email di destinazione con un formato non valido;
+- *Postcondizioni*: Email non inviata e ricevimento di un messaggio di errore che cita gli Indirizzi Email di destinazione inseriti con un formato non valido.
 - *Scenario principale*: 
-  + L'utente ha inserito tutte le informazioni per inviare l'Email
-  + L'utente ha ricevuto un messaggio che segnalava l'errore sui formati.
+  + L'utente che utilizza il client ha inserito tutte le informazioni per inviare l'Email ma uno o più degli Indirizzi Email di destinazione inseriti non aveva un formato valido;
+  + L'utente che utilizza il client ha ricevuto un messaggio che segnalava l'errore specifico.
 
-#set list(marker: ([•], [--]))
-- *Estensioni*: / - *Inclusioni*: / - *Generalizzazioni*: /
 
 ==== UC 2.3 - Notifica di Indirizzi Email non esistenti
 
-- *Attore principale*: Utente autenticato;
-- *Descrizione*: Un utente autenticato vuole inviare una email a uno o più destinatari;
+- *Attore principale*: Client di Posta Elettronica Autenticato;
+- *Descrizione*: Un client di posta elettronica autenticato vuole inviare una email a uno o più destinatari;
 - *Precondizioni*: Email non ancora inviata;
-- *Postcondizioni*: Email non inviata e ricevimento di un messaggio di errore che cita gli Indirizzi Email di destinazione non esistenti;
+- *Postcondizioni*: Email non inviata e ricevimento di un messaggio di errore che cita gli Indirizzi Email di destinazione inseriti non esistenti;
 - *Scenario principale*: 
-  + L'utente ha inserito tutte le informazioni per inviare l'Email
-  + L'utente ha ricevuto un messaggio che segnalava l'inesistenza di alcuni degli Indirizzi Email di destinazione inseriti.
+  + L'utente  che utilizza il client ha inserito tutte le informazioni per inviare l'Email ma uno o più degli Indirizzi Email di destinazione inseriti non esisteva;
+  + L'utente che utilizza il client ha ricevuto un messaggio che segnalava l'inesistenza di alcuni degli Indirizzi Email di destinazione inseriti.
 
-#set list(marker: ([•], [--]))
-- *Estensioni*: / - *Inclusioni*: / - *Generalizzazioni*: /
 
 ==== UC 2.4 - Visualizza Lista Email
 
-- *Attore principale*: Utente autenticato;
-- *Descrizione*: Un utente autenticato vuole visualizzare la lista di tutte le Email che gli sono arrivate nella casella di posta elettronica;
+- *Attore principale*: Client di Posta Elettronica Autenticato;
+- *Descrizione*: Un client di posta elettronica autenticato vuole visualizzare la lista di tutte le Email che gli sono arrivate nella casella di posta elettronica;
 - *Precondizioni*: L'utente vuole vedere la lista di tutte le Email;
 - *Postcondizioni*: L'utente ottiene la lista di tutte le Email e la vede a video.
 - *Scenario principale*: 
@@ -385,10 +388,10 @@ D'altro canto però le API che vengono esposte possono essere chiamate inserendo
 #set list(marker: ([•], [--]))
 - *Estensioni*: / - *Inclusioni*: / - *Generalizzazioni*: /
 
-==== UC 2.4 - Visualizza Dettaglio Email
+==== UC 2.5 - Visualizza Dettaglio Email
 
-- *Attore principale*: Utente autenticato;
-- *Descrizione*: Un utente autenticato vuole visualizzare i dettagli di una Email che gli è arrivata;
+- *Attore principale*: Client di Posta Elettronica Autenticato;
+- *Descrizione*: Un client di posta elettronica autenticato vuole visualizzare i dettagli di una Email che gli è arrivata;
 - *Precondizioni*: Visualizzazione lista email;
 - *Postcondizioni*: Visualizzazione dettagli di una determinata email;
 - *Scenario principale*: 
@@ -397,6 +400,16 @@ D'altro canto però le API che vengono esposte possono essere chiamate inserendo
 
 #set list(marker: ([•], [--]))
 - *Estensioni*: / - *Inclusioni*: / - *Generalizzazioni*: /
+
+==== UC 2.6 - Identificativo Email fornito non valido
+
+- *Attore principale*: Client di Posta Elettronica Autenticato;
+- *Descrizione*: Un client di posta elettronica autenticato vuole visualizzare i dettagli di una Email che gli è arrivata;
+- *Precondizioni*: Visualizzazione lista email;
+- *Postcondizioni*: Tentativo di visualizzazione di una email il cui identificativo non esiste e quindi visualizzazione di un messaggio di errore specifico;
+- *Scenario principale*: 
+  + Un utente visualizza la lista di tutte le sue Email;
+  + L'utente fornisce un identificativo di una Email che non esiste e quindi riceve un messaggio di errore specifico.
 
 #pagebreak()
 
@@ -409,186 +422,171 @@ D'altro canto però le API che vengono esposte possono essere chiamate inserendo
 
 ==== UC 3.1 - Creazione di una cartella
 
-- *Attore principale*: Utente autenticato;
-- *Descrizione*: Un utente autenticato vuole creare una cartella di posta elettronica;
+- *Attore principale*: Client di Posta Elettronica Autenticato;
+- *Descrizione*: Un client di posta elettronica autenticato vuole creare una cartella di posta elettronica;
 - *Precondizioni*: Cartella di posta elettronica non ancora creata;
 - *Postcondizioni*: Cartella di posta elettronica creata.
 - *Scenario principale*: 
-  + L'utente deve fornire il nome della cartella di posta elettronica che intende creare.
+  + L'utente deve fornire il nome della cartella di posta elettronica che intende creare;
+  + L'utente deve fornire la descrizione della cartella di posta elettronica che intende creare;
 
 #set list(marker: ([•], [--]))
 - *Estensioni*:
-  - Nome o Identificativo cartella inserito non valido;
+  - Nome cartella inserito non valido.
 - *Inclusioni*: /
 - *Generalizzazioni*: /
 
 ==== UC 3.1.1 - Inserimento Nome cartella
 
-- *Attore principale*: Utente autenticato;
-- *Descrizione*: Un utente autenticato vuole creare una cartella di posta elettronica e quindi inserisce uno dei campi obbligatori; 
+- *Attore principale*: Client di Posta Elettronica Autenticato;
+- *Descrizione*: Un client di posta elettronica autenticato vuole creare una cartella di posta elettronica e quindi inserisce uno dei campi obbligatori; 
 - *Precondizioni*: Cartella di posta elettronica non ancora creata;
 - *Postcondizioni*: Cartella di posta elettronica non ancora creata ma l'utente ha inserito il Nome.
 - *Scenario principale*: 
   + L'utente deve fornire il nome della cartella di posta elettronica che intende creare.
 
-#set list(marker: ([•], [--]))
-- *Estensioni*: / - *Inclusioni*: / - *Generalizzazioni*: /
 
 ==== UC 3.1.2 - Inserimento Descrizione cartella
 
-- *Attore principale*: Utente autenticato;
-- *Descrizione*: Un utente autenticato vuole creare una cartella di posta elettronica e quindi inserisce uno dei campi obbligatori; 
+- *Attore principale*: Client di Posta Elettronica Autenticato;
+- *Descrizione*: Un client di posta elettronica autenticato vuole creare una cartella di posta elettronica e quindi inserisce uno dei campi obbligatori; 
 - *Precondizioni*: Cartella di posta elettronica non ancora creata;
 - *Postcondizioni*: Cartella di posta elettronica non ancora creata ma l'utente ha inserito la Descrizione.
 - *Scenario principale*: 
   + L'utente deve fornire la Descrizione della cartella di posta elettronica che intende creare.
 
-#set list(marker: ([•], [--]))
-- *Estensioni*: / - *Inclusioni*: / - *Generalizzazioni*: /
 
 ==== UC 3.2 - Rinominazione di una cartella
 
-- *Attore principale*: Utente autenticato;
-- *Descrizione*: Un utente autenticato vuole rinominare una cartella di posta elettronica;
+- *Attore principale*: Client di Posta Elettronica Autenticato;
+- *Descrizione*: Un client di posta elettronica autenticato vuole rinominare una cartella di posta elettronica;
 - *Precondizioni*: Cartella di posta elettronica non ancora rinominata;
 - *Postcondizioni*: Cartella di posta elettronica rinominata;
 - *Scenario principale*: 
+  + L'utente deve fornire l'identificativo della cartella che intende rinominare;
   + L'utente deve fornire il nuovo nome per la cartella.
 
 #set list(marker: ([•], [--]))
 - *Estensioni*:
-  - Nome o Identificativo cartella inserito non valido;
+  - Nome cartella inserito non valido.
 - *Inclusioni*: /
 - *Generalizzazioni*: /
 
 ==== UC 3.2.1 - Inserimento Identificativo cartella da rinominare
 
-- *Attore principale*: Utente autenticato;
-- *Descrizione*: Un utente autenticato vuole rinominare una cartella di posta elettronica e quindi inserisce uno dei campi obbligatori; 
+- *Attore principale*: Client di Posta Elettronica Autenticato;
+- *Descrizione*: Un client di posta elettronica autenticato vuole rinominare una cartella di posta elettronica e quindi inserisce uno dei campi obbligatori; 
 - *Precondizioni*: Cartella di posta elettronica non ancora rinominata;
 - *Postcondizioni*: Cartella di posta elettronica non ancora rinominata ma l'utente ha fornito l'Identificativo della cartella che intende rinominare.
 - *Scenario principale*: 
   + L'utente deve fornire l'identificativo della cartella di posta elettronica che intende rinominare.
 
-#set list(marker: ([•], [--]))
-- *Estensioni*: / - *Inclusioni*: / - *Generalizzazioni*: /
 
 ==== UC 3.2.2 - Inserimento nuovo Nome cartella
 
-- *Attore principale*: Utente autenticato;
-- *Descrizione*: Un utente autenticato vuole rinominare una cartella di posta elettronica e quindi inserisce uno dei campi obbligatori; 
+- *Attore principale*: Client di Posta Elettronica Autenticato;
+- *Descrizione*: Un client di posta elettronica autenticato vuole rinominare una cartella di posta elettronica e quindi inserisce uno dei campi obbligatori; 
 - *Precondizioni*: Cartella di posta elettronica non ancora rinominata;
 - *Postcondizioni*: Cartella di posta elettronica non ancora rinominata ma l'utente ha fornito il nuovo Nome per la cartella.
 - *Scenario principale*: 
   + L'utente deve fornire il nuovo Nome per la cartella di posta elettronica che intende rinominare.
 
-#set list(marker: ([•], [--]))
-- *Estensioni*: / - *Inclusioni*: / - *Generalizzazioni*: /
 
 ==== UC 3.3 - Eliminazione di una cartella
 
-- *Attore principale*: Utente autenticato;
-- *Descrizione*: Un utente autenticato vuole eliminare una cartella di posta elettronica;
+- *Attore principale*: Client di Posta Elettronica Autenticato;
+- *Descrizione*: Un client di posta elettronica autenticato vuole eliminare una cartella di posta elettronica;
 - *Precondizioni*: Cartella di posta elettronica non ancora eliminare;
-- *Postcondizioni*: Cartella di posta elettronica eliminare;
+- *Postcondizioni*: Cartella di posta elettronica eliminata;
 - *Scenario principale*: 
   + L'utente deve fornire l'Identificativo della cartella che intende eliminare.
 
 #set list(marker: ([•], [--]))
 - *Estensioni*:
-  - Nome cartella inserito non valido;
+  - Nome cartella inserito non valido.
 - *Inclusioni*: /
 - *Generalizzazioni*: /
 
 ==== UC 3.3.1 - Inserimento Identificativo cartella da eliminare
 
-- *Attore principale*: Utente autenticato;
-- *Descrizione*: Un utente autenticato vuole eliminare una cartella di posta elettronica e quindi inserisce uno dei campi obbligatori; 
+- *Attore principale*: Client di Posta Elettronica Autenticato;
+- *Descrizione*: Un client di posta elettronica autenticato vuole eliminare una cartella di posta elettronica e quindi inserisce uno dei campi obbligatori; 
 - *Precondizioni*: Cartella di posta elettronica non ancora rinominata;
 - *Postcondizioni*: Cartella di posta elettronica non ancora rinominata ma l'utente ha fornito l'Identificativo della cartella che intende eliminare.
 - *Scenario principale*: 
   + L'utente deve fornire l'Identificativo della cartella che intende eliminare.
 
-#set list(marker: ([•], [--]))
-- *Estensioni*: / - *Inclusioni*: / - *Generalizzazioni*: /
-
 ==== UC 3.4 - Nome cartella inserito non valido.
 
-- *Attore principale*: Utente autenticato;
-- *Descrizione*: Un utente autenticato vuole creare, rinominare o eliminare una cartella di posta elettronica;
+- *Attore principale*: Client di Posta Elettronica Autenticato;
+- *Descrizione*: Un client di posta elettronica autenticato vuole creare, rinominare o eliminare una cartella di posta elettronica;
 - *Precondizioni*: Operazione sulla cartella non ancora effettuata;
-- *Postcondizioni*: Operazione sulla cartella non effettuata, l'utente ha ricevuto un messaggio di errore.
+- *Postcondizioni*: Operazione sulla cartella non effettuata, l'utente ha ricevuto un messaggio di errore specifico.
 - *Scenario principale*: 
-  + L'utente ha fornito un Nome per la cartella in questione che non è valido.
+  + L'utente ha fornito un Nome per la cartella in questione che non è valido;
+  + L'utente ha ricevuto un messaggio di errore specifico.
 
-#set list(marker: ([•], [--]))
-- *Estensioni*: - *Inclusioni*: / - *Generalizzazioni*: /
 
 ==== UC 3.5 - Identificativo cartella non esistente.
 
-- *Attore principale*: Utente autenticato;
-- *Descrizione*: Un utente autenticato vuole creare, rinominare o eliminare una cartella di posta elettronica;
+- *Attore principale*: Client di Posta Elettronica Autenticato;
+- *Descrizione*: Un client di posta elettronica autenticato vuole creare, rinominare o eliminare una cartella di posta elettronica;
 - *Precondizioni*: Operazione sulla cartella non ancora effettuata;
 - *Postcondizioni*: Operazione sulla cartella non effettuata, l'utente ha ricevuto un messaggio di errore.
 - *Scenario principale*: 
-  + L'utente ha fornito un Identificativo non esistente per una cartella.
-
-#set list(marker: ([•], [--]))
-- *Estensioni*: - *Inclusioni*: / - *Generalizzazioni*: /
+  + L'utente ha fornito un Identificativo non associato a nessuna cartella;
+  + L'utente ha ricevuto un messaggio di errore specifico.
 
 #pagebreak()
 
 === UC 4 - Gestione contenuti delle cartelle
 
-#figure(image("//imgs/use_cases/gestione-contenuti-1.svg", width: 100%))
+#figure(image("//imgs/use_cases/gestione-contenuti-1.svg", width: 90%))
 #pagebreak()
 #figure(image("//imgs/use_cases/gestione-contenuti-2.svg", width: 75%))
 #pagebreak()
 
 ==== UC 4.1 - Aggiungi oggetto alla cartella
 
-- *Attore principale*: Utente autenticato;
-- *Descrizione*: Un utente autenticato vuole aggiungere una Email ad una cartella;
+- *Attore principale*: Client di Posta Elettronica Autenticato;
+- *Descrizione*: Un client di posta elettronica autenticato vuole aggiungere una Email ad una cartella;
 - *Precondizioni*: Email ancora in nessuna cartella;
-- *Postcondizioni*: Email trasferita nella cartella indicata.
+- *Postcondizioni*: Email aggiunta alla cartella indicata.
 - *Scenario principale*: 
   + L'utente deve fornire l'identificativo univoco della cartella in cui intende aggiungere l'Email;
   + L'utente deve fornire l'identificativo univoco dell'Email che intende aggiungere.
 
 #set list(marker: ([•], [--]))
 - *Estensioni*:
-  - Errore Operazione;
+  - Errore Identificativo Email fornito non esistente;
+  - Errore Identificativo Cartella fornito non esistente.
 - *Inclusioni*: /
 - *Generalizzazioni*: /
 
 ===== UC 4.1.1 - Inserimento Identificativo Email
 
-- *Attore principale*: Utente autenticato;
-- *Descrizione*: Un utente autenticato vuole aggiungere una Email ad una cartella e fornisce un elemento obbligatorio;
+- *Attore principale*: Client di Posta Elettronica Autenticato;
+- *Descrizione*: Un client di posta elettronica autenticato vuole aggiungere una Email ad una cartella e quindi fornisce un campo obbligatorio;
 - *Precondizioni*: Email ancora in nessuna cartella;
 - *Postcondizioni*: Email ancora in nessuna cartella ma l'utente ha fornito l'identificativo della Email;
 - *Scenario principale*: 
   + L'utente fornisce l'identificativo della Email che intende aggiungere.
 
-#set list(marker: ([•], [--]))
-- *Estensioni*: / - *Inclusioni*: / - *Generalizzazioni*: /
 
 ===== UC 4.1.2 - Inserimento Identificativo cartella
 
-- *Attore principale*: Utente autenticato;
-- *Descrizione*: Un utente autenticato vuole aggiungere una Email ad una cartella e fornisce un elemento obbligatorio;
+- *Attore principale*: Client di Posta Elettronica Autenticato;
+- *Descrizione*: Un client di posta elettronica autenticato vuole aggiungere una Email ad una cartella e quindi fornisce un campo obbligatorio;
 - *Precondizioni*: Email ancora in nessuna cartella;
 - *Postcondizioni*: Email ancora in nessuna cartella ma l'utente ha fornito l'identificativo della cartella;
 - *Scenario principale*: 
   + L'utente fornisce l'identificativo della cartella dove aggiungere l'Email.
 
-#set list(marker: ([•], [--]))
-- *Estensioni*: / - *Inclusioni*: / - *Generalizzazioni*: /
 
 ==== UC 4.2 - Spostamento Email da una cartella ad un'altra
 
-- *Attore principale*: Utente autenticato;
-- *Descrizione*: Un utente autenticato vuole spostare una Email da una cartella ad un'altra;
+- *Attore principale*: Client di Posta Elettronica Autenticato;
+- *Descrizione*: Un client di posta elettronica autenticato vuole spostare una Email da una cartella ad un'altra;
 - *Precondizioni*: Email ancora nella cartella di partenza;
 - *Postcondizioni*: Email trasferita nella cartella di destinazione.
 - *Scenario principale*: 
@@ -598,50 +596,45 @@ D'altro canto però le API che vengono esposte possono essere chiamate inserendo
   
 #set list(marker: ([•], [--]))
 - *Estensioni*:
-  - Errore Operazione;
+  - Errore Identificativo Email fornito non esistente;
+  - Errore Identificativo Cartella fornito non esistente.
 - *Inclusioni*: /
 - *Generalizzazioni*: /
 
 ===== UC 4.2.1 - Inserimento Identificativo Email
 
-- *Attore principale*: Utente autenticato;
-- *Descrizione*: Un utente autenticato vuole spostare una Email da una cartella ad un'altra e fornisce un elemento obbligatorio;
+- *Attore principale*: Client di Posta Elettronica Autenticato;
+- *Descrizione*: Un client di posta elettronica autenticato vuole spostare una Email da una cartella ad un'altra e quindi fornisce un campo obbligatorio;
 - *Precondizioni*: Email ancora nella cartella di partenza;
 - *Postcondizioni*: Email ancora nella cartella di partenza ma l'utente ha fornito l'Identificativo della Email che intende spostare.
 - *Scenario principale*: 
-  + L'utente fornisce l'identificativo della Email che intende spostare.
+  + L'utente fornisce l'identificativo dell'Email che intende spostare.
 
-#set list(marker: ([•], [--]))
-- *Estensioni*: / - *Inclusioni*: / - *Generalizzazioni*: /
 
 ===== UC 4.2.2 - Inserimento Identificativo cartella di partenza
 
-- *Attore principale*: Utente autenticato;
-- *Descrizione*: Un utente autenticato vuole spostare una Email da una cartella ad un'altra e fornisce un elemento obbligatorio;
+- *Attore principale*: Client di Posta Elettronica Autenticato;
+- *Descrizione*: Un client di posta elettronica autenticato vuole spostare una Email da una cartella ad un'altra e quindi fornisce un campo obbligatorio;
 - *Precondizioni*: Email ancora nella cartella di partenza;
 - *Postcondizioni*: Email ancora nella cartella di partenza ma l'utente ha fornito l'Identificativo della cartella di partenza.
 - *Scenario principale*: 
   + L'utente fornisce l'identificativo della cartella di partenza.
-
-#set list(marker: ([•], [--]))
-- *Estensioni*: / - *Inclusioni*: / - *Generalizzazioni*: /
+  
 
 ===== UC 4.2.3 - Inserimento Identificativo cartella di destinazione
 
-- *Attore principale*: Utente autenticato;
-- *Descrizione*: Un utente autenticato vuole spostare una Email da una cartella ad un'altra e fornisce un elemento obbligatorio;
+- *Attore principale*: Client di Posta Elettronica Autenticato;
+- *Descrizione*: Un client di posta elettronica autenticato vuole spostare una Email da una cartella ad un'altra e quindi fornisce un campo obbligatorio;
 - *Precondizioni*: Email ancora nella cartella di destinazione;
 - *Postcondizioni*: Email ancora nella cartella di partenza ma l'utente ha fornito l'Identificativo della cartella di destinazione.
 - *Scenario principale*: 
   + L'utente fornisce l'identificativo della cartella di destinazione.
 
-#set list(marker: ([•], [--]))
-- *Estensioni*: / - *Inclusioni*: / - *Generalizzazioni*: /
 
 ==== UC 4.3 - Elimina Email cartella
 
-- *Attore principale*: Utente autenticato;
-- *Descrizione*: Un utente autenticato vuole eliminare una Email da una cartella;
+- *Attore principale*: Client di Posta Elettronica Autenticato;
+- *Descrizione*: Un client di posta elettronica autenticato vuole eliminare una Email da una cartella;
 - *Precondizioni*: Email ancora nella cartella;
 - *Postcondizioni*: Email eliminata dalla cartella.
 - *Scenario principale*: 
@@ -650,58 +643,65 @@ D'altro canto però le API che vengono esposte possono essere chiamate inserendo
 
 #set list(marker: ([•], [--]))
 - *Estensioni*:
-  - Errore Operazione;
+  - Errore Identificativo Email fornito non esistente;
+  - Errore Identificativo Cartella fornito non esistente.
 - *Inclusioni*: /
 - *Generalizzazioni*: /
 
 ===== UC 4.3.1 - Inserimento Identificativo Email
 
-- *Attore principale*: Utente autenticato;
-- *Descrizione*: Un utente autenticato vuole eliminare una Email da una cartella ad un'altra e fornisce un elemento obbligatorio;
+- *Attore principale*: Client di Posta Elettronica Autenticato;
+- *Descrizione*: Un client di posta elettronica autenticato vuole eliminare una Email da una cartella ad un'altra e quindi fornisce un campo obbligatorio;
 - *Precondizioni*: Email ancora nella cartella;
 - *Postcondizioni*: Email ancora nella cartella ma l'utente ha fornito l'Identificativo della Email che intende eliminare.
 - *Scenario principale*: 
   + L'utente fornisce l'identificativo della Email che intende eliminare.
 
-#set list(marker: ([•], [--]))
-- *Estensioni*: / - *Inclusioni*: / - *Generalizzazioni*: /
 
 ===== UC 4.3.2 - Inserimento Identificativo cartella
 
-- *Attore principale*: Utente autenticato;
-- *Descrizione*: Un utente autenticato vuole eliminare una Email da una cartella ad un'altra e fornisce un elemento obbligatorio;
+- *Attore principale*: Client di Posta Elettronica Autenticato;
+- *Descrizione*: Un client di posta elettronica autenticato vuole eliminare una Email da una cartella ad un'altra e fornisce un elemento obbligatorio;
 - *Precondizioni*: Email ancora nella cartella;
 - *Postcondizioni*: Email ancora nella cartella ma l'utente ha fornito l'Identificativo della cartella dove si trova l'Email che intende eliminare.
 - *Scenario principale*: 
   + L'utente fornisce l'identificativo della cartella dove si trova l'Email che intende eliminare.
 
-#set list(marker: ([•], [--]))
-- *Estensioni*: / - *Inclusioni*: / - *Generalizzazioni*: /
+==== UC 4.4 - Errore Identificativo Email fornito non esistente
 
-==== UC 4.4 - Errore operazione
+- *Attore principale*: Client di Posta Elettronica Autenticato;
+- *Descrizione*: Un client di posta elettronica autenticato vuole performare un'operazione su una Email che è su una cartella;
+- *Precondizioni*: Operazione ancora non effettuata;
+- *Postcondizioni*: Operazione non effettuata e ricevimento da parte dell'utente di un messaggio di errore specifico;
+- *Scenario principale*: 
+  + L'utente performa un'operazione su una Email che è su una cartella;
+  + Se viene fornito un Identificativo di un Email non valido l'utente riceverà un messaggio di errore.
 
-- *Attore principale*: Utente autenticato;
-- *Descrizione*: Un utente autenticato vuole performare un'operazione su una Email che è su una cartella;
+==== UC 4.5 - Errore Identificativo Cartella fornito non esistente
+
+- *Attore principale*: Client di Posta Elettronica Autenticato;
+- *Descrizione*: Un client di posta elettronica autenticato vuole performare un'operazione su una Email che è su una cartella;
 - *Precondizioni*: Operazione ancora non effettuata;
 - *Postcondizioni*: Operazione non effettuata e ricevimento da parte dell'utente di un messaggio di errore;
 - *Scenario principale*: 
   + L'utente performa un'operazione su una Email che è su una cartella;
-  + Se viene fornito o un Nome o un Identificativo non valido l'utente riceverà un messaggio di errore.
+  + Se viene fornito un Identificativo di una Cartella non valido l'utente riceverà un messaggio di errore.
   
-#set list(marker: ([•], [--]))
-- *Estensioni*:/ - *Inclusioni*: / - *Generalizzazioni*: /
 
 #pagebreak()
 
 === UC 5 - Condivisione delle cartelle
 
-#figure(image("//imgs/use_cases/condivisione-cartelle.svg", width: 100%))
+#figure(image("//imgs/use_cases/condivisione-cartelle-1.svg", width: 100%))
+#pagebreak()
+#figure(image("//imgs/use_cases/condivisione-cartelle-2.svg", width: 100%))
+
 #pagebreak()
 
 ==== UC 5.1 - Condividi una cartella con un'altro utente
 
-- *Attore principale*: Utente autenticato;
-- *Descrizione*: Un utente autenticato vuole condividere una cartella con un altro utente;
+- *Attore principale*: Client di Posta Elettronica Autenticato;
+- *Descrizione*: Un client di posta elettronica autenticato vuole condividere una cartella con un altro utente;
 - *Precondizioni*: Cartella non ancora condivisa;
 - *Postcondizioni*: Cartella condivisa.
 - *Scenario principale*: 
@@ -710,98 +710,87 @@ D'altro canto però le API che vengono esposte possono essere chiamate inserendo
 
 #set list(marker: ([•], [--]))
 - *Estensioni*:
-  - Errore Utente non esistenete;
-  - Errore Identificativo cartella non esistenete.
+  - Errore Utente fornito non esistente;
+  - Errore Identificativo cartella fornito non esistente.
 - *Inclusioni*: /
 - *Generalizzazioni*: /
 
 ===== UC 5.1.1 - Inserimento Indirizzo Email Utente
 
-- *Attore principale*: Utente autenticato;
-- *Descrizione*: Un utente autenticato vuole condividere una cartella con un altro utente e quindi inserisce uno dei campi obbligatori;
+- *Attore principale*: Client di Posta Elettronica Autenticato;
+- *Descrizione*: Un client di posta elettronica autenticato vuole condividere una cartella con un altro utente e quindi inserisce uno dei campi obbligatori;
 - *Precondizioni*: Cartella non ancora condivisa;
 - *Postcondizioni*: Cartella non ancora condivisa e fornita l'indirizzo Email dell'utente con il quale si vuole condividere la cartella.
 - *Scenario principale*: 
   + L'utente deve fornire l'Indirizzo Email dell'utente con il quale vuole condividere la cartella.
 
-#set list(marker: ([•], [--]))
-- *Estensioni*: - *Inclusioni*: / - *Generalizzazioni*: /
 
 ===== UC 5.1.2 - Inserimento Identificativo cartella
 
-- *Attore principale*: Utente autenticato;
-- *Descrizione*: Un utente autenticato vuole condividere una cartella con un altro utente e quindi inserisce uno dei campi obbligatori;
+- *Attore principale*: Client di Posta Elettronica Autenticato;
+- *Descrizione*: Un client di posta elettronica autenticato vuole condividere una cartella con un altro utente e quindi inserisce uno dei campi obbligatori;
 - *Precondizioni*: Cartella non ancora condivisa;
 - *Postcondizioni*: Cartella non ancora condivisa e fornita l'Identificativo della cartella che vuole condividere.
 - *Scenario principale*: 
-  + L'utente deve fornire l'Indirizzo univoco della cartella che intende condividere.
+  + L'utente deve fornire l'Identificativo della cartella che intende condividere.
 
-#set list(marker: ([•], [--]))
-- *Estensioni*: - *Inclusioni*: / - *Generalizzazioni*: /
 
 ==== UC 5.2 - Rimozione della condivisione di una cartella
 
-- *Attore principale*: Utente autenticato;
-- *Descrizione*: Un utente autenticato vuole togliere la condivisione di una cartella ad un altro utente;
+- *Attore principale*: Client di Posta Elettronica Autenticato;
+- *Descrizione*: Un client di posta elettronica autenticato vuole togliere la condivisione di una cartella ad un altro utente;
 - *Precondizioni*: Cartella ancora condivisa;
-- *Postcondizioni*: Cartella non più condivisa;
-- *Scenario principale*: L'utente deve fornire il nome della cartella e il nome dell'utente.
+- *Postcondizioni*: Cartella non ancora condivisa;
+- *Scenario principale*: 
+  + L'utente deve fornire l'Identificativo della cartella a cui intende togliere la condivisione.
 
 #set list(marker: ([•], [--]))
 - *Estensioni*:
-  - Errore Utente non esistenete;
-  - Errore Identificativo cartella non esistenete.
+  - Errore Utente fornito non esistente;
+  - Errore Identificativo cartella non esistente.
 - *Inclusioni*: /
 - *Generalizzazioni*: /
 
 ===== UC 5.2.1 - Inserimento Indirizzo Email Utente
 
-- *Attore principale*: Utente autenticato;
-- *Descrizione*: Un utente autenticato vuole condividere una cartella con un altro utente e quindi inserisce uno dei campi obbligatori;
+- *Attore principale*: Client di Posta Elettronica Autenticato;
+- *Descrizione*: Un client di posta elettronica autenticato vuole condividere una cartella con un altro utente e quindi inserisce uno dei campi obbligatori;
 - *Precondizioni*: Cartella ancora condivisa;
 - *Postcondizioni*: Cartella ancora condivisa e fornita l'indirizzo Email dell'utente con il quale si vuole rimuovere la condivisione della cartella.
 - *Scenario principale*: 
   + L'utente deve fornire l'Indirizzo Email dell'utente con il quale vuole rimuovere la condivisione della cartella.
 
-#set list(marker: ([•], [--]))
-- *Estensioni*: - *Inclusioni*: / - *Generalizzazioni*: /
-
 ===== UC 5.2.2 - Inserimento Identificativo cartella
 
-- *Attore principale*: Utente autenticato;
-- *Descrizione*: Un utente autenticato vuole condividere una cartella con un altro utente e quindi inserisce uno dei campi obbligatori;
+- *Attore principale*: Client di Posta Elettronica Autenticato;
+- *Descrizione*: Un client di posta elettronica autenticato vuole condividere una cartella con un altro utente e quindi inserisce uno dei campi obbligatori;
 - *Precondizioni*: Cartella ancora condivisa;
 - *Postcondizioni*: Cartella ancora condivisa e fornito l'Identificativo della cartella con il quale si vuole rimuovere la condivisione.
 - *Scenario principale*: 
   + L'utente deve fornire l'Identificativo della cartella con il quale si vuole rimuovere la condivisione.
 
-#set list(marker: ([•], [--]))
-- *Estensioni*: - *Inclusioni*: / - *Generalizzazioni*: /
-
 
 ==== UC 5.3 - Errore Utente non esistente
 
-- *Attore principale*: Utente autenticato;
-- *Descrizione*: Un utente autenticato vuole performare un'operazione di condivisione (aggiunta o rimozione);
+- *Attore principale*: Client di Posta Elettronica Autenticato;
+- *Descrizione*: Un client di posta elettronica autenticato vuole performare un'operazione di condivisione (aggiunta o rimozione);
 - *Precondizioni*: Operazione ancora non effettuata;
 - *Postcondizioni*: Operazione non effettuata e ricevimento da parte dell'utente di un messaggio di errore;
-- *Scenario principale*: L'utente riceverà un messaggio di errore se l'operazione di condivisione non va a buon fine.
+- *Scenario principale*: 
+  + L'utente effettua un'operazione di condivisione.
+  + L'utente riceverà un messaggio di errore se inserisce un Indirizzo Email non valido per l'utente con il quale vuole effettuare la condivisione.
 
-#set list(marker: ([•], [--]))
-- *Estensioni*:/ - *Inclusioni*: / - *Generalizzazioni*: /
 
 ==== UC 5.4 - Errore Identificativo cartella non esistente
 
-- *Attore principale*: Utente autenticato;
-- *Descrizione*: Un utente autenticato vuole performare un'operazione di condivisione (aggiunta o rimozione);
+- *Attore principale*: Client di Posta Elettronica Autenticato;
+- *Descrizione*: Un client di posta elettronica autenticato vuole performare un'operazione di condivisione (aggiunta o rimozione);
 - *Precondizioni*: Operazione ancora non effettuata;
 - *Postcondizioni*: Operazione non effettuata e ricevimento da parte dell'utente di un messaggio di errore;
 - *Scenario principale*: 
   + L'utente effettua un'operazione di condivisione.
   + L'utente riceverà un messaggio di errore se inserisce un Identificativo di una cartella che non esiste.
 
-#set list(marker: ([•], [--]))
-- *Estensioni*:/ - *Inclusioni*: / - *Generalizzazioni*: /
 
 #pagebreak()
 
@@ -812,8 +801,8 @@ D'altro canto però le API che vengono esposte possono essere chiamate inserendo
 
 ==== UC 6.1 - Invio Massivo di Email
 
-- *Attore principale*: Utente autenticato;
-- *Descrizione*: Gli sviluppatori del sistema informativo vogliono poter effettuare un invio massivo di Email per fare dei benchmark sulla velocità di invio;
+- *Attore principale*: Client di Posta Elettronica Autenticato Con Funzionalità di Test;
+- *Descrizione*: Un client di posta elettronica autenticato con funzionalità di test intende effettuare un invio massivo di Email per fare dei benchmark sulla velocità di invio del sistema;
 - *Precondizioni*: Email non inviate;
 - *Postcondizioni*: Email inviate.
 - *Scenario principale*: 
@@ -830,54 +819,47 @@ D'altro canto però le API che vengono esposte possono essere chiamate inserendo
 
 ===== UC 6.1.1 - Inserimento Destinatari
 
-- *Attore principale*: Utente autenticato;
-- *Descrizione*: Gli sviluppatori del sistema informativo vogliono poter effettuare un invio massivo di Email per fare dei benchmark sulla velocità di invio e quindi devono inserire un campo obbligatorio;
+- *Attore principale*: Client di Posta Elettronica Autenticato;
+- *Descrizione*: Un client di posta elettronica autenticato con funzionalità di test intende effettuare un invio massivo di Email per fare dei benchmark sulla velocità di invio del sistema e quindi deve fornire uno dei campi obbligatori;
 - *Precondizioni*: Email non inviate;
 - *Postcondizioni*: Email non inviate ma si ha fornito l'Indirizzo Email dei destinatari.
 - *Scenario principale*: 
   + L'utente deve fornire gli Indirizzi Email dei destinatari.
 
-#set list(marker: ([•], [--]))
-- *Estensioni*: / - *Inclusioni*: / - *Generalizzazioni*: /
 
-===== UC 6.1.2 - Inserimento Corpo dell'Email
+===== UC 6.1.2 - Inserimento Oggetto dell'Email
 
-- *Attore principale*: Utente autenticato;
-- *Descrizione*: Gli sviluppatori del sistema informativo vogliono poter effettuare un invio massivo di Email per fare dei benchmark sulla velocità di invio e quindi devono inserire un campo obbligatorio;
-- *Precondizioni*: Email non inviate;
-- *Postcondizioni*: Email non inviate ma si ha fornito il Corpo del messaggio dell'Email.
-- *Scenario principale*: 
-  + L'utente deve fornire il Corpo del messaggio dell'Email.
-
-#set list(marker: ([•], [--]))
-- *Estensioni*: / - *Inclusioni*: / - *Generalizzazioni*: /
-
-===== UC 6.1.3 - Inserimento Oggetto dell'Email
-
-- *Attore principale*: Utente autenticato;
-- *Descrizione*: Gli sviluppatori del sistema informativo vogliono poter effettuare un invio massivo di Email per fare dei benchmark sulla velocità di invio e quindi devono inserire un campo obbligatorio;
+- *Attore principale*: Client di Posta Elettronica Autenticato;
+- *Descrizione*: Un client di posta elettronica autenticato con funzionalità di test intende effettuare un invio massivo di Email per fare dei benchmark sulla velocità di invio del sistema e quindi deve fornire uno dei campi obbligatori;
 - *Precondizioni*: Email non inviate;
 - *Postcondizioni*: Email non inviate ma si ha fornito l'Oggetto dell'Email.
 - *Scenario principale*: 
   + L'utente deve fornire l'Oggetto dell'Email.
 
-#set list(marker: ([•], [--]))
-- *Estensioni*: / - *Inclusioni*: / - *Generalizzazioni*: /
+
+===== UC 6.1.3 - Inserimento Corpo del Messaggio dell'Email
+
+- *Attore principale*: Client di Posta Elettronica Autenticato;
+- *Descrizione*: Un client di posta elettronica autenticato con funzionalità di test intende effettuare un invio massivo di Email per fare dei benchmark sulla velocità di invio del sistema e quindi deve fornire uno dei campi obbligatori;
+- *Precondizioni*: Email non inviate;
+- *Postcondizioni*: Email non inviate ma si ha fornito il Corpo del messaggio dell'Email.
+- *Scenario principale*: 
+  + L'utente deve fornire il Corpo del messaggio dell'Email.
+
 
 ===== UC 6.1.4 - Inserimento Numero di copie dell'email da inviare ad ogni destinatario
 
-- *Attore principale*: Utente autenticato;
-- *Descrizione*: Gli sviluppatori del sistema informativo vogliono poter effettuare un invio massivo di Email per fare dei benchmark sulla velocità di invio e quindi devono inserire un campo obbligatorio;
+- *Attore principale*: Client di Posta Elettronica Autenticato;
+- *Descrizione*: Un client di posta elettronica autenticato con funzionalità di test intende effettuare un invio massivo di Email per fare dei benchmark sulla velocità di invio del sistema e quindi deve fornire uno dei campi obbligatori;
 - *Precondizioni*: Email non inviate;
 - *Postcondizioni*: Email non inviate ma si ha fornito il numero di copie che vogliamo inviare per ogni destinatario.
 - *Scenario principale*: 
   + L'utente deve fornire il Numero di copie dell'email da inviare ad ogni destinatario.
-
-- *Estensioni*: - *Inclusioni*: / - *Generalizzazioni*: /
+  
 
 ==== UC 6.2 - Fetch Massivo Di Email
 
-- *Attore principale*: Utente autenticato;
+- *Attore principale*: Client di Posta Elettronica Autenticato;
 - *Descrizione*: Gli sviluppatori del sistema informativo vogliono poter effettuare un fetch massivo di Email da una cartella precedentemente riempita con un numero arbitrario di Email;
 - *Precondizioni*: Fetch non effettuato;
 - *Postcondizioni*: Fetch effettuato.
@@ -894,54 +876,44 @@ D'altro canto però le API che vengono esposte possono essere chiamate inserendo
 
 ===== UC 6.2.1 - Inserimento Identificativo cartelle
 
-- *Attore principale*: Utente autenticato;
-- *Descrizione*: Gli sviluppatori del sistema informativo vogliono poter effettuare un fetch massivo di Email da una cartella precedentemente riempita con un numero arbitrario di Email e quindi devono inserire un campo obbligatorio;
+- *Attore principale*: Client di Posta Elettronica Autenticato;
+- *Descrizione*: Un client di posta elettronica autenticato con funzionalità di test intende effettuare un fetch massivo di Email da una cartella per fare dei benchmark sulla velocità di fetch del sistema e quindi deve fornire uno dei campi obbligatori;
 - *Precondizioni*: Fetch non effettuato;
 - *Postcondizioni*: Fetch non effettuato e inserito l'Identificativo della cartella a partire dalla quale si vuole effettuare il test.
 - *Scenario principale*: 
   + L'utente deve fornire l'Identificativo della cartella a partire dalla quale si vuole effettuare il test.;
 
-#set list(marker: ([•], [--]))
-- *Estensioni*: / - *Inclusioni*: / - *Generalizzazioni*: /
 
 ===== UC 6.2.2 - Inserimento Identificativo Email
 
-- *Attore principale*: Utente autenticato;
-- *Descrizione*: Gli sviluppatori del sistema informativo vogliono poter effettuare un fetch massivo di Email da una cartella precedentemente riempita con un numero arbitrario di Email e quindi devono inserire un campo obbligatorio;
+- *Attore principale*: Client di Posta Elettronica Autenticato;
+- *Descrizione*: Un client di posta elettronica autenticato con funzionalità di test intende effettuare un fetch massivo di Email da una cartella per fare dei benchmark sulla velocità di fetch del sistema e quindi deve fornire uno dei campi obbligatori;
 - *Precondizioni*: Fetch non effettuato;
 - *Postcondizioni*: Fetch non effettuato e inserito l'Identificativo dell'Email che si vuole caricare massivamente nella cartella.
 - *Scenario principale*: 
   + L'utente deve fornire l'Identificativo dell'Email che si vuole caricare massivamente nella cartella.
 
-#set list(marker: ([•], [--]))
-- *Estensioni*: / - *Inclusioni*: / - *Generalizzazioni*: /
 
 ===== UC 6.2.3 - Inserimento Numero di copie di Email da copiare nella cartella
 
-- *Attore principale*: Utente autenticato;
-- *Descrizione*: Gli sviluppatori del sistema informativo vogliono poter effettuare un fetch massivo di Email da una cartella precedentemente riempita con un numero arbitrario di Email e quindi devono inserire un campo obbligatorio;
+- *Attore principale*: Client di Posta Elettronica Autenticato;
+- *Descrizione*: Un client di posta elettronica autenticato con funzionalità di test intende effettuare un fetch massivo di Email da una cartella per fare dei benchmark sulla velocità di fetch del sistema e quindi deve fornire uno dei campi obbligatori;
 - *Precondizioni*: Fetch non effettuato;
 - *Postcondizioni*: Fetch non effettuato e inserito il  Numero di copie di Email da copiare nella cartella.
 - *Scenario principale*: 
   + L'utente deve fornire il Numero di copie di Email da copiare nella cartella
   
-#set list(marker: ([•], [--]))
-- *Estensioni*: / - *Inclusioni*: / - *Generalizzazioni*: /
 
 ==== UC 6.3 - Overflow
 
-- *Attore principale*: Utente autenticato;
-- *Descrizione*: Il sistema è stato testato in maniera eccessiva e il numero di operazioni effettuate ha mandato in crash il sistema;
-- *Precondizioni*: Email non inviate;
-- *Postcondizioni*: Email non inviate e visualizzazione di un messaggio di errore;
+- *Attore principale*: Client di Posta Elettronica Autenticato;
+- *Descrizione*: Un client di posta elettronica autenticato con funzionalità di test intende effettuare un fetch massivo di Email da una cartella per fare dei benchmark sul sistema;
+- *Precondizioni*: Operazione di test non ancora effettuata;
+- *Postcondizioni*: Operazione di test non ancora effettuata e visualizzazione di un messaggio di errore specifico;
 - *Scenario principale*: 
   + Lo sviluppatore effettua un'operazione di quelle citate in precedenza;
   + Se l'operazione è troppo onerosa viene mostrato un messaggio di errore che esplicita le motivazioni del crash del sistema.
 
-#set list(marker: ([•], [--]))
-- *Estensioni*:
-- *Inclusioni*: /
-- *Generalizzazioni*: /
 
 #pagebreak()
 
@@ -952,11 +924,12 @@ D'altro canto però le API che vengono esposte possono essere chiamate inserendo
 
 ==== UC 7.1 - Sincronizzazione casella posta di arrivo
 
-- *Attore principale*: Utente autenticato;
-- *Descrizione*: Un utente autenticato vuole sincronizzare la propria casella di posta elettronica con le ultime Email arrivate;
+- *Attore principale*: Client di Posta Elettronica Autenticato;
+- *Descrizione*: Un client di posta elettronica autenticato vuole sincronizzare la propria casella di posta elettronica con le ultime Email arrivate;
 - *Precondizioni*: Cartella di posta elettronica non ancora sincronizzata;
-- *Postcondizioni*: Cartella di posta elettronica sincronizzata;
-- *Scenario principale*: L'utente vedrà le ultime email arrivate nella sua casella di posta elettronica.
+- *Postcondizioni*: Cartella di posta elettronica sincronizzata.
+- *Scenario principale*:
+  + L'utente vedrà le ultime email arrivate nella sua casella di posta elettronica.
 
 #set list(marker: ([•], [--]))
 - *Estensioni*: /
@@ -965,24 +938,12 @@ D'altro canto però le API che vengono esposte possono essere chiamate inserendo
 
 ==== UC 7.2 - Sincronizzazione contatti da rubrica
 
-- *Attore principale*: Utente autenticato;
-- *Descrizione*: Un utente autenticato vuole sincronizzare la propria rubrica con gli ultimi contatti;
+- *Attore principale*: Client di Posta Elettronica Autenticato;
+- *Descrizione*: Un client di posta elettronica autenticato vuole sincronizzare la propria rubrica con gli ultimi contatti;
 - *Precondizioni*: Rubrica non ancora sincronizzata;
-- *Postcondizioni*: Rubrica sincronizzata;
-- *Scenario principale*: L'utente si vedrà aggiornare la rubrica con gli utlimi contatti.
-
-#set list(marker: ([•], [--]))
-- *Estensioni*: /
-- *Inclusioni*: /
-- *Generalizzazioni*: /
-
-==== UC 7.3 - Sincronizzazione calendari
-
-- *Attore principale*: Utente autenticato;
-- *Descrizione*: Un utente autenticato vuole sincronizzare il proprio calendario con i nuovi eventi;
-- *Precondizioni*: Calendario non sincronizzato;
-- *Postcondizioni*: Calendario sincronizzato;
-- *Scenario principale*: L'utente si vedrà aggiornare il suo calendario con gli ultimi eventi.
+- *Postcondizioni*: Rubrica sincronizzata.
+- *Scenario principale*: 
+  + L'utente si vedrà aggiornare la rubrica con gli utlimi contatti.
 
 #set list(marker: ([•], [--]))
 - *Estensioni*: /
@@ -997,8 +958,8 @@ D'altro canto però le API che vengono esposte possono essere chiamate inserendo
 
 ==== UC 8.1 - Creazione di un calendario
 
-- *Attore principale*: Utente autenticato;
-- *Descrizione*: Un utente autenticato vuole creare un calendario;
+- *Attore principale*: Client di Posta Elettronica Autenticato;
+- *Descrizione*: Un Client di Posta Elettronica Autenticato vuole creare un calendario;
 - *Precondizioni*: Calendario non creato;
 - *Postcondizioni*: Calendario creato;
 - *Scenario principale*: L'utente dovrà fornire il nome del calendario che si vuole creare.
@@ -1010,8 +971,8 @@ D'altro canto però le API che vengono esposte possono essere chiamate inserendo
 
 ==== UC 8.2 - Rinominazione di un calendario
 
-- *Attore principale*: Utente autenticato;
-- *Descrizione*: Un utente autenticato vuole rinominare un calendario;
+- *Attore principale*: Client di Posta Elettronica Autenticato;
+- *Descrizione*: Un Client di Posta Elettronica Autenticato vuole rinominare un calendario;
 - *Precondizioni*: Calendario non rinominato;
 - *Postcondizioni*: Calendario rinominato;
 - *Scenario principale*: L'utente dovrà fornire il nome del calendario da rinominare e il nuovo nome.
@@ -1023,8 +984,8 @@ D'altro canto però le API che vengono esposte possono essere chiamate inserendo
 
 ==== UC 8.3 - Eliminazione di un calendario
 
-- *Attore principale*: Utente autenticato;
-- *Descrizione*: Un utente autenticato vuole eliminare un calendario;
+- *Attore principale*: Client di Posta Elettronica Autenticato;
+- *Descrizione*: Un Client di Posta Elettronica Autenticato vuole eliminare un calendario;
 - *Precondizioni*: Calendario non eliminato;
 - *Postcondizioni*: Calendario eliminato;
 - *Scenario principale*: L'utente dovrà fornire il nome del calendario che intende eliminare.
@@ -1036,8 +997,8 @@ D'altro canto però le API che vengono esposte possono essere chiamate inserendo
 
 ==== UC 8.4 - Condivisione di un calendario con un altro utente
 
-- *Attore principale*: Utente autenticato;
-- *Descrizione*: Un utente autenticato vuole condividere un calendario con un altro utente;
+- *Attore principale*: Client di Posta Elettronica Autenticato;
+- *Descrizione*: Un Client di Posta Elettronica Autenticato vuole condividere un calendario con un altro utente;
 - *Precondizioni*: Calendario non condiviso;
 - *Postcondizioni*: Calendario condiviso;
 - *Scenario principale*: L'utente dovrà fornire il nome del calendario che vuole condividere e il nome dell'utente a cui vuole condividere.
@@ -1049,8 +1010,8 @@ D'altro canto però le API che vengono esposte possono essere chiamate inserendo
 
 ==== UC 8.5 - Nome calendario duplicato o non valido
 
-- *Attore principale*: Utente autenticato;
-- *Descrizione*: Un utente autenticato vuole fare un'operazione di quelle citate in precedenza con i calendario;
+- *Attore principale*: Client di Posta Elettronica Autenticato;
+- *Descrizione*: Un Client di Posta Elettronica Autenticato vuole fare un'operazione di quelle citate in precedenza con i calendario;
 - *Precondizioni*: Operazione sul calendario non effettuata;
 - *Postcondizioni*: Operazione sul calendario non effettuata e utente informato con un messaggio di errore;
 - *Scenario principale*: L'utente in seguito ad aver fatto un'operazione sul calendario inserendo un nome duplicato o non valido si vedrà apparire un messaggio di errore.
@@ -1068,8 +1029,8 @@ D'altro canto però le API che vengono esposte possono essere chiamate inserendo
 
 ==== UC 9.1 - Creazione di un appuntamento a calendario
 
-- *Attore principale*: Utente autenticato;
-- *Descrizione*: Un utente autenticato vuole creare un appuntamento a calendario;
+- *Attore principale*: Client di Posta Elettronica Autenticato;
+- *Descrizione*: Un Client di Posta Elettronica Autenticato vuole creare un appuntamento a calendario;
 - *Precondizioni*: Appuntamento non creato;
 - *Postcondizioni*: Appuntamento creato;
 - *Scenario principale*: L'utente dovrà fornire le informazioni per creare un appuntamento e il nome del calendario dove inserirlo.
@@ -1081,8 +1042,8 @@ D'altro canto però le API che vengono esposte possono essere chiamate inserendo
 
 ==== UC 9.2 - Modifica di un appuntamento a calendario
 
-- *Attore principale*: Utente autenticato;
-- *Descrizione*: Un utente autenticato vuole modificare un appuntamento a calendario;
+- *Attore principale*: Client di Posta Elettronica Autenticato;
+- *Descrizione*: Un Client di Posta Elettronica Autenticato vuole modificare un appuntamento a calendario;
 - *Precondizioni*: Appuntamento non modificato;
 - *Postcondizioni*: Appuntamento modficato;
 - *Scenario principale*: L'utente dovrà fornire le informazioni per le modifiche dell'appuntamento e l'identificativo dell'appuntamento da modificare.
@@ -1094,8 +1055,8 @@ D'altro canto però le API che vengono esposte possono essere chiamate inserendo
 
 ==== UC 9.3 - Eliminazione di un appuntamento a calendario
 
-- *Attore principale*: Utente autenticato;
-- *Descrizione*: Un utente autenticato vuole eliminare un appuntamento a calendario;
+- *Attore principale*: Client di Posta Elettronica Autenticato;
+- *Descrizione*: Un Client di Posta Elettronica Autenticato vuole eliminare un appuntamento a calendario;
 - *Precondizioni*: Appuntamento non eliminato;
 - *Postcondizioni*: Appuntamento eliminato;
 - *Scenario principale*: L'utente dovrà fornire l'identificativo dell'appuntamento da eliminare.
@@ -1107,8 +1068,8 @@ D'altro canto però le API che vengono esposte possono essere chiamate inserendo
 
 ==== UC 9.4 - Condivisione di un appuntamento nel calendario condiviso con un altro utente
 
-- *Attore principale*: Utente autenticato;
-- *Descrizione*: Un utente autenticato vuole condividere un appuntamento a calendario di con un'altro utente;
+- *Attore principale*: Client di Posta Elettronica Autenticato;
+- *Descrizione*: Un Client di Posta Elettronica Autenticato vuole condividere un appuntamento a calendario di con un'altro utente;
 - *Precondizioni*: Appuntamento non condiviso;
 - *Postcondizioni*: Appuntamento condiviso;
 - *Scenario principale*: L'utente dovrà fornire le informazioni relative all'appuntamento da creare, dell'utente che possiede il calendario e il nome del calendario dove avverrà la condivisione.
@@ -1120,8 +1081,8 @@ D'altro canto però le API che vengono esposte possono essere chiamate inserendo
 
 ==== UC 9.5 - Nome calendario duplicato o non valido
 
-- *Attore principale*: Utente autenticato;
-- *Descrizione*: Un utente autenticato vuole fare un'operazione di quelle citate in precedenza con gli appuntamenti;
+- *Attore principale*: Client di Posta Elettronica Autenticato;
+- *Descrizione*: Un Client di Posta Elettronica Autenticato vuole fare un'operazione di quelle citate in precedenza con gli appuntamenti;
 - *Precondizioni*: Operazione sull'appuntamento non effettuata;
 - *Postcondizioni*: Operazione sull'appuntamento non effettuata e utente informato con un messaggio di errore;
 - *Scenario principale*: L'utente in seguito ad aver fatto un'operazione sul appuntamento inserendo un nome duplicato o non valido per il calendario si vedrà apparire un messaggio di errore.
@@ -1143,8 +1104,8 @@ D'altro canto però le API che vengono esposte possono essere chiamate inserendo
 
 ==== UC 8.1 - Creazione di un contatto
 
-- *Attore principale*: Utente autenticato;
-- *Descrizione*: Un utente autenticato vuole creare un contatto;
+- *Attore principale*: Client di Posta Elettronica Autenticato;
+- *Descrizione*: Un client di posta elettronica autenticato vuole creare un contatto;
 - *Precondizioni*: Contatto non creato;
 - *Postcondizioni*: Contatto creato.
 - *Scenario principale*: 
@@ -1158,34 +1119,28 @@ D'altro canto però le API che vengono esposte possono essere chiamate inserendo
 
 ==== UC 8.1.1 - Inserimento Nome e Cognome contatto
 
-- *Attore principale*: Utente autenticato;
-- *Descrizione*: Un utente autenticato vuole creare un contatto e quindi deve inserire un campo obbligatorio;
+- *Attore principale*: Client di Posta Elettronica Autenticato;
+- *Descrizione*: Un client di posta elettronica autenticato vuole creare un contatto e quindi deve inserire un campo obbligatorio;
 - *Precondizioni*: Contatto non creato;
 - *Postcondizioni*: Contatto non creato e l'Utente ha inserito il Nome e il Cognome per il contatto.
 - *Scenario principale*: 
   + L'utente deve fornire il Nome e Cognome del contatto;
 
-#set list(marker: ([•], [--]))
-- *Estensioni*: / - *Inclusioni*: / - *Generalizzazioni*: /
-
 
 ==== UC 8.1.2 - Inserimento Indirizzo Email contatto
 
-- *Attore principale*: Utente autenticato;
-- *Descrizione*: Un utente autenticato vuole creare un contatto e quindi deve inserire un campo obbligatorio;;
+- *Attore principale*: Client di Posta Elettronica Autenticato;
+- *Descrizione*: Un client di posta elettronica autenticato vuole creare un contatto e quindi deve inserire un campo obbligatorio;
 - *Precondizioni*: Contatto non creato;
-- *Postcondizioni*: Contatto non creato e l'Utente ha inserito il Nome e il Cognome per il contatto.
+- *Postcondizioni*: Contatto non creato e l'Utente ha inserito l'Indirizzo Email del contatto.
 - *Scenario principale*: 
   + L'utente deve fornire l'Indirizzo Email del contatto che vuole creare.
-
-#set list(marker: ([•], [--]))
-- *Estensioni*: / - *Inclusioni*: / - *Generalizzazioni*: /
 
 
 ==== UC 8.2 - Modifica di un contatto
 
-- *Attore principale*: Utente autenticato;
-- *Descrizione*: Un utente autenticato vuole modificare un contatto;
+- *Attore principale*: Client di Posta Elettronica Autenticato;
+- *Descrizione*: Un client di posta elettronica autenticato vuole modificare un contatto;
 - *Precondizioni*: Contatto non modificato;
 - *Postcondizioni*: Contatto modificato.
 - *Scenario principale*: 
@@ -1199,33 +1154,28 @@ D'altro canto però le API che vengono esposte possono essere chiamate inserendo
 
 ==== UC 8.2.1 - Inserimento Indirizzo Email contatto da modificare
 
-- *Attore principale*: Utente autenticato;
-- *Descrizione*: Un utente autenticato vuole creare un contatto e quindi deve inserire un campo obbligatorio;
+- *Attore principale*: Client di Posta Elettronica Autenticato;
+- *Descrizione*: Un client di posta elettronica autenticato vuole modificare un contatto e quindi deve inserire un campo obbligatorio;
 - *Precondizioni*: Contatto non creato;
 - *Postcondizioni*: Contatto non creato e l'Utente ha inserito il Nome e il Cognome per il contatto.
 - *Scenario principale*: 
-  + L'utente deve fornire il Nome e Cognome del contatto;
-
-#set list(marker: ([•], [--]))
-- *Estensioni*: / - *Inclusioni*: / - *Generalizzazioni*: /
+  + L'utente deve fornire l'Indirizzo Email del contatto che si vuole modificare.
 
 
 ==== UC 8.2.2 - Inserimento nuovo Nome, Cognome e Indirizzo Email da modificare
 
-- *Attore principale*: Utente autenticato;
-- *Descrizione*: Un utente autenticato vuole creare un contatto e quindi deve inserire un campo obbligatorio;;
+- *Attore principale*: Client di Posta Elettronica Autenticato;
+- *Descrizione*: Un client di posta elettronica autenticato vuole modificare un contatto e quindi deve inserire un campo obbligatorio;
 - *Precondizioni*: Contatto non creato;
 - *Postcondizioni*: Contatto non creato e l'Utente ha inserito il nuovo nuovo Nome, Cognome e Indirizzo Email da modificare.
 - *Scenario principale*: 
   + L'utente deve fornire il nuovo Nome, Cognome e Indirizzo Email da modificare.
 
-#set list(marker: ([•], [--]))
-- *Estensioni*: / - *Inclusioni*: / - *Generalizzazioni*: /
 
 ==== UC 8.3 - Eliminazione di un contatto
 
-- *Attore principale*: Utente autenticato;
-- *Descrizione*: Un utente autenticato vuole eliminare un contatto;
+- *Attore principale*: Client di Posta Elettronica Autenticato;
+- *Descrizione*: Un client di posta elettronica autenticato vuole eliminare un contatto;
 - *Precondizioni*: Contatto non eliminato;
 - *Postcondizioni*: Contatto eliminato;
 - *Scenario principale*: 
@@ -1238,20 +1188,18 @@ D'altro canto però le API che vengono esposte possono essere chiamate inserendo
 
 ==== UC 8.3.1 - Inserimento Indirizzo Email contatto da eliminare
 
-- *Attore principale*: Utente autenticato;
-- *Descrizione*: Un utente autenticato vuole eliminare un contatto e quindi deve inserire il campo obbligatorio;
+- *Attore principale*: Client di Posta Elettronica Autenticato;
+- *Descrizione*: Un client di posta elettronica autenticato vuole eliminare un contatto e quindi deve inserire il campo obbligatorio;
 - *Precondizioni*: Contatto non eliminato;
 - *Postcondizioni*: Contatto non eliminato e inserito l'Indirizzo Email del contatto da eliminare.
 - *Scenario principale*: 
   + L'utente dovrà fornire l'indirizzo Email del contatto da eliminare.
 
-#set list(marker: ([•], [--]))
-- *Estensioni*: / - *Inclusioni*: / - *Generalizzazioni*: /
 
 ==== UC 8.4 - Condivisione di un contatto con un'altro utente
 
-- *Attore principale*: Utente autenticato;
-- *Descrizione*: Un utente autenticato vuole condividere un contatto con un'altro utente;
+- *Attore principale*: Client di Posta Elettronica Autenticato;
+- *Descrizione*: Un client di posta elettronica autenticato vuole condividere un contatto con un'altro utente;
 - *Precondizioni*: Contatto non condiviso;
 - *Postcondizioni*: Contatto condiviso.
 - *Scenario principale*: 
@@ -1265,36 +1213,33 @@ D'altro canto però le API che vengono esposte possono essere chiamate inserendo
 
 ==== UC 8.4.1 - Inserimento Indirizzo Email contatto da condividere
 
-- *Attore principale*: Utente autenticato;
-- *Descrizione*: Un utente autenticato vuole creare un contatto e quindi deve inserire un campo obbligatorio;
+- *Attore principale*: Client di Posta Elettronica Autenticato;
+- *Descrizione*: Un client di posta elettronica autenticato vuole creare un contatto e quindi deve inserire un campo obbligatorio;
 - *Precondizioni*: Contatto non creato;
 - *Postcondizioni*: Contatto non creato e l'Utente ha inserito l'Indirizzo Email del contatto da condividere.
 - *Scenario principale*: 
   + L'utente deve fornire l'Indirizzo Email del contatto da condividere;
 
-#set list(marker: ([•], [--]))
-- *Estensioni*: / - *Inclusioni*: / - *Generalizzazioni*: /
-
 
 ==== UC 8.4.2 - Inserimento Indirizzo Email del contatto con il quale si vuole condividere il contatto
 
-- *Attore principale*: Utente autenticato;
-- *Descrizione*: Un utente autenticato vuole creare un contatto e quindi deve inserire un campo obbligatorio;
+- *Attore principale*: Client di Posta Elettronica Autenticato;
+- *Descrizione*: Un client di posta elettronica autenticato vuole creare un contatto e quindi deve inserire un campo obbligatorio;
 - *Precondizioni*: Contatto non creato;
-- *Postcondizioni*: Contatto non creato e l'Utente ha inserito l'Indirizzo Email del contatto con il quale si vuole condividere il contatto
+- *Postcondizioni*: Contatto non creato e l'Utente ha inserito l'Indirizzo Email del contatto con il quale si vuole condividere il contatto.
 - *Scenario principale*: 
   + L'utente deve fornire l'Indirizzo Email del contatto con il quale si vuole condividere il contatto.
 
 
 ==== UC 8.5 - Indirizzo Email contatto duplicato o non valido
 
-- *Attore principale*: Utente autenticato;
-- *Descrizione*: Un utente autenticato vuole fare un'operazione di quelle citate in precedenza con i contatti;
+- *Attore principale*: Client di Posta Elettronica Autenticato;
+- *Descrizione*: Un client di posta elettronica autenticato vuole fare un'operazione di quelle citate in precedenza con i contatti;
 - *Precondizioni*: Operazione sul contatto non effettuata;
-- *Postcondizioni*: Operazione sul contatto non effettuata e utente informato con un messaggio di errore;
+- *Postcondizioni*: Operazione sul contatto non effettuata e utente informato con un messaggio di errore.
 - *Scenario principale*:
   + L'utente esegue to un'operazione sul contatto inserendo un indirizzo Email duplicato o non valido;
-  + L'utente si vedrà apparire un messaggio di errore.
+  + L'utente si vedrà apparire un messaggio di errore specifico.
 
 #set list(marker: ([•], [--]))
 - *Estensioni*: /
@@ -1312,8 +1257,8 @@ D'altro canto però le API che vengono esposte possono essere chiamate inserendo
 
 ==== UC 9.1 - Creazione di una rubrica
 
-- *Attore principale*: Utente autenticato;
-- *Descrizione*: Un utente autenticato vuole creare una rubrica;
+- *Attore principale*: Client di Posta Elettronica Autenticato;
+- *Descrizione*: Un client di posta elettronica autenticato vuole creare una rubrica;
 - *Precondizioni*: Rubrica non creata;
 - *Postcondizioni*: Rubrica creata.
 - *Scenario principale*: 
@@ -1321,103 +1266,135 @@ D'altro canto però le API che vengono esposte possono essere chiamate inserendo
   + L'utente dovrà fornire la lista dei contatti da includere nella rubrica.
 
 #set list(marker: ([•], [--]))
-- *Estensioni*: Nome rubrica duplicato o non valido
+- *Estensioni*: 
+  + Nome rubrica duplicato o non valido;
+  + Identificativo contatti fornito non valido.
 - *Inclusioni*: /
 - *Generalizzazioni*: /
 
 ==== UC 9.1.1 - Creazione di una rubrica
 
-- *Attore principale*: Utente autenticato;
-- *Descrizione*: Un utente autenticato vuole creare una rubrica e inserisce uno dei campi obbligatori;
+- *Attore principale*: Client di Posta Elettronica Autenticato;
+- *Descrizione*: Un client di posta elettronica autenticato vuole creare una rubrica e inserisce uno dei campi obbligatori;
 - *Precondizioni*: Rubrica non creata;
 - *Postcondizioni*: Rubrica non creata ma è stato fornito il nome della rubrica.
 - *Scenario principale*: 
   + L'utente dovrà fornire il nome della rubrica che vuole creare;
-  
-#set list(marker: ([•], [--]))
-- *Estensioni*: / - *Inclusioni*: / - *Generalizzazioni*: /
+
 
 ==== UC 9.1.2 - Inserimento Indirizzi Email dei contatti da inserire nella rubrica
 
-- *Attore principale*: Utente autenticato;
-- *Descrizione*: Un utente autenticato vuole creare una rubrica e inserisce uno dei campi obbligatori;
+- *Attore principale*: Client di Posta Elettronica Autenticato;
+- *Descrizione*: Un client di posta elettronica autenticato vuole creare una rubrica e inserisce uno dei campi obbligatori;
 - *Precondizioni*: Rubrica non creata;
 - *Postcondizioni*: Rubrica non creata ma è stato fornita la lista dei contatti da aggiungere.
 - *Scenario principale*: 
   + L'utente dovrà fornire la lista dei contatti da aggiungere alla rubrica;
-  
-#set list(marker: ([•], [--]))
-- *Estensioni*: / - *Inclusioni*: / - *Generalizzazioni*: /
 
-==== UC 9.2 - Modifica di una rubrica
+==== UC 9.2 - Rinominazione di una rubrica
 
-- *Attore principale*: Utente autenticato;
-- *Descrizione*: Un utente autenticato vuole modificare una rubrica;
-- *Precondizioni*: Rubrica non modificata;
-- *Postcondizioni*: Rubrica modficata.
+- *Attore principale*: Client di Posta Elettronica Autenticato;
+- *Descrizione*: Un client di posta elettronica autenticato vuole rinominare una rubrica;
+- *Precondizioni*: Rubrica non rinominata;
+- *Postcondizioni*: Rubrica rinominata.
 - *Scenario principale*: 
-  + L'utente dovrà fornire le informazioni l'Identificativo della rubrica che si vuole modificare; 
-  + L'utente dovrà fornire la nuova lista di contatti da associare a quella rubrica.
+  + L'utente dovrà fornire l'Identificativo della rubrica che si vuole rinominare; 
+  + L'utente dovrà fornire il nuovo nome per la rubrica.
 
 #set list(marker: ([•], [--]))
-- *Estensioni*: Nome rubrica duplicato o non valido
+- *Estensioni*:
+    + Identificativo rubrica non valido;
+    + Nome rubrica duplicato o non valido.
 - *Inclusioni*: /
 - *Generalizzazioni*: /
 
-==== UC 9.2.1 - Inserimento Identificativo della rubrica da modificare
+==== UC 9.2.1 - Inserimento Identificativo della rubrica da rinominare
 
-- *Attore principale*: Utente autenticato;
-- *Descrizione*: Un utente autenticato vuole modificare una rubrica e inserisce uno dei campi obbligatori;
+- *Attore principale*: Client di Posta Elettronica Autenticato;
+- *Descrizione*: Un client di posta elettronica autenticato vuole rinominare una rubrica e inserisce uno dei campi obbligatori;
+- *Precondizioni*: Rubrica non rinominata;
+- *Postcondizioni*: Rubrica non rinominata ma è stato fornito l'Identificativo della rubrica da rinominata.
+- *Scenario principale*: 
+  + L'utente dovrà fornire l'Identificativo della rubrica da rinominata.
+
+
+==== UC 9.2.2 - Inserimento Nuovo nome per la rubrica
+
+- *Attore principale*: Client di Posta Elettronica Autenticato;
+- *Descrizione*: Un client di posta elettronica autenticato vuole rinominare una rubrica e inserisce uno dei campi obbligatori;
+- *Precondizioni*: Rubrica non rinominata;
+- *Postcondizioni*: Rubrica non rinominata ma è stato fornito il nuovo nome.
+- *Scenario principale*: 
+  + L'utente dovrà fornire il nuovo nome per la rubrica;
+  
+
+==== UC 9.3 - Modifica di una rubrica
+
+- *Attore principale*: Client di Posta Elettronica Autenticato;
+- *Descrizione*: Un client di posta elettronica autenticato vuole modificare una rubrica;
+- *Precondizioni*: Rubrica non modificata;
+- *Postcondizioni*: Rubrica modficata.
+- *Scenario principale*: 
+  + L'utente dovrà fornire l'Identificativo della rubrica che si vuole modificare; 
+  + L'utente dovrà fornire la nuova lista di contatti da associare a quella rubrica.
+
+#set list(marker: ([•], [--]))
+- *Estensioni*: 
+  + Identificativo rubrica non valido;
+  + Identificativo contatti forniti non validi.
+- *Inclusioni*: /
+- *Generalizzazioni*: /
+
+==== UC 9.3.1 - Inserimento Identificativo della rubrica da modificare
+
+- *Attore principale*: Client di Posta Elettronica Autenticato;
+- *Descrizione*: Un client di posta elettronica autenticato vuole modificare una rubrica e inserisce uno dei campi obbligatori;
 - *Precondizioni*: Rubrica non modificata;
 - *Postcondizioni*: Rubrica non modificata ma è stato fornito l'Identificativo della rubrica da modificare.
 - *Scenario principale*: 
   + L'utente dovrà fornire l'Identificativo della rubrica da modificare.
-  
-#set list(marker: ([•], [--]))
-- *Estensioni*: / - *Inclusioni*: / - *Generalizzazioni*: /
 
-==== UC 9.2.2 - Inserimento Indirizzi Email dei contatti da inserire nella rubrica
 
-- *Attore principale*: Utente autenticato;
-- *Descrizione*: Un utente autenticato vuole modificare una rubrica e inserisce uno dei campi obbligatori;
+==== UC 9.3.2 - Inserimento Indirizzi Email dei contatti da inserire nella rubrica
+
+- *Attore principale*: Client di Posta Elettronica Autenticato;
+- *Descrizione*: Un client di posta elettronica autenticato vuole modificare una rubrica e inserisce uno dei campi obbligatori;
 - *Precondizioni*: Rubrica non modificata;
 - *Postcondizioni*: Rubrica non modificata ma è stato fornita la nuova lista dei contatti.
 - *Scenario principale*: 
   + L'utente dovrà fornire la nuova lista dei contatti della rubrica;
   
-#set list(marker: ([•], [--]))
-- *Estensioni*: / - *Inclusioni*: / - *Generalizzazioni*: /
 
-==== UC 9.3 - Eliminazione di una rubrica
+==== UC 9.4 - Eliminazione di una rubrica
 
-- *Attore principale*: Utente autenticato;
-- *Descrizione*: Un utente autenticato vuole eliminare un una rubrica;
+- *Attore principale*: Client di Posta Elettronica Autenticato;
+- *Descrizione*: Un client di posta elettronica autenticato vuole eliminare un una rubrica;
 - *Precondizioni*: Rubrica non eliminata;
 - *Postcondizioni*: Rubrica eliminata;
 - *Scenario principale*: 
   + L'utente dovrà fornire l'Identificativo della rubrica che intende eliminare.
 
 #set list(marker: ([•], [--]))
-- *Estensioni*: Nome rubrica duplicato o non valido
+- *Estensioni*: 
+  + Identificativo rubrica non valido.
+  
 - *Inclusioni*: /
 - *Generalizzazioni*: /
 
-==== UC 9.3.1 - Inserimento Identificativo dela rubrica da eliminare
+==== UC 9.4.1 - Inserimento Identificativo dela rubrica da eliminare
 
-- *Attore principale*: Utente autenticato;
-- *Descrizione*: Un utente autenticato vuole eliminare una rubrica e inserisce uno dei campi obbligatori;
+- *Attore principale*: Client di Posta Elettronica Autenticato;
+- *Descrizione*: Un client di posta elettronica autenticato vuole eliminare una rubrica e inserisce uno dei campi obbligatori;
 - *Precondizioni*: Rubrica non eliminata;
 - *Postcondizioni*: Rubrica non eliminata ma è stato fornit l'Identificativo della rubrica che si vuole eliminare.
 - *Scenario principale*: 
   + L'utente dovrà fornire l'Identificativo della rubrica che vuole eliminare.
   
-#set list(marker: ([•], [--]))
-- *Estensioni*: / - *Inclusioni*: / - *Generalizzazioni*: /
 
-==== UC 9.4 - Condivisione di una rubrica con un altro utente
+==== UC 9.5 - Condivisione di una rubrica con un altro utente
 
-- *Attore principale*: Utente autenticato;
-- *Descrizione*: Un utente autenticato vuole condividere una intera rubrica con un'altro utente;
+- *Attore principale*: Client di Posta Elettronica Autenticato;
+- *Descrizione*: Un client di posta elettronica autenticato vuole condividere una intera rubrica con un'altro utente;
 - *Precondizioni*: Rubrica non condivisa;
 - *Postcondizioni*: Rubrica non condivisa ;
 - *Scenario principale*: 
@@ -1425,49 +1402,71 @@ D'altro canto però le API che vengono esposte possono essere chiamate inserendo
   + L'utente dovrà fornire l'Indirizzo Email dell'utente con il quale vuole effettuare la condivisione.
 
 #set list(marker: ([•], [--]))
-- *Estensioni*: Nome calendario duplicato o non valido
+- *Estensioni*: 
+  + Identificativo rubrica non valido;
+  + Indirizzo Email non valido.
 - *Inclusioni*: /
 - *Generalizzazioni*: /
 
-==== UC 9.4.1 - Inserimento Identificativo della rubrica da condividere
+==== UC 9.5.1 - Inserimento Identificativo della rubrica da condividere
 
-- *Attore principale*: Utente autenticato;
-- *Descrizione*: Un utente autenticato vuole condividere una intera rubrica con un'altro utente e quindi deve inserire un campo obbligatorio;
+- *Attore principale*: Client di Posta Elettronica Autenticato;
+- *Descrizione*: Un client di posta elettronica autenticato vuole condividere una intera rubrica con un'altro utente e quindi deve inserire un campo obbligatorio;
 - *Precondizioni*: Rubrica non condivisa;
 - *Postcondizioni*: Rubrica non condivisa e l'Utente ha inserito l'Identificativo della rubrica che intende condividere.
 - *Scenario principale*: 
   + L'utente deve fornire l'Identificativo della rubrica che intende condividere.
 
-#set list(marker: ([•], [--]))
-- *Estensioni*: / - *Inclusioni*: / - *Generalizzazioni*: /
 
+==== UC 9.5.2 - Inserimento Indirizzo Email del contatto con il quale si vuole condividere la rubrica
 
-==== UC 9.4.2 - Inserimento Indirizzo Email del contatto con il quale si vuole condividere la rubrica
-
-- *Attore principale*: Utente autenticato;
-- *Descrizione*: Un utente autenticato vuole condividere una intera rubrica con un'altro utente e quindi deve inserire un campo obbligatorio;
+- *Attore principale*: Client di Posta Elettronica Autenticato;
+- *Descrizione*: Un client di posta elettronica autenticato vuole condividere una intera rubrica con un'altro utente e quindi deve inserire un campo obbligatorio;
 - *Precondizioni*: Rubrica non condivisa;
 - *Postcondizioni*: Rubrica non condivisa e l'Utente ha inserito Indirizzo Email del contatto con il quale si vuole condividere la rubrica.
 - *Scenario principale*: 
   + L'utente deve fornire l'Indirizzo Email del contatto con il quale si vuole condividere la rubrica.
   
-#set list(marker: ([•], [--]))
-- *Estensioni*: / - *Inclusioni*: / - *Generalizzazioni*: /
 
-==== UC 9.5 - Nome rubrica duplicato o non valido
+==== UC 9.6 - Nome rubrica duplicato o non valido
 
-- *Attore principale*: Utente autenticato;
-- *Descrizione*: Un utente autenticato vuole fare un'operazione di quelle citate in precedenza con le rubriche;
+- *Attore principale*: Client di Posta Elettronica Autenticato;
+- *Descrizione*: Un client di posta elettronica autenticato vuole creare o rinominare un rubrica;
 - *Precondizioni*: Operazione sulla rubrica non effettuate;
 - *Postcondizioni*: Operazione sulla rubrica non effettuate e utente informato con un messaggio di errore;
 - *Scenario principale*: 
-  + L'utente fa un'operazione sulla rubrica inserendo un nome duplicato o non valido per la rubrica 
-  + L'utente si vedrà apparire un messaggio di errore.
+  + L'utente fa un'operazione sulla rubrica (creazione o rinominazione) inserendo un nome duplicato o non valido per la rubrica 
+  + L'utente si vedrà apparire un messaggio di errore specifico per questo errore.
 
-#set list(marker: ([•], [--]))
-- *Estensioni*: /
-- *Inclusioni*: /
-- *Generalizzazioni*: /
+==== UC 9.7 - Identificativo rubrica non valido
+
+- *Attore principale*: Client di Posta Elettronica Autenticato;
+- *Descrizione*: Un client di posta elettronica autenticato vuole rinominare, modificare, eliminare o condividere un rubrica;
+- *Precondizioni*: Operazione sulla rubrica non effettuate;
+- *Postcondizioni*: Operazione sulla rubrica non effettuate e utente informato con un messaggio di errore;
+- *Scenario principale*: 
+  + L'utente fa un'operazione sulla rubrica (rinomina, modifica, eliminazione o condivisione) inserendo un identificativo non valido per la rubrica 
+  + L'utente si vedrà apparire un messaggio di errore specifico per questo errore.
+
+==== UC 9.8 - Identificativo contatti forniti non validi
+
+- *Attore principale*: Client di Posta Elettronica Autenticato;
+- *Descrizione*: Un client di posta elettronica autenticato vuole creare o modificare una rubrica;
+- *Precondizioni*: Operazione sulla rubrica non effettuate;
+- *Postcondizioni*: Operazione sulla rubrica non effettuate e utente informato con un messaggio di errore;
+- *Scenario principale*: 
+  + L'utente fa un'operazione sulla rubrica (creazione o modifica) inserendo uno o più identificativi per i contatti da aggiungere non validi; 
+  + L'utente si vedrà apparire un messaggio di errore specifico per questo errore.
+
+==== UC 9.9 - Indirizzo Email non valido
+
+- *Attore principale*: Client di Posta Elettronica Autenticato;
+- *Descrizione*: Un client di posta elettronica autenticato vuole condividere una rubrica;
+- *Precondizioni*: Operazione sulla rubrica non effettuate;
+- *Postcondizioni*: Operazione sulla rubrica non effettuate e utente informato con un messaggio di errore;
+- *Scenario principale*: 
+  + L'utente fa un'operazione sulla rubrica (condivisione) inserendo un Indirizzo Email con cui condividere la rubrica non valido;
+  + L'utente si vedrà apparire un messaggio di errore specifico per questo errore.
 
 #pagebreak()
 
@@ -1483,9 +1482,7 @@ dove:
 
 - *Tipo*: la tipologia di requisito tra le seguenti:
   - *F (funzionale)*: indica i servizi che il sistema mette a disposizione.
-  - *V (vincolo)*: specifica i requisiti di vincolo dettati dal capitolato.
   - *Q (qualità)*: definisce i requisiti di qualità contenuti nel capitolato.
-  - *P (prestazionale)*: esplicita i requisiti che provengono da esigenze prestazionali del sistema.
   
 - *Priorità*: il grado di priorità assegnato al requisito con un numero da 1 a 3:
   + Requisito obbligatorio che deve essere tassativamente soddisfatto dalla soluzione informatica proposta.
@@ -1498,77 +1495,83 @@ In alcuni casi verrà esplicitato nella colonna relativa alle fonti se il requis
 == Requisiti di funzionalità
 #requirements("#f9fac5", (
   [R-001-F-2],
-  [L'utente deve avere la possibilità di autenticarsi all'interno del sistema.],
+  [L'utente che utilizza un client di posta elettronica deve avere la possibilità di autenticarsi all'interno del sistema.],
   [
     UC1.1\
     Interno
   ],
   [R-002-F-2],
-  [È necessario che l'utente fornisca la sua Email per procedere con l'autenticazione.],
+  [È necessario che il client fornisca l'Indirizzo Email per procedere con l'autenticazione.],
   [
     UC1.1.1\
     Interno
   ],
   [R-003-F-2],
-  [È necessario che l'utente fornisca la sua Password per procedere con l'autenticazione.],
+  [È necessario che il client fornisca la Password associata all'Indirizzo Email inserito per procedere con l'autenticazione.],
   [
     UC1.1.2\
     Interno
   ],
   [R-004-F-2],
-  [È necessario che l'utente riceva un messaggio di errore se l'autenticazione non va a buon fine.],
+  [È necessario che il client riceva un messaggio di errore se l'Indirizzo Email inserito non ha un formato corretto.],
   [
     UC1.2\
     Interno
   ],
+  [R-005-F-2],
+  [È necessario che il client riceva un messaggio di errore se la password associata a quell'Indirizzo Email non è corretta.],
+  [
+    UC1.3\
+    Interno
+  ],
 
   [],
   [],
   [],
 
-  [R-005-F-1],
-  [L'utente deve avere la possibilità di inviare una Email ad uno o più destinatari.],
+  [R-006-F-1],
+  [Il client deve avere la possibilità di inviare una Email ad uno o più destinatari.],
   [
     UC2.1\
     Capitolato
   ],
-  [R-006-F-1],
-  [È necessario che l'utente fornisca i vari indirizzi Email dei destinatari per procedere con l'invio.],
+  [R-007-F-1],
+  [È necessario che il client fornisca i vari indirizzi Email dei destinatari per procedere con l'invio.],
   [
     UC2.1.1\
     Interno
   ],
-  [R-007-F-1],
-  [È necessario che l'utente fornisca l'oggetto della Email prima di procedere con l'invio.],
+  [R-008-F-1],
+  [È necessario che il client fornisca l'oggetto della Email prima di procedere con l'invio.],
   [
     UC2.1.2\
     Interno
   ],
-  [R-008-F-1],
-  [È necessario che l'utente fornisca il corpo del messaggio prima di procedere con l'invio.],
+  [R-009-F-1],
+  [È necessario che il client fornisca il corpo del messaggio dell'Email prima di procedere con l'invio.],
   [
     UC2.1.3\
     Interno
   ],
-  [R-009-F-1],
-  [È necessario che l'utente riceva un messaggio di errore se il formato di uno degli Indirizzi Email di destinazione forniti non ha un formato valido.],
+  [R-010-F-1],
+  [È necessario che il client riceva un messaggio di errore se il formato di uno degli Indirizzi Email di destinazione forniti non ha un formato valido.],
   [
     UC2.2\
     Interno
   ],
-  [R-010-F-1],
-  [È necessario che l'utente riceva una notifica che specifichi quali degli Indirizzi Email di destinazione forniti non esiste.],
+  [R-011-F-1],
+  [È necessario che il client riceva una notifica che specifichi quali degli Indirizzi Email di destinazione forniti non esiste.],
   [
     UC2.3\
     Interno
   ],
-  [R-011-F-1],
+  [R-012-F-1],
   [L'utente deve avere la possibilità di visualizzare tutte le Email che gli sono arrivate nella casella di arrivo di posta elettronica.],
   [
     UC2.4\
     Capitolato
   ],
-  [R-012-F-1],
+  [R-013-F-1],
   [L'utente deve avere la possibilità di visualizzare i dettagli di una delle Email presenti nella casella di arrivo di posta elettronica.],
   [
     UC2.5\
@@ -1579,62 +1582,62 @@ In alcuni casi verrà esplicitato nella colonna relativa alle fonti se il requis
   [],
   [],
 
-  [R-013-F-1],
-  [L'utente deve avere la possibilità di creare una cartella di posta elettronica.],
+  [R-014-F-1],
+  [Il client deve avere la possibilità di creare una cartella di posta elettronica.],
   [
     UC3.1\
     Capitolato
   ],
-  [R-014-F-1],
-  [È necessario che l'utente fornisca un Nome per la cartella di posta elettronica che intende creare.],
+  [R-015-F-1],
+  [È necessario che il client fornisca un Nome per la cartella di posta elettronica che intende creare.],
   [
     UC3.1.1\
     Interno
   ],
-  [R-015-F-1],
-  [È necessario che l'utente fornisca una Descrizione per la cartella di posta elettronica che intende creare.],
+  [R-016-F-1],
+  [È necessario che il client fornisca una Descrizione per la cartella di posta elettronica che intende creare.],
   [
     UC3.1.2\
     Interno
   ],
-  [R-016-F-1],
-  [L'utente deve avere la possibilità di rinominare una cartella di posta elettronica.],
+  [R-017-F-1],
+  [Il client deve avere la possibilità di rinominare una cartella di posta elettronica.],
   [
     UC3.2\
     Capitolato
   ],
-  [R-017-F-1],
-  [È necessario che l'utente fornisca l'Identificativo della cartella di posta elettronica che intende rinominare.],
+  [R-018-F-1],
+  [È necessario che il client fornisca l'Identificativo della cartella di posta elettronica che intende rinominare.],
   [
     UC3.2.1\
     Interno
   ],
-  [R-018-F-1],
-  [È necessario che l'utente fornisca il nuovo Nome per la cartella di posta elettronica che intende rinominare.],
+  [R-019-F-1],
+  [È necessario che il client fornisca il nuovo Nome per la cartella di posta elettronica che intende rinominare.],
   [
     UC3.2.2\
     Interno
   ],
-  [R-019-F-1],
-  [L'utente deve avere la possibilità di eliminare una cartella di posta elettronica.],
+  [R-020-F-1],
+  [Il client deve avere la possibilità di eliminare una cartella di posta elettronica.],
   [
     UC3.3\
     Capitolato
   ],
-  [R-020-F-1],
-  [È necessario che l'utente fornisca l'Identificativo della cartella di posta elettronica che intende eliminare.],
+  [R-021-F-1],
+  [È necessario che il client fornisca l'Identificativo della cartella di posta elettronica che intende eliminare.],
   [
     UC3.3.1\
     Interno
   ],
-  [R-021-F-1],
-  [È necessario che l'utente riceva un messaggio di errore se inserisce un Nome non valido.],
+  [R-022-F-1],
+  [È necessario che il client riceva un messaggio di errore se inserisce un Nome non valido.],
   [
     UC3.4\
     Interno
   ],
-  [R-022-F-1],
-  [È necessario che l'utente riceva un messaggio di errore se inserisce un Identificativo non esistente.],
+  [R-023-F-1],
+  [È necessario che il client riceva un messaggio di errore se inserisce un Identificativo di cartella non esistente.],
   [
     UC3.5\
     Interno
@@ -1643,171 +1646,197 @@ In alcuni casi verrà esplicitato nella colonna relativa alle fonti se il requis
   [],
   [],
   [],
-
-  [R-023-F-1],
-  [L'utente deve avere la possibilità di aggiungere una Email ad una cartella.],
+  
+  [R-024-F-1],
+  [Il client deve avere la possibilità di aggiungere una Email a una cartella.],
   [
     UC4.1\
     Capitolato
   ],
-  [R-024-F-1],
-  [È necessario che l'utente fornisca l'identificativo univoco della Email.],
+  [R-025-F-1],
+  [È necessario che il client fornisca l'identificativo univoco della Email.],
   [
     UC4.1.1\
     Interno
   ],
-  [R-025-F-1],
-  [È necessario che l'utente fornisca l'identificativo univoco della cartella dove aggiungere l'Email.],
+  [R-026-F-1],
+  [È necessario che il client fornisca l'identificativo univoco della cartella dove aggiungere l'Email.],
   [
     UC4.1.2\
     Interno
   ],
-  [R-026-F-1],
-  [L'utente deve avere la possibilità di spostare un oggetto da una cartella di partenza ad una cartella di destinazione.],
+  [R-027-F-1],
+  [Il client deve avere la possibilità di spostare un oggetto da una cartella di partenza a una cartella di destinazione.],
   [
     UC4.2\
     Capitolato
   ],
-  [R-027-F-1],
-  [È necessario che l'utente fornisca l'identificativo univoco della Email.],
+  [R-028-F-1],
+  [È necessario che il client fornisca l'identificativo univoco della Email.],
   [
     UC4.2.1\
     Interno
   ],
-  [R-028-F-1],
-  [È necessario che l'utente fornisca l'identificativo univoco della cartella dove si trova attualmente l'Email.],
+  [R-029-F-1],
+  [È necessario che il client fornisca l'identificativo univoco della cartella dove si trova attualmente l'Email.],
   [
     UC4.2.2\
     Interno
   ],
-  [R-028-F-1],
-  [È necessario che l'utente fornisca l'identificativo univoco della cartella dove spostare l'Email.],
+  [R-030-F-1],
+  [È necessario che il client fornisca l'identificativo univoco della cartella dove spostare l'Email.],
   [
     UC4.2.3\
     Interno
   ],
-  [R-029-F-1],
-  [L'utente deve avere la possibilità di eliminare una Email da una cartella.],
+  [R-031-F-1],
+  [Il client deve avere la possibilità di eliminare una Email da una cartella.],
   [
     UC4.3\
     Capitolato
   ],
-  [R-030-F-1],
-  [È necessario che l'utente fornisca l'identificativo univoco dell'Email che intende eliminare.],
+  [R-032-F-1],
+  [È necessario che il client fornisca l'identificativo univoco dell'Email che intende eliminare.],
   [
     UC4.3.1\
     Interno
   ],
-  [R-031-F-1],
-  [È necessario che l'utente fornisca l'identificativo univoco della cartella dove si trova attualmente l'Email da eliminare.],
+  [R-033-F-1],
+  [È necessario che il client fornisca l'identificativo univoco della cartella dove si trova attualmente l'Email da eliminare.],
   [
     UC4.3.2\
     Interno
   ],
-    
-  [],
-  [],
-  [],
-
-  [R-032-F-1],
-  [L'utente deve avere la possibilità di condividere una cartella con un altro utente.],
-  [
-    UC5.1\
-    Capitolato
-  ],
-  [R-033-F-1],
-  [È necessario che l'utente fornisca l'Indirizzo Email dell'utente con il quale effettuare la condivisione.],
-  [
-    UC5.1.1\
-    Interno
-  ],
   [R-034-F-1],
-  [È necessario che l'utente fornisca l'Identificativo della cartella che vuole condividere.],
+  [È necessario che il client riceva un messaggio di errore se inserisce un identificativo per un'Email non valido.],
   [
-    UC5.1.2\
+    UC4.4\
     Interno
   ],
   [R-035-F-1],
-  [L'utente deve avere la possibilità di rimuovere la condivisione di una cartella con un utente.],
+  [È necessario che il client riceva un messaggio di errore se inserisce un identificativo per una cartella non valido.],
   [
-    UC5.2\
-    Capitolato
-  ],
-  [R-036-F-1],
-  [È necessario che l'utente l'Indirizzo Email dell'utente con il quale effettuare la condivisione.],
-  [
-    UC5.2.1\
+    UC4.5\
     Interno
+  ],
+
+  
+  [],
+  [],
+  [],
+  
+  [R-036-F-1],
+  [Il client deve avere la possibilità di condividere una cartella con un altro utente.],
+  [
+    UC5.1
+    Capitolato
   ],
   [R-037-F-1],
-  [È necessario che l'utente l'Identificativo della cartella che si vuole condividere.],
+  [È necessario che il client fornisca l'Indirizzo Email dell'utente con il quale effettuare la condivisione.],
   [
-    UC5.2.2\
+    UC5.1.1
     Interno
   ],
-
-  [],
-  [],
-  [],
-
   [R-038-F-1],
-  [L'utente deve avere la possibilità di effettuare un invio massivo di Email per testare il sistema informatico.],
+  [È necessario che il client fornisca l'Identificativo della cartella che vuole condividere.],
   [
-    UC6.1\
-    Capitolato
+    UC5.1.2
+    Interno
   ],
   [R-039-F-1],
-  [È necessario che l'utente fornisca la lista dei destinatari.],
+  [Il client deve avere la possibilità di rimuovere la condivisione di una cartella con un utente.],
   [
-    UC6.1.1\
-    Interno
+    UC5.2
+    Capitolato
   ],
   [R-040-F-1],
-  [È necessario che l'utente fornisca il Corpo dell'Email che si vuole inviare.],
+  [È necessario che il client fornisca l'Indirizzo Email dell'utente con il quale effettuare la condivisione.],
   [
-    UC6.1.2\
+    UC5.2.1
     Interno
   ],
   [R-041-F-1],
-  [È necessario che l'utente fornisca l'Oggetto dell'Email che si vuole inviare.],
+  [È necessario che il client fornisca l'Identificativo della cartella che si vuole condividere.],
   [
-    UC6.1.3\
+    UC5.2.2
     Interno
   ],
   [R-042-F-1],
-  [È necessario che l'utente fornisca il Numero di copie dell'email da inviare ad ogni destinatario.],
+  [È necessario che il client riceva un messaggio di errore qualora fornisca un Indirizzo Email non esistente.],
   [
-    UC6.1.4\
+    UC5.3
     Interno
   ],
   [R-043-F-1],
-  [L'utente deve avere la possibilità di effettuare un fetch massivo delle Email da una cartella caricata artificialmente con un numero arbitrario di Email.],
+  [È necessario che il client riceva un messaggio di errore qualora fornisca un Identificativo per la cartella non valida.],
   [
-    UC6.2\
-    Capitolato
-  ],
-  [R-044-F-1],
-  [È necessario che l'utente fornisca l'Identificativo cartella dove effettuare il fetch.],
-  [
-    UC6.2.1\
+    UC5.4
     Interno
   ],
-  [R-045-F-1],
-  [È necessario che l'utente fornisca l'Identificativo dell'Email che si vuole caricare massivamente nella cartellla.],
+  
+  [],
+  [],
+  [],
+
+  
+  [R-044-F-1],
+  [L'utente deve avere la possibilità di effettuare un invio massivo di Email per testare il sistema informatico.],
   [
-    UC6.2.2\
+    UC6.1
+    Capitolato
+  ],
+  [R-045-F-1],
+  [È necessario che l'utente fornisca la lista dei destinatari.],
+  [
+    UC6.1.1
     Interno
   ],
   [R-046-F-1],
-  [È necessario che l'utente fornisca il Numero di copie di Email da copiare nella cartella.],
+  [È necessario che l'utente fornisca l'Oggetto dell'Email che si vuole inviare.],
   [
-    UC6.2.3\
+    UC6.1.2
     Interno
   ],
   [R-047-F-1],
+  [È necessario che l'utente fornisca il Corpo dell'Email che si vuole inviare.],
+  [
+    UC6.1.3
+    Interno
+  ],
+  [R-048-F-1],
+  [È necessario che l'utente fornisca il Numero di copie dell'email da inviare ad ogni destinatario.],
+  [
+    UC6.1.4
+    Interno
+  ],
+  [R-049-F-1],
+  [L'utente deve avere la possibilità di effettuare un fetch massivo delle Email da una cartella caricata artificialmente con un numero arbitrario di Email.],
+  [
+    UC6.2
+    Capitolato
+  ],
+  [R-050-F-1],
+  [È necessario che l'utente fornisca l'Identificativo cartella dove effettuare il fetch.],
+  [
+    UC6.2.1
+    Interno
+  ],
+  [R-051-F-1],
+  [È necessario che l'utente fornisca l'Identificativo dell'Email che si vuole caricare massivamente nella cartella.],
+  [
+    UC6.2.2
+    Interno
+  ],
+  [R-052-F-1],
+  [È necessario che l'utente fornisca il Numero di copie di Email da copiare nella cartella.],
+  [
+    UC6.2.3
+    Interno
+  ],
+  [R-053-F-1],
   [È necessario che l'utente venga informato se accade un overflow del sistema dovuto all'eccessivo carico applicativo.],
   [
-    UC6.3\
+    UC6.3
     Interno
   ],
 
@@ -1815,22 +1844,16 @@ In alcuni casi verrà esplicitato nella colonna relativa alle fonti se il requis
   [],
   [],
 
-  [R-048-F-1],
+  [R-054-F-1],
   [L'utente deve avere la possibilità di sincronizzare la propria casella di posta elettronica.],
   [
     UC7.1\
     Capitolato
   ],
-  [R-049-F-1],
+  [R-055-F-1],
   [L'utente deve avere la possibilità di sincronizzare la rubrica con gli ultimi contatti.],
   [
     UC7.2\
-    Capitolato
-  ],
-  [R-050-F-1],
-  [L'utente deve avere la possibilità di sincronizzare il proprio calendario con gli ultimi eventi.],
-  [
-    UC7.3\
     Capitolato
   ],
   
@@ -1838,141 +1861,189 @@ In alcuni casi verrà esplicitato nella colonna relativa alle fonti se il requis
   [],
   [],
 
-  [R-051-F-3],
+  [R-056-F-3],
   [L'utente deve avere la possibilità di creare un contatto.],
   [
     UC8.1\
     Capitolato
   ],
-  [R-052-F-3],
+  [R-057-F-3],
   [È necessario che l'utente inserisca il Nome e il Cognome del contatto che intende creare.],
   [
     UC8.1.1\
     Interno
   ],
-  [R-053-F-3],
+  [R-058-F-3],
   [È necessario che l'utente inserisca l'Indirizzo Email del contatto che intende creare.],
   [
     UC8.1.2\
     Interno
   ],
-  [R-054-F-3],
+  [R-059-F-3],
   [L'utente deve avere la possibilità di modificare un contatto.],
   [
     UC8.2\
     Capitolato
   ],
-  [R-055-F-3],
+  [R-060-F-3],
   [È necessario che l'utente inserisca l'Indirizzo Email contatto da modificare.],
   [
     UC8.2.1\
     Interno
   ],
-  [R-056-F-3],
+  [R-061-F-3],
   [È necessario che l'utente inserisca il nuovo Nome, Cognome e Indirizzo Email da modificare.],
   [
     UC8.2.2\
     Interno
   ],
-  [R-057-F-3],
+  [R-062-F-3],
   [L'utente deve avere la possibilità di eliminare un contatto.],
   [
     UC8.3\
     Capitolato
   ],
-  [R-058-F-3],
+  [R-063-F-3],
   [È necessario che l'utente inserisca l'Indirizzo Email del contatto che intende eliminare.],
   [
     UC8.3.1\
     Interno
   ],
-  [R-059-F-3],
+  [R-064-F-3],
   [L'utente deve avere la possibilità di condividere un contatto con un altro utente.],
   [
     UC8.4\
     Capitolato
   ],
-  [R-060-F-3],
+  [R-065-F-3],
   [È necessario che l'utente inserisca l'Indirizzo Email del contatto che intende condividere.],
   [
     UC8.4.1\
     Interno
   ],
-  [R-061-F-3],
+  [R-066-F-3],
   [È necessario che l'utente inserisca l'Indirizzo Email del contatto con il quale effettuare la condivisione.],
   [
     UC8.4.2\
     Interno
   ],
+  [R-067-F-3],
+  [È necessario che l'utente riceva un messaggio di errore se il client fornisce un Indirizzo Email duplicato o non valido.],
+  [
+    UC8.5\
+    Interno
+  ],
 
   [],
   [],
   [],
 
-  [R-062-F-3],
+  [R-068-F-3],
   [L'utente deve avere la possibilità di creare una rubrica.],
   [
     UC9.1\
     Capitolato
   ],
-  [R-063-F-3],
+  [R-069-F-3],
   [È necessario che l'utente inserisca il Nome della rubrica che intende creare.],
   [
     UC9.1.1\
     Interno
   ],
-  [R-064-F-3],
+  [R-070-F-3],
   [È necessario che l'utente inserisca i conttatti da aggiungere alla rubrica.],
   [
     UC9.1.2\
     Interno
   ],
-  [R-065-F-3],
-  [L'utente deve avere la possibilità di modificare una rubrica.],
+  [R-071-F-3],
+  [L'utente deve avere la possibilità di rinominare una rubrica.],
   [
     UC9.2\
     Capitolato
   ],
-  [R-066-F-3],
-  [È necessario che l'utente inserisca l'Identificativo della rubrica da modficare.],
+  [R-072-F-3],
+  [È necessario che l'utente inserisca l'Identificativo della rubrica da rinominare.],
   [
     UC9.2.1\
     Interno
   ],
-  [R-067-F-3],
-  [È necessario che l'utente inserisca i nuovi Indirizzi Email di cui la rubrica sarà composta.],
+  [R-073-F-3],
+  [È necessario che l'utente inserisca il nuovo nome per la rubrica che intende rinominare.],
   [
     UC9.2.2\
     Interno
   ],
-  [R-068-F-3],
-  [L'utente deve avere la possibilità di eliminare una rubrica.],
+  [R-074-F-3],
+  [L'utente deve avere la possibilità di modificare una rubrica.],
   [
     UC9.3\
     Capitolato
   ],
-  [R-069-F-3],
-  [È necessario che l'utente inserisca l'Identificativo della rubrica che intende eliminare.],
+  [R-075-F-3],
+  [È necessario che l'utente inserisca l'Identificativo della rubrica da modficare.],
   [
     UC9.3.1\
     Interno
   ],
-  [R-070-F-3],
-  [L'utente deve avere la possibilità di condividere una rubrica con un altro utente.],
+  [R-076-F-3],
+  [È necessario che l'utente inserisca i nuovi contatti di cui la rubrica sarà composta.],
+  [
+    UC9.3.2\
+    Interno
+  ],
+  [R-077-F-3],
+  [L'utente deve avere la possibilità di eliminare una rubrica.],
   [
     UC9.4\
     Capitolato
   ],
-  [R-071-F-3],
-  [È necessario che l'utente inserisca l'Identificativo della rubrica che si vuole condividere.],
+  [R-078-F-3],
+  [È necessario che l'utente inserisca l'Identificativo della rubrica che intende eliminare.],
   [
     UC9.4.1\
     Interno
   ],
-  [R-072-F-3],
+  [R-079-F-3],
+  [L'utente deve avere la possibilità di condividere una rubrica con un altro utente.],
+  [
+    UC9.5\
+    Capitolato
+  ],
+  [R-080-F-3],
+  [È necessario che l'utente inserisca l'Identificativo della rubrica che si vuole condividere.],
+  [
+    UC9.5.1\
+    Interno
+  ],
+  [R-081-F-3],
   [È necessario che l'utente inserisca l'Indirizzo Email del contatto con il quale effettuare la condivisione.],
   [
-    UC9.4.2\
+    UC9.5.2\
+    Interno
+  ],
+  [R-082-F-3],
+  [È necessario che l'utente riceva un messaggio di errore se inserisce un nome duplicato o non valido per una rubrica.],
+  [
+    UC9.6\
+    Interno
+  ],
+  [R-083-F-3],
+  [È necessario che l'utente riceva un messaggio di errore se inserisce un identificativo non valido per una rubrica.],
+  [
+    UC9.7\
+    Interno
+  ],
+  [R-084-F-3],
+  [È necessario che l'utente riceva un messaggio di errore se inserisce uno o più identificativi non validi per dei contatti.],
+  [
+    UC9.8\
+    Interno
+  ],
+  [R-085-F-3],
+  [È necessario che l'utente riceva un messaggio di errore se inserisce un Indirizzo Email non valido con cui condividere una rubrica.],
+  [
+    UC9.9\
     Interno
   ],
   
@@ -1993,7 +2064,7 @@ In alcuni casi verrà esplicitato nella colonna relativa alle fonti se il requis
   [Bisogna realizzare e consegnare uno schema della base di dati in formato di diagramma entità relazione],
   [Capitolato],
   [R-003-Q-1],
-  [Bisogna implementare ed esporre a lato backend una lista di endpoint cosicchè un client possa fruire del servizio],
+  [Bisogna implementare ed esporre a lato backend una lista di endpoint cosicchè un client possa fruire dei vari servizi],
   [Capitolato],
   [R-004-Q-1],
   [Bisogna realizzare e consegnare una lista dei bug risolti durante la fase di sviluppo],
@@ -2005,7 +2076,7 @@ In alcuni casi verrà esplicitato nella colonna relativa alle fonti se il requis
   [Bisogna realizzare il codice sorgente con un sistema di versionamento],
   [Capitolato],
   [R-007-Q-1],
-  [Bisogna effettuare una serie di stress test (test di carico) per ogni caso d'uso implementato e riportare con un apposito documento i benchmark del sistema in ogni situazione: normale, di carico e di sovraccarico],
+  [Bisogna effettuare una serie di stress test (test di carico) per alcuni casi d'uso implementati e riportare con un apposito documento i benchmark del sistema in ogni situazione: normale, di carico e di sovraccarico],
   [Capitolato],
   [R-008-Q-1],
   [La codifica dell'intera soluzione informativa deve essere conferme con quanto riportato nel `Piano di Qualifica`],
@@ -2017,52 +2088,366 @@ In alcuni casi verrà esplicitato nella colonna relativa alle fonti se il requis
 
 = Tracciamento Requisiti
 
-=== Tracciamento fonti-requisiti
-#tracking((
-  [RA-F-1],
-  [
-    UC1 \
-    UC2 \
-    UC3 \
-  ],
-  [RA-F-1],
-  [
-    Capitolato
-  ]
-))
+=== Tracciamento fonte-requsito
+#tracking2((
+  [UC1.1],
+[
+R-001-F-2
+],
+[UC1.1.1],
+[
+R-002-F-2
+],
+[UC1.1.2],
+[
+R-003-F-2
+],
+[UC1.2],
+[
+R-004-F-2
+],
+[UC1.3],
+[
+R-005-F-2
+],
 
-=== Tracciamento requisiti-fonte
-#tracking((
-  [RA-F-1],
-  [
-    UC1 \
-    UC2 \
-    UC3
-  ],
-  [RA-F-1],
-  [
-    Capitolato
-  ]
+[UC2.1],
+[
+R-006-F-1
+],
+[UC2.1.1],
+[
+R-007-F-1
+],
+[UC2.1.2],
+[
+R-008-F-1
+],
+[UC2.1.3],
+[
+R-009-F-1
+],
+[UC2.2],
+[
+R-010-F-1
+],
+[UC2.3],
+[
+R-011-F-1
+],
+[UC2.4],
+[
+R-012-F-1
+],
+[UC2.5],
+[
+R-013-F-1
+],
+
+[UC3.1],
+[
+R-014-F-1
+],
+[UC3.1.1],
+[
+R-015-F-1
+],
+[UC3.1.2],
+[
+R-016-F-1
+],
+[UC3.2],
+[
+R-017-F-1
+],
+[UC3.2.1],
+[
+R-018-F-1
+],
+[UC3.2.2],
+[
+R-019-F-1
+],
+[UC3.3],
+[
+R-020-F-1
+],
+[UC3.3.1],
+[
+R-021-F-1
+],
+[UC3.4],
+[
+R-022-F-1
+],
+[UC3.5],
+[
+R-023-F-1
+],
+
+[UC4.1],
+[
+R-024-F-1
+],
+[UC4.1.1],
+[
+R-025-F-1
+],
+[UC4.1.2],
+[
+R-026-F-1
+],
+[UC4.2],
+[
+R-027-F-1
+],
+[UC4.2.1],
+[
+R-028-F-1
+],
+[UC4.2.2],
+[
+R-029-F-1
+],
+[UC4.2.3],
+[
+R-030-F-1
+],
+[UC4.3],
+[
+R-031-F-1
+],
+[UC4.3.1],
+[
+R-032-F-1
+],
+[UC4.3.2],
+[
+R-033-F-1
+],
+[UC4.4],
+[
+R-034-F-1
+],
+[UC4.5],
+[
+R-035-F-1
+],
+[UC5.1],
+[
+R-036-F-1
+],
+[UC5.1.1],
+[
+R-037-F-1
+],
+[UC5.1.2],
+[
+R-038-F-1
+],
+[UC5.2],
+[
+R-039-F-1
+],
+[UC5.2.1],
+[
+R-040-F-1
+],
+[UC5.2.2],
+[
+R-041-F-1
+],
+[UC5.3],
+[
+R-042-F-1
+],
+[UC5.4],
+[
+R-043-F-1
+],
+
+[UC6.1],
+[
+R-044-F-1
+],
+[UC6.1.1],
+[
+R-045-F-1
+],
+[UC6.1.2],
+[
+R-046-F-1
+],
+[UC6.1.3],
+[
+R-047-F-1
+],
+[UC6.1.4],
+[
+R-048-F-1
+],
+[UC6.2],
+[
+R-049-F-1
+],
+[UC6.2.1],
+[
+R-050-F-1
+],
+[UC6.2.2],
+[
+R-051-F-1
+],
+[UC6.2.3],
+[
+R-052-F-1
+],
+[UC6.3],
+[
+R-053-F-1
+],
+
+[UC7.1],
+[
+R-054-F-1
+],
+[UC7.2],
+[
+R-055-F-1
+],
+
+[UC8.1],
+[
+R-056-F-3
+],
+[UC8.1.1],
+[
+R-057-F-3
+],
+[UC8.1.2],
+[
+R-058-F-3
+],
+[UC8.2],
+[
+R-059-F-3
+],
+[UC8.2.1],
+[
+R-060-F-3
+],
+[UC8.2.2],
+[
+R-061-F-3
+],
+[UC8.3],
+[
+R-062-F-3
+],
+[UC8.3.1],
+[
+R-063-F-3
+],
+[UC8.4],
+[
+R-064-F-3
+],
+[UC8.4.1],
+[
+R-065-F-3
+],
+[UC8.4.2],
+[
+R-066-F-3
+],
+[UC8.5],
+[
+R-067-F-3
+],
+[UC9.1],
+[
+R-068-F-3
+],
+[UC9.1.1],
+[
+R-069-F-3
+],
+[UC9.1.2],
+[
+R-070-F-3
+],
+[UC9.2],
+[
+R-071-F-3
+],
+[UC9.2.1],
+[
+R-072-F-3
+],
+[UC9.2.2],
+[
+R-073-F-3
+],
+[UC9.3],
+[
+R-074-F-3
+],
+[UC9.3.1],
+[
+R-075-F-3
+],
+[UC9.3.2],
+[
+R-076-F-3
+],
+[UC9.4],
+[
+R-077-F-3
+],
+[UC9.4.1],
+[
+R-078-F-3
+],
+[UC9.5],
+[
+R-079-F-3
+],
+[UC9.5.1],
+[
+R-080-F-3
+],
+[UC9.5.2],
+[
+R-081-F-3
+],
+[UC9.6],
+[
+R-082-F-3
+],
+[UC9.7],
+[
+R-083-F-3
+],
+[UC9.8],
+[
+R-084-F-3
+],
+[UC9.9],
+[
+R-085-F-3
+],
 ))
 
 == Riepilogo
 #summary((
   [Funzionali],
-  [52],
-  [0],
-  [0],
-  [Vincolo],
-  [3],
-  [0],
-  [0],
+  [50],
+  [5],
+  [30],
   [Qualità],
   [8],
   [0],
   [0],
-  [Prestazionali],
-  [1],
-  [0],
-  [1],
 ))
 
 == Conclusioni
