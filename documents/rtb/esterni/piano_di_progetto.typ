@@ -9,6 +9,7 @@
     [_#(p.zextras)_],
   ),
   changelog: (
+    "0.2.0", "2023-12-14", p.bulychov, p.bonavigo, "Aggiunto il consuntivo del periodo II",
     "0.1.2", "2023-12-07", p.vedovato, p.bettin, "Aggiunto il preventivo del periodo II",
     "0.1.1", "2023-12-07", p.fabbian, p.vedovato, "Aggiunta la pianificazione del periodo II",
     "0.1.0", "2023-11-30", p.furno, p.vedovato, "Aggiunto il consuntivo del periodo I",
@@ -306,3 +307,46 @@ Ruoli coinvolti: Responsabile, Amministratore, Verificatore, Analista, Programma
   ),
   (2, 3, 1),
 )
+
+
+==== Consuntivo
+Le attività previste sono tutte state svolte con successo, anche se l'`Analisi dei Requisiti` andrà rivalutata. \
+Come si può notare dal confronto tra preventivo e consuntivo:
+- Verificatori, Analisti e Programmatori hanno richiesto *meno* ore.
+
+===== Prospetto orario
+#consuntivo(
+  (
+    ("0", "0", "0", "5 "+pos("-1"), "0", "3 "+pos("-1"), "8"),
+    ("0", "0", "7", "5", "0", "0", "12"),
+    ("0", "0", "0", "0", "0", "9", "9"),
+    ("0", "0", "0", "3", "0", "6", "9"),
+    ("7", "1 "+neg("+1"), "0", "0", "0", "0", "8"),
+    ("0", "5 "+pos("-1"), "0", "3", "0", "0", "8"),
+    ("0", "1", "10 "+pos("-1"), "0", "0", "0", "11"),
+    ("7", "7", "17", "16", "0", "18", "65")
+  )
+)
+===== Prospetto economico
+#costi(
+  (
+    ("7", "210€", "-"),
+    ("7", "140€", "-"),
+    ("17 "+pos("-1"), "255€",pos("-15€")),
+    ("16 "+pos("-1"), "400€",pos("-25€")),
+    ("-", "-", "-"),
+    ("18 "+pos("-1"), "270€",pos("-15€")),
+    ("67", "1340€", "-"),
+    ("65 "+pos("-2"), "1275€",pos("-65€"))
+  )
+)
+
+===== Rischi occorsi, impatto e loro mitigazione
+Nel corso del secondo periodo il gruppo si è scontrato principalmente con problemi legati all'uso delle tecnologie testate, specialmente per quanto riguarda la libreria esterna identificata come scelta primaria. Quest'ultima infatti, sebbene considerata la migliore per lo sviluppo futuro del progetto, è risultata essere parzialmente inadeguata,  dimostrandosi più complessa da estendere per agire efficacemente come server di quanto inizialmente previsto. Tuttavia i nostri studi non hanno individuato alternative migliori, per cui dopo un'attenta valutazione si è deciso di non abbandonare questa libreria, anche se questo avrà sicuramente un forte impatto sul progetto, richiedendo di conseguenza uno sforzo maggiore da parte dei Programmatori. \
+Inoltre la pianificazione iniziale si è rivelata essere leggeremente imprecisa, non avendo però un grosso impatto sui lavori e sui risultati di quest'ultimi. \
+Infine si sono manifestati problemi di comunicazione, con un leggero disallineamento tra i membri del gruppo dovuto a incomprensioni riguardo al prodotto finale da sviluppare. Queste problematiche sono state affrontate tempestivamente attraverso una discussione in una riunione interna, la quale ha chiarito i dubbi sorti mitigando le conseguenze.
+
+===== Retrospettiva
+Il secondo periodo di lavoro ci ha fatto capire quanto sia importante promuovere una comunicazione attiva: riunioni con cadenza regolare consentono al gruppo di analizzare e affontare tempestivamente eventuali problemi riscontrati dai diversi componenti, identificandone facilmente le cause. Il disallinamento dovuto a problemi di comunicazione ci ha infatti rallentato e va di conseguenza evitato il più possibile in futuro.\
+Inoltre va incoraggiato l'atteggiamento che è stato adottato dai Programmatori, i quali rapidamente hanno comunicato al gruppo le problematiche legate all'uso della libreria esterna, favorendo una comunicazione efficace per superarle. \
+Infine è fondamentale migliorare ulteriormente la stima del tempo necessario attraverso preventivo per completare tutte le attività, poiché si è riscontrata nuovamente una leggera imprecisione. Nel primo periodo abbiamo sottostimato il tempo necessario, mentre nel secondo periodo lo abbiamo sovrastimato, quindi è cruciale trovare un equilibrio e adottare una maggiore precisione nella valutazione temporale delle attività.
