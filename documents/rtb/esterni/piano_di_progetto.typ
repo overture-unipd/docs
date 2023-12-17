@@ -9,6 +9,8 @@
     [_#(p.zextras)_],
   ),
   changelog: (
+    "0.2.2", "2023-12-16", p.bulychov, p.furno, "Aggiunto il preventivo del periodo III",
+    "0.2.1", "2023-12-15", p.bulychov, p.furno, "Aggiunta la pianificazione del periodo III",
     "0.2.0", "2023-12-14", p.bulychov, p.bonavigo, "Aggiunto il consuntivo del periodo II",
     "0.1.2", "2023-12-07", p.vedovato, p.bettin, "Aggiunto il preventivo del periodo II",
     "0.1.1", "2023-12-07", p.fabbian, p.vedovato, "Aggiunta la pianificazione del periodo II",
@@ -350,3 +352,43 @@ Infine si sono manifestati problemi di comunicazione, con un leggero disallineam
 Il secondo periodo di lavoro ci ha fatto capire quanto sia importante promuovere una comunicazione attiva: riunioni con cadenza regolare consentono al gruppo di analizzare e affontare tempestivamente eventuali problemi riscontrati dai diversi componenti, identificandone facilmente le cause. Il disallinamento dovuto a problemi di comunicazione ci ha infatti rallentato e va di conseguenza evitato il più possibile in futuro.\
 Inoltre va incoraggiato l'atteggiamento che è stato adottato dai Programmatori, i quali rapidamente hanno comunicato al gruppo le problematiche legate all'uso della libreria esterna, favorendo una comunicazione efficace per superarle. \
 Infine è fondamentale migliorare ulteriormente la stima del tempo necessario attraverso preventivo per completare tutte le attività, poiché si è riscontrata nuovamente una leggera imprecisione. Nel primo periodo abbiamo sottostimato il tempo necessario, mentre nel secondo periodo lo abbiamo sovrastimato, quindi è cruciale trovare un equilibrio e adottare una maggiore precisione nella valutazione temporale delle attività.
+
+=== Periodo III
+Inizio: 2023-12-07\
+Fine: 2023-12-20\
+
+==== Pianificazione
+La volontà del gruppo è quella di conseguire la prima revisione di avanzamento del prodotto prima di Natale; per questo motivo il terzo periodo si rivela più intenso rispetto i precedenti, con carichi di lavoro più elevati e numerose ore necessarie per completare le molteplici attività. #linebreak()
+Il Proof of Concept (PoC) primario ha raggiunto un buon stato di avanzamento e prevediamo di completarlo entro il periodo attuale, interrompendo lo sviluppo degli altri piccoli PoC. In questo modo i programmatori potranno terminare più velocemente e successivamente tutti i membri potranno dedicarsi al completamento della documentazione. \
+L'`Analisi dei Requisiti` e il `Piano di Qualifica` sono i documenti che richiederanno più lavoro: il primo, a causa di alcune criticità riscontrate durante un incontro con il #p.cardin, necessita di ridefinire gli attori e la gestione degli errori all'interno dei vari casi d'uso; il secondo si trova ancora in uno stato embrionale e richiede la stesura di diverse sezioni. #linebreak()
+Le attività previste durante questo periodo sono quindi le seguenti:
+- Ultimazione del documento `Norme di Progetto`;
+- Ultimazione del documento `Piano di Progetto`;
+- Ultimazione del documento `Glossario`;
+- Revisione e ultimazione del documento `Analisi dei Requisiti`;
+- Ampliamento e ultimazione del `Piano di Qualifica`;
+- Ultimazione del PoC.
+
+===== Rischi attesi
+I rischi che ci aspettiamo di correre in questo periodo sono i seguenti: 
+- #link(<RO1>)[*RO1 - Imprecisioni nella pianificazione delle attività*];
+- #link(<RO2>)[*RO2 - Elevati costi delle attività*];
+- #link(<RO3>)[*RO3 - Impieghi personali e universitari*];
+- #link(<RC1>)[*RC1 - Rischio di conflitti interni*];
+- #link(<RC2>)[*RC2 - Problemi di comunicazione*].
+Il consistente carico di lavoro di questo periodo richiederà inevitabilmente più tempo ad ogni membro del gruppo. I rischi identificati sono organizzativi e comuncativi: per conseguire la RTB prima di Natale molte attività potrebbero essere svolte frettolosamente, causando rallentamenti generali e ritardi.
+
+==== Preventivo
+Ruoli coinvolti: Responsabile, Amministratore, Verificatore, Analista, Programmatore.
+
+#period((
+  (0, 2, 0, 0, 0, 6),
+  (7, 0, 0, 0, 0, 6),
+  (0, 0, 5, 6, 0, 0),
+  (0, 6, 4, 0, 0, 6),
+  (0, 0, 4, 6, 0, 0),
+  (0, 0, 5, 0, 0, 7),
+  (0, 0, 0, 6, 0, 6),
+  ),
+  (2, 3, 1),
+)
