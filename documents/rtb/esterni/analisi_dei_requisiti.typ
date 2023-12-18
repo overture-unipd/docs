@@ -9,6 +9,13 @@
     [_#(p.zextras)_],
   ),
   changelog: (
+    "0.1.1", "2023-12-17" , (p.fabbian, p.vedovato, p.bonavigo, p.amadori), p.furno,
+    [
+      Correzioni alle sezioni di introduzione\
+      Correzioni alle sezioni di descrizione generale del prodotto\
+      Casi d'uso: eliminazione degli stress test\
+      Aggiunte le caption ad immagini e tabelle
+    ],
     "0.1.0", "2023-12-14" , (p.fabbian, p.vedovato, p.bonavigo), p.bulychov,
     [
       Casi d'uso: ridefinizione degli attori\
@@ -64,15 +71,11 @@
   ),
 )
 
-\
-
-//TODO: Individuare i termini da aggiungere nel glossario
-
 = *Introduzione*
 == Scopo del documento
 L'`Analisi dei Requisiti` è un documento fondamentale per tutti i progetti di sviluppo software che vogliono essere in ottemperanza con gli standard di qualità definiti dalla materia di ingegneria del software.\
 Lo scopo del documento è quello di definire le funzionalità che il sistema sarà in grado di offrire, ovvero i requisiti obbligatori, desiderati e opzionali che devono essere soddisfatti dal software sviluppato al fine di essere conforme alle richieste fatte dal proponente.\
-L'analisi quindi non deve fornire la soluzione al problema, ma deve essere consapevole della sua fattibilità tecnologica (costruendo quindi un confine tra analisi del problema e il suo design, quindi la soluzione).
+L'analisi non deve fornire la soluzione al problema, ma deve essere consapevole della sua fattibilità tecnologica (definendo di conseguenza un confine tra analisi del problema e il suo design, quindi la soluzione).
 In particolare, le finalità di questo documento possono essere definite e sintetizzate nei seguenti punti:\
 
 - *Definire le esigenze dei proponenti*:\
@@ -88,7 +91,7 @@ La #glossary("validazione dei requisiti") invece consiste nel accertare che il p
 - *Fornire una base per la progettazione del sistema*:\
 Il documento di `Analisi dei Requisiti` fornisce una base per la progettazione del sistema, in quanto definisce le funzionalità che il sistema deve offrire. I programmatori possono utilizzare il documento per comprendere le esigenze del proponente e identificare le soluzioni più appropriate per soddisfare tali esigenze.\
 
-- *Fornire una base per la progettazione del sistema*:\
+- *Minimizzare i rischi e ottimizzare i costi:*:\
 Un documento di `Analisi dei Requisiti` completo e accurato può aiutare a ridurre i rischi del progetto e quantificare al meglio i suoi costi. Ciò è dovuto al fatto che il documento aiuta a garantire che i requisiti siano effettivamente corretti e completi, evitando così errori e ritardi nello sviluppo del sistema.
 
 Arrivati al punto in cui si ha una chiara visione dello scopo e delle funzionalità del prodotto, dei suoi requisiti e degli attori del sistema software, in questo documento se ne darà una formale rappresentazione grafica utilizzando i diagrammi dei casi d'uso.
@@ -99,7 +102,7 @@ Arrivati al punto in cui si ha una chiara visione dello scopo e delle funzionali
 == Scopo del prodotto
 
 === Spiegazione dello scenario di riferimento
-Il proponente del capitolato d'appalto C8 è l'azienda vicentina _#(p.zextras)_. Il core business di _#(p.zextras)_ si incentra sulla vendita del loro prodotto di punta: Carbonio. Carbonio possiamo definirlo come una #glossary("suite di funzionalità") volte a incrementare la produttività di un'organizzazione o team che si affida a questo prodotto.\
+Il proponente del capitolato d'appalto C8 è l'azienda vicentina _#(p.zextras)_. Il core business di _#(p.zextras)_ si incentra sulla vendita del loro prodotto di punta: Carbonio. Carbonio può essere definito come una #glossary("suite di funzionalità") volte a incrementare la produttività di un'organizzazione o team che si affida a questo prodotto.\
 Infatti, questa soluzione software permette di raggruppare insieme un pool di utenti offrendo loro una serie di strumenti fondamentali per la collaborazione in un contesto aziendale, come:
 + *Messaggistica avanzata*: fornendo un tool di posta elettronica moderna, veloce e intuitiva, profili multipli, account e cartelle condivise, anteprima degli allegati e strumenti di gestione come tag e filtri;
 + Calendari ed eventi pianificati;
@@ -110,7 +113,7 @@ Infatti, questa soluzione software permette di raggruppare insieme un pool di ut
 Questo applicativo è implementato con un software backend (installabile solamente su un Server Ubuntu) e i client possono usufruire di questa soluzione comodamente tramite browser previo apposito login.
 
 === Il protocollo JMAP
-Tra tutte le funzionalità offerte da Carbonio, _#(p.zextras)_ pone particolare attenzione, nel suo capitolato, sulla funzionalità di messaggistica che utilizza come base per la sua implementazione la posta elettronica. Questa tecnologia, in particolare il protocollo IMAP (Internet Message Access Protocol) è un #glossary("protocollo") di comunicazione utilizzato per
+Tra tutte le funzionalità offerte da Carbonio, _#(p.zextras)_ pone particolare attenzione, nel suo capitolato, sulla funzionalità di messaggistica che utilizza come base per la sua implementazione la posta elettronica. Questa tecnologia utilizza IMAP (Internet Message Access Protocol), un #glossary("protocollo") di comunicazione utilizzato per
 accedere alle email conservate su un server di posta compatibile. Risale al lontano 1986, come
 successore del precedente protocollo POP (Post Office Protocol) e consente un accesso più
 avanzato e interattivo al contenuto delle caselle di posta elettronica, ad esempio permettendo la
@@ -121,7 +124,7 @@ Negli ultimi anni però è nato JMAP: un interessante alternativa a IMAP, il cui
 _#(p.zextras)_ non ci chiede direttamente di apporre modifiche a Carbonio,
 ma di implementare un sistema informatico capace di sfruttare il protocollo JMAP per l'invio di email tra diversi utenti. In particolare dovremmo andare a programmare un *server mail* che metta a disposizione a un qualsiasi tipo di *client* (capace di supportare il protocollo JMAP ovviamente) una serie di funzionalità (che detteremo in seguito con la lista dei requisiti).\
 A questo punto, utilizzando uno dei client open source reperibili nelle repository pubbliche saremmo già in grado di sfruttare questa tecnologia di posta elettronica grazie al server che abbiamo implementato.\
-Il reale scopo di _#(p.zextras)_ però non è tanto quello di ricevere il #glossary("know how") che noi andremo ad acquisire programmando il server, ma quello di ricevere i risultati dei benchmark che andremo a realizzare sul sistema rapportandolo alle specifiche harware e software dell'impianto utilizzato.\
+Il reale scopo di _#(p.zextras)_ però non è tanto quello di ricevere il #glossary("know how") che noi andremo ad acquisire programmando il server, ma quello di ricevere i risultati dei benchmark che andremo a realizzare sul sistema rapportandolo alle specifiche hardware e software dell'impianto utilizzato.\
 Basandosi su questi risultati _#(p.zextras)_ deciderà quindi se è vantaggioso apportare delle modifiche a Carbonio e implementare un sistema di posta elettronica che sfrutti il protocollo JMAP come quello sviluppato nella nostra demo o se abbandonare l'idea.
 
 
@@ -162,7 +165,7 @@ Nel sistema informatico che dovremmo andare a realizzare dobbiamo mettere a disp
 - [Opzionale] l’implementazione di un sistema di sincronizzazione che permetta ad un client di mantenersi aggiornato con gli ultimi aggiornamenti della casella di posta visualizzata, della rubrica e dei contatti;
 - [Opzionale] Implementazione degli stessi requisiti funzionali sopra elencati per contatti e rubriche contatti.
 
-Inoltre il prodotto deve poter essere eseguibile in un container Docker, permettendo all'azienda di eseguire in batteria i test di funzionalità e di performance, ed é sviluppato per essere scalabile mediante l’inizializzazione di più nodi stateless.
+Inoltre il prodotto deve poter essere eseguibile in un container Docker, permettendo all'azienda di effettuare in batteria i test di funzionalità e di performance, ed é sviluppato per essere scalabile mediante l’inizializzazione di più nodi stateless.
 
 == Caratteristiche utente
 
@@ -181,9 +184,12 @@ utilizzato come IMAP, cercando di crearne uno più efficiente e moderno
 #pagebreak()
 
 == Tecnologie e analisi della struttura di progetto
-Come discusso nei paragrafi precedenti, lo scopo finale del nostro prodotto è realizzare un'infrastruttura informatica composta di una parte client (non strettamente sotto il nostro dominio) e una parte server, con il fine di realizzare gli stress test sui requisiti funzionali richiesti dal proponente.\
+Come discusso nei paragrafi precedenti, lo scopo finale del nostro prodotto è realizzare un'infrastruttura server, con il fine di realizzare gli stress test sui requisiti funzionali richiesti dal proponente.\
 Per questo motivo, dato che il risultato finale è incentrato sulla performance del protocollo, non ci interessa andare a realizzare un vero e proprio client di posta elettronica completo (es. Thunderbird) perchè per testare i servizi messi a disposizione dal nostro server mail andremo ad utilizzare un client open source.\
-Per realizzare gli stress test invece, sappiamo che non ci sono client già pronti che forniscono una soluzione già pronta (i programmatori di tutto il mondo hanno realizzato dei client commerciali, non per svolgere test) quindi prevediamo che dovremmo andare a realizzare noi un piccolo client con una serie di funzionalità ristrette ma capace appunto di performare un benchmark sull'efficienza del protocollo.
+Per realizzare gli stress test invece, sappiamo che non ci sono client  che forniscono una soluzione già pronta (i programmatori di tutto il mondo hanno realizzato dei client commerciali, non per svolgere test) quindi è possibile che dovremo andare a realizzare noi un piccolo client con una serie di funzionalità ristrette ma capace di performare un benchmark sull'efficienza del protocollo.
+
+/*
+toglierei questa parte, mi sembra più progettazione che analisi
 
 === Struttura del back-end
 Per realizzare il back-end per la nostra infrastruttura informatica ci verrà messo a disposizione un VPS (Virtual Private Server) direttamente da _#(p.zextras)_ con sistema operativo Linux già installato (l'hardware verrà scelto da _#(p.zextras)_ in base alle loro preferenze).\
@@ -198,6 +204,8 @@ _#(p.zextras)_ non ci ha imposto dei vincoli sul design del software ma ci ha ca
 Allo stesso modo del client, non abbiamo vincoli sul design del software ma dobbiamo chiaramente adattarlo allo standard di posta elettronica JMAP. Dunque il back-end dovrà esporre i servizi necessari per soddisfare i requisiti richiesti mediante l'esposizione di determinati endpoint da cui ogni client che rispetta lo standard potrà usufruire.\
 Il servizio sviluppato deve essere scalabile mediante l’inizializzazione di più nodi #glossary("stateless").\
 Per stateless si intende che alla richiesta di uno specifico client fatta ad un’architettura contenente più di un’istanza del servizio dato, può rispondere una qualsiasi istanza del servizio, poichè nessuna istanza contiene dati specifici di stato rispetto alle richieste dei client.
+
+*/
 
 #pagebreak()
 
@@ -222,7 +230,7 @@ Gli attori che consideriamo nel prodotto che andremo a realizzare sono:
 - Client di posta elettronica.
 
 === Alcuni dettagli sui client
-Il sistema informatico che andremo a sviluppare in questo progetto ha il fine di testare una nuova tecnologia (il protocollo JMAP) e riportare i risultati dei benchmark effettuati su un determinato server. Per questo motivo, essendo quindi tutto finalizzato a svolgere dei test, non ci è stato esplicitamente riferito si gestire particolari aspetti legati alla sicurezza informatica, i client hanno a disposizioni le seguenti funzionalità (#ref(<Funzionalità>, supplement: "Cap")) fruibili tramite API in modo che noi sviluppatori possiamo testare l'efficienza di queste operazioni con gli stress test.\
+Il sistema informatico che andremo a sviluppare in questo progetto ha il fine di testare una nuova tecnologia (il protocollo JMAP) e riportare i risultati dei benchmark effettuati su un determinato server. Per questo motivo, essendo quindi tutto finalizzato a svolgere dei test, non ci è stato esplicitamente riferito di gestire particolari aspetti legati alla sicurezza informatica, i client hanno a disposizione le seguenti funzionalità (#ref(<Funzionalità>, supplement: "Cap")) fruibili tramite API in modo che noi sviluppatori possiamo testare l'efficienza di queste operazioni con gli stress test.\
 Si nota però che in un sistema di posta elettronica, per poter visualizzare le email bisogna prima identificarsi con il server mail fornendo appunto la propria email e la password associata. Allo stesso modo per inviare una email il server mail avrà bisogno di sapere il mittente e quindi ha bisogno di riconoscere il client che intende effettuare questa operazione.\
 Per questo motivo nel nostro sistema andremo a prevedere un classico sistema di autenticazione composto da email e password.
 
@@ -241,13 +249,13 @@ In seguito però ad una profonda analisi, il gruppo Overture ha stabilito che il
 
 === UC 1 - Login Base
 
-#figure(image("//imgs/use_cases/login-base.svg", width: 100%))
+#figure(image("//imgs/use_cases/login-base.svg", width: 100%), caption: [UC1 - Login Base])
 #pagebreak()
 
 ==== UC 1.1 - Effettuazione Login
 
 - *Attore principale*: Client di Posta Elettronica Non Autenticato;
-- *Descrizione*: Un client di posta elettronica che non ha ancora effettuato l'accesso vuole autenticarsi presso il server mail JMAP per poter successivamente inviare e visualizzare le proprie email o svolgere altre attività dettate dai requisiti;
+- *Descrizione*: Un client di posta elettronica che non ha ancora effettuato l'accesso vuole autenticarsi presso il server mail JMAP per poter successivamente inviare e visualizzare le proprie email o svolgere altre attività dettate dai requisiti funzionali;
 - *Precondizioni*: Un client di posta elettronica che non ha ancora effettuato l'accesso;
 - *Postcondizioni*: Un client di posta elettronica che ha effettuato l'accesso o che ha ricevuto un errore specifico sul motivo del fallimento dell'autenticazione.
 - *Scenario principale*: \
@@ -282,7 +290,7 @@ In seguito però ad una profonda analisi, il gruppo Overture ha stabilito che il
 ==== UC 1.2 - Errore formato Indirizzo Email non valido
 
 - *Attore principale*: Client di Posta Elettronica Non Autenticato;
-- *Descrizione*: Un client di posta elettronica che non ha ancora effettuato l'accesso vuole autenticarsi presso il server mail JMAP per poter successivamente inviare e visualizzare le proprie email o svolgere altre attività dettate dai requisiti;
+- *Descrizione*: Un client di posta elettronica che non ha ancora effettuato l'accesso vuole autenticarsi presso il server mail JMAP per poter successivamente inviare e visualizzare le proprie email o svolgere altre attività dettate dai requisiti funzionali ma ha inserito un indirizzo email con un formato errato;
 - *Precondizioni*: Un client di posta elettronica che non ha ancora effettuato l'accesso;
 - *Postcondizioni*: Un client di posta elettronica che ha provato ad effettuare l'accesso e ha ricevuto un messaggio di errore.
 - *Scenario principale*: 
@@ -292,7 +300,7 @@ In seguito però ad una profonda analisi, il gruppo Overture ha stabilito che il
 ==== UC 1.3 - Errore Password non valida
 
 - *Attore principale*: Client di Posta Elettronica Non Autenticato;
-- *Descrizione*: Un client di posta elettronica che non ha ancora effettuato l'accesso vuole autenticarsi presso il server mail JMAP per poter successivamente inviare e visualizzare le proprie email o svolgere altre attività dettate dai requisiti;
+- *Descrizione*: Un client di posta elettronica che non ha ancora effettuato l'accesso vuole autenticarsi presso il server mail JMAP per poter successivamente inviare e visualizzare le proprie email o svolgere altre attività dettate dai requisiti funzionali ma ha inserito una password non valida;
 - *Precondizioni*: Un client di posta elettronica che non ha ancora effettuato l'accesso;
 - *Postcondizioni*: Un client di posta elettronica che ha provato ad effettuare l'accesso e ha ricevuto un messaggio di errore.
 - *Scenario principale*: 
@@ -303,9 +311,9 @@ In seguito però ad una profonda analisi, il gruppo Overture ha stabilito che il
 
 === UC 2 - Scambio Email
 
-#figure(image("//imgs/use_cases/scambio-email-1.svg", width: 100%))
+#figure(image("//imgs/use_cases/scambio-email-1.svg", width: 100%), caption: [UC2 - Scambio Email])
 #pagebreak()
-#figure(image("//imgs/use_cases/scambio-email-2.svg", width: 100%))
+#figure(image("//imgs/use_cases/scambio-email-2.svg", width: 100%), caption: [Scambio Email - Sottocasi])
 #pagebreak()
 
 ==== UC 2.1 - Invio Email
@@ -415,9 +423,9 @@ In seguito però ad una profonda analisi, il gruppo Overture ha stabilito che il
 
 === UC 3 - Gestione delle cartelle
 
-#figure(image("//imgs/use_cases/gestione-cartelle-1.svg", width: 100%))
+#figure(image("//imgs/use_cases/gestione-cartelle-1.svg", width: 100%), caption: [UC 3 - Gestione delle cartelle])
 #pagebreak()
-#figure(image("//imgs/use_cases/gestione-cartelle-2.svg", width: 80%))
+#figure(image("//imgs/use_cases/gestione-cartelle-2.svg", width: 80%), caption: [Gestione delle cartelle - Sottocasi])
 #pagebreak()
 
 ==== UC 3.1 - Creazione di una cartella
@@ -541,9 +549,9 @@ In seguito però ad una profonda analisi, il gruppo Overture ha stabilito che il
 
 === UC 4 - Gestione contenuti delle cartelle
 
-#figure(image("//imgs/use_cases/gestione-contenuti-1.svg", width: 90%))
+#figure(image("//imgs/use_cases/gestione-contenuti-1.svg", width: 90%), caption: [UC 4 - Gestione contenuti delle cartelle])
 #pagebreak()
-#figure(image("//imgs/use_cases/gestione-contenuti-2.svg", width: 75%))
+#figure(image("//imgs/use_cases/gestione-contenuti-2.svg", width: 75%), caption: [Gestione contenuti delle cartelle - Sottocasi])
 #pagebreak()
 
 ==== UC 4.1 - Aggiungi oggetto alla cartella
@@ -692,9 +700,9 @@ In seguito però ad una profonda analisi, il gruppo Overture ha stabilito che il
 
 === UC 5 - Condivisione delle cartelle
 
-#figure(image("//imgs/use_cases/condivisione-cartelle-1.svg", width: 100%))
+#figure(image("//imgs/use_cases/condivisione-cartelle-1.svg", width: 100%), caption: [UC 5 - Condivisione delle cartelle])
 #pagebreak()
-#figure(image("//imgs/use_cases/condivisione-cartelle-2.svg", width: 100%))
+#figure(image("//imgs/use_cases/condivisione-cartelle-2.svg", width: 100%), caption: [Condivisione delle cartelle - Sottocasi])
 
 #pagebreak()
 
@@ -793,7 +801,7 @@ In seguito però ad una profonda analisi, il gruppo Overture ha stabilito che il
 
 
 #pagebreak()
-
+/*
 === UC 6 - Stress Test
 
 #figure(image("//imgs/use_cases/stress-test.svg", width: 100%))
@@ -916,13 +924,13 @@ In seguito però ad una profonda analisi, il gruppo Overture ha stabilito che il
 
 
 #pagebreak()
+*/
+=== UC 6 - Sincronizzazione
 
-=== UC 7 - Sincronizzazione
-
-#figure(image("//imgs/use_cases/sincronizzazione.svg", width: 100%))
+#figure(image("//imgs/use_cases/sincronizzazione.svg", width: 100%), caption: [UC 6 - Sincronizzazione])
 #pagebreak()
 
-==== UC 7.1 - Sincronizzazione casella posta di arrivo
+==== UC 6.1 - Sincronizzazione casella posta di arrivo
 
 - *Attore principale*: Client di Posta Elettronica Autenticato;
 - *Descrizione*: Un client di posta elettronica autenticato vuole sincronizzare la propria casella di posta elettronica con le ultime Email arrivate;
@@ -936,7 +944,7 @@ In seguito però ad una profonda analisi, il gruppo Overture ha stabilito che il
 - *Inclusioni*: /
 - *Generalizzazioni*: /
 
-==== UC 7.2 - Sincronizzazione contatti da rubrica
+==== UC 6.2 - Sincronizzazione contatti da rubrica
 
 - *Attore principale*: Client di Posta Elettronica Autenticato;
 - *Descrizione*: Un client di posta elettronica autenticato vuole sincronizzare la propria rubrica con gli ultimi contatti;
@@ -952,11 +960,11 @@ In seguito però ad una profonda analisi, il gruppo Overture ha stabilito che il
 
 #pagebreak()
 
-/*=== UC 8 - Calendari
+/*=== UC 7 - Calendari
 
 #pagebreak()
 
-==== UC 8.1 - Creazione di un calendario
+==== UC 7.1 - Creazione di un calendario
 
 - *Attore principale*: Client di Posta Elettronica Autenticato;
 - *Descrizione*: Un Client di Posta Elettronica Autenticato vuole creare un calendario;
@@ -969,7 +977,7 @@ In seguito però ad una profonda analisi, il gruppo Overture ha stabilito che il
 - *Inclusioni*: /
 - *Generalizzazioni*: /
 
-==== UC 8.2 - Rinominazione di un calendario
+==== UC 7.2 - Rinominazione di un calendario
 
 - *Attore principale*: Client di Posta Elettronica Autenticato;
 - *Descrizione*: Un Client di Posta Elettronica Autenticato vuole rinominare un calendario;
@@ -982,7 +990,7 @@ In seguito però ad una profonda analisi, il gruppo Overture ha stabilito che il
 - *Inclusioni*: /
 - *Generalizzazioni*: /
 
-==== UC 8.3 - Eliminazione di un calendario
+==== UC 7.3 - Eliminazione di un calendario
 
 - *Attore principale*: Client di Posta Elettronica Autenticato;
 - *Descrizione*: Un Client di Posta Elettronica Autenticato vuole eliminare un calendario;
@@ -995,7 +1003,7 @@ In seguito però ad una profonda analisi, il gruppo Overture ha stabilito che il
 - *Inclusioni*: /
 - *Generalizzazioni*: /
 
-==== UC 8.4 - Condivisione di un calendario con un altro utente
+==== UC 7.4 - Condivisione di un calendario con un altro utente
 
 - *Attore principale*: Client di Posta Elettronica Autenticato;
 - *Descrizione*: Un Client di Posta Elettronica Autenticato vuole condividere un calendario con un altro utente;
@@ -1008,7 +1016,7 @@ In seguito però ad una profonda analisi, il gruppo Overture ha stabilito che il
 - *Inclusioni*: /
 - *Generalizzazioni*: /
 
-==== UC 8.5 - Nome calendario duplicato o non valido
+==== UC 7.5 - Nome calendario duplicato o non valido
 
 - *Attore principale*: Client di Posta Elettronica Autenticato;
 - *Descrizione*: Un Client di Posta Elettronica Autenticato vuole fare un'operazione di quelle citate in precedenza con i calendario;
@@ -1023,11 +1031,11 @@ In seguito però ad una profonda analisi, il gruppo Overture ha stabilito che il
 
 #pagebreak()
 
-=== UC 9 - Appuntamenti
+=== UC 8 - Appuntamenti
 
 #pagebreak()
 
-==== UC 9.1 - Creazione di un appuntamento a calendario
+==== UC 8.1 - Creazione di un appuntamento a calendario
 
 - *Attore principale*: Client di Posta Elettronica Autenticato;
 - *Descrizione*: Un Client di Posta Elettronica Autenticato vuole creare un appuntamento a calendario;
@@ -1040,7 +1048,7 @@ In seguito però ad una profonda analisi, il gruppo Overture ha stabilito che il
 - *Inclusioni*: /
 - *Generalizzazioni*: /
 
-==== UC 9.2 - Modifica di un appuntamento a calendario
+==== UC 8.2 - Modifica di un appuntamento a calendario
 
 - *Attore principale*: Client di Posta Elettronica Autenticato;
 - *Descrizione*: Un Client di Posta Elettronica Autenticato vuole modificare un appuntamento a calendario;
@@ -1053,7 +1061,7 @@ In seguito però ad una profonda analisi, il gruppo Overture ha stabilito che il
 - *Inclusioni*: /
 - *Generalizzazioni*: /
 
-==== UC 9.3 - Eliminazione di un appuntamento a calendario
+==== UC 8.3 - Eliminazione di un appuntamento a calendario
 
 - *Attore principale*: Client di Posta Elettronica Autenticato;
 - *Descrizione*: Un Client di Posta Elettronica Autenticato vuole eliminare un appuntamento a calendario;
@@ -1066,7 +1074,7 @@ In seguito però ad una profonda analisi, il gruppo Overture ha stabilito che il
 - *Inclusioni*: /
 - *Generalizzazioni*: /
 
-==== UC 9.4 - Condivisione di un appuntamento nel calendario condiviso con un altro utente
+==== UC 8.4 - Condivisione di un appuntamento nel calendario condiviso con un altro utente
 
 - *Attore principale*: Client di Posta Elettronica Autenticato;
 - *Descrizione*: Un Client di Posta Elettronica Autenticato vuole condividere un appuntamento a calendario di con un'altro utente;
@@ -1079,7 +1087,7 @@ In seguito però ad una profonda analisi, il gruppo Overture ha stabilito che il
 - *Inclusioni*: /
 - *Generalizzazioni*: /
 
-==== UC 9.5 - Nome calendario duplicato o non valido
+==== UC 8.5 - Nome calendario duplicato o non valido
 
 - *Attore principale*: Client di Posta Elettronica Autenticato;
 - *Descrizione*: Un Client di Posta Elettronica Autenticato vuole fare un'operazione di quelle citate in precedenza con gli appuntamenti;
@@ -1095,14 +1103,14 @@ In seguito però ad una profonda analisi, il gruppo Overture ha stabilito che il
 #pagebreak()
 */
 
-=== UC 8 - Contatti
+=== UC 7 - Contatti
 
-#figure(image("//imgs/use_cases/contatti-1.svg", width: 100%))
+#figure(image("//imgs/use_cases/contatti-1.svg", width: 100%), caption: [UC 7 - Contatti])
 #pagebreak()
-#figure(image("//imgs/use_cases/contatti-2.svg", width: 75%))
+#figure(image("//imgs/use_cases/contatti-2.svg", width: 90%), caption: [Contatti - Sottocasi])
 #pagebreak()
 
-==== UC 8.1 - Creazione di un contatto
+==== UC 7.1 - Creazione di un contatto
 
 - *Attore principale*: Client di Posta Elettronica Autenticato;
 - *Descrizione*: Un client di posta elettronica autenticato vuole creare un contatto;
@@ -1117,7 +1125,7 @@ In seguito però ad una profonda analisi, il gruppo Overture ha stabilito che il
 - *Inclusioni*: /
 - *Generalizzazioni*: /
 
-==== UC 8.1.1 - Inserimento Nome e Cognome contatto
+==== UC 7.1.1 - Inserimento Nome e Cognome contatto
 
 - *Attore principale*: Client di Posta Elettronica Autenticato;
 - *Descrizione*: Un client di posta elettronica autenticato vuole creare un contatto e quindi deve inserire un campo obbligatorio;
@@ -1127,7 +1135,7 @@ In seguito però ad una profonda analisi, il gruppo Overture ha stabilito che il
   + L'utente deve fornire il Nome e Cognome del contatto;
 
 
-==== UC 8.1.2 - Inserimento Indirizzo Email contatto
+==== UC 7.1.2 - Inserimento Indirizzo Email contatto
 
 - *Attore principale*: Client di Posta Elettronica Autenticato;
 - *Descrizione*: Un client di posta elettronica autenticato vuole creare un contatto e quindi deve inserire un campo obbligatorio;
@@ -1137,7 +1145,7 @@ In seguito però ad una profonda analisi, il gruppo Overture ha stabilito che il
   + L'utente deve fornire l'Indirizzo Email del contatto che vuole creare.
 
 
-==== UC 8.2 - Modifica di un contatto
+==== UC 7.2 - Modifica di un contatto
 
 - *Attore principale*: Client di Posta Elettronica Autenticato;
 - *Descrizione*: Un client di posta elettronica autenticato vuole modificare un contatto;
@@ -1152,7 +1160,7 @@ In seguito però ad una profonda analisi, il gruppo Overture ha stabilito che il
 - *Inclusioni*: /
 - *Generalizzazioni*: /
 
-==== UC 8.2.1 - Inserimento Indirizzo Email contatto da modificare
+==== UC 7.2.1 - Inserimento Indirizzo Email contatto da modificare
 
 - *Attore principale*: Client di Posta Elettronica Autenticato;
 - *Descrizione*: Un client di posta elettronica autenticato vuole modificare un contatto e quindi deve inserire un campo obbligatorio;
@@ -1162,7 +1170,7 @@ In seguito però ad una profonda analisi, il gruppo Overture ha stabilito che il
   + L'utente deve fornire l'Indirizzo Email del contatto che si vuole modificare.
 
 
-==== UC 8.2.2 - Inserimento nuovo Nome, Cognome e Indirizzo Email da modificare
+==== UC 7.2.2 - Inserimento nuovo Nome, Cognome e Indirizzo Email da modificare
 
 - *Attore principale*: Client di Posta Elettronica Autenticato;
 - *Descrizione*: Un client di posta elettronica autenticato vuole modificare un contatto e quindi deve inserire un campo obbligatorio;
@@ -1172,7 +1180,7 @@ In seguito però ad una profonda analisi, il gruppo Overture ha stabilito che il
   + L'utente deve fornire il nuovo Nome, Cognome e Indirizzo Email da modificare.
 
 
-==== UC 8.3 - Eliminazione di un contatto
+==== UC 7.3 - Eliminazione di un contatto
 
 - *Attore principale*: Client di Posta Elettronica Autenticato;
 - *Descrizione*: Un client di posta elettronica autenticato vuole eliminare un contatto;
@@ -1186,7 +1194,7 @@ In seguito però ad una profonda analisi, il gruppo Overture ha stabilito che il
 - *Inclusioni*: /
 - *Generalizzazioni*: /
 
-==== UC 8.3.1 - Inserimento Indirizzo Email contatto da eliminare
+==== UC 7.3.1 - Inserimento Indirizzo Email contatto da eliminare
 
 - *Attore principale*: Client di Posta Elettronica Autenticato;
 - *Descrizione*: Un client di posta elettronica autenticato vuole eliminare un contatto e quindi deve inserire il campo obbligatorio;
@@ -1196,7 +1204,7 @@ In seguito però ad una profonda analisi, il gruppo Overture ha stabilito che il
   + L'utente dovrà fornire l'indirizzo Email del contatto da eliminare.
 
 
-==== UC 8.4 - Condivisione di un contatto con un'altro utente
+==== UC 7.4 - Condivisione di un contatto con un'altro utente
 
 - *Attore principale*: Client di Posta Elettronica Autenticato;
 - *Descrizione*: Un client di posta elettronica autenticato vuole condividere un contatto con un'altro utente;
@@ -1211,7 +1219,7 @@ In seguito però ad una profonda analisi, il gruppo Overture ha stabilito che il
 - *Inclusioni*: /
 - *Generalizzazioni*: /
 
-==== UC 8.4.1 - Inserimento Indirizzo Email contatto da condividere
+==== UC 7.4.1 - Inserimento Indirizzo Email contatto da condividere
 
 - *Attore principale*: Client di Posta Elettronica Autenticato;
 - *Descrizione*: Un client di posta elettronica autenticato vuole creare un contatto e quindi deve inserire un campo obbligatorio;
@@ -1221,7 +1229,7 @@ In seguito però ad una profonda analisi, il gruppo Overture ha stabilito che il
   + L'utente deve fornire l'Indirizzo Email del contatto da condividere;
 
 
-==== UC 8.4.2 - Inserimento Indirizzo Email del contatto con il quale si vuole condividere il contatto
+==== UC 7.4.2 - Inserimento Indirizzo Email del contatto con il quale si vuole condividere il contatto
 
 - *Attore principale*: Client di Posta Elettronica Autenticato;
 - *Descrizione*: Un client di posta elettronica autenticato vuole creare un contatto e quindi deve inserire un campo obbligatorio;
@@ -1231,7 +1239,7 @@ In seguito però ad una profonda analisi, il gruppo Overture ha stabilito che il
   + L'utente deve fornire l'Indirizzo Email del contatto con il quale si vuole condividere il contatto.
 
 
-==== UC 8.5 - Indirizzo Email contatto duplicato o non valido
+==== UC 7.5 - Indirizzo Email contatto duplicato o non valido
 
 - *Attore principale*: Client di Posta Elettronica Autenticato;
 - *Descrizione*: Un client di posta elettronica autenticato vuole fare un'operazione di quelle citate in precedenza con i contatti;
@@ -1248,14 +1256,14 @@ In seguito però ad una profonda analisi, il gruppo Overture ha stabilito che il
 
 #pagebreak()
 
-=== UC 9 - Rubriche
+=== UC 8 - Rubriche
 
-#figure(image("//imgs/use_cases/rubriche-1.svg", width: 100%))
+#figure(image("//imgs/use_cases/rubriche-1.svg", width: 100%), caption: [UC 8 - Rubriche])
 #pagebreak()
-#figure(image("//imgs/use_cases/rubriche-2.svg", width: 75%))
+#figure(image("//imgs/use_cases/rubriche-2.svg", width: 85%), caption: [Rubriche - Sottocasi])
 #pagebreak()
 
-==== UC 9.1 - Creazione di una rubrica
+==== UC 8.1 - Creazione di una rubrica
 
 - *Attore principale*: Client di Posta Elettronica Autenticato;
 - *Descrizione*: Un client di posta elettronica autenticato vuole creare una rubrica;
@@ -1272,7 +1280,7 @@ In seguito però ad una profonda analisi, il gruppo Overture ha stabilito che il
 - *Inclusioni*: /
 - *Generalizzazioni*: /
 
-==== UC 9.1.1 - Creazione di una rubrica
+==== UC 8.1.1 - Creazione di una rubrica
 
 - *Attore principale*: Client di Posta Elettronica Autenticato;
 - *Descrizione*: Un client di posta elettronica autenticato vuole creare una rubrica e inserisce uno dei campi obbligatori;
@@ -1282,7 +1290,7 @@ In seguito però ad una profonda analisi, il gruppo Overture ha stabilito che il
   + L'utente dovrà fornire il nome della rubrica che vuole creare;
 
 
-==== UC 9.1.2 - Inserimento Indirizzi Email dei contatti da inserire nella rubrica
+==== UC 8.1.2 - Inserimento Indirizzi Email dei contatti da inserire nella rubrica
 
 - *Attore principale*: Client di Posta Elettronica Autenticato;
 - *Descrizione*: Un client di posta elettronica autenticato vuole creare una rubrica e inserisce uno dei campi obbligatori;
@@ -1291,7 +1299,7 @@ In seguito però ad una profonda analisi, il gruppo Overture ha stabilito che il
 - *Scenario principale*: 
   + L'utente dovrà fornire la lista dei contatti da aggiungere alla rubrica;
 
-==== UC 9.2 - Rinominazione di una rubrica
+==== UC 8.2 - Rinominazione di una rubrica
 
 - *Attore principale*: Client di Posta Elettronica Autenticato;
 - *Descrizione*: Un client di posta elettronica autenticato vuole rinominare una rubrica;
@@ -1308,7 +1316,7 @@ In seguito però ad una profonda analisi, il gruppo Overture ha stabilito che il
 - *Inclusioni*: /
 - *Generalizzazioni*: /
 
-==== UC 9.2.1 - Inserimento Identificativo della rubrica da rinominare
+==== UC 8.2.1 - Inserimento Identificativo della rubrica da rinominare
 
 - *Attore principale*: Client di Posta Elettronica Autenticato;
 - *Descrizione*: Un client di posta elettronica autenticato vuole rinominare una rubrica e inserisce uno dei campi obbligatori;
@@ -1318,7 +1326,7 @@ In seguito però ad una profonda analisi, il gruppo Overture ha stabilito che il
   + L'utente dovrà fornire l'Identificativo della rubrica da rinominata.
 
 
-==== UC 9.2.2 - Inserimento Nuovo nome per la rubrica
+==== UC 8.2.2 - Inserimento Nuovo nome per la rubrica
 
 - *Attore principale*: Client di Posta Elettronica Autenticato;
 - *Descrizione*: Un client di posta elettronica autenticato vuole rinominare una rubrica e inserisce uno dei campi obbligatori;
@@ -1328,7 +1336,7 @@ In seguito però ad una profonda analisi, il gruppo Overture ha stabilito che il
   + L'utente dovrà fornire il nuovo nome per la rubrica;
   
 
-==== UC 9.3 - Modifica di una rubrica
+==== UC 8.3 - Modifica di una rubrica
 
 - *Attore principale*: Client di Posta Elettronica Autenticato;
 - *Descrizione*: Un client di posta elettronica autenticato vuole modificare una rubrica;
@@ -1345,7 +1353,7 @@ In seguito però ad una profonda analisi, il gruppo Overture ha stabilito che il
 - *Inclusioni*: /
 - *Generalizzazioni*: /
 
-==== UC 9.3.1 - Inserimento Identificativo della rubrica da modificare
+==== UC 8.3.1 - Inserimento Identificativo della rubrica da modificare
 
 - *Attore principale*: Client di Posta Elettronica Autenticato;
 - *Descrizione*: Un client di posta elettronica autenticato vuole modificare una rubrica e inserisce uno dei campi obbligatori;
@@ -1355,7 +1363,7 @@ In seguito però ad una profonda analisi, il gruppo Overture ha stabilito che il
   + L'utente dovrà fornire l'Identificativo della rubrica da modificare.
 
 
-==== UC 9.3.2 - Inserimento Indirizzi Email dei contatti da inserire nella rubrica
+==== UC 8.3.2 - Inserimento Indirizzi Email dei contatti da inserire nella rubrica
 
 - *Attore principale*: Client di Posta Elettronica Autenticato;
 - *Descrizione*: Un client di posta elettronica autenticato vuole modificare una rubrica e inserisce uno dei campi obbligatori;
@@ -1365,7 +1373,7 @@ In seguito però ad una profonda analisi, il gruppo Overture ha stabilito che il
   + L'utente dovrà fornire la nuova lista dei contatti della rubrica;
   
 
-==== UC 9.4 - Eliminazione di una rubrica
+==== UC 8.4 - Eliminazione di una rubrica
 
 - *Attore principale*: Client di Posta Elettronica Autenticato;
 - *Descrizione*: Un client di posta elettronica autenticato vuole eliminare un una rubrica;
@@ -1381,7 +1389,7 @@ In seguito però ad una profonda analisi, il gruppo Overture ha stabilito che il
 - *Inclusioni*: /
 - *Generalizzazioni*: /
 
-==== UC 9.4.1 - Inserimento Identificativo dela rubrica da eliminare
+==== UC 8.4.1 - Inserimento Identificativo dela rubrica da eliminare
 
 - *Attore principale*: Client di Posta Elettronica Autenticato;
 - *Descrizione*: Un client di posta elettronica autenticato vuole eliminare una rubrica e inserisce uno dei campi obbligatori;
@@ -1391,7 +1399,7 @@ In seguito però ad una profonda analisi, il gruppo Overture ha stabilito che il
   + L'utente dovrà fornire l'Identificativo della rubrica che vuole eliminare.
   
 
-==== UC 9.5 - Condivisione di una rubrica con un altro utente
+==== UC 8.5 - Condivisione di una rubrica con un altro utente
 
 - *Attore principale*: Client di Posta Elettronica Autenticato;
 - *Descrizione*: Un client di posta elettronica autenticato vuole condividere una intera rubrica con un'altro utente;
@@ -1408,7 +1416,7 @@ In seguito però ad una profonda analisi, il gruppo Overture ha stabilito che il
 - *Inclusioni*: /
 - *Generalizzazioni*: /
 
-==== UC 9.5.1 - Inserimento Identificativo della rubrica da condividere
+==== UC 8.5.1 - Inserimento Identificativo della rubrica da condividere
 
 - *Attore principale*: Client di Posta Elettronica Autenticato;
 - *Descrizione*: Un client di posta elettronica autenticato vuole condividere una intera rubrica con un'altro utente e quindi deve inserire un campo obbligatorio;
@@ -1418,7 +1426,7 @@ In seguito però ad una profonda analisi, il gruppo Overture ha stabilito che il
   + L'utente deve fornire l'Identificativo della rubrica che intende condividere.
 
 
-==== UC 9.5.2 - Inserimento Indirizzo Email del contatto con il quale si vuole condividere la rubrica
+==== UC 8.5.2 - Inserimento Indirizzo Email del contatto con il quale si vuole condividere la rubrica
 
 - *Attore principale*: Client di Posta Elettronica Autenticato;
 - *Descrizione*: Un client di posta elettronica autenticato vuole condividere una intera rubrica con un'altro utente e quindi deve inserire un campo obbligatorio;
@@ -1428,7 +1436,7 @@ In seguito però ad una profonda analisi, il gruppo Overture ha stabilito che il
   + L'utente deve fornire l'Indirizzo Email del contatto con il quale si vuole condividere la rubrica.
   
 
-==== UC 9.6 - Nome rubrica duplicato o non valido
+==== UC 8.6 - Nome rubrica duplicato o non valido
 
 - *Attore principale*: Client di Posta Elettronica Autenticato;
 - *Descrizione*: Un client di posta elettronica autenticato vuole creare o rinominare un rubrica;
@@ -1438,7 +1446,7 @@ In seguito però ad una profonda analisi, il gruppo Overture ha stabilito che il
   + L'utente fa un'operazione sulla rubrica (creazione o rinominazione) inserendo un nome duplicato o non valido per la rubrica 
   + L'utente si vedrà apparire un messaggio di errore specifico per questo errore.
 
-==== UC 9.7 - Identificativo rubrica non valido
+==== UC 8.7 - Identificativo rubrica non valido
 
 - *Attore principale*: Client di Posta Elettronica Autenticato;
 - *Descrizione*: Un client di posta elettronica autenticato vuole rinominare, modificare, eliminare o condividere un rubrica;
@@ -1448,7 +1456,7 @@ In seguito però ad una profonda analisi, il gruppo Overture ha stabilito che il
   + L'utente fa un'operazione sulla rubrica (rinomina, modifica, eliminazione o condivisione) inserendo un identificativo non valido per la rubrica 
   + L'utente si vedrà apparire un messaggio di errore specifico per questo errore.
 
-==== UC 9.8 - Identificativo contatti forniti non validi
+==== UC 8.8 - Identificativo contatti forniti non validi
 
 - *Attore principale*: Client di Posta Elettronica Autenticato;
 - *Descrizione*: Un client di posta elettronica autenticato vuole creare o modificare una rubrica;
@@ -1458,7 +1466,7 @@ In seguito però ad una profonda analisi, il gruppo Overture ha stabilito che il
   + L'utente fa un'operazione sulla rubrica (creazione o modifica) inserendo uno o più identificativi per i contatti da aggiungere non validi; 
   + L'utente si vedrà apparire un messaggio di errore specifico per questo errore.
 
-==== UC 9.9 - Indirizzo Email non valido
+==== UC 8.9 - Indirizzo Email non valido
 
 - *Attore principale*: Client di Posta Elettronica Autenticato;
 - *Descrizione*: Un client di posta elettronica autenticato vuole condividere una rubrica;
@@ -1472,8 +1480,8 @@ In seguito però ad una profonda analisi, il gruppo Overture ha stabilito che il
 
 
 = *Requisiti*
-In questa sezione andremo ad elencare tutti i requisiti del capitolato, ragruppandoli per tipologia. Ogni requisito è identificato univocamente da un codice il cui formato è definito all'interno del documento `Norme Di Progetto`.\
-Per praticità andremo a riportarla anche di seguito. Ogni requisito è caratterizzato da un codice alfanumerico così formato:\
+In questa sezione andremo ad elencare tutti i requisiti del capitolato, ragruppandoli per tipologia. Ogni requisito è identificato univocamente da un codice il cui formato è definito qui di seguito. \
+Ogni requisito è caratterizzato da un codice alfanumerico così formato:\
 #set align(center) 
 *R-[numero]-[tipo]-[priorità]*
 #set align(left)
@@ -1493,7 +1501,8 @@ In alcuni casi verrà esplicitato nella colonna relativa alle fonti se il requis
 
 
 == Requisiti di funzionalità
-#requirements("#f9fac5", (
+#figure(
+requirements("#f9fac5", (
   [R-001-F-2],
   [L'utente che utilizza un client di posta elettronica deve avere la possibilità di autenticarsi all'interno del sistema.],
   [
@@ -1778,7 +1787,7 @@ In alcuni casi verrà esplicitato nella colonna relativa alle fonti se il requis
   [],
   [],
 
-  
+  /*
   [R-044-F-1],
   [L'utente deve avere la possibilità di effettuare un invio massivo di Email per testare il sistema informatico.],
   [
@@ -1839,222 +1848,220 @@ In alcuni casi verrà esplicitato nella colonna relativa alle fonti se il requis
     UC6.3
     Interno
   ],
-
+  */
+  
   [],
   [],
   [],
 
-  [R-054-F-1],
+  [R-044-F-1],
   [L'utente deve avere la possibilità di sincronizzare la propria casella di posta elettronica.],
+  [
+    UC6.1\
+    Capitolato
+  ],
+  [R-045-F-1],
+  [L'utente deve avere la possibilità di sincronizzare la rubrica con gli ultimi contatti.],
+  [
+    UC6.2\
+    Capitolato
+  ],
+  
+  [],
+  [],
+  [],
+
+  [R-046-F-3],
+  [L'utente deve avere la possibilità di creare un contatto.],
   [
     UC7.1\
     Capitolato
   ],
-  [R-055-F-1],
-  [L'utente deve avere la possibilità di sincronizzare la rubrica con gli ultimi contatti.],
+  [R-047-F-3],
+  [È necessario che l'utente inserisca il Nome e il Cognome del contatto che intende creare.],
+  [
+    UC7.1.1\
+    Interno
+  ],
+  [R-048-F-3],
+  [È necessario che l'utente inserisca l'Indirizzo Email del contatto che intende creare.],
+  [
+    UC7.1.2\
+    Interno
+  ],
+  [R-049-F-3],
+  [L'utente deve avere la possibilità di modificare un contatto.],
   [
     UC7.2\
     Capitolato
   ],
-  
+  [R-050-F-3],
+  [È necessario che l'utente inserisca l'Indirizzo Email contatto da modificare.],
+  [
+    UC7.2.1\
+    Interno
+  ],
+  [R-051-F-3],
+  [È necessario che l'utente inserisca il nuovo Nome, Cognome e Indirizzo Email da modificare.],
+  [
+    UC7.2.2\
+    Interno
+  ],
+  [R-052-F-3],
+  [L'utente deve avere la possibilità di eliminare un contatto.],
+  [
+    UC7.3\
+    Capitolato
+  ],
+  [R-053-F-3],
+  [È necessario che l'utente inserisca l'Indirizzo Email del contatto che intende eliminare.],
+  [
+    UC7.3.1\
+    Interno
+  ],
+  [R-054-F-3],
+  [L'utente deve avere la possibilità di condividere un contatto con un altro utente.],
+  [
+    UC7.4\
+    Capitolato
+  ],
+  [R-055-F-3],
+  [È necessario che l'utente inserisca l'Indirizzo Email del contatto che intende condividere.],
+  [
+    UC7.4.1\
+    Interno
+  ],
+  [R-056-F-3],
+  [È necessario che l'utente inserisca l'Indirizzo Email del contatto con il quale effettuare la condivisione.],
+  [
+    UC7.4.2\
+    Interno
+  ],
+  [R-057-F-3],
+  [È necessario che l'utente riceva un messaggio di errore se il client fornisce un Indirizzo Email duplicato o non valido.],
+  [
+    UC7.5\
+    Interno
+  ],
+
   [],
   [],
   [],
 
-  [R-056-F-3],
-  [L'utente deve avere la possibilità di creare un contatto.],
+  [R-058-F-3],
+  [L'utente deve avere la possibilità di creare una rubrica.],
   [
     UC8.1\
     Capitolato
   ],
-  [R-057-F-3],
-  [È necessario che l'utente inserisca il Nome e il Cognome del contatto che intende creare.],
+  [R-059-F-3],
+  [È necessario che l'utente inserisca il Nome della rubrica che intende creare.],
   [
     UC8.1.1\
     Interno
   ],
-  [R-058-F-3],
-  [È necessario che l'utente inserisca l'Indirizzo Email del contatto che intende creare.],
+  [R-060-F-3],
+  [È necessario che l'utente inserisca i conttatti da aggiungere alla rubrica.],
   [
     UC8.1.2\
     Interno
   ],
-  [R-059-F-3],
-  [L'utente deve avere la possibilità di modificare un contatto.],
+  [R-061-F-3],
+  [L'utente deve avere la possibilità di rinominare una rubrica.],
   [
     UC8.2\
     Capitolato
   ],
-  [R-060-F-3],
-  [È necessario che l'utente inserisca l'Indirizzo Email contatto da modificare.],
+  [R-062-F-3],
+  [È necessario che l'utente inserisca l'Identificativo della rubrica da rinominare.],
   [
     UC8.2.1\
     Interno
   ],
-  [R-061-F-3],
-  [È necessario che l'utente inserisca il nuovo Nome, Cognome e Indirizzo Email da modificare.],
+  [R-063-F-3],
+  [È necessario che l'utente inserisca il nuovo nome per la rubrica che intende rinominare.],
   [
     UC8.2.2\
     Interno
   ],
-  [R-062-F-3],
-  [L'utente deve avere la possibilità di eliminare un contatto.],
+  [R-064-F-3],
+  [L'utente deve avere la possibilità di modificare una rubrica.],
   [
     UC8.3\
     Capitolato
   ],
-  [R-063-F-3],
-  [È necessario che l'utente inserisca l'Indirizzo Email del contatto che intende eliminare.],
+  [R-065-F-3],
+  [È necessario che l'utente inserisca l'Identificativo della rubrica da modficare.],
   [
     UC8.3.1\
     Interno
   ],
-  [R-064-F-3],
-  [L'utente deve avere la possibilità di condividere un contatto con un altro utente.],
+  [R-066-F-3],
+  [È necessario che l'utente inserisca i nuovi contatti di cui la rubrica sarà composta.],
+  [
+    UC8.3.2\
+    Interno
+  ],
+  [R-067-F-3],
+  [L'utente deve avere la possibilità di eliminare una rubrica.],
   [
     UC8.4\
     Capitolato
   ],
-  [R-065-F-3],
-  [È necessario che l'utente inserisca l'Indirizzo Email del contatto che intende condividere.],
+  [R-068-F-3],
+  [È necessario che l'utente inserisca l'Identificativo della rubrica che intende eliminare.],
   [
     UC8.4.1\
     Interno
   ],
-  [R-066-F-3],
-  [È necessario che l'utente inserisca l'Indirizzo Email del contatto con il quale effettuare la condivisione.],
-  [
-    UC8.4.2\
-    Interno
-  ],
-  [R-067-F-3],
-  [È necessario che l'utente riceva un messaggio di errore se il client fornisce un Indirizzo Email duplicato o non valido.],
+  [R-069-F-3],
+  [L'utente deve avere la possibilità di condividere una rubrica con un altro utente.],
   [
     UC8.5\
-    Interno
-  ],
-
-  [],
-  [],
-  [],
-
-  [R-068-F-3],
-  [L'utente deve avere la possibilità di creare una rubrica.],
-  [
-    UC9.1\
     Capitolato
   ],
-  [R-069-F-3],
-  [È necessario che l'utente inserisca il Nome della rubrica che intende creare.],
-  [
-    UC9.1.1\
-    Interno
-  ],
   [R-070-F-3],
-  [È necessario che l'utente inserisca i conttatti da aggiungere alla rubrica.],
+  [È necessario che l'utente inserisca l'Identificativo della rubrica che si vuole condividere.],
   [
-    UC9.1.2\
+    UC8.5.1\
     Interno
   ],
   [R-071-F-3],
-  [L'utente deve avere la possibilità di rinominare una rubrica.],
+  [È necessario che l'utente inserisca l'Indirizzo Email del contatto con il quale effettuare la condivisione.],
   [
-    UC9.2\
-    Capitolato
+    UC8.5.2\
+    Interno
   ],
   [R-072-F-3],
-  [È necessario che l'utente inserisca l'Identificativo della rubrica da rinominare.],
+  [È necessario che l'utente riceva un messaggio di errore se inserisce un nome duplicato o non valido per una rubrica.],
   [
-    UC9.2.1\
+    UC8.6\
     Interno
   ],
   [R-073-F-3],
-  [È necessario che l'utente inserisca il nuovo nome per la rubrica che intende rinominare.],
+  [È necessario che l'utente riceva un messaggio di errore se inserisce un identificativo non valido per una rubrica.],
   [
-    UC9.2.2\
+    UC8.7\
     Interno
   ],
   [R-074-F-3],
-  [L'utente deve avere la possibilità di modificare una rubrica.],
-  [
-    UC9.3\
-    Capitolato
-  ],
-  [R-075-F-3],
-  [È necessario che l'utente inserisca l'Identificativo della rubrica da modficare.],
-  [
-    UC9.3.1\
-    Interno
-  ],
-  [R-076-F-3],
-  [È necessario che l'utente inserisca i nuovi contatti di cui la rubrica sarà composta.],
-  [
-    UC9.3.2\
-    Interno
-  ],
-  [R-077-F-3],
-  [L'utente deve avere la possibilità di eliminare una rubrica.],
-  [
-    UC9.4\
-    Capitolato
-  ],
-  [R-078-F-3],
-  [È necessario che l'utente inserisca l'Identificativo della rubrica che intende eliminare.],
-  [
-    UC9.4.1\
-    Interno
-  ],
-  [R-079-F-3],
-  [L'utente deve avere la possibilità di condividere una rubrica con un altro utente.],
-  [
-    UC9.5\
-    Capitolato
-  ],
-  [R-080-F-3],
-  [È necessario che l'utente inserisca l'Identificativo della rubrica che si vuole condividere.],
-  [
-    UC9.5.1\
-    Interno
-  ],
-  [R-081-F-3],
-  [È necessario che l'utente inserisca l'Indirizzo Email del contatto con il quale effettuare la condivisione.],
-  [
-    UC9.5.2\
-    Interno
-  ],
-  [R-082-F-3],
-  [È necessario che l'utente riceva un messaggio di errore se inserisce un nome duplicato o non valido per una rubrica.],
-  [
-    UC9.6\
-    Interno
-  ],
-  [R-083-F-3],
-  [È necessario che l'utente riceva un messaggio di errore se inserisce un identificativo non valido per una rubrica.],
-  [
-    UC9.7\
-    Interno
-  ],
-  [R-084-F-3],
   [È necessario che l'utente riceva un messaggio di errore se inserisce uno o più identificativi non validi per dei contatti.],
   [
-    UC9.8\
+    UC8.8\
     Interno
   ],
-  [R-085-F-3],
+  [R-075-F-3],
   [È necessario che l'utente riceva un messaggio di errore se inserisce un Indirizzo Email non valido con cui condividere una rubrica.],
   [
-    UC9.9\
+    UC8.9\
     Interno
   ],
-  
-
-
-
 ))
-
+,caption: [requisiti di funzionalità])
 
 == Requisiti di qualità
-#requirements("#bbfabe", ( 
+#figure(
+requirements("#bbfabe", ( 
   [R-001-Q-1],
   [Bisogna realizzare e consegnare un documento di analisi dei requisiti con un diagramma dei casi d'uso in formato UML],
   [
@@ -2082,14 +2089,15 @@ In alcuni casi verrà esplicitato nella colonna relativa alle fonti se il requis
   [La codifica dell'intera soluzione informativa deve essere conferme con quanto riportato nel `Piano di Qualifica`],
   [Capitolato],
 ))
-
+,caption: [requisiti di qualità])
 
 #pagebreak()
 
-= Tracciamento Requisiti
+= *Tracciamento Requisiti*
 
 === Tracciamento fonte-requsito
-#tracking2((
+#figure(
+tracking2((
   [UC1.1],
 [
 R-001-F-2
@@ -2265,7 +2273,7 @@ R-042-F-1
 [
 R-043-F-1
 ],
-
+/*
 [UC6.1],
 [
 R-044-F-1
@@ -2306,142 +2314,146 @@ R-052-F-1
 [
 R-053-F-1
 ],
+*/
+[UC6.1],
+[
+R-044-F-1
+],
+[UC6.2],
+[
+R-045-F-1
+],
 
 [UC7.1],
 [
-R-054-F-1
+R-046-F-3
+],
+[UC7.1.1],
+[
+R-047-F-3
+],
+[UC7.1.2],
+[
+R-048-F-3
 ],
 [UC7.2],
 [
-R-055-F-1
+R-049-F-3
 ],
-
-[UC8.1],
+[UC7.2.1],
+[
+R-050-F-3
+],
+[UC7.2.2],
+[
+R-051-F-3
+],
+[UC7.3],
+[
+R-052-F-3
+],
+[UC7.3.1],
+[
+R-053-F-3
+],
+[UC7.4],
+[
+R-054-F-3
+],
+[UC7.4.1],
+[
+R-055-F-3
+],
+[UC7.4.2],
 [
 R-056-F-3
 ],
-[UC8.1.1],
+[UC7.5],
 [
 R-057-F-3
 ],
-[UC8.1.2],
+[UC8.1],
 [
 R-058-F-3
 ],
-[UC8.2],
+[UC8.1.1],
 [
 R-059-F-3
 ],
-[UC8.2.1],
+[UC8.1.2],
 [
 R-060-F-3
 ],
-[UC8.2.2],
+[UC8.2],
 [
 R-061-F-3
 ],
-[UC8.3],
+[UC8.2.1],
 [
 R-062-F-3
 ],
-[UC8.3.1],
+[UC8.2.2],
 [
 R-063-F-3
 ],
-[UC8.4],
+[UC8.3],
 [
 R-064-F-3
 ],
-[UC8.4.1],
+[UC8.3.1],
 [
 R-065-F-3
 ],
-[UC8.4.2],
+[UC8.3.2],
 [
 R-066-F-3
 ],
-[UC8.5],
+[UC8.4],
 [
 R-067-F-3
 ],
-[UC9.1],
+[UC8.4.1],
 [
 R-068-F-3
 ],
-[UC9.1.1],
+[UC8.5],
 [
 R-069-F-3
 ],
-[UC9.1.2],
+[UC8.5.1],
 [
 R-070-F-3
 ],
-[UC9.2],
+[UC8.5.2],
 [
 R-071-F-3
 ],
-[UC9.2.1],
+[UC8.6],
 [
 R-072-F-3
 ],
-[UC9.2.2],
+[UC8.7],
 [
 R-073-F-3
 ],
-[UC9.3],
+[UC8.8],
 [
 R-074-F-3
 ],
-[UC9.3.1],
+[UC8.9],
 [
 R-075-F-3
 ],
-[UC9.3.2],
-[
-R-076-F-3
-],
-[UC9.4],
-[
-R-077-F-3
-],
-[UC9.4.1],
-[
-R-078-F-3
-],
-[UC9.5],
-[
-R-079-F-3
-],
-[UC9.5.1],
-[
-R-080-F-3
-],
-[UC9.5.2],
-[
-R-081-F-3
-],
-[UC9.6],
-[
-R-082-F-3
-],
-[UC9.7],
-[
-R-083-F-3
-],
-[UC9.8],
-[
-R-084-F-3
-],
-[UC9.9],
-[
-R-085-F-3
-],
 ))
+,caption: [tracciamento requisiti])
 
-== Riepilogo
-#summary((
+#pagebreak()
+
+== Riepilogo 
+#figure(
+summary((
   [Funzionali],
-  [50],
+  [40],
   [5],
   [30],
   [Qualità],
@@ -2449,6 +2461,7 @@ R-085-F-3
   [0],
   [0],
 ))
+,caption: [riepilogo])
 
 == Conclusioni
 I requisiti del prodotto possono essere modificati durante il suo ciclo di vita per apportare miglioramenti o aggiornamenti. In caso di disponibilità di risorse sufficienti, il gruppo considererà di aggiungere nuovi requisiti per migliorare e aumentare il valore del prodotto. Pertanto, eventuali aggiornamenti saranno presi in considerazione in futuro.
