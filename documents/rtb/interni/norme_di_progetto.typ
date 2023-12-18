@@ -8,7 +8,8 @@
     p.cardin,
   ),
   changelog: ( 
-    "0.1.0", "2023-11-30", p.bulychov, p.vedovato, "Aggiunta della sezione 'Metriche di qualitá del processo'",
+    "0.1.1", "2023-12-XX", p.bulychov, p.fabbian, "Terminata la stesura della sezione 'Sviluppo'",
+    "0.1.0", "2023-11-30", p.bulychov, p.vedovato, "Aggiunta delle sezioni 'Metriche di qualitá del processo' e 'Metriche di qualitá del prodotto'",
     "0.0.11", "2023-11-26", p.bulychov, p.vedovato, "Aggiunta della sezione 'Standard ISO/IEC 9126'",
     "0.0.10", "2023-11-22", p.amadori, p.vedovato, "Aggiunta della sezione 'Gestione della qualità'",
     "0.0.9", "2023-11-21", p.furno, p.vedovato, "Aggiunta della sezione 'Gestione della configurazione'",
@@ -203,25 +204,96 @@ L'Analisi dei Requisiti Software richiede che, per ciascun elemento software o e
 
 ==== Progettazione architetturale del software
 Per ogni elemento software (o elemento di configurazione software, se identificato), l'attività include i seguenti compiti:
-- Lo sviluppatore converte i requisiti dell'elemento software in un'architettura, delineandone la struttura di alto livello e identificando i componenti software. L'assegnazione di tutti i requisiti dell'elemento software ai suoi componenti e la loro ulteriore definizione per agevolare la progettazione dettagliata sono garantite. L'architettura dell'elemento software dovrà essere documentata;
+- Lo sviluppatore converte i requisiti dell'elemento software in un'architettura, delineandone la struttura di alto livello e identificando i componenti software. L'assegnazione di tutti i requisiti dell'elemento software ai suoi componenti e la loro ulteriore definizione per agevolare la progettazione dettagliata sono garantite. L'architettura dell'elemento software dovrà essere documentata.
 - Sviluppo e documentazione di un progetto di alto livello per le interfacce esterne all'elemento software e tra i componenti software dello stesso;
 - Sviluppo e documentazione di un progetto di alto livello per il database;
 - Sviluppo e documentazione di versioni preliminari della documentazione per l'utente;
 - Definizione e documentazione dei requisiti preliminari di prova e della pianificazione per l'integrazione del software;
-- Valutazione dell'architettura dell'elemento software e dei progetti delle interfacce e del database, considerando criteri come rintracciabilità, coerenza interna ed esterna, appropriata utilizzo di metodi e standard di progettazione, fattibilità della progettazione dettagliata, e fattibilità di operazione e manutenzione. I risultati di queste valutazioni sono documentati;
+- Valutazione dell'architettura dell'elemento software e dei progetti delle interfacce e del database, considerando criteri come rintracciabilità, coerenza interna ed esterna, appropriata utilizzo di metodi e standard di progettazione, fattibilità della progettazione dettagliata, e fattibilità di operazione e manutenzione. I risultati di queste valutazioni sono documentati.
 - Conduzione di una o più revisioni.
 
 
 ==== Progettazione dettagliata del software
 Per ogni elemento software (o elemento di configurazione software, se identificato), l'attività include i seguenti compiti:
 - Sviluppo della progettazione dettagliata dei componenti software, ovvero, lo sviluppatore crea una progettazione dettagliata per ciascun componente software, definendo livelli inferiori con unità software che possono essere codificate, compilate e testate;
-- Sviluppo e documentazione di una progettazione dettagliata per le interfacce esterne all'elemento software, tra i componenti software e tra le unità software. La progettazione dettagliata delle interfacce deve consentire la codifica senza ulteriori informazioni;
+- Sviluppo e documentazione di una progettazione dettagliata per le interfacce esterne all'elemento software, tra i componenti software e tra le unità software. La progettazione dettagliata delle interfacce deve consentire la codifica senza ulteriori informazioni.
 - Sviluppo e documentazione di una progettazione dettagliata per il database;
 - Aggiornamento della documentazione utente;
 - Definizione e documentazione dei requisiti di prova e pianificazione per i test delle unità software;
 - Aggiornamento dei requisiti di prova e pianificazione per l'integrazione del software;
-- Valutazione della progettazione dettagliata del software e dei requisiti di prova in base a criteri come rintracciabilità, coerenza interna ed esterna, appropriato utilizzo di metodi e standard di progettazione, fattibilità dei test, e fattibilità di operazione e manutenzione. I risultati vengono documentati;
+- Valutazione della progettazione dettagliata del software e dei requisiti di prova in base a criteri come rintracciabilità, coerenza interna ed esterna, appropriato utilizzo di metodi e standard di progettazione, fattibilità dei test, e fattibilità di operazione e manutenzione. I risultati vengono documentati.
 - Conduzione di una o più revisioni.
+
+==== Codifica e testing del software
+Innanzitutto, il programmatore è tenuto a sviluppare e documentare i seguenti:
+- Ogni singola unità software e database;
+- Procedure di test e dati per il testing di ciascuna unità software e database.
+Successivamente, il programmatore deve condurre i test su ogni unità software e database, assicurandosi che soddisfino i requisiti stabiliti. I risultati di tali test devono essere accuratamente documentati.\
+In parallelo, è necessario aggiornare la documentazione utente in base alle modifiche apportate. Inoltre, si deve procedere all'aggiornamento dei requisiti di test e della pianificazione per l'Integrazione del Software.\
+La valutazione del codice software e dei risultati dei test è una fase cruciale e deve essere eseguita secondo i seguenti criteri, con i relativi risultati documentati:
+- Tracciabilità rispetto ai requisiti e al design dell'elemento software;
+- Coerenza esterna con i requisiti e il design dell'elemento software;
+- Coerenza interna tra i requisiti delle singole unità;
+- Copertura dei test sulle singole unità;
+- Appropriato utilizzo di metodi e standard di codifica;
+- Fattibilità dell'integrazione e del testing del software;
+- Fattibilità di operatività e manutenzione del software.
+
+==== Integrazione del software
+Per prima cosa, il programmatore è tenuto a sviluppare un piano di integrazione per unire le unità software e i componenti software nell'elemento software. Questo piano deve includere requisiti di test, procedure, dati, responsabilità e una pianificazione, il tutto accuratamente documentato.\
+Successivamente, il programmatore deve procedere con l'integrazione delle unità software e dei componenti software, effettuando i test conforme al piano di integrazione. Si deve garantire che ciascun aggregato soddisfi i requisiti dell'elemento software e che l'integrazione sia completata al termine dell'attività. Tutti i risultati di integrazione e test devono essere accuratamente documentati.\
+Parallelamente, è necessario aggiornare la documentazione utente in base alle modifiche apportate.\
+Successivamente, per ciascun requisito di qualificazione dell'elemento software, il programmatore deve sviluppare e documentare un insieme di test, casi di test (input, output, criteri di test) e procedure di test per condurre il Test di Qualificazione del Software. Si deve garantire che l'elemento software integrato sia pronto per il Test di Qualificazione del Software.\
+La valutazione del piano di integrazione, del design, del codice, dei test, dei risultati dei test e della documentazione utente deve essere eseguita considerando i seguenti criteri, con i relativi risultati documentati:
+- Tracciabilità ai requisiti di sistema;
+- Coerenza esterna con i requisiti di sistema;
+- Coerenza interna;
+- Copertura dei test rispetto ai requisiti dell'elemento software;
+- Appropriato utilizzo di standard e metodi di test;
+- Conformità ai risultati attesi;
+- Fattibilità del test di qualificazione del software;
+- Fattibilità di operatività e manutenzione.
+
+==== Test di qualifica del software
+Inizialmente, il programmatore deve condurre il testing di qualificazione conformemente ai requisiti di qualificazione dell'elemento software. Si deve garantire che l'implementazione di ciascun requisito software sia testata per la conformità. I risultati del testing di qualificazione devono essere accuratamente documentati.\
+Parallelamente, è necessario aggiornare la documentazione utente in base alle modifiche apportate.\
+Successivamente, il programmatore deve valutare il design, il codice, i test, i risultati dei test e la documentazione utente considerando i seguenti criteri, con i risultati delle valutazioni documentati:
+- Copertura dei test rispetto ai requisiti dell'elemento software;
+- Conformità ai risultati attesi;
+- Fattibilità dell'integrazione e del testing di sistema, se condotti;
+- Fattibilità di operatività e manutenzione.
+I risultati delle verifiche devono essere accuratamente documentati. Alla conclusione con successo delle verifiche il programmatore deve:
+- Aggiornare e preparare il prodotto software consegnabile per l'Integrazione di Sistema;
+- Stabilire una baseline per il design e il codice dell'elemento software.
+
+==== Integrazione di sistema
+Inizialmente, gli elementi di configurazione del software devono essere integrati, insieme agli elementi di configurazione dell'hardware, alle operazioni manuali e ad altri sistemi, come necessario, all'interno del sistema. Gli aggregati devono essere testati man mano che vengono sviluppati, verificando la conformità ai loro requisiti. L'integrazione e i risultati dei test devono essere accuratamente documentati.\
+Successivamente, per ciascun requisito di qualificazione del sistema, è necessario sviluppare e documentare un insieme di test, casi di test (input, output, criteri di test) e procedure di test.
+La valutazione del sistema integrato deve essere effettuata considerando i seguenti criteri, con i risultati delle valutazioni documentati:
+- Copertura dei test rispetto ai requisiti di sistema;
+- Appropriatezza dei metodi di test e degli standard utilizzati;
+- Conformità ai risultati attesi;
+- Fattibilità del test di qualificazione di sistema;
+- Fattibilità di operatività e manutenzione.
+
+==== Test di qualifica del sistema
+Inizialmente, il testing di qualificazione di sistema deve essere condotto conformemente ai requisiti di qualificazione specificati per il sistema. È necessario garantire che l'implementazione di ciascun requisito di sistema sia testata per la conformità e che il sistema sia pronto per la consegna. I risultati del testing di qualificazione devono essere accuratamente documentati.\
+Successivamente, il sistema deve essere valutato considerando i seguenti criteri, con i risultati delle valutazioni documentati:
+- Copertura dei test rispetto ai requisiti di sistema;
+- Conformità ai risultati attesi;
+- Fattibilità di operatività e manutenzione.
+I risultati delle verifiche devono essere accuratamente documentati. Si noti che questa sotto-clausola non è applicabile agli elementi di configurazione del software per i quali le verifiche sono state condotte in precedenza.\
+Al termine con successo delle verifiche, se condotte, il programmatore deve:
+- Aggiornare e preparare il prodotto software consegnabile per l'installazione del software e il supporto all'accettazione del software;
+- Stabilire una baseline per il design e il codice di ciascun elemento di configurazione del software.
+
+==== Installazione del software
+Inizialmente, il programmatore deve sviluppare un piano per installare il prodotto software nell'ambiente di destinazione designato nel contratto. Le risorse e le informazioni necessarie per l'installazione del prodotto software devono essere determinate e rese disponibili. Come specificato nel contratto, il programmatore deve assistere l'acquirente nelle attività di configurazione. Nel caso in cui il prodotto software installato sostituisca un sistema esistente, il programmatore deve supportare eventuali attività di esecuzione parallela richieste dal contratto. Il piano di installazione deve essere documentato.\
+Successivamente, il programmatore deve procedere con l'installazione del prodotto software conformemente al piano di installazione. Si deve garantire che il codice del software e i database si inizializzino, eseguano e terminino come specificato nel contratto. Gli eventi e i risultati dell'installazione devono essere accuratamente documentati.
+
+==== Supporto all'accettazione del software
+Innanzitutto, il programmatore è tenuto a supportare la revisione e il testing di accettazione del prodotto software da parte dell'acquirente. La revisione e il testing di accettazione devono tenere conto dei risultati delle Verifiche, del Testing di Qualificazione del Software e del Testing di Qualificazione di Sistema. I risultati della revisione e del testing di accettazione devono essere accuratamente documentati.\
+Successivamente, il programmatore deve completare e consegnare il prodotto software come specificato nel contratto.
 
 = Processi di supporto
 == Documentazione
