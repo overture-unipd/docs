@@ -8,7 +8,8 @@
     p.cardin,
   ),
   changelog: ( 
-    "0.1.1", "2023-12-XX", p.bulychov, p.fabbian, "Terminata la stesura della sezione 'Sviluppo'",
+    "0.1.2", "2023-12-19", p.bulychov, p.furno, "Migliorate le sezioni 'Verifica' e 'Validazione'",
+    "0.1.1", "2023-12-17", p.bulychov, p.fabbian, "Terminata la stesura della sezione 'Sviluppo'",
     "0.1.0", "2023-11-30", p.bulychov, p.vedovato, "Aggiunta delle sezioni 'Metriche di qualitá del processo' e 'Metriche di qualitá del prodotto'",
     "0.0.11", "2023-11-26", p.bulychov, p.vedovato, "Aggiunta della sezione 'Standard ISO/IEC 9126'",
     "0.0.10", "2023-11-22", p.amadori, p.vedovato, "Aggiunta della sezione 'Gestione della qualità'",
@@ -472,17 +473,38 @@ Le tecniche principali utilizzate in questa fase sono i test, rappresentati da e
 L'efficacia di un test è legata alla sua natura decidibile e ripetibile. Il termine "decidibile" implica che, dati gli stessi input, il test deve produrre sempre lo stesso risultato, mentre il termine "ripetibile" suggerisce che il test può essere eseguito più volte senza che i risultati siano influenzati da fattori esterni.\
 Fattori determinanti per l'efficacia dei test includono la qualità del codice, l'accurata identificazione dei requisiti e la definizione di un dominio di casi di prova adeguato. Quest'ultimo rappresenta l'insieme completo di tutti i possibili casi di prova che possono essere eseguiti sul software, ed è responsabilità del verificatore definirlo in base ai requisiti del software e alla sua complessità.\
 L'automazione dei test può essere realizzata attraverso l'utilizzo di strumenti specifici come driver, stub e logger. I driver sono componenti attive che guidano il test, mentre gli stub sono componenti passive che simulano parti del sistema non direttamente coinvolte nel test. I logger, invece, registrano i risultati dei test.\
-Diversi tipi di test sono disponibili, differenziandosi sulla base della dimensione dell'oggetto del test. I test di unità focalizzano singole unità di codice, come funzioni o metodi, mentre i test di integrazione si concentrano sull'interazione tra diverse unità di codice. I test di sistema, invece, esaminano il comportamento del software come sistema completo, mentre i test di integrazione di sistema considerano l'interazione tra diversi sistemi. I test di accettazione, infine, sono eseguiti dal cliente o utente finale per verificare la conformità del software ai requisiti.
+Diversi tipi di test sono disponibili, differenziandosi sulla base della dimensione dell'oggetto del test. 
+
+==== Test di unità
+I test di unità sono definiti sulle componenti software autonome più piccole e sono implementati principalmente durante la progettazione. Assumono due connotazioni diverse, in base al tipo di controllo che si vuole effettuare:
+- *Test funzionali*: verificano che l'output effettivo corrisponda con il valore atteso;
+- *Test strutturali*: verificano tutti i possibili cammini del codice tramite una serie di test.
+
+==== Test di integrazione
+Sono concepiti durante la fase di progettazione architetturale, successivamente ai test di unità. Verificano, con un approccio incrementale, la corretta integrazione tra le diverse unità software già testate. In aggiunta, è possibile annullare tali modifiche in modo da ripristinare uno stato sicuro nel caso si verifichino errori durante l'esecuzione di questo genere di test. \
+E' possibile seguire due approcci di integrazione:
+- *Top-down*: si comincia con le componenti di sistema che hanno più dipendenze e maggiore rilevanza esterna, garantendo così la disponibilità immediata delle funzionalità di alto livello. Questo approccio consente di testare in modo più approfondito le funzionalità centrali, rendendole disponibili prioritariamente.
+- *Bottom-up*: si inizia dalle componenti di sistema con meno dipendenze e maggior valore interno, ovvero quelle meno visibili all'utente.
+
+==== Test di sistema
+Sono concepiti  successivamente ai test di integrazione, durante la stesura dell'`Analisi dei Requisiti`. Servono a garantire il corretto funzionamento del sistema. Verificano, in particolare, che tutti i requisiti software specificati nel capitolato siano presenti e funzionanti.
+
+==== Testi di regressione
+I controlli di regressione si assicurano che le correzioni o le espansioni apportate a specifiche componenti architetturali non arrechino danni al resto del sistema. Questi controlli prevedono la ripetizione mirata di test di unità, integrazione e sistema essenziali per garantire che le modifiche non compromettano le funzionalità precedentemente verificate, evitando così il verificarsi di regressioni.
+
+==== Test di accettazione
+I test di accettazione servono a verificare che il prodotto finale soddisfi tutti i requisiti richiesti dal committente: per questo motivo devono essere svolti obbligatoriamente in sua presenza. 
+
 
 == Validazione
 === Scopo ed aspettative
 La validazione costituisce l'essenziale verifica che il prodotto software sia in linea con i requisiti e le aspettative del cliente, rappresentando una fase cruciale nello sviluppo del software.\
 Questo processo si concentra attentamente su diversi aspetti:
-- *Conformità ai requisiti*: Il prodotto deve soddisfare integralmente tutti i requisiti specificati dal cliente;
-- *Funzionamento corretto*: Il prodotto deve operare correttamente, in conformità con la logica di progettazione;
-- *Usabilità*: Il prodotto deve essere intuitivo e di facile utilizzo;
-- *Efficacia*: Il prodotto deve dimostrarsi efficace nel soddisfare le necessità dei clienti.
-L'aspettativa finale è di giungere ad un prodotto che risponda pienamente ai requisiti identificati ed operi.
+- *Conformità ai requisiti*: il prodotto deve soddisfare integralmente tutti i requisiti specificati dal cliente;
+- *Funzionamento corretto*: il prodotto deve operare correttamente, in conformità con la logica di progettazione;
+- *Usabilità*: il prodotto deve essere intuitivo e di facile utilizzo;
+- *Efficacia*: il prodotto deve dimostrarsi efficace nel soddisfare le necessità dei clienti.
+L'aspettativa finale è di giungere ad un prodotto che risponda pienamente ai requisiti identificati ed operi correttamente.
 
 === Descrizione
 Durante la fase di validazione, concentreremo l'attenzione sull'utilizzo dei test precedentemente eseguiti durante l'attività di verifica, dettagliatamente normati nelle sezioni pertinenti delle `Norme di Progetto`. Con l'esecuzione del test di accettazione concluderemo la validazione del prodotto.
