@@ -8,6 +8,7 @@
     p.cardin,
   ),
   changelog: ( 
+    "0.2.0", "2023-12-19", p.bettin, p.furno, "Aggiornate le sezioni 'Metriche di qualitá del processo' e 'Metriche di qualitá del prodotto'",
     "0.1.2", "2023-12-19", p.bulychov, p.furno, "Migliorate le sezioni 'Verifica' e 'Validazione'",
     "0.1.1", "2023-12-17", p.bulychov, p.fabbian, "Terminata la stesura della sezione 'Sviluppo'",
     "0.1.0", "2023-11-30", p.bulychov, p.vedovato, "Aggiunta delle sezioni 'Metriche di qualitá del processo' e 'Metriche di qualitá del prodotto'",
@@ -26,22 +27,17 @@
 )
 
 = Introduzione
-
 == Scopo del documento
-Questo documento ha lo scopo di descrivere le regole relative al Way of Working adottato da parte del gruppo per lo svolgimento del progetto didattico. In esso, dunque, appaiono tutte le best practices da seguire per ciascun processo e correlate attività che lo compongono, seguendo nel fare ciò la struttura definita dallo standard ISO/IEC 12207:1995.
-\
-Per la stesura è stato intrapreso un approccio di tipo incrementale, ovvero che prevede una realizzazione in più passi con aggiunte successive ad un impianto base. Di conseguenza ogni aggiornamento avverrà in funzione delle decisioni prese dal gruppo durante lo svolgimento del progetto stesso.
-\
+Questo documento ha lo scopo di descrivere le regole relative al Way of Working adottato da parte del gruppo per lo svolgimento del progetto didattico. In esso, dunque, appaiono tutte le best practices da seguire per ciascun processo e correlate attività che lo compongono, seguendo nel fare ciò la struttura definita dallo standard ISO/IEC 12207:1995.\
+Per la stesura è stato intrapreso un approccio di tipo incrementale, ovvero che prevede una realizzazione in più passi con aggiunte successive ad un impianto base. Di conseguenza ogni aggiornamento avverrà in funzione delle decisioni prese dal gruppo durante lo svolgimento del progetto stesso.\
 I membri del gruppo si impegnano a visionare regolarmente questo documento e a rispettare con disciplina le regole definite in esso, per fare in modo di essere professionali, coerenti, sistematici ed uniformi nello svolgere il lavoro necessario.
 
 == Scopo del progetto
-Il progetto richiede lo sviluppo e la valutazione di un'estensione dello standard in Carbonio: questa deve mantenere la compatibilità con i client attualmente supportati e permettere l'espansione delle funzionalità per i client di nuova generazione.
-\
-L'obiettivo che si vuole raggiungere è essere in grado di valutare se conviene investire tempo e denaro per integrare il protocollo JMAP su Carbonio. Una volta completato, infatti, il servizio sarà impiegato internamente presso _#(p.zextras)_ insieme agli stress test sviluppati dal gruppo per valutare le prestazioni, la manutenibilità e la completezza del protocollo in questione. Tale valutazione sarà effettuata in confronto con i protocolli attualmente sviluppati in Carbonio e permetterà di rispondere effettivamente alla domanda posta dal capitolato.
+L'obiettivo primario del progetto è eseguire una valutazione approfondita sulle performance di un server implementato con il protocollo JMAP e sviluppato utilizzando il linguaggio di programmazione Java. Tale valutazione non si limiterà alla semplice analisi delle prestazioni, ma comprenderà un'analisi dettagliata dei limiti di tale implementazione.\
+Questo processo di valutazione è stato concepito con l'intento di fornire all'azienda proponente un quadro completo, facilitandola nel confronto con gli standard attualmente implementati. L'analisi sarà arricchita dai risultati ottenuti attraverso stress test elaborati dal nostro gruppo. Questi stress test mirano a mettere alla prova l'implementazione del protocollo JMAP sotto diverse condizioni, valutando aspetti cruciali come le performance in situazioni di carico elevato, la manutenibilità del sistema e la completezza dell'implementazione del protocollo.
 
 == Glossario
-Per evitare ambiguitá o incomprensioni riguardanti la terminologia usata nel documento, é stato deciso di adottare un glossario in cui vengono riportate le varie definizioni. In questa maniera in esso verranno posti tutti i termini specifici del dominio d'uso con relativi significati.
-\
+Per evitare ambiguitá o incomprensioni riguardanti la terminologia usata nel documento, é stato deciso di adottare un glossario in cui vengono riportate le varie definizioni. In questa maniera in esso verranno posti tutti i termini specifici del dominio d'uso con relativi significati.\
 La presenza di un termine all'interno del glossario viene indicata applicando #glossary("questo stile").
 
 == Riferimenti
@@ -62,7 +58,8 @@ La presenza di un termine all'interno del glossario viene indicata applicando #g
 
 == Fornitura
 === Scopo
-Come stabilito dallo standard ISO/IEC 1995, il processo di fornitura contiene le attività e i compiti del fornitore necessari per lo svolgimento del progetto. Il fornitore dovrà accordarsi con il proponente per stabilire, all'interno di un contratto, i requisiti, i vincoli e la data di consegna del prodotto finale.\ Lo scopo di questo processo è di tracciare e descrivere le attività svolte da ogni componente del gruppo _#(g.name)_, per determinare quanto lavoro è ancora da completare oppure è stato ultimato rispetto alle richieste del proponente. \
+Come stabilito dallo standard ISO/IEC 1995, il processo di fornitura contiene le attività e i compiti del fornitore necessari per lo svolgimento del progetto. Il fornitore dovrà accordarsi con il proponente per stabilire, all'interno di un contratto, i requisiti, i vincoli e la data di consegna del prodotto finale.\
+Lo scopo di questo processo è di tracciare e descrivere le attività svolte da ogni componente del gruppo _#(g.name)_, per determinare quanto lavoro è ancora da completare oppure è stato ultimato rispetto alle richieste del proponente.\
 Una volta trovato l'accordo con il proponente sarà possibile passare alla fase esecutiva, redigendo il `Piano di Progetto`.
 
 === Descrizione
@@ -76,25 +73,25 @@ Questo processo è diviso nelle seguenti fasi:
 - Consegna e completamento.
 
 === Aspettative
-Il gruppo _#(g.name)_ intende instaurare e mantenere uno stretto rapporto di collaborazione con l'azienda proponente _Zextras_ e, in particolare, con le figure dei referenti: Alessio Crestani e Federico Rispo.  Grazie ad un dialogo continuo, il gruppo vuole:
-- ricevere feedback sul lavoro svolto;
-- verificare che i vincoli e i requisiti individuati corrispondano a quanto richiesto dal capitolato e dall'azienda proponente.
+Il gruppo _#(g.name)_ intende instaurare e mantenere uno stretto rapporto di collaborazione con l'azienda proponente _Zextras_ e, in particolare, con le figure dei referenti: Alessio Crestani e Federico Rispo. Grazie ad un dialogo continuo, il gruppo intende:
+- Ricevere feedback sul lavoro svolto;
+- Verificare che i vincoli e i requisiti individuati corrispondano a quanto richiesto dal capitolato e dall'azienda proponente.
 
 === Comunicazioni con il proponente
-L'azienda proponente _Zextras_ mette a disposizione l'email, i profili discord dei referenti e la piattaforma Carbonio come canali di comunicazione attraverso i quali chiarire dubbi e stabilire futuri incontri telematici. Le riunioni esterne non hanno una cadenza regolare, ma vengono richieste in base alle necessità dal gruppo o dall'azienda. \
+L'azienda proponente _Zextras_ fornisce l'indirizzo di posta elettronica, i profili discord dei referenti e la piattaforma Carbonio come canali di comunicazione attraverso i quali chiarire dubbi e stabilire futuri incontri telematici. Le riunioni esterne non hanno una cadenza regolare, ma vengono richieste in base alle necessità dal gruppo o dall'azienda.\
 Un incontro può essere richiesto, per esempio, per alcune delle seguenti necessità:
-- chiarimenti relativi a requisiti o vincoli del capitolato;
-- chiarimenti relativi alle tecnologie utilizzate;
-- richieste di feedback su quanto prodotto.
+- Chiarimenti relativi a requisiti o vincoli del capitolato;
+- Chiarimenti relativi alle tecnologie utilizzate;
+- Richieste di feedback su quanto prodotto.
 
-Per ogni colloquio con l'azienda proponente verrà redatto un resoconto sotto forma di `Verbale Esterno`, che riporterà nel nome e all'interno del documento la data del relativo incontro. \
+Per ogni colloquio con l'azienda proponente verrà redatto un resoconto sotto forma di `Verbale Esterno`, che riporterà nel nome e all'interno del documento la data del relativo incontro.\
 I verbali redatti potranno essere consultati all'interno della relativa cartella presente sul repository #link("https://github.com/overture-unipd/docs/tree/master/documents"), disponibile per ogni baseline del progetto. 
 
 === Documentazione fornita
 Vengono elencati di seguito i documenti che il gruppo _#(g.name)_ consegnerà all'azienda proponente _Zextras_ e ai committenti _Prof. Tullio Vardanega_ e _Prof. Riccardo Cardin_.
 
 ==== `Valutazione dei Capitolati`
-La `Valutazione dei capitolati` è un documento che fornisce una panoramica dettagliata sui capitolati d'appalto, presentati il giorno 2023-10-17. Per ogni progetto si individuano le richieste del proponente, le possibili soluzioni ed eventuali criticità. \
+La `Valutazione dei capitolati` è un documento che fornisce una panoramica dettagliata sui capitolati d'appalto, presentati il giorno 2023-10-17. Per ogni progetto si individuano le richieste del proponente, le possibili soluzioni ed eventuali criticità.\
 È suddiviso nelle seguenti sezioni:
 - *Descrizione*: nome del progetto, azienda proponente, informazioni generali relative al prodotto da sviluppare secondo quanto descritto nella presentazione del capitolato;
 - *Dominio applicativo*: contesto del progetto;
@@ -107,17 +104,22 @@ La `Valutazione dei capitolati` è un documento che fornisce una panoramica dett
 L'`Analisi dei Requisiti` è un documento che definisce le funzionalità che il prodotto è in grado di offrire ed i requisiti da soddisfare affinchè il software sviluppato sia conforme alle richieste fatte dal proponente.
 Contiene le seguenti informazioni:
 - *Descrizione del prodotto*: obiettivo finale del prodotto e le sue funzionalità principali;
-- *Lista dei casi d'uso*: identificazione di tutti gli scenari di utilizzo del sistema da parte degli utenti. Per ogni caso d'uso sono analizzati: lo scenario, gli attori coinvolti e le azioni che possono compiere;
+- *Lista dei casi d'uso*: identificazione di tutti gli scenari di utilizzo del sistema da parte degli utenti. Per ogni caso d'uso sono analizzati: 
+  - Scenario;
+  - Attori coinvolti;
+  - Azioni eseguibili.
 - *Lista dei requisiti*: tutte le richieste o vincoli definiti dal proponente o dedotti dal team per la realizzazione del prodotto finale. I requisiti possono essere obbligatori, desiderabili e opzionali e verranno classificati dal gruppo a seconda della loro importanza.
 
 ==== `Piano di Progetto`
-Il `Piano di Progetto` è un documento soggetto a versionamento e approvazione, redatto e aggiornato dal Responsabile con il supporto degli Amministratori durante tutta la durata del progetto. Ha l'obiettivo di delineare la pinaificarzione e la gestione delle attività necessarie per la realizzazione del progetto. \
+Il `Piano di Progetto` è un documento soggetto a versionamento e approvazione, redatto e aggiornato dal Responsabile con il supporto degli Amministratori durante tutta la durata del progetto. Ha l'obiettivo di delineare la pianificazione e la gestione delle attività necessarie per la realizzazione del progetto.\
 Contiene le seguenti informazioni:
-- *Analisi dei Rischi*: identificazione di eventuali problematiche riscontrate durante lo sviluppo che potrebbero rallentare o ostacolare le attività di progetto. Al fine di fare prevenzione sui problemi, il gruppo metterà a disposizione delle soluzioni per il team il prima possibile. Sono classificati in: rischi organizzativi e rischi tecnologici;
+- *Analisi dei Rischi*: identificazione di eventuali problematiche riscontrate durante lo sviluppo che potrebbero rallentare o ostacolare le attività di progetto. Al fine di fare prevenzione sui problemi, il gruppo metterà a disposizione delle soluzioni per il team il prima possibile. Sono classificati in: 
+  - Rischi organizzativi;
+  - Rischi tecnologici.
 - *Modello di sviluppo*: descrizione dell'approccio metodologico e strutturato utilizzato dal gruppo per lo sviluppo del prodotto;
-- *Pianificazione*: scansione dei periodi, con i relativi eventi e attività da svolgere, all'interno di un calendario. Per ogni periodo verranno inserite le suddivisioni dei ruoli e una stima dell'impegno richiesto da ogni componente del gruppo per svolgere le proprie attività;
-- *Preventivo*: stima della durata di ogni singolo periodo; il tempo necessario per poter completare tutte le attività;
-- *Consuntivo*: confronto del lavoro svolto rispetto al preventivo per ottentere lo stato di avanzamento del progetto alla fine di ogni periodo.
+- *Pianificazione*: scansione dei periodi, con i relativi eventi e attività da svolgere, all'interno di un calendario. Per ogni periodo verranno inserite le suddivisioni dei ruoli e una stima dell'impegno richiesto da ogni componente del gruppo per svolgere le proprie attività.
+- *Preventivo*: stima della durata di ciascun periodo, indicando il tempo necessario per completare tutte le attività previste;
+- *Consuntivo*:  analisi del lavoro effettivamente svolto rispetto al preventivo, finalizzata a ottenere uno stato di avanzamento del progetto alla fine di ciascun periodo.
 
 ==== `Piano di Qualifica`
 Il `Piano di Qualifica` è un documento formale che descrive i compiti e le attività svolte dal Verificatore all'interno del progetto, necessarie a garantire qualità al prodotto software che si intende sviluppare. È uno strumento fondamentale per la gestione del processo di sviluppo software: assicura che il prodotto finale sia conforme alle specifiche richieste e alle aspettative del committente, monitorando il suo stato di avanzamento rispetto agli obiettivi prefissati. Ogni membro del gruppo che parteciperà allo sviluppo farà riferimento a questo documento al fine di garantire la qualità richiesta.\
@@ -143,7 +145,7 @@ Gli strumenti software utilizzati per il processo di fornitura sono di seguito d
 Linguaggio utilizzato per la creazione dei diari di bordo, attraverso l'omonimo sito #link("typst.app").
 
 ==== Carbonio - Zextras Chats
-Il prodotto principale dell'azienda _Zextras_; è utilizzato dal gruppo _#(g.name)_ per organizzare videoconferenze con il proponente. 
+Il prodotto principale dell'azienda _Zextras_. Verrà utilizzato dal gruppo _#(g.name)_ per effettuare videoconferenze con il proponente. 
 
 ==== Discord //vediamo se toglierlo
 Piattaforma di messaggistica e videochat utilizzata dal gruppo per le riunioni interne e come metodo informale per contattare l'azienda proponente.
@@ -296,11 +298,11 @@ Successivamente, il programmatore deve procedere con l'installazione del prodott
 Innanzitutto, il programmatore è tenuto a supportare la revisione e il testing di accettazione del prodotto software da parte dell'acquirente. La revisione e il testing di accettazione devono tenere conto dei risultati delle Verifiche, del Testing di Qualificazione del Software e del Testing di Qualificazione di Sistema. I risultati della revisione e del testing di accettazione devono essere accuratamente documentati.\
 Successivamente, il programmatore deve completare e consegnare il prodotto software come specificato nel contratto.
 
+
 = Processi di supporto
 == Documentazione
 === Scopo
-Il processo di documentazione serve a tenere traccia di tutti processi e attività relativi al ciclo di vita
-del software, riportando le decisioni adottate e le norme attuate dal grupppo durante lo svolgimento del progetto. Le norme stabilite all'interno di questo documento verranno rispettate da tutti i membri del gruppo _#(g.name)_.
+Il processo di documentazione serve a tenere traccia di tutti processi e attività relativi al ciclo di vita del software, riportando le decisioni adottate e le norme attuate dal gruppo durante lo svolgimento del progetto. Le norme stabilite all'interno di questo documento verranno rispettate da tutti i membri del gruppo _#(g.name)_.
 
 === Descrizione
 La documentazione software traccia il lavoro svolto e le decisioni prese. Questa sezione del documento si occupa di tutte le norme adottate dal gruppo relative alla documentazione.
@@ -311,9 +313,9 @@ La documentazione software traccia il lavoro svolto e le decisioni prese. Questa
 
 === Ciclo di vita
 Il ciclo di vita di un documento è composto da sette fasi:
-+ Creazione o adattamento del template: la prima fase prevede la creazione o l'adattamento di un template per il documento corrente. Il template contiene la struttura e la formattazione del documento, nonché le informazioni di base, come titolo, autore e data;
-+ Pianificazione e assegnazione delle sezioni: nella seconda fase le sezioni del documento vengono pianificate e assegnate ai Redattori incaricati. I Redattori sono responsabili della stesura delle proprie sezioni in conformità con le `Norme di Progetto`;
-+ Raccolta dei contenuti e creazione della prima bozza: nella terza fase i Redattori raccolgono i contenuti da discutere e creano una prima bozza del documento. La bozza viene utilizzata come punto di partenza per la discussione e la revisione;
++ Creazione o adattamento del template: la prima fase prevede la creazione o l'adattamento di un template per il documento corrente. Il template contiene la struttura e la formattazione del documento, nonché le informazioni di base, come titolo, autore e data.
++ Pianificazione e assegnazione delle sezioni: nella seconda fase le sezioni del documento vengono pianificate e assegnate ai Redattori incaricati. I Redattori sono responsabili della stesura delle proprie sezioni in conformità con le `Norme di Progetto`.
++ Raccolta dei contenuti e creazione della prima bozza: nella terza fase i Redattori raccolgono i contenuti da discutere e creano una prima bozza del documento. La bozza viene utilizzata come punto di partenza per la discussione e la revisione.
 + Stesura effettiva del documento: la quarta fase vede i Redattori redirigere le proprie sezioni in conformità con il modello e le `Norme di Progetto`;
 + Controllo dei contenuti: nella quinta fase i Redattori verificano che il contenuto delle proprie sezioni sia conforme alle `Norme di Progetto` e non contenga errori di compilazione;
 + Revisione: la sesta fase prevede che un Verificatore incaricato revisioni il documento per assicurarsi che le modifiche apportate siano corrette;
@@ -323,7 +325,7 @@ Il ciclo di vita di un documento è composto da sette fasi:
 Per la composizione tipografica dei documenti, abbiamo deciso di utilizzare Typst, al posto del noto LaTeX. Typst offre diversi vantaggi rispetto a LaTeX:
 - semplicità di utilizzo (simile a Markdown);
 - programmabilità reale invece di un sistema di macro;
-- compilazione pressochè immediata.\
+- compilazione pressochè immediata.
 L'utilizzo di Typst semplifica la creazione e la manutenzione dei documenti, liberando i redattori dalla responsabilità della visualizzazione grafica e garantendo una certa coerenza nella documentazione del progetto.\
 Il template sviluppato ed utilizzato è presente nella #link(g.org+"/"+g.docs)[repository #g.docs], nella cartella `templates`.
 
@@ -358,7 +360,6 @@ Il contenuto del documento è suddiviso in capitoli, ognuno dei quali è formato
 
 ==== Corpo del verbale
 Il contenuto del verbale è suddiviso nelle seguenti sezioni:
-
 - *Informazioni sulla riunione*:
   - *Luogo*: può essere il luogo fisico dove si è tenuto l'incontro oppure il nome della piattaforma online utilizzata;
   - *Ora di inizio*;
@@ -367,7 +368,7 @@ Il contenuto del verbale è suddiviso nelle seguenti sezioni:
   - *Partecipanti esterni*: i nomi di eventuali partecipanti esterni.
 - *Ordine del giorno*: un elenco di ciò che verrà discusso durante la riunione;
 - *Sintesi dell'incontro*: contiene un breve riassunto delle discussioni e dei temi affrontati durante l'incontro;
-- *Decisioni prese*: sezione che elenca in forma testuale le decisioni prese durante l'incontro. Alcune di queste potrebbero risultare in "attività individuate";
+- *Decisioni prese*: sezione che elenca in forma testuale le decisioni prese durante l'incontro. Alcune di queste potrebbero risultare in "attività individuate".
 - *Attività individuate*: illustrazione dettagliata delle attività assegnate ai diversi membri del gruppo a conclusione dell'incontro. Queste informazioni, inserite in un'apposita tabella, riportano:
   - *ID*: collegamento alla relativa issue su GitHub;
   - *Dettaglio*: breve spiegazione dell'attività;
@@ -388,10 +389,10 @@ Verranno prodotti i seguenti documenti:
 
 ==== Nomi assegnati ai file
 I documenti PDF presenti nella #link(g.org+"/"+g.docs)[repository #g.docs], rispettano le seguenti regole per la nominazione dei file:
-- minuscolo per i nomi, tranne che per i verbali (marcati `VI` e `VE`, rispettivamente per interni ed esterni);
-- spaziatura fra le parole sostituita da un underscore;
-- per i verbali, la data dell'incontro è presente nel nome;
-- versione del documento alla fine del nome del file.
+- Minuscolo per i nomi, tranne che per i verbali (marcati `VI` e `VE`, rispettivamente per interni ed esterni);
+- Spaziatura fra le parole sostituita da un underscore;
+- Per i verbali, la data dell'incontro è presente nel nome;
+- Versione del documento alla fine del nome del file.
 
 I nomi dei documenti presenti nel progetto saranno quindi del tipo:
 - *`Norme di Progetto`*: `norme_di_progetto_vX.X.X`;
@@ -407,30 +408,26 @@ Usare lo stesso nome per i documenti consente di utilizzare Git in modo appropri
 
 ==== Stile del testo
 Nei documenti, esclusi i verbali, verranno utilizzati:
-
-- il _corsivo_ per:
-  - il nome del gruppo (_#(g.name)_);
-  - il nome dell'azienda proponente (_#(p.zextras)_).
-
-- il *grassetto* per:
-  - parole seguite da descrizione negli elenchi puntati;
-  - termini importanti;
-
-- un `font monospace` per:
-  - i nomi dei documenti;
-  - i nomi dei file;
-  - i nomi delle repository;
-  - i nomi delle cartelle;
-  - esempi di codice.
-
-- il #underline("sottolineato") per:
-  - i link;
-  - l'indirizzo email.
-
-- le lettere maiuscole per:
-  - le iniziali dei nomi;
-  - gli acronimi;
-  - le iniziali dei ruoli svolti dai componenti del gruppo.
+- Il _corsivo_ per:
+  - Il nome del gruppo (_#(g.name)_);
+  - Il nome dell'azienda proponente (_#(p.zextras)_).
+- Il *grassetto* per:
+  - Parole seguite da descrizione negli elenchi puntati;
+  - Termini importanti.
+- Un `font monospace` per:
+  - I nomi dei documenti;
+  - I nomi dei file;
+  - I nomi delle repository;
+  - I nomi delle cartelle;
+  - I nomi dei branch;
+  - Esempi di codice.
+- Il #underline("sottolineato") per:
+  - I link;
+  - L'indirizzo email.
+- Le lettere maiuscole per:
+  - Le iniziali dei nomi;
+  - Gli acronimi;
+  - Le iniziali dei ruoli svolti dai componenti del gruppo.
 
 === Elenchi puntati
 Ogni voce dell'elenco termina con un ";" tranne per l'ultima, che finisce con un ".". Fanno eccezione le voci composte da più di una frase, che possono terminare con ".", indipendentemente dalla posizione nell'elenco.
@@ -446,8 +443,6 @@ Viene adottato lo standard internazionale *ISO 8601*, nella forma `YYYY-MM-DD`, 
 I seguenti strumenti sono stati scelti dal gruppo per la realizzazione della documentazione:
 - *Typst*: linguaggio per la stesura dei documenti, tramite #link("typst.app");
 - *GitHub*: servizio di hosting di repository.
-
-//=== Metriche, più avanti
 
 == Verifica
 === Scopo ed aspettative
@@ -515,7 +510,7 @@ Durante la fase di validazione, concentreremo l'attenzione sull'utilizzo dei tes
 Il processo di gestione della configurazione viene attuato durante tutta la vita del software e identifica le norme adottate dal gruppo al fine di garantire la tracciabilità della documentazione e del codice prodotto.
 
 === Scopo
-Lo scopo di questo processo è di gestire e organizzare la procedura di modifica sulla documentazione e sul codice prodotto relative al progetto. Le modifiche passate saranno accessibili in qualsiasi momento: in questo modo sarà possibile controllare rapidamente le motivazioni alla base dei cambiamenti effettuati e i relativi autori.  
+Lo scopo di questo processo è di gestire e organizzare la procedura di modifica sulla documentazione e sul codice prodotto relative al progetto. Le modifiche passate saranno accessibili in qualsiasi momento, in questo modo sarà possibile controllare rapidamente le motivazioni alla base dei cambiamenti effettuati ed i relativi autori.  
 
 === Versionamento
 Il versionamento consente di tracciare le modifiche avvenute all'interno di un documento. In questo modo è possibile visualizzare i cambiamenti avvenuti nel tempo e, nel caso ce ne fosse bisogno, riportare il documento ad uno stadio precedente.\
@@ -524,12 +519,10 @@ Il gruppo _#(g.name)_ ha deciso di adottare il seguente formato per il versionam
 `X.Y.Z`
 #set align(left) 
 dove:
-- *`X`*: rappresenta il completamento in vista di una delle fasi del progetto. Viene creata dal Responsabile al momento della validazione;
-- *`Y`*: rappresenta una versione intermedia, che integra più di una modifica incrementale (`Z`) in maniera coerente. Il documento ad una versione del tipo `X.Y.0` è considerato stabile e coerente, seppur potenzialmente incompleto;
+- *`X`*: rappresenta il completamento in vista di una delle fasi del progetto. Viene creata dal Responsabile al momento della validazione.
+- *`Y`*: rappresenta una versione intermedia, che integra più di una modifica incrementale (`Z`) in maniera coerente. Il documento ad una versione del tipo `X.Y.0` è considerato stabile e coerente, seppur potenzialmente incompleto.
 - *`Z`*: rappresenta una qualsiasi modifica incrementale. Un esempio è l'aggiunta e/o modifica di una sezione.
-
 Le versioni dei verbali variano da questa convenzione: la versione è formata solamente da due cifre, dovuta alla brevità del testo e relativo tempo di scrittura.
-
 Ogni cambiamento, seguito dalla relativa approvazione, produce un incremento di versione che ha un peso diverso a seconda dell'entità della modifica effettuata. Inoltre, l'incremento di una qualsiasi cifra produrrà l'azzerameto di tutte le cifre alla sua destra.
 
 === Tecnologie utilizzate
@@ -537,24 +530,22 @@ Ogni cambiamento, seguito dalla relativa approvazione, produce un incremento di 
 - *Github*: servizio di hosting per progetti software utilizzato dal gruppo per coordinare le operazioni di versionamento. Viene utilizzato anche come Issue Tracking System.
 
 === Repository
-
 ==== Lista Repository
 Il gruppo utilizza 2 repository all'interno della propria "organizzazione #glossary("GitHub")":
 - #link("https://github.com/overture-unipd/docs"): contenente tutta la documentazione del progetto;
-- #link("https://github.com/overture-unipd/jmap"): contenente tutto il codice del progetto;
-
+- #link("https://github.com/overture-unipd/jmap"): contenente tutto il codice del progetto.
 È poi presente la repository contenente il sito web del gruppo. Questa non è rilevante al fine di questa discussione, poichè non riceve aggiornamenti.
 
 ==== Struttura della repository `docs`
-La repository è divisa in due branch: `master` contenente i PDF e `sources` contente i sorgenti Typst.\
-Per fornire una netta separazione tra i documenti effettivi dal resto dei file (licenza, `README`, #glossary("action"), #glossary("template")), è stata creata la cartella `documents`. Questa contiene le cartelle rappresentanti la documentazione delle varie fasi del progetto: `candidatura` (per la gara di appalto dei capitolati), `rtb` (Requirements and Technology Baseline), e `pb` (Product Baseline).
+Il contenuto della repository è separato da due branch che svolgono funzioni differenti: `master` continene i PDF compilati, `sources` contiene invece i sorgenti Typst.
 
-Le cartelle relative alle revisioni saranno organizzate quindi nel modo seguente: \
+Per entrambe le repository, abbiamo deciso di separare in modo netto i documenti dal resto dei file di supporto (`LICENSE`, `README`, #glossary(`actions`), #glossary(`templates`), ...). Nella cartella `documents` si trova quindi la documentazione relativa alle varie fasi del progetto: `candidatura` (per la gara di appalto dei capitolati), `rtb` (Requirements and Technology Baseline), e `pb` (Product Baseline).
+Le cartelle relative alle versioni dei documenti sono organizzate nel modo seguente:
 - *`candidatura`* contenente in:
   - `dichiarazione_impegni_v1.1.pdf`;
   - `lettera_di_presentazione.pdf`;
-  - `valutazione_capitolati_v1.1.pdf`.
-  - una cartella *`verbali`* con i verbali divisi nelle cartelle:
+  - `valutazione_capitolati_v1.1.pdf`;
+  - Una cartella *`verbali`* con i verbali divisi nelle cartelle:
     - *`interni`*;
     - *`esterni`*.
 - *`rtb`*, che contiene le cartelle:
@@ -581,40 +572,47 @@ Le cartelle relative alle revisioni saranno organizzate quindi nel modo seguente
     
 ==== Struttura della repository `jmap`
 
+In questa repository, utilizziamo due branch principali: `master` contenente l'ultima versione stabile del codice, `develop` contente le ultime modifiche. Generalmente le modifiche vengono unite in `master` da `develop` alla fine di ogni periodo.\
+I file fiscalmente relativi all'implementazione del server (escludendo #glossary(`actions`), `README`, ...) sono i seguenti:
+- `src/`: cartella contentente il codice del server, compreso di test di unità
+- `env/`: cartella contenente esempi di variabili d'ambiente necessarie all'esecuzione di istanze del server
+- `compose.yml`: configurazione di Docker Compose
+- `.justfile`: configurazione per #link("https://github.com/casey/just"). Serve a facilitare l'esecuzione di vari comandi all'interno della repository.
+- `build.gradle.kts`: file di configurazione di Gradle (il sistema di build).
+- `...`: _discrivere gli altri file_
 
 === Sincronizzazione
-La sincronizzazione avviene tramite repository condivise.
-
-Ogni attività da svolgere è tracciata da una specifica #glossary("issue"). All'inizio dello svolgimento di ognuna di esse, il componente interessato crea una diramazione del (#glossary("branch")) principale. Questo approccio consente di avere "workspace" indipendenti e quindi di poter lavorare parallelamente a più task, massimizzando il lavoro dei membri del team.\
+La sincronizzazione avviene tramite repository condivise su GitHub.
+Ogni attività da svolgere è tracciata da una specifica #glossary("issue"). All'inizio dello svolgimento di ognuna di esse, il componente interessato crea una diramazione del (#g lossary("branch")) "develop". Questo approccio consente di avere "workspace" indipendenti e quindi di poter lavorare parallelamente a più task, massimizzando il lavoro dei membri del team.\
 
 ==== Branch
-Ogni attività è strettamente legata ad un branch, creato appositamente dall'incaricato a partire dal ramo principale:
-- Per la repository `jmap`, il ramo principale è `master`.
-- Per la repository `docs` è invece `sources`. Attenzione che `master` è comunque il branch di default; con "branch principale" si intende quindi quello in cui le modifiche devono venire aggiunte.
-
+Per la repository `docs`
 I branch di questo tipo sono quindi single-purpose: una volta approvati e pubblicati tramite pull request vengono eliminati da un Amministratore o dal Responsabile.
 
+
+Ogni attività è strettamente legata ad un branch, creato appositamente dall'incaricato a partire dal branch principale:
+Per la repository `docs` è `sources`. Attenzione che `master` è comunque il branch di default, mentre con "branch principale" si intende il branch in cui le modifiche devono venire aggiunte.
+
+Per la repository `jmap`, il branch principale è `develop` mentre il branch di default rimane sempre `master`.
+
 ==== Pull Request
-Quando un'attività viene ultimata ed è pronta per la verifica, il membro del gruppo che ha creato il branch ha il compito di aprire una pull request. Il Verificatore è incaricato di controllare le modifiche attuate e, se non ci sono problemi, unirle al ramo principale.
+Quando un'attività viene ultimata ed è pronta per la verifica, il membro del gruppo che ci ha lavorato, ha il compito di aprire una pull request. Il Verificatore è incaricato di controllare le modifiche attuate e, se non ci sono problemi, unirle al branch principale.
 
 == Gestione della qualità
-
 === Scopo
 Il processo di gestione della qualità mira a garantire in modo adeguato che il software, gli artefatti ed i processi nel ciclo di vita del progetto siano allineati ai piani stabiliti e conformi ai canoni di qualità rispetto ai requisiti specificati. 
 
 === Descrizione
-Per poter garantire un determinato livello di qualità, abbiamo scelto di fare affidamento sui processi di verifica e validazione. Difatti, una volta definiti gli standard qualitativi da rispettare nel `Piano di Qualifica`, ciò che resta da fare è assicurarsi che questi vengano effettivamente applicati. Dunque inizialmente sono state definite le best practices per guidare l'esecuzione dei vari processi, oltre ai diversi canoni di qualità per i prodotti del progetto, e poi per certificare l'adesione a quest'ultimi abbiamo delegato tale responsabilità ai Verificatori.
+Per poter garantire un determinato livello di qualità, abbiamo scelto di fare affidamento sui processi di verifica e validazione. Difatti, una volta definiti gli standard qualitativi da rispettare nel `Piano di Qualifica`, ciò che resta da fare è assicurarsi che questi vengano effettivamente applicati. Dunque inizialmente sono state definite le best practices per guidare l'esecuzione dei vari processi, oltre ai diversi canoni di qualità per i prodotti del progetto, ed in seguito per certificare l'adesione a quest'ultimi abbiamo delegato tale responsabilità ai Verificatori.
 
 === Aspettative
 Ci si attende che il gruppo rispetti gli standard qualitativi definiti di comune accordo, realizzando documentazione adeguata e prodotti software all'altezza delle aspettative.
 
 === Metriche e strumenti
-Per poter garantire la gestione della qualità utilizziamo delle metriche che sono differenti a seconda del processo coinvolto; in questa maniera abbiamo uno strumento oggettivo per valutare il lavoro svolto.
+Per poter garantire la gestione della qualità utilizziamo delle metriche che sono differenti a seconda del processo coinvolto. In questo modo abbiamo uno strumento oggettivo per valutare il lavoro svolto.
 
 = Processi organizzativi
-
 == Gestione dei processi
-
 === Scopo
 Il processo di gestione, come stabilito dallo standard ISO/IEC 12207:1997, identifica le attività generali e compiti che ogni membro del gruppo dovrà attuare per la gestione dei processi di progetto.
 
@@ -628,7 +626,7 @@ Questo processo è suddiviso nelle seguenti attività:
 
 === Pianificazione
 ==== Scopo
-Come stabilito dallo standard ISO/IEC 12207:1997, il Responsabile ha il compito di predisporre i piani per l'esecuzione di tutte le attività relative alla pianificazione. I piani dovranno contenere la descrizione delle attività e dei compiti associati. \
+Come stabilito dallo standard ISO/IEC 12207:1997, il Responsabile ha il compito di predisporre i piani per l'esecuzione di tutte le attività relative alla pianificazione. I piani dovranno contenere la descrizione delle attività e dei compiti associati.\
 Il Responsabile redigerà questa pianificazione all'interno del documento `Piano di Progetto`, che riporterà una descrizione delle attività e dei compiti necessari a raggiungere l'obiettivo prefissato in un determinato periodo.
 
 ==== Descrizione
@@ -640,78 +638,77 @@ L'attività di pianificazione verrà articolata nelle seguenti sezioni:
 L'attività di pianificazione serve a stabilire delle regole comuni che il gruppo _Ouverture_ attuerà per la sua organizzazione lavorativa.
 
 ==== Ruoli
-I ruoli svolti dai membri
-del gruppo per il progetto sono decisi dal Responsabile di Progetto. Al termine del progetto ogni componente dovrà aver ricoperto tutti i ruoli, che sono di seguito descritti.
+I ruoli svolti dai membri del gruppo per il progetto sono decisi dal Responsabile di Progetto. Al termine del progetto ogni componente dovrà aver ricoperto tutti i ruoli, che sono di seguito descritti.
 
 *Responsabile di Progetto*\
-Il Responsabile ha il compito fondamentale di coordinare i membri del gruppo e rappresentarlo presso il proponente e i committenti. \
+Il Responsabile ha il compito fondamentale di coordinare i membri del gruppo e rappresentarlo presso il proponente e i committenti.\
 I suoi principali compiti sono:
-- approvare la documentazione;
-- gestire la pianificazione del progetto: determina le attività da svolgere e la loro priorità;
-- coordinare i membri: assegna e verifica l'avanzamento dei compiti che devono essere protati a termine;
-- studiare e gestire l'analisi dei rischi;
-- curare i rapporti tra i membri del gruppo e soggetti esterni.
+- Approvare la documentazione;
+- Gestire la pianificazione del progetto: determina le attività da svolgere e la loro priorità;
+- Coordinare i membri: assegna e verifica l'avanzamento dei compiti che devono essere protati a termine;
+- Studiare e gestire l'analisi dei rischi;
+- Curare i rapporti tra i membri del gruppo e soggetti esterni.
 
 *Amministratore di Progetto*\
 L'Amministratore definisce, controlla e gestisce l'ambiente e gli strumenti di lavoro del gruppo, con piena responsabilità sull'efficacia ed efficienza del Way of Working.\
 I suoi principali compiti sono:
-- migliorare l'ambiente di lavoro: ricercare gli strumenti necessari ad automatizzare i processi;
-- gestione dei processi: atta a risolverne i problemi legati;
-- redigere e mantenere la documentazione: gestisce il versionamento;
-- gestire la configurazione di prodotto: controllo sul prodotto software.
+- Migliorare l'ambiente di lavoro: ricercare gli strumenti necessari ad automatizzare i processi;
+- Gestione dei processi: atta a risolverne i problemi legati ai processi;
+- Redigere e mantenere la documentazione: gestisce il versionamento;
+- Gestire la configurazione di prodotto: controllo sul prodotto software.
 
 
 *Analista*\
-L'Analista approfondisce le richieste del Capitolato ed è presente principalmente nelle fasi iniziali del progetto. E' fondamentale che l' `Analisi dei Requisiti` sia adeguata: l'identificazione errata dei requisiti può compromettere in modo significato la fase di Progettazione e l'esito del progetto. Conosce meglio degli altri componenti il dominio del problema. \
+L'Analista approfondisce le richieste del Capitolato ed è presente principalmente nelle fasi iniziali del progetto. E' fondamentale che l' `Analisi dei Requisiti` sia adeguata: l'identificazione errata dei requisiti può compromettere in modo significato la fase di Progettazione e l'esito del progetto. Conosce meglio degli altri componenti il dominio del problema.\
 Ha il compito di:
-- studiare il problema e il relativo contesto applicativo;
-- raccogliere e studiare i bisogni dei committenti;
-- scrivere i documenti `Analisi dei Requisiti` e `Studio di Fattibilità`;
-- studiare i requisiti definendo la loro complessità.
+- Studiare il problema e il relativo contesto applicativo;
+- Raccogliere e studiare i bisogni dei committenti;
+- Scrivere i documenti `Analisi dei Requisiti` e `Studio di Fattibilità`;
+- Studiare i requisiti definendo la loro complessità.
 
 *Progettista*\
-Il Progettista determina le scelte realizzative del progetto, trasformando i requisiti individuati dagli Analisti in un'architettura che modelli il problema. Il Progettista seguirà lo sviluppo particolarmente, ma non la manutenzione. \
+Il Progettista determina le scelte realizzative del progetto, trasformando i requisiti individuati dagli Analisti in un'architettura che modelli il problema. Il Progettista seguirà lo sviluppo particolarmente, ma non la manutenzione.\
 Ha il compito di:
-- sviluppare un prodotto economico, facilmente manutenibile a partire dal lavoro dell'analista;
-- favorire efficienza ed efficacia grazie alle scelte tecniche effettuate;
-- garantire un basso grado di accoppiamento grazie ad un sistema ben strutturato.
+- Sviluppare un prodotto economico, facilmente manutenibile a partire dal lavoro dell'analista;
+- Favorire efficienza ed efficacia grazie alle scelte tecniche effettuate;
+- Garantire un basso grado di accoppiamento grazie ad un sistema ben strutturato.
 
 *Verificatore*\
-Il Verificatore controlla il lovoro svolto dagli altri componenti del gruppo, assicurandosi che le norme vengano attuate correttamente. \
+Il Verificatore controlla il lavoro svolto dagli altri componenti del gruppo, assicurandosi che le norme vengano attuate correttamente. \
 Ha il compito di:
-- verificare la correttezza delle attività tramite gli strumenti e tecniche definiti nelle `Norme di Progetto`;
-- redigere la sezione "Retrospettiva" del `Piano di Qualifica`, in cui descriverà che tipo di verifiche e metriche sono state adottare per le revisioni.
+- Verificare la correttezza delle attività tramite gli strumenti e tecniche definiti nelle `Norme di Progetto`;
+- Redigere la sezione "Retrospettiva" del `Piano di Qualifica`, in cui descriverà che tipo di verifiche e metriche sono state adottare per le revisioni.
 
 *Programmatore*\
-Il Programmatore è incaricato a svolgere l'attività di codifica del progetto e delle componenti di supporto con lo scopo di realizzare l'architettura proposta dal progettista. \
+Il Programmatore è incaricato di svolgere l'attività di codifica del progetto e delle componenti di supporto con lo scopo di realizzare l'architettura proposta dal progettista.\
 Ha il compito di:
-- implementare la Specifica Tecnica scritta dal Progettista;
-- scrivere codice mantenibile, che rispetti le `Norme di Progetto`;
-- creare test per la verifica e validazione del codice;
-- scrivere il manuale utente.
+- Implementare la Specifica Tecnica scritta dal Progettista;
+- Scrivere codice mantenibile, che rispetti le `Norme di Progetto`;
+- Creare test per la verifica e validazione del codice;
+- Scrivere il manuale utente.
 
 ==== Ticketing
 Il gruppo _Ouverture_ adotta l'*Issue Tracking System* (ITS) interno di GitHub. GitHub permette una gestione semplice e chiara dei compiti da svolgere: le Issue vengono create molto velocemente e possono essere chiuse con altrettanta rapidità.\
-È compito del Responsabile creare i task ed assegnarli ai vari membri del gruppo, il cui stato di avanzamento è consultabile all'interno della Board. \
-Le Issue sono create dal Responsabile e hanno:
-- *titolo*: identifica in modo univoco il compito da svolgere;
-- *descrizione*: una lista dei nomi dei file coinvolti nel task;
-- *assegnatario*: il componente incaricato a svolgere il task;
-- *verificatore*: il componente incaricato ad accertare il corretto completamento del task;
-- *milestone*: il traguardo da raggiungere;
-- *etichetta*: il tipo di task;
-- *stato*: avanzamento del task.
+È compito del Responsabile creare i task ed assegnarli ai vari membri del gruppo, il cui stato di avanzamento è consultabile all'interno della #glossary("Board").\
+Le Issue sono create dal Responsabile e sono composte da:
+- *Titolo*: identifica in modo univoco il compito da svolgere;
+- *Descrizione*: una lista dei nomi dei file coinvolti nel task;
+- *Assegnatario*: il componente incaricato a svolgere il task;
+- *Verificatore*: il componente incaricato ad accertare il corretto completamento del task;
+- *Milestone*: il traguardo da raggiungere;
+- *Etichetta*: il tipo di task;
+- *Stato*: avanzamento del task.
 Ogni qualvolta ci sia la necessità di portare a termine un compito è necessario seguire la seguente procedura:
-+ il Responsabile crea una nuova Issue su GitHub e la assegna. La Issue ha stato "to do";
-+ all'inizio del lavoro di produzione la Issue cambia stato, passando a "in progress". Viene creato un nuovo branch per ogni Issue;
-+ finito il lavoro di produzione, viene aperta una pull request su GitHub, inserendo nella descrizione il comando `closes(#X)`, dove X identifica univocamente la Issue. Viene assegnato il Verificatore;
-+ il Verificatore si accerta del lavoro svolto:
-  - se la verifica ha esito *positivo*:
-    + il Verificatore conferma su GitHub la pull requet ED effettua il merge al ramo principale;
-    + la Issue viene marcata "Done" su GitHub automaticamente.
-  - se la verifica ha esito *negativo*:
-    + il Verificatore rilascia una lista di cambiamenti suggeriti nella relativa Issue su GitHub;
-    + l'incaricato apporta le modifiche suggerite e si torna al punto 3.
++ Il Responsabile crea una nuova Issue con stato "to do" su GitHub e la assegna;
++ All'inizio del lavoro di produzione la Issue cambia stato, passando da "to do" ad "in progress", inoltre viene creato un nuovo branch per ogni Issue;
++ Finito il lavoro di produzione, viene aperta una pull request su GitHub, viene inserito nella descrizione il comando `closes #X`, dove X identifica univocamente la Issue e viene assegnato il Verificatore;
++ Il Verificatore si controlla il lavoro svolto e:
+  - Se la verifica ha esito *positivo*:
+    + Il Verificatore conferma su GitHub la pull requet ed effettua il merge al branch principale;
+    + La Issue viene marcata "Done" su GitHub automaticamente.
+  - Se la verifica ha esito *negativo*:
+    + Il Verificatore rilascia una lista di cambiamenti suggeriti nella relativa Issue su GitHub;
+    + L'incaricato apporta le modifiche suggerite e si torna al punto 3.
 
 === Coordinamento
 Il Coordinamento è l'attività responsabile della gestione delle comunicazioni e degli incontri tra le diverse parti coinvolte nel progetto, ovvero membri del team, proponente e committenti. Il coordinamento assume un ruolo di rilievo nell'assicurare l'efficienza del progetto e il coinvolgimento di tutte le parti interessate.\
@@ -756,15 +753,14 @@ L'obiettivo di una sessione di incontri è affrontare e risolvere gli argomenti 
 Come per il caso delle riunioni interne verrà redatto un Verbale con le stesse modalità descritte in precedenza.
 
 == Miglioramento
-
 === Scopo
 Il miglioramento rappresenta un procedimento volto a istituire, valutare, misurare, controllare e ottimizzare il ciclo di vita del software. In questo processo si va ad adottare un approccio ciclico, ovvero in cui le fasi vengono continuamente rivisitate e migliorate per garantire che il prodotto software risponda alle aspettative e mantenga elevati standard di qualità e efficienza.
 
 === Descrizione
 Questo processo organizzativo è costituito da tre attività: 
-- stabilimento dei processi;
-- valutazione dei processi;
-- miglioramento dei processi.
+- Stabilimento dei processi;
+- Valutazione dei processi;
+- Miglioramento dei processi.
 
 ==== Stabilimento dei processi
 Innanzitutto occorre stabilire una serie di processi organizzativi per l'intero ciclo di vita del software applicabili alle varie attività di progetto. Quest'ultimi devono essere documentati, come viene fatto proprio qui, e va implementato un meccanismo di controllo per sviluppare, monitorare e migliorare i processi stessi.
@@ -777,23 +773,22 @@ Una volta identificati i potenziali miglioramenti questi vanno effettivamente im
 
 === Metriche
 La misurazione del miglioramento nello sviluppo del software può coinvolgere diverse metriche che riflettono aspetti chiave del processo stesso. Generalmente andiamo a valutare le seguenti:
-- velocità di sviluppo;
-- tasso di errori;
-- conformità agli standard.
+- Velocità di sviluppo;
+- Tasso di errori;
+- Conformità agli standard.
 
 === Strumenti
 I seguenti strumenti sono stati scelti dal gruppo per il miglioramento:
 - *GitHub*: per valutare tramite issues o project board fattori come la velocità di sviluppo, ed inoltre per automatizzare molte attività ripetitive nel processo di sviluppo, come la build degli artefatti, migliorando l'efficienza complessiva.
 
 == Formazione
-
 === Scopo
-Dato che alla base di un progetto di successo troviamo un personale esperto e qualificato, per fare in modo che tutti i componenti del gruppo siano preparati ed aggiornati nel ricoprire i ruoli di progetto è fondamentale il processo di formazione. \
+Dato che alla base di un progetto di successo troviamo un personale esperto e qualificato, per fare in modo che tutti i componenti del gruppo siano preparati ed aggiornati nel ricoprire i ruoli di progetto è fondamentale il processo di formazione.\
 In esso definiamo come approfondire i temi necessari per il lavoro che andiamo a svolgere, al fine di essere tempestivi ed efficaci nell'apprendimento.
 
 === Descrizione
 Per poter formare i membri del gruppo è necessario innanzitutto comprendere a pieno il dominio del problema. Occorre quindi capire quali sono i temi da approfondire ed identificare nei vari processi da svolgere quali nozioni è necessario apprendere. \
-Fatto ciò si deve passare all'individuazione del materiale di formazione, il quale crescerà nel tempo, dato che man mano che il progetto avanza anche il nostro grado di conoscenza e comprensione del problema dovrà aumentare il più possibile. \
+Fatto ciò si deve passare all'individuazione del materiale di formazione, il quale crescerà nel tempo, dato che man mano che il progetto avanza anche il nostro grado di conoscenza e comprensione del problema dovrà aumentare il più possibile.\
 Infine, una volta capito cosa e da dove studiare, è necessario che ognuno dei componenti del gruppo vada ad aggiornarsi individualmente oppure, quando possibile, tramite supporto di altri membri più esperti.
 
 === Aspettative
@@ -802,7 +797,7 @@ Infine, una volta capito cosa e da dove studiare, è necessario che ognuno dei c
 === Strumenti
 Al fine di agevolare il processo di formazione, abbiamo optato per l'adozione di un repository privato, accessibile esclusivamente ai membri del gruppo, nel quale tutte le risorse utili sono organizzate in categorie per favorire un accesso efficiente e ordinato.
 
-= Standard ISO/IEC 9126 
+= Standard ISO/IEC 9126 per la qualità
 La norma ISO/IEC 9126 è uno standard internazionale che ha contribuito a definire i parametri essenziali per valutare la qualità del software. Questa norma rappresenta un insieme di linee guida dettagliate e criteri di valutazione per gli attributi chiave della qualità del software. In particolare, identifica sei macro-categorie di attributi di qualità del software, ognuna delle quali è ulteriormente scomposta in sottoattributi specifici:
 - *Funzionalità*;
 - *Affidabilità*;
@@ -812,7 +807,7 @@ La norma ISO/IEC 9126 è uno standard internazionale che ha contribuito a defini
 - *Portabilità*.
 
 == Funzionalitá
-La funzionalità si concentra sulla valutazione della capacità del software di fornire funzioni che soddisfano i requisiti specificati e impliciti. \
+La funzionalità si concentra sulla valutazione della capacità del software di fornire funzioni che soddisfano i requisiti specificati e impliciti.\
 I suoi sottoattributi sono:
 - *Adeguatezza*: é la capacità del software di fornire un insieme di funzionalità che soddisfano i requisiti specifici dell'utente e del contesto d'uso;
 - *Accuratezza*: é la capacità del software di fornire risultati corretti con il grado di precisione richiesto;
@@ -829,7 +824,7 @@ I suoi sottoattributi sono:
 - *Affidabilità delle Informazioni*: é la precisione e l'affidabilità delle informazioni fornite dal software.
 
 == Usabilitá
-L'usabilità è un aspetto critico nella valutazione della qualità del software, poiché influenza direttamente l'esperienza dell'utente durante l'interazione con il sistema. \
+L'usabilità è un aspetto critico nella valutazione della qualità del software, poiché influenza direttamente l'esperienza dell'utente durante l'interazione con il sistema.\
 I suoi sottoattributi sono:
 - *Comprensibilità*: é la facilità con cui l'utente può comprendere l'interfaccia utente, le informazioni presentate e il modo in cui eseguire le operazioni;
 - *Apprendibilità*: é la facilità con cui nuovi utenti possono imparare ad utilizzare il software, attraverso una curva di apprendimento rapida e un accesso chiaro alle funzionalità;
@@ -838,14 +833,14 @@ I suoi sottoattributi sono:
 - *Aderenza all'usabilità*: si riferisce alla misura in cui il software rispetta le linee guida e le convenzioni dell'usabilità.
 
 == Efficienza
-L'efficienza si concentra sulla capacità del software di utilizzare in modo ottimale le risorse a sua disposizione, garantendo prestazioni elevate e tempi di risposta rapidi. \
+L'efficienza si concentra sulla capacità del software di utilizzare in modo ottimale le risorse a sua disposizione, garantendo prestazioni elevate e tempi di risposta rapidi.\
 I suoi sottoattributi sono:
 - *Utilizzo delle Risorse*: misura quanto efficientemente il software sfrutti la capacità delle risorse di sistema durante l'esecuzione;
 - *Aderenza all'Efficienza*: indica quanto il software rispetti le linee guida e le migliori pratiche per l'ottimizzazione del codice e delle risorse;
 - *Comportamento rispetto al Tempo*: Rappresenta la capacità del software di rispondere rapidamente alle richieste degli utenti e di adattarsi dinamicamente alle variazioni di carico.
 
 == Manutenibilità
-La manutenibilità si concentra sulla facilità con cui il software può essere modificato, corretto, adattato e migliorato nel tempo. \
+La manutenibilità si concentra sulla facilità con cui il software può essere modificato, corretto, adattato e migliorato nel tempo.\
 I suoi sottoattributi sono:
 - *Analizzabilità*: é la facilità con cui è possibile analizzare il codice sorgente per identificare errori, problemi di progettazione o aree di miglioramento;
 - *Modificabilità*: é la facilità con cui il software può essere modificato senza causare effetti indesiderati o introduzione di nuovi errori;
@@ -854,7 +849,7 @@ I suoi sottoattributi sono:
 - *Aderenza alla manutenibilità*: si riferisce alla misura in cui il software rispetta le linee guida e le convenzioni della manutenibilità.
 
 == Portabilità
-La portabilità si riferisce alla facilità con cui il software può essere trasferito da un ambiente a un altro senza dover apportare modifiche sostanziali. \
+La portabilità si riferisce alla facilità con cui il software può essere trasferito da un ambiente a un altro senza dover apportare modifiche sostanziali.\
 I suoi sottoattributi sono:
 - *Adattabilità*: é la capacità del software di adattarsi a diversi ambienti senza richiedere modifiche sostanziali al codice sorgente o all'architettura;
 - *Installabilità*: é la facilità con cui il software può essere installato in un nuovo ambiente;
@@ -862,107 +857,93 @@ I suoi sottoattributi sono:
 - *Coesistenza*: é la capacità del software di operare in modo efficace e senza conflitti all'interno di un ambiente condiviso con altre applicazioni;
 - *Aderenza alla portabilità*: si riferisce alla misura in cui il software rispetta le linee guida e le convenzioni della portabilità.
 
+
 = Metriche di qualitá del processo
+L'acronimo principale utilizzato in questa sezione è MPC da #underline[M]etriche di qualità del #underline[P]ro#underline[C]esso.
 
 == Processi primari
-
 === Fornitura
-
 -  *MPC01 - Earned value (EV)*: misura il valore del lavoro effettivamente completato rispetto al valore pianificato;
-
--  *MPC02 - Planned value(PA)*: rappresenta il valore pianificato del lavoro da completare in un determinato momento;
-
+-  *MPC02 - Planned value(PV)*: rappresenta il valore pianificato del lavoro da completare in un determinato momento;
 -  *MPC03 - Actual cost (AC)*: indica il costo effettivamente sostenuto per completare il lavoro fino a un certo momento;
-
--  *MPC04 - Cost variance (CV)*: misura la differenza tra il valore guadagnato e il costo effettivamente sostenuto;
+-  *MPC04 - Cost variance (CV)*: misura la differenza tra il valore guadagnato e il costo effettivamente sostenuto. Se ha valore negativo ciò significa che si è fuori budget.
   #align(center)[$"CV" = "EV" - "AC"$]
-
--  *MPC05 - Scheduled variance (SV)*: indica la differenza tra il valore guadagnato e il valore pianificato;
-  #align(center)[$"SV" = "EV" - "PA"$]
-
+-  *MPC05 - Schedule variance (SV)*: indica la differenza tra il valore guadagnato e il valore pianificato. Se ha valore negativo ciò significa che si è in ritardo rispetto alle previsioni.
+  #align(center)[$"SV" = "EV" - "PV"$]
 -  *MPC06 - Estimated at completion (EAC)*: fornisce una stima del costo totale del progetto basato sul rendimento attuale;
   #align(center)[$"EAC"="AC"+"ETC"$]
-
 -  *MPC07 - Estimate to complete (ETC)*: indica la stima dei costi rimanenti per completare il progetto;
   #align(center)[$"ETC"="BAC"−"EV"$]
+  - *BAC*: rappresenta il Budget At Completion;
+  
 === Sviluppo
-
--  *MPC07 - Requirements stability index (RSI)*: valuta la stabilità dei requisiti nel corso del tempo;
-  #align(center)[$"RSI"=("RA"+"RC"+"RR")/"TR" * 100$]
+-  *MPC08 - Requirements stability index (RSI)*: valuta la stabilità dei requisiti nel corso del tempo:
+  #align(center)[$"RSI"=100-(("RA"+"RC"+"RR")/"TR") * 100$]
   - *RA*: rappresenta il numero di requisiti aggiunti nel periodo considerato;
   - *RC*: rappresenta il numero di requisiti cambiati nel periodo considerato;
   - *RR*: rappresenta il numero di requisiti rimossi nel periodo considerato;
   - *TR*: rappresenta il numero totale di requisiti al momento dell'analisi.
-
-== Processi organizzativi
-
-=== Gestione organizzativa
-
--  *MPC09 - Non-calculated risk*: monitora i rischi non inclusi nelle stime e nelle previsioni.
+-  *MPC09 - Structural Fan-In (SFIN)*: indice di utilità che esprime la quantità di componenti che sfruttano un modulo specifico;
+-  *MPC10 - Structural Fan-Out (SFOUT)*: indice di dipendenza che rappresenta il numero di componenti utilizzate dal modulo preso in considerazione;
 
 == Processi di supporto
-
 === Documentazione
-
--  *MPC10 - Indice Gulpease*: valuta la leggibilità di un documento in lingua italiana;
+-  *MPC11 - Indice Gulpease*: valuta la leggibilità di un documento in lingua italiana:
   #align(center)[$"IG"= 89 + (300*N_f- 10*N_l)/N_p$]
   - *N#sub[f]* : numero di frasi;
   - *N#sub[l]* : numero di lettere;
   - *N#sub[p]* : numero di parole.
-
--  *MPC11 - Correttezza ortografica*: misura il numero di errori ortografici in un documento.
+-  *MPC12 - Correttezza ortografica*: misura il numero di errori ortografici in un documento.
 
 === Verifica
-
--  *MPC12 - Code coverage*: indica la percentuale di codice sorgente testato rispetto al totale;
-
--  *MPC13 - Passed test cases percentage*: valuta la percentuale di casi di test superati con successo.
+-  *MPC13 - Code coverage*: indica la percentuale di codice sorgente testato rispetto al totale;
+-  *MPC14 - Passed test cases percentage*: valuta la percentuale di casi di test superati con successo.
 
 === Gestione della qualitá
+-  *MPC15 - Quality metrics satisfied*: monitora il grado di soddisfacimento delle metriche di qualità stabilite.
 
--  *MPC14 - Quality metrics satisfied*: monitora il grado di soddisfacimento delle metriche di qualità stabilite.
+== Processi organizzativi
+=== Gestione dei processi
+-  *MPC16 - Non-calculated risk*: monitora i rischi non inclusi nelle stime e nelle previsioni;
+-  *MPC17 - Efficienza temporale*: valuta quanto tempo viene effettivamente impiegato in attività produttive, ovvero che portano al raggiungimento di obiettivi, rispetto al tempo totale trascorso, misurato in ore di orologio:
+  #align(center)[$"ET"= O_o/O_p$]
+  - *O#sub[o]* : ore di orologio;
+  - *O#sub[p]* : ore produttive.
 
 = Metriche di qualitá del prodotto
+L'acronimo principale utilizzato in questa sezione è MPD da #underline[M]etriche di qualità del #underline[P]ro#underline[D]otto.
 
 == Funzionalitá
-
--  *MPD01 - Copertura dei requisiti obbligatori*: misura la percentuale di requisiti obbligatori coperti;
+-  *MPD01 - Copertura dei requisiti obbligatori*: misura la percentuale di requisiti obbligatori coperti:
   #align(center)[$"CRO" = "ROC" / "TRO" * 100$]
   - *ROC*: numero di requisiti obbligatori coperti dall’implementazione;
   - *TRO*: numero totale di requisiti obbligatori.
-
--  *MPD02 - Copertura dei requisiti desiderabili*: valuta la percentuale di requisiti desiderabili coperti;
+-  *MPD02 - Copertura dei requisiti desiderabili*: valuta la percentuale di requisiti desiderabili coperti:
   #align(center)[$"CRD" = "RDC" / "TRD" * 100$]
   - *RDC*: numero di requisiti desiderabili coperti dall’implementazione;
   - *TRD*: numero totale di requisiti desiderabili.
-  
--  *MPD03 - Copertura dei requisiti opzionali*: quantifica la percentuale di requisiti opzionali coperti;
+-  *MPD03 - Copertura dei requisiti opzionali*: quantifica la percentuale di requisiti opzionali coperti:
   #align(center)[$"CRP" = "RPC" / "TRP" * 100$]
   - *RDC*: numero di requisiti opzionali coperti dall’implementazione;
   - *TRD*: numero totale di requisiti opzionali.
 
 == Affidabilitá
-
 -  *MPD04 - Code coverage*: rappresenta la percentuale di codice sorgente eseguito durante i test rispetto al totale;
-
 -  *MPD05 - Branch coverage*: misura la percentuale di rami decisionali del codice coperti durante i test;
-
 -  *MPD06 - Statement coverage*: quantifica la percentuale di istruzioni del codice sorgente eseguite durante i test;
-
--  *MPD07 - Failure density*: calcola il numero di fallimenti riscontrati durante i test per unità di dimensione del codice;
+-  *MPD07 - Failure density*: calcola il numero di fallimenti correttamente riscontrati durante i test per unità di dimensione del codice.
 
 == Usabilitá
-
--  *MPD08 - Facilitá di utilizzo*: valuta la facilità con cui gli utenti possono interagire con il sistema.
+-  *MPD08 - Facilitá di utilizzo*: valuta la facilità con cui gli utenti possono interagire con il sistema;
+-  *MPD09 - Tempo di apprendimento*: valuta quanto tempo gli utenti impiegano per imparare ad utilizzare efficacemente il server mail e tutte le sue funzionalità.
 
 == Efficienza
-
--  *MPD09 - Utilizzo risorse*: misura l'efficienza del sistema in termini di utilizzo delle risorse.
+-  *MPD10 - Utilizzo risorse*: misura l'efficienza del sistema in termini di utilizzo delle risorse.
 
 == Manutenibilitá
-
--  *MPD10 - Complessità ciclomatica*: valuta la complessità del codice sorgente attraverso la misurazione del numero di cammini indipendenti attraverso il grafo di controllo di flusso;
-
--  *MPD11 - Comprensibilitá del codice*: esprime la facilità con cui il codice può essere compreso e interpretato da chi deve effettuare la manutenzione;
-
--  *MPD12 - Code smell*: rileva potenziali problemi di progettazione o codice che potrebbe richiedere manutenzione.
+-  *MPD11 - Complessità ciclomatica*: valuta la complessità del codice sorgente attraverso la misurazione del numero di cammini indipendenti attraverso il grafo di controllo di flusso;
+-  *MPD12 - Code smell*: rileva potenziali problemi di progettazione o codice che potrebbe richiedere manutenzione;
+-  *MPD13 - Coefficient of Coupling (COC)*: fornisce una valutazione quantitativa del grado di dipendenza tra i moduli o le componenti di un sistema:
+  #align(center)[$"COC" = "NDIP" / "NMOD" *100$]
+  - *NDIP*: numero totale di dipendenze tra moduli;
+  - *NMOD*: numero totale di moduli nel sistema.
