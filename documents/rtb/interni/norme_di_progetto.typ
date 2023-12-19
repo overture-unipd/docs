@@ -8,8 +8,8 @@
     p.cardin,
   ),
   changelog: ( 
-    "0.1.2", "2023-12-XX", p.bulychov, p.furno, "Migliorate le sezioni 'Verifica' e 'Validazione'",
-    "0.1.1", "2023-12-XX", p.bulychov, p.fabbian, "Terminata la stesura della sezione 'Sviluppo'",
+    "0.1.2", "2023-12-18", p.bulychov, p.furno, "Migliorate le sezioni 'Verifica' e 'Validazione'",
+    "0.1.1", "2023-12-12", p.bulychov, p.fabbian, "Terminata la stesura della sezione 'Sviluppo'",
     "0.1.0", "2023-11-30", p.bulychov, p.vedovato, "Aggiunta delle sezioni 'Metriche di qualitá del processo' e 'Metriche di qualitá del prodotto'",
     "0.0.11", "2023-11-26", p.bulychov, p.vedovato, "Aggiunta della sezione 'Standard ISO/IEC 9126'",
     "0.0.10", "2023-11-22", p.amadori, p.vedovato, "Aggiunta della sezione 'Gestione della qualità'",
