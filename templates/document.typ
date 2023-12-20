@@ -28,6 +28,7 @@
   set heading(numbering: heading_numbers)
   set page(numbering: "1 / 1")
   show link: underline
+  show figure: set block(breakable: true)
 
   let date = changelog.at(1, default: none);
   let version = changelog.at(0, default: none);
@@ -408,5 +409,20 @@
         }
       }
     })
+  )
+}
+
+#let metrics(r) = {
+  let metrics_header = ([*Metrica*], [*Nome*], [*Valore accettabile*], [*Valore ottimo*])
+  r = metrics_header + r
+
+  align(center,
+    table(
+      fill: (_, row) => if calc.odd(row) { luma(215) } else { white },
+      inset: 0.5em,
+      columns: (auto,)*4,
+      align: center,
+      ..r.map(el => text(size: 0.85em, hyphenate: false)[#par(justify: false, el)],)
+    )
   )
 }
