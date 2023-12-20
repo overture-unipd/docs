@@ -46,8 +46,8 @@ Come ultimo punto, abbiamo discusso la creazione di un verbale esterno per tracc
   (g.docs, 114), [Stesura del verbale esterno del 2023-11-21], p.vedovato,
   (g.docs, 104), [Stesura di _questo_ verbale], p.fabbian,
   (g.jmap, 4), [Esporre un endpoint per il reset dei dati sul database], p.bonavigo,
-  (g.jmap, 5), [pre-commit per controlli prima di effettuare commit], p.bulychov,
+  (g.jmap, 5), [pre-commit per controlli prima di effettuare commit], (p.bulychov, p.amadori),
   (g.jmap, 6), [CI per controlli durante le pull-request], p.bonavigo,
   (g.jmap, 7), [Recupero di tutte le mail di un utente], p.bonavigo,
-  (g.jmap, 8), [Gestione dell'autenticazione], p.bulychov,
+  (g.jmap, 8), [Gestione dell'autenticazione], (p.bulychov, p.amadori),
 ))

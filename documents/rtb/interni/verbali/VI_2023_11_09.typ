@@ -22,9 +22,9 @@
 - *Partecipanti*: #p.amadori, #p.bettin, #p.bonavigo, #p.bulychov, #p.fabbian, #p.furno, #p.vedovato.
 
 == Ordine del giorno
-- discussione sull'incontro appena svolto con il proponente;
-- breve esplorazione dei possibili linguaggi da utilizzare;
-- decisione dei ruoli validi per le prime due settimane.
+- Discussione sull'incontro appena svolto con il proponente;
+- Breve esplorazione dei possibili linguaggi da utilizzare;
+- Decisione dei ruoli validi per le prime due settimane.
 
 = Sintesi dell'incontro
 Immediatamente dopo l'incontro tenuto con _#(p.zextras)_, il gruppo si è riunito per una ulteriore discussione. Da quanto emerso nell'incontro, ci è risultato abbastanza urgente informarci sulle possibili tecnologie necessarie per il progetto. Ogni membro del gruppo inizierà a colmare i buchi di conoscenza riguardo i punti maggiormente richiesti dal proponente: sistemi di containerizzazione e framework di stress testing.

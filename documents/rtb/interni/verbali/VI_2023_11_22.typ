@@ -23,7 +23,7 @@
 - *Partecipanti*: #p.amadori, #p.bettin, #p.bonavigo, #p.bulychov, #p.fabbian, #p.furno, #p.vedovato.
 
 == Ordine del giorno
-- Valutazione Analisi dei Requisiti;
+- Valutazione `Analisi dei Requisiti`;
 - Analisi e valutazione delle librerie identificate;
 - Analisi e valutazione del linguaggio di programmazione da utilizzare;
 - Valutazione Piano di Progetto.
@@ -35,9 +35,9 @@ Il gruppo ha concordemente espresso la necessità di organizzare un ulteriore in
 L'ultimo punto affrontato riguradava lo stato del documento Piano di Progetto. Anche in questo caso, il gruppo si è dichiarato soddisfatto del documento ed ha individuato le prossime attività da intraprendere. 
 
 = Decisioni prese
-- possibilità da parte di ogni componente del gruppo di ricoprire più ruoli contemporaneamente;
-- decisione di utilizzare la libreria proposta da _#(p.zextras)_;
-- decisione di utilizzare Scala come linguaggio di programmazione;
+- Possibilità da parte di ogni componente del gruppo di ricoprire più ruoli contemporaneamente;
+- Decisione di utilizzare la libreria proposta da _#(p.zextras)_;
+- Decisione di utilizzare Scala come linguaggio di programmazione.
 
 = Attività individuate
 
