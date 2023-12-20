@@ -9,6 +9,8 @@
     [_#(p.zextras)_],
   ),
   changelog: (
+    "0.0.5", "2023-12-20", p.amadori, p.furno, "Stesura della sezione 'Cruscotto di valutazione della qualità'",
+    "0.0.4", "2023-12-20", p.amadori, p.furno, "Stesura della sezione 'Metodologie di testing'",
     "0.0.3", "2023-12-19", p.bettin, p.fabbian, "Stesura della sezione 'Qualità di prodotto' in 'Obiettivi metrici di qualità'",
     "0.0.2", "2023-12-19", p.bettin, p.fabbian, "Stesura della sezione 'Qualità di processo' in 'Obiettivi metrici di qualità'",
     "0.0.1", "2023-11-15", p.bulychov, p.amadori, "Struttura di base ed introduzione",
@@ -223,3 +225,99 @@ La qualità di prodotto si riferisce all'insieme delle caratteristiche di un'ent
   [≤ 30%],
   [≤ 10%]
 ))
+
+#pagebreak()
+
+= Metodologie di testing
+In questa sezione vengono elencati i test eseguiti sul prodotto, necessari per dimostrare che i vincoli individuati all'interno del documento `Analisi dei Requisiti` siano soddisfatti.\ Come anticipato all'interno delle `Norme di Progetto`, i test si dividono in:
+- *Test di unità*: definiti sulle unità software autonome più piccole, sono implementati principalmente durante la progettazione;
+- *Test di integrazione*: successivi ai test di unità, servono a verificare la corretta integrazione tra le diverse unità software;
+- *Test di sistema*: garantiscono il corretto funzionamento del sistema. In particolare, verificano che tutti i requisiti individuati funzionino;
+- *Test di accettazione*: alla presenza del committente, servono a verificare che il prodotto finale soddisfi tutti i requisiti.
+Per la prima revisione del prodotto (RTB) vengono inseriti esclusivamente i test di *unità* implementati e verificati per il Proof of Concept (PoC).
+
+== Codice dei test
+Ogni test è associato ad un codice univoco definito nel seguente formato:
+#set align(center)
+*T[Tipologia]-[Numero]*
+#set align(left) 
+Dove *Tipologia* indica la tipologia del test:
+- *U*: di unità;
+- *I*: di integrazione;
+- *S*: di sistema;
+- *A*: di accettazione.
+Ogni test ha uno *Stato*, che puo essere:
+- *V*: verificato. Il test ha esito positivo;
+- *E*: non verificato. Il test ha esito negativo;
+- *NI*: non implementato.
+
+== Test di unità
+Sono stati utilizzati i framework di unit testing *JUnit* e *Mockito*.
+#test(
+  (
+    "TU-1","Verificare che l'oggetto mail venga inserito correttamente nel database", "V",
+    "TU-2","Verificare che l'oggetto mail inviato dal database venga ricevuto correttamente", "V",
+  )
+)
+
+#pagebreak()
+
+= Cruscotto di valutazione della qualità
+
+== MPC06 - Estimated at Completion (EAC)
+#figure(image("//imgs/PdQ_graphs/EAC.png", width: 100%))
+
+#pagebreak()
+
+== MPC01 - Earned Value (EV) e MPC02 - Planned Value (PV)
+#figure(image("//imgs/PdQ_graphs/EV_PV.png", width: 100%))
+
+#pagebreak()
+
+== MPC03 - Actual Cost (AC) e MPC07 - Estimate to Complete (ETC)
+#figure(image("//imgs/PdQ_graphs/AC_ETC.png", width: 100%))
+
+#pagebreak()
+
+== MPC04 - Cost Variance (CV) e MPC05 - Schedule Variance (SV)
+#figure(image("//imgs/PdQ_graphs/CV_SV.png", width: 100%))
+
+#pagebreak()
+
+== MPC08 - Requirements stability index (RSI)
+#figure(image("//imgs/PdQ_graphs/RSI.png", width: 100%))
+
+#pagebreak()
+
+
+== MPC11 - Indice Gulpease
+#figure(image("//imgs/PdQ_graphs/Gulpease.png", width: 100%))
+
+#pagebreak()
+
+== MPC12 - Correttezza Ortografica
+#figure(image("//imgs/PdQ_graphs/CorrOrt.png", width: 100%))
+
+#pagebreak()
+
+== MPC13 - Code Coverage
+#figure(image("//imgs/PdQ_graphs/CodeCov.png", width: 100%))
+
+#pagebreak()
+
+== MPC14 - Passed Test Cases Percentage
+#figure(image("//imgs/PdQ_graphs/PassedTest.png", width: 100%))
+
+#pagebreak()
+
+== MPC15 - Quality Metrics Satisfied
+#figure(image("//imgs/PdQ_graphs/QaulityMetSat.png", width: 100%))
+#pagebreak()
+
+== MPC16 - Non-Calculated Risk
+#figure(image("//imgs/PdQ_graphs/NonCalcRisk.png", width: 100%))
+
+#pagebreak()
+
+== MPC17 - Efficienza Temporale
+#figure(image("//imgs/PdQ_graphs/EffTemp.png", width: 100%))
