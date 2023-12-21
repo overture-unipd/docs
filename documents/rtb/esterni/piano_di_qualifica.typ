@@ -9,6 +9,7 @@
     [_#(p.zextras)_],
   ),
   changelog: (
+    "0.1.0", "2023-12-20", p.amadori, p.bulychov, "Stesura della sezione 'Iniziative di automiglioramento per la qualità'",
     "0.0.5", "2023-12-20", p.amadori, p.furno, "Stesura della sezione 'Cruscotto di valutazione della qualità'",
     "0.0.4", "2023-12-20", p.amadori, p.furno, "Stesura della sezione 'Metodologie di testing'",
     "0.0.3", "2023-12-19", p.bettin, p.fabbian, "Stesura della sezione 'Qualità di prodotto' in 'Obiettivi metrici di qualità'",
@@ -321,3 +322,79 @@ Sono stati utilizzati i framework di unit testing *JUnit* e *Mockito*.
 
 == MPC17 - Efficienza Temporale
 #figure(image("//imgs/PdQ_graphs/EffTemp.png", width: 100%))
+
+#pagebreak()
+
+= Iniziative di automiglioramento per la qualità
+
+== Introduzione
+Un team di progetto è in grado di completare i compiti in modo efficiente a mantenendo un grado elevato di qualità, riducendo i costi e aumentando i profitti solo se mette la produttività in cima alla scala dei valori.\
+Di seguito infatti ci dedichiamo al tema del miglioramento della produttività dei processi coinvolti nella realizzazione del prodotto richiesto dal Capitolato C8. Essendo questo il primo progetto realistico affrontato dai membri del gruppo, è probabile che si verifichino problemi di natura organizzativa interna, di adempimento efficace dei ruoli assegnati e di giusto utilizzo degli strumenti scelti.\
+In questa sezione quindi andremo ad elencare i problemi più importanti che abbiamo riscontrato e le relative contromisure prese per risolvere o contenere i rallentamenti causati.
+
+== Problemi leagati all'organizzazione generale
+#improvement("#ffeded", (
+  [Intero Progetto],
+  [È stato particolarmente complicato effettuare delle riunioni per fare il punto della situazione sul progetto dove fossero presenti tutti i membri del gruppo sia in presenza (poichè non si trovano aule libere che permettano ai membri di riunirsi e non tutti i componenti del gruppo seguono con frequenza le lezioni) che online (ognuno ha impegni diversi e dunque alle riunioni manca sempre qualche componente).],
+  [
+    Si è deciso dunque che per comodità tutte le riunioni devono essere svolte online (sulla piattaforma Discord) cosicchè ogni componente può collegarsi in qualunque situazione (capitava spesso di membri in viaggio o sui mezzi pubblici).\
+    Qualora uno dei componenti del gruppo non potesse comunque essere presente il responsabile provederà a fornigli un riassunto vocale della discussione tramite il contatto Telegram.
+  ]
+))
+
+== Valutazione sui ruoli
+#improvementrole("#fffdde", (
+
+  [Intero Progetto],
+  [Verificatore],
+  [Dato che questo è il primo progetto in termini di complessità della documentazione che ogni membro del nostro gruppo affronta abbiamo notato (ed è comprensibile) che spesso i documenti pronti ad essere rilasciati nel repository pubblico avevano degli errori di vario genere (esempio: di formattazione del documento, errori semantici, etc.)],
+  [Avvertire i verificatori di questo fenomeno e non assegnare loro altri compiti durante lo svolgimento del processo di verifica in quanto il loro lavoro è molto oneroso (non si tratta di approvare e basta le nuove modifiche al repository ma di verificare, spesso in argomenti a loro sconosciuti, se ciò che è stato prodotto sia valido o meno).],
+  
+  [Fase iniziale],
+  [Responsabile],
+  [Nelle fasi iniziali del progetto è capitato che le attività venissero assegnate senza valutare in modo corretto il loro costo in termini di tempo ai vari componenti del gruppo. Questo ha portato chiaramente ad un sovraccarico per alcuni ruoli ed eccessivo tempo libero per altri.],
+  [Il responsabile di turno deve ricontrollare l'assegnazione dei compiti per assicurarsi che siano equamente distribuiti tra i membri. In questo modo, si evitano rallentamenti dovuti a ridistribuzioni degli oneri di progetto.],
+
+  [Analisi dei requisiti],
+  [Analista],
+  [Per svolgere l'analisi dei requisiti abbiamo dovuto analizzare in modo approfondito il capitolato ma ci è risultato difficile comprendere fin dall'inizio quale fosse il suo vero scopo, in particolare capire quali fossero le parti che realmente il proponente si aspettava realizzassimo.\
+  Non potevamo lasciare nulla al caso perchè un'imprecisione in questa fase sarebbe stata riflessa immediatamente nei diagrammi dei casi d'uso e se non fosse stata risolta in tempo si sarebbe riflessa anche sul PoC.
+  ],
+  [Fissare a calendario degli incontri periodici con l'azienda proponente per chiarire quegli aspetti del progetto che ancora non erano ben espressi sul capitolato e successivamente riservare degli incontri anche con il docente Cardin per discutere alcuni aspetti tecnici del progetto (ad esempio: dato un caso d'uso, come sarebbe giusto formalizzarlo nei diagrammi dei casi d'uso seguendo lo standard).],
+
+  [Analisi\ dei requisiti\
+  \
+  PoC],
+  [Analista\
+  \
+  Programmatori
+  ],
+  [
+    Spesso durante diverse attività di progetto colui che doveva svolgere il proprio compito si sentiva afflitto da una miriade di dubbi con granularità fine su come procedere con il proprio lavoro (es. l'analista nella stesura dei casi d'uso oppure il programmatore durante la realizzazione del PoC).
+  ],
+  [Dopo aver parlato di questo con il proponente siamo giunti alla conclusione di inserire uno dei referenti del progetto nel nostro canale privato Discord cosicchè da poter chiarire in maniera informale e immediata qualsiasi dubbio con granularità fine, lasciando i problemi più importanti ai meeting ufficiali con verbale esterno annesso.],
+
+  
+
+  
+))
+
+== Valutazione sugli strumenti
+#improvementtool("#e8fcdc", (
+    [Intero progetto],
+    [Typst],
+    [
+      Trovare un metodo per cui tutti i membri del gruppo potessero redigere documenti indipendentemente dal dispositivo in uso, dal sistema operativo e anche dalle proprie conoscenze di base in materia (LaTeX non era una tecnologia conosciuta da tutti i membri del gruppo). 
+    ],
+    [
+      Siamo giunti alla conclusione di usare Typst, un linguaggio che da le stesse funzionalità di LaTeX, ma con una facilità maggiore e una documentazione più ricca per chi non lo conoscesse. Inoltre per redigere i documenti abbiamo a disposizione una repository web messa a disposizione dallo stesso typst che ci permette di scrivere i documenti in maniera collaborativa dove ognuno può vedere in diretta cosa sta svolgendo un altro membro del gruppo. 
+    ],
+  
+    [Fase iniziale],
+    [Git, Github, Typst e altri],
+    [
+      Nelle fasi iniziali del progetto è capitato spesso che venisse introdotta una nuova tecnologia da dei membri del gruppo (es. scelta di git e github) che la sapevano utilizzare con destrezza (grazie al corso di laurea Metodi e Tecnologie per lo sviluppo software) e che avrebbe dovuto essere utilizzata in futuro da dei componenti che non avevano un nessuna conoscenza sulla materia in questione.
+    ],
+    [Piuttosto che creare disallineamenti il gruppo ha preso una pausa, dove il responsabile garantiva che tutti i membri del gruppo avessero una conoscenza delle tecnologie tale da lavorare in maniera ottimale. Questo spesso veniva raggiunto individuando all'interno del gruppo i soggetti più preparati su un argomento e chiedendo loro di realizzare dei video tutorial su una determinata tematica.],
+
+))

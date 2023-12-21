@@ -253,6 +253,69 @@
   )
 }
 
+#let improvement(color, r) = {
+  let requirements_header = (([*Fase*], [*Problema Rilevato*], [*Contromisura*]))
+  r = requirements_header + r
+  
+  align(center,
+    block(width: 95%,
+      table(
+        fill: (_, row) => if row == 0 { rgb(color) } else { white },
+        inset: 0.8em,
+        columns: (auto, auto, auto),
+        align: (x, _) => (horizon, left, left).at(x),
+        ..r.map(el => text(size: 0.9em)[
+          #par(justify: false,
+            el
+          )
+        ]),
+      )
+    )
+  )
+}
+
+#let improvementrole(color, r) = {
+  let requirements_header = (([*Fase*], [*Ruolo*], [*Problema Rilevato*], [*Contromisura*]))
+  r = requirements_header + r
+  
+  align(center,
+    block(width: 95%,
+      table(
+        fill: (_, row) => if row == 0 { rgb(color) } else { white },
+        inset: 0.8em,
+        columns: (20%, 20%, auto, auto),
+        align: (x, _) => (horizon, horizon, left, left).at(x),
+        ..r.map(el => text(size: 0.9em)[
+          #par(justify: false,
+            el
+          )
+        ]),
+      )
+    )
+  )
+}
+
+#let improvementtool(color, r) = {
+  let requirements_header = (([*Fase*], [*Strumento*], [*Problema Rilevato*], [*Contromisura*]))
+  r = requirements_header + r
+  
+  align(center,
+    block(width: 95%,
+      table(
+        fill: (_, row) => if row == 0 { rgb(color) } else { white },
+        inset: 0.8em,
+        columns: (20%, 18%, auto, auto),
+        align: (x, _) => (horizon, horizon, left, left).at(x),
+        ..r.map(el => text(size: 0.9em)[
+          #par(justify: false,
+            el
+          )
+        ]),
+      )
+    )
+  )
+}
+
 #let summary(t) = {
   let tracking_header = (([*Tipologia*], [*Obbligatori*], [*Desiderabili*], [*Opzionali*]))
   t = tracking_header + t
