@@ -9,6 +9,7 @@
     [_#(p.zextras)_],
   ),
   changelog: (
+    "0.3.1", "2023-12-28", p.amadori, p.bulychov, "Aggiunta la pianificazione del periodo IV",
     "0.3.0", "2023-12-22", p.amadori, p.fabbian, "Aggiunto il consuntivo del periodo III",
     "0.2.2", "2023-12-16", p.bulychov, p.furno, "Aggiunto il preventivo del periodo III",
     "0.2.1", "2023-12-15", p.bulychov, p.furno, "Aggiunta la pianificazione del periodo III",
@@ -437,3 +438,29 @@ Inoltre, la pianificazione del lavoro da svolgere per il PoC è stata insufficie
 ===== Retrospettiva 
 Il terzo periodo si è rivelato, come da aspettative, il più intenso dei tre. Affinchè il gruppo potesse partecipare alla prima revisione del prodotto prima di Natale, tutti i membri hanno sostenuto dei ritmi altissimi. Purtroppo l'obiettivo non è stato raggiunto.\ Nonostante gran parte della documentazione fosse stata ultimata, abbiamo sopravvalutato le nostre capacità ed ora necessitiamo di ulteriore lavoro per completare l'`Analisi dei Requisiti` e il PoC. \
 Tutto sommato, il carico di lavoro poteva essere distribuito diversamente, magari su più periodi di lavoro, gravando meno pesantemente sui membri del gruppo prima di Natale.\ Abbiamo pianificato erroneamente, seguendo un obiettivo desiderabile, ma difficilmente realizzabile.
+
+=== Periodo IV
+Inizio: 2023-12-21\
+Fine: 2024-01-07\
+
+==== Pianificazione
+Nel corso del terzo periodo il gruppo ha completato le `Norme di Progetto`, descrivendo tutti i processi che caratterizzano il nostro way of working seguendo lo standard, ed il `Glossario`; attualmente non prevediamo ulteriori modifiche per questi documenti.\
+ Il `Piano di Qualifica` e il `Piano di Progetto` verranno aggiornati come di consuetudine per ogni periodo.\
+Il PoC, nonostante le numerose avversità emerse durante il terzo periodo, dove la complessità sembrava essere cresciuta nettamente a causa di qualche intoppo dovuto allo scambio dati tra il client e il server, prevediamo raggiungerà una versione stabile e pronta per l'RTB al termine di questo periodo.\
+Prevediamo inoltre di raggiungere una versione stabile anche per l'`Analisi dei Requisiti`, il documento che ha rivelato più criticità durante lo scorso periodo, e per tutto il resto della documentazione entro la fine di questo periodo di lavoro; pertanto provvederemo a fissare in primo luogo un colloquio con il #p.cardin, al fine di chiarire i restanti dubbi sull'`Analisi dei Requisiti` e sul PoC, e successivamente a candidarci per l'RTB.\
+
+Le attività previste durante questo periodo sono quindi le seguenti:\
+- Ultimazione del documento di `Analisi dei Requisiti`;
+- Ultimazione del PoC;
+- Aggiornamento di `Piano di Qualifica` e `Piano di Progetto`;
+- Pianificare in modo efficace la rotazione dei ruoli, che sarà complicata a causa delle vacanze natalizie e degli impegni personali di ciascuno;
+- Fissare un ricevimento con il #p.cardin per chiarire gli ultimi dubbi riguardo AdR e PoC.
+
+===== Rischi attesi
+I rischi che ci aspettiamo di correre in questo periodo sono i seguenti:
+- #link(<RO1>)[*RO1 - Imprecisioni nella pianificazione delle attività*];
+- #link(<RO2>)[*RO2 - Elevati costi delle attività*];
+- #link(<RO3>)[*RO3 - Impegni universitari e personali*].
+
+Le vacanze Natalizie nel bel mezzo di questo periodo non faciliteranno sicuramente l'organizzazione del lavoro rimanente, causando rallentamenti e carenza di membri del gruppo disposti a lavorare durante questo periodo.\
+Un altro rischio imminente è che i dubbi che chiariremo con il #p.cardin non scoperchino un'altro vaso di pandora, causando una mole di lavoro correttiva per `Analisi dei Requisiti` e PoC eccessiva, con costi in termini di ore lavoro che se non assorbiti dal gruppo possono causare consistenti rallentamenti per la nostra candidatura all'RTB.
