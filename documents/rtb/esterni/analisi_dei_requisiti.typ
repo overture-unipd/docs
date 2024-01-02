@@ -69,6 +69,8 @@
       Struttura di base del documento e prima parte introduzione.
     ]
   ),
+  show_images_list: true,
+  show_tables_list: true,
 )
 
 = *Introduzione*
