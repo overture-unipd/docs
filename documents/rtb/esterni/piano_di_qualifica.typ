@@ -15,7 +15,9 @@
     "0.0.3", "2023-12-19", p.bettin, p.fabbian, "Stesura della sezione 'Qualità di prodotto' in 'Obiettivi metrici di qualità'",
     "0.0.2", "2023-12-19", p.bettin, p.fabbian, "Stesura della sezione 'Qualità di processo' in 'Obiettivi metrici di qualità'",
     "0.0.1", "2023-11-15", p.bulychov, p.amadori, "Struttura di base ed introduzione",
-  )
+  ),
+  show_images_list: true,
+  show_tables_list: true,
 )
 
 \
