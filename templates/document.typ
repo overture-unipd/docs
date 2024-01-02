@@ -412,6 +412,17 @@
   data = people.zip(data).map(x => x.flatten())
   let pal = (rgb("#e60049"), rgb("#0bb4ff"), rgb("#50e991"), rgb("#e6d800"), rgb("#9b19f5"), rgb("#ffa300"), rgb("#dc0ab4"), rgb("#b3d4ff"), rgb("#00bfa0"))
 
+  rect(stroke: (thickness: 0.7pt, dash: "dashed"))[
+    Legenda:
+    #let t = roles.zip(pal)
+    #stack(
+      dir: ltr, spacing: 0.3em,
+      ..t.map(x => stack(
+        dir: ltr,
+        spacing: 0.1em,
+        circle(fill: x.at(1), width: .8em, height: 0.8em), " " + x.at(0)))
+    )
+  ]
   align(center,
     canvas({
       import draw: *
