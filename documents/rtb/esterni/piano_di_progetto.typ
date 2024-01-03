@@ -9,6 +9,7 @@
     [_#(p.zextras)_],
   ),
   changelog: (
+    "0.3.2", "2024-01-03", p.amadori, p.bulychov, "Aggiunto il preventivo del periodo IV",
     "0.3.1", "2023-12-28", p.amadori, p.bulychov, "Aggiunta la pianificazione del periodo IV",
     "0.3.0", "2023-12-22", p.amadori, p.fabbian, "Aggiunto il consuntivo del periodo III",
     "0.2.2", "2023-12-16", p.bulychov, p.furno, "Aggiunto il preventivo del periodo III",
@@ -464,3 +465,18 @@ I rischi che ci aspettiamo di correre in questo periodo sono i seguenti:
 
 Le vacanze Natalizie nel bel mezzo di questo periodo non faciliteranno sicuramente l'organizzazione del lavoro rimanente, causando rallentamenti e carenza di membri del gruppo disposti a lavorare durante questo periodo.\
 Un altro rischio imminente è che i dubbi che chiariremo con il #p.cardin non scoperchino un'altro vaso di pandora, causando una mole di lavoro correttiva per `Analisi dei Requisiti` e PoC eccessiva, con costi in termini di ore lavoro che se non assorbiti dal gruppo possono causare consistenti rallentamenti per la nostra candidatura all'RTB.
+
+==== Preventivo 
+Ruoli coinvolti: Responsabile, Amministratore, Verificatore, Analista, Programmatore.
+
+#period((
+    (0,4,0,0,0,0),
+    (0,0,0,0,0,3),
+    (4,0,0,3,0,0),
+    (0,0,5,0,0,2),
+    (0,0,5,0,0,3),
+    (0,0,0,2,0,3),
+    (0,0,0,3,0,2)
+  ),
+  (2, 3, 1),
+)
