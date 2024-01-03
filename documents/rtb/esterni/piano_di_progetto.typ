@@ -9,6 +9,9 @@
     [_#(p.zextras)_],
   ),
   changelog: (
+    "0.3.2", "2024-01-03", p.amadori, p.bulychov, "Aggiunto il preventivo del periodo IV",
+    "0.3.1", "2023-12-28", p.amadori, p.bulychov, "Aggiunta la pianificazione del periodo IV",
+    "0.3.0", "2023-12-22", p.amadori, p.fabbian, "Aggiunto il consuntivo del periodo III",
     "0.2.2", "2023-12-16", p.bulychov, p.furno, "Aggiunto il preventivo del periodo III",
     "0.2.1", "2023-12-15", p.bulychov, p.furno, "Aggiunta la pianificazione del periodo III",
     "0.2.0", "2023-12-14", p.bulychov, p.bonavigo, "Aggiunto il consuntivo del periodo II",
@@ -31,7 +34,7 @@ Questo documento ha l'obiettivo di delineare la pianificazione e la gestione del
 
 == Scopo del prodotto
 Lo scopo principale del prodotto é quello di permettere all'azienda proponente di poter valutare se ha senso investire tempo e risorse per implementare il protocollo JMAP nel loro prodotto di punta chiamato Carbonio, una soluzione di collaborazione online che ruota attorno alla gestione delle email. JMAP è difatti un protocollo di comunicazione appositamente progettato per semplificare l'interazione tra client e server nell'ambito delle applicazioni di posta elettronica.\
-Attualmente, Carbonio fa affidamento su protocolli standard come IMAP, POP e Exchange Active Sync. Di conseguenza, l'implementazione di JMAP potrebbe offrire potenzialmente un aumento di funzionalità e efficienza a un costo inferiore.
+Attualmente, Carbonio fa affidamento su protocolli standard come IMAP, POP e #glossary("Exchange Active Sync"). Di conseguenza, l'implementazione di JMAP potrebbe offrire potenzialmente un aumento di funzionalità e efficienza a un costo inferiore.
 
 == Glossario
 Per evitare ambiguitá o incomprensioni riguardanti la terminologia usata nel documento, é stato deciso di adottare un glossario in cui vengono riportate le varie definizioni. In questa maniera in esso verranno riportati tutti i termini specifici del dominio d'uso con relativi significati.
@@ -155,21 +158,21 @@ Per questo motivo si è deciso di adottare la seguente convenzione `R[Tipologia]
 Dopo varie discussioni su quale fosse il miglior modello di sviluppo da adottare per la realizzazione del progetto, il gruppo ha optato per il modello Agile. Questo approccio alla gestione di progetti software prevede la suddivisione del progetto in periodi e si basa sui principi fondamentali di flessibilità, collaborazione e risposta rapida ai cambiamenti. L'Agile si contrappone dunque ai modelli tradizionali di sviluppo software, come il modello a cascata, il quale prevede fasi ben definite e sequenziali, andando a preferire invece miglioramenti continui e paralleli che seguono un ciclo di pianificazione, esecuzione e valutazione.\
 Nel nostro caso si è scelto di adottare periodi di durata complessiva di circa due settimane all'interno dei quali, sebbene il Responsabile dia la priorità al lavoro da consegnare, il team assume il comando nel decidere come verrà svolto il lavoro, organizzandosi in modo autonomo per la gestione di attività e assegnazioni granulari che rispettino i ruoli di ciascuno dei membri. \
 Questo modello di sviluppo è prevalso sugli altri per via dei seguenti grandi vantaggi che esso comporta:
-- *trasparenza*: il modello Agile permette di poter sempre dimostrare agli stakeholder quanto è stato fatto, verificando l’avanzamento tramite progresso reale;
-- *adattabilità estrema al cambiamento*: il modello Agile mira a gestire ed adattarsi ai cambiamenti nei requisiti del progetto in modo più efficiente rispetto ai modelli tradizionali. La sua natura iterativa consente una risposta rapida a nuovi requisiti o a eventi imprevisti;
-- *ottima gestione dei rischi*: data la breve durata dei periodi, i problemi che possono essere riscontrati all'interno di essi saranno individuati velocemente ed inoltre avranno una dimensione ragionevole, permettendo dunque una risoluzione tempestiva e riducendo il rischio di fallimento del progetto;
-- *soddisfazione degli stakeholder*: il modello Agile promuove il coinvolgimento continuo degli stakeholder durante tutto il processo di sviluppo. Ciò garantisce che il prodotto finale soddisfi realmente le esigenze e le aspettative di chi l'ha commissionato, aumentandone così la soddisfazione complessiva;
-- *soddisfazione del team*: il modello Agile incoraggia l'auto-organizzazione dei membri del team e il coinvolgimento attivo in tutte le fasi del processo di sviluppo. Ciò porta a un maggiore senso di responsabilità e motivazione. Inoltre, consegnando risultati tangibili in periodi di tempo brevi, questo modello di sviluppo contribuisce anche a mantenere elevato il morale dei membri, i quali vedono il proprio lavoro tradursi in risultati concreti in tempi rapidi.
+- *Trasparenza*: il modello Agile permette di poter sempre dimostrare agli stakeholder quanto è stato fatto, verificando l’avanzamento tramite progresso reale;
+- *Adattabilità estrema al cambiamento*: il modello Agile mira a gestire ed adattarsi ai cambiamenti nei requisiti del progetto in modo più efficiente rispetto ai modelli tradizionali. La sua natura iterativa consente una risposta rapida a nuovi requisiti o a eventi imprevisti;
+- *Ottima gestione dei rischi*: data la breve durata dei periodi, i problemi che possono essere riscontrati all'interno di essi saranno individuati velocemente ed inoltre avranno una dimensione ragionevole, permettendo dunque una risoluzione tempestiva e riducendo il rischio di fallimento del progetto;
+- *Soddisfazione degli stakeholder*: il modello Agile promuove il coinvolgimento continuo degli stakeholder durante tutto il processo di sviluppo. Ciò garantisce che il prodotto finale soddisfi realmente le esigenze e le aspettative di chi l'ha commissionato, aumentandone così la soddisfazione complessiva;
+- *Soddisfazione del team*: il modello Agile incoraggia l'auto-organizzazione dei membri del team e il coinvolgimento attivo in tutte le fasi del processo di sviluppo. Ciò porta a un maggiore senso di responsabilità e motivazione. Inoltre, consegnando risultati tangibili in periodi di tempo brevi, questo modello di sviluppo contribuisce anche a mantenere elevato il morale dei membri, i quali vedono il proprio lavoro tradursi in risultati concreti in tempi rapidi.
 
 #pagebreak()
 
 = *Periodi*
 Per ogni periodo si riportano di seguito le seguenti informazioni:
-- la pianificazione delle attività da svolgere al suo interno (avanzamento atteso), con tanto di potenziali rischi;
-- il tempo stimato per poter completare tutte le attività previste;
-- un confronto fra il lavoro svolto (avanzamento conseguito) e quello preventivato, con annessa analisi dei costi;
-- i rischi effettivamente occorsi, valutandone il loro impatto e la loro mitigazione;
-- una retrospettiva di periodo per capire cosa e come migliorare in futuro.
+- Pianificazione delle attività da svolgere al suo interno (avanzamento atteso), con tanto di potenziali rischi;
+- Tempo stimato per poter completare tutte le attività previste;
+- Confronto fra il lavoro svolto (avanzamento conseguito) e quello preventivato, con annessa analisi dei costi;
+- Rischi effettivamente occorsi, valutandone il loro impatto e la loro mitigazione;
+- Retrospettiva di periodo per capire cosa e come migliorare in futuro e cosa invece mantenere.
 I periodi vengono suddivisi in 3 grandi insiemi corrispondenti alle revisioni di avanzamento del progetto:
 - RTB (Requirements and Technology Baseline);
 - PB (Product Baseline);
@@ -383,12 +386,97 @@ Ruoli coinvolti: Responsabile, Amministratore, Verificatore, Analista, Programma
 
 #period((
   (0, 2, 0, 0, 0, 6),
-  (7, 0, 0, 0, 0, 6),
+  (7, 0, 0, 0, 0, 5),
   (0, 0, 5, 6, 0, 0),
-  (0, 6, 4, 0, 0, 6),
+  (0, 6, 4, 0, 0, 0),
   (0, 0, 4, 6, 0, 0),
-  (0, 0, 5, 0, 0, 7),
-  (0, 0, 0, 6, 0, 6),
+  (0, 0, 5, 0, 0, 5),
+  (0, 0, 0, 6, 0, 5),
+  ),
+  (2, 3, 1),
+)
+
+
+==== Consuntivo
+Contrariamente ai piani stabiliti, il gruppo non potrà partecipare alla prima revisione del progetto in questo momento poiché si ritiene che non sia ancora completamente pronto. \
+Infatti, nonostante l'encomiabile impegno profuso nelle scorse settimane, sembra che l'elaborazione dell'`Analisi dei Requisiti` non sia ancora considerabile completa. Inoltre, il Proof of Concept (PoC) merita ulteriori sviluppi e uno sforzo maggiore di quanto previsto.\
+Per quanto riguarda il resto della documentazione, invece, si ritiene che abbia ragiunto uno stato conforme alle aspettative. \
+Come si può notare dal confronto tra preventivo e consuntivo:
+- Amministratori e Analisti hanno richiesto *più* ore;
+- Responsabili hanno rischiesto *meno* ore.
+
+===== Prospetto orario
+#consuntivo(
+  (
+    ("0", "2", "0", "2 "+neg("+2"), "0", "6", "10"),
+    ("6 "+pos("-1"), "0", "0", "0", "0", "5", "11"),
+    ("0", "0", "5", "6", "0", "0", "11"),
+    ("0", "7 "+neg("+1"), "4", "0", "0", "0", "11"),
+    ("0", "0", "4", "6", "0", "0", "10"),
+    ("0", "0", "5", "0", "0", "5", "10"),
+    ("0", "0", "0", "6", "0", "5", "11"),
+    ("6", "9", "18", "20", "0", "21", "74")
+  )
+)
+===== Prospetto economico
+#costi(
+  (
+    ("6 "+pos("-1"), "180€", pos("-30€")),
+    ("9 "+neg("+1"), "180€", neg("+20€")),
+    ("18", "270€","-"),
+    ("20 "+neg("+2"), "500€",neg("+50€")),
+    ("-", "-", "-"),
+    ("21", "315€","-"),
+    ("72", "1405€", "-"),
+    ("74 "+neg("+2"), "1445€",neg("+40€"))
+  )
+)
+
+===== Rischi occorsi, impatto e loro mitigazione 
+Nel corso di questo periodo il gruppo ha scelto di svolgere numerose attività in un tempo limitato.\ In seguito ad un controllo generale della documentazione, sono emerse diverse imprecisioni in particolari sezioni, sottolineando come alcune attività non fossero state svolte in maniera ottimale. Gli analisti si sono occupati di sistemare queste parti.\
+Inoltre, la pianificazione del lavoro da svolgere per il PoC è stata insufficiente: abbiamo sottostimato il tempo necessario al completamento delle task che, alla fine, non siamo riusciti a portare a termine entro i termini prestabiliti. Vista la mole di lavoro, avevamo messo in conto che alcune task rischiavano di non essere eseguite in modo corretto. I rischi preventivati hanno avuto un impatto medio sul gruppo, causando principalmente stress, tuttavia, alla fine, sono stati mitigati nel miglior modo possibile.
+
+===== Retrospettiva 
+Il terzo periodo si è rivelato, come da aspettative, il più intenso dei tre. Affinchè il gruppo potesse partecipare alla prima revisione del prodotto prima di Natale, tutti i membri hanno sostenuto dei ritmi altissimi. Purtroppo l'obiettivo non è stato raggiunto.\ Nonostante gran parte della documentazione fosse stata ultimata, abbiamo sopravvalutato le nostre capacità ed ora necessitiamo di ulteriore lavoro per completare l'`Analisi dei Requisiti` e il PoC. \
+Tutto sommato, il carico di lavoro poteva essere distribuito diversamente, magari su più periodi di lavoro, gravando meno pesantemente sui membri del gruppo prima di Natale.\ Abbiamo pianificato erroneamente, seguendo un obiettivo desiderabile, ma difficilmente realizzabile.
+
+=== Periodo IV
+Inizio: 2023-12-21\
+Fine: 2024-01-07\
+
+==== Pianificazione
+Nel corso del terzo periodo il gruppo ha completato le `Norme di Progetto`, descrivendo tutti i processi che caratterizzano il nostro way of working seguendo lo standard, ed il `Glossario`; attualmente non prevediamo ulteriori modifiche per questi documenti.\
+ Il `Piano di Qualifica` e il `Piano di Progetto` verranno aggiornati come di consuetudine per ogni periodo.\
+Il PoC, nonostante le numerose avversità emerse durante il terzo periodo, dove la complessità sembrava essere cresciuta nettamente a causa di qualche intoppo dovuto allo scambio dati tra il client e il server, prevediamo raggiungerà una versione stabile e pronta per l'RTB al termine di questo periodo.\
+Prevediamo inoltre di raggiungere una versione stabile anche per l'`Analisi dei Requisiti`, il documento che ha rivelato più criticità durante lo scorso periodo, e per tutto il resto della documentazione entro la fine di questo periodo di lavoro; pertanto provvederemo a fissare in primo luogo un colloquio con il #p.cardin, al fine di chiarire i restanti dubbi sull'`Analisi dei Requisiti` e sul PoC, e successivamente a candidarci per l'RTB.\
+
+Le attività previste durante questo periodo sono quindi le seguenti:\
+- Ultimazione del documento di `Analisi dei Requisiti`;
+- Ultimazione del PoC;
+- Aggiornamento di `Piano di Qualifica` e `Piano di Progetto`;
+- Pianificare in modo efficace la rotazione dei ruoli, che sarà complicata a causa delle vacanze natalizie e degli impegni personali di ciascuno;
+- Fissare un ricevimento con il #p.cardin per chiarire gli ultimi dubbi riguardo AdR e PoC.
+
+===== Rischi attesi
+I rischi che ci aspettiamo di correre in questo periodo sono i seguenti:
+- #link(<RO1>)[*RO1 - Imprecisioni nella pianificazione delle attività*];
+- #link(<RO2>)[*RO2 - Elevati costi delle attività*];
+- #link(<RO3>)[*RO3 - Impegni universitari e personali*].
+
+Le vacanze Natalizie nel bel mezzo di questo periodo non faciliteranno sicuramente l'organizzazione del lavoro rimanente, causando rallentamenti e carenza di membri del gruppo disposti a lavorare durante questo periodo.\
+Un altro rischio imminente è che i dubbi che chiariremo con il #p.cardin non scoperchino un'altro vaso di pandora, causando una mole di lavoro correttiva per `Analisi dei Requisiti` e PoC eccessiva, con costi in termini di ore lavoro che se non assorbiti dal gruppo possono causare consistenti rallentamenti per la nostra candidatura all'RTB.
+
+==== Preventivo 
+Ruoli coinvolti: Responsabile, Amministratore, Verificatore, Analista, Programmatore.
+
+#period((
+    (0,4,0,0,0,0),
+    (0,0,0,0,0,3),
+    (4,0,0,3,0,0),
+    (0,0,5,0,0,2),
+    (0,0,5,0,0,3),
+    (0,0,0,2,0,3),
+    (0,0,0,3,0,2)
   ),
   (2, 3, 1),
 )
