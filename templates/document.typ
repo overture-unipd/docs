@@ -251,7 +251,7 @@
 }
 
 #let tracking2(t) = {
-  let tracking_header = (([*Fonte*], [*ID Requisito*]))
+  let tracking_header = (([*Fonte*], [*ID Requisiti*]))
   t = tracking_header + t
   
   align(center,
@@ -339,11 +339,11 @@
   t = tracking_header + t
   
   align(center,
-    block(width: 70%,
+    block(width: 80%,
       table(
         fill: (_, row) => if row == 0 { luma(215) } else { white },
         inset: 0.8em,
-        columns: (1fr, 1fr, 1fr, 1fr),
+        columns: (1fr, auto, auto, auto),
         align: horizon,
         ..t.map(el => text(size: 0.9em)[
           #par(justify: false,

@@ -225,6 +225,9 @@ un determinato contesto o settore. Hanno lo scopo di garantire la sicurezza, la 
 
 #pagebreak()
 = P
+- Principale
+Nel contesto di JMAP si riferisce a un'entità che può essere un individuo, un gruppo di persone, una risorsa, una posizione o un'altra entità all'interno di un ambiente collaborativo.
+
 - Processo
 Insieme di attività interconnesse che trasformano gli input (bisogni) in output (prodotti), utilizzando risorse e seguendo regole prestabilite. Deve essere condotto in modo sistematico, disciplinato e misurabile.
 
