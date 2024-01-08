@@ -7,7 +7,8 @@
     p.vardanega,
     p.cardin,
   ),
-  changelog: ( 
+  changelog: (
+    "0.2.1", "2024-01-08", p.bonavigo, p.bulychov, "Descrizione della repo `jmap` e chiarimenti su branch e PR",
     "0.2.0", "2023-12-19", p.bettin, p.furno, "Aggiornate le sezioni 'Metriche di qualitá del processo' e 'Metriche di qualitá del prodotto'",
     "0.1.2", "2023-12-19", p.bulychov, p.furno, "Migliorate le sezioni 'Verifica' e 'Validazione'",
     "0.1.1", "2023-12-17", p.bulychov, p.fabbian, "Terminata la stesura della sezione 'Sviluppo'",
@@ -191,7 +192,7 @@ L'Analisi dei Requisiti Software richiede che, per ciascun elemento software o e
 	+ Specifiche di sicurezza, riguardanti i metodi di operazione e manutenzione, le influenze ambientali e il rischio di lesioni al personale;
 	+ Specifiche di sicurezza, focalizzate sui compromessi di informazioni sensibili;
 	+ Specifiche di ingegneria dei fattori umani (ergonomia), comprendenti operazioni manuali, interazioni umano-apparecchio, vincoli sul personale e ambiti che richiedono concentrazione umana, sensibili agli errori umani e formazione;
-	+ Definizione dei dati e requisiti del database;
+	+ Definizione dei dati e requisiti del #glossary("database");
 	+ Requisiti di installazione e accettazione del prodotto software presso i siti di operazione e manutenzione;
 	+ Documentazione per l'utente;
 	+ Requisiti di operazione ed esecuzione dell'utente;
@@ -322,7 +323,7 @@ Il ciclo di vita di un documento è composto da sette fasi:
 + Approvazione e rilascio: nell'ultima fase il documento viene approvato da un Responsabile e rilasciato in versione finale.
 
 === Sistema di composizione tipografica
-Per la composizione tipografica dei documenti, abbiamo deciso di utilizzare Typst, al posto del noto LaTeX. Typst offre diversi vantaggi rispetto a LaTeX:
+Per la composizione tipografica dei documenti, abbiamo deciso di utilizzare Typst, al posto del noto #glossary("LaTeX"). Typst offre diversi vantaggi rispetto a LaTeX:
 - semplicità di utilizzo (simile a Markdown);
 - programmabilità reale invece di un sistema di macro;
 - compilazione pressochè immediata.
@@ -534,12 +535,22 @@ Ogni cambiamento, seguito dalla relativa approvazione, produce un incremento di 
 Il gruppo utilizza 2 repository all'interno della propria "organizzazione #glossary("GitHub")":
 - #link("https://github.com/overture-unipd/docs"): contenente tutta la documentazione del progetto;
 - #link("https://github.com/overture-unipd/jmap"): contenente tutto il codice del progetto.
+
 È poi presente la repository contenente il sito web del gruppo. Questa non è rilevante al fine di questa discussione, poichè non riceve aggiornamenti.
 
-==== Struttura della repository `docs`
-Il contenuto della repository è separato da due branch che svolgono funzioni differenti: `master` continene i PDF compilati, `sources` contiene invece i sorgenti Typst.
+==== Pull Requests e Branch
+Ogni attività da svolgere è tracciata come "issue" su GitHub, nella repository corrispondente: `docs` per quelle sulla documentazione, `jmap` per quelle sul codice.
 
-Per entrambe le repository, abbiamo deciso di separare in modo netto i documenti dal resto dei file di supporto (`LICENSE`, `README`, #glossary(`actions`), #glossary(`templates`), ...). Nella cartella `documents` si trova quindi la documentazione relativa alle varie fasi del progetto: `candidatura` (per la gara di appalto dei capitolati), `rtb` (Requirements and Technology Baseline), e `pb` (Product Baseline).
+Ogni attività viene sviluppata su un branch dedicato, separato da quello principale. Attività collegate possono essere sviluppate sullo stesso branch, per agevolare l'integrazione tra le parti.
+
+Quando lo sviluppo di una attività (o serie di attività) è terminato su un branch, viene aperta una Pull Request, dal branch interessato a quello principale. Il verificatore designato verificherà quindi il lavoro svolto. Se conforme e senza errori, la Pull Request viene approvata ed il branch eliminato.
+
+Utilizzare i branch come descritto, permette a tutti gli effetti di avere ambienti di lavoro distinti. Questo riduce il tempo di risoluzione di eventuali conflitti al solo processo di Pull Request.
+
+==== Struttura della repository `docs`
+Il contenuto della repository è separato da due branch che svolgono funzioni differenti: `master` contiene i PDF compilati, `sources` contiene invece i sorgenti Typst.
+
+Abbiamo deciso di separare in modo netto i documenti dal resto dei file di supporto (`README`, #glossary(`actions`), #glossary(`templates`), ...). Nella cartella `documents` si trova quindi la documentazione relativa alle varie fasi del progetto: `candidatura` (per la gara di appalto dei capitolati), `rtb` (Requirements and Technology Baseline), e `pb` (Product Baseline).
 Le cartelle relative alle versioni dei documenti sono organizzate nel modo seguente:
 - *`candidatura`* contenente in:
   - `dichiarazione_impegni_v1.1.pdf`;
@@ -572,35 +583,27 @@ Le cartelle relative alle versioni dei documenti sono organizzate nel modo segue
     
 ==== Struttura della repository `jmap`
 
-In questa repository, utilizziamo due branch principali: `master` contenente l'ultima versione stabile del codice, `develop` contente le ultime modifiche. Generalmente le modifiche vengono unite in `master` da `develop` alla fine di ogni periodo.\
-I file fiscalmente relativi all'implementazione del server (escludendo #glossary(`actions`), `README`, ...) sono i seguenti:
-- `src/`: cartella contentente il codice del server, compreso di test di unità
-- `env/`: cartella contenente esempi di variabili d'ambiente necessarie all'esecuzione di istanze del server
-- `compose.yml`: configurazione di Docker Compose
+I file più importanti presenti nel repository sono quelli relativi all'implementazione del server. Abbiamo
+- `src/`: cartella contentente il codice del server, compreso di test di unità ed integrazione
+- `.env`: variabili d'ambiente utilizzate per la configurazione del server
+- `compose.yml`: configurazione di #glossary("Docker Compose")
 - `.justfile`: configurazione per #link("https://github.com/casey/just"). Serve a facilitare l'esecuzione di vari comandi all'interno della repository.
-- `build.gradle.kts`: file di configurazione di Gradle (il sistema di build).
-- `...`: _discrivere gli altri file_
+- `build.gradle.kts`: file di configurazione di #glossary("Gradle") (il sistema di build).
 
-=== Sincronizzazione
-La sincronizzazione avviene tramite repository condivise su GitHub.
-Ogni attività da svolgere è tracciata da una specifica #glossary("issue"). All'inizio dello svolgimento di ognuna di esse, il componente interessato crea una diramazione del (#g lossary("branch")) "develop". Questo approccio consente di avere "workspace" indipendenti e quindi di poter lavorare parallelamente a più task, massimizzando il lavoro dei membri del team.\
+Ci sono poi file alcuni file di supporto: `README`, `LICENSE` e `.github/` (contentente la configurazione delle actions GitHub).
 
-==== Branch
-Per la repository `docs`
-I branch di questo tipo sono quindi single-purpose: una volta approvati e pubblicati tramite pull request vengono eliminati da un Amministratore o dal Responsabile.
+In questa repository, utilizziamo due branch principali: `master` contenente l'ultima versione stabile del codice e `develop` gli ultimi sviluppi. Quest'ultima funziona quindi da "buffer" di test delle varie attività svolte.\
+Salvo occasioni speciali, quindi, i nuovi branch di sviluppo partono direttamente da `develop` per riportare poi le modifiche direttamente in `develop`.\
+In ogni caso, le issue relative al ruolo svolto, vengono chiuse dopo l'unione in master.
 
-
-Ogni attività è strettamente legata ad un branch, creato appositamente dall'incaricato a partire dal branch principale:
-Per la repository `docs` è `sources`. Attenzione che `master` è comunque il branch di default, mentre con "branch principale" si intende il branch in cui le modifiche devono venire aggiunte.
-
-Per la repository `jmap`, il branch principale è `develop` mentre il branch di default rimane sempre `master`.
-
-==== Pull Request
-Quando un'attività viene ultimata ed è pronta per la verifica, il membro del gruppo che ci ha lavorato, ha il compito di aprire una pull request. Il Verificatore è incaricato di controllare le modifiche attuate e, se non ci sono problemi, unirle al branch principale.
+Si noti che durante le prime fasi di sviluppo, tutte le attività sono state svolte direttamente in `develop`, per essere poi unite in `master`.\
+La motivazione è semplice: poichè la struttura non era ancora precisamente delineata e le attività da svolgere molto interconnesse, si rischiava di sviluppare più volte le stesse cose oltre che generare conflitti per modifica parallela delle stesse linee di codice.\
+L'approccio utilizzato è il seguente: all'inzio di ogni sessione di sviluppo e prima di ogni push, i componenti integravano lo stato remoto nella repository locale, risolvendo eventuali conflitti ed errori di compilazione.\
+Questa scelta ci ha fatto risparmiare parecchio tempo e fatica.
 
 == Gestione della qualità
 === Scopo
-Il processo di gestione della qualità mira a garantire in modo adeguato che il software, gli artefatti ed i processi nel ciclo di vita del progetto siano allineati ai piani stabiliti e conformi ai canoni di qualità rispetto ai requisiti specificati. 
+Il processo di gestione della qualità mira a garantire in modo adeguato che il software, gli artefatti ed i processi nel ciclo di vita del progetto siano allineati ai piani stabiliti e conformi ai canoni di qualità rispetto ai requisiti specificati.
 
 === Descrizione
 Per poter garantire un determinato livello di qualità, abbiamo scelto di fare affidamento sui processi di verifica e validazione. Difatti, una volta definiti gli standard qualitativi da rispettare nel `Piano di Qualifica`, ciò che resta da fare è assicurarsi che questi vengano effettivamente applicati. Dunque inizialmente sono state definite le best practices per guidare l'esecuzione dei vari processi, oltre ai diversi canoni di qualità per i prodotti del progetto, ed in seguito per certificare l'adesione a quest'ultimi abbiamo delegato tale responsabilità ai Verificatori.
