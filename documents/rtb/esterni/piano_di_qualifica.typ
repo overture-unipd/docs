@@ -17,7 +17,6 @@
     "0.0.1", "2023-11-15", p.bulychov, p.amadori, "Struttura di base ed introduzione",
   ),
   show_images_list: true,
-  show_tables_list: true,
 )
 
 \
@@ -59,7 +58,7 @@ La qualità di processo è esigenza primaria nello sviluppo software, difatti pe
 === Processi primari
 
 ==== Fornitura
-#metrics((
+#figure(metrics((
   [MPC01],
   [Earned value (EV)],
   [≥ 0],
@@ -88,10 +87,10 @@ La qualità di processo è esigenza primaria nello sviluppo software, difatti pe
   [Estimate to complete (ETC)],
   [≥ 0],
   [≤ EAC],
-))
+)), caption: [Valori accettabili e ottimi per ogni metrica riguardante la fase di fornitura.])
 
 ==== Sviluppo
-#metrics((
+#figure(metrics((
   [MPC08],
   [Requirements stability index (RSI)],
   [≥ 75%],
@@ -104,12 +103,12 @@ La qualità di processo è esigenza primaria nello sviluppo software, difatti pe
   [Structural Fan-Out (SFOUT)],
   [-],
   [Va minizzato],
-))
+)), caption: [Valori accettabili e ottimi per ogni metrica riguardante la fase di sviluppo.])
 
 === Processi di supporto
 
 ==== Documentazione
-#metrics((
+#figure(metrics((
   [MPC11],
   [Indice Gulpease],
   [≥ 60%],
@@ -118,10 +117,10 @@ La qualità di processo è esigenza primaria nello sviluppo software, difatti pe
   [Correttezza ortografica],
   [0 errori],
   [0 errori]
-))
+)), caption: [Valori accettabili e ottimi per ogni metrica riguardante la fase di documentazione.])
 
 ==== Verifica
-#metrics((
+#figure(metrics((
   [MPC13],
   [Code coverage],
   [≥ 80%],
@@ -130,20 +129,20 @@ La qualità di processo è esigenza primaria nello sviluppo software, difatti pe
   [Passed test cases percentage],
   [100%],
   [100%]
-))
+)), caption: [Valori accettabili e ottimi per ogni metrica riguardante la fase di verifica.])
 
 ==== Gestione della qualitá
-#metrics((
+#figure(metrics((
   [MPC15],
   [Quality metrics satisfied],
   [≥ 85%],
   [100%]
-))
+)), caption: [Valori accettabili e ottimi per ogni metrica riguardante la fase di gestione della qualitá.])
 
 === Processi organizzativi
 
 ==== Gestione dei processi
-#metrics((
+#figure(metrics((
   [MPC16],
   [Non-calculated risk],
   [≤ 3],
@@ -152,13 +151,13 @@ La qualità di processo è esigenza primaria nello sviluppo software, difatti pe
   [Efficienza temporale],
   [≤ 3],
   [≤ 1]
-))
+)), caption: [Valori accettabili e ottimi per ogni metrica riguardante la fase di gestione dei processi.])
 
 == Qualità di prodotto
 La qualità di prodotto si riferisce all'insieme delle caratteristiche di un'entità risultante dallo sviluppo software, che ne determinano la capacità di soddisfare esigenze sia esplicite che implicite. In altre parole, essa è la misura in cui un prodotto risponde alle aspettative del cliente o agli standard prestabiliti.
 
 === Funzionalitá
-#metrics((
+#figure(metrics((
   [MPD01],
   [Copertura dei requisiti obbligatori],
   [100%],
@@ -171,10 +170,10 @@ La qualità di prodotto si riferisce all'insieme delle caratteristiche di un'ent
   [Copertura dei requisiti opzionali],
   [≥ 0%],
   [≥ 50%],
-))
+)), caption: [Valori accettabili e ottimi per ogni metrica riguardante la funzionalitá del prodotto.])
 
 === Affidabilitá
-#metrics((
+#figure(metrics((
   [MPD04],
   [Code coverage],
   [≥ 80%],
@@ -191,10 +190,10 @@ La qualità di prodotto si riferisce all'insieme delle caratteristiche di un'ent
   [Failure density],
   [100%],
   [100%]
-))
+)), caption: [Valori accettabili e ottimi per ogni metrica riguardante l'affidabilitá del prodotto.])
 
 === Usabilitá
-#metrics((
+#figure(metrics((
   [MPD08],
   [Facilitá di utilizzo],
   [≤ 3 errori commessi nell'interazione],
@@ -203,18 +202,18 @@ La qualità di prodotto si riferisce all'insieme delle caratteristiche di un'ent
   [Tempo di apprendimento],
   [≤ 15 minuti],
   [≤ 5 minuti]
-))
+)), caption: [Valori accettabili e ottimi per ogni metrica riguardante l'usabilitá del prodotto.])
 
 === Efficienza
-#metrics((
+#figure(metrics((
   [MPD10],
   [Utilizzo risorse],
   [≥ 75%],
   [100%]
-))
+)), caption: [Valori accettabili e ottimi per ogni metrica riguardante l'efficienza del prodotto.])
 
 === Manutenibilitá
-#metrics((
+#figure(metrics((
   [MPD11],
   [Complessità ciclomatica],
   [1-10],
@@ -227,7 +226,7 @@ La qualità di prodotto si riferisce all'insieme delle caratteristiche di un'ent
   [Coefficient of Coupling (COC)],
   [≤ 30%],
   [≤ 10%]
-))
+)), caption: [Valori accettabili e ottimi per ogni metrica riguardante la manutenibilitá del prodotto.])
 
 #pagebreak()
 
@@ -256,74 +255,74 @@ Ogni test ha uno *Stato*, che puo essere:
 
 == Test di unità
 Sono stati utilizzati i framework di unit testing *JUnit* e *Mockito*.
-#test(
+#figure(test(
   (
     "TU-1","Verificare che l'oggetto mail venga inserito correttamente nel database", "V",
     "TU-2","Verificare che l'oggetto mail inviato dal database venga ricevuto correttamente", "V",
   )
-)
+), caption: [Stato dei test di integrazione.])
 
 #pagebreak()
 
 = Cruscotto di valutazione della qualità
 
 == MPC06 - Estimated at Completion (EAC)
-#figure(image("//imgs/PdQ_graphs/EAC.png", width: 100%))
+#figure(image("//imgs/PdQ_graphs/EAC.png", width: 100%), caption: [Proiezione della stima del costo totale nei vari periodi di progetto.])
 
 #pagebreak()
 
 == MPC01 - Earned Value (EV) e MPC02 - Planned Value (PV)
-#figure(image("//imgs/PdQ_graphs/EV_PV.png", width: 100%))
+#figure(image("//imgs/PdQ_graphs/EV_PV.png", width: 100%), caption: [Proiezione dell'EV e del PV nei vari periodi di progetto.])
 
 #pagebreak()
 
 == MPC03 - Actual Cost (AC) e MPC07 - Estimate to Complete (ETC)
-#figure(image("//imgs/PdQ_graphs/AC_ETC.png", width: 100%))
+#figure(image("//imgs/PdQ_graphs/AC_ETC.png", width: 100%), caption: [Proiezione dell'AC e dell'ETC nei vari periodi di progetto.])
 
 #pagebreak()
 
 == MPC04 - Cost Variance (CV) e MPC05 - Schedule Variance (SV)
-#figure(image("//imgs/PdQ_graphs/CV_SV.png", width: 100%))
+#figure(image("//imgs/PdQ_graphs/CV_SV.png", width: 100%), caption: [Proiezione della CV e della SV nei vari periodi di progetto.])
 
 #pagebreak()
 
 == MPC08 - Requirements stability index (RSI)
-#figure(image("//imgs/PdQ_graphs/RSI.png", width: 100%))
+#figure(image("//imgs/PdQ_graphs/RSI.png", width: 100%), caption: [Proiezione del RSI nei vari periodi di progetto.])
 
 #pagebreak()
 
 
 == MPC11 - Indice Gulpease
-#figure(image("//imgs/PdQ_graphs/Gulpease.png", width: 100%))
+#figure(image("//imgs/PdQ_graphs/Gulpease.png", width: 100%), caption: [Proiezione dell'indice Gulpease per ogni documento (RTB) nei vari periodi di progetto.])
 
 #pagebreak()
 
 == MPC12 - Correttezza Ortografica
-#figure(image("//imgs/PdQ_graphs/CorrOrt.png", width: 100%))
+#figure(image("//imgs/PdQ_graphs/CorrOrt.png", width: 100%), caption: [Proiezione della correttezza ortografica nei vari periodi di progetto.])
 
 #pagebreak()
 
 == MPC13 - Code Coverage
-#figure(image("//imgs/PdQ_graphs/CodeCov.png", width: 100%))
+//#figure(image("//imgs/PdQ_graphs/CodeCov.png", width: 100%))
 
 #pagebreak()
 
 == MPC14 - Passed Test Cases Percentage
-#figure(image("//imgs/PdQ_graphs/PassedTest.png", width: 100%))
+#figure(image("//imgs/PdQ_graphs/PassedTest.png", width: 100%), caption: [Proiezione della percentuale di test terminati con successo nei vari periodi di progetto.])
 
 #pagebreak()
 
 == MPC15 - Quality Metrics Satisfied
-#figure(image("//imgs/PdQ_graphs/QaulityMetSat.png", width: 100%))
+//#figure(image("//imgs/PdQ_graphs/QaulityMetSat.png", width: 100%))
 #pagebreak()
 
 == MPC16 - Non-Calculated Risk
-#figure(image("//imgs/PdQ_graphs/NonCalcRisk.png", width: 100%))
+#figure(image("//imgs/PdQ_graphs/NonCalcRisk.png", width: 100%), caption: [Proiezione rischi non identificati nei vari periodi di progetto.])
 
 #pagebreak()
 
 == MPC17 - Efficienza Temporale
-#figure(image("//imgs/PdQ_graphs/EffTemp.png", width: 100%))
+#figure(image("//imgs/PdQ_graphs/EffTemp.png", width: 100%), caption: [Proiezione dell'efficienza temporale nei vari periodi di progetto.])
 
 #pagebreak()
 
