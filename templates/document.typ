@@ -400,33 +400,16 @@
   )
 }
 
-#let period(data, dirs) = {
+
+#let histogram(data, dirs) = {
   let roles = ("Responsabile", "Amministratore", "Verificatore", "Analista", "Progettista", "Programmatore")
   let period_header = ([],) + roles.map(r => [*#r*])
   let people = (p.amadori, p.bettin, p.bonavigo, p.bulychov, p.fabbian, p.furno, p.vedovato).map(n => n.split().last())
   let r = period_header + (people + ("Ore totali",)).map(el => [*#el*]).zip(data.map(x => x.map(y => str(y)))).flatten()
   
-  align(center,
-    table(
-      fill: (_, row) => if calc.odd(row) { luma(215) } else { white },
-      inset: 0.5em,
-      columns: (auto,)*7,
-      align: center,
-      ..r.map(el => text(size: 0.85em, hyphenate: false)[#par(justify: false, el)],)
-    )
-  )
-
   v(1em)
   
-  let sums = ()
-  for j in range(data.first().len()) {
-    let t = ()
-    for i in range(data.len()) {
-      t += (data.at(i).at(j),)
-    }
-    sums += (t.sum(),)
-  }
-  
+
   data = people.zip(data).map(x => x.flatten())
   let pal = (rgb("#e60049"), rgb("#0bb4ff"), rgb("#50e991"), rgb("#e6d800"), rgb("#9b19f5"), rgb("#ffa300"), rgb("#dc0ab4"), rgb("#b3d4ff"), rgb("#00bfa0"))
 
@@ -448,8 +431,45 @@
       chart.columnchart(size:(auto,4), mode: "clustered", value-key: (1,2,3,4,5,6), data, y-tick-step: 1, bar-style: palette.new(black, pal))
     })
   )
+}
 
+#let tablegraph(data, dirs) = {
+  let roles = ("Responsabile", "Amministratore", "Verificatore", "Analista", "Progettista", "Programmatore")
+  let period_header = ([],) + roles.map(r => [*#r*])
+  let people = (p.amadori, p.bettin, p.bonavigo, p.bulychov, p.fabbian, p.furno, p.vedovato).map(n => n.split().last())
+  let r = period_header + (people + ("Ore totali",)).map(el => [*#el*]).zip(data.map(x => x.map(y => str(y)))).flatten()
+  
+  align(center,
+    table(
+      fill: (_, row) => if calc.odd(row) { luma(215) } else { white },
+      inset: 0.5em,
+      columns: (auto,)*7,
+      align: center,
+      ..r.map(el => text(size: 0.85em, hyphenate: false)[#par(justify: false, el)],)
+    )
+  )
+}
+
+
+#let piechart(data, dirs) = {
+  let roles = ("Responsabile", "Amministratore", "Verificatore", "Analista", "Progettista", "Programmatore")
+  let period_header = ([],) + roles.map(r => [*#r*])
+  let people = (p.amadori, p.bettin, p.bonavigo, p.bulychov, p.fabbian, p.furno, p.vedovato).map(n => n.split().last())
+  let r = period_header + (people + ("Ore totali",)).map(el => [*#el*]).zip(data.map(x => x.map(y => str(y)))).flatten()
+  
   v(1em)
+  
+  let sums = ()
+  for j in range(data.first().len()) {
+    let t = ()
+    for i in range(data.len()) {
+      t += (data.at(i).at(j),)
+    }
+    sums += (t.sum(),)
+  }
+  
+  data = people.zip(data).map(x => x.flatten())
+  let pal = (rgb("#e60049"), rgb("#0bb4ff"), rgb("#50e991"), rgb("#e6d800"), rgb("#9b19f5"), rgb("#ffa300"), rgb("#dc0ab4"), rgb("#b3d4ff"), rgb("#00bfa0"))
 
   align(center,
     canvas({

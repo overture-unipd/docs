@@ -23,7 +23,9 @@
     "0.0.3", "2023-11-25", p.vedovato, p.bettin, "Aggiunta della sezione 'Modello di sviluppo'",
     "0.0.2", "2023-11-19", p.fabbian, p.amadori, "Aggiunta della sezione 'Analisi dei Rischi'",
     "0.0.1", "2023-11-15", p.bulychov, p.amadori, "Struttura di base ed introduzione",
-  )
+  ),
+  show_images_list: true,
+  show_tables_list: true
 )
 
 \
@@ -209,7 +211,19 @@ Questo perchè, essendo all'inizio del progetto, siamo ancora incerti su molti a
 ==== Preventivo
 Ruoli coinvolti: Responsabile, Amministratore, Verificatore, Analista, Progettista.
 
-#period((
+
+#figure(tablegraph((
+  (0, 0, 8, 0, 0, 0),
+  (0, 0, 0, 6, 0, 0),
+  (2, 0, 0, 0, 4, 0),
+  (0, 0, 0, 5, 2, 0),
+  (0, 5, 0, 1, 0, 0),
+  (0, 0, 0, 5, 2, 0),
+  (6, 0, 0, 0, 1, 0),
+  ),
+  (2, 2, 2)), caption: [Preventivo dell'impegno orario per ruolo di ciascun membro durante il periodo I.])
+
+#figure(histogram((
   (0, 0, 8, 0, 0, 0),
   (0, 0, 0, 6, 0, 0),
   (2, 0, 0, 0, 4, 0),
@@ -219,7 +233,20 @@ Ruoli coinvolti: Responsabile, Amministratore, Verificatore, Analista, Progettis
   (6, 0, 0, 0, 1, 0),
   ),
   (2, 2, 2),
-)
+), caption: [Visualizzazione dell'impegno temporale di ciascun membro nei rispettivi ruoli assegnati nel periodo I.])
+
+#figure(piechart((
+  (0, 0, 8, 0, 0, 0),
+  (0, 0, 0, 6, 0, 0),
+  (2, 0, 0, 0, 4, 0),
+  (0, 0, 0, 5, 2, 0),
+  (0, 5, 0, 1, 0, 0),
+  (0, 0, 0, 5, 2, 0),
+  (6, 0, 0, 0, 1, 0),
+  ),
+  (2, 2, 2),
+), caption: [Ripartizione in percentuale dei ruoli nel periodo I.])
+
 
 
 ==== Consuntivo
@@ -229,7 +256,7 @@ Come si può notare dal confronto tra preventivo e consuntivo:
 - Responsabili e Progettisti hanno richiesto *meno* ore.
 
 ===== Prospetto orario
-#consuntivo(
+#figure(consuntivo(
   (
     ("0", "0","9 "+neg("+1"), "0", "0", "0", "9"),
     ("0", "0","0", "6", "0", "0", "6"),
@@ -240,9 +267,9 @@ Come si può notare dal confronto tra preventivo e consuntivo:
     ("5 "+pos("-1"), "1 "+neg("+1"),"0", "0", "1", "0","7"),
     ("7", "6","9", "18", "8", "0", "48")
   )
-)
+), caption: [Impegno orario effettivo per ruolo di ciascun membro nel periodo I rispetto le ore preventivate.])
 ===== Prospetto economico
-#costi(
+#figure(costi(
   (
     ("7 "+pos("-1"), "210€", pos("-30€")),
     ("6 "+neg("+1"), "120€",neg("+20€")),
@@ -253,7 +280,7 @@ Come si può notare dal confronto tra preventivo e consuntivo:
     ("47", "1110€","-"),
     ("48 "+neg("+1"), "1115€",neg("+5€"))
   )
-)
+), caption: [Aggiornamenti economici del progetto al termine del periodo I, riflettendo le variazioni tra preventivo e ore effettivamente lavorate.])
 
 ===== Rischi occorsi, impatto e loro mitigazione
 In questo primo periodo il gruppo ha riscontrato dei leggeri rallentamenti nelle fasi iniziali dei lavori. In particolare, si è proceduto alla stesura in parallelo di diversi documenti senza aver ben definito le regole stilistiche per il testo all'interno delle `Norme di Progetto`; questo problema dovuto ad inesperienza e problemi di comunicazione, che rappresentano parte dei rischi attesi dal gruppo, ha richiesto del lavoro extra per la redazione e la verifica della documentazione, ma è stato prontamente mitigato una volta individuato. \
@@ -301,7 +328,7 @@ I rischi identificati per il periodo attuale non differiscono significativamente
 ==== Preventivo
 Ruoli coinvolti: Responsabile, Amministratore, Verificatore, Analista, Programmatore.
 
-#period((
+#figure(tablegraph((
   (0, 0, 0, 6, 0, 4),
   (0, 0, 7, 5, 0, 0),
   (0, 0, 0, 0, 0, 9),
@@ -311,7 +338,31 @@ Ruoli coinvolti: Responsabile, Amministratore, Verificatore, Analista, Programma
   (0, 1, 11, 0, 0, 0),
   ),
   (2, 3, 1),
-)
+), caption: [Preventivo dell'impegno orario per ruolo di ciascun membro durante il periodo II.]))
+
+#figure(histogram((
+  (0, 0, 0, 6, 0, 4),
+  (0, 0, 7, 5, 0, 0),
+  (0, 0, 0, 0, 0, 9),
+  (0, 0, 0, 3, 0, 6),
+  (7, 0, 0, 0, 0, 0),
+  (0, 6, 0, 3, 0, 0),
+  (0, 1, 11, 0, 0, 0),
+  ),
+  (2, 3, 1),
+), caption: [Visualizzazione dell'impegno temporale di ciascun membro nei rispettivi ruoli assegnati nel periodo II.])
+
+#figure(piechart((
+  (0, 0, 0, 6, 0, 4),
+  (0, 0, 7, 5, 0, 0),
+  (0, 0, 0, 0, 0, 9),
+  (0, 0, 0, 3, 0, 6),
+  (7, 0, 0, 0, 0, 0),
+  (0, 6, 0, 3, 0, 0),
+  (0, 1, 11, 0, 0, 0),
+  ),
+  (2, 3, 1),
+), caption: [Ripartizione in percentuale dei ruoli nel periodo II.])
 
 
 ==== Consuntivo
@@ -320,7 +371,7 @@ Come si può notare dal confronto tra preventivo e consuntivo:
 - Verificatori, Analisti e Programmatori hanno richiesto *meno* ore.
 
 ===== Prospetto orario
-#consuntivo(
+#figure(consuntivo(
   (
     ("0", "0", "0", "5 "+pos("-1"), "0", "3 "+pos("-1"), "8"),
     ("0", "0", "7", "5", "0", "0", "12"),
@@ -331,9 +382,9 @@ Come si può notare dal confronto tra preventivo e consuntivo:
     ("0", "1", "10 "+pos("-1"), "0", "0", "0", "11"),
     ("7", "7", "17", "16", "0", "18", "65")
   )
-)
+), caption: [Impegno orario effettivo per ruolo di ciascun membro nel periodo II rispetto le ore preventivate.])
 ===== Prospetto economico
-#costi(
+#figure(costi(
   (
     ("7", "210€", "-"),
     ("7", "140€", "-"),
@@ -344,7 +395,7 @@ Come si può notare dal confronto tra preventivo e consuntivo:
     ("67", "1340€", "-"),
     ("65 "+pos("-2"), "1275€",pos("-65€"))
   )
-)
+), caption: [Aggiornamenti economici del progetto al termine del periodo II, riflettendo le variazioni tra preventivo e ore effettivamente lavorate.])
 
 ===== Rischi occorsi, impatto e loro mitigazione
 Nel corso del secondo periodo il gruppo si è scontrato principalmente con problemi legati all'uso delle tecnologie testate, specialmente per quanto riguarda la libreria esterna identificata come scelta primaria. Quest'ultima infatti, sebbene considerata la migliore per lo sviluppo futuro del progetto, è risultata essere parzialmente inadeguata,  dimostrandosi più complessa da estendere per agire efficacemente come server di quanto inizialmente previsto. Tuttavia i nostri studi non hanno individuato alternative migliori, per cui dopo un'attenta valutazione si è deciso di non abbandonare questa libreria, anche se questo avrà sicuramente un forte impatto sul progetto, richiedendo di conseguenza uno sforzo maggiore da parte dei Programmatori. \
@@ -384,7 +435,7 @@ Il consistente carico di lavoro di questo periodo richiederà inevitabilmente pi
 ==== Preventivo
 Ruoli coinvolti: Responsabile, Amministratore, Verificatore, Analista, Programmatore.
 
-#period((
+#figure(tablegraph((
   (0, 2, 0, 0, 0, 6),
   (7, 0, 0, 0, 0, 5),
   (0, 0, 5, 6, 0, 0),
@@ -394,7 +445,31 @@ Ruoli coinvolti: Responsabile, Amministratore, Verificatore, Analista, Programma
   (0, 0, 0, 6, 0, 5),
   ),
   (2, 3, 1),
-)
+), caption: [Preventivo dell'impegno orario per ruolo di ciascun membro durante il periodo III.])
+
+#figure(histogram((
+  (0, 2, 0, 0, 0, 6),
+  (7, 0, 0, 0, 0, 5),
+  (0, 0, 5, 6, 0, 0),
+  (0, 6, 4, 0, 0, 0),
+  (0, 0, 4, 6, 0, 0),
+  (0, 0, 5, 0, 0, 5),
+  (0, 0, 0, 6, 0, 5),
+  ),
+  (2, 3, 1),
+), caption: [Visualizzazione dell'impegno temporale di ciascun membro nei rispettivi ruoli assegnati nel periodo III.])
+
+#figure(piechart((
+  (0, 2, 0, 0, 0, 6),
+  (7, 0, 0, 0, 0, 5),
+  (0, 0, 5, 6, 0, 0),
+  (0, 6, 4, 0, 0, 0),
+  (0, 0, 4, 6, 0, 0),
+  (0, 0, 5, 0, 0, 5),
+  (0, 0, 0, 6, 0, 5),
+  ),
+  (2, 3, 1),
+), caption: [Ripartizione in percentuale dei ruoli nel periodo III.])
 
 
 ==== Consuntivo
@@ -406,7 +481,7 @@ Come si può notare dal confronto tra preventivo e consuntivo:
 - Responsabili hanno rischiesto *meno* ore.
 
 ===== Prospetto orario
-#consuntivo(
+#figure(consuntivo(
   (
     ("0", "2", "0", "2 "+neg("+2"), "0", "6", "10"),
     ("6 "+pos("-1"), "0", "0", "0", "0", "5", "11"),
@@ -417,9 +492,9 @@ Come si può notare dal confronto tra preventivo e consuntivo:
     ("0", "0", "0", "6", "0", "5", "11"),
     ("6", "9", "18", "20", "0", "21", "74")
   )
-)
+), caption: [Impegno orario effettivo per ruolo di ciascun membro nel periodo III rispetto le ore preventivate.])
 ===== Prospetto economico
-#costi(
+#figure(costi(
   (
     ("6 "+pos("-1"), "180€", pos("-30€")),
     ("9 "+neg("+1"), "180€", neg("+20€")),
@@ -430,7 +505,7 @@ Come si può notare dal confronto tra preventivo e consuntivo:
     ("72", "1405€", "-"),
     ("74 "+neg("+2"), "1445€",neg("+40€"))
   )
-)
+), caption: [Aggiornamenti economici del progetto al termine del periodo III, riflettendo le variazioni tra preventivo e ore effettivamente lavorate.])
 
 ===== Rischi occorsi, impatto e loro mitigazione 
 Nel corso di questo periodo il gruppo ha scelto di svolgere numerose attività in un tempo limitato.\ In seguito ad un controllo generale della documentazione, sono emerse diverse imprecisioni in particolari sezioni, sottolineando come alcune attività non fossero state svolte in maniera ottimale. Gli analisti si sono occupati di sistemare queste parti.\
@@ -466,17 +541,41 @@ I rischi che ci aspettiamo di correre in questo periodo sono i seguenti:
 Le vacanze Natalizie nel bel mezzo di questo periodo non faciliteranno sicuramente l'organizzazione del lavoro rimanente, causando rallentamenti e carenza di membri del gruppo disposti a lavorare durante questo periodo.\
 Un altro rischio imminente è che i dubbi che chiariremo con il #p.cardin non scoperchino un'altro vaso di pandora, causando una mole di lavoro correttiva per `Analisi dei Requisiti` e PoC eccessiva, con costi in termini di ore lavoro che se non assorbiti dal gruppo possono causare consistenti rallentamenti per la nostra candidatura all'RTB.
 
-==== Preventivo 
+==== Preventivo
 Ruoli coinvolti: Responsabile, Amministratore, Verificatore, Analista, Programmatore.
 
-#period((
-    (0,4,0,0,0,0),
-    (0,0,0,0,0,3),
-    (4,0,0,3,0,0),
-    (0,0,5,0,0,2),
-    (0,0,5,0,0,3),
-    (0,0,0,2,0,3),
-    (0,0,0,3,0,2)
+#figure(tablegraph((
+    (0, 4, 0, 0, 0, 0),
+    (0, 0, 0, 0, 0, 3),
+    (4, 0, 0, 3, 0, 0),
+    (0, 0, 5, 0, 0, 2),
+    (0, 0, 5, 0, 0, 3),
+    (0, 0, 0, 2, 0, 3),
+    (0, 0, 0, 3, 0, 2)
   ),
   (2, 3, 1),
-)
+), caption: [Preventivo dell'impegno orario per ruolo di ciascun membro durante il periodo IV.])
+
+#figure(histogram((
+    (0, 4, 0, 0, 0, 0),
+    (0, 0, 0, 0, 0, 3),
+    (4, 0, 0, 3, 0, 0),
+    (0, 0, 5, 0, 0, 2),
+    (0, 0, 5, 0, 0, 3),
+    (0, 0, 0, 2, 0, 3),
+    (0, 0, 0, 3, 0, 2)
+  ),
+  (2, 3, 1),
+), caption: [Visualizzazione dell'impegno temporale di ciascun membro nei rispettivi ruoli assegnati nel periodo IV.])
+
+#figure(piechart((
+    (0, 4, 0, 0, 0, 0),
+    (0, 0, 0, 0, 0, 3),
+    (4, 0, 0, 3, 0, 0),
+    (0, 0, 5, 0, 0, 2),
+    (0, 0, 5, 0, 0, 3),
+    (0, 0, 0, 2, 0, 3),
+    (0, 0, 0, 3, 0, 2)
+  ),
+  (2, 3, 1),
+), caption: [Ripartizione in percentuale dei ruoli nel periodo IV.])
