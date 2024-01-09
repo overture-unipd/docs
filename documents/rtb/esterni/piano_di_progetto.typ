@@ -9,6 +9,7 @@
     [_#(p.zextras)_],
   ),
   changelog: (
+    "0.4.0", "2024-01-09", p.bettin, p.bonavigo, "Aggiunto il consuntivo del periodo IV",
     "0.3.2", "2024-01-03", p.amadori, p.bulychov, "Aggiunto il preventivo del periodo IV",
     "0.3.1", "2023-12-28", p.amadori, p.bulychov, "Aggiunta la pianificazione del periodo IV",
     "0.3.0", "2023-12-22", p.amadori, p.fabbian, "Aggiunto il consuntivo del periodo III",
@@ -185,7 +186,9 @@ Alla fine di ogni collettivo si trovano una revisione del calendario rimanente e
 
 === Periodo I
 Inizio: 2023-11-06\
-Fine: 2023-11-22\
+Fine prevista: 2023-11-22\
+Fine attuale: 2023-11-22\
+Giorni di ritardo: #pos("0")
 
 ==== Pianificazione
 Questo periodo nasce contestualmente all'aggiudicazione dell'appalto da parte del gruppo, di conseguenza la prima azione pianificata è la risoluzione dei problemi segnalati in fase di candidatura. Fatto ciò, in queste due settimane si prevede di definire la struttura di base di ogni documento necessario e di andare ad automatizzare più operazioni possibili. Inoltre, parallelamente allo sviluppo della documentazione, si prevede anche uno studio approfondito del dominio del problema del capitolato e delle tecnologie coinvolte. \
@@ -212,42 +215,21 @@ Questo perchè, essendo all'inizio del progetto, siamo ancora incerti su molti a
 Ruoli coinvolti: Responsabile, Amministratore, Verificatore, Analista, Progettista.
 
 
-#figure(tablegraph((
-  (0, 0, 8, 0, 0, 0),
-  (0, 0, 0, 6, 0, 0),
-  (2, 0, 0, 0, 4, 0),
-  (0, 0, 0, 5, 2, 0),
-  (0, 5, 0, 1, 0, 0),
-  (0, 0, 0, 5, 2, 0),
-  (6, 0, 0, 0, 1, 0),
-  ),
-  (2, 2, 2)), caption: [Preventivo dell'impegno orario per ruolo di ciascun membro durante il periodo I.])
-
-#figure(histogram((
-  (0, 0, 8, 0, 0, 0),
-  (0, 0, 0, 6, 0, 0),
-  (2, 0, 0, 0, 4, 0),
-  (0, 0, 0, 5, 2, 0),
-  (0, 5, 0, 1, 0, 0),
-  (0, 0, 0, 5, 2, 0),
-  (6, 0, 0, 0, 1, 0),
-  ),
+#period(
+  (
+    (0, 0, 8, 0, 0, 0),
+    (0, 0, 0, 6, 0, 0),
+    (2, 0, 0, 0, 4, 0),
+    (0, 0, 0, 5, 2, 0),
+    (0, 5, 0, 1, 0, 0),
+    (0, 0, 0, 5, 2, 0),
+    (6, 0, 0, 0, 1, 0),
+    ),
   (2, 2, 2),
-), caption: [Visualizzazione dell'impegno temporale di ciascun membro nei rispettivi ruoli assegnati nel periodo I.])
-
-#figure(piechart((
-  (0, 0, 8, 0, 0, 0),
-  (0, 0, 0, 6, 0, 0),
-  (2, 0, 0, 0, 4, 0),
-  (0, 0, 0, 5, 2, 0),
-  (0, 5, 0, 1, 0, 0),
-  (0, 0, 0, 5, 2, 0),
-  (6, 0, 0, 0, 1, 0),
-  ),
-  (2, 2, 2),
-), caption: [Ripartizione in percentuale dei ruoli nel periodo I.])
-
-
+  [Preventivo dell'impegno orario per ruolo di ciascun membro durante il periodo I.],
+  [Visualizzazione dell'impegno temporale di ciascun membro nei rispettivi ruoli assegnati nel periodo I.],
+  [Ripartizione in percentuale dei ruoli nel periodo I.]
+)
 
 ==== Consuntivo
 Le attività previste sono tutte state svolte con successo. \
@@ -296,7 +278,9 @@ Infine va migliorata la stima tramite preventivo del tempo necessario per poter 
 
 === Periodo II
 Inizio: 2023-11-22\
-Fine: 2023-12-07\
+Fine prevista: 2023-12-06\
+Fine attuale: 2023-12-07\
+Giorni di ritardo: #neg("+1")
 
 ==== Pianificazione
 Nel corso del secondo periodo ci si propone di proseguire lo sviluppo della documentazione, con particolare enfasi sull'`Analisi dei Requisiti`, al fine di identificare i casi d'uso fondamentali. Per garantire un dialogo attivo con l'azienda proponente e assicurare una corretta comprensione dei casi d'uso sarà fondamentale organizzare almeno un incontro telematico e comunicare frequentemente anche per via informale tramite Discord. In questa maniera otteremo numerosi feedback, fondamentali per un lavoro accurato e professionale.\
@@ -328,41 +312,21 @@ I rischi identificati per il periodo attuale non differiscono significativamente
 ==== Preventivo
 Ruoli coinvolti: Responsabile, Amministratore, Verificatore, Analista, Programmatore.
 
-#figure(tablegraph((
-  (0, 0, 0, 6, 0, 4),
-  (0, 0, 7, 5, 0, 0),
-  (0, 0, 0, 0, 0, 9),
-  (0, 0, 0, 3, 0, 6),
-  (7, 0, 0, 0, 0, 0),
-  (0, 6, 0, 3, 0, 0),
-  (0, 1, 11, 0, 0, 0),
+#period(
+  (
+    (0, 0, 0, 6, 0, 4),
+    (0, 0, 7, 5, 0, 0),
+    (0, 0, 0, 0, 0, 9),
+    (0, 0, 0, 3, 0, 6),
+    (7, 0, 0, 0, 0, 0),
+    (0, 6, 0, 3, 0, 0),
+    (0, 1, 11, 0, 0, 0),
   ),
   (2, 3, 1),
-), caption: [Preventivo dell'impegno orario per ruolo di ciascun membro durante il periodo II.]))
-
-#figure(histogram((
-  (0, 0, 0, 6, 0, 4),
-  (0, 0, 7, 5, 0, 0),
-  (0, 0, 0, 0, 0, 9),
-  (0, 0, 0, 3, 0, 6),
-  (7, 0, 0, 0, 0, 0),
-  (0, 6, 0, 3, 0, 0),
-  (0, 1, 11, 0, 0, 0),
-  ),
-  (2, 3, 1),
-), caption: [Visualizzazione dell'impegno temporale di ciascun membro nei rispettivi ruoli assegnati nel periodo II.])
-
-#figure(piechart((
-  (0, 0, 0, 6, 0, 4),
-  (0, 0, 7, 5, 0, 0),
-  (0, 0, 0, 0, 0, 9),
-  (0, 0, 0, 3, 0, 6),
-  (7, 0, 0, 0, 0, 0),
-  (0, 6, 0, 3, 0, 0),
-  (0, 1, 11, 0, 0, 0),
-  ),
-  (2, 3, 1),
-), caption: [Ripartizione in percentuale dei ruoli nel periodo II.])
+  [Preventivo dell'impegno orario per ruolo di ciascun membro durante il periodo II.],
+  [Visualizzazione dell'impegno temporale di ciascun membro nei rispettivi ruoli assegnati nel periodo II.],
+  [Ripartizione in percentuale dei ruoli nel periodo II.]
+)
 
 
 ==== Consuntivo
@@ -409,7 +373,9 @@ Infine è fondamentale migliorare ulteriormente la stima del tempo necessario at
 
 === Periodo III
 Inizio: 2023-12-07\
-Fine: 2023-12-20\
+Fine prevista: 2023-12-21\
+Fine attuale: 2023-12-20\
+Giorni di ritardo: #pos("-1")
 
 ==== Pianificazione
 La volontà del gruppo è quella di conseguire la prima revisione di avanzamento del prodotto prima di Natale; per questo motivo il terzo periodo si rivela più intenso rispetto i precedenti, con carichi di lavoro più elevati e numerose ore necessarie per completare le molteplici attività. #linebreak()
@@ -432,45 +398,24 @@ I rischi che ci aspettiamo di correre in questo periodo sono i seguenti:
 - #link(<RC2>)[*RC2 - Problemi di comunicazione*].
 Il consistente carico di lavoro di questo periodo richiederà inevitabilmente più tempo ad ogni membro del gruppo. I rischi identificati sono organizzativi e comuncativi: per conseguire la RTB prima di Natale molte attività potrebbero essere svolte frettolosamente, causando rallentamenti generali e ritardi.
 
-==== Preventivo
+==== Preventivo 
 Ruoli coinvolti: Responsabile, Amministratore, Verificatore, Analista, Programmatore.
 
-#figure(tablegraph((
-  (0, 2, 0, 0, 0, 6),
-  (7, 0, 0, 0, 0, 5),
-  (0, 0, 5, 6, 0, 0),
-  (0, 6, 4, 0, 0, 0),
-  (0, 0, 4, 6, 0, 0),
-  (0, 0, 5, 0, 0, 5),
-  (0, 0, 0, 6, 0, 5),
+#period(
+  (
+    (0, 2, 0, 0, 0, 6),
+    (7, 0, 0, 0, 0, 5),
+    (0, 0, 5, 6, 0, 0),
+    (0, 6, 4, 0, 0, 0),
+    (0, 0, 4, 6, 0, 0),
+    (0, 0, 5, 0, 0, 5),
+    (0, 0, 0, 6, 0, 5),
   ),
   (2, 3, 1),
-), caption: [Preventivo dell'impegno orario per ruolo di ciascun membro durante il periodo III.])
-
-#figure(histogram((
-  (0, 2, 0, 0, 0, 6),
-  (7, 0, 0, 0, 0, 5),
-  (0, 0, 5, 6, 0, 0),
-  (0, 6, 4, 0, 0, 0),
-  (0, 0, 4, 6, 0, 0),
-  (0, 0, 5, 0, 0, 5),
-  (0, 0, 0, 6, 0, 5),
-  ),
-  (2, 3, 1),
-), caption: [Visualizzazione dell'impegno temporale di ciascun membro nei rispettivi ruoli assegnati nel periodo III.])
-
-#figure(piechart((
-  (0, 2, 0, 0, 0, 6),
-  (7, 0, 0, 0, 0, 5),
-  (0, 0, 5, 6, 0, 0),
-  (0, 6, 4, 0, 0, 0),
-  (0, 0, 4, 6, 0, 0),
-  (0, 0, 5, 0, 0, 5),
-  (0, 0, 0, 6, 0, 5),
-  ),
-  (2, 3, 1),
-), caption: [Ripartizione in percentuale dei ruoli nel periodo III.])
-
+  [Preventivo dell'impegno orario per ruolo di ciascun membro durante il periodo III.],
+  [Visualizzazione dell'impegno temporale di ciascun membro nei rispettivi ruoli assegnati nel periodo III.],
+  [Ripartizione in percentuale dei ruoli nel periodo III.]
+)
 
 ==== Consuntivo
 Contrariamente ai piani stabiliti, il gruppo non potrà partecipare alla prima revisione del progetto in questo momento poiché si ritiene che non sia ancora completamente pronto. \
@@ -517,7 +462,9 @@ Tutto sommato, il carico di lavoro poteva essere distribuito diversamente, magar
 
 === Periodo IV
 Inizio: 2023-12-21\
-Fine: 2024-01-07\
+Fine prevista: 2024-01-07\
+Fine attuale: 2024-01-09\
+Giorni di ritardo: #neg("+2")
 
 ==== Pianificazione
 Nel corso del terzo periodo il gruppo ha completato le `Norme di Progetto`, descrivendo tutti i processi che caratterizzano il nostro way of working seguendo lo standard, ed il `Glossario`; attualmente non prevediamo ulteriori modifiche per questi documenti.\
@@ -544,7 +491,8 @@ Un altro rischio imminente è che i dubbi che chiariremo con il #p.cardin non sc
 ==== Preventivo
 Ruoli coinvolti: Responsabile, Amministratore, Verificatore, Analista, Programmatore.
 
-#figure(tablegraph((
+#period(
+  (
     (0, 4, 0, 0, 0, 0),
     (0, 0, 0, 0, 0, 3),
     (4, 0, 0, 3, 0, 0),
@@ -554,28 +502,49 @@ Ruoli coinvolti: Responsabile, Amministratore, Verificatore, Analista, Programma
     (0, 0, 0, 3, 0, 2)
   ),
   (2, 3, 1),
-), caption: [Preventivo dell'impegno orario per ruolo di ciascun membro durante il periodo IV.])
+  [Preventivo dell'impegno orario per ruolo di ciascun membro durante il periodo IV.],
+  [Visualizzazione dell'impegno temporale di ciascun membro nei rispettivi ruoli assegnati nel periodo IV.],
+  [Ripartizione in percentuale dei ruoli nel periodo IV.],
+)
 
-#figure(histogram((
-    (0, 4, 0, 0, 0, 0),
-    (0, 0, 0, 0, 0, 3),
-    (4, 0, 0, 3, 0, 0),
-    (0, 0, 5, 0, 0, 2),
-    (0, 0, 5, 0, 0, 3),
-    (0, 0, 0, 2, 0, 3),
-    (0, 0, 0, 3, 0, 2)
-  ),
-  (2, 3, 1),
-), caption: [Visualizzazione dell'impegno temporale di ciascun membro nei rispettivi ruoli assegnati nel periodo IV.])
+==== Consuntivo 
+Come si può notare dal confronto tra preventivo e consuntivo:
+- Amministratori, Responsabili ed Analisti hanno richiesto *più* ore;
 
-#figure(piechart((
-    (0, 4, 0, 0, 0, 0),
-    (0, 0, 0, 0, 0, 3),
-    (4, 0, 0, 3, 0, 0),
-    (0, 0, 5, 0, 0, 2),
-    (0, 0, 5, 0, 0, 3),
-    (0, 0, 0, 2, 0, 3),
-    (0, 0, 0, 3, 0, 2)
-  ),
-  (2, 3, 1),
-), caption: [Ripartizione in percentuale dei ruoli nel periodo IV.])
+===== Prospetto orario
+#figure(consuntivo(
+  (
+    ("0", "3 "+neg("-1"), "0", "0", "0", "0", "3"),
+    ("0", "2 "+neg("+2"), "0", "0", "0", "3", "5"),
+    ("4 "+neg("+1"), "0", "0", "3", "0", "0", "7"),
+    ("0", "0", "5", "0", "0", "2", "7"),
+    ("0", "0", "5", "0", "0", "3", "8"),
+    ("1 "+neg("+1"), "0", "0", "3 "+neg("+1"), "0", "3", "7"),
+    ("0", "0", "0", "5 "+neg("+2"), "0", "2", "7"),
+    ("5", "5", "10", "11", "0", "13", "44")
+  )
+), caption: [Impegno orario effettivo per ruolo di ciascun membro nel periodo IV rispetto le ore preventivate.])
+
+===== Prospetto economico
+#figure(costi(
+  (
+    ("5 "+neg("+1"), "150€", neg("+30€")),
+    ("5 "+neg("+1"), "100€", neg("+20€")),
+    ("10", "150€","-"),
+    ("11 "+neg("+3"), "225€",neg("+75€")),
+    ("-", "-", "-"),
+    ("13", "195€","-"),
+    ("39", "695€", "-"),
+    ("44 "+neg("+5"), "820€",neg("+125€"))
+  )
+), caption: [Aggiornamenti economici del progetto al termine del periodo IV, riflettendo le variazioni tra preventivo e ore effettivamente lavorate.])
+
+===== Rischi occorsi, impatto e loro mitigazione 
+Il quarto periodo è coinciso con le vacanze di Natale, generando difficoltà per alcuni membri del gruppo nel mantenere un regime di lavoro costante come nei periodi precedenti. Tuttavia, l'impatto di questa situazione è stato limitato grazie alla disponibilità del resto del gruppo a coprire tali mancanze.\
+Durante questo periodo inoltre sono state riscontrate difficoltà nello sviluppo del PoC, specialmente dovute ai test fatti utilizzando i client a nostra disposizione, i quali si sono dimostrati più ostici del previsto, cosa che ha avuto un impatto abbastanza significativo. Questo problema sarà mitigato nel periodo successivo con un aumento delle ore dedicate allo sviluppo del PoC.\
+Infine, l'impossibilità di confrontarsi direttamente con il #p.cardin, visti i suoi impegni personali, si è rivelata essere la problematica più impattante, causando un rallentamento generale nello sviluppo della documentazione, in particolare per l'`Analisi dei Requisiti`, che comunque riteniamo essere ora pronta.
+
+===== Retrospettiva
+Il quarto periodo, coincidendo con le vacanze Natalizie, è risultato meno costante, specialmente riguardo le ore dedicate e la disponibilità dei singoli membri a partecipare agli incontri settimanali. Questa variabilità ha aggiunto ulteriore complessità ad un compito già difficile, come la stima dei preventivi svolta ad inizio periodo, la quale, per l'ennesima volta, si è dimostrata imprecisa. Pertanto, sarà quindi fondamentale migliorare in quest'attività nei prossimi periodi.\
+All'interno del gruppo è stata molto apprezzata la disponibilità di alcuni membri nel dedicare più ore per evitare un rallentamento eccessivo nell'avanzamento complessivo del progetto. In futuro, però, sarebbe importante evitare situazioni simili, anche se ha evidenziato la volontà della maggior parte del gruppo di procedere a passo spedito.\ 
+Infine l'aspetto fondamentale su cui concentrarsi nel corso del prossimo periodo è lo sviluppo del PoC, necessario per effettuare la candidatura per l'RTB, dato che ormai la documentazione è praticamente pronta.

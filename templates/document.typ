@@ -400,65 +400,27 @@
   )
 }
 
-
-#let histogram(data, dirs) = {
+#let period(data, dirs, tablegraph_capt, histogram_capt, piechart_capt) = {
   let roles = ("Responsabile", "Amministratore", "Verificatore", "Analista", "Progettista", "Programmatore")
   let period_header = ([],) + roles.map(r => [*#r*])
   let people = (p.amadori, p.bettin, p.bonavigo, p.bulychov, p.fabbian, p.furno, p.vedovato).map(n => n.split().last())
   let r = period_header + (people + ("Ore totali",)).map(el => [*#el*]).zip(data.map(x => x.map(y => str(y)))).flatten()
-  
-  v(1em)
-  
 
-  data = people.zip(data).map(x => x.flatten())
-  let pal = (rgb("#e60049"), rgb("#0bb4ff"), rgb("#50e991"), rgb("#e6d800"), rgb("#9b19f5"), rgb("#ffa300"), rgb("#dc0ab4"), rgb("#b3d4ff"), rgb("#00bfa0"))
-
-  rect(stroke: (thickness: 0.7pt, dash: "dashed"))[
-    Legenda:
-    #let t = roles.zip(pal)
-    #stack(
-      dir: ltr, spacing: 0.3em,
-      ..t.map(x => stack(
-        dir: ltr,
-        spacing: 0.1em,
-        circle(fill: x.at(1), width: .8em, height: 0.8em), " " + x.at(0)))
-    )
-  ]
-  align(center,
-    canvas({
-      import draw: *
-      scale(1.8)
-      chart.columnchart(size:(auto,4), mode: "clustered", value-key: (1,2,3,4,5,6), data, y-tick-step: 1, bar-style: palette.new(black, pal))
-    })
+  figure(
+    align(center,
+      table(
+        fill: (_, row) => if calc.odd(row) { luma(215) } else { white },
+        inset: 0.5em,
+        columns: (auto,)*7,
+        align: center,
+        ..r.map(el => text(size: 0.85em, hyphenate: false)[#par(justify: false, el)],)
+      )
+    ),
+    caption: tablegraph_capt
   )
-}
 
-#let tablegraph(data, dirs) = {
-  let roles = ("Responsabile", "Amministratore", "Verificatore", "Analista", "Progettista", "Programmatore")
-  let period_header = ([],) + roles.map(r => [*#r*])
-  let people = (p.amadori, p.bettin, p.bonavigo, p.bulychov, p.fabbian, p.furno, p.vedovato).map(n => n.split().last())
-  let r = period_header + (people + ("Ore totali",)).map(el => [*#el*]).zip(data.map(x => x.map(y => str(y)))).flatten()
-  
-  align(center,
-    table(
-      fill: (_, row) => if calc.odd(row) { luma(215) } else { white },
-      inset: 0.5em,
-      columns: (auto,)*7,
-      align: center,
-      ..r.map(el => text(size: 0.85em, hyphenate: false)[#par(justify: false, el)],)
-    )
-  )
-}
-
-
-#let piechart(data, dirs) = {
-  let roles = ("Responsabile", "Amministratore", "Verificatore", "Analista", "Progettista", "Programmatore")
-  let period_header = ([],) + roles.map(r => [*#r*])
-  let people = (p.amadori, p.bettin, p.bonavigo, p.bulychov, p.fabbian, p.furno, p.vedovato).map(n => n.split().last())
-  let r = period_header + (people + ("Ore totali",)).map(el => [*#el*]).zip(data.map(x => x.map(y => str(y)))).flatten()
-  
   v(1em)
-  
+
   let sums = ()
   for j in range(data.first().len()) {
     let t = ()
@@ -471,56 +433,84 @@
   data = people.zip(data).map(x => x.flatten())
   let pal = (rgb("#e60049"), rgb("#0bb4ff"), rgb("#50e991"), rgb("#e6d800"), rgb("#9b19f5"), rgb("#ffa300"), rgb("#dc0ab4"), rgb("#b3d4ff"), rgb("#00bfa0"))
 
-  align(center,
-    canvas({
-      import draw: *
-      let chart(..values, name: none) = {
-        let values = values.pos()
-        let offset = 0
-        let total = values.fold(0, (s, v) => s + v.at(0))
-        let segment(from, to) = {
-          merge-path(close: true, {
-            line((0, 0), (rel: (360deg * from, 1)))
-            arc((), start: from * 360deg, stop: to * 360deg, radius: 1)
+  figure(
+    [
+    #rect(stroke: (thickness: 0.7pt, dash: "dashed"))[
+      Legenda:
+      #let t = roles.zip(pal)
+      #stack(
+        dir: ltr, spacing: 0.3em,
+        ..t.map(x => stack(
+          dir: ltr,
+          spacing: 0.1em,
+          circle(fill: x.at(1), width: .8em, height: 0.8em), " " + x.at(0)))
+      )
+    ]
+    #align(center,
+      canvas({
+        import draw: *
+        scale(1.8)
+        chart.columnchart(size:(auto,4), mode: "clustered", value-key: (1,2,3,4,5,6), data, y-tick-step: 1, bar-style: palette.new(black, pal))
+      })
+    )],
+    caption: histogram_capt
+  )
+
+  v(1em)
+
+  figure(
+    align(center,
+      canvas({
+        import draw: *
+        let chart(..values, name: none) = {
+          let values = values.pos()
+          let offset = 0
+          let total = values.fold(0, (s, v) => s + v.at(0))
+          let segment(from, to) = {
+            merge-path(close: true, {
+              line((0, 0), (rel: (360deg * from, 1)))
+              arc((), start: from * 360deg, stop: to * 360deg, radius: 1)
+            })
+          }
+          group(name: name, {
+            stroke((paint: black, join: "round"))
+            for v in values {
+              fill(v.at(1))
+              let value = v.at(0) / total
+              // Draw the segment
+              segment(offset, offset + value)
+              // Place an anchor for each segment
+              anchor(v.at(2), (offset * 360deg + value * 180deg, 0.6))
+              offset += value
+            }
           })
         }
-        group(name: name, {
-          stroke((paint: black, join: "round"))
-          for v in values {
-            fill(v.at(1))
-            let value = v.at(0) / total
-            // Draw the segment
-            segment(offset, offset + value)
-            // Place an anchor for each segment
-            anchor(v.at(2), (offset * 360deg + value * 180deg, 0.6))
-            offset += value
+        scale(2)
+  
+        chart(
+          (sums.at(0), pal.at(0), roles.at(0)),
+          (sums.at(1), pal.at(1), roles.at(1)),
+          (sums.at(2), pal.at(2), roles.at(2)),
+          (sums.at(3), pal.at(3), roles.at(3)),
+          (sums.at(4), pal.at(4), roles.at(4)),
+          (sums.at(5), pal.at(5), roles.at(5)),
+          name: "chart"
+        )
+  
+        let positions = ((2,0),)*dirs.at(0)+((-2,0),)*dirs.at(1)+((2,0),)*dirs.at(2)
+        let anchors = ("left",)*dirs.at(0)+("right",)*dirs.at(1)+("left",)*dirs.at(2)
+        set-style(mark: (fill: white, start: "o", stroke: black),
+                  content: (padding: .1))
+        for i in range(roles.len()) {
+          if sums.at(i) != 0 {
+            line("chart."+roles.at(i), ((), "-|", positions.at(i)))
+            let t = calc.quo(sums.at(i)*100, sums.sum())
+            content((), [#roles.at(i) - #t%], anchor: anchors.at(i))
           }
-        })
-      }
-      scale(2)
-
-      chart(
-        (sums.at(0), pal.at(0), roles.at(0)),
-        (sums.at(1), pal.at(1), roles.at(1)),
-        (sums.at(2), pal.at(2), roles.at(2)),
-        (sums.at(3), pal.at(3), roles.at(3)),
-        (sums.at(4), pal.at(4), roles.at(4)),
-        (sums.at(5), pal.at(5), roles.at(5)),
-        name: "chart"
-      )
-
-      let positions = ((2,0),)*dirs.at(0)+((-2,0),)*dirs.at(1)+((2,0),)*dirs.at(2)
-      let anchors = ("left",)*dirs.at(0)+("right",)*dirs.at(1)+("left",)*dirs.at(2)
-      set-style(mark: (fill: white, start: "o", stroke: black),
-                content: (padding: .1))
-      for i in range(roles.len()) {
-        if sums.at(i) != 0 {
-          line("chart."+roles.at(i), ((), "-|", positions.at(i)))
-          let t = calc.quo(sums.at(i)*100, sums.sum())
-          content((), [#roles.at(i) - #t%], anchor: anchors.at(i))
         }
-      }
-    })
+      })
+    ),
+    caption: piechart_capt
   )
 }
 
@@ -548,6 +538,21 @@
       fill: (_, row) => if calc.odd(row) { luma(215) } else { white },
       inset: 0.5em,
       columns: (auto,)*3,
+      align: center,
+      ..r.map(el => text(size: 0.85em, hyphenate: false)[#par(justify: false, el)],)
+    )
+  )
+}
+
+#let testSistema(r) = {
+  let test_header = ([*Codice*], [*Descrizione*], [*Requisito*], [*Stato*])
+  r = test_header + r
+
+  align(center,
+    table(
+      fill: (_, row) => if calc.odd(row) { luma(215) } else { white },
+      inset: 0.5em,
+      columns: (auto,)*4,
       align: center,
       ..r.map(el => text(size: 0.85em, hyphenate: false)[#par(justify: false, el)],)
     )
