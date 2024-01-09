@@ -9,7 +9,8 @@
     [_#(p.zextras)_],
   ),
   changelog: (
-    "0.1.1", "2023-01-08", p.bonavigo, p.bulychov, "Aggiornamento della sezione 'Metodologie di testing'",
+    "0.2.0", "2024-01-09", p.vedovato, p.bonavigo, "Aggiornamento della sezione 'Cruscotto di valutazione della qualità'",
+    "0.1.1", "2024-01-08", p.bonavigo, p.bulychov, "Aggiornamento della sezione 'Metodologie di testing'",
     "0.1.0", "2023-12-20", p.amadori, p.bulychov, "Stesura della sezione 'Iniziative di automiglioramento per la qualità'",
     "0.0.5", "2023-12-20", p.amadori, p.furno, "Stesura della sezione 'Cruscotto di valutazione della qualità'",
     "0.0.4", "2023-12-20", p.amadori, p.furno, "Stesura della sezione 'Metodologie di testing'",
@@ -421,43 +422,31 @@ I test di sistema sono una fase del processo di testing software che mira a veri
 == MPC06 - Estimated at Completion (EAC)
 #figure(image("//imgs/PdQ_graphs/EAC.png", width: 100%), caption: [Proiezione della stima del costo totale nei vari periodi di progetto.])
 
-*RTB*: Osservando il grafico, emerge che nelle prime fasi del progetto le stime dei costi totali si discostavano leggermente dal valore ottimale di qualche decina di euro in eccesso. Questa discrepanza è attribuibile alla previsione di un maggior numero di ore rispetto a quelle successivamente stimato nei periodi II e III. Di conseguenza, si è verificata una diminuzione dei costi in questi due periodi.
-
 #pagebreak()
 
 == MPC01 - Earned Value (EV) e MPC02 - Planned Value (PV)
 #figure(image("//imgs/PdQ_graphs/EV_PV.png", width: 100%), caption: [Proiezione dell'EV e del PV nei vari periodi di progetto.])
-
-*RTB*: Dal grafico, è evidente che le curve dell'earned value (valore guadagnato) e del planned value (valore pianificato) si sovrappongono, indicando che il lavoro effettivamente svolto è conforme alla pianificazione. Questa sovrapposizione suggerisce un avanzamento positivo rispetto alla pianificazione del progetto.
 
 #pagebreak()
 
 == MPC03 - Actual Cost (AC) e MPC07 - Estimate to Complete (ETC)
 #figure(image("//imgs/PdQ_graphs/AC_ETC.png", width: 100%), caption: [Proiezione dell'AC e dell'ETC nei vari periodi di progetto.])
 
-*RTB*: Il grafico visualizza l'Estimate to Complete (ETC), cioè la stima del costo aggiuntivo previsto per portare a termine il progetto durante i vari periodi, e l'Actual Cost (AC), ossia una stima del costo effettivamente sostenuto per il lavoro eseguito fino al periodo attuale (III periodo). Si osserva come l'ETC tenda giustamente a diminuire nel corso del periodo, mentre l'AC mostra una crescita proporzionale alla velocità con cui l'ETC decresce.
-
 #pagebreak()
 
 == MPC04 - Cost Variance (CV) e MPC05 - Schedule Variance (SV)
 #figure(image("//imgs/PdQ_graphs/CV_SV.png", width: 100%), caption: [Proiezione della CV e della SV nei vari periodi di progetto.])
-
-*RTB*: Il grafico evidenzia la Cost Variance (CV), rappresentante la differenza tra il valore guadagnato (EV) e i costi sostenuti (AC), e la Schedule Variance (SV), indicando la differenza tra il valore guadagnato (EV) e il valore pianificato (PV). Si nota un decremento della Schedule Variance di due unità percentuali tra il primo e il secondo periodo, attribuibile a incomprensioni interne che hanno impattato negativamente sul lavoro e, di conseguenza, sul valore guadagnato rispetto a quanto inizialmente specificato.
 
 #pagebreak()
 
 == MPC08 - Requirements stability index (RSI)
 #figure(image("//imgs/PdQ_graphs/RSI.png", width: 100%), caption: [Proiezione del RSI nei vari periodi di progetto.])
 
-*RTB*: Il grafico  illustra la dinamica della metrica RSI, volta a valutare la stabilità dei requisiti del progetto nel corso del tempo. Emerge chiaramente una rapida crescita tra il primo e il secondo periodo, coincidente con l'avvio dell'analisi dei requisiti da parte del gruppo. Inoltre, si nota un ulteriore aumento tra il secondo e il terzo periodo, indicativo di modifiche e/o aggiornamenti nell'analisi dei requisiti.
-
 #pagebreak()
 
 
 == MPC11 - Indice Gulpease
 #figure(image("//imgs/PdQ_graphs/Gulpease.png", width: 100%), caption: [Proiezione dell'indice Gulpease per ogni documento (RTB) nei vari periodi di progetto.])
-
-*RTB*: Dall'analisi del grafico emerge un generale trend di aumento e/o stabilizzazione dell'indice per ciascun documento nel corso dei differenti periodi. L'eccezione a questa tendenza è rappresentata dal Piano di Progetto, il quale si discosta da tale andamento a causa della sua elevata complessità. Inoltre, si osserva che l'analisi dei Requisiti è l'unico documento che inizia al di sotto del limite accettabile inferiore, fenomeno causato dalla specificità degli argomenti trattati e dal linguaggio utilizzato in quest'ambito.
 
 #pagebreak()
 
@@ -467,32 +456,27 @@ I test di sistema sono una fase del processo di testing software che mira a veri
 #pagebreak()
 
 == MPC13 - Code Coverage
-//#figure(image("//imgs/PdQ_graphs/CodeCov.png", width: 100%))
+#figure(image("//imgs/PdQ_graphs/CodeCov.png", width: 100%), caption: [Proiezione della code coverage nei vari periodi di progetto.])
 
 #pagebreak()
 
 == MPC14 - Passed Test Cases Percentage
 #figure(image("//imgs/PdQ_graphs/PassedTest.png", width: 100%), caption: [Proiezione della percentuale di test terminati con successo nei vari periodi di progetto.])
 
-*RTB*: Dall'esame del grafico emerge che la metrica presenta un'unica variazione tra il secondo e il terzo periodo, corrispondente al momento in cui è stato avviato il test del Proof of Concept (PoC). È importante evidenziare che non vi è alcuna differenza tra il limite accettabile inferiore e il limite ottimo, poiché è fondamentale che il PoC superi tutti i test ai quali viene sottoposto.
-
 #pagebreak()
 
 == MPC15 - Quality Metrics Satisfied
-//#figure(image("//imgs/PdQ_graphs/QaulityMetSat.png", width: 100%))
+#figure(image("//imgs/PdQ_graphs/QualityMetSat.png", width: 100%), caption: [Proiezione della percentuale di metriche di qualità soddisfatte nei vari periodi di progetto.])
+
 #pagebreak()
 
 == MPC16 - Non-Calculated Risk
 #figure(image("//imgs/PdQ_graphs/NonCalcRisk.png", width: 100%), caption: [Proiezione rischi non identificati nei vari periodi di progetto.])
 
-*RTB*: Il grafico evidenzia come al momento non si siano verificati rischi non previsti da parte del gruppo. È importante chiarire che la metrica non assicura l'assenza completa di tali rischi, ma si limita a indicare se essi siano o meno emersi.
-
 #pagebreak()
 
 == MPC17 - Efficienza Temporale
 #figure(image("//imgs/PdQ_graphs/EffTemp.png", width: 100%), caption: [Proiezione dell'efficienza temporale nei vari periodi di progetto.])
-
-*RTB*: Il grafico illustra l'andamento della metrica relativa all'efficienza temporale attraverso i vari periodi. È evidente che la metrica supera il limite accettabile superiore sia nel primo che nel secondo periodo, prima di stabilizzarsi al di sotto solo nel terzo. Questa tendenza è attribuibile alla necessità del gruppo, nei primi periodi, di prendere familiarità con le nuove tecnologie, ambienti e linguaggi richiesti dal capitolato.
 
 #pagebreak()
 
@@ -504,17 +488,17 @@ Di seguito infatti ci dedichiamo al tema del miglioramento della produttività d
 In questa sezione quindi andremo ad elencare i problemi più importanti che abbiamo riscontrato e le relative contromisure prese per risolvere o contenere i rallentamenti causati.
 
 == Problemi leagati all'organizzazione generale
-#improvement("#ffeded", (
+#figure(improvement("#ffeded", (
   [Intero Progetto],
   [È stato particolarmente complicato effettuare delle riunioni per fare il punto della situazione sul progetto dove fossero presenti tutti i membri del gruppo sia in presenza (poichè non si trovano aule libere che permettano ai membri di riunirsi e non tutti i componenti del gruppo seguono con frequenza le lezioni) che online (ognuno ha impegni diversi e dunque alle riunioni manca sempre qualche componente).],
   [
     Si è deciso dunque che per comodità tutte le riunioni devono essere svolte online (sulla piattaforma Discord) cosicchè ogni componente può collegarsi in qualunque situazione (capitava spesso di membri in viaggio o sui mezzi pubblici).\
     Qualora uno dei componenti del gruppo non potesse comunque essere presente il responsabile provederà a fornigli un riassunto vocale della discussione tramite il contatto Telegram.
-  ]
-))
+  ],
+)), caption: [Contromisure adottate per limitare problemi di organizzazione generale.])
 
 == Valutazione sui ruoli
-#improvementrole("#fffdde", (
+#figure(improvementrole("#fffdde", (
 
   [Intero Progetto],
   [Verificatore],
@@ -548,10 +532,10 @@ In questa sezione quindi andremo ad elencare i problemi più importanti che abbi
   
 
   
-))
+)), caption: [Contromisure adottate per evitare problemi specifici dei ruoli interni.])
 
 == Valutazione sugli strumenti
-#improvementtool("#e8fcdc", (
+#figure(improvementtool("#e8fcdc", (
     [Intero progetto],
     [Typst],
     [
@@ -568,4 +552,4 @@ In questa sezione quindi andremo ad elencare i problemi più importanti che abbi
     ],
     [Piuttosto che creare disallineamenti il gruppo ha preso una pausa, dove il responsabile garantiva che tutti i membri del gruppo avessero una conoscenza delle tecnologie tale da lavorare in maniera ottimale. Questo spesso veniva raggiunto individuando all'interno del gruppo i soggetti più preparati su un argomento e chiedendo loro di realizzare dei video tutorial su una determinata tematica.],
 
-))
+)), caption: [Contromisure adottate per limitare problemi relativi agli strumenti utilizzati])
