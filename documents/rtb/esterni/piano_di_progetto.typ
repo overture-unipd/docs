@@ -9,6 +9,7 @@
     [_#(p.zextras)_],
   ),
   changelog: (
+    "0.4.1", "2024-01-10", p.bonavigo, p.furno, "Aggiunto il preventivo e la pianificazione del periodo V",
     "0.4.0", "2024-01-09", p.bettin, p.bonavigo, "Aggiunto il consuntivo del periodo IV",
     "0.3.2", "2024-01-03", p.amadori, p.bulychov, "Aggiunto il preventivo del periodo IV",
     "0.3.1", "2023-12-28", p.amadori, p.bulychov, "Aggiunta la pianificazione del periodo IV",
@@ -226,9 +227,7 @@ Ruoli coinvolti: Responsabile, Amministratore, Verificatore, Analista, Progettis
     (6, 0, 0, 0, 1, 0),
     ),
   (2, 2, 2),
-  [Preventivo dell'impegno orario per ruolo di ciascun membro durante il periodo I.],
-  [Visualizzazione dell'impegno temporale di ciascun membro nei rispettivi ruoli assegnati nel periodo I.],
-  [Ripartizione in percentuale dei ruoli nel periodo I.]
+  "I"
 )
 
 ==== Consuntivo
@@ -323,9 +322,7 @@ Ruoli coinvolti: Responsabile, Amministratore, Verificatore, Analista, Programma
     (0, 1, 11, 0, 0, 0),
   ),
   (2, 3, 1),
-  [Preventivo dell'impegno orario per ruolo di ciascun membro durante il periodo II.],
-  [Visualizzazione dell'impegno temporale di ciascun membro nei rispettivi ruoli assegnati nel periodo II.],
-  [Ripartizione in percentuale dei ruoli nel periodo II.]
+  "II"
 )
 
 
@@ -412,9 +409,7 @@ Ruoli coinvolti: Responsabile, Amministratore, Verificatore, Analista, Programma
     (0, 0, 0, 6, 0, 5),
   ),
   (2, 3, 1),
-  [Preventivo dell'impegno orario per ruolo di ciascun membro durante il periodo III.],
-  [Visualizzazione dell'impegno temporale di ciascun membro nei rispettivi ruoli assegnati nel periodo III.],
-  [Ripartizione in percentuale dei ruoli nel periodo III.]
+  "III"
 )
 
 ==== Consuntivo
@@ -502,9 +497,7 @@ Ruoli coinvolti: Responsabile, Amministratore, Verificatore, Analista, Programma
     (0, 0, 0, 3, 0, 2)
   ),
   (2, 3, 1),
-  [Preventivo dell'impegno orario per ruolo di ciascun membro durante il periodo IV.],
-  [Visualizzazione dell'impegno temporale di ciascun membro nei rispettivi ruoli assegnati nel periodo IV.],
-  [Ripartizione in percentuale dei ruoli nel periodo IV.],
+  "IV"
 )
 
 ==== Consuntivo 
@@ -548,3 +541,45 @@ Infine, l'impossibilità di confrontarsi direttamente con il #p.cardin, visti i 
 Il quarto periodo, coincidendo con le vacanze Natalizie, è risultato meno costante, specialmente riguardo le ore dedicate e la disponibilità dei singoli membri a partecipare agli incontri settimanali. Questa variabilità ha aggiunto ulteriore complessità ad un compito già difficile, come la stima dei preventivi svolta ad inizio periodo, la quale, per l'ennesima volta, si è dimostrata imprecisa. Pertanto, sarà quindi fondamentale migliorare in quest'attività nei prossimi periodi.\
 All'interno del gruppo è stata molto apprezzata la disponibilità di alcuni membri nel dedicare più ore per evitare un rallentamento eccessivo nell'avanzamento complessivo del progetto. In futuro, però, sarebbe importante evitare situazioni simili, anche se ha evidenziato la volontà della maggior parte del gruppo di procedere a passo spedito.\ 
 Infine l'aspetto fondamentale su cui concentrarsi nel corso del prossimo periodo è lo sviluppo del PoC, necessario per effettuare la candidatura per l'RTB, dato che ormai la documentazione è praticamente pronta.
+
+=== Periodo V
+Inizio: 2023-01-09\
+Fine prevista: 2023-01-14\
+
+==== Pianificazione
+Durante lo scorso periodo il team Overture ha completato la redazione di tutta la documentazione di progetto necessaria fino ad ora. Conseguentemente non si prevede alcun ulteriore lavoro su di essa, se non per aggiornare `Piano di Qualifica` e `Piano di Progetto` e validare tutti i documenti.\
+Per quanto riguarda l'organizzazione di questo periodo, abbiamo deciso di ridurre la durata di quest'ultimo ad una settimana, con lo scopo rifinire gli ultimi dettagli essenziali per poter completare tutto il lavoro necessario per la candidatura alla RTB.\
+Facciamo presente che, qualora non fosse possibile candidarsi alla RTB al termine di questo periodo, allora dovremo ripianificare una futura data per la candidatura in quanto il team di sviluppo per un paio di settimane sarà impegnato a studiare per gli altri esami di questo semestre.\
+I dettagli che intediamo rifinire per essere pronti alla candidatura RTB sono: 
+- la validazione di tutti i documenti (compresi `Piano di Qualifica` e `Piano di Progetto` in seguito ai consueti aggiornamenti);
+- l'aggiustamento di stile dei documenti;
+- assicurarsi che non ci siano errori nel `Glossario`;
+- risolvere tutti i problemi emersi con il PoC negli scorsi periodi.
+
+Infine prevediamo di fissare un incontro con il proponente #p.zextras, che ci servirà per avere una discussione sul PoC e, in seguito, generare un verbale esterno dove accetteranno in maniera formale la rinuncia della parte dei contatti, della rubrica, dei calendari e degli appuntamenti nel prodotto software che stiamo modellando.
+
+===== Rischi attesi
+
+I rischi che ci aspettiamo di correre in questo periodo sono i seguenti:
+- #link(<RO1>)[*RO1 - Imprecisioni nella pianificazione delle attività*];
+- #link(<RO2>)[*RO2 - Elevati costi delle attività*];
+- #link(<RO3>)[*RO3 - Impegni universitari e personali*].
+
+In questo quinto periodo il gruppo di progetto prevede di riscontrare particolari difficoltà con alcuni membri del gruppo, in quanto ognuno sta affrontanto la propria sessione di preparazione per gli esami invernali di questo semestre. Questo probabilmente causerà un'inevitabile rallentamento in alcune attività svolte da alcuni soggetti che, più degli altri, saranno impegnati con lo studio, con la partecipazione alle ultime lezioni e con il carico di lavoro dovuto a progetti di altri esami, i quali spesso risultano essere molto onerosi in termini di tempo.
+
+==== Preventivo
+Ruoli coinvolti: Responsabile, Amministratore, Verificatore, Programmatore.
+
+#period(
+  (
+    (1, 0, 0, 0, 0, 0),
+    (0, 1, 0, 0, 0, 2),
+    (0, 2, 2, 0, 0, 0),
+    (2, 0, 0, 0, 0, 2),
+    (0, 1, 0, 0, 0, 3),
+    (2, 0, 2, 0, 0, 0),
+    (0, 1, 0, 0, 0, 3)
+  ),
+  (1, 2, 3),
+  "V"
+)
