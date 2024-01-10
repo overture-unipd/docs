@@ -400,7 +400,7 @@
   )
 }
 
-#let period(data, dirs, tablegraph_capt, histogram_capt, piechart_capt) = {
+#let period(data, dirs, period_number) = {
   let roles = ("Responsabile", "Amministratore", "Verificatore", "Analista", "Progettista", "Programmatore")
   let period_header = ([],) + roles.map(r => [*#r*])
   let people = (p.amadori, p.bettin, p.bonavigo, p.bulychov, p.fabbian, p.furno, p.vedovato).map(n => n.split().last())
@@ -416,7 +416,7 @@
         ..r.map(el => text(size: 0.85em, hyphenate: false)[#par(justify: false, el)],)
       )
     ),
-    caption: tablegraph_capt
+    caption: [Preventivo dell'impegno orario per ruolo di ciascun membro durante il periodo #period_number.]
   )
 
   v(1em)
@@ -453,7 +453,7 @@
         chart.columnchart(size:(auto,4), mode: "clustered", value-key: (1,2,3,4,5,6), data, y-tick-step: 1, bar-style: palette.new(black, pal))
       })
     )],
-    caption: histogram_capt
+    caption: [Visualizzazione dell'impegno temporale di ciascun membro nei rispettivi ruoli assegnati nel periodo #period_number.],
   )
 
   v(1em)
@@ -510,7 +510,7 @@
         }
       })
     ),
-    caption: piechart_capt
+    caption: [Ripartizione in percentuale dei ruoli nel periodo #period_number.]
   )
 }
 
