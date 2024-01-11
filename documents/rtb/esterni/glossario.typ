@@ -9,6 +9,7 @@
     [_#(p.zextras)_],
   ),
   changelog: (
+    "1.0.0", "2024-01-11", p.amadori, p.bonavigo, "Approvazione per RTB",
     "0.2.0", "2023-12-20", p.bonavigo, p.bulychov, "Incremento del vocabolario",
     "0.1.1", "2023-12-11", p.bonavigo, p.fabbian, "Ripristino ordine alfabetico, aggiunta termini specifici",
     "0.1.0", "2023-12-06", p.amadori, p.vedovato, "Terminazione inserimento termini principali", 
@@ -19,7 +20,7 @@
 )
 
 = Introduzione
-Il seguente documento nasce con lo scopo di evitare ambiguitá o incomprensioni riguardanti la terminologia utilizzata nella varia documentazione del progetto. Per questo motivo qui vengono riportate le definizioni dei termini specifici del dominio d'uso adottando nel farlo, una struttura alfabetica per navigare con facilità internamente al documento.
+Il seguente documento nasce con lo scopo di evitare ambiguitá o incomprensioni riguardanti la terminologia utilizzata nella varia documentazione del progetto. Per questo motivo qui vengono riportate le definizioni dei termini specifici del dominio d'uso, adottando nel farlo una struttura alfabetica per navigare con facilità internamente al documento.
 \
 La presenza di un termine all'interno del `Glossario` negli altri documenti viene indicata applicando #glossary("questo stile").
 
@@ -29,11 +30,11 @@ La presenza di un termine all'interno del `Glossario` negli altri documenti vien
 In GitHub, un "action" (azione) si riferisce a GitHub Actions, che è un servizio di automazione integrato direttamente nella piattaforma GitHub. GitHub Actions consente di automatizzare vari processi nel ciclo di vita dello sviluppo del software, come la compilazione del codice, i test automatici, la distribuzione e altro ancora.
 
 - Amministratore
-Un amministratore all'interno di un progetto è una figura professionale che si occupa di tutte le attività amministrative e logistiche necessarie al suo svolgimento. In altre parole, è responsabile di garantire che il progetto sia gestito in modo efficiente e conforme ai requisiti definiti.
+Un Amministratore all'interno di un progetto è una figura professionale che si occupa di tutte le attività amministrative e logistiche necessarie al suo svolgimento. In altre parole, è responsabile di garantire che il progetto sia gestito in modo efficiente e conforme ai requisiti definiti.
 
 - Analista
-Un analista all'interno di un progetto è una figura professionale che si occupa di raccogliere, analizzare e definire i requisiti di un progetto. I requisiti sono le caratteristiche e le funzionalità che il progetto deve avere per soddisfare le esigenze dei suoi stakeholder.
-L'analista svolge un ruolo fondamentale nel successo di un progetto, poiché è responsabile di garantire che il progetto soddisfi le esigenze dei suoi utenti. Per svolgere questo compito, l'analista deve avere una profonda comprensione dei processi aziendali, delle tecnologie e delle esigenze degli utenti.
+Un Analista all'interno di un progetto è una figura professionale che si occupa di raccogliere, analizzare e definire i requisiti di un progetto. I requisiti sono le caratteristiche e le funzionalità che il progetto deve avere per soddisfare le esigenze dei suoi stakeholder.
+L'Analista svolge un ruolo fondamentale nel successo di un progetto, poiché è responsabile di garantire che il progetto soddisfi le esigenze dei suoi utenti. Per svolgere questo compito, l'Analista deve avere una profonda comprensione dei processi aziendali, delle tecnologie e delle esigenze degli utenti.
 
 - `Analisi dei Requisiti`
 L'`Analisi dei Requisiti` è un processo fondamentale nel ciclo di vita dello sviluppo del software che mira a comprendere a fondo i bisogni e a definire e documentare le necessità e le aspettative degli utenti o degli stakeholder relativamente a un sistema software. \
@@ -67,10 +68,10 @@ Una baseline è la versione approvata di un prodotto di lavoro (parte di un prog
 Un insieme di metriche o indicatori di prestazione utilizzati per valutare le prestazioni di un sistema, di solito confrontando i risultati con standard o obiettivi predefiniti.
 
 - Best practice
-Il metodo migliore per effettuare la produzione. Basandosi su quelle procedure ripetibili che nel tempo si sono dimostrate migliori sia per la loro efficienza (meno quantità di sforzo) sia per la loro efficacia (risultati migliori), la buona pratica garantisce il raggiungimento degli obiettivi nel massimo dell'economia e della qualità. 
+Il metodo migliore per effettuare la produzione. Basandosi su quelle procedure ripetibili che nel tempo si sono dimostrate migliori sia per la loro efficienza (meno quantità di sforzo), che per la loro efficacia (risultati migliori), la buona pratica garantisce il raggiungimento degli obiettivi nel massimo dell'economia e della qualità. 
 
 - Black box
-Modello descrivibile nel suo comportamento esterno tramite come reagisce in uscita (output) a una determinata sollecitazione in ingresso (input), ma il cui funzionamento interno è non visibile o ignoto.
+Modello descrivibile nel suo comportamento esterno tramite come reagisce in uscita (output) a una determinata sollecitazione in ingresso (input), ma il cui funzionamento interno è non visibile oppure è ignoto.
 
 - Board
 In GitHub, un project board, o semplicemente board, è uno strumento che aiuta a organizzare e tenere traccia delle attività del progetto. Consiste in colonne che rappresentano lo stato delle attività, come "To Do" (Da Fare), "In Progress" (In Corso), e "Done" (Fatto). Gli issue e le pull request possono essere assegnati a queste colonne per indicare il loro stato corrente.
@@ -107,7 +108,7 @@ Definito in inglese come "dashboard", permette di avere una panoramica chiara, u
 Un sistema organizzato per la raccolta, la memorizzazione e la gestione di dati strutturati in modo che possano essere facilmente recuperati, aggiornati ed elaborati.
 
 - Discord
-Discord è una piattaforma di comunicazione online che combina chat testuale, vocale e video. Consente agli utenti di creare server, organizzare discussioni in canali e personalizzare l'esperienza. Discord offre un sistema di ruoli e autorizzazioni che consente di controllare l'accesso agli utenti e di definire chi può fare cosa all'interno del server. Inoltre supporta bot e integrazioni di terze parti che consentono di aggiungere funzionalità personalizzate ai server.
+Discord è una piattaforma di comunicazione online che combina chat testuale, vocale e video. Consente agli utenti di creare server, organizzare discussioni in canali e personalizzare l'esperienza di comunicazione. Discord, inoltre, offre un sistema di ruoli e autorizzazioni che consente di controllare l'accesso agli utenti e di definire chi può fare cosa all'interno del server. Inoltre supporta bot e integrazioni di terze parti che consentono di aggiungere funzionalità personalizzate ai server.
 
 - Docker
 Una piattaforma open-source che consente di automatizzare il processo di distribuzione delle applicazioni all'interno di contenitori leggeri e portabili.
@@ -169,8 +170,7 @@ Un IMAP-to-JMAP proxy è un software che consente ai client di posta elettronica
 Tecnica di analisi statica utilizzata per ricercare errori attraverso una lettura mirata.
 
 - ISO
-Acronimo di International Organization for Standardization, organizzazione di riferimento a
-livello mondiale per le normative di qualità, definite come standard nel settore
+Acronimo di International Organization for Standardization, organizzazione di riferimento a livello mondiale per le normative di qualità, definite come standard nel settore.
 
 - Issue
 In ambito di GitHub, una issue (problema) rappresenta un meccanismo attraverso il quale gli utenti possono segnalare, discutere e tenere traccia di attività specifiche all'interno di un progetto. Ogni issue ha un thread di commenti associato, consentendo la comunicazione tra i membri del team o i collaboratori esterni. Questo strumento facilita la collaborazione e la gestione delle attività nello sviluppo del software.
@@ -238,7 +238,7 @@ Artefatto usa-e-getta, sotto forma di demo eseguibile, realizzato a inizio proge
 Il proponente è colui che presenta ufficialmente l'iniziativa e promuove la sua realizzazione. Egli è cliente rispetto alle esigenze di prodotto e mentore rispetto alle scelte di sviluppo.
 
 - Protocollo
-Un insieme di regole e convenzioni che regolano la comunicazione tra due o più entità (in informatica queste entità sono dispositivi elettronici).
+Insieme di regole e convenzioni che regolano la comunicazione tra due o più entità (in informatica queste entità sono dispositivi elettronici).
 
 - Pull request
 Una pull request è una proposta di fusione delle modifiche apportate in un ramo del codice con il ramo principale di un progetto. È uno strumento chiave per la revisione del codice e l'integrazione collaborativa nello sviluppo del software.
@@ -254,7 +254,7 @@ Riscontro oggettivo di misurazione di conformità alle specifiche attese. Viene 
 Un sistema di gestione di basi di dati relazionali, che organizza i dati in tabelle collegate tra loro.
 
 - Redattore
-Colui che si occupa della redazione di un documento, organizzandone le parti per creare una bozza, occupandosi di correggere eventuali errori segnalati dal verificatore.
+Colui che si occupa della redazione di un documento, organizzandone le parti per creare una bozza, occupandosi di correggere eventuali errori segnalati dal Verificatore.
 
 - Repository
 Un repository, o più semplicemente repo, è uno spazio di archiviazione digitiale utilizzato per conservare e gestire i file di un progetto, in particolare nel contesto del controllo delle versioni del software. Un repository può includere file di codice, documentazione, risorse multimediali o qualsiasi altro elemento necessario per il progetto.
@@ -331,13 +331,13 @@ Processo che realizza il cosiddetto “version control”, quindi stabilisce la 
 #pagebreak()
 = W
 - Walkthrough
-Tecnica di verifica utilizzata per eseguire una lettura completa e un controllo di un documento, con l'obiettivo di individuare eventuali errori. In questa tecnica, il verificatore esegue una revisione completa del documento senza conoscere in anticipo gli errori potenziali, al fine di individuare i problemi e proporre eventuali miglioramenti.
+Tecnica di verifica utilizzata per eseguire una lettura completa e un controllo di un documento, con l'obiettivo di individuare eventuali errori. In questa tecnica, il Verificatore esegue una revisione completa del documento senza conoscere in anticipo gli errori potenziali, al fine di individuare i problemi e proporre eventuali miglioramenti.
 
-- Way of Workinkg
+- Way of Working
 Il Way of Working, che può essere tradotto in italiano come "modo di lavorare", definisce come organizzare al meglio le attività di progetto per far si che il team operi in maniera professionale. Esso può includere processi operativi, procedure, norme comportamentali, e l'utilizzo di strumenti o tecnologie specifiche. Adottare un Way of Working efficace può contribuire al successo e alla produttività nello svolgere il lavoro necessario.
 
 - White box
-Tipo di test definito strutturale, utilizzato per vedere i comportamenti dei cammini di esecuzione del codice in maniera trasparente, conoscendo la struttura interna dello stesso.
+Tipo di test definito come strutturale, utilizzato per vedere i comportamenti dei cammini di esecuzione del codice in maniera trasparente, conoscendo la struttura interna dello stesso.
 
 #pagebreak()
 = X
