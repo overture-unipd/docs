@@ -100,8 +100,8 @@
 
 = *Introduzione*
 == Scopo del documento
-L'`Analisi dei Requisiti` è un documento fondamentale per tutti i progetti di sviluppo software che vogliono essere in ottemperanza con gli standard di qualità definiti dalla materia di ingegneria del software.\
-Lo scopo del documento è quello di definire le funzionalità che il sistema sarà in grado di offrire, ovvero i requisiti obbligatori, desiderati e opzionali che devono essere soddisfatti dal prodotto sviluppato al fine di essere conforme alle richieste fatte dal proponente.\
+L'`#glossary("Analisi dei Requisiti")` è un documento fondamentale per tutti i progetti di sviluppo software che vogliono essere in ottemperanza con gli standard di #glossary("qualità") definiti dalla materia di Ingegneria del Software.\
+Lo scopo del documento è quello di definire le #glossary("funzionalità") che il sistema sarà in grado di offrire, ovvero i requisiti obbligatori, desiderati e opzionali che devono essere soddisfatti dal prodotto sviluppato al fine di essere conforme alle richieste fatte dal #glossary("proponente").\
 L'analisi non deve fornire la soluzione al problema, ma deve essere consapevole della sua fattibilità tecnologica (definendo di conseguenza un confine tra analisi del problema e il suo design, quindi la soluzione).
 In particolare, le finalità di questo documento possono essere definite e sintetizzate nei seguenti punti:\
 
@@ -112,7 +112,7 @@ Il documento di `Analisi dei Requisiti` fonda le sue basi sulle esigenze del pro
 Una volta raccolte le esigenze del proponente, il documento di `Analisi dei Requisiti` deve identificare tutti i casi d'uso necessari e i corrispettivi requisiti associati ad ognuno di essi suddividendoli in funzionali, qualitativi e di vincolo.\
 
 - *Verificazione e validazione dei requisiti*:\
-Il processo di #glossary("verifica dei requisiti") ha lo scopo di garantire che le attività siano svolte in modo corretto, senza errori, ponendo in primo piano il way of working del gruppo.\
+Il #glossary("processo") di #glossary("verifica dei requisiti") ha lo scopo di garantire che le attività siano svolte in modo corretto, senza errori, ponendo in primo piano il Way of Working del gruppo.\
 La #glossary("validazione dei requisiti") invece consiste nel accertare che il prodotto corrisponda alle attese, ponendo attenzione al prodotto software finale.\
 
 - *Fornire una base per la progettazione del sistema*:\
@@ -145,12 +145,12 @@ accedere alle email conservate su un server di posta compatibile. Risale al lont
 successore del precedente protocollo POP (Post Office Protocol) e consente un accesso più
 avanzato e interattivo al contenuto delle caselle di posta elettronica, ad esempio permettendo la
 sincronizzazione di una casella di posta in più dispositivi.\
-Negli ultimi anni però è nato JMAP: un interessante alternativa a IMAP, il cui pregio principale rispetto a IMAP è la velocità, in quanto sfrutta il formato JSON (JavaScript Object Notation) e definisce un set di API per permettere ai client di accedere ai dati e gestirli in modo efficiente.
+Negli ultimi anni però è nato #glossary("JMAP"): un interessante alternativa a IMAP, il cui pregio principale rispetto a IMAP è la velocità, in quanto sfrutta il formato JSON (JavaScript Object Notation) e definisce un set di #glossary("API") per permettere ai client di accedere ai dati e gestirli in modo efficiente.
 
 === Cosa richiede _#(p.zextras)_?
 _#(p.zextras)_ non ci chiede direttamente di apporre modifiche a Carbonio,
 ma di implementare un sistema informatico capace di sfruttare il protocollo JMAP per l'invio di email tra diversi utenti. In particolare dovremmo andare a sviluppare un *server mail* che metta a disposizione a un qualsiasi tipo di *client* (capace di supportare il protocollo JMAP ovviamente) una serie di funzionalità (che detteremo in seguito con la lista dei requisiti).\
-A questo punto, utilizzando uno dei client open source reperibili nelle repository pubbliche, dovremmo già essere in grado di sfruttare questa tecnologia di posta elettronica grazie al server che abbiamo implementato.\
+A questo punto, utilizzando uno dei client open source reperibili nelle #glossary("repository") pubbliche, dovremmo già essere in grado di sfruttare questa tecnologia di posta elettronica grazie al server che abbiamo implementato.\
 Il reale scopo di _#(p.zextras)_ però non è tanto quello di ricevere il #glossary("know how") che noi andremo ad acquisire programmando il server, ma quello di ricevere i risultati dei #glossary("benchmark") che andremo a realizzare sul sistema rapportandolo alle specifiche hardware e software dell'impianto utilizzato.\
 Basandosi su questi risultati _#(p.zextras)_ deciderà quindi se è vantaggioso apportare delle modifiche a Carbonio e implementare un sistema di posta elettronica che sfrutti il protocollo JMAP come quello sviluppato nella nostra demo o se abbandonare l'idea.
 
@@ -164,7 +164,7 @@ La presenza di un termine all'interno del `Glossario` viene indicata applicando 
 
 == Riferimenti
 === Riferimenti normativi
-- `Norme di Progetto`
+- `Norme di Progetto v1.0.0`
 
 - Capitolato d'appalto C8: JMAP, il nuovo protocollo standard per la comunicazione email \
   https://www.math.unipd.it/~tullio/IS-1/2023/Progetto/C8.pdf
@@ -188,7 +188,7 @@ La presenza di un termine all'interno del `Glossario` viene indicata applicando 
 = *Descrizione generale del prodotto richiesto da _#(p.zextras)_*
 
 == Obiettivo fissato
-L’obiettivo a cui vogliamo arrivare alla fine di questo capitolato e' capire se ha senso per  _#(p.zextras)_ investire tempo e denaro per estendere questo standard (JMAP) nel software Carbonio, mantenendo i vecchi standard per compatibilità con i client attualmente supportati ma permettendogli di espandere le funzionalità offerte ai client di nuova generazione.
+L’obiettivo a cui vogliamo arrivare alla fine di questo #glossary("capitolato") e' capire se ha senso per  _#(p.zextras)_ investire tempo e denaro per estendere questo standard (JMAP) nel software #glossary("Carbonio"), mantenendo i vecchi standard per compatibilità con i client attualmente supportati ma permettendogli di espandere le funzionalità offerte ai client di nuova generazione.
 
 == Funzionalitá del prodotto e requisiti<Funzionalità>
 Nel sistema informatico che dovremmo andare a realizzare dobbiamo mettere a disposizione dei client le seguenti funzionalità:
@@ -201,28 +201,27 @@ Nel sistema informatico che dovremmo andare a realizzare dobbiamo mettere a disp
 - L’eliminazione di una condivisione di cartella;
 - [Opzionale] l’implementazione di un sistema di sincronizzazione che permetta ad un client di mantenersi aggiornato con gli ultimi aggiornamenti della casella di posta visualizzata;
 
-Inoltre il prodotto deve poter essere eseguibile in un container Docker, permettendo all'azienda di effettuare in batteria i test di funzionalità e di performance, ed é preferibile che sia sviluppato per essere scalabile mediante l’inizializzazione di più nodi stateless.
+Inoltre il prodotto deve poter essere eseguibile in un container #glossary("Docker"), permettendo all'azienda di effettuare in batteria i #glossary("test") di funzionalità e di performance, ed é preferibile che sia sviluppato per essere scalabile mediante l’inizializzazione di più nodi #glossary("stateless").
 
 == Caratteristiche utente
 
 === Utenti di Carbonio
 Gli utenti della soluzione software Carbonio sono principalmente:
-+  Agenzie di telecomunicazioni, provider (ISP) e operatori mobili poiché si integra perfettamente ai servizi preesistenti e garantisce un reale valore aggiunto ai propri clienti;
++ Agenzie di telecomunicazioni, provider (ISP) e operatori mobili poiché si integra perfettamente ai servizi preesistenti e garantisce un reale valore aggiunto ai propri clienti;
 + Il settore pubblico e i settori regolamentati, poiché fornisce un ambiente di lavoro digitale sicuro e conforme alle normative locali come, ad esempio, le leggi sulla protezione dei dati e sulla sovranità del dato;
 + Utenti privati e aziende private tradizionali che desiderano una piattaforma open source per l'e-mail e la collaborazione digitale che offra una soluzione di collaborazione online on-premise.
 
 === Utenti del nostro prodotto
 Il prodotto che il gruppo Overture andrà a sviluppare ha la sola funzionalità di testare una nuova tecnologia, quindi non ha né un segmento di mercato ben definito né un vero e proprio scopo commerciale.
 Gli utenti del nostro prodotto quindi sono tutti coloro che desiderano testare il nuovo protocollo JMAP e capire le motivazioni che hanno spinto gli
-sviluppatori di tutto il mondo e la #glossary("IETF") a mettere in discussione un protocollo ampiamente
-utilizzato come IMAP, cercando di crearne uno più efficiente e moderno
+sviluppatori di tutto il mondo e la #glossary("IETF") a mettere in discussione un protocollo ampiamente utilizzato come IMAP, cercando di crearne uno più efficiente e moderno
 
 #pagebreak()
 
 == Tecnologie e analisi della struttura di progetto
-Come discusso nei paragrafi precedenti, lo scopo finale del nostro prodotto è realizzare un'infrastruttura server, con il fine di realizzare gli stress test sui requisiti funzionali richiesti dal proponente.\
-Per questo motivo, dato che il risultato finale è incentrato sulla performance del protocollo, non ci interessa andare a realizzare un vero e proprio client di posta elettronica completo (es. Thunderbird) perchè per testare i servizi messi a disposizione dal nostro server mail andremo ad utilizzare un client open source.\
-Per realizzare gli stress test invece, sappiamo che non ci sono client  che forniscono una soluzione già pronta (i programmatori di tutto il mondo hanno realizzato dei client commerciali, non per svolgere test) quindi è possibile che dovremo andare a realizzare noi un piccolo client con una serie di funzionalità ristrette ma capace di performare un benchmark sull'efficienza del protocollo. Questo comunque sarà da decidere in fase di progettazione.
+Come discusso nei paragrafi precedenti, lo scopo finale del nostro prodotto è realizzare un'infrastruttura server, con il fine di realizzare gli #glossary("stress test") sui requisiti funzionali richiesti dal proponente.\
+Per questo motivo, dato che il risultato finale è incentrato sulla performance del protocollo, non ci interessa andare a realizzare un vero e proprio client di posta elettronica completo (e.g.: Thunderbird) perchè per testare i servizi messi a disposizione dal nostro server mail andremo ad utilizzare un client open source.\
+Per realizzare gli stress test invece, sappiamo che non ci sono client  che forniscono una soluzione già pronta (i programmatori di tutto il mondo hanno realizzato dei client commerciali, non per svolgere test) quindi è possibile che dovremo andare a realizzare noi un piccolo client con una serie di funzionalità ristrette ma capace di performare un benchmark sull'#glossary("efficienza") del protocollo. Questo comunque sarà da decidere in fase di progettazione.
 
 #pagebreak()
 
@@ -234,10 +233,10 @@ Questa sezione identifica e descrive tutti i casi d'uso individuati a seguito de
 == Introduzione ai Casi d'Uso
 I casi d'uso seguono una struttura logica descrivendo ognuno di questi seguendo questo modello:
 - *Attori coinvolti*: Il soggetto che esegue una certa azione;
-- *Descrizione*: Titolo del caso d’uso e breve commento;
+- *Descrizione*: Titolo del #glossary("caso d’uso") e breve commento;
 - *Precondizioni*: Stato del sistema prima del caso d’uso;
 - *Postcondizioni*: Stato del sistema dopo l’esecuzione dello scenario del caso d’uso;
-- *Scenario principale*: Una descrizione dettagliata delle azioni che un attore deve intraprendere per completare un caso d'uso. È un'espressione formale delle ipotesi e dei risultati del caso d'uso.
+- *Scenario principale*: Una descrizione dettagliata delle azioni che un #glossary("attore") deve intraprendere per completare un caso d'uso. È un'espressione formale delle ipotesi e dei risultati del caso d'uso.
 - *Estensioni*: L'estensione è una relazione tra due casi d'uso in cui il caso d'uso esteso può essere modificato o arricchito dal caso d'uso estensore. L'estensione è rappresentata da una freccia che punta dal caso d'uso estensore al caso d'uso esteso.
 - *Inclusioni*: L'inclusione è una relazione tra due casi d'uso in cui il caso d'uso incluso è eseguito sempre all'interno del caso d'uso che include. L'inclusione è rappresentata da una freccia che punta dal caso d'uso che include al caso d'uso incluso.
 - *Generalizzazioni*: La generalizzazione è una relazione tra due casi d'uso in cui il caso d'uso generalizzato rappresenta una categoria più ampia di cui il caso d'uso specifico è un'istanza. La generalizzazione è rappresentata da una freccia che punta dal caso d'uso specifico al caso d'uso generalizzato.
@@ -823,7 +822,7 @@ Per essere i più precisi possibile, abbiamo seguito nella definizione degli err
   + Il client specifica all'interno del parametro "create", contenuto nell'oggetto di argomenti della chiamata di metodo, le proprietà "body parts" dell'oggetto "Email" da inviare;
 
 
-======== UC48.2.1.3.1.1 - Inserimento delle proprietà "metadata" di un oggetto "Email" all'interno del parametro "create" del metodo "Email/set" necessario alla creazione di una email
+======== UC48.2.1.3.1.1 - ======== UC48.2.1.3.1.1 - Inserimento delle proprietà "metadata" di un oggetto "Email" all'interno del parametro "create" del metodo "Email/set" necessario alla creazione di una email
 - *Attore principale*: Client di posta elettronica autenticato;
 - *Descrizione*: Un client di posta elettronica, con lo scopo di inviare una email, deve eseguire una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session. Internamente a questa richiesta il client crea un array di chiamate di metodo contenente il metodo "Email/set", necessario per la creazione di una email, per il quale vanno specificati i parametri necessari. Uno di questi è "create". All'interno di questo parametro vanno definite le proprietà dell'email da inviare. Tra queste troviamo le proprietà "metadata";
 - *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione;
