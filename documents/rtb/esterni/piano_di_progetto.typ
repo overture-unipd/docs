@@ -9,7 +9,7 @@
     [_#(p.zextras)_],
   ),
   changelog: (
-    "0.3.2", "2024-01-03", p.amadori, p.bulychov, "Aggiunto il preventivo del periodo IV",
+        "0.3.2", "2024-01-03", p.amadori, p.bulychov, "Aggiunto il preventivo del periodo IV",
     "0.3.1", "2023-12-28", p.amadori, p.bulychov, "Aggiunta la pianificazione del periodo IV",
     "0.3.0", "2023-12-22", p.amadori, p.fabbian, "Aggiunto il consuntivo del periodo III",
     "0.2.2", "2023-12-16", p.bulychov, p.furno, "Aggiunto il preventivo del periodo III",
@@ -33,8 +33,8 @@
 Questo documento ha l'obiettivo di delineare la pianificazione e la gestione delle attività necessarie per la realizzazione del progetto. Vengono approfonditi aspetti chiave come l'`Analisi dei Rischi`, il modello di sviluppo adottato, la pianificazione delle attività, la suddivisione dei ruoli, nonché stime dei costi e delle risorse necessarie.
 
 == Scopo del prodotto
-Lo scopo principale del prodotto é quello di permettere all'azienda proponente di poter valutare se ha senso investire tempo e risorse per implementare il protocollo JMAP nel loro prodotto di punta chiamato Carbonio, una soluzione di collaborazione online che ruota attorno alla gestione delle email. JMAP è difatti un protocollo di comunicazione appositamente progettato per semplificare l'interazione tra client e server nell'ambito delle applicazioni di posta elettronica.\
-Attualmente, Carbonio fa affidamento su protocolli standard come IMAP, POP e #glossary("Exchange Active Sync"). Di conseguenza, l'implementazione di JMAP potrebbe offrire potenzialmente un aumento di funzionalità e efficienza a un costo inferiore.
+Lo scopo principale del prodotto é quello di permettere all'azienda #glossary("proponente") di poter valutare se ha senso investire tempo e risorse per implementare il #glossary("protocollo") #glossary("JMAP") nel loro prodotto di punta chiamato #glossary("Carbonio"), una soluzione di collaborazione online che ruota attorno alla gestione delle email. JMAP è difatti un protocollo di comunicazione appositamente progettato per semplificare l'interazione tra client e server nell'ambito delle applicazioni di posta elettronica.\
+Attualmente, Carbonio fa affidamento su protocolli standard come IMAP, POP e #glossary("Exchange Active Sync"). Di conseguenza, l'implementazione di JMAP potrebbe offrire potenzialmente un aumento di #glossary("funzionalità") e #glossary("efficienza") a un costo inferiore.
 
 == Glossario
 Per evitare ambiguitá o incomprensioni riguardanti la terminologia usata nel documento, é stato deciso di adottare un glossario in cui vengono riportate le varie definizioni. In questa maniera in esso verranno riportati tutti i termini specifici del dominio d'uso con relativi significati.
@@ -43,7 +43,7 @@ La presenza di un termine all'interno del `Glossario` viene indicata applicando 
 
 == Riferimenti
 === Riferimenti normativi
-- `Norme di Progetto`
+- `Norme di Progetto v1.0.0`
 - *PD2 - Regolamento del progetto didattico* \
   https://www.math.unipd.it/~tullio/IS-1/2023/Dispense/PD2.pdf
 - *Capitolato d'appalto C8*: JMAP, il nuovo protocollo standard per la comunicazione email \
@@ -62,10 +62,10 @@ All'interno di tale documento viene indicato che il preventivo calcolato del pro
 #pagebreak()
 
 = *Analisi dei Rischi*
-Durante lo sviluppo del progetto è essenziale mitigare gli impatti delle difficoltà riscontrate attraverso una corretta analisi dei rischi. Al fine di gestire efficacemente le problematiche derivanti da diverse condizioni intervenute durante l'implementazione, è stata inclusa questa sezione nel `Piano di Progetto`.\
+Durante lo sviluppo del progetto è essenziale mitigare gli impatti delle difficoltà riscontrate attraverso una corretta analisi dei rischi. Al fine di gestire efficacemente le problematiche derivanti da diverse condizioni intervenute durante l'implementazione, è stata inclusa questa sezione nel `Piano di Progetto v1.0.0`.\
 Dopo aver elencato i potenziali rischi, sono stati identificati una serie di passi da intraprendere nel caso in cui uno di essi si verifichi. Questa raccolta indica le soluzioni da applicare per limitare i danni.\
-Secondo lo standard ISO/IEC 31000:2009, il processo di gestione dei rischi si articola in 5 fasi:
-+ Identificazione dei rischi: consiste nel riconoscere le fonti di rischio, le aree di impatto, gli eventi (compresi i cambiamenti di circostanze), le cause e le conseguenze potenziali. Questo avverrà mediante un'analisi delle attività per generare un elenco completo dei rischi basato sugli eventi che potrebbero influenzare il raggiungimento degli obiettivi. Il team utilizzerà un'attività di Brainstorming per discutere di tutti gli ostacoli che potrebbero emergere durante il progetto.
+Secondo lo standard #glossary("ISO")/#glossary("IEC") 31000:2009, il #glossary("processo") di gestione dei rischi si articola in 5 fasi:
++ Identificazione dei rischi: consiste nel riconoscere le fonti di #glossary("rischio"), le aree di impatto, gli eventi (compresi i cambiamenti di circostanze), le cause e le conseguenze potenziali. Questo avverrà mediante un'analisi delle attività per generare un elenco completo dei rischi basato sugli eventi che potrebbero influenzare il raggiungimento degli obiettivi. Il team utilizzerà un'attività di Brainstorming per discutere di tutti gli ostacoli che potrebbero emergere durante il progetto.
 + Analisi dei rischi: implica lo sviluppo di una comprensione del rischio. Questa analisi contribuisce alla valutazione e alle decisioni sul trattamento dei rischi, identificando le strategie più adeguate.
 + Valutazione dei rischi: mira a prendere decisioni basate sui risultati dell'analisi dei rischi per determinare quali rischi trattare e stabilire le priorità di trattamento.
 + Trattamento dei rischi: dopo la valutazione, è importante decidere come affrontare i rischi, ad esempio mediante misure preventive, trasferimento del rischio tramite assicurazioni o l'adozione di misure di mitigazione.
@@ -79,7 +79,7 @@ Per questo motivo si è deciso di adottare la seguente convenzione `R[Tipologia]
 == Rischi Tecnologici
 *RT1 - Inesperienza* <RT1>
 #risks((
- [Dato l'alto grado di specializzazione richiesto dal capitolato, alcuni membri del gruppo potrebbero non possedere le competenze necessarie inizialmente. Ciò potrebbe causare ritardi sia nella fase di progettazione che nello sviluppo, poiché la formazione sarà essenziale per acquisire le competenze richieste],
+ [Dato l'alto grado di specializzazione richiesto dal #glossary("capitolato"), alcuni membri del gruppo potrebbero non possedere le competenze necessarie inizialmente. Ciò potrebbe causare ritardi sia nella fase di progettazione che nello sviluppo, poiché la formazione sarà essenziale per acquisire le competenze richieste],
  [Alta],
  [Alta],
  [Il Responsabile del progetto terrà in considerazione le competenze specifiche di ciascun membro del gruppo durante l'assegnazione dei compiti],
@@ -111,7 +111,7 @@ Per questo motivo si è deciso di adottare la seguente convenzione `R[Tipologia]
   [La pianificazione imprecisa delle attività può derivare dalla mancata conoscenza dei requisiti, dalla sottostima/sovrastima delle risorse/tempo necessari o dalla scarsa esperienza dei membri del team],
   [Alta],
   [Alta],
-  [Il confronto periodico con il `Piano di Progetto` e l'analisi della board su GitHub vengono utilizzati per monitorare lo stato di avanzamento],
+  [Il confronto periodico con il `Piano di Progetto` e l'analisi della #glossary("board") su #glossary("GitHub") vengono utilizzati per monitorare lo stato di avanzamento],
   [In caso di difficoltà, il `Piano di Progetto` viene revisionato per adeguare le date delle attività in base al progresso. Se un membro segnala impossibilità di rispettare la scadenza, il Responsabile assegnerà più risorse o posticiperà la data.],
 ))
 
@@ -120,7 +120,7 @@ Per questo motivo si è deciso di adottare la seguente convenzione `R[Tipologia]
   [La sottostima/sovrastima dei costi delle attività a causa dell'inesperienza del team può causare ritardi o spreco di tempo],
   [Media],
   [Alta],
-  [Attraverso il cruscotto e confronto periodico con il `Piano di Progetto`, il Responsabile può monitorare lo stato di avanzamento del progetto],
+  [Attraverso il #glossary("cruscotto") e confronto periodico con il `Piano di Progetto`, il Responsabile può monitorare lo stato di avanzamento del progetto],
   [In caso di cambiamenti non gravi, si cerca di implementare rapidamente quanto è rimasto aperto. Se significativo, si discute con il proponente per trovare un accordo su come affrontare i cambiamenti.],
 ))
 
@@ -158,7 +158,7 @@ Per questo motivo si è deciso di adottare la seguente convenzione `R[Tipologia]
 Dopo varie discussioni su quale fosse il miglior modello di sviluppo da adottare per la realizzazione del progetto, il gruppo ha optato per il modello Agile. Questo approccio alla gestione di progetti software prevede la suddivisione del progetto in periodi e si basa sui principi fondamentali di flessibilità, collaborazione e risposta rapida ai cambiamenti. L'Agile si contrappone dunque ai modelli tradizionali di sviluppo software, come il modello a cascata, il quale prevede fasi ben definite e sequenziali, andando a preferire invece miglioramenti continui e paralleli che seguono un ciclo di pianificazione, esecuzione e valutazione.\
 Nel nostro caso si è scelto di adottare periodi di durata complessiva di circa due settimane all'interno dei quali, sebbene il Responsabile dia la priorità al lavoro da consegnare, il team assume il comando nel decidere come verrà svolto il lavoro, organizzandosi in modo autonomo per la gestione di attività e assegnazioni granulari che rispettino i ruoli di ciascuno dei membri. \
 Questo modello di sviluppo è prevalso sugli altri per via dei seguenti grandi vantaggi che esso comporta:
-- *Trasparenza*: il modello Agile permette di poter sempre dimostrare agli stakeholder quanto è stato fatto, verificando l’avanzamento tramite progresso reale;
+- *Trasparenza*: il modello Agile permette di poter sempre dimostrare agli #glossary("stakeholder") quanto è stato fatto, verificando l’avanzamento tramite progresso reale;
 - *Adattabilità estrema al cambiamento*: il modello Agile mira a gestire ed adattarsi ai cambiamenti nei requisiti del progetto in modo più efficiente rispetto ai modelli tradizionali. La sua natura iterativa consente una risposta rapida a nuovi requisiti o a eventi imprevisti;
 - *Ottima gestione dei rischi*: data la breve durata dei periodi, i problemi che possono essere riscontrati all'interno di essi saranno individuati velocemente ed inoltre avranno una dimensione ragionevole, permettendo dunque una risoluzione tempestiva e riducendo il rischio di fallimento del progetto;
 - *Soddisfazione degli stakeholder*: il modello Agile promuove il coinvolgimento continuo degli stakeholder durante tutto il processo di sviluppo. Ciò garantisce che il prodotto finale soddisfi realmente le esigenze e le aspettative di chi l'ha commissionato, aumentandone così la soddisfazione complessiva;
@@ -174,8 +174,8 @@ Per ogni periodo si riportano di seguito le seguenti informazioni:
 - Rischi effettivamente occorsi, valutandone il loro impatto e la loro mitigazione;
 - Retrospettiva di periodo per capire cosa e come migliorare in futuro e cosa invece mantenere.
 I periodi vengono suddivisi in 3 grandi insiemi corrispondenti alle revisioni di avanzamento del progetto:
-- RTB (Requirements and Technology Baseline);
-- PB (Product Baseline);
+- RTB (#glossary("Requirements and Technology Baseline"));
+- PB (Product #glossary("Baseline"));
 - CA (Customer Acceptance).
 Alla fine di ogni collettivo si trovano una revisione del calendario rimanente e un'aggiornamento della stima dei costi finali, oltre ad un riepilogo del lavoro svolto.
 
@@ -210,21 +210,20 @@ Questo perchè, essendo all'inizio del progetto, siamo ancora incerti su molti a
 Ruoli coinvolti: Responsabile, Amministratore, Verificatore, Analista, Progettista.
 
 #period((
-  (0, 0, 8, 0, 0, 0),
-  (0, 0, 0, 6, 0, 0),
-  (2, 0, 0, 0, 4, 0),
-  (0, 0, 0, 5, 2, 0),
-  (0, 5, 0, 1, 0, 0),
-  (0, 0, 0, 5, 2, 0),
-  (6, 0, 0, 0, 1, 0),
-  ),
+    (0, 0, 8, 0, 0, 0),
+    (0, 0, 0, 6, 0, 0),
+    (2, 0, 0, 0, 4, 0),
+    (0, 0, 0, 5, 2, 0),
+    (0, 5, 0, 1, 0, 0),
+    (0, 0, 0, 5, 2, 0),
+    (6, 0, 0, 0, 1, 0),
+    ),
   (2, 2, 2),
-)
-
+  )
 
 ==== Consuntivo
 Le attività previste sono tutte state svolte con successo. \
-Come si può notare dal confronto tra preventivo e consuntivo:
+Come si può notare dal confronto tra preventivo e #glossary("consuntivo"):
 - Amministratori, Verificatori e Analisti hanno richiesto *più* ore;
 - Responsabili e Progettisti hanno richiesto *meno* ore.
 
@@ -257,12 +256,13 @@ Come si può notare dal confronto tra preventivo e consuntivo:
 
 ===== Rischi occorsi, impatto e loro mitigazione
 In questo primo periodo il gruppo ha riscontrato dei leggeri rallentamenti nelle fasi iniziali dei lavori. In particolare, si è proceduto alla stesura in parallelo di diversi documenti senza aver ben definito le regole stilistiche per il testo all'interno delle `Norme di Progetto`; questo problema dovuto ad inesperienza e problemi di comunicazione, che rappresentano parte dei rischi attesi dal gruppo, ha richiesto del lavoro extra per la redazione e la verifica della documentazione, ma è stato prontamente mitigato una volta individuato. \
-Anche implementare le actions di GitHub ha richiesto ulteriore sforzo rispetto quanto preventivato: inizialmente non era chiaro ai Progettisti come e cosa automatizzare. Quest'ultimi quindi si sono formati e hanno successivamente provveduto a realizzare alcune automazioni relative alla build dei documenti, specialmente per quanto riguarda il versionamento. \
+Anche implementare le #glossary("actions") di GitHub ha richiesto ulteriore sforzo rispetto quanto preventivato: inizialmente non era chiaro ai Progettisti come e cosa automatizzare. Quest'ultimi quindi si sono formati e hanno successivamente provveduto a realizzare alcune automazioni relative alla build dei documenti, specialmente per quanto riguarda il #glossary("versionamento"). \
 In conclusione i rischi occorsi non hanno avuto un grosso impatto sul progetto e sono stati prontamente mitigati tramite discussione costruttiva mediante i membri del gruppo. 
 
 
 ===== Retrospettiva
-Questo primo periodo di lavoro ci ha ribadito l'importanza delle best practice comuni che ogni membro del gruppo deve seguire per tutta la durata del progetto: per questo motivo verrà data la precedenza alla terminazione di una prima versione stabile delle `Norme di Progetto`, con la previsione di ultimarla nella prima settimana del Periodo II. \
+//Cosa abbiamo appreso e cosa si può migliorare in futuro e cosa è stato fatto bene
+Questo primo periodo di lavoro ci ha ribadito l'importanza delle #glossary("best practice") comuni che ogni membro del gruppo deve seguire per tutta la durata del progetto: per questo motivo verrà data la precedenza alla terminazione di una prima versione stabile delle `Norme di Progetto`, con la previsione di ultimarla nella prima settimana del Periodo II. \
 Lo studio condiviso delle librerie JMAP tra i diversi incaricati ha velocizzato l'apprendimento dei contenuti, risparmiando delle ore rispetto quanto preventivato. Questo metodo verrà sicuramente riproposto dal gruppo per lo studio di altre tecnologie. \
 L'approccio adottato dai Responsabili per assegnare le attività si è rivelato corretto: le task sono state distribuite in modo equo ai diversi componenti del gruppo che hanno impiegato un numero congruo di ore per il loro svolgimento e hanno ultimato il lavoro entro i tempi stabiliti. \
 Infine va migliorata la stima tramite preventivo del tempo necessario per poter completare tutte le attività, la quale è risultata essere leggermente imprecisa.
@@ -272,15 +272,15 @@ Inizio: 2023-11-22\
 Fine: 2023-12-07\
 
 ==== Pianificazione
-Nel corso del secondo periodo ci si propone di proseguire lo sviluppo della documentazione, con particolare enfasi sull'`Analisi dei Requisiti`, al fine di identificare i casi d'uso fondamentali. Per garantire un dialogo attivo con l'azienda proponente e assicurare una corretta comprensione dei casi d'uso sarà fondamentale organizzare almeno un incontro telematico e comunicare frequentemente anche per via informale tramite Discord. In questa maniera otteremo numerosi feedback, fondamentali per un lavoro accurato e professionale.\
+Nel corso del secondo periodo ci si propone di proseguire lo sviluppo della documentazione, con particolare enfasi sull'`Analisi dei Requisiti`, al fine di identificare i casi d'uso fondamentali. Per garantire un dialogo attivo con l'azienda proponente e assicurare una corretta comprensione dei casi d'uso sarà fondamentale organizzare almeno un incontro telematico e comunicare frequentemente anche per via informale tramite #glossary("Discord"). In questa maniera otteremo numerosi feedback, fondamentali per un lavoro accurato e professionale.\
 Considerando il progresso compiuto nelle `Norme di Progetto` durante il primo periodo, l'attenzione sarà ora rivolta soprattutto verso il `Piano di Progetto`, la cui struttura di base è stata precedentemente definita. L'obiettivo sarà quello di consolidare ulteriormente il documento, riflettendo sui dettagli emersi durante lo sviluppo iniziale ed aggiungendo nuove informazioni.\
 In merito alle tecnologie esaminate nella fase precedente, si intende identificare quelle da adottare per il successivo sviluppo del progetto. Questa fase di valutazione punta a selezionare con attenzione le tecnologie più adatte alle esigenze specifiche del capitolato.\
-Infine, prevediamo di dedicare del tempo allo sviluppo simultaneo di diverse versioni di Proof of Concept (PoC). Questa scelta ci permetterà di affrontare il problema da varie prospettive, fornendo così molteplici approcci per lo sviluppo. Ciò contribuirà a ottenere una visione tangibile del progetto e a stabilire solide fondamenta per le fasi successive dello sviluppo.\
+Infine, prevediamo di dedicare del tempo allo sviluppo simultaneo di diverse versioni di #glossary("Proof of Concept") (PoC). Questa scelta ci permetterà di affrontare il problema da varie prospettive, fornendo così molteplici approcci per lo sviluppo. Ciò contribuirà a ottenere una visione tangibile del progetto e a stabilire solide fondamenta per le fasi successive dello sviluppo.\
 Le attività previste durante questo periodo sono quindi le seguenti: 
 - Selezione della libreria da utilizzare nello sviluppo del progetto;
 - Scelta del linguaggio di programmazione da adottare per l'implementazione del progetto;
-- Scelta del database da impiegare nello sviluppo del progetto;
-- Selezione del framework per lo sviluppo degli stress test;
+- Scelta del #glossary("database") da impiegare nello sviluppo del progetto;
+- Selezione del framework per lo sviluppo degli #glossary("stress test");
 - Sviluppo di versioni parallele di PoC;
 - Approfondimento e confronto in relazione ai casi d'uso precedentemente identificati;
 - Arricchimento del documento `Analisi dei Requisiti` precedentemente avviato;
@@ -302,16 +302,16 @@ I rischi identificati per il periodo attuale non differiscono significativamente
 Ruoli coinvolti: Responsabile, Amministratore, Verificatore, Analista, Programmatore.
 
 #period((
-  (0, 0, 0, 6, 0, 4),
-  (0, 0, 7, 5, 0, 0),
-  (0, 0, 0, 0, 0, 9),
-  (0, 0, 0, 3, 0, 6),
-  (7, 0, 0, 0, 0, 0),
-  (0, 6, 0, 3, 0, 0),
-  (0, 1, 11, 0, 0, 0),
+    (0, 0, 0, 6, 0, 4),
+    (0, 0, 7, 5, 0, 0),
+    (0, 0, 0, 0, 0, 9),
+    (0, 0, 0, 3, 0, 6),
+    (7, 0, 0, 0, 0, 0),
+    (0, 6, 0, 3, 0, 0),
+    (0, 1, 11, 0, 0, 0),
   ),
   (2, 3, 1),
-)
+  )
 
 
 ==== Consuntivo
@@ -381,21 +381,20 @@ I rischi che ci aspettiamo di correre in questo periodo sono i seguenti:
 - #link(<RC2>)[*RC2 - Problemi di comunicazione*].
 Il consistente carico di lavoro di questo periodo richiederà inevitabilmente più tempo ad ogni membro del gruppo. I rischi identificati sono organizzativi e comuncativi: per conseguire la RTB prima di Natale molte attività potrebbero essere svolte frettolosamente, causando rallentamenti generali e ritardi.
 
-==== Preventivo
+==== Preventivo 
 Ruoli coinvolti: Responsabile, Amministratore, Verificatore, Analista, Programmatore.
 
 #period((
-  (0, 2, 0, 0, 0, 6),
-  (7, 0, 0, 0, 0, 5),
-  (0, 0, 5, 6, 0, 0),
-  (0, 6, 4, 0, 0, 0),
-  (0, 0, 4, 6, 0, 0),
-  (0, 0, 5, 0, 0, 5),
-  (0, 0, 0, 6, 0, 5),
+    (0, 2, 0, 0, 0, 6),
+    (7, 0, 0, 0, 0, 5),
+    (0, 0, 5, 6, 0, 0),
+    (0, 6, 4, 0, 0, 0),
+    (0, 0, 4, 6, 0, 0),
+    (0, 0, 5, 0, 0, 5),
+    (0, 0, 0, 6, 0, 5),
   ),
   (2, 3, 1),
-)
-
+  )
 
 ==== Consuntivo
 Contrariamente ai piani stabiliti, il gruppo non potrà partecipare alla prima revisione del progetto in questo momento poiché si ritiene che non sia ancora completamente pronto. \
@@ -406,7 +405,7 @@ Come si può notare dal confronto tra preventivo e consuntivo:
 - Responsabili hanno rischiesto *meno* ore.
 
 ===== Prospetto orario
-#consuntivo(
+#figure(consuntivo(
   (
     ("0", "2", "0", "2 "+neg("+2"), "0", "6", "10"),
     ("6 "+pos("-1"), "0", "0", "0", "0", "5", "11"),
@@ -464,9 +463,9 @@ I rischi che ci aspettiamo di correre in questo periodo sono i seguenti:
 - #link(<RO3>)[*RO3 - Impegni universitari e personali*].
 
 Le vacanze Natalizie nel bel mezzo di questo periodo non faciliteranno sicuramente l'organizzazione del lavoro rimanente, causando rallentamenti e carenza di membri del gruppo disposti a lavorare durante questo periodo.\
-Un altro rischio imminente è che i dubbi che chiariremo con il #p.cardin non scoperchino un'altro vaso di pandora, causando una mole di lavoro correttiva per `Analisi dei Requisiti` e PoC eccessiva, con costi in termini di ore lavoro che se non assorbiti dal gruppo possono causare consistenti rallentamenti per la nostra candidatura all'RTB.
+Un altro rischio imminente è che i dubbi che chiariremo con il #p.cardin non scoperchino un altro vaso di pandora, causando una mole di lavoro correttiva per `Analisi dei Requisiti` e PoC eccessiva, con costi in termini di ore lavoro che se non assorbiti dal gruppo possono causare consistenti rallentamenti per la nostra candidatura all'RTB.
 
-==== Preventivo 
+==== Preventivo
 Ruoli coinvolti: Responsabile, Amministratore, Verificatore, Analista, Programmatore.
 
 #period((

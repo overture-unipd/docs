@@ -9,7 +9,7 @@
     [_#(p.zextras)_],
   ),
   changelog: (
-    "0.1.1", "2023-12-17" , (p.fabbian, p.vedovato, p.bonavigo, p.amadori), p.furno,
+        "0.1.1", "2023-12-17" , (p.fabbian, p.vedovato, p.bonavigo, p.amadori), p.furno,
     [
       Correzioni alle sezioni di introduzione\
       Correzioni alle sezioni di descrizione generale del prodotto\
@@ -22,21 +22,21 @@
       Casi d'uso: approfondire la gestione degli errori\
       Casi d'uso: separare gli errori provenienti da condition differenti
     ],
-    "0.0.9", "2023-12-2" , p.furno, p.vedovato,
+    "0.0.9", "2023-12-02" , p.furno, p.vedovato,
     [
-      Casi d'uso: rimozione dei requisiti di vincolo\
-      Casi d'uso: rimozione dei requisiti di prestazione
+      Rimozione dei requisiti di vincolo\
+      Rimozione dei requisiti di prestazione
     ],
     "0.0.8", "2023-12-2" , p.bettin, p.vedovato,
     [
       Casi d'uso: correzione degli stress test
     ],
-    "0.0.7", "2023-12-1" , p.amadori, p.bettin,
+    "0.0.7", "2023-12-01" , p.amadori, p.bettin,
     [
       Casi d'uso: correzione creazione delle cartelle\
       Casi d'uso: correzione gestione contenuti delle cartelle
     ],
-    "0.0.6", "2023-12-1" , p.bulychov, p.bettin,
+    "0.0.6", "2023-12-01" , p.bulychov, p.bettin,
     [
       Casi d'uso: correzione login base\
       Casi d'uso: correzione scambio delle email
@@ -71,12 +71,13 @@
   ),
   show_images_list: true,
   show_tables_list: true,
+  outline_depth: 3,
 )
 
 = *Introduzione*
 == Scopo del documento
-L'`Analisi dei Requisiti` è un documento fondamentale per tutti i progetti di sviluppo software che vogliono essere in ottemperanza con gli standard di qualità definiti dalla materia di ingegneria del software.\
-Lo scopo del documento è quello di definire le funzionalità che il sistema sarà in grado di offrire, ovvero i requisiti obbligatori, desiderati e opzionali che devono essere soddisfatti dal software sviluppato al fine di essere conforme alle richieste fatte dal proponente.\
+L'`#glossary("Analisi dei Requisiti")` è un documento fondamentale per tutti i progetti di sviluppo software che vogliono essere in ottemperanza con gli standard di #glossary("qualità") definiti dalla materia di Ingegneria del Software.\
+Lo scopo del documento è quello di definire le #glossary("funzionalità") che il sistema sarà in grado di offrire, ovvero i requisiti obbligatori, desiderati e opzionali che devono essere soddisfatti dal prodotto sviluppato al fine di essere conforme alle richieste fatte dal #glossary("proponente").\
 L'analisi non deve fornire la soluzione al problema, ma deve essere consapevole della sua fattibilità tecnologica (definendo di conseguenza un confine tra analisi del problema e il suo design, quindi la soluzione).
 In particolare, le finalità di questo documento possono essere definite e sintetizzate nei seguenti punti:\
 
@@ -87,7 +88,7 @@ Il documento di `Analisi dei Requisiti` fonda le sue basi sulle esigenze del pro
 Una volta raccolte le esigenze del proponente, il documento di `Analisi dei Requisiti` deve identificare tutti i casi d'uso necessari e i corrispettivi requisiti associati ad ognuno di essi suddividendoli in funzionali e non funzionali.\
 
 - *Verificazione e validazione dei requisiti*:\
-Il processo di #glossary("verifica dei requisiti") ha lo scopo di garantire che le attività siano svolte in modo corretto, senza errori, ponendo in primo piano il way of working del gruppo.\
+Il #glossary("processo") di #glossary("verifica dei requisiti") ha lo scopo di garantire che le attività siano svolte in modo corretto, senza errori, ponendo in primo piano il Way of Working del gruppo.\
 La #glossary("validazione dei requisiti") invece consiste nel accertare che il prodotto corrisponda alle attese, ponendo attenzione al prodotto software finale.\
 
 - *Fornire una base per la progettazione del sistema*:\
@@ -112,7 +113,7 @@ Infatti, questa soluzione software permette di raggruppare insieme un pool di ut
 + Editing collaborativo;
 + Gestione file condivisi.
 
-Questo applicativo è implementato con un software backend (installabile solamente su un Server Ubuntu) e i client possono usufruire di questa soluzione comodamente tramite browser previo apposito login.
+Questo applicativo è implementato con un software #glossary("backend") (installabile solamente su un Server Ubuntu) e i client possono usufruire di questa soluzione comodamente tramite browser previo apposito login.
 
 === Il protocollo JMAP
 Tra tutte le funzionalità offerte da Carbonio, _#(p.zextras)_ pone particolare attenzione, nel suo capitolato, sulla funzionalità di messaggistica che utilizza come base per la sua implementazione la posta elettronica. Questa tecnologia utilizza IMAP (Internet Message Access Protocol), un #glossary("protocollo") di comunicazione utilizzato per
@@ -120,13 +121,13 @@ accedere alle email conservate su un server di posta compatibile. Risale al lont
 successore del precedente protocollo POP (Post Office Protocol) e consente un accesso più
 avanzato e interattivo al contenuto delle caselle di posta elettronica, ad esempio permettendo la
 sincronizzazione di una casella di posta in più dispositivi.\
-Negli ultimi anni però è nato JMAP: un interessante alternativa a IMAP, il cui pregio principale rispetto a IMAP è la velocità, in quanto sfrutta il formato JSON (JavaScript Object Notation) e definisce un set di API per permettere ai client di accedere ai dati e gestirli in modo efficiente.
+Negli ultimi anni però è nato #glossary("JMAP"): un interessante alternativa a IMAP, il cui pregio principale rispetto a IMAP è la velocità, in quanto sfrutta il formato JSON (JavaScript Object Notation) e definisce un set di #glossary("API") per permettere ai client di accedere ai dati e gestirli in modo efficiente.
 
 === Cosa richiede _#(p.zextras)_?
 _#(p.zextras)_ non ci chiede direttamente di apporre modifiche a Carbonio,
-ma di implementare un sistema informatico capace di sfruttare il protocollo JMAP per l'invio di email tra diversi utenti. In particolare dovremmo andare a programmare un *server mail* che metta a disposizione a un qualsiasi tipo di *client* (capace di supportare il protocollo JMAP ovviamente) una serie di funzionalità (che detteremo in seguito con la lista dei requisiti).\
-A questo punto, utilizzando uno dei client open source reperibili nelle repository pubbliche saremmo già in grado di sfruttare questa tecnologia di posta elettronica grazie al server che abbiamo implementato.\
-Il reale scopo di _#(p.zextras)_ però non è tanto quello di ricevere il #glossary("know how") che noi andremo ad acquisire programmando il server, ma quello di ricevere i risultati dei benchmark che andremo a realizzare sul sistema rapportandolo alle specifiche hardware e software dell'impianto utilizzato.\
+ma di implementare un sistema informatico capace di sfruttare il protocollo JMAP per l'invio di email tra diversi utenti. In particolare dovremmo andare a sviluppare un *server mail* che metta a disposizione a un qualsiasi tipo di *client* (capace di supportare il protocollo JMAP ovviamente) una serie di funzionalità (che detteremo in seguito con la lista dei requisiti).\
+A questo punto, utilizzando uno dei client open source reperibili nelle #glossary("repository") pubbliche, dovremmo già essere in grado di sfruttare questa tecnologia di posta elettronica grazie al server che abbiamo implementato.\
+Il reale scopo di _#(p.zextras)_ però non è tanto quello di ricevere il #glossary("know how") che noi andremo ad acquisire programmando il server, ma quello di ricevere i risultati dei #glossary("benchmark") che andremo a realizzare sul sistema rapportandolo alle specifiche hardware e software dell'impianto utilizzato.\
 Basandosi su questi risultati _#(p.zextras)_ deciderà quindi se è vantaggioso apportare delle modifiche a Carbonio e implementare un sistema di posta elettronica che sfrutti il protocollo JMAP come quello sviluppato nella nostra demo o se abbandonare l'idea.
 
 
@@ -139,7 +140,8 @@ La presenza di un termine all'interno del `Glossario` viene indicata applicando 
 
 == Riferimenti
 === Riferimenti normativi
-- `Norme di Progetto`
+- `Norme di Progetto v1.0.0`
+
 - Capitolato d'appalto C8: JMAP, il nuovo protocollo standard per la comunicazione email \
   https://www.math.unipd.it/~tullio/IS-1/2023/Progetto/C8.pdf
 
@@ -148,12 +150,12 @@ La presenza di un termine all'interno del `Glossario` viene indicata applicando 
   https://www.math.unipd.it/~tullio/IS-1/2023/Dispense/T5.pdf
 - P2 - I Diagrammi dei Casi d'Uso (UML) \
   https://www.math.unipd.it/~rcardin/swea/2022/Diagrammi%20Use%20Case.pdf
-#pagebreak()
+  #pagebreak()
 
 = *Descrizione generale del prodotto richiesto da _#(p.zextras)_*
 
 == Obiettivo fissato
-L’obiettivo a cui vogliamo arrivare alla fine di questo capitolato e' capire se ha senso investire tempo e denaro per estendere questo standard (JMAP) nel software Carbonio, mantenendo i vecchi standard per compatibilità con i client attualmente supportati ma permettendoci di espandere le funzionalità offerte ai client di nuova generazione.
+L’obiettivo a cui vogliamo arrivare alla fine di questo #glossary("capitolato") e' capire se ha senso per  _#(p.zextras)_ investire tempo e denaro per estendere questo standard (JMAP) nel software #glossary("Carbonio"), mantenendo i vecchi standard per compatibilità con i client attualmente supportati ma permettendogli di espandere le funzionalità offerte ai client di nuova generazione.
 
 == Funzionalitá del prodotto e requisiti<Funzionalità>
 Nel sistema informatico che dovremmo andare a realizzare dobbiamo mettere a disposizione dei client le seguenti funzionalità:
@@ -167,13 +169,13 @@ Nel sistema informatico che dovremmo andare a realizzare dobbiamo mettere a disp
 - [Opzionale] l’implementazione di un sistema di sincronizzazione che permetta ad un client di mantenersi aggiornato con gli ultimi aggiornamenti della casella di posta visualizzata, della rubrica e dei contatti;
 - [Opzionale] Implementazione degli stessi requisiti funzionali sopra elencati per contatti e rubriche contatti.
 
-Inoltre il prodotto deve poter essere eseguibile in un container Docker, permettendo all'azienda di effettuare in batteria i test di funzionalità e di performance, ed é sviluppato per essere scalabile mediante l’inizializzazione di più nodi stateless.
+Inoltre il prodotto deve poter essere eseguibile in un container #glossary("Docker"), permettendo all'azienda di effettuare in batteria i #glossary("test") di funzionalità e di performance, ed é preferibile che sia sviluppato per essere scalabile mediante l’inizializzazione di più nodi #glossary("stateless").
 
 == Caratteristiche utente
 
 === Utenti di Carbonio
 Gli utenti della soluzione software Carbonio sono principalmente:
-+  Agenzie di telecomunicazioni, provider (ISP) e operatori mobili poiché si integra perfettamente ai servizi preesistenti e garantisce un reale valore aggiunto ai propri clienti;
++ Agenzie di telecomunicazioni, provider (ISP) e operatori mobili poiché si integra perfettamente ai servizi preesistenti e garantisce un reale valore aggiunto ai propri clienti;
 + Il settore pubblico e i settori regolamentati, poiché fornisce un ambiente di lavoro digitale sicuro e conforme alle normative locali come, ad esempio, le leggi sulla protezione dei dati e sulla sovranità del dato;
 + Utenti privati e aziende private tradizionali che desiderano una piattaforma open source per l'e-mail e la collaborazione digitale che offra una soluzione di collaborazione online on-premise.
 
@@ -219,10 +221,10 @@ Questa sezione identifica e descrive tutti i casi d'uso individuati a seguito de
 == Introduzione ai Casi d'Uso
 I casi d'uso seguono una struttura logica descrivendo ognuno di questi seguendo questo modello:
 - *Attori coinvolti*: Il soggetto che esegue una certa azione;
-- *Descrizione*: Titolo del caso d’uso e breve commento;
+- *Descrizione*: Titolo del #glossary("caso d’uso") e breve commento;
 - *Precondizioni*: Stato del sistema prima del caso d’uso;
 - *Postcondizioni*: Stato del sistema dopo l’esecuzione dello scenario del caso d’uso;
-- *Scenario principale*: Una descrizione dettagliata delle azioni che un attore deve intraprendere per completare un caso d'uso. È un'espressione formale delle ipotesi e dei risultati del caso d'uso.
+- *Scenario principale*: Una descrizione dettagliata delle azioni che un #glossary("attore") deve intraprendere per completare un caso d'uso. È un'espressione formale delle ipotesi e dei risultati del caso d'uso.
 - *Estensioni*: L'estensione è una relazione tra due casi d'uso in cui il caso d'uso esteso può essere modificato o arricchito dal caso d'uso estensore. L'estensione è rappresentata da una freccia che punta dal caso d'uso estensore al caso d'uso esteso.
 - *Inclusioni*: L'inclusione è una relazione tra due casi d'uso in cui il caso d'uso incluso è eseguito sempre all'interno del caso d'uso che include. L'inclusione è rappresentata da una freccia che punta dal caso d'uso che include al caso d'uso incluso.
 - *Generalizzazioni*: La generalizzazione è una relazione tra due casi d'uso in cui il caso d'uso generalizzato rappresenta una categoria più ampia di cui il caso d'uso specifico è un'istanza. La generalizzazione è rappresentata da una freccia che punta dal caso d'uso specifico al caso d'uso generalizzato.
@@ -603,7 +605,7 @@ In seguito però ad una profonda analisi, il gruppo Overture ha stabilito che il
   + L'utente fornisce l'identificativo della Email che intende spostare;
   + L'utente fornisce l'Identificativo della cartella di partenza;
   + L'utente fornisce l'Identificativo della cartella di destinazione.
-  
+
 #set list(marker: ([•], [--]))
 - *Estensioni*:
   - Errore Identificativo Email fornito non esistente;
@@ -1276,7 +1278,7 @@ In seguito però ad una profonda analisi, il gruppo Overture ha stabilito che il
   + L'utente dovrà fornire la lista dei contatti da includere nella rubrica.
 
 #set list(marker: ([•], [--]))
-- *Estensioni*: 
+- *Estensioni*:
   + Nome rubrica duplicato o non valido;
   + Identificativo contatti fornito non valido.
 - *Inclusioni*: /
@@ -1313,7 +1315,7 @@ In seguito però ad una profonda analisi, il gruppo Overture ha stabilito che il
 
 #set list(marker: ([•], [--]))
 - *Estensioni*:
-    + Identificativo rubrica non valido;
+  + Identificativo rubrica non valido;
     + Nome rubrica duplicato o non valido.
 - *Inclusioni*: /
 - *Generalizzazioni*: /
