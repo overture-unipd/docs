@@ -26,12 +26,12 @@
 
 = *Introduzione*
 == Scopo del documento
-Questo documento presenta le strategie di verifica e validazione implementate per garantire la qualità del prodotto e dei processi coinvolti nel progetto in questione. Data la natura evolutiva del documento, i contenuti saranno ampliati e modificati nel corso del tempo.\
+Questo documento presenta le strategie di verifica e validazione implementate per garantire la #glossary("qualità") del prodotto e dei processi coinvolti nel progetto in questione. Data la natura evolutiva del documento, i contenuti saranno ampliati e modificati nel corso del tempo.\
 Saranno inoltre riportati i risultati delle verifiche effettuate sul prodotto, con l'obiettivo di correggere tempestivamente eventuali problematiche riscontrate.
 
 == Scopo del prodotto
-Il prodotto mira principalmente a consentire all'azienda proponente di valutare se sia conveniente dedicare tempo e risorse all'integrazione del protocollo JMAP nel loro prodotto principale chiamato Carbonio, una soluzione di collaborazione online centrata sulla gestione delle email. Infatti JMAP é un protocollo di comunicazione progettato per semplificare l'interazione tra client e server nelle applicazioni di posta elettronica.\
-Al momento, Carbonio utilizza protocolli standard come IMAP, POP e Exchange Active Sync, perció l'implementazione di JMAP potrebbe potenzialmente garantire maggiori funzionalità ed efficienza a un costo più contenuto.
+Il prodotto mira principalmente a consentire all'azienda #glossary("proponente") di valutare se sia conveniente dedicare tempo e risorse all'integrazione del #glossary("protocollo") #glossary("JMAP") nel loro prodotto principale chiamato #glossary("Carbonio"), una soluzione di collaborazione online centrata sulla gestione delle email. Infatti JMAP é un protocollo di comunicazione progettato per semplificare l'interazione tra client e server nelle applicazioni di posta elettronica.\
+Al momento, Carbonio utilizza protocolli standard come IMAP, POP e #glossary("Exchange Active Sync"), perció l'implementazione di JMAP potrebbe potenzialmente garantire maggiori #glossary("funzionalità") ed efficienza a un costo più contenuto.
 
 == Glossario
 Per evitare ambiguitá o incomprensioni riguardanti la terminologia usata nel documento, é stato deciso di adottare un glossario in cui vengono riportate le varie definizioni. In questa maniera in esso verranno riportati tutti i termini specifici del dominio d'uso con relativi significati.
@@ -40,7 +40,7 @@ La presenza di un termine all'interno del `Glossario` viene indicata applicando 
 
 == Riferimenti
 === Riferimenti normativi
-- `Norme di Progetto`
+- `Norme di Progetto v1.0.0`
 - *Capitolato d'appalto C8*: JMAP, il nuovo protocollo standard per la comunicazione email \
   https://www.math.unipd.it/~tullio/IS-1/2023/Progetto/C8.pdf
 
@@ -53,10 +53,10 @@ La presenza di un termine all'interno del `Glossario` viene indicata applicando 
 #pagebreak()
   
 = Obiettivi metrici di qualità
-Ogni processo viene valutato mediante l'applicazione di metriche specifiche, le cui definizioni sono dettagliate nelle `Norme di Progetto`. Questa sezione delinea i criteri che le metriche devono rispettare per essere valutate come accettabili o eccellenti.
+Ogni #glossary("processo") viene valutato mediante l'applicazione di metriche specifiche, le cui definizioni sono dettagliate nelle `Norme di Progetto v1.0.0`. Questa sezione delinea i criteri che le metriche devono rispettare per essere valutate come accettabili o eccellenti.
 
 == Qualità di processo 
-La qualità di processo è esigenza primaria nello sviluppo software, difatti per poter avere un prodotto finale di qualità è necessario trovare alla base un'applicazione rigorosa di best practice ben definite che ci permettano di svolgere nel miglior modo possibile l'insieme delle attività da effettuare. \
+La qualità di processo è esigenza primaria nello sviluppo software, difatti per poter avere un prodotto finale di qualità è necessario trovare alla base un'applicazione rigorosa di #glossary("best practice") ben definite che ci permettano di svolgere nel miglior modo possibile l'insieme delle attività da effettuare. \
 
 === Processi primari
 
@@ -69,7 +69,7 @@ La qualità di processo è esigenza primaria nello sviluppo software, difatti pe
   [MPC02],
   [Planned value (PV)],
   [≥ 0],
-  [≤ Budget At Completion (BAC)],
+  [≤ #glossary("Budget At Completion") (BAC)],
   [MPC03],
   [Actual cost (AC)],
   [≥ 0],
@@ -182,7 +182,7 @@ La qualità di prodotto si riferisce all'insieme delle caratteristiche di un'ent
   [≥ 80%],
   [100%],
   [MPD05],
-  [Branch coverage],
+  [#glossary("Branch") coverage],
   [≥ 50%],
   [≥ 80%],
   [MPD06],
@@ -236,12 +236,12 @@ La qualità di prodotto si riferisce all'insieme delle caratteristiche di un'ent
 #pagebreak()
 
 = Metodologie di testing
-In questa sezione vengono elencati i test eseguiti sul prodotto, necessari per dimostrare che i vincoli individuati all'interno del documento `Analisi dei Requisiti` siano soddisfatti.\ Come anticipato all'interno delle `Norme di Progetto`, i test si dividono in:
+In questa sezione vengono elencati i #glossary("test") eseguiti sul prodotto, necessari per dimostrare che i vincoli individuati all'interno del documento `Analisi dei Requisiti v1.0.0` siano soddisfatti.\ Come anticipato all'interno delle `Norme di Progetto v1.0.0`, i test si dividono in:
 - *Test di unità*: definiti sulle unità software autonome più piccole, sono implementati principalmente durante la progettazione;
 - *Test di integrazione*: successivi ai test di unità, servono a verificare la corretta integrazione tra le diverse unità software;
 - *Test di sistema*: garantiscono il corretto funzionamento del sistema. In particolare, verificano che tutti i requisiti individuati siano rispettati;
 - *Test di accettazione*: alla presenza del committente, servono a verificare che il prodotto finale soddisfi tutti i requisiti.
-Per la prima revisione del prodotto (RTB) vengono inseriti esclusivamente i test di *unità* e *integrazione* implementati e verificati per il Proof of Concept (PoC); ne verrano dunque aggiunti molti altri in seguito. Mentre per quanto riguarda i test di *sistema*, questi sono completi.
+Per la prima revisione del prodotto (RTB) vengono inseriti esclusivamente i test di *unità* e *integrazione* implementati e verificati per il #glossary("Proof of Concept") (PoC); ne verrano dunque aggiunti molti altri in seguito. Mentre per quanto riguarda i test di *sistema*, questi sono completi.
 
 == Codice dei test
 Ogni test è associato ad un codice univoco definito nel seguente formato:
@@ -259,7 +259,7 @@ Ogni test ha uno *Stato*, che puo essere:
 - *NI*: non implementato.
 
 == Test di unità
-I test di unità sono concepiti per verificare il corretto funzionamento delle singole componenti di codice. Per 'unità' si intendono funzioni, classi o, in modo più generico, ogni singola entità di codice responsabile di svolgere specifiche attività interne nel software. Per implementare efficacemente questa tipologia di test, l'azienda proponente ha consigliato l'utilizzo dei framework di unit testing *JUnit* e *Mockito*.
+I test di unità sono concepiti per verificare il corretto funzionamento delle singole componenti di codice. Per 'unità' si intendono funzioni, classi o, in modo più generico, ogni singola entità di codice Responsabile di svolgere specifiche attività interne nel software. Per implementare efficacemente questa tipologia di test, l'azienda proponente ha consigliato l'utilizzo dei framework di unit testing *JUnit* e *Mockito*.
 #figure(test(
   (
     "TU-1","Verificare il corretto funzionamento della funzione helper CreationIdResolver", "V",
@@ -280,7 +280,7 @@ I test di integrazione sono progettati per verificare che le diverse parti di un
 ), caption: [Stato dei test di integrazione.])
 
 == Test di sistema
-I test di sistema sono una fase del processo di testing software che mira a verificare che il sistema soddisfi i requisiti specificati nell'`Analisi dei Requisiti`. Questa fase di testing è condotta sul sistema nel suo complesso, dopo che i test di unità e di integrazione sono stati completati con successo. L'obiettivo principale dei test di sistema è assicurare che l'applicazione sia in grado di svolgere le sue funzioni nel contesto del suo ambiente operativo.
+I test di sistema sono una fase del processo di testing software che mira a verificare che il sistema soddisfi i requisiti specificati nell'`Analisi dei Requisiti v1.0.0`. Questa fase di testing è condotta sul sistema nel suo complesso, dopo che i test di unità e di integrazione sono stati completati con successo. L'obiettivo principale dei test di sistema è assicurare che l'applicazione sia in grado di svolgere le sue funzioni nel contesto del suo ambiente operativo.
 #figure(testSistema(
   (
     "TS-1","Verificare che un client di posta elettronica non autenticato possa autenticarsi all'interno del sistema.", "R-001-F-2", "NI",
@@ -483,8 +483,8 @@ I test di sistema sono una fase del processo di testing software che mira a veri
 = Iniziative di automiglioramento per la qualità
 
 == Introduzione
-Un team di progetto è in grado di completare i compiti in modo efficiente a mantenendo un grado elevato di qualità, riducendo i costi e aumentando i profitti solo se mette la produttività in cima alla scala dei valori.\
-Di seguito infatti ci dedichiamo al tema del miglioramento della produttività dei processi coinvolti nella realizzazione del prodotto richiesto dal Capitolato C8. Essendo questo il primo progetto realistico affrontato dai membri del gruppo, è probabile che si verifichino problemi di natura organizzativa interna, di adempimento efficace dei ruoli assegnati e di giusto utilizzo degli strumenti scelti.\
+Un team di progetto è in grado di completare i compiti in modo efficiente, mantenendo un grado elevato di qualità, riducendo i costi e aumentando i profitti solo se mette la produttività in cima alla scala dei valori.\
+Di seguito infatti ci dedichiamo al tema del miglioramento della produttività dei processi coinvolti nella realizzazione del prodotto richiesto dal #glossary("Capitolato") C8. Essendo questo il primo progetto realistico affrontato dai membri del gruppo, è probabile che si verifichino problemi di natura organizzativa interna, di adempimento efficace dei ruoli assegnati e di giusto utilizzo degli strumenti scelti.\
 In questa sezione quindi andremo ad elencare i problemi più importanti che abbiamo riscontrato e le relative contromisure prese per risolvere o contenere i rallentamenti causati.
 
 == Problemi leagati all'organizzazione generale
@@ -492,8 +492,8 @@ In questa sezione quindi andremo ad elencare i problemi più importanti che abbi
   [Intero Progetto],
   [È stato particolarmente complicato effettuare delle riunioni per fare il punto della situazione sul progetto dove fossero presenti tutti i membri del gruppo sia in presenza (poichè non si trovano aule libere che permettano ai membri di riunirsi e non tutti i componenti del gruppo seguono con frequenza le lezioni) che online (ognuno ha impegni diversi e dunque alle riunioni manca sempre qualche componente).],
   [
-    Si è deciso dunque che per comodità tutte le riunioni devono essere svolte online (sulla piattaforma Discord) cosicchè ogni componente può collegarsi in qualunque situazione (capitava spesso di membri in viaggio o sui mezzi pubblici).\
-    Qualora uno dei componenti del gruppo non potesse comunque essere presente il responsabile provederà a fornigli un riassunto vocale della discussione tramite il contatto Telegram.
+    Si è deciso dunque che per comodità tutte le riunioni devono essere svolte online (sulla piattaforma #glossary("Discord")) cosicchè ogni componente può collegarsi in qualunque situazione (capitava spesso di membri in viaggio o sui mezzi pubblici).\
+    Qualora uno dei componenti del gruppo non potesse comunque essere presente il Responsabile provederà a fornigli un riassunto vocale della discussione tramite il contatto #glossary("Telegram").
   ],
 )), caption: [Contromisure adottate per limitare problemi di organizzazione generale.])
 
@@ -502,16 +502,16 @@ In questa sezione quindi andremo ad elencare i problemi più importanti che abbi
 
   [Intero Progetto],
   [Verificatore],
-  [Dato che questo è il primo progetto in termini di complessità della documentazione che ogni membro del nostro gruppo affronta abbiamo notato (ed è comprensibile) che spesso i documenti pronti ad essere rilasciati nel repository pubblico avevano degli errori di vario genere (esempio: di formattazione del documento, errori semantici, etc.)],
+  [Dato che questo è il primo progetto in termini di complessità della documentazione che ogni membro del nostro gruppo affronta abbiamo notato (ed è comprensibile) che spesso i documenti pronti ad essere rilasciati nel #glossary("repository") pubblico avevano degli errori di vario genere (esempio: di formattazione del documento, errori semantici, etc.)],
   [Avvertire i verificatori di questo fenomeno e non assegnare loro altri compiti durante lo svolgimento del processo di verifica in quanto il loro lavoro è molto oneroso (non si tratta di approvare e basta le nuove modifiche al repository ma di verificare, spesso in argomenti a loro sconosciuti, se ciò che è stato prodotto sia valido o meno).],
   
   [Fase iniziale],
   [Responsabile],
   [Nelle fasi iniziali del progetto è capitato che le attività venissero assegnate senza valutare in modo corretto il loro costo in termini di tempo ai vari componenti del gruppo. Questo ha portato chiaramente ad un sovraccarico per alcuni ruoli ed eccessivo tempo libero per altri.],
-  [Il responsabile di turno deve ricontrollare l'assegnazione dei compiti per assicurarsi che siano equamente distribuiti tra i membri. In questo modo, si evitano rallentamenti dovuti a ridistribuzioni degli oneri di progetto.],
+  [Il Responsabile di turno deve ricontrollare l'assegnazione dei compiti per assicurarsi che siano equamente distribuiti tra i membri. In questo modo, si evitano rallentamenti dovuti a ridistribuzioni degli oneri di progetto.],
 
-  [Analisi dei requisiti],
-  [Analista],
+  [#glossary("Analisi dei requisiti")],
+  [#glossary("Analista")],
   [Per svolgere l'analisi dei requisiti abbiamo dovuto analizzare in modo approfondito il capitolato ma ci è risultato difficile comprendere fin dall'inizio quale fosse il suo vero scopo, in particolare capire quali fossero le parti che realmente il proponente si aspettava realizzassimo.\
   Non potevamo lasciare nulla al caso perchè un'imprecisione in questa fase sarebbe stata riflessa immediatamente nei diagrammi dei casi d'uso e se non fosse stata risolta in tempo si sarebbe riflessa anche sul PoC.
   ],
@@ -525,7 +525,7 @@ In questa sezione quindi andremo ad elencare i problemi più importanti che abbi
   Programmatori
   ],
   [
-    Spesso durante diverse attività di progetto colui che doveva svolgere il proprio compito si sentiva afflitto da una miriade di dubbi con granularità fine su come procedere con il proprio lavoro (es. l'analista nella stesura dei casi d'uso oppure il programmatore durante la realizzazione del PoC).
+    Spesso durante diverse attività di progetto colui che doveva svolgere il proprio compito si sentiva afflitto da una miriade di dubbi con granularità fine su come procedere con il proprio lavoro (e.g.: l'Analista nella stesura dei casi d'uso oppure il Programmatore durante la realizzazione del PoC).
   ],
   [Dopo aver parlato di questo con il proponente siamo giunti alla conclusione di inserire uno dei referenti del progetto nel nostro canale privato Discord cosicchè da poter chiarire in maniera informale e immediata qualsiasi dubbio con granularità fine, lasciando i problemi più importanti ai meeting ufficiali con verbale esterno annesso.],
 
@@ -537,19 +537,19 @@ In questa sezione quindi andremo ad elencare i problemi più importanti che abbi
 == Valutazione sugli strumenti
 #figure(improvementtool("#e8fcdc", (
     [Intero progetto],
-    [Typst],
+    [#glossary("Typst")],
     [
-      Trovare un metodo per cui tutti i membri del gruppo potessero redigere documenti indipendentemente dal dispositivo in uso, dal sistema operativo e anche dalle proprie conoscenze di base in materia (LaTeX non era una tecnologia conosciuta da tutti i membri del gruppo). 
+      Trovare un metodo per cui tutti i membri del gruppo potessero redigere documenti indipendentemente dal dispositivo in uso, dal sistema operativo e anche dalle proprie conoscenze di base in materia (#glossary("LaTeX") non era una tecnologia conosciuta da tutti i membri del gruppo). 
     ],
     [
       Siamo giunti alla conclusione di usare Typst, un linguaggio che da le stesse funzionalità di LaTeX, ma con una facilità maggiore e una documentazione più ricca per chi non lo conoscesse. Inoltre per redigere i documenti abbiamo a disposizione una repository web messa a disposizione dallo stesso typst che ci permette di scrivere i documenti in maniera collaborativa dove ognuno può vedere in diretta cosa sta svolgendo un altro membro del gruppo. 
     ],
   
     [Fase iniziale],
-    [Git, Github, Typst e altri],
+    [#glossary("Git"), #glossary("Github"), Typst e altri],
     [
-      Nelle fasi iniziali del progetto è capitato spesso che venisse introdotta una nuova tecnologia da dei membri del gruppo (es. scelta di git e github) che la sapevano utilizzare con destrezza (grazie al corso di laurea Metodi e Tecnologie per lo sviluppo software) e che avrebbe dovuto essere utilizzata in futuro da dei componenti che non avevano un nessuna conoscenza sulla materia in questione.
+      Nelle fasi iniziali del progetto è capitato spesso che venisse introdotta una nuova tecnologia da dei membri del gruppo (e.g.: scelta di git e github) che la sapevano utilizzare con destrezza (grazie al corso Metodi e Tecnologie per lo sviluppo software) e che avrebbe dovuto essere utilizzata in futuro da dei componenti che non avevano nessuna conoscenza della materia in questione.
     ],
-    [Piuttosto che creare disallineamenti il gruppo ha preso una pausa, dove il responsabile garantiva che tutti i membri del gruppo avessero una conoscenza delle tecnologie tale da lavorare in maniera ottimale. Questo spesso veniva raggiunto individuando all'interno del gruppo i soggetti più preparati su un argomento e chiedendo loro di realizzare dei video tutorial su una determinata tematica.],
+    [Piuttosto che creare disallineamenti il gruppo ha preso una pausa, dove il Responsabile garantiva che tutti i membri del gruppo avessero una conoscenza delle tecnologie tale da lavorare in maniera ottimale. Questo spesso veniva raggiunto individuando all'interno del gruppo i soggetti più preparati su un argomento e chiedendo loro di realizzare dei video tutorial su una determinata tematica.],
 
 )), caption: [Contromisure adottate per limitare problemi relativi agli strumenti utilizzati])
