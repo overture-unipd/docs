@@ -355,8 +355,12 @@
   )
 }
 
-#let glossary(word)= {
-  text(fill: rgb("#33805d"), style: "italic")[#word]
+#let glossary(word) = {
+  let t = underline(word)
+  if word != "questo stile" {
+    t = link( g.website + "/glossario.html" + "#" + upper(word.first()) + word.slice(1).replace(" ","_"))[#word]
+  }
+  text(fill: rgb("#33805d"), style: "italic")[#t] 
   // text(style: "italic")[#word#sub("G")]
 }
 
