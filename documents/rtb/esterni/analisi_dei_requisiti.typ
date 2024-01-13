@@ -9,15 +9,16 @@
     [_#(p.zextras)_],
   ),
   changelog: (
-    "0.3.0", "2023-01-07" , (p.vedovato, p.bonavigo), p.fabbian,
+    "1.0.0", "2024-01-13" , p.furno, p.bonavigo, "Approvazione per RTB",
+    "0.3.0", "2024-01-07" , (p.vedovato, p.bonavigo), p.fabbian,
     [
       Rimozione di tutto ciò che riguarda contatti, rubriche, calendari ed appuntamenti
     ],
-    "0.2.2", "2023-01-05" , p.vedovato, p.fabbian,
+    "0.2.2", "2024-01-05" , p.vedovato, p.fabbian,
     [
       Correzioni generali ai requisiti
     ],
-    "0.2.1", "2023-01-02" , p.bonavigo, p.fabbian,
+    "0.2.1", "2024-01-02" , p.bonavigo, p.fabbian,
     [
       Ripristinati i requisiti di vincolo
     ],
@@ -822,7 +823,7 @@ Per essere i più precisi possibile, abbiamo seguito nella definizione degli err
   + Il client specifica all'interno del parametro "create", contenuto nell'oggetto di argomenti della chiamata di metodo, le proprietà "body parts" dell'oggetto "Email" da inviare;
 
 
-======== UC48.2.1.3.1.1 - ======== UC48.2.1.3.1.1 - Inserimento delle proprietà "metadata" di un oggetto "Email" all'interno del parametro "create" del metodo "Email/set" necessario alla creazione di una email
+======== UC48.2.1.3.1.1 - Inserimento delle proprietà "metadata" di un oggetto "Email" all'interno del parametro "create" del metodo "Email/set" necessario alla creazione di una email
 - *Attore principale*: Client di posta elettronica autenticato;
 - *Descrizione*: Un client di posta elettronica, con lo scopo di inviare una email, deve eseguire una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session. Internamente a questa richiesta il client crea un array di chiamate di metodo contenente il metodo "Email/set", necessario per la creazione di una email, per il quale vanno specificati i parametri necessari. Uno di questi è "create". All'interno di questo parametro vanno definite le proprietà dell'email da inviare. Tra queste troviamo le proprietà "metadata";
 - *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione;
@@ -940,7 +941,7 @@ Per essere i più precisi possibile, abbiamo seguito nella definizione degli err
     
     - emailId: Identificatore dell'email da inviare. Corrisponderà all'email creata in precedenza;
     
-    - envelope: Oggetto Envelope contenente informazioni per l'invio tramite SMTP, ovvero:
+    - envelope: Oggetto Envelope contenente informazioni per l'invio tramite #glossary("SMTP"), ovvero:
 
       - mailFrom: Indirizzo email da utilizzare come mittente nell'invio;
       - rcptTo: Array di indirizzi email a cui inviare il messaggio;
@@ -3384,7 +3385,7 @@ Per essere i più precisi possibile, abbiamo seguito nella definizione degli err
 - *Scenario principale*: \
   + Il client specifica gli argomenti all'interno dell'oggetto di argomenti della chiamata di metodo "Mailbox/changes", la quale è contenuta nell'array di chiamate di metodo denominato "methodCalls", contenuto a sua volta all'interno dell'oggetto Request;
   
-#figure(image("//imgs/use_cases/Sincronizzazione_cartelle_dettaglio3.svg", width: 125%), caption: [Sottocasi UC61.2 - Costruzione delle chiamate di metodo necessarie alla sincronizzazione delle cartelle])
+#figure(image("//imgs/use_cases/Sincronizzazione_cartelle_dettaglio3.svg", width: 125%), caption: [Sottocasi UC60.2.1 - Inserimento dei parametri del metodo "Mailbox/changes" necessari alla sincronizzazione delle cartelle])
   
 ====== UC61.2.1.1 - Inserimento del parametro "accountId" del metodo "Mailbox/changes" necessario alla sincronizzazione delle cartelle
 - *Attore principale*: Client di posta elettronica autenticato;
@@ -3488,7 +3489,7 @@ Per essere i più precisi possibile, abbiamo seguito nella definizione degli err
   
 = *Requisiti*
 In questa sezione andremo ad elencare tutti i requisiti del capitolato, raggruppandoli per tipologia. \
-Ogni requisito è identificato univocamente da un codice il cui formato è definito qui di seguito: \
+Ogni #glossary("requisito") è identificato univocamente da un codice il cui formato è definito qui di seguito: \
 #set align(center) 
 *R-[numero]-[tipo]-[priorità]*
 #set align(left)
@@ -3558,7 +3559,7 @@ requirements("#f9fac5", (
   ],
 
   [R-007-F-1],
-  [È necessario che il client riceva in risposta l'errore "notJSON" se il contenuto di una richiesta inviata al server non era application/json o la richiesta non è stata interpretata del server come I-JSON.],
+  [È necessario che il client riceva in risposta l'errore "notJSON" se il contenuto di una richiesta inviata al server non era application/json o se la richiesta non è stata interpretata dal server come I-JSON.],
   [
     UC5\
     Interno
@@ -3600,19 +3601,19 @@ requirements("#f9fac5", (
     Interno
   ],  
   [R-014-F-1],
-  [È necessario che il client riceva in risposta l'errore "invalidArguments" se uno degli argomenti di un metodo fornito all'interno di una richiesta al server è di tipo errato, non valido o, se obbligatorio, assente],
+  [È necessario che il client riceva in risposta l'errore "invalidArguments" se uno degli argomenti di un metodo fornito all'interno di una richiesta al server è di tipo errato, non valido o, nel caso in cui sia obbligatorio, è assente.],
   [
     UC12\
     Interno
   ],  
   [R-015-F-1],
-  [È necessario che il client riceva in risposta l'errore "invalidResultReference" se uno degli argomenti di un metodo fornito all'interno di una richiesta al server ha utilizzato un riferimento di risultato che non è stato possibile risolvere.],
+  [È necessario che il client riceva in risposta l'errore "invalidResultReference" se uno degli argomenti di un metodo fornito all'interno di una richiesta al server ha utilizzato un riferimento di risultato che non è stato possibile risolvere da parte del server.],
   [
     UC13\
     Interno
   ],
     [R-016-F-1],
-  [È necessario che il client riceva in risposta l'errore "forbidden" in caso utilizzi all'interno di una richiesta al server un metodo la cui esecuzione violerebbe una Access Control List (ACL) o un’altra policy di autorizzazione.],
+  [È necessario che il client riceva in risposta l'errore "forbidden" in caso utilizzi, all'interno di una richiesta al server, un metodo la cui esecuzione violerebbe una Access Control List (ACL) o un’altra policy di autorizzazione.],
   [
     UC14\
     Interno
@@ -3660,7 +3661,7 @@ requirements("#f9fac5", (
     Interno
   ],
       [R-024-F-1],
-  [È necessario che il client riceva in risposta l'errore "tooLarge"  se una richiesta inserita nel server richiede la creazione di un oggetto che supera il limite definito dal server per la dimensione massima per un oggetto di quel tipo.],
+  [È necessario che il client riceva in risposta l'errore "tooLarge" se una richiesta inserita nel server richiede la creazione di un oggetto che supera il limite definito dal server per la dimensione massima per un oggetto di quel tipo.],
   [
     UC22\
     Interno
@@ -3672,7 +3673,7 @@ requirements("#f9fac5", (
     Interno
   ],
           [R-026-F-1],
-  [È necessario che il client riceva in risposta l'errore "invalidPatch" se una richiesta inserita nel server fornisce un PatchObject non valido per aggiornare il record.],
+  [È necessario che il client riceva in risposta l'errore "invalidPatch" se una richiesta inserita nel server fornisce un PatchObject non valido per modificare il record.],
   [
     UC24\
     Interno
@@ -3684,7 +3685,7 @@ requirements("#f9fac5", (
     Interno
   ],
           [R-028-F-1],
-  [È necessario che il client riceva in risposta l'errore "singleton" se una richiesta inserita nel server tentasse di agire su un tipo singleton.],
+  [È necessario che il client riceva in risposta l'errore "singleton" se una richiesta inserita nel server tentasse di agire erroneamente su un tipo singleton.],
   [
     UC26\
     Interno
@@ -3696,7 +3697,7 @@ requirements("#f9fac5", (
     Interno
   ],
             [R-030-F-1],
-  [È necessario che il client riceva in risposta l'errore "stateMismatch" se una richiesta inserita nel server contiene un argomento ifInState e non corrisponde allo stato attuale.],
+  [È necessario che il client riceva in risposta l'errore "stateMismatch" se una richiesta inserita nel server contiene un argomento ifInState e questo non corrisponde allo stato attuale.],
   [
     UC28\
     Interno
@@ -3714,7 +3715,7 @@ requirements("#f9fac5", (
     Interno
   ],
             [R-033-F-1],
-  [È necessario che il client riceva in risposta l'errore "tooManyMailboxes" se una richiesta inserita nel server modifica un numero di caselle di posta a cui appartiene l'email superiore al limite massimo definito dal server.],
+  [È necessario che il client riceva in risposta l'errore "tooManyMailboxes" se una richiesta inserita nel server modifica un numero di cartelle a cui appartiene l'email superiore al limite massimo definito dal server.],
   [
     UC31\
     Interno
@@ -3744,7 +3745,7 @@ requirements("#f9fac5", (
     Interno
   ],
             [R-038-F-1],
-  [È necessario che il client riceva in risposta l'errore "unsupportedSort" se una richiesta inserita nel server presenta una clausola di ordinamento non supportata o un metodo di collazione non riconosciuto dal server.],
+  [È necessario che il client riceva in risposta l'errore "unsupportedSort" se una richiesta inserita nel server presenta una clausola di ordinamento non supportata o un metodo di collezione non riconosciuto dal server.],
   [
     UC36\
     Interno
@@ -3756,7 +3757,7 @@ requirements("#f9fac5", (
     Interno
   ],
             [R-040-F-1],
-  [È necessario che il client riceva in risposta l'errore "tooManyChanges" se una richiesta inserita nel server contiene un numero di modifiche superiore all'argomento maxChangesdel client.],
+  [È necessario che il client riceva in risposta l'errore "tooManyChanges" se una richiesta inserita nel server contiene un numero di modifiche superiore all'argomento maxChanges inserito del client.],
   [
     UC38\
     Interno
@@ -3768,7 +3769,7 @@ requirements("#f9fac5", (
     Interno
   ],
               [R-042-F-1],
-  [È necessario che il client riceva in risposta l'errore "mailboxHasEmail" se una richiesta inserita nel server desidera rimuovere una cartella(Mailbox) che ha almeno una email con l'argomento onDestroyRemoveEmails impostato su false.],
+  [È necessario che il client riceva in risposta l'errore "mailboxHasEmail" se una richiesta inserita nel server, con l'argomento onDestroyRemoveEmails impostato su false, desidera rimuovere una cartella(Mailbox) che ha al suo interno almeno una email.],
   [
     UC40\
     Interno
@@ -3780,25 +3781,25 @@ requirements("#f9fac5", (
     Interno
   ],
               [R-044-F-1],
-  [È necessario che il client riceva in risposta l'errore "tooManyRecipients" se una richiesta inserita nel server contiene un envelope che ha più destinatari di quanti il server consenta.],
+  [È necessario che il client riceva in risposta l'errore "tooManyRecipients" se una richiesta inserita nel server contiene un envelope (insieme di destinatari) che ha più destinatari di quanti il server consenta.],
   [
     UC42\
     Interno
   ],
               [R-045-F-1],
-  [È necessario che il client riceva in risposta l'errore "noRecipients" se una richiesta inserita nel server contiene un envelope che non presenta alcun destinatario.],
+  [È necessario che il client riceva in risposta l'errore "noRecipients" se una richiesta inserita nel server contiene un envelope (insieme di destinatari) che non presenta alcun destinatario.],
   [
     UC43\
     Interno
   ],
               [R-046-F-1],
-  [È necessario che il client riceva in risposta l'errore "invalidRecipients" se una richiesta inserita nel server contiene un envelope con almeno un indirizzo email destinatario non valido.],
+  [È necessario che il client riceva in risposta l'errore "invalidRecipients" se una richiesta inserita nel server contiene un envelope (insieme di destinatari) con almeno un indirizzo email destinatario non valido.],
   [
     UC44\
     Interno
   ],
               [R-047-F-1],
-  [È necessario che il client riceva in risposta l'errore "forbiddenMailFrom" se una richiesta è inserita in un server che non consente all'utente di inviare un messaggio con quel indirizzo mittente nell'envelope (From addess).],
+  [È necessario che il client riceva in risposta l'errore "forbiddenMailFrom" se una richiesta è inserita in un server che non consente all'utente di inviare un messaggio con quel indirizzo mittente nell'envelope (From address).],
   [
     UC45\
     Interno
@@ -4025,14 +4026,14 @@ requirements("#f9fac5", (
     Capitolato
   ],
 
-  [R-068-F-1],
+  [R-069-F-1],
   [È necessario che il client inserisca all'interno della richiesta l'identificazione delle capacità necessarie alla ricezione di una cartella.],
   [
     UC51.1\
     Interno
   ],
 
-  [R-069-F-1],
+  [R-070-F-1],
   [È necessario che il client inserisca all'interno della richiesta le chiamate di metodo necessarie alla ricezione di una cartella, con relativi parametri (sia quelli comuni, come l'identificativo dell'account da utilizzare, sia quelli specifici del caso) e un identificatore univoco associato.],
   [
     UC51.2\
@@ -4043,21 +4044,21 @@ requirements("#f9fac5", (
     Interno
   ],
 
-  [R-070-F-1],
+  [R-071-F-1],
   [È necessario che il client inserisca all'interno della richiesta l'identificativo delle cartelle da ricevere],
   [
     UC51.2.1.2\
     Interno
   ],
 
-  [R-071-F-1],
+  [R-072-F-1],
   [È possibile che il client inserisca all'interno della richiesta le proprietà specifiche delle cartelle che è interessato a ricevere],
   [
     UC51.2.1.3\
     Interno
   ],
 
-  [R-072-F-1],
+  [R-073-F-1],
   [È necessario che il client riceva una risposta che contiene l'esito dell'operazione di ricezione della cartella con relativi parametri (come lo stato corrente dei dati di tipo Mailbox sul server, la lista delle cartelle richieste ed eventuali errori)],
   [
     UC51.3\
@@ -4072,21 +4073,21 @@ requirements("#f9fac5", (
   [CREAZIONE CARTELLA],
   [],
 
-  [R-073-F-1],
+  [R-074-F-1],
   [L'utente che utilizza un client di posta elettronica per interagire con il server deve avere la possibilità di creare cartelle.],
   [
     UC52\
     Capitolato
   ],
 
-  [R-074-F-1],
+  [R-075-F-1],
   [È necessario che il client inserisca all'interno della richiesta l'identificazione delle capacità necessarie alla creazione di una cartella.],
   [
     UC52.1\
     Interno
   ],
 
-  [R-075-F-1],
+  [R-076-F-1],
   [È necessario che il client inserisca all'interno della richiesta le chiamate di metodo necessarie alla creazione di una cartella, con relativi parametri (sia quelli comuni, come l'identificativo dell'account da utilizzare, sia quelli specifici del caso) e un identificatore univoco associato.],
   [
     UC52.2\
@@ -4099,14 +4100,14 @@ requirements("#f9fac5", (
     Interno
   ],
 
-  [R-076-F-1],
+  [R-077-F-1],
   [È necessario che il client inserisca all'interno della richiesta le proprietà dell'oggetto Mailbox da creare (nome, eventuale genitore, ruolo ed altri dettagli).],
   [
     UC52.2.1.3.1\
     Interno
   ],
 
-  [R-077-F-1],
+  [R-078-F-1],
   [È necessario che il client riceva una risposta che contiene l'esito dell'operazione di creazione della cartella con relativi parametri (come lo stato corrente del server, la lista delle cartelle create ed eventuali errori)],
   [
     UC52.3\
@@ -4126,21 +4127,21 @@ requirements("#f9fac5", (
   [MODIFICA CARTELLA],
   [],
 
-  [R-078-F-1],
+  [R-079-F-1],
   [L'utente che utilizza un client di posta elettronica per interagire con il server deve avere la possibilità di modificare cartelle esistenti.],
   [
     UC53\
     Capitolato
   ],
 
-  [R-079-F-1],
+  [R-080-F-1],
   [È necessario che il client inserisca all'interno della richiesta l'identificazione delle capacità necessarie alla modifica di una cartella.],
   [
     UC53.1\
     Interno
   ],
 
-  [R-080-F-1],
+  [R-081-F-1],
   [È necessario che il client inserisca all'interno della richiesta le chiamate di metodo necessarie alla modifica di una cartella, con relativi parametri (sia quelli comuni, come l'identificativo dell'account da utilizzare, sia quelli specifici del caso) e un identificatore univoco associato.],
   [
     UC53.2\
@@ -4153,14 +4154,14 @@ requirements("#f9fac5", (
     Interno
   ],
 
-  [R-081-F-1],
+  [R-082-F-1],
   [È necessario che il client inserisca all'interno della richiesta le modifiche da apportare all'oggetto Mailbox che l'utente desidera modificare.],
   [
     UC53.2.1.4.1\
     Interno
   ],
 
-  [R-082-F-1],
+  [R-083-F-1],
   [È necessario che il client riceva una risposta che contiene l'esito dell'operazione di modifica della cartella con relativi parametri (come lo stato corrente del server, la lista delle cartelle modificate ed eventuali errori)],
   [
     UC53.3\
@@ -4180,21 +4181,21 @@ requirements("#f9fac5", (
   [ELIMINAZIONE CARTELLA],
   [],
 
-  [R-083-F-1],
+  [R-084-F-1],
   [L'utente che utilizza un client di posta elettronica per interagire con il server deve avere la possibilità di eliminare cartelle esistenti.],
   [
     UC54\
     Capitolato
   ],
 
-  [R-084-F-1],
+  [R-085-F-1],
   [È necessario che il client inserisca all'interno della richiesta l'identificazione delle capacità necessarie alla eliminazione di una cartella.],
   [
     UC54.1\
     Interno
   ],
 
-  [R-085-F-1],
+  [R-086-F-1],
   [È necessario che il client inserisca all'interno della richiesta le chiamate di metodo necessarie alla eliminazione di una cartella, con relativi parametri (sia quelli comuni, come l'identificativo dell'account da utilizzare, sia quelli specifici del caso) e un identificatore univoco associato.],
   [
     UC54.2\
@@ -4208,22 +4209,22 @@ requirements("#f9fac5", (
     Interno
   ],
 
-  [R-086-F-1],
+  [R-087-F-1],
   [È necessario che il client inserisca all'interno della richiesta la lista degli identificativi delle cartelle da eliminare.],
   [
     UC54.2.1.5\
     Interno
   ],
 
-  [R-087-F-1],
+  [R-088-F-1],
   [È necessario che il client specifichi all'interno della richiesta il comportamento desiderato da parte del server quando si cerca di eliminare una cartella che contiene ancora delle email.],
   [
     UC54.2.1.6\
     Interno
   ],
 
-  [R-088-F-1],
-  [È necessario che il client riceva una risposta che contiene l'esito dell'operazione di eliminazione della cartella con relativi parametri (come lo stato corrente del server, la lista delle cartelle eliminate ed eventuali errori)],
+  [R-089-F-1],
+  [È necessario che il client riceva una risposta che contiene l'esito dell'operazione di eliminazione della cartella con relativi parametri (come lo stato corrente del server, la lista degli identificativi delle cartelle eliminate ed eventuali errori)],
   [
     UC54.3\
     UC54.3.1\
@@ -4242,21 +4243,21 @@ requirements("#f9fac5", (
   [GESTIONE CONTENUTI CARTELLA],
   [],
 
-  [R-089-F-1],
+  [R-090-F-1],
   [L'utente che utilizza un client di posta elettronica per interagire con il server deve avere la possibilità di gestire i contenuti di una cartella.],
   [
     UC55\
     Capitolato
   ],
 
-  [R-090-F-1],
+  [R-091-F-1],
   [È necessario che il client inserisca all'interno della richiesta l'identificazione delle capacità necessarie alla gestione dei contenuti di una cartella.],
   [
     UC55.1\
     Interno
   ],
 
-  [R-091-F-1],
+  [R-092-F-1],
   [È necessario che il client inserisca all'interno della richiesta le chiamate di metodo necessarie alla gestione dei contenuti di una cartella, con relativi parametri (sia quelli comuni, come l'identificativo dell'account da utilizzare, sia quelli specifici del caso) e un identificatore univoco associato.],
   [
     UC55.2\
@@ -4270,28 +4271,28 @@ requirements("#f9fac5", (
     Interno
   ],
 
-  [R-092-F-1],
+  [R-093-F-1],
   [È necessario che il client inserisca all'interno della richiesta le modifiche da apportare agli oggetti Email che l'utente desidera aggiungere ad una o più cartelle.],
   [
     UC55.2.1.4.1\
     Interno
   ],
 
-  [R-093-F-1],
+  [R-094-F-1],
   [È necessario che il client inserisca all'interno della richiesta le modifiche da apportare agli oggetti Email che l'utente desidera rimuovere da una o più cartelle.],
   [
     UC55.2.1.4.2\
     Interno
   ],
 
-  [R-094-F-1],
+  [R-095-F-1],
   [È necessario che il client inserisca all'interno della richiesta le modifiche da apportare agli oggetti Email che l'utente desidera spostare da una o più cartelle ad una o più cartelle.],
   [
     UC55.2.1.4.3\
     Interno
   ],
 
-  [R-095-F-1],
+  [R-096-F-1],
   [È necessario che il client riceva una risposta che contiene l'esito delle operazioni di gestione dei contenuti di una cartella con relativi parametri (come lo stato corrente del server, la lista delle email modificate ed eventuali errori)],
   [
     UC55.3\
@@ -4311,21 +4312,21 @@ requirements("#f9fac5", (
   [CREAZIONE CONDIVISIONE CARTELLA],
   [],
 
-  [R-096-F-2],
+  [R-097-F-2],
   [L'utente che utilizza un client di posta elettronica per interagire con il server deve avere la possibilità di condividere le sue cartelle con altri utenti.],
   [
     UC56\
     Capitolato
   ],
 
-  [R-097-F-2],
+  [R-098-F-2],
   [È necessario che il client inserisca all'interno della richiesta l'identificazione delle capacità necessarie alla creazione della condivisione di una cartella.],
   [
     UC56.1\
     Interno
   ],
 
-  [R-098-F-2],
+  [R-099-F-2],
   [È necessario che il client inserisca all'interno della richiesta le chiamate di metodo necessarie alla creazione della condivisione di una cartella, con relativi parametri (sia quelli comuni, come l'identificativo dell'account da utilizzare, sia quelli specifici del caso) e un identificatore univoco associato.],
   [
     UC56.2\
@@ -4344,21 +4345,21 @@ requirements("#f9fac5", (
     Interno
   ],
 
-  [R-099-F-2],
+  [R-100-F-2],
   [È necessario che il client inserisca all'interno della richiesta le proprietà dell'oggetto Principal da creare (nome, tipo, descrizione, gli identificativi degli account a cui vogliamo condividere le cartelle e altri dettagli).],
   [
     UC56.2.1.3.1\
     Interno
   ],
 
-  [R-100-F-2],
+  [R-101-F-2],
   [È necessario che il client inserisca all'interno della richiesta le modifiche da apportare all'oggetto Mailbox che l'utente desidera condividere, specificando quali diritti hanno su quest'ultimo i membri del principale a cui si sta condividendo.],
   [
     UC56.2.2.4.1\
     Interno
   ],
 
-  [R-101-F-2],
+  [R-102-F-2],
   [È necessario che il client riceva una risposta che contiene l'esito delle operazioni di creazione della condivisione di una cartella con relativi parametri (come lo stato corrente dei dati sul server, la lista dei principali creati, la lista delle cartella modificate ed eventuali errori)],
   [
     UC56.3\
@@ -4378,21 +4379,21 @@ requirements("#f9fac5", (
   [MODIFICA PRINCIPALE],
   [],
 
-  [R-102-F-2],
+  [R-103-F-2],
   [L'utente che utilizza un client di posta elettronica per interagire con il server deve avere la possibilità di modificare principali esistenti.],
   [
     UC57\
     Interno
   ],
 
-  [R-103-F-2],
+  [R-104-F-2],
   [È necessario che il client inserisca all'interno della richiesta l'identificazione delle capacità necessarie alla modifica di un principale.],
   [
     UC57.1\
     Interno
   ],
 
-  [R-104-F-2],
+  [R-105-F-2],
   [È necessario che il client inserisca all'interno della richiesta le chiamate di metodo necessarie alla modifica di un principale, con relativi parametri (sia quelli comuni, come l'identificativo dell'account da utilizzare, sia quelli specifici del caso) e un identificatore univoco associato.],
   [
     UC57.2\
@@ -4405,14 +4406,14 @@ requirements("#f9fac5", (
     Interno
   ],
 
-  [R-105-F-2],
+  [R-106-F-2],
   [È necessario che il client inserisca all'interno della richiesta le modifiche da apportare all'oggetto Principal che l'utente desidera modificare.],
   [
     UC57.2.1.4.1\
     Interno
   ],
 
-  [R-106-F-2],
+  [R-107-F-2],
   [È necessario che il client riceva una risposta che contiene l'esito dell'operazione di modifica del principale con relativi parametri (come lo stato corrente del server, la lista dei principali modificati ed eventuali errori)],
   [
     UC57.3\
@@ -4432,21 +4433,21 @@ requirements("#f9fac5", (
   [ELIMINAZIONE PRINCIPALE],
   [],
 
-  [R-107-F-2],
+  [R-108-F-2],
   [L'utente che utilizza un client di posta elettronica per interagire con il server deve avere la possibilità di eliminare principali esistenti.],
   [
     UC58\
     Interno
   ],
 
-  [R-108-F-2],
+  [R-109-F-2],
   [È necessario che il client inserisca all'interno della richiesta l'identificazione delle capacità necessarie alla eliminazione di un principale.],
   [
     UC58.1\
     Interno
   ],
 
-  [R-109-F-2],
+  [R-110-F-2],
   [È necessario che il client inserisca all'interno della richiesta le chiamate di metodo necessarie alla eliminazione di un principale, con relativi parametri (sia quelli comuni, come l'identificativo dell'account da utilizzare, sia quelli specifici del caso) e un identificatore univoco associato.],
   [
     UC58.2\
@@ -4459,14 +4460,14 @@ requirements("#f9fac5", (
     Interno
   ],
 
-  [R-110-F-2],
+  [R-111-F-2],
   [È necessario che il client inserisca all'interno della richiesta la lista degli identificativi dei principali da eliminare.],
   [
     UC58.2.1.5\
     Interno
   ],
 
-  [R-111-F-2],
+  [R-112-F-2],
   [È necessario che il client riceva una risposta che contiene l'esito dell'operazione di eliminazione del principale con relativi parametri (come lo stato corrente del server, la lista degli identificativi dei principali eliminati ed eventuali errori)],
   [
     UC58.3\
@@ -4486,21 +4487,21 @@ requirements("#f9fac5", (
   [MODIFICA/ELIMINAZIONE CONDIVISIONE CARTELLA],
   [],
 
-  [R-112-F-2],
+  [R-113-F-2],
   [L'utente che utilizza un client di posta elettronica per interagire con il server deve avere la possibilità di modificare la condivisione di una cartella (compresa l'eliminazione di quest'ultima).],
   [
     UC59\
     Capitolato
   ],
 
-  [R-113-F-2],
+  [R-114-F-2],
   [È necessario che il client inserisca all'interno della richiesta l'identificazione delle capacità necessarie alla modifica della condivisione di una cartella (compresa l'eliminazione di quest'ultima).],
   [
     UC59.1\
     Interno
   ],
 
-  [R-114-F-2],
+  [R-115-F-2],
   [È necessario che il client inserisca all'interno della richiesta le chiamate di metodo necessarie alla modifica della condivisione di una cartella (compresa l'eliminazione di quest'ultima), con relativi parametri (sia quelli comuni, come l'identificativo dell'account da utilizzare, sia quelli specifici del caso) e un identificatore univoco associato.],
   [
     UC59.2\
@@ -4513,14 +4514,14 @@ requirements("#f9fac5", (
     Interno
   ],
 
-  [R-115-F-2],
+  [R-116-F-2],
   [È necessario che il client inserisca all'interno della richiesta le modifiche da apportare all'oggetto Mailbox di cui l'utente desidera modificare/eliminare la condivisione, specificando i nuovi diritti che hanno su quest'ultimo i membri del principale a cui si sta condividendo.],
   [
     UC59.2.1.4.1\
     Interno
   ],
 
-  [R-116-F-2],
+  [R-117-F-2],
   [È necessario che il client riceva una risposta che contiene l'esito dell'operazione di modifica della condivisione di una cartella (compresa l'eliminazione di quest'ultima) con relativi parametri (come lo stato corrente del server, la lista degli identificativi delle cartelle modificate ed eventuali errori)],
   [
     UC59.3\
@@ -4540,21 +4541,21 @@ requirements("#f9fac5", (
   [SINCRONIZZAZIONE EMAIL],
   [],
 
-  [R-117-F-3],
+  [R-118-F-3],
   [Un client di posta elettronica utilizzato da un utente per interagire con il server deve avere la possibilità di mantenersi sincronizzato con gli ultimi aggiornamenti per quanto riguarda le email.],
   [
     UC60\
     Capitolato
   ],
 
-  [R-118-F-3],
+  [R-119-F-3],
   [È necessario che il client inserisca all'interno della richiesta l'identificazione delle capacità necessarie alla sincronizzazione delle email.],
   [
     UC60.1\
     Interno
   ],
 
-  [R-119-F-3],
+  [R-120-F-3],
   [È necessario che il client inserisca all'interno della richiesta le chiamate di metodo necessarie alla sincronizzazione delle email, con relativi parametri (sia quelli comuni, come l'identificativo dell'account da utilizzare, sia quelli specifici del caso) e un identificatore univoco associato.],
   [
     UC60.2\
@@ -4565,21 +4566,21 @@ requirements("#f9fac5", (
     Interno
   ],
 
-  [R-120-F-3],
-  [È necessario che il client inserisca all'interno della richiesta il suo stato corrente per quanto riguarda le email.],
+  [R-121-F-3],
+  [È necessario che il client inserisca all'interno della richiesta il suo stato corrente per quanto riguarda le email, con lo scopo di sincronizzarsi.],
   [
     UC60.2.1.2\
     Interno
   ],
 
-  [R-121-F-3],
-  [È necessario che il client inserisca all'interno della richiesta il numero massimo di identificatori di email che desidera ricevere come risposta.],
+  [R-122-F-3],
+  [È necessario che il client inserisca all'interno della richiesta il numero massimo di identificatori di email che desidera ricevere come risposta, con lo scopo di sincronizzarsi.],
   [
     UC60.2.1.3\
     Interno
   ],
 
-  [R-122-F-3],
+  [R-123-F-3],
   [È necessario che il client riceva una risposta che contiene le informazioni di cui ha bisogno per sincronizzarsi (come lo stato corrente del server, un flag booleano che indica se ci sono ulteriori cambiamenti nel server relativi ai dati di tipo Email, oltre a quelli già restituiti nella risposta corrente, e la lista delle email da creare/modificare/eliminare per sincronizzarsi)],
   [
     UC60.3\
@@ -4597,21 +4598,21 @@ requirements("#f9fac5", (
   [SINCRONIZZAZIONE CARTELLE],
   [],
 
-  [R-123-F-3],
+  [R-124-F-3],
   [Un client di posta elettronica utilizzato da un utente per interagire con il server deve avere la possibilità di mantenersi sincronizzato con gli ultimi aggiornamenti per quanto riguarda le cartelle.],
   [
     UC61\
     Capitolato
   ],
 
-  [R-124-F-3],
+  [R-125-F-3],
   [È necessario che il client inserisca all'interno della richiesta l'identificazione delle capacità necessarie alla sincronizzazione delle cartelle.],
   [
     UC61.1\
     Interno
   ],
 
-  [R-125-F-3],
+  [R-126-F-3],
   [È necessario che il client inserisca all'interno della richiesta le chiamate di metodo necessarie alla sincronizzazione delle cartelle, con relativi parametri (sia quelli comuni, come l'identificativo dell'account da utilizzare, sia quelli specifici del caso) e un identificatore univoco associato.],
   [
     UC61.2\
@@ -4622,21 +4623,21 @@ requirements("#f9fac5", (
     Interno
   ],
 
-  [R-126-F-3],
-  [È necessario che il client inserisca all'interno della richiesta il suo stato corrente per quanto riguarda le cartelle.],
+  [R-127-F-3],
+  [È necessario che il client inserisca all'interno della richiesta il suo stato corrente per quanto riguarda le cartelle, con lo scopo di sincronizzarsi.],
   [
     UC61.2.1.2\
     Interno
   ],
 
-  [R-127-F-3],
-  [È necessario che il client inserisca all'interno della richiesta il numero massimo di identificatori di cartelle che desidera ricevere come risposta.],
+  [R-128-F-3],
+  [È necessario che il client inserisca all'interno della richiesta il numero massimo di identificatori di cartelle che desidera ricevere come risposta, con lo scopo di sincronizzarsi.],
   [
     UC61.2.1.3\
     Interno
   ],
 
-  [R-128-F-3],
+  [R-129-F-3],
   [È necessario che il client riceva una risposta che contiene le informazioni di cui ha bisogno per sincronizzarsi (come lo stato corrente del server, un flag booleano che indica se ci sono ulteriori cambiamenti nel server relativi ai dati di tipo Mailbox, oltre a quelli già restituiti nella risposta corrente, e la lista delle cartelle da creare/modificare/eliminare per sincronizzarsi)],
   [
     UC61.3\
@@ -4682,10 +4683,10 @@ requirements("#bbfabe", (
   [Occorre effettuare una serie di stress test (test di carico) per alcuni casi d'uso implementati e riportare con un apposito documento i benchmark del sistema in ogni situazione: normale, di carico e di sovraccarico.],
   [Capitolato],
   [R-008-Q-1],
-  [La codifica dell'intera soluzione informativa deve essere conferme con quanto riportato nel `Piano di Qualifica`.],
+  [La codifica dell'intera soluzione informativa deve essere conferme con quanto riportato nel `Piano di Qualifica v1.0.0`.],
   [Interno],
   [R-009-Q-1],
-  [Nello creazione del prodotto software devono essere rispettate tutte le norme definite nel documento `Norme di progetto`.],
+  [Nello creazione del prodotto software devono essere rispettate tutte le norme definite nel documento `Norme di progetto v1.0.0`.],
   [Interno],
 ))
 ,caption: [requisiti di qualità])
@@ -4722,14 +4723,14 @@ tracking2((
   R-057-F-1
   R-063-F-1
   R-068-F-1
-  R-073-F-1 
-  R-078-F-1
-  R-083-F-1 
-  R-089-F-1 
-  R-096-F-2
-  R-112-F-2 
-  R-117-F-3 
-  R-123-F-3
+  R-074-F-1 
+  R-079-F-1
+  R-084-F-1 
+  R-090-F-1 
+  R-097-F-2
+  R-113-F-2 
+  R-118-F-3 
+  R-124-F-3
   R-001-Q-1
   R-002-Q-1
   R-005-Q-1
@@ -4889,307 +4890,307 @@ tracking2((
     UC51.1
   ],
   [
-  R-068-F-1
+  R-069-F-1
   ],
   [
   UC51.2 e \ sottocasi
   ],
   [
-  R-069-F-1
+  R-070-F-1
   ],
   [
   UC51.2.1.2
   ],
   [
-  R-070-F-1
+  R-071-F-1
   ],
   [
   UC51.2.1.3
   ],
   [
-  R-071-F-1
+  R-072-F-1
   ],
   [
   UC51.3 e \ sottocasi
   ],
   [
-  R-072-F-1
+  R-073-F-1
   ],
   [
   UC52.1
   ],
   [
-  R-074-F-1
+  R-075-F-1
   ],
   [
   UC52.2 e \ sottocasi
   ],
   [
-  R-075-F-1
+  R-076-F-1
   ],
   [
   UC52.2.1.3.1
   ],
   [
-  R-076-F-1
+  R-077-F-1
   ],
   [
   UC52.3 e \ sottocasi
   ],
   [
-  R-077-F-1
+  R-078-F-1
   ],
   [
   UC53.1
   ],
   [
-  R-079-F-1
+  R-080-F-1
   ],
   [
   UC53.2 e \ sottocasi
   ],
   [
-  R-080-F-1
+  R-081-F-1
   ],
   [
   UC53.2.1.4.1
   ],
   [
-  R-081-F-1
+  R-082-F-1
   ],
   [
   UC53.3 e \ sottocasi
   ],
   [
-  R-082-F-1
+  R-083-F-1
   ],
   [
   UC54.1
   ],
   [
-  R-084-F-1
+  R-085-F-1
   ],
   [
   UC54.2 e \ sottocasi
   ],
   [
-  R-085-F-1
+  R-086-F-1
   ],
   [
   UC54.2.1.5
   ],
   [
-  R-086-F-1
+  R-087-F-1
   ],
   [
   UC54.2.1.6
   ],
   [
-  R-087-F-1
+  R-088-F-1
   ],
   [
   UC54.3 e \ sottocasi
   ],
   [
-  R-088-F-1
+  R-089-F-1
   ],
   [
   UC55.1
   ],
   [
-  R-090-F-1
+  R-091-F-1
   ],
   [
   UC55.2 e \ sottocasi
   ],
   [
-  R-091-F-1
+  R-092-F-1
   ],
   [
   UC55.2.1.4.1
   ],
   [
-  R-092-F-1
+  R-093-F-1
   ],
   [
   UC55.2.1.4.2
   ],
   [
-  R-093-F-1
+  R-094-F-1
   ],
   [
   UC55.2.1.4.3
   ],
   [
-  R-094-F-1
+  R-095-F-1
   ],
   [
   UC55.3 e \ sottocasi
   ],
   [
-  R-095-F-1
+  R-096-F-1
   ],
   [
   UC56.1
   ],
   [
-  R-097-F-2
+  R-098-F-2
   ],
   [
   UC56.2 e \ sottocasi
   ],
   [
-  R-098-F-2
+  R-099-F-2
   ],
   [
   UC56.2.1.3.1
   ],
   [
-  R-099-F-2
+  R-100-F-2
   ],
   [
   UC56.2.2.4.1
   ],
   [
-  R-100-F-2
+  R-101-F-2
   ],
   [
   UC56.3 e \ sottocasi
   ],
   [
-  R-101-F-2
+  R-102-F-2
   ],
   [
   UC57.1
   ],
   [
-  R-103-F-2
+  R-104-F-2
   ],
   [
   UC57.2 e \ sottocasi
   ],
   [
-  R-104-F-2
+  R-105-F-2
   ],
   [
   UC57.2.1.4.1
   ],
   [
-  R-105-F-2
+  R-106-F-2
   ],
   [
   UC57.3 e \ sottocasi
   ],
   [
-  R-106-F-2
+  R-107-F-2
   ],
   [
   UC58.1
   ],
   [
-  R-108-F-2
+  R-109-F-2
   ],
   [
   UC58.2 e \ sottocasi
   ],
   [
-  R-109-F-2
+  R-110-F-2
   ],
   [
   UC58.2.1.5
   ],
   [
-  R-110-F-2
+  R-111-F-2
   ],
   [
   UC58.3 e \ sottocasi
   ],
   [
-  R-111-F-2
+  R-112-F-2
   ],
   [
   UC59.1
   ],
   [
-  R-113-F-2
+  R-114-F-2
   ],
   [
   UC59.2 e \ sottocasi
   ],
   [
-  R-114-F-2
+  R-115-F-2
   ],
   [
   UC59.2.1.4.1
   ],
   [
-  R-115-F-2
+  R-116-F-2
   ],
   [
   UC59.3 e \ sottocasi
   ],
   [
-  R-116-F-2
+  R-117-F-2
   ],
   [
   UC60.1
   ],
   [
-  R-118-F-3
+  R-119-F-3
   ],
   [
   UC60.2 e \ sottocasi
   ],
   [
-  R-119-F-3
+  R-120-F-3
   ],
   [
   UC60.2.1.2
   ],
   [
-  R-120-F-3
+  R-121-F-3
   ],
   [
   UC60.2.1.3
   ],
   [
-  R-121-F-3
+  R-122-F-3
   ],
   [
   UC60.3 e \ sottocasi
   ],
   [
-  R-122-F-3
+  R-123-F-3
   ],
   [
   UC61.1
   ],
   [
-  R-124-F-3
+  R-125-F-3
   ],
   [
   UC61.2 e \ sottocasi
   ],
   [
-  R-125-F-3
+  R-126-F-3
   ],
   [
   UC61.2.1.2
   ],
   [
-  R-126-F-3
+  R-127-F-3
   ],
   [
   UC61.2.1.3
   ],
   [
-  R-127-F-3
+  R-128-F-3
   ],
   [
   UC61.3 e \ sottocasi
   ],
   [
-  R-128-F-3
+  R-129-F-3
   ],
 ))
 ,caption: [tracciamento requisiti])
@@ -5198,7 +5199,7 @@ tracking2((
 #figure(
 summary((
   [Funzionali],
-  [92],
+  [93],
   [25],
   [11],
   [Qualità],
