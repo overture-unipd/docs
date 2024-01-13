@@ -101,7 +101,7 @@
 
 = *Introduzione*
 == Scopo del documento
-L'`#glossary("Analisi dei Requisiti")` è un documento fondamentale per tutti i progetti di sviluppo software che vogliono essere in ottemperanza con gli standard di #glossary("qualità") definiti dalla materia di Ingegneria del Software.\
+L'`Analisi dei Requisiti"` è un documento fondamentale per tutti i progetti di sviluppo software che vogliono essere in ottemperanza con gli standard di #glossary("qualità") definiti dalla materia di Ingegneria del Software.\
 Lo scopo del documento è quello di definire le #glossary("funzionalità") che il sistema sarà in grado di offrire, ovvero i requisiti obbligatori, desiderati e opzionali che devono essere soddisfatti dal prodotto sviluppato al fine di essere conforme alle richieste fatte dal #glossary("proponente").\
 L'analisi non deve fornire la soluzione al problema, ma deve essere consapevole della sua fattibilità tecnologica (definendo di conseguenza un confine tra analisi del problema e il suo design, quindi la soluzione).
 In particolare, le finalità di questo documento possono essere definite e sintetizzate nei seguenti punti:\
