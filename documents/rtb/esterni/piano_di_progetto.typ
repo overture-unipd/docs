@@ -9,6 +9,7 @@
     [_#(p.zextras)_],
   ),
   changelog: (
+    "1.0.0", "2024-01-14" , p.furno, p.bonavigo, "Approvazione per RTB",
     "0.5.2", "2024-01-14", p.bonavigo, p.furno, "Aggiunta la pianificazione in attesa del passaggio della RTB",
     "0.5.1", "2024-01-14", p.bonavigo, p.furno, "Aggiunto il sommario finale per la RTB",
     "0.5.0", "2024-01-14", p.fabbian, p.bonavigo, "Aggiunto il consuntivo del periodo V",
