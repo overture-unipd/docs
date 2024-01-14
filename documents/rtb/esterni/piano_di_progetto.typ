@@ -10,6 +10,7 @@
     [_#(p.zextras)_],
   ),
   changelog: (
+    "0.5.0", "2024-01-14", p.fabbian, p.bonavigo, "Aggiunto il consuntivo del periodo V",
     "0.4.1", "2024-01-10", p.bonavigo, p.furno, "Aggiunto il preventivo e la pianificazione del periodo V",
     "0.4.0", "2024-01-09", p.bettin, p.bonavigo, "Aggiunto il consuntivo del periodo IV",
     "0.3.2", "2024-01-03", p.amadori, p.bulychov, "Aggiunto il preventivo del periodo IV",
@@ -271,7 +272,7 @@ In conclusione i rischi occorsi non hanno avuto un grosso impatto sul progetto e
 
 
 ===== Retrospettiva
-Questo primo periodo di lavoro ci ha ribadito l'importanza delle best practice comuni che ogni membro del gruppo deve seguire per tutta la durata del progetto: per questo motivo verrà data la precedenza alla terminazione di una prima versione stabile delle `Norme di Progetto`, con la previsione di ultimarla nella prima settimana del Periodo II. \
+Questo primo periodo di lavoro ci ha ribadito l'importanza delle #glossary("best practice") comuni che ogni membro del gruppo deve seguire per tutta la durata del progetto: per questo motivo verrà data la precedenza alla terminazione di una prima versione stabile delle `Norme di Progetto`, con la previsione di ultimarla nella prima settimana del Periodo II. \
 Lo studio condiviso delle librerie JMAP tra i diversi incaricati ha velocizzato l'apprendimento dei contenuti, risparmiando delle ore rispetto quanto preventivato. Questo metodo verrà sicuramente riproposto dal gruppo per lo studio di altre tecnologie. \
 L'approccio adottato dai Responsabili per assegnare le attività si è rivelato corretto: le task sono state distribuite in modo equo ai diversi componenti del gruppo che hanno impiegato un numero congruo di ore per il loro svolgimento e hanno ultimato il lavoro entro i tempi stabiliti. \
 Infine va migliorata la stima tramite preventivo del tempo necessario per poter completare tutte le attività, la quale è risultata essere leggermente imprecisa.
@@ -502,6 +503,7 @@ Ruoli coinvolti: Responsabile, Amministratore, Verificatore, Analista, Programma
 )
 
 ==== Consuntivo 
+Non tutte le attività previste sono tutte state svolte con successo, infatti, nonostante un ottimo avanzamento in ciascuna, l'impossibilità di confrontarsi direttamente con il #p.cardin, visti i suoi impegni personali, ci ha leggeremente frenato. \
 Come si può notare dal confronto tra preventivo e consuntivo:
 - Amministratori, Responsabili ed Analisti hanno richiesto *più* ore;
 
@@ -544,13 +546,15 @@ All'interno del gruppo è stata molto apprezzata la disponibilità di alcuni mem
 Infine l'aspetto fondamentale su cui concentrarsi nel corso del prossimo periodo è lo sviluppo del PoC, necessario per effettuare la candidatura per l'RTB, dato che ormai la documentazione è praticamente pronta.
 
 === Periodo V
-Inizio: 2023-01-09\
-Fine prevista: 2023-01-14\
+Inizio: 2024-01-09\
+Fine prevista: 2024-01-14\
+Fine attuale: 2024-01-14\
+Giorni di ritado: #pos("0")
 
 ==== Pianificazione
 Durante lo scorso periodo il team Overture ha completato la redazione di tutta la documentazione di progetto necessaria fino ad ora. Conseguentemente non si prevede alcun ulteriore lavoro su di essa, se non per aggiornare `Piano di Qualifica` e `Piano di Progetto` e validare tutti i documenti.\
-Per quanto riguarda l'organizzazione di questo periodo, abbiamo deciso di ridurre la durata di quest'ultimo ad una settimana, con lo scopo rifinire gli ultimi dettagli essenziali per poter completare tutto il lavoro necessario per la candidatura alla RTB.\
-Facciamo presente che, qualora non fosse possibile candidarsi alla RTB al termine di questo periodo, allora dovremo ripianificare una futura data per la candidatura in quanto il team di sviluppo per un paio di settimane sarà impegnato a studiare per gli altri esami di questo semestre.\
+Per quanto riguarda l'organizzazione di questo periodo, abbiamo deciso di ridurre la durata di quest'ultimo ad una settimana, con lo scopo di rifinire gli ultimi dettagli essenziali per poter completare tutto il lavoro necessario per la candidatura alla RTB.\
+Facciamo presente che, qualora non fosse possibile candidarsi alla RTB al termine di questo periodo, allora dovremo ripianificare una futura data per la candidatura, in quanto il team di sviluppo per un paio di settimane sarà impegnato a studiare per gli altri esami di questo semestre.\
 I dettagli che intediamo rifinire per essere pronti alla candidatura RTB sono: 
 - la validazione di tutti i documenti (compresi `Piano di Qualifica` e `Piano di Progetto` in seguito ai consueti aggiornamenti);
 - l'aggiustamento di stile dei documenti;
@@ -568,7 +572,7 @@ I rischi che ci aspettiamo di correre in questo periodo sono i seguenti:
 
 In questo quinto periodo il gruppo di progetto prevede di riscontrare particolari difficoltà con alcuni membri del gruppo, in quanto ognuno sta affrontanto la propria sessione di preparazione per gli esami invernali di questo semestre. Questo probabilmente causerà un'inevitabile rallentamento in alcune attività svolte da alcuni soggetti che, più degli altri, saranno impegnati con lo studio, con la partecipazione alle ultime lezioni e con il carico di lavoro dovuto a progetti di altri esami, i quali spesso risultano essere molto onerosi in termini di tempo.
 
-==== Preventivo
+==== Preventivo 
 Ruoli coinvolti: Responsabile, Amministratore, Verificatore, Programmatore.
 
 #period(
@@ -584,3 +588,46 @@ Ruoli coinvolti: Responsabile, Amministratore, Verificatore, Programmatore.
   (1, 2, 3),
   "V"
 )
+
+==== Consuntivo
+Le attività previste sono tutte state svolte con successo. \
+Come si può notare dal confronto tra preventivo e consuntivo:
+- I Programmatori hanno richiesto *meno* ore;
+
+===== Prospetto orario 
+#figure(consuntivo(
+  (
+    ("1", "0", "0", "0", "0", "0", "1"),
+    ("0", "1", "0", "0", "0", "2", "3"),
+    ("0", "2", "2", "0", "0", "0", "4"),
+    ("2", "0", "0", "0", "0", "2", "4"),
+    ("0", "1", "0", "0", "0", "2 "+pos("-1"), "3"),
+    ("2", "0", "2", "0", "0", "0", "4"),
+    ("0", "1", "0", "0", "0", "2 "+pos("-1"), "3"),
+    ("5", "5", "4", "0", "0", "8", "22")
+  )
+), caption: [Impegno orario effettivo per ruolo di ciascun membro nel periodo V rispetto le ore preventivate.])
+
+===== Prospetto economico
+#figure(costi(
+  (
+    ("5", "150€", "-"),
+    ("5", "100€", "-"),
+    ("4", "60€","-"),
+    ("-", "-","-"),
+    ("-", "-", "-"),
+    ("8 "+pos("-2"), "120€",pos("-30")),
+    ("24", "460€", "-"),
+    ("22 "+pos("-2"), "430€",pos("-30€"))
+  )
+), caption: [Aggiornamenti economici del progetto al termine del periodo V, riflettendo le variazioni tra preventivo e ore effettivamente lavorate.])
+
+===== Rischi occorsi, impatto e loro mitigazione
+Il quinto periodo del progetto è stato caratterizzato da sfide significative per il gruppo. Infatti, il raggiungimento e la conclusione delle ultime task per la candidatura alla Requirements and Technology Baseline ha rischiato di essere ostacolata dalla concomittanza con gli esami della sessione invernale per praticamente tutti i membri del gruppo.\
+Tuttavia, il fatto che ogni membro del gruppo riconoscesse che il successo del nostro progetto è essenziale per il percorso accademico, ci ha spinti e motivati a compiere qualche sforzo aggiuntivo. Ci siamo quindi organizzati per gestire e bilanciare le risorse e il tempo nel modo più efficente possibile così da perseguire la candidatura per la RTB e mantenere un alto standard di qualità nel nostro progetto, senza togliere tempo e attenzione agli imminenti esami che dovremmo affrontare tra pochi giorni, andando a mitigare quindi questo rischio.
+
+===== Retrospettiva
+Per quanto riguarda il quinto periodo, il gruppo di progetto ha deciso di attuare in maniera del tutto straordinaria la scelta strategica di organizzare una fase concentrata della durata di una sola settimana.\
+Organizzare le attività in un periodo cosi ridotto ha portato l'immediato beneficio di garantire una pianificazione più fine e precisa delle singole attività e una assegnazione delle risorse più mirata. Tutto ciò ha comportato quindi una maggiore efficienza nel raggiungimento degli obiettivi prefissati e il completamento di tutte le attività.\
+Durante questa settimana intensiva si sottolinea un'ottima coesione del nostro gruppo verso un'unico scopo: il raggiungimento della candidatura alla RTB. L'estrema sincronia e collaborazione tra i membri del gruppo ha contribuito a creare un ambiente di lavoro stimolante e altamente produttivo portando quindi un successo complessivo per quanto riguarda questo periodo.\
+Si desidera mettere in rilevo che durante questo periodo non si evidenziano aspetti negativi rilevanti, ma al contrario i valori positivi emersi ci costrigono a valutare di replicare questo modello di fase intensiva e ridotta in termini di tempo anche in un futuro prossimo.
