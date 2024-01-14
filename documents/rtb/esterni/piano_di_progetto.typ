@@ -1,4 +1,3 @@
-
 #import "//templates/document.typ": *
 
 #show: project.with(
@@ -10,6 +9,8 @@
     [_#(p.zextras)_],
   ),
   changelog: (
+    "0.5.2", "2024-01-14", p.bonavigo, p.furno, "Aggiunta la pianificazione in attesa del passaggio della RTB",
+    "0.5.1", "2024-01-14", p.bonavigo, p.furno, "Aggiunto il sommario finale per la RTB",
     "0.5.0", "2024-01-14", p.fabbian, p.bonavigo, "Aggiunto il consuntivo del periodo V",
     "0.4.1", "2024-01-10", p.bonavigo, p.furno, "Aggiunto il preventivo e la pianificazione del periodo V",
     "0.4.0", "2024-01-09", p.bettin, p.bonavigo, "Aggiunto il consuntivo del periodo IV",
@@ -631,3 +632,69 @@ Per quanto riguarda il quinto periodo, il gruppo di progetto ha deciso di attuar
 Organizzare le attività in un periodo cosi ridotto ha portato l'immediato beneficio di garantire una pianificazione più fine e precisa delle singole attività e una assegnazione delle risorse più mirata. Tutto ciò ha comportato quindi una maggiore efficienza nel raggiungimento degli obiettivi prefissati e il completamento di tutte le attività.\
 Durante questa settimana intensiva si sottolinea un'ottima coesione del nostro gruppo verso un'unico scopo: il raggiungimento della candidatura alla RTB. L'estrema sincronia e collaborazione tra i membri del gruppo ha contribuito a creare un ambiente di lavoro stimolante e altamente produttivo portando quindi un successo complessivo per quanto riguarda questo periodo.\
 Si desidera mettere in rilevo che durante questo periodo non si evidenziano aspetti negativi rilevanti, ma al contrario i valori positivi emersi ci costrigono a valutare di replicare questo modello di fase intensiva e ridotta in termini di tempo anche in un futuro prossimo.
+
+=== Sommario finale
+Dopo svariate intense settimane di lavoro, iniziato in data 2023-11-06, il gruppo si ritiene pronto a sostenere la prima revisione del prodotto che, come da accordi con il #p.cardin, si svolgerà il *2024-01-XX*.\
+Gran parte della documentazione necessaria all'intero progetto è stata stilata durante questa fase, in particolare quella relativa all'`Analisi dei Requisiti` e alle `Norme di Progetto`. Per questo motivo riteniamo che, rispetto a quanto preventivato in fase di candidatura,  le ore da destinare allo studio delle funzionalità del prodotto siano leggermente eccessive. Al contrario, pensiamo di necessitare di più tempo per lo sviluppo del software per via delle tecnologie da utilizzare e la nostra poca esperienza con quest'ultime. Sono stati effettuati, quindi, dei leggeri cambiamenti alle ore da destinare ad ogni singolo ruolo ed è stato ricalcolato il costo totale.\
+Il nuovo preventivo del progetto equivale a _*12615€*_, mentre la consegna finale del prodotto slitta di una settimana, per via del tempo da dedicare allo studio per gli esami, ed è prevista per la data _*2024-03-22*_.
+
+==== Riepilogo prospetto orario
+===== Ore consumate
+#figure(consuntivo(
+  (
+    ("1","5","9","7","0","9","31"),
+    ("6","3","7","11","0","10","37"),
+    ("6","2","7","9","5","9","38"),
+    ("2","7","9","8","1","10","37"),
+    ("7","7","9","8","0","5","36"),
+    ("3","5","7","11","1","8","35"),
+    ("5","3","10","11","1","9","39"),
+    ("30","32","58","65","8","60","253")
+  )
+), caption: [Impegno orario effettivo per ruolo di ciascun membro al termine del periodo di preparazione al RTB.])
+===== Ore rimanenti
+#figure(consuntivo(
+  (
+    ("8","3","12","4","17","15","59"),
+    ("3","5","14","0","17","14","53"),
+    ("3","6","14","2","12","15","52"),
+    ("7","1","12","3","16","14","53"),
+    ("2","1","12","3","17","14","54"),
+    ("6","3","14","0","16","16","55"),
+    ("4","5","11","0","16","15","51"),
+    ("33","24","89","12","111","108","377")
+  )
+), caption: [Impegno orario rimanente per ruolo di ciascun membro al termine del periodo di preparazione al RTB.])
+==== Riepilogo prospetto economico
+==== Costi totali
+#figure(costiFinaliRuolo(
+  (
+    ("210€", "210€", "180€", "150€", "150€", "900€"),
+    ("120€", "140€", "180€", "100€", "100€", "640€"),
+    ("135€", "255€", "270€", "150€", "60€", "870€"),
+    ("450€", "400€", "500€", "225€", "-", "1575€"),
+    ("200€", "-", "-", "-", "-", "200€"),
+    ("-", "270€", "315€", "195€", "120€", "900€"),
+    ("1115€", "1275€", "1445€", "820€", "430€", "5085€" ),
+  )
+), caption: [Aggiornamenti economici del progetto al termine del periodo di preparazione al RTB.])
+== Tra RTB e PB
+
+=== Periodo VI
+Inizio: 2024-01-15\
+Fine prevista: 2024-02-04\
+
+==== Pianificazione
+Per quanto riguarda l'organizzazione di questo periodo, considerando la sua sovrapposizione con l'inizio della sessione di esami, il gruppo ha concordato all'unanimità che, oltre a concentrarsi sulla preparazione ai colloqui della RTB, per la quale abbiamo già presentato la nostra candidatura, il focus verrà spostato sullo studio individuale necessario alla sessione stessa, senza avanzare ulteriormente nel progetto.\
+Gli unici dettagli che intediamo rifinire nel corso di questo periodo sono quindi relativi alle presentazioni che esporremo al #p.cardin ed al #p.vardanega. \
+Dato che ancora non sappiamo quanto tempo sarà necessario per poter partecipare ad entrambi i colloqui, la durata di questo periodo è fissata a 3 settimane anzichè 2.
+
+===== Rischi attesi
+I rischi che ci aspettiamo di correre in questo periodo sono i seguenti:
+- #link(<RO3>)[*RO3 - Impegni universitari e personali*].
+
+Nel corso di questo periodo il team di progetto prevede di incontrare delle difficoltà per via dell'inizio della sessione invernale. Ciò inevitabilmente comporterà una distrazione per il progetto che si protrarrà per l'intera durata della sessione d'esame o almeno fino a quando tutti i membri avranno completato gli esami prefissati. \
+Inoltre, un secondo rischio che il gruppo potrebbe affrontare è la possibilità di non superare la prima fase dell'RTB, con conseguente rallentamento nello sviluppo dovuto alla necessità di rivedere parti della `Analisi dei Requisiti` e/o del PoC.
+
+==== Preventivo
+Non prevedendo alcun avanzamento effettivo all'interno di questo periodo, se non per ciò che riguarda il passaggio della RTB, non viene presentato al suo interno nessun preventivo associato al lavoro da svolgere.
