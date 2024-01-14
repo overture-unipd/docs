@@ -364,6 +364,7 @@
   // text(style: "italic")[#word#sub("G")]
 }
 
+
 #let neg(word)= {
   text(fill: rgb("#D2042D"))[(*#word*)]
 }
@@ -557,6 +558,22 @@
       fill: (_, row) => if calc.odd(row) { luma(215) } else { white },
       inset: 0.5em,
       columns: (auto,)*4,
+      align: center,
+      ..r.map(el => text(size: 0.85em, hyphenate: false)[#par(justify: false, el)],)
+    )
+  )
+}
+
+#let costiFinaliRuolo(r) = {
+  let costs_header = ([*Ruolo*], [*Periodo I*], [*Periodo II*], [*Periodo III*], [*Periodo IV*], [*Periodo V*], [*Totali per ruolo*])
+  let people = ("Responsabile", "Amministratore", "Verificatore", "Analista", "Progettista", "Programmatore", "Totale preventivo", "Totali per periodo").map(el => [*#el*])
+  r = costs_header + people.zip(r).flatten()
+
+  align(center,
+    table(
+      fill: (_, row) => if calc.odd(row) { luma(215) } else { white },
+      inset: 0.5em,
+      columns: (auto,)*7,
       align: center,
       ..r.map(el => text(size: 0.85em, hyphenate: false)[#par(justify: false, el)],)
     )
