@@ -9,6 +9,7 @@
     [_#(p.zextras)_],
   ),
   changelog: (
+    "0.5.2", "2024-01-14", p.bonavigo, p.furno, "Aggiunta la pianificazione in attesa del passaggio della RTB",
     "0.5.1", "2024-01-14", p.bonavigo, p.furno, "Aggiunto il sommario finale per la RTB",
     "0.5.0", "2024-01-14", p.fabbian, p.bonavigo, "Aggiunto il consuntivo del periodo V",
     "0.4.1", "2024-01-10", p.bonavigo, p.furno, "Aggiunto il preventivo e la pianificazione del periodo V",
@@ -677,3 +678,23 @@ Il nuovo preventivo del progetto equivale a _*12615€*_, mentre la consegna fin
     ("1115€", "1275€", "1445€", "820€", "430€", "5085€" ),
   )
 ), caption: [Aggiornamenti economici del progetto al termine del periodo di preparazione al RTB.])
+== Tra RTB e PB
+
+=== Periodo VI
+Inizio: 2024-01-15\
+Fine prevista: 2024-02-04\
+
+==== Pianificazione
+Per quanto riguarda l'organizzazione di questo periodo, considerando la sua sovrapposizione con l'inizio della sessione di esami, il gruppo ha concordato all'unanimità che, oltre a concentrarsi sulla preparazione ai colloqui della RTB, per la quale abbiamo già presentato la nostra candidatura, il focus verrà spostato sullo studio individuale necessario alla sessione stessa, senza avanzare ulteriormente nel progetto.\
+Gli unici dettagli che intediamo rifinire nel corso di questo periodo sono quindi relativi alle presentazioni che esporremo al #p.cardin ed al #p.vardanega. \
+Dato che ancora non sappiamo quanto tempo sarà necessario per poter partecipare ad entrambi i colloqui, la durata di questo periodo è fissata a 3 settimane anzichè 2.
+
+===== Rischi attesi
+I rischi che ci aspettiamo di correre in questo periodo sono i seguenti:
+- #link(<RO3>)[*RO3 - Impegni universitari e personali*].
+
+Nel corso di questo periodo il team di progetto prevede di incontrare delle difficoltà per via dell'inizio della sessione invernale. Ciò inevitabilmente comporterà una distrazione per il progetto che si protrarrà per l'intera durata della sessione d'esame o almeno fino a quando tutti i membri avranno completato gli esami prefissati. \
+Inoltre, un secondo rischio che il gruppo potrebbe affrontare è la possibilità di non superare la prima fase dell'RTB, con conseguente rallentamento nello sviluppo dovuto alla necessità di rivedere parti della `Analisi dei Requisiti` e/o del PoC.
+
+==== Preventivo
+Non prevedendo alcun avanzamento effettivo all'interno di questo periodo, se non per ciò che riguarda il passaggio della RTB, non viene presentato al suo interno nessun preventivo associato al lavoro da svolgere.
