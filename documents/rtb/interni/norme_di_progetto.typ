@@ -8,7 +8,8 @@
     p.cardin,
   ),
   changelog: (
-        "0.2.1", "2024-01-08", p.bonavigo, p.bulychov, "Descrizione della repo `jmap` e chiarimenti su branch e PR",
+    "1.0.0", "2024-01-13" , p.bulychov, p.furno, "Approvazione per RTB",
+    "0.2.1", "2024-01-08", p.bonavigo, p.bulychov, "Descrizione della repo `jmap` e chiarimenti su branch e PR",
     "0.2.0", "2023-12-19", p.bettin, p.furno, "Aggiornate le sezioni 'Metriche di qualitá del processo' e 'Metriche di qualitá del prodotto'",
     "0.1.2", "2023-12-19", p.bulychov, p.furno, "Migliorate le sezioni 'Verifica' e 'Validazione'",
     "0.1.1", "2023-12-17", p.bulychov, p.fabbian, "Terminata la stesura della sezione 'Sviluppo'",
@@ -537,15 +538,6 @@ Il gruppo utilizza 2 repository all'interno della propria "organizzazione #gloss
 - #link("https://github.com/overture-unipd/jmap"): contenente tutto il codice del progetto.
 È poi presente la repository contenente il sito web del gruppo. Questa non è rilevante al fine di questa discussione, poichè non riceve aggiornamenti.
 
-==== Pull Requests e Branch
-Ogni attività da svolgere è tracciata come "issue" su GitHub, nella repository corrispondente: `docs` per quelle sulla documentazione, `jmap` per quelle sul codice.
-
-Ogni attività viene sviluppata su un branch dedicato, separato da quello principale. Attività collegate possono essere sviluppate sullo stesso branch, per agevolare l'integrazione tra le parti.
-
-Quando lo sviluppo di una attività (o serie di attività) è terminato su un branch, viene aperta una Pull Request, dal branch interessato a quello principale. Il verificatore designato verificherà quindi il lavoro svolto. Se conforme e senza errori, la Pull Request viene approvata ed il branch eliminato.
-
-Utilizzare i branch come descritto, permette a tutti gli effetti di avere ambienti di lavoro distinti. Questo riduce il tempo di risoluzione di eventuali conflitti al solo processo di Pull Request.
-
 ==== Struttura della repository `docs`
 Il contenuto della repository è separato da due branch che svolgono funzioni differenti: `master` continene i PDF compilati, `sources` contiene invece i sorgenti Typst.
 
@@ -582,23 +574,36 @@ Le cartelle relative alle versioni dei documenti sono organizzate nel modo segue
     
 ==== Struttura della repository `jmap`
 
-I file più importanti presenti nel repository sono quelli relativi all'implementazione del server. Abbiamo
-- `src/`: cartella contentente il codice del server, compreso di test di unità ed integrazione
-- `.env`: variabili d'ambiente utilizzate per la configurazione del server
+In questa repository, utilizziamo due branch principali: `master` contenente l'ultima versione stabile del codice, `develop` contente le ultime modifiche. Generalmente le modifiche vengono unite in `master` da `develop` alla fine di ogni periodo.\
+I file fiscalmente relativi all'implementazione del server (escludendo `actions`, `README`, ...) sono i seguenti:
+- `src/`: cartella contentente il codice del server, compreso di test di unità
+- `env/`: cartella contenente esempi di variabili d'ambiente necessarie all'esecuzione di istanze del server
 - `compose.yml`: configurazione di #glossary("Docker Compose")
 - `.justfile`: configurazione per #link("https://github.com/casey/just"). Serve a facilitare l'esecuzione di vari comandi all'interno della repository.
 - `build.gradle.kts`: file di configurazione di #glossary("Gradle") (il sistema di build).
 
-Ci sono poi file alcuni file di supporto: `README`, `LICENSE` e `.github/` (contentente la configurazione delle actions GitHub).
+=== Sincronizzazione
+La sincronizzazione avviene tramite repository condivise su GitHub.
+Ogni attività da svolgere è tracciata da una specifica #glossary("issue").
 
-In questa repository, utilizziamo due branch principali: `master` contenente l'ultima versione stabile del codice e `develop` gli ultimi sviluppi. Quest'ultima funziona quindi da "buffer" di test delle varie attività svolte.\
-Salvo occasioni speciali, quindi, i nuovi branch di sviluppo partono direttamente da `develop` per riportare poi le modifiche direttamente in `develop`.\
-In ogni caso, le issue relative al ruolo svolto, vengono chiuse dopo l'unione in master.
+All'inizio dello svolgimento di ognuna di esse, il componente interessato crea una diramazione del (#glossary("branch")) "develop". Questo approccio consente di avere "workspace" indipendenti e quindi di poter lavorare parallelamente a più task, massimizzando il lavoro dei membri del team.\
 
-Si noti che durante le prime fasi di sviluppo, tutte le attività sono state svolte direttamente in `develop`, per essere poi unite in `master`.\
-La motivazione è semplice: poichè la struttura non era ancora precisamente delineata e le attività da svolgere molto interconnesse, si rischiava di sviluppare più volte le stesse cose oltre che generare conflitti per modifica parallela delle stesse linee di codice.\
-L'approccio utilizzato è il seguente: all'inzio di ogni sessione di sviluppo e prima di ogni push, i componenti integravano lo stato remoto nella repository locale, risolvendo eventuali conflitti ed errori di compilazione.\
-Questa scelta ci ha fatto risparmiare parecchio tempo e fatica.
+==== Branch
+Per la repository `docs`
+I branch di questo tipo sono quindi single-purpose: una volta approvati e pubblicati tramite #glossary("pull request") vengono eliminati da un #glossary("Amministratore") o dal Responsabile.
+
+
+Ogni attività è strettamente legata ad un branch, creato appositamente dall'incaricato a partire dal branch principale:
+Per la repository `docs` è `sources`. Attenzione che `master` è comunque il branch di default, mentre con "branch principale" si intende il branch in cui le modifiche devono venire aggiunte.
+
+Per la repository `jmap`, il branch principale è `develop` mentre il branch di default rimane sempre `master`.
+
+==== Pull Request
+Quando un'attività viene ultimata ed è pronta per la verifica, il membro del gruppo che ci ha lavorato, ha il compito di aprire una pull request. Il Verificatore è incaricato di controllare le modifiche attuate e, se non ci sono problemi, unirle al branch principale.
+
+Al completamento di una serie di attività legate
+Al completamento del lavoro su un branch, viene creato una pull-request su GitHub.
+Questo consente 
 
 == Gestione della qualità
 === Scopo
