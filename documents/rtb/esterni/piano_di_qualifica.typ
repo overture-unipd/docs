@@ -9,6 +9,7 @@
     [_#(p.zextras)_],
   ),
   changelog: (
+    "1.0.0", "2024-01-14" , p.bulychov, p.furno, "Approvazione per RTB",
     "0.3.1", "2024-01-14", p.bettin, p.furno, "Aggiornamento della sezione 'Iniziative di automiglioramento per la qualità'",
     "0.3.0", "2024-01-13", p.vedovato, p.bonavigo, "Aggiornamento della sezione 'Cruscotto di valutazione della qualità' conseguente al periodo V",
     "0.2.0", "2024-01-09", p.vedovato, p.bonavigo, "Aggiornamento della sezione 'Cruscotto di valutazione della qualità' conseguente al periodo IV",
