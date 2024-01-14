@@ -9,6 +9,7 @@
     [_#(p.zextras)_],
   ),
   changelog: (
+    "0.3.1", "2024-01-14", p.bettin, p.furno, "Aggiornamento della sezione 'Iniziative di automiglioramento per la qualità'",
     "0.3.0", "2024-01-13", p.vedovato, p.bonavigo, "Aggiornamento della sezione 'Cruscotto di valutazione della qualità' conseguente al periodo V",
     "0.2.0", "2024-01-09", p.vedovato, p.bonavigo, "Aggiornamento della sezione 'Cruscotto di valutazione della qualità' conseguente al periodo IV",
     "0.1.1", "2024-01-08", p.bonavigo, p.bulychov, "Aggiornamento della sezione 'Metodologie di testing'",
@@ -567,3 +568,45 @@ In questa sezione quindi andremo ad elencare i problemi più importanti che abbi
     [Piuttosto che creare disallineamenti il gruppo ha preso una pausa, dove il Responsabile garantiva che tutti i membri del gruppo avessero una conoscenza delle tecnologie tale da lavorare in maniera ottimale. Questo spesso veniva raggiunto individuando all'interno del gruppo i soggetti più preparati su un argomento e chiedendo loro di realizzare dei video tutorial su una determinata tematica.],
 
 )), caption: [Contromisure adottate per limitare problemi relativi agli strumenti utilizzati])
+
+#pagebreak()
+
+== Considerazioni finali sul miglioramento
+
+In questa ultima sezione, presentiamo le valutazioni derivanti da un'analisi retrospettiva approfondita dell'intero percorso svolto fin dall'avvio del progetto fino ad ora.\
+Specificatamente, si è condotta una riflessione critica sui progressi conseguiti nei vari processi implementati con lo scopo di acquisire una compresione dell'evoluzione del nostro "way of working" e degli impatti che ne sono derivati per il gruppo.\
+Questa sezione mira a fornire una panoramica completa delle transformazioni operative che hanno contribuito a potenziare l'efficacia e l'efficienza complessiva del nostro team, oltre che ad evidenziare gli aspetti migliorati e le opportunità di ottimizzazione.
+
+=== Analisi delle pratiche seguite
+Il modo migliore per garantire al team efficacia a lungo termine nei miglioramenti è applicare il ciclo PDCA, basandolo su specifici obiettivi di avanzamento che hanno la caratteristica di essere quantificabili e relativi ad aspetti dei processi di maggior rilevanza ai fini del progetto.\
+L'approccio descritto permette di attuare miglioramenti volti a prevenire situazioni, tendenze o problemi futuri in modo da pianificare anticipatamente le azioni opportune prima dell'insorgere di problematiche che necessiterebbero correzioni reattive, realizzando quindi quello che deifniamo come miglioramento continuo.
+Durante i primi mesi del progetto però, questo approccio non è stato seguito a causa dell'inesperienza del gruppo che non aveva pienamente compreso la sua utilità. Spesso accadeva che il gruppo attuasse azioni correttive, adottate in risposta agli errori riscontrati durante l'avanzamneto del progetto. Queste hanno il vantaggio di portare costi inferiori in termini di risorse rispetto alle azioni proattive, ma sono spesso tardive e meno effaci in ottica di miglioramento continuo.\
+Quindi, per poter applicare il ciclo PDCA, gli obiettivi di miglioramento devono (per poter capire se e quando il loro scopo viene raggiunto) essere selettivi. Inoltre i miglioramenti vanno scelti valutandone opportunamente il rapporto costi/benefici per fare in modo che il piano di miglioramento continuo sia sostenibile in base alle risorse disponibili.
+
+
+
+
+=== Valutazioni generali sui miglioramenti conseguiti
+Anche se il gruppo non si era posto all'inizio del progetto degli specifici obiettivi di miglioramento è stato possibile apprezzare alcuni miglioramenti nei processi che costituiscono il way of working.\
+Ovviamente all'inizio del progetto le valutazioni sul miglioramento erano assai scarse in quanto il gruppo non aveva esperienza con i progetti e non sapeva quindi definire se si stava operando in modo corretto o meno. Il numero di autocorrezioni è cresciuto nel tempo a causa di una maggiore familiarità con la gestione dei progetti fino ad un azzeramento delle valutazioni sui miglioramenti quando (in seguito ad un progressivo raffinamento) il way of working del gruppo è stato ben definito e allineato con le buone pratiche che ci sono state insegnate.
+
+=== Valutazioni specifiche sui miglioramenti nei processi
+In questa sezione, in seguito ad un'analisi retrospettiva sul lavoro svolto, quindi una volta che il team ha sperimentato personalmente ciò che era efficace ed efficiente e cosa non lo era affatto, riportiamo alcune delle valutazioni critiche che hanno portato ad un miglioramento sostanziale nei processi istanziati dal gruppo.\
+Per ogni attività mezionata verranno quindi esposti gli specifici obiettivi di miglioramento raggiunti nel corso del progetto.
+
+===== Gestione delle comunicazioni e degli incontri
+Durante la prima fase del progetto il gruppo spendeva tantissimo tempo nell'organizzare dei meeting a regola d'arte: dove fossero presenti tutti i membri del gruppo trovando degli orari e dei giorni che andassero bene a tutti. Inoltre in questi incontri (spesso molto lunghi) parlavano sempre le solite persone (magari anche per una dote caratteriale) e spesso alcuni membri del gruppo venivano lasciati in disparte con ancora dei dubbi su come svolgere le loro parti del progetto.\
+In questo modo veniva perso tantissimo tempo e non era un modo di lavorare efficiente.
+
+*Obiettivi di miglioramento raggiunti*\
+Siamo giunti presto alla conclusione che è impossibile trovare un orario ed un giorno dove fossero tutti presenti.\
+Abbiamo predisposto dei sondaggi cosicchè da trovare i giorni dove erano presenti il maggior numero di persone. Successivamente il Responsabile avrebbe fornito agli assenti un messaggio vocale su Telegram contenente i principali temi discussi.\
+Inoltre, la durata degli incontri è stata ridotta a non più di un'ora e ogni membro del gruppo è tenuto a dire pubblicamente cosa ha fatto fino a quel momento, di cosa si sta occupando e cosa prevede di fare come prossima attività, così da garantire una piena partecipazione all'incontro di tutti i membri.
+
+
+===== Pianificazione
+Fin dall'inizio del progetto attuare rotazione dei ruoli è stata uno dei compiti più difficile per il gruppo. Il fatto di dover mettere mano alla documentazione che è stata strutturata e sviluppata da persone diverse ha subito scatenato confusione e ha chiaramente portato ad ovvi rallentamenti.
+
+*Obiettivi di miglioramento raggiunti*\
+Dedicando uno spazio dei meeting di gruppo alle discussioni generali si è permesso a tutti i membri del gruppo di osservare la struttura generale del progetto cosicchè da farsi trovare pronto riguardo ogni argomento.\
+Se un membro del gruppo avesse delle domande specifiche riguardo ad una sezione non le comunica a tutto il gruppo durante il meeting (per evitare una perdita inutile di tempo) ma le comunica privatamente al soggetto direttamente interessato.
