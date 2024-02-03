@@ -3531,10 +3531,10 @@ requirements("#bbfabe", (
   [Occorre effettuare una serie di stress test (test di carico) per alcuni casi d'uso implementati e riportare con un apposito documento i benchmark del sistema in ogni situazione: normale, di carico e di sovraccarico. Questi andranno specificati all'interno del `Piano di Qualifica` in una sezione dedicata.],
   [Capitolato],
   [R-008-Q-1],
-  [La codifica dell'intera soluzione informativa deve essere conforme con quanto riportato nel `Piano di Qualifica v1.0.0`.],
+  [La codifica dell'intera soluzione informativa deve essere conforme con quanto riportato nella sezione Obiettivi metrici di qualità del documento `Piano di Qualifica v1.0.0`.],
   [Interno],
   [R-009-Q-1],
-  [Nello creazione del prodotto software devono essere rispettate tutte le norme definite nel documento `Norme di progetto v1.0.0`.],
+  [Nello creazione del prodotto software devono essere rispettate tutte le norme definite nelle sezioni Sviluppo, Verifica e Validazione del documento `Norme di progetto v1.0.0`.],
   [Interno],
 ))
 ,caption: [requisiti di qualità])
