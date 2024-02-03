@@ -9,6 +9,7 @@
     [_#(p.zextras)_],
   ),
   changelog: (
+    "1.1.0", "2024-02-03" , p.furno, p.bettin, "Modifiche conseguenti ai commenti derivanti dalla revisione RTB",
     "1.0.0", "2024-01-14" , p.bulychov, p.furno, "Approvazione per RTB",
     "0.3.1", "2024-01-14", p.bettin, p.furno, "Aggiornamento della sezione 'Iniziative di automiglioramento per la qualità'",
     "0.3.0", "2024-01-13", p.vedovato, p.bonavigo, "Aggiornamento della sezione 'Cruscotto di valutazione della qualità' conseguente al periodo V",
@@ -52,6 +53,8 @@ La presenza di un termine all'interno del `Glossario` viene indicata applicando 
   https://en.wikipedia.org/wiki/ISO/IEC_9126
 - *ISO/IEC 12207* \
   https://www.math.unipd.it/~tullio/IS-1/2009/Approfondimenti/ISO_12207-1995.pdf
+- *Glossario* \
+  https://overture-unipd.github.io/docs/rtb/esterni/glossario_v1.0.0.pdf
 
 #pagebreak()
   
@@ -471,7 +474,6 @@ I test di sistema sono una fase del processo di testing software che mira a veri
 *RTB*: Osservando il grafico emerge una particolare attenzione da parte dei membri del gruppo nell'evitare di commettere errori di ortografia all'interno dei vari documenti: qualche errore è sfuggito (cosa inevitabile vista la nostra natura umana) ma tutto sommato la maggior parte dei documenti ha presentato 0 errori per la maggior parte della loro esistenza, raggiungendo l'ottimo nell'ultimo periodo.
 
 #pagebreak()
-
 
 == MPC15 - Quality Metrics Satisfied
 #figure(image("//imgs/PdQ_graphs/QualityMetSat.png", width: 100%), caption: [Proiezione della percentuale di metriche di qualità soddisfatte nei vari periodi di progetto.])
