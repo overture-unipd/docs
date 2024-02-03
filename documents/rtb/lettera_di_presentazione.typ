@@ -9,7 +9,7 @@
   ),
   group_is_recipient: false,
   changelog: (
-    none, "2024-03-02", p.furno, p.bettin, none,
+    none, "2024-02-03", p.furno, p.bettin, none,
   ),
   show_outline: false,
 )

@@ -3,11 +3,6 @@
 #show: project.with(
   title: "Glossario",
   managers: p.vedovato,
-  recipients: (
-    p.vardanega,
-    p.cardin,
-    [_#(p.zextras)_],
-  ),
   changelog: (
     "1.0.0", "2024-01-11", p.amadori, p.bonavigo, "Approvazione per RTB",
     "0.2.0", "2023-12-20", p.bonavigo, p.bulychov, "Incremento del vocabolario",

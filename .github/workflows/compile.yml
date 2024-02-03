@@ -38,7 +38,7 @@ jobs:
         run: |
           shopt -s globstar
           ls documents/**/*.typ > .all
-          echo ${{ steps.changed-files.outputs.all_changed_files }} | tr "," "\n" > .changed
+          echo ${{ steps.changed-files.outputs.all_changed_files }} | tr "," "\n" | sort > .changed
           comm -23 .all .changed >> .typstignore
           while IFS= read -r f; do rm -rf "${f}"; done < .typstignore
       - name: typst compile

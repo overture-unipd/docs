@@ -3,10 +3,6 @@
 #show: project.with(
   title: "Norme di Progetto",
   managers: p.vedovato,
-  recipients: (
-    p.vardanega,
-    p.cardin,
-  ),
   changelog: (
     "1.0.0", "2024-01-13" , p.bulychov, p.furno, "Approvazione per RTB",
     "0.2.1", "2024-01-08", p.bonavigo, p.bulychov, "Descrizione della repo `jmap` e chiarimenti su branch e PR",
