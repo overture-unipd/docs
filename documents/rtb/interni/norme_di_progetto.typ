@@ -46,12 +46,14 @@ La presenza di un termine all'interno del glossario viene indicata applicando #g
 === Riferimenti normativi
 - Capitolato d'appalto C8: JMAP, il nuovo protocollo standard per la comunicazione email \
   https://www.math.unipd.it/~tullio/IS-1/2023/Progetto/C8.pdf
-- Standard ISO/IEC 12207:1995: \
+- Standard ISO/IEC 12207:1995 \
   https://www.math.unipd.it/~tullio/IS-1/2009/Approfondimenti/ISO_12207-1995.pdf
 
 === Riferimenti informativi
 - I processi di ciclo di vita del software \
   https://www.math.unipd.it/~tullio/IS-1/2023/Dispense/T2.pdf
+- Glossario \
+  https://overture-unipd.github.io/docs/rtb/esterni/glossario_v1.0.0.pdf
 
 #pagebreak()
 

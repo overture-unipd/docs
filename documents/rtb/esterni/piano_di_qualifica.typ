@@ -59,7 +59,7 @@ La presenza di un termine all'interno del `Glossario` viene indicata applicando 
 #pagebreak()
   
 = Obiettivi metrici di qualità
-Ogni #glossary("processo") viene valutato mediante l'applicazione di metriche specifiche, le cui definizioni sono dettagliate nelle `Norme di Progetto v1.0.0`. Questa sezione delinea i criteri che le metriche devono rispettare per essere valutate come accettabili o eccellenti.
+Ogni #glossary("processo") viene valutato mediante l'applicazione di metriche specifiche, le cui definizioni sono dettagliate dalle sezioni Metriche di qualitá del processo e Metriche di qualitá del prodotto del documento `Norme di Progetto v1.0.0`. Questa sezione delinea i criteri che le metriche devono rispettare per essere valutate come accettabili o eccellenti.
 
 == Qualità di processo 
 La qualità di processo è esigenza primaria nello sviluppo software, difatti per poter avere un prodotto finale di qualità è necessario trovare alla base un'applicazione rigorosa di #glossary("best practice") ben definite che ci permettano di svolgere nel miglior modo possibile l'insieme delle attività da effettuare. \
@@ -242,7 +242,7 @@ La qualità di prodotto si riferisce all'insieme delle caratteristiche di un'ent
 #pagebreak()
 
 = Metodologie di testing
-In questa sezione vengono elencati i #glossary("test") eseguiti sul prodotto, necessari per dimostrare che i vincoli individuati all'interno del documento `Analisi dei Requisiti v1.0.0` siano soddisfatti.\ Come anticipato all'interno delle `Norme di Progetto v1.0.0`, i test si dividono in:
+In questa sezione vengono elencati i #glossary("test") eseguiti sul prodotto, necessari per dimostrare che i vincoli individuati nella sezione Requisiti del documento `Analisi dei Requisiti v1.0.0` siano soddisfatti.\ Come anticipato all'interno della sezione Verifica del documento `Norme di Progetto v1.0.0`, i test si dividono in:
 - *Test di unità*: definiti sulle unità software autonome più piccole, sono implementati principalmente durante la progettazione;
 - *Test di integrazione*: successivi ai test di unità, servono a verificare la corretta integrazione tra le diverse unità software;
 - *Test di sistema*: garantiscono il corretto funzionamento del sistema. In particolare, verificano che tutti i requisiti individuati siano rispettati;
@@ -286,7 +286,7 @@ I test di integrazione sono progettati per verificare che le diverse parti di un
 ), caption: [Stato dei test di integrazione.])
 
 == Test di sistema
-I test di sistema sono una fase del processo di testing software che mira a verificare che il sistema soddisfi i requisiti specificati nell'`Analisi dei Requisiti v1.0.0`. Questa fase di testing è condotta sul sistema nel suo complesso, dopo che i test di unità e di integrazione sono stati completati con successo. L'obiettivo principale dei test di sistema è assicurare che l'applicazione sia in grado di svolgere le sue funzioni nel contesto del suo ambiente operativo.
+I test di sistema sono una fase del processo di testing software che mira a verificare che il sistema soddisfi i requisiti specificati nella sezione Requisiti del documento `Analisi dei Requisiti v1.0.0`. Questa fase di testing è condotta sul sistema nel suo complesso, dopo che i test di unità e di integrazione sono stati completati con successo. L'obiettivo principale dei test di sistema è assicurare che l'applicazione sia in grado di svolgere le sue funzioni nel contesto del suo ambiente operativo.
 #figure(testSistema(
   (
     "TS-1","Verificare che un client di posta elettronica non autenticato possa autenticarsi all'interno del sistema.", "R-001-F-2", "NI",
@@ -428,7 +428,7 @@ I test di sistema sono una fase del processo di testing software che mira a veri
 == MPC06 - Estimated at Completion (EAC)
 #figure(image("//imgs/PdQ_graphs/EAC.png", width: 100%), caption: [Proiezione della stima del costo totale nei vari periodi di progetto.])
 
-*RTB*: Osservando il grafico ne emerge che in seguito al primo periodo del progetto le stime dei costi totali si discostavano leggermente dal valore ottimale (ovvero la stima iniziale, detta anche BAC) di qualche decina di euro in eccesso. Questa discrepanza è attribuibile alla previsione di un maggior numero di ore nel ruolo di Analista rispetto a quelle successivamente stimate nei periodi II e III, di conseguenza, si è verificata una diminuzione dei costi in questi due periodi. Quest'ultima è stata seguita poi da un leggero aumento poichè, come riportato nel `Piano di Progetto v1.0.0`, tra il terzo ed il quarto periodo il gruppo si è reso conto di necessitare di quelle ore che ritenevamo superflue per approfondire ancora di più il documento `Analisi dei Requisiti`. Infine nel quinto ed ultimo periodo la stima è rimasta pressochè costante dato che tutto ha proceduto secondo i piani.
+*RTB*: Osservando il grafico ne emerge che in seguito al primo periodo del progetto le stime dei costi totali si discostavano leggermente dal valore ottimale (ovvero la stima iniziale, detta anche BAC) di qualche decina di euro in eccesso. Questa discrepanza è attribuibile alla previsione di un maggior numero di ore nel ruolo di Analista rispetto a quelle successivamente stimate nei periodi II e III, di conseguenza, si è verificata una diminuzione dei costi in questi due periodi. Quest'ultima è stata seguita poi da un leggero aumento poichè, come riportato dalle sezioni Periodo III e Periodo IV del documento `Piano di Progetto v1.0.0`, tra il terzo ed il quarto periodo il gruppo si è reso conto di necessitare di quelle ore che ritenevamo superflue per approfondire ancora di più il documento `Analisi dei Requisiti`. Infine nel quinto ed ultimo periodo la stima è rimasta pressochè costante dato che tutto ha proceduto secondo i piani.
 
 #pagebreak()
 

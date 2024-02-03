@@ -12,18 +12,18 @@
     "1.0.0", "2024-01-14" , p.furno, p.bonavigo, "Approvazione per RTB",
     "0.5.2", "2024-01-14", p.bonavigo, p.furno, "Aggiunta la pianificazione in attesa del passaggio della RTB",
     "0.5.1", "2024-01-14", p.bonavigo, p.furno, "Aggiunto il sommario finale per la RTB",
-    "0.5.0", "2024-01-14", p.fabbian, p.bonavigo, "Aggiunto il consuntivo del periodo V",
+    "0.5.0", "2024-01-14", p.fabbian, p.bonavigo, "Aggiunto il consuntivo e la retrospettiva del periodo V",
     "0.4.1", "2024-01-10", p.bonavigo, p.furno, "Aggiunto il preventivo e la pianificazione del periodo V",
-    "0.4.0", "2024-01-09", p.bettin, p.bonavigo, "Aggiunto il consuntivo del periodo IV",
+    "0.4.0", "2024-01-09", p.bettin, p.bonavigo, "Aggiunto il consuntivo e la retrospettiva del periodo IV",
     "0.3.2", "2024-01-03", p.amadori, p.bulychov, "Aggiunto il preventivo del periodo IV",
     "0.3.1", "2023-12-28", p.amadori, p.bulychov, "Aggiunta la pianificazione del periodo IV",
-    "0.3.0", "2023-12-22", p.amadori, p.fabbian, "Aggiunto il consuntivo del periodo III",
+    "0.3.0", "2023-12-22", p.amadori, p.fabbian, "Aggiunto il consuntivo e la retrospettiva del periodo III",
     "0.2.2", "2023-12-16", p.bulychov, p.furno, "Aggiunto il preventivo del periodo III",
     "0.2.1", "2023-12-15", p.bulychov, p.furno, "Aggiunta la pianificazione del periodo III",
-    "0.2.0", "2023-12-14", p.bulychov, p.bonavigo, "Aggiunto il consuntivo del periodo II",
+    "0.2.0", "2023-12-14", p.bulychov, p.bonavigo, "Aggiunto il consuntivo e la retrospettiva del periodo II",
     "0.1.2", "2023-12-07", p.vedovato, p.bettin, "Aggiunto il preventivo del periodo II",
     "0.1.1", "2023-12-07", p.fabbian, p.vedovato, "Aggiunta la pianificazione del periodo II",
-    "0.1.0", "2023-11-30", p.furno, p.vedovato, "Aggiunto il consuntivo del periodo I",
+    "0.1.0", "2023-11-30", p.furno, p.vedovato, "Aggiunto il consuntivo e la retrospettiva del periodo I",
     "0.0.5", "2023-11-30", p.furno, p.bettin, "Aggiunto il preventivo del periodo I",
     "0.0.4", "2023-11-26", p.vedovato, p.bettin, "Aggiunta la pianificazione del periodo I",
     "0.0.3", "2023-11-25", p.vedovato, p.bettin, "Aggiunta della sezione 'Modello di sviluppo'",
@@ -62,6 +62,8 @@ La presenza di un termine all'interno del `Glossario` viene indicata applicando 
   https://www.math.unipd.it/~tullio/IS-1/2023/Dispense/T2.pdf
 - *T4 - Gestione di progetto* \
   https://www.math.unipd.it/~tullio/IS-1/2023/Dispense/T4.pdf
+- *Glossario* \
+  https://overture-unipd.github.io/docs/rtb/esterni/glossario_v1.0.0.pdf
 
 == Preventivo iniziale
 Il preventivo iniziale presentato in fase di candidatura è reperibile al seguente link: #link("https://github.com/overture-unipd/docs/blob/master/documents/candidatura/dichiarazione_impegni_v1.1.pdf")[Preventivo iniziale].\
@@ -78,7 +80,7 @@ Secondo lo standard #glossary("ISO")/#glossary("IEC") 31000:2009, il #glossary("
 + Valutazione dei rischi: mira a prendere decisioni basate sui risultati dell'analisi dei rischi per determinare quali rischi trattare e stabilire le priorità di trattamento.
 + Trattamento dei rischi: dopo la valutazione, è importante decidere come affrontare i rischi, ad esempio mediante misure preventive, trasferimento del rischio tramite assicurazioni o l'adozione di misure di mitigazione.
 + Monitoraggio e revisione dei rischi: entrambe queste attività devono essere integrate nella pianificazione del processo di gestione del rischio e richiedono un controllo regolare.
-\
+
 I fattori fondamentali per identificare i rischi sono:
 - Tipologia rappresenta la categoria di rischio (T: Tecnologici, O: Organizzativi, G: Membri del gruppo);
 - Indice è un valore numerico incrementale che identifica univocamente il rischio per ogni Tipologia.
@@ -86,80 +88,80 @@ Per questo motivo si è deciso di adottare la seguente convenzione `R[Tipologia]
 
 == Rischi Tecnologici
 *RT1 - Inesperienza* <RT1>
-#risks((
+#figure(risks((
  [Dato l'alto grado di specializzazione richiesto dal #glossary("capitolato"), alcuni membri del gruppo potrebbero non possedere le competenze necessarie inizialmente. Ciò potrebbe causare ritardi sia nella fase di progettazione che nello sviluppo, poiché la formazione sarà essenziale per acquisire le competenze richieste],
  [Alta],
  [Alta],
  [Il Responsabile del progetto terrà in considerazione le competenze specifiche di ciascun membro del gruppo durante l'assegnazione dei compiti],
  [I membri del gruppo che ritengono di non possedere le competenze necessarie per svolgere un compito specifico saranno affiancati da un membro più esperto del gruppo. Questo supporto consentirà la formazione necessaria attraverso l'istruzione diretta e la fornitura di documentazione rilevante per comprendere l'argomento in questione],
-))
+)),caption: "Rischio tecnologico \"Inesperienza\"")
 
 *RT2 - Problemi legati all'utilizzo della libreria esterna* <RT2>
-#risks((
+#figure(risks((
   [Per lo sviluppo del progetto, il team ha scelto di adottare una libreria esterna per implementare lo standard JMAP. La presenza di malfunzionamenti o problematiche interne a questa libreria è al di fuori del controllo del team e potrebbe influire sulla velocità e sui costi del progetto],
   [Bassa],
   [Alta],
   [La presenza di problemi può essere identificata solo attraverso il test della libreria durante lo sviluppo del progetto o mediante il monitoraggio delle prestazioni durante il suo utilizzo],
   [Nel caso vengano identificati problemi legati al software o ai servizi di terze parti, i membri del team sono tenuti a segnalarli al Responsabile di progetto. Quest'ultimo dovrà prevedere, nel caso peggiore, la sostituzione della soluzione in uso con un'alternativa il più simile possibile al software adottato],
-))
+)),caption: "Rischio tecnologico \"Problemi legati all'utilizzo della libreria esterna\"")
 
 *RT3 - Perdita di informazioni* <RT3>
-#risks((
+#figure(risks((
   [La perdita di informazioni quali le mail degli utenti rappresenta un rischio significativo per il progetto. Questo può accadere a seguito di guasti hardware, errori umani, attacchi informatici o malfunzionamenti del sistema di archiviazione delle mail],
   [Media],
   [Alta],
   [La perdita di mail può essere rilevata attraverso monitoraggi regolari del sistema di archiviazione e notifiche automatiche di errori o anomalie],
   [Nel caso in cui si verifichi una perdita di mail è necessario avere una fonte da cui poter ripristinare (copia di backup / replicazione)],
-))
+)),caption: "Rischio tecnologico \"Perdita di informazioni\"")
 
 == Rischi Organizzativi
 
 *RO1 - Imprecisioni nella pianificazione delle attività* <RO1>
-#risks(( 
+#figure(risks(( 
   [La pianificazione imprecisa delle attività può derivare dalla mancata conoscenza dei requisiti, dalla sottostima/sovrastima delle risorse/tempo necessari o dalla scarsa esperienza dei membri del team],
   [Alta],
   [Alta],
   [Il confronto periodico con il `Piano di Progetto` e l'analisi della #glossary("board") su #glossary("GitHub") vengono utilizzati per monitorare lo stato di avanzamento],
   [In caso di difficoltà, il `Piano di Progetto` viene revisionato per adeguare le date delle attività in base al progresso. Se un membro segnala impossibilità di rispettare la scadenza, il Responsabile assegnerà più risorse o posticiperà la data.],
-))
+)),caption: "Rischio organizzativo \"Imprecisioni nella pianificazione delle attività\"")
 
 *RO2 - Elevati costi delle attività* <RO2>
-#risks((
+#figure(risks((
   [La sottostima/sovrastima dei costi delle attività a causa dell'inesperienza del team può causare ritardi o spreco di tempo],
   [Media],
   [Alta],
   [Attraverso il #glossary("cruscotto") e confronto periodico con il `Piano di Progetto`, il Responsabile può monitorare lo stato di avanzamento del progetto],
   [In caso di cambiamenti non gravi, si cerca di implementare rapidamente quanto è rimasto aperto. Se significativo, si discute con il proponente per trovare un accordo su come affrontare i cambiamenti.],
-))
+)),caption: "Rischio organizzativo \"Elevati costi delle attività\"")
 
 *RO3 - Impegni personali e universitari* <RO3>
-#risks((
+#figure(risks((
   [Gli impegni personali e universitari possono limitare la disponibilità temporale dei membri del team, causando ritardi nel progetto],
   [Media],
   [Media],
   [Attraverso la condivisione aperta dei periodi di limitata disponibilità e la revisione della pianificazione],
   [Il Responsabile rivede la suddivisione dei compiti e delle risorse o, in casi più gravi, sposta alcune scadenze se la pianificazione non tiene conto di questi periodi.],
-))
+)),caption: "Rischio organizzativo \"Impegni personali e universitari\"")
 
 == Rischi Comunicativi
 
 *RC1 - Rischio di conflitti interni* <RC1>
-#risks((
+#figure(risks((
   [I conflitti interni possono derivare da diverse opinioni sulla direzione del progetto, soluzioni o allocazione delle risorse],
   [Media],
   [Alta],
   [Attraverso il feedback dei membri del team o l'osservazione delle dinamiche del gruppo],
   [Il Responsabile interviene per gestire i conflitti, riassegna compiti se necessario e, se non si raggiunge un accordo, coinvolge i docenti.],
-))
+)),caption: "Rischio comunicativo \"Rischio di conflitti interni\"")
 
 *RC2 - Problemi di comunicazione* <RC2>
-#risks((
+#figure(risks((
   [Una comunicazione inefficace può causare ritardi e stress. La mancanza di contatto fisico può ostacolare lo sviluppo di uno spirito di squadra],
   [Media],
   [Alta],
   [Attraverso sondaggi, feedback e osservazione delle dinamiche del gruppo durante le riunioni],
   [Il Responsabile promuove una comunicazione attiva, organizza riunioni regolari e, in caso di problemi, indaga sul motivo e organizza riunioni tempestive per risolvere la situazione. Se necessario, incoraggia incontri in presenza.],
-))
+)),caption: "Rischio comunicativo \"Problemi di comunicazione\"")
 
 #pagebreak()
 = *Modello di sviluppo*
@@ -176,8 +178,9 @@ Questo modello di sviluppo è prevalso sugli altri per via dei seguenti grandi v
 
 = *Periodi*
 Per ogni periodo si riportano di seguito le seguenti informazioni:
+- Data di inizio, data di fine prevista, data di fine attuale ed eventuali giorni di ritardo;
 - Pianificazione delle attività da svolgere al suo interno (avanzamento atteso), con tanto di potenziali rischi;
-- Tempo stimato per poter completare tutte le attività previste;
+- Tempo stimato per poter completare tutte le attività previste (preventivo);
 - Confronto fra il lavoro svolto (avanzamento conseguito) e quello preventivato, con annessa analisi dei costi;
 - Rischi effettivamente occorsi, valutandone il loro impatto e la loro mitigazione;
 - Retrospettiva di periodo per capire cosa e come migliorare in futuro e cosa invece mantenere.
@@ -273,7 +276,7 @@ Anche implementare le #glossary("actions") di GitHub ha richiesto ulteriore sfor
 In conclusione i rischi occorsi non hanno avuto un grosso impatto sul progetto e sono stati prontamente mitigati tramite discussione costruttiva mediante i membri del gruppo. 
 
 
-===== Retrospettiva
+==== Retrospettiva
 Questo primo periodo di lavoro ci ha ribadito l'importanza delle #glossary("best practice") comuni che ogni membro del gruppo deve seguire per tutta la durata del progetto: per questo motivo verrà data la precedenza alla terminazione di una prima versione stabile delle `Norme di Progetto`, con la previsione di ultimarla nella prima settimana del Periodo II. \
 Lo studio condiviso delle librerie JMAP tra i diversi incaricati ha velocizzato l'apprendimento dei contenuti, risparmiando delle ore rispetto quanto preventivato. Questo metodo verrà sicuramente riproposto dal gruppo per lo studio di altre tecnologie. \
 L'approccio adottato dai Responsabili per assegnare le attività si è rivelato corretto: le task sono state distribuite in modo equo ai diversi componenti del gruppo che hanno impiegato un numero congruo di ore per il loro svolgimento e hanno ultimato il lavoro entro i tempi stabiliti. \
@@ -367,7 +370,7 @@ Nel corso del secondo periodo il gruppo si è scontrato principalmente con probl
 Inoltre la pianificazione iniziale si è rivelata essere leggeremente imprecisa, non avendo però un grosso impatto sui lavori e sui risultati di quest'ultimi. \
 Infine si sono manifestati problemi di comunicazione, con un leggero disallineamento tra i membri del gruppo dovuto a incomprensioni riguardo al prodotto finale da sviluppare. Queste problematiche sono state affrontate tempestivamente attraverso una discussione in una riunione interna, la quale ha chiarito i dubbi sorti mitigando le conseguenze.
 
-===== Retrospettiva
+==== Retrospettiva
 Il secondo periodo di lavoro ci ha fatto capire quanto sia importante promuovere una comunicazione attiva: riunioni con cadenza regolare consentono al gruppo di analizzare e affontare tempestivamente eventuali problemi riscontrati dai diversi componenti, identificandone facilmente le cause. Il disallinamento dovuto a problemi di comunicazione ci ha infatti rallentato e va di conseguenza evitato il più possibile in futuro.\
 Inoltre va incoraggiato l'atteggiamento che è stato adottato dai Programmatori, i quali rapidamente hanno comunicato al gruppo le problematiche legate all'uso della libreria esterna, favorendo una comunicazione efficace per superarle. \
 Infine è fondamentale migliorare ulteriormente la stima del tempo necessario attraverso preventivo per completare tutte le attività, poiché si è riscontrata nuovamente una leggera imprecisione. Nel primo periodo abbiamo sottostimato il tempo necessario, mentre nel secondo periodo lo abbiamo sovrastimato, quindi è cruciale trovare un equilibrio e adottare una maggiore precisione nella valutazione temporale delle attività.
@@ -455,7 +458,7 @@ Come si può notare dal confronto tra preventivo e consuntivo:
 Nel corso di questo periodo il gruppo ha scelto di svolgere numerose attività in un tempo limitato.\ In seguito ad un controllo generale della documentazione, sono emerse diverse imprecisioni in particolari sezioni, sottolineando come alcune attività non fossero state svolte in maniera ottimale. Gli analisti si sono occupati di sistemare queste parti.\
 Inoltre, la pianificazione del lavoro da svolgere per il PoC è stata insufficiente: abbiamo sottostimato il tempo necessario al completamento delle task che, alla fine, non siamo riusciti a portare a termine entro i termini prestabiliti. Vista la mole di lavoro, avevamo messo in conto che alcune task rischiavano di non essere eseguite in modo corretto. I rischi preventivati hanno avuto un impatto medio sul gruppo, causando principalmente stress, tuttavia, alla fine, sono stati mitigati nel miglior modo possibile.
 
-===== Retrospettiva 
+==== Retrospettiva 
 Il terzo periodo si è rivelato, come da aspettative, il più intenso dei tre. Affinchè il gruppo potesse partecipare alla prima revisione del prodotto prima di Natale, tutti i membri hanno sostenuto dei ritmi altissimi. Purtroppo l'obiettivo non è stato raggiunto.\ Nonostante gran parte della documentazione fosse stata ultimata, abbiamo sopravvalutato le nostre capacità ed ora necessitiamo di ulteriore lavoro per completare l'`Analisi dei Requisiti` e il PoC. \
 Tutto sommato, il carico di lavoro poteva essere distribuito diversamente, magari su più periodi di lavoro, gravando meno pesantemente sui membri del gruppo prima di Natale.\ Abbiamo pianificato erroneamente, seguendo un obiettivo desiderabile, ma difficilmente realizzabile.
 
@@ -542,7 +545,7 @@ Il quarto periodo è coinciso con le vacanze di Natale, generando difficoltà pe
 Durante questo periodo inoltre sono state riscontrate difficoltà nello sviluppo del PoC, specialmente dovute ai test fatti utilizzando i client a nostra disposizione, i quali si sono dimostrati più ostici del previsto, cosa che ha avuto un impatto abbastanza significativo. Questo problema sarà mitigato nel periodo successivo con un aumento delle ore dedicate allo sviluppo del PoC.\
 Infine, l'impossibilità di confrontarsi direttamente con il #p.cardin, visti i suoi impegni personali, si è rivelata essere la problematica più impattante, causando un rallentamento generale nello sviluppo della documentazione, in particolare per l'`Analisi dei Requisiti`, che comunque riteniamo essere ora pronta.
 
-===== Retrospettiva
+==== Retrospettiva
 Il quarto periodo, coincidendo con le vacanze Natalizie, è risultato meno costante, specialmente riguardo le ore dedicate e la disponibilità dei singoli membri a partecipare agli incontri settimanali. Questa variabilità ha aggiunto ulteriore complessità ad un compito già difficile, come la stima dei preventivi svolta ad inizio periodo, la quale, per l'ennesima volta, si è dimostrata imprecisa. Pertanto, sarà quindi fondamentale migliorare in quest'attività nei prossimi periodi.\
 All'interno del gruppo è stata molto apprezzata la disponibilità di alcuni membri nel dedicare più ore per evitare un rallentamento eccessivo nell'avanzamento complessivo del progetto. In futuro, però, sarebbe importante evitare situazioni simili, anche se ha evidenziato la volontà della maggior parte del gruppo di procedere a passo spedito.\ 
 Infine l'aspetto fondamentale su cui concentrarsi nel corso del prossimo periodo è lo sviluppo del PoC, necessario per effettuare la candidatura per l'RTB, dato che ormai la documentazione è praticamente pronta.
@@ -628,14 +631,14 @@ Come si può notare dal confronto tra preventivo e consuntivo:
 Il quinto periodo del progetto è stato caratterizzato da sfide significative per il gruppo. Infatti, il raggiungimento e la conclusione delle ultime task per la candidatura alla Requirements and Technology Baseline ha rischiato di essere ostacolata dalla concomittanza con gli esami della sessione invernale per praticamente tutti i membri del gruppo.\
 Tuttavia, il fatto che ogni membro del gruppo riconoscesse che il successo del nostro progetto è essenziale per il percorso accademico, ci ha spinti e motivati a compiere qualche sforzo aggiuntivo. Ci siamo quindi organizzati per gestire e bilanciare le risorse e il tempo nel modo più efficente possibile così da perseguire la candidatura per la RTB e mantenere un alto standard di qualità nel nostro progetto, senza togliere tempo e attenzione agli imminenti esami che dovremmo affrontare tra pochi giorni, andando a mitigare quindi questo rischio.
 
-===== Retrospettiva
+==== Retrospettiva
 Per quanto riguarda il quinto periodo, il gruppo di progetto ha deciso di attuare in maniera del tutto straordinaria la scelta strategica di organizzare una fase concentrata della durata di una sola settimana.\
 Organizzare le attività in un periodo cosi ridotto ha portato l'immediato beneficio di garantire una pianificazione più fine e precisa delle singole attività e una assegnazione delle risorse più mirata. Tutto ciò ha comportato quindi una maggiore efficienza nel raggiungimento degli obiettivi prefissati e il completamento di tutte le attività.\
 Durante questa settimana intensiva si sottolinea un'ottima coesione del nostro gruppo verso un'unico scopo: il raggiungimento della candidatura alla RTB. L'estrema sincronia e collaborazione tra i membri del gruppo ha contribuito a creare un ambiente di lavoro stimolante e altamente produttivo portando quindi un successo complessivo per quanto riguarda questo periodo.\
 Si desidera mettere in rilevo che durante questo periodo non si evidenziano aspetti negativi rilevanti, ma al contrario i valori positivi emersi ci costrigono a valutare di replicare questo modello di fase intensiva e ridotta in termini di tempo anche in un futuro prossimo.
 
 === Sommario finale
-Dopo svariate intense settimane di lavoro, iniziato in data 2023-11-06, il gruppo si ritiene pronto a sostenere la prima revisione del prodotto che, come da accordi con il #p.cardin, si svolgerà il *2024-01-XX*.\
+Dopo svariate intense settimane di lavoro, iniziato in data 2023-11-06, il gruppo si ritiene pronto a sostenere la prima revisione del prodotto che, come da accordi con il #p.cardin, inizierà il *2024-01-19* e continuerà poi con il colloquio con il #p.vardanega.\
 Gran parte della documentazione necessaria all'intero progetto è stata stilata durante questa fase, in particolare quella relativa all'`Analisi dei Requisiti` e alle `Norme di Progetto`. Per questo motivo riteniamo che, rispetto a quanto preventivato in fase di candidatura,  le ore da destinare allo studio delle funzionalità del prodotto siano leggermente eccessive. Al contrario, pensiamo di necessitare di più tempo per lo sviluppo del software per via delle tecnologie da utilizzare e la nostra poca esperienza con quest'ultime. Sono stati effettuati, quindi, dei leggeri cambiamenti alle ore da destinare ad ogni singolo ruolo ed è stato ricalcolato il costo totale.\
 Il nuovo preventivo del progetto equivale a _*12615€*_, mentre la consegna finale del prodotto slitta di una settimana, per via del tempo da dedicare allo studio per gli esami, ed è prevista per la data _*2024-03-22*_.
 
@@ -658,12 +661,12 @@ Il nuovo preventivo del progetto equivale a _*12615€*_, mentre la consegna fin
   (
     ("8","3","12","4","17","15","59"),
     ("3","5","14","0","17","14","53"),
-    ("3","6","14","2","12","15","52"),
+    ("3","6","14","0 (-2)","12","17 (+2)","52"),
     ("7","1","12","3","16","14","53"),
-    ("2","1","12","3","17","14","54"),
+    ("2","1","12","3","17","19","54"),
     ("6","3","14","0","16","16","55"),
     ("4","5","11","0","16","15","51"),
-    ("33","24","89","12","111","108","377")
+    ("33","24","89","10 (-2)","111","110 (+2)","377")
   )
 ), caption: [Impegno orario rimanente per ruolo di ciascun membro al termine del periodo di preparazione al RTB.])
 ==== Riepilogo prospetto economico
@@ -683,12 +686,12 @@ Il nuovo preventivo del progetto equivale a _*12615€*_, mentre la consegna fin
 
 === Periodo VI
 Inizio: 2024-01-15\
-Fine prevista: 2024-02-04\
+Fine prevista: 2024-02-11\
 
 ==== Pianificazione
 Per quanto riguarda l'organizzazione di questo periodo, considerando la sua sovrapposizione con l'inizio della sessione di esami, il gruppo ha concordato all'unanimità che, oltre a concentrarsi sulla preparazione ai colloqui della RTB, per la quale abbiamo già presentato la nostra candidatura, il focus verrà spostato sullo studio individuale necessario alla sessione stessa, senza avanzare ulteriormente nel progetto.\
 Gli unici dettagli che intediamo rifinire nel corso di questo periodo sono quindi relativi alle presentazioni che esporremo al #p.cardin ed al #p.vardanega. \
-Dato che ancora non sappiamo quanto tempo sarà necessario per poter partecipare ad entrambi i colloqui, la durata di questo periodo è fissata a 3 settimane anzichè 2.
+Dato che ancora non sappiamo quanto tempo sarà necessario per poter partecipare ad entrambi i colloqui, la durata di questo periodo è fissata ad un mese anzichè 2 settimane, coprendo inoltre la maggior parte degli appelli d'esame a cui i membri del gruppo dovranno partecipare.
 
 ===== Rischi attesi
 I rischi che ci aspettiamo di correre in questo periodo sono i seguenti:
