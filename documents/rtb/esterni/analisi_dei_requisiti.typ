@@ -9,6 +9,7 @@
     [_#(p.zextras)_],
   ),
   changelog: (
+    "1.1.0", "2024-02-03" , p.fabbian, p.bonavigo, "Modifiche conseguenti ai commenti derivanti dalla revisione RTB",
     "1.0.1", "2024-02-03" , p.amadori, p.bonavigo, "Sistemati i riferimenti ai documenti esterni",
     "1.0.0", "2024-01-13" , p.furno, p.bonavigo, "Approvazione per RTB",
     "0.3.0", "2024-01-07" , (p.vedovato, p.bonavigo), p.fabbian,
@@ -983,88 +984,6 @@ Per essere i più precisi possibile, abbiamo seguito nella definizione degli err
 - *Postcondizioni*: Il client ha inserito all'interno dell'oggetto di argomenti della chiamata di metodo "EmailSubmission/set", contenuto nell'array "methodCalls" della richiesta, il parametro "onSuccessDestroyEmail";
 - *Scenario principale*: \
   + Il client specifica all'interno dell'oggetto di argomenti della chiamata di metodo il parametro "onSuccessDestroyEmail", il quale è una lista di identificativi di sottomissioni di email (EmailSubmission) per le quali l'oggetto Email con l'emailId corrispondente dovrebbe essere distrutto se l'operazione di creazione, aggiornamento o cancellazione avviene con successo. Questo meccanismo consente di specificare azioni aggiuntive da intraprendere sull'oggetto Email dopo che la sottomissione di email associata ha avuto successo;
-  
-==== UC48.3 - Ricezione della risposta alla richiesta di invio di una email
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di inviare una email, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'esito dell'operazione;
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di invio di una email;
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'esito dell'operazione di invio dell'email;
-
-#figure(image("//imgs/use_cases/Invio_email_dettaglio7.svg", width: 116%), caption: [Sottocasi UC48.3 - Ricezione della risposta alla richiesta di invio di una email])
-  
-===== UC48.3.1 - Ricezione del parametro "accountId" all'interno della risposta alla richiesta di invio di una email
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di inviare una email, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'esito dell'operazione. All'interno di quest'ultima deve essere presente il parametro "accountId";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di invio di una email contenente il parametro "accountId";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'esito dell'operazione di invio dell'email. Al suo interno deve essere presente il parametro "accountId", il quale rappresenta l'identificativo dell'account utilizzato per eseguire la richiesta;
-
-===== UC48.3.2 - Ricezione del parametro "oldState" all'interno della risposta alla richiesta di invio di una email
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di inviare una email, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'esito dell'operazione. All'interno di quest'ultima deve essere presente il parametro "oldState";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di invio di una email contenente il parametro "oldState";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'esito dell'operazione di invio dell'email. Al suo interno deve essere presente il parametro "oldState", il quale rappresenta lo stato precedente del sistema prima di effettuare le modifiche richieste;
-
-===== UC48.3.3 - Ricezione del parametro "newState" all'interno della risposta alla richiesta di invio di una email
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di inviare una email, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'esito dell'operazione. All'interno di quest'ultima deve essere presente il parametro "newState";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di invio di una email contenente il parametro "newState";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'esito dell'operazione di invio dell'email. Al suo interno deve essere presente il parametro "newState", il quale rappresenta lo stato del sistema dopo aver effettuato le modifiche richieste;
-
-===== UC48.3.4 - Ricezione del parametro "created" all'interno della risposta alla richiesta di invio di una email
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di inviare una email, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'esito dell'operazione. All'interno di quest'ultima deve essere presente il parametro "created";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di invio di una email contenente il parametro "created";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'esito dell'operazione di invio dell'email. Al suo interno deve essere presente il parametro "created", il quale indica l'elenco degli oggetti che sono stati creati con successo come risultato della chiamata. Questo elenco contiene le informazioni sugli oggetti creati, compresi i dettagli forniti dal server che non erano presenti nella richiesta inviata dal client. Se nessun oggetto è stato creato sarà pari a null;
-
-===== UC48.3.5 - Ricezione del parametro "updated" all'interno della risposta alla richiesta di invio di una email
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di inviare una email, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'esito dell'operazione. All'interno di quest'ultima deve essere presente il parametro "updated";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di invio di una email contenente il parametro "updated";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'esito dell'operazione di invio dell'email. Al suo interno deve essere presente il parametro "updated", il quale indica l'elenco degli oggetti che sono stati modificati con successo come risultato della chiamata. Questo elenco contiene le informazioni sugli oggetti modificati, compresi i dettagli forniti dal server che non erano presenti nella richiesta inviata dal client. Se nessun oggetto è stato modificato sarà pari a null;
-
-===== UC48.3.6 - Ricezione del parametro "destroyed" all'interno della risposta alla richiesta di invio di una email
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di inviare una email, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'esito dell'operazione. All'interno di quest'ultima deve essere presente il parametro "destroyed";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di invio di una email contenente il parametro "destroyed";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'esito dell'operazione di invio dell'email. Al suo interno deve essere presente il parametro "destroyed", il quale indica l'elenco degli identificativi degli oggetti che sono stati eliminati con successo come risultato della chiamata. Se nessun oggetto è stato eliminato sarà pari a null;
-
-===== UC48.3.7 - Ricezione del parametro "notCreated" all'interno della risposta alla richiesta di invio di una email
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di inviare una email, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'esito dell'operazione. All'interno di quest'ultima deve essere presente il parametro "notCreated";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di invio di una email contenente il parametro "notCreated";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'esito dell'operazione di invio dell'email. Al suo interno deve essere presente il parametro "notCreated", il quale indica un elenco degli oggetti che non sono stati creati con successo come risultato della chiamata. Per ogni oggetto che non è stato creato correttamente, viene fornito un oggetto SetError associato all'identificativo di creazione dell'oggetto. Se l'operazione è avvenuta con successo senza riscontrare problemi sarà pari a null;
-
-===== UC48.3.8 - Ricezione del parametro "notUpdated" all'interno della risposta alla richiesta di invio di una email
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di inviare una email, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'esito dell'operazione. All'interno di quest'ultima deve essere presente il parametro "notUpdated";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di invio di una email contenente il parametro "notUpdated";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'esito dell'operazione di invio dell'email. Al suo interno deve essere presente il parametro "notUpdated", il quale indica un elenco degli oggetti che non sono stati modificati con successo come risultato della chiamata. Per ogni oggetto che non è stato modificato correttamente, viene fornito un oggetto SetError associato all'identificativo dell'oggetto. Se l'operazione è avvenuta con successo senza riscontrare problemi sarà pari a null;
-
-===== UC48.3.9 - Ricezione del parametro "notDestroyed" all'interno della risposta alla richiesta di invio di una email
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di inviare una email, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'esito dell'operazione. All'interno di quest'ultima deve essere presente il parametro "notDestroyed";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di invio di una email contenente il parametro "notDestroyed";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'esito dell'operazione di invio dell'email. Al suo interno deve essere presente il parametro "notDestroyed", il quale indica un elenco degli oggetti che non sono stati distrutti con successo come risultato della chiamata. Per ogni oggetto che non è stato distrutto correttamente, viene fornito un oggetto SetError associato all'identificativo dell'oggetto. Se l'operazione è avvenuta con successo senza riscontrare problemi sarà pari a null;
 
 #figure(image("//imgs/use_cases/Ricezione_email.svg", width: 115%), caption: [UC49 - Ricezione email])
   
@@ -1182,48 +1101,6 @@ Per essere i più precisi possibile, abbiamo seguito nella definizione degli err
 - *Postcondizioni*: Il client ha inserito all'interno dell'oggetto di argomenti della chiamata di metodo "Email/get", contenuto nell'array "methodCalls" della richiesta, il parametro "maxBodyValueBytes";
 - *Scenario principale*: \
   + Il client specifica all'interno dell'oggetto di argomenti della chiamata di metodo il parametro "maxBodyValueBytes", il quale è un numero che, se posto maggiore di zero, fa si che la proprietà value di qualsiasi oggetto EmailBodyValue restituito in bodyValues debba essere troncata, se necessario, in modo che non superi questo numero di ottetti in dimensione. Se posto a 0 (impostazione predefinita) non si verificherà nessun troncamento;
-  
-==== UC49.3 - Ricezione della risposta alla richiesta di ricezione di una email
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di ricevere una email per visualizzarne il dettaglio, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'email richiesta;
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di ricezione di una email;
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'email richiesta;
-
-#figure(image("//imgs/use_cases/Ricezione_email_dettaglio4.svg", width: 125%), caption: [Sottocasi UC49.3 - Ricezione della risposta alla richiesta di ricezione di una email])
-  
-===== UC49.3.1 - Ricezione del parametro "accountId" all'interno della risposta alla richiesta di ricezione di una email
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di ricevere una email per visualizzarne il dettaglio, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'email richiesta. All'interno di quest'ultima deve essere presente il parametro "accountId";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di ricezione di una email contenente il parametro "accountId";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'email richiesta. Al suo interno deve essere presente il parametro "accountId", il quale rappresenta l'identificativo dell'account utilizzato per eseguire la richiesta;
-
-======= UC49.3.2 - Ricezione del parametro "state" all'interno della risposta alla richiesta di ricezione di una email
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di ricevere una email per visualizzarne il dettaglio, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'email richiesta. All'interno di quest'ultima deve essere presente il parametro "state";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di ricezione di una email contenente il parametro "state";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'email richiesta. Al suo interno deve essere presente il parametro "state", il quale rappresenta una stringa che identifica lo stato corrente dei dati di tipo Email sull'account del server. Questa stringa è utilizzata per tenere traccia delle modifiche apportate ai dati e per consentire ai client di sincronizzarsi con il server. Quando un client riceve una risposta con una stringa state diversa rispetto a una chiamata precedente, ciò indica che i dati di tipo Email sull'account sono stati modificati. Il client deve quindi adottare una delle seguenti azioni : può scegliere di scartare tutti gli oggetti di tipo Email che ha attualmente in cache e richiedere i dati aggiornati chiamando l'endpoint appropriato, oppure può chiamare l'endpoint Email/changes per ottenere un elenco dettagliato delle modifiche apportate ai dati di tipo Email dall'ultimo stato noto. Questo consente al client di sincronizzare le sue informazioni in modo più granulare, ricevendo solo le modifiche effettive;
-
-===== UC49.3.3 - Ricezione del parametro "list" all'interno della risposta alla richiesta di ricezione di una email
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di ricevere una email per visualizzarne il dettaglio, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'email richiesta. All'interno di quest'ultima deve essere presente il parametro "list";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di ricezione di una email contenente il parametro "list";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'email richiesta. Al suo interno deve essere presente il parametro "list", il quale è l'array che contiene gli oggetti Email richiesti. Questo array sarà vuoto se non sono stati trovati oggetti Email corrispondenti agli ids forniti o se l'argomento ids passato è anch'esso un array vuoto. I risultati potrebbero essere in un ordine diverso rispetto agli identificativi negli argomenti della richiesta. Se un identificativo identico è incluso più di una volta nella richiesta, il server deve includerlo solo una volta nell'array list o nell'argomento notFound della risposta;
-
-===== UC49.3.4 - Ricezione del parametro "notFound" all'interno della risposta alla richiesta di ricezione di una email
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di ricevere una email per visualizzarne il dettaglio, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'email richiesta. All'interno di quest'ultima deve essere presente il parametro "notFound";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di ricezione di una email contenente il parametro "notFound";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'email richiesta. Al suo interno deve essere presente il parametro "notFound", il quale è l'array che contiene gli identificativi passati nella richiesta per le Email che non esistono. L'array è vuoto se tutti gli identificativi richiesti sono stati trovati o se l'argomento ids passato era null o un array vuoto;
 
 #figure(image("//imgs/use_cases/Eliminazione_email.svg", width: 110%), caption: [UC50 - Eliminazione email])
   
@@ -1320,88 +1197,6 @@ Per essere i più precisi possibile, abbiamo seguito nella definizione degli err
 - *Postcondizioni*: Il client ha inserito all'interno dell'oggetto di argomenti della chiamata di metodo "Email/set", contenuto nell'array "methodCalls" della richiesta, il parametro "destroy";
 - *Scenario principale*: \
   + Il client specifica all'interno dell'oggetto di argomenti della chiamata di metodo il parametro "destroy", il quale è utilizzato per specificare l'intenzione di eliminare una email. Questo parametro è un array che contiene solamente l'identificativo dell'email da eliminare;
-  
-==== UC50.3 - Ricezione della risposta alla richiesta di eliminazione di una email
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di eliminare una email, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'esito dell'operazione;
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di eliminazione di una email;
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'esito dell'operazione di eliminazione dell'email;
-
-#figure(image("//imgs/use_cases/Eliminazione_email_dettaglio4.svg", width: 116%), caption: [Sottocasi UC50.3 - Ricezione della risposta alla richiesta di eliminazione di una email])
-  
-===== UC50.3.1 - Ricezione del parametro "accountId" all'interno della risposta alla richiesta di eliminazione di una email
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di eliminare una email, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'esito dell'operazione. All'interno di quest'ultima deve essere presente il parametro "accountId";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di eliminazione di una email contenente il parametro "accountId";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'esito dell'operazione di eliminazione dell'email. Al suo interno deve essere presente il parametro "accountId", il quale rappresenta l'identificativo dell'account utilizzato per eseguire la richiesta;
-
-===== UC50.3.2 - Ricezione del parametro "oldState" all'interno della risposta alla richiesta di eliminazione di una email
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di eliminare una email, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'esito dell'operazione. All'interno di quest'ultima deve essere presente il parametro "oldState";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di eliminazione di una email contenente il parametro "oldState";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'esito dell'operazione di eliminazione dell'email. Al suo interno deve essere presente il parametro "oldState", il quale rappresenta lo stato precedente del sistema prima di effettuare le modifiche richieste;
-
-===== UC50.3.3 - Ricezione del parametro "newState" all'interno della risposta alla richiesta di eliminazione di una email
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di eliminare una email, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'esito dell'operazione. All'interno di quest'ultima deve essere presente il parametro "newState";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di eliminazione di una email contenente il parametro "newState";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'esito dell'operazione di eliminazione dell'email. Al suo interno deve essere presente il parametro "newState", il quale rappresenta lo stato del sistema dopo aver effettuato le modifiche richieste;
-
-===== UC50.3.4 - Ricezione del parametro "created" all'interno della risposta alla richiesta di eliminazione di una email
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di eliminare una email, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'esito dell'operazione. All'interno di quest'ultima deve essere presente il parametro "created";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di eliminazione di una email contenente il parametro "created";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'esito dell'operazione di eliminazione dell'email. Al suo interno deve essere presente il parametro "created", il quale indica l'elenco degli oggetti che sono stati creati con successo come risultato della chiamata. Questo elenco contiene le informazioni sugli oggetti creati, compresi i dettagli forniti dal server che non erano presenti nella richiesta inviata dal client. Se nessun oggetto è stato creato sarà pari a null;
-
-===== UC50.3.5 - Ricezione del parametro "updated" all'interno della risposta alla richiesta di eliminazione di una email
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di eliminare una email, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'esito dell'operazione. All'interno di quest'ultima deve essere presente il parametro "updated";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di eliminazione di una email contenente il parametro "updated";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'esito dell'operazione di eliminazione dell'email. Al suo interno deve essere presente il parametro "updated", il quale indica l'elenco degli oggetti che sono stati modificati con successo come risultato della chiamata. Questo elenco contiene le informazioni sugli oggetti modificati, compresi i dettagli forniti dal server che non erano presenti nella richiesta inviata dal client. Se nessun oggetto è stato modificato sarà pari a null;
-
-===== UC50.3.6 - Ricezione del parametro "destroyed" all'interno della risposta alla richiesta di eliminazione di una email
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di eliminare una email, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'esito dell'operazione. All'interno di quest'ultima deve essere presente il parametro "destroyed";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di eliminazione di una email contenente il parametro "destroyed";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'esito dell'operazione di eliminazione dell'email. Al suo interno deve essere presente il parametro "destroyed", il quale indica l'elenco degli identificativi degli oggetti che sono stati eliminati con successo come risultato della chiamata. Se nessun oggetto è stato eliminato sarà pari a null;
-
-===== UC50.3.7 - Ricezione del parametro "notCreated" all'interno della risposta alla richiesta di eliminazione di una email
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di eliminare una email, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'esito dell'operazione. All'interno di quest'ultima deve essere presente il parametro "notCreated";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di eliminazione di una email contenente il parametro "notCreated";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'esito dell'operazione di eliminazione dell'email. Al suo interno deve essere presente il parametro "notCreated", il quale indica un elenco degli oggetti che non sono stati creati con successo come risultato della chiamata. Per ogni oggetto che non è stato creato correttamente, viene fornito un oggetto SetError associato all'identificativo di creazione dell'oggetto. Se l'operazione è avvenuta con successo senza riscontrare problemi sarà pari a null;
-
-===== UC50.3.8 - Ricezione del parametro "notUpdated" all'interno della risposta alla richiesta di eliminazione di una email
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di eliminare una email, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'esito dell'operazione. All'interno di quest'ultima deve essere presente il parametro "notUpdated";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di eliminazione di una email contenente il parametro "notUpdated";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'esito dell'operazione di eliminazione dell'email. Al suo interno deve essere presente il parametro "notUpdated", il quale indica un elenco degli oggetti che non sono stati modificati con successo come risultato della chiamata. Per ogni oggetto che non è stato modificato correttamente, viene fornito un oggetto SetError associato all'identificativo dell'oggetto. Se l'operazione è avvenuta con successo senza riscontrare problemi sarà pari a null;
-
-===== UC50.3.9 - Ricezione del parametro "notDestroyed" all'interno della risposta alla richiesta di eliminazione di una email
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di eliminare una email, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'esito dell'operazione. All'interno di quest'ultima deve essere presente il parametro "notDestroyed";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di eliminazione di una email contenente il parametro "notDestroyed";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'esito dell'operazione di eliminazione dell'email. Al suo interno deve essere presente il parametro "notDestroyed", il quale indica un elenco degli oggetti che non sono stati distrutti con successo come risultato della chiamata. Per ogni oggetto che non è stato distrutto correttamente, viene fornito un oggetto SetError associato all'identificativo dell'oggetto. Se l'operazione è avvenuta con successo senza riscontrare problemi sarà pari a null;
 
 #figure(image("//imgs/use_cases/Ricezione_cartella.svg", width: 110%), caption: [UC51 - Ricezione cartella])
   
@@ -1480,48 +1275,6 @@ Per essere i più precisi possibile, abbiamo seguito nella definizione degli err
 - *Scenario principale*: \
   + Il client specifica all'interno dell'oggetto di argomenti della chiamata di metodo il parametro "properties", il quale è un array che, se fornito, serve per restituire solo le proprietà della cartella elencate nell'array stesso. Se è nullo, vengono restituite tutte le proprietà della cartella. La proprietà "id" della cartella viene sempre restituita, anche se non richiesta esplicitamente. Se viene richiesta una proprietà non valida, la chiamata DEVE essere respinta con un errore "invalidArguments";
   
-==== UC51.3 - Ricezione dela risposta alla richiesta di ricezione di una cartella
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di ricevere una cartella per visualizzarne il dettaglio, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene la cartella richiesta;
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di ricezione di una cartella;
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene la cartella richiesta;
-
-#figure(image("//imgs/use_cases/Ricezione_cartella_dettaglio4.svg", width: 125%), caption: [Sottocasi UC51.3 - Ricezione dela risposta alla richiesta di ricezione di una cartella])
-  
-===== UC51.3.1 - Ricezione del parametro "accountId" all'interno della risposta alla richiesta di ricezione di una cartella
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di ricevere una cartella per visualizzarne il dettaglio, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene la cartella richiesta. All'interno di quest'ultima deve essere presente il parametro "accountId";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di ricezione di una cartella contenente il parametro "accountId";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene la cartella richiesta. Al suo interno deve essere presente il parametro "accountId", il quale rappresenta l'identificativo dell'account utilizzato per eseguire la richiesta;
-
-===== UC51.3.2 - Ricezione del parametro "state" all'interno della risposta alla richiesta di ricezione di una cartella
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di ricevere una cartella per visualizzarne il dettaglio, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene la cartella richiesta. All'interno di quest'ultima deve essere presente il parametro "state";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di ricezione di una cartella contenente il parametro "state";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene la cartella richiesta. Al suo interno deve essere presente il parametro "state", il quale rappresenta una stringa che identifica lo stato corrente dei dati di tipo Mailbox sull'account del server. Questa stringa è utilizzata per tenere traccia delle modifiche apportate ai dati e per consentire ai client di sincronizzarsi con il server. Quando un client riceve una risposta con una stringa state diversa rispetto a una chiamata precedente, ciò indica che i dati di tipo Mailbox sull'account sono stati modificati. Il client deve quindi adottare una delle seguenti azioni : può scegliere di scartare tutti gli oggetti di tipo Mailbox che ha attualmente in cache e richiedere i dati aggiornati chiamando l'endpoint appropriato, oppure può chiamare l'endpoint Mailbox/changes per ottenere un elenco dettagliato delle modifiche apportate ai dati di tipo Mailbox dall'ultimo stato noto. Questo consente al client di sincronizzare le sue informazioni in modo più granulare, ricevendo solo le modifiche effettive;
-
-===== UC51.3.3 - Ricezione del parametro "list" all'interno della risposta alla richiesta di ricezione di una cartella
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di ricevere una cartella per visualizzarne il dettaglio, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene la cartella richiesta. All'interno di quest'ultima deve essere presente il parametro "list";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di ricezione di una cartella contenente il parametro "list";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene la cartella richiesta. Al suo interno deve essere presente il parametro "list", il quale è l'array che contiene gli oggetti Mailbox richiesti. Questo array sarà vuoto se non sono stati trovati oggetti Mailbox corrispondenti agli ids forniti o se l'argomento ids passato è anch'esso un array vuoto. I risultati potrebbero essere in un ordine diverso rispetto agli identificativi negli argomenti della richiesta. Se un identificativo identico è incluso più di una volta nella richiesta, il server deve includerlo solo una volta nell'array list o nell'argomento notFound della risposta;
-
-===== UC51.3.4 - Ricezione del parametro "notFound" all'interno della risposta alla richiesta di ricezione di una cartella
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di ricevere una cartella per visualizzarne il dettaglio, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene la cartella richiesta. All'interno di quest'ultima deve essere presente il parametro "notFound";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di ricezione di una cartella contenente il parametro "notFound";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene la cartella richiesta. Al suo interno deve essere presente il parametro "notFound", il quale è l'array che contiene gli identificativi passati nella richiesta per le Mailbox che non esistono. L'array è vuoto se tutti gli identificativi richiesti sono stati trovati o se l'argomento ids passato era null o un array vuoto;
-
 #figure(image("//imgs/use_cases/Creazione_cartella.svg", width: 125%), caption: [UC52 - Creazione cartella])
   
 === UC52 - Creazione cartella
@@ -1641,88 +1394,6 @@ Per essere i più precisi possibile, abbiamo seguito nella definizione degli err
 - *Scenario principale*: \
   + Il client specifica all'interno dell'oggetto di argomenti della chiamata di metodo il parametro "destroy", il quale viene impostato a null, dato che nella creazione di una cartella nessun oggetto deve essere distrutto;
 
-==== UC52.3 - Ricezione della risposta alla richiesta di creazione di una cartella
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di creare una cartella, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'esito dell'operazione;
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di creazione di una cartella;
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'esito dell'operazione di creazione della cartella;
-
-#figure(image("//imgs/use_cases/Creazione_cartella_dettaglio5.svg", width: 116%), caption: [Sottocasi UC52.3 - Ricezione della risposta alla richiesta di creazione di una cartella])
-  
-===== UC52.3.1 - Ricezione del parametro "accountId" all'interno della risposta alla richiesta di creazione di una cartella
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di creare una cartella, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'esito dell'operazione. All'interno di quest'ultima deve essere presente il parametro "accountId";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di creazione di una cartella contenente il parametro "accountId";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'esito dell'operazione di creazione della cartella. Al suo interno deve essere presente il parametro "accountId", il quale rappresenta l'identificativo dell'account utilizzato per eseguire la richiesta;
-
-===== UC52.3.2 - Ricezione del parametro "oldState" all'interno della risposta alla richiesta di creazione di una cartella
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di creare una cartella, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'esito dell'operazione. All'interno di quest'ultima deve essere presente il parametro "oldState";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di creazione di una cartella contenente il parametro "oldState";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'esito dell'operazione di creazione della cartella. Al suo interno deve essere presente il parametro "oldState", il quale rappresenta lo stato precedente del sistema prima di effettuare le modifiche richieste;
-
-===== UC52.3.3 - Ricezione del parametro "newState" all'interno della risposta alla richiesta di creazione di una cartella
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di creare una cartella, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'esito dell'operazione. All'interno di quest'ultima deve essere presente il parametro "newState";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di creazione di una cartella contenente il parametro "newState";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'esito dell'operazione di creazione della cartella. Al suo interno deve essere presente il parametro "newState", il quale rappresenta lo stato del sistema dopo aver effettuato le modifiche richieste;
-
-===== UC52.3.4 - Ricezione del parametro "created" all'interno della risposta alla richiesta di creazione di una cartella
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di creare una cartella, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'esito dell'operazione. All'interno di quest'ultima deve essere presente il parametro "created";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di creazione di una cartella contenente il parametro "created";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'esito dell'operazione di creazione della cartella. Al suo interno deve essere presente il parametro "created", il quale indica l'elenco degli oggetti che sono stati creati con successo come risultato della chiamata. Questo elenco contiene le informazioni sugli oggetti creati, compresi i dettagli forniti dal server che non erano presenti nella richiesta inviata dal client. Se nessun oggetto è stato creato sarà pari a null;
-
-===== UC52.3.5 - Ricezione del parametro "updated" all'interno della risposta alla richiesta di creazione di una cartella
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di creare una cartella, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'esito dell'operazione. All'interno di quest'ultima deve essere presente il parametro "updated";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di creazione di una cartella contenente il parametro "updated";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'esito dell'operazione di creazione della cartella. Al suo interno deve essere presente il parametro "updated", il quale indica l'elenco degli oggetti che sono stati modificati con successo come risultato della chiamata. Questo elenco contiene le informazioni sugli oggetti modificati, compresi i dettagli forniti dal server che non erano presenti nella richiesta inviata dal client. Se nessun oggetto è stato modificato sarà pari a null;
-
-===== UC52.3.6 - Ricezione del parametro "destroyed" all'interno della risposta alla richiesta di creazione di una cartella
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di creare una cartella, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'esito dell'operazione. All'interno di quest'ultima deve essere presente il parametro "destroyed";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di creazione di una cartella contenente il parametro "destroyed";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'esito dell'operazione di creazione della cartella. Al suo interno deve essere presente il parametro "destroyed", il quale indica l'elenco degli identificativi degli oggetti che sono stati eliminati con successo come risultato della chiamata. Se nessun oggetto è stato eliminato sarà pari a null;
-
-===== UC52.3.7 - Ricezione del parametro "notCreated" all'interno della risposta alla richiesta di creazione di una cartella
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di creare una cartella, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'esito dell'operazione. All'interno di quest'ultima deve essere presente il parametro "notCreated";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di creazione di una cartella contenente il parametro "notCreated";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'esito dell'operazione di creazione della cartella. Al suo interno deve essere presente il parametro "notCreated", il quale indica un elenco degli oggetti che non sono stati creati con successo come risultato della chiamata. Per ogni oggetto che non è stato creato correttamente, viene fornito un oggetto SetError associato all'identificativo di creazione dell'oggetto. Se l'operazione è avvenuta con successo senza riscontrare problemi sarà pari a null;
-
-===== UC52.3.8 - Ricezione del parametro "notUpdated" all'interno della risposta alla richiesta di creazione di una cartella
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di creare una cartella, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'esito dell'operazione. All'interno di quest'ultima deve essere presente il parametro "notUpdated";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di creazione di una cartella contenente il parametro "notUpdated";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'esito dell'operazione di creazione della cartella. Al suo interno deve essere presente il parametro "notUpdated", il quale indica un elenco degli oggetti che non sono stati modificati con successo come risultato della chiamata. Per ogni oggetto che non è stato modificato correttamente, viene fornito un oggetto SetError associato all'identificativo dell'oggetto. Se l'operazione è avvenuta con successo senza riscontrare problemi sarà pari a null;
-
-===== UC52.3.9 - Ricezione del parametro "notDestroyed" all'interno della risposta alla richiesta di creazione di una cartella
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di creare una cartella, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'esito dell'operazione. All'interno di quest'ultima deve essere presente il parametro "notDestroyed";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di creazione di una cartella contenente il parametro "notDestroyed";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'esito dell'operazione di creazione della cartella. Al suo interno deve essere presente il parametro "notDestroyed", il quale indica un elenco degli oggetti che non sono stati distrutti con successo come risultato della chiamata. Per ogni oggetto che non è stato distrutto correttamente, viene fornito un oggetto SetError associato all'identificativo dell'oggetto. Se l'operazione è avvenuta con successo senza riscontrare problemi sarà pari a null;
-
 #figure(image("//imgs/use_cases/Modifica_cartella.svg", width: 125%), caption: [UC53 - Modifica cartella])
   
 === UC53 - Modifica cartella
@@ -1839,88 +1510,6 @@ Per essere i più precisi possibile, abbiamo seguito nella definizione degli err
 - *Scenario principale*: \
   + Il client specifica all'interno dell'oggetto di argomenti della chiamata di metodo il parametro "destroy", il quale viene impostato a null, dato che nella modifica di una cartella nessun oggetto deve essere distrutto;
 
-==== UC53.3 - Ricezione della risposta alla richiesta di modifica di una cartella
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di modificare una cartella, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'esito dell'operazione;
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di modifica di una cartella;
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'esito dell'operazione di modifica della cartella;
-
-#figure(image("//imgs/use_cases/Modifica_cartella_dettaglio5.svg", width: 117%), caption: [Sottocasi UC53.3 - Ricezione della risposta alla richiesta di modifica di una cartella])
-
-===== UC53.3.1 - Ricezione del parametro "accountId" all'interno della risposta alla richiesta di modifica di una cartella
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di modificare una cartella, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'esito dell'operazione. All'interno di quest'ultima deve essere presente il parametro "accountId";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di modifica di una cartella contenente il parametro "accountId";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'esito dell'operazione di modifica della cartella. Al suo interno deve essere presente il parametro "accountId", il quale rappresenta l'identificativo dell'account utilizzato per eseguire la richiesta;
-
-===== UC53.3.2 - Ricezione del parametro "oldState" all'interno della risposta alla richiesta di modifica di una cartella
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di modificare una cartella, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'esito dell'operazione. All'interno di quest'ultima deve essere presente il parametro "oldState";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di modifica di una cartella contenente il parametro "oldState";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'esito dell'operazione di modifica della cartella. Al suo interno deve essere presente il parametro "oldState", il quale rappresenta lo stato precedente del sistema prima di effettuare le modifiche richieste;
-
-===== UC53.3.3 - Ricezione del parametro "newState" all'interno della risposta alla richiesta di modifica di una cartella
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di modificare una cartella, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'esito dell'operazione. All'interno di quest'ultima deve essere presente il parametro "newState";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di modifica di una cartella contenente il parametro "newState";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'esito dell'operazione di modifica della cartella. Al suo interno deve essere presente il parametro "newState", il quale rappresenta lo stato del sistema dopo aver effettuato le modifiche richieste;
-
-===== UC53.3.4 - Ricezione del parametro "created" all'interno della risposta alla richiesta di modifica di una cartella
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di modificare una cartella, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'esito dell'operazione. All'interno di quest'ultima deve essere presente il parametro "created";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di modifica di una cartella contenente il parametro "created";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'esito dell'operazione di modifica della cartella. Al suo interno deve essere presente il parametro "created", il quale indica l'elenco degli oggetti che sono stati creati con successo come risultato della chiamata. Questo elenco contiene le informazioni sugli oggetti creati, compresi i dettagli forniti dal server che non erano presenti nella richiesta inviata dal client. Se nessun oggetto è stato creato sarà pari a null;
-
-===== UC53.3.5 - Ricezione del parametro "updated" all'interno della risposta alla richiesta di modifica di una cartella
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di modificare una cartella, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'esito dell'operazione. All'interno di quest'ultima deve essere presente il parametro "updated";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di modifica di una cartella contenente il parametro "updated";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'esito dell'operazione di modifica della cartella. Al suo interno deve essere presente il parametro "updated", il quale indica l'elenco degli oggetti che sono stati modificati con successo come risultato della chiamata. Questo elenco contiene le informazioni sugli oggetti modificati, compresi i dettagli forniti dal server che non erano presenti nella richiesta inviata dal client. Se nessun oggetto è stato modificato sarà pari a null;
-
-===== UC53.3.6 - Ricezione del parametro "destroyed" all'interno della risposta alla richiesta di modifica di una cartella
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di modificare una cartella, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'esito dell'operazione. All'interno di quest'ultima deve essere presente il parametro "destroyed";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di modifica di una cartella contenente il parametro "destroyed";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'esito dell'operazione di modifica della cartella. Al suo interno deve essere presente il parametro "destroyed", il quale indica l'elenco degli identificativi degli oggetti che sono stati eliminati con successo come risultato della chiamata. Se nessun oggetto è stato eliminato sarà pari a null;
-
-===== UC53.3.7 - Ricezione del parametro "notCreated" all'interno della risposta alla richiesta di modifica di una cartella
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di modificare una cartella, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'esito dell'operazione. All'interno di quest'ultima deve essere presente il parametro "notCreated";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di modifica di una cartella contenente il parametro "notCreated";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'esito dell'operazione di modifica della cartella. Al suo interno deve essere presente il parametro "notCreated", il quale indica un elenco degli oggetti che non sono stati creati con successo come risultato della chiamata. Per ogni oggetto che non è stato creato correttamente, viene fornito un oggetto SetError associato all'identificativo di creazione dell'oggetto. Se l'operazione è avvenuta con successo senza riscontrare problemi sarà pari a null;
-
-===== UC53.3.8 - Ricezione del parametro "notUpdated" all'interno della risposta alla richiesta di modifica di una cartella
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di modificare una cartella, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'esito dell'operazione. All'interno di quest'ultima deve essere presente il parametro "notUpdated";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di modifica di una cartella contenente il parametro "notUpdated";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'esito dell'operazione di modifica della cartella. Al suo interno deve essere presente il parametro "notUpdated", il quale indica un elenco degli oggetti che non sono stati modificati con successo come risultato della chiamata. Per ogni oggetto che non è stato modificato correttamente, viene fornito un oggetto SetError associato all'identificativo dell'oggetto. Se l'operazione è avvenuta con successo senza riscontrare problemi sarà pari a null;
-
-===== UC53.3.9 - Ricezione del parametro "notDestroyed" all'interno della risposta alla richiesta di modifica di una cartella
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di modificare una cartella, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'esito dell'operazione. All'interno di quest'ultima deve essere presente il parametro "notDestroyed";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di modifica di una cartella contenente il parametro "notDestroyed";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'esito dell'operazione di modifica della cartella. Al suo interno deve essere presente il parametro "notDestroyed", il quale indica un elenco degli oggetti che non sono stati distrutti con successo come risultato della chiamata. Per ogni oggetto che non è stato distrutto correttamente, viene fornito un oggetto SetError associato all'identificativo dell'oggetto. Se l'operazione è avvenuta con successo senza riscontrare problemi sarà pari a null;
-
 #figure(image("//imgs/use_cases/Eliminazione_cartella.svg", width: 120%), caption: [UC54 - Eliminazione cartella])
   
 === UC54 - Eliminazione cartella
@@ -2026,88 +1615,6 @@ Per essere i più precisi possibile, abbiamo seguito nella definizione degli err
 - *Postcondizioni*: Il client ha inserito all'interno dell'oggetto di argomenti della chiamata di metodo "Mailbox/set", contenuto nell'array "methodCalls" della richiesta, il parametro "onDestroyRemoveEmails";
 - *Scenario principale*: \
   + Il client specifica all'interno dell'oggetto di argomenti della chiamata di metodo il parametro "onDestroyRemoveEmails", il quale determina il comportamento desiderato quando si cerca di eliminare una cartella che contiene ancora delle email. La sua opzione predefinita è false. Se impostato su false qualsiasi tentativo di eliminare una cartella che contiene ancora delle email sarà respinto e verrà restituito un errore di tipo "mailboxHasEmail", indicando che la cartella non può essere eliminata perché contiene ancora delle email. Se impostato su true allora quando si elimina una cartella, le email che erano contenute in essa saranno rimosse dalla cartella. Se queste email non sono presenti in nessun'altra cartella, verranno distrutte insieme alla cartella stessa;
-
-==== UC54.3 - Ricezione della risposta alla richiesta di eliminazione di una cartella
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di eliminare una cartella, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'esito dell'operazione;
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di eliminazione di una cartella;
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'esito dell'operazione di eliminazione della cartella;
-
-#figure(image("//imgs/use_cases/Eliminazione_cartella_dettaglio4.svg", width: 117%), caption: [Sottocasi UC54.3 - Ricezione della risposta alla richiesta di eliminazione di una cartella])
-  
-===== UC54.3.1 - Ricezione del parametro "accountId" all'interno della risposta alla richiesta di eliminazione di una cartella
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di eliminare una cartella, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'esito dell'operazione. All'interno di quest'ultima deve essere presente il parametro "accountId";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di eliminazione di una cartella contenente il parametro "accountId";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'esito dell'operazione di eliminazione della cartella. Al suo interno deve essere presente il parametro "accountId", il quale rappresenta l'identificativo dell'account utilizzato per eseguire la richiesta;
-
-===== UC54.3.2 - Ricezione del parametro "oldState" all'interno della risposta alla richiesta di eliminazione di una cartella
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di eliminare una cartella, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'esito dell'operazione. All'interno di quest'ultima deve essere presente il parametro "oldState";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di eliminazione di una cartella contenente il parametro "oldState";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'esito dell'operazione di eliminazione della cartella. Al suo interno deve essere presente il parametro "oldState", il quale rappresenta lo stato precedente del sistema prima di effettuare le modifiche richieste;
-
-===== UC54.3.3 - Ricezione del parametro "newState" all'interno della risposta alla richiesta di eliminazione di una cartella
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di eliminare una cartella, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'esito dell'operazione. All'interno di quest'ultima deve essere presente il parametro "newState";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di eliminazione di una cartella contenente il parametro "newState";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'esito dell'operazione di eliminazione della cartella. Al suo interno deve essere presente il parametro "newState", il quale rappresenta lo stato del sistema dopo aver effettuato le modifiche richieste;
-
-===== UC54.3.4 - Ricezione del parametro "created" all'interno della risposta alla richiesta di eliminazione di una cartella
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di eliminare una cartella, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'esito dell'operazione. All'interno di quest'ultima deve essere presente il parametro "created";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di eliminazione di una cartella contenente il parametro "created";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'esito dell'operazione di eliminazione della cartella. Al suo interno deve essere presente il parametro "created", il quale indica l'elenco degli oggetti che sono stati creati con successo come risultato della chiamata. Questo elenco contiene le informazioni sugli oggetti creati, compresi i dettagli forniti dal server che non erano presenti nella richiesta inviata dal client. Se nessun oggetto è stato creato sarà pari a null;
-
-===== UC54.3.5 - Ricezione del parametro "updated" all'interno della risposta alla richiesta di eliminazione di una cartella
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di eliminare una cartella, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'esito dell'operazione. All'interno di quest'ultima deve essere presente il parametro "updated";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di eliminazione di una cartella contenente il parametro "updated";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'esito dell'operazione di eliminazione della cartella. Al suo interno deve essere presente il parametro "updated", il quale indica l'elenco degli oggetti che sono stati modificati con successo come risultato della chiamata. Questo elenco contiene le informazioni sugli oggetti modificati, compresi i dettagli forniti dal server che non erano presenti nella richiesta inviata dal client. Se nessun oggetto è stato modificato sarà pari a null;
-
-===== UC54.3.6 - Ricezione del parametro "destroyed" all'interno della risposta alla richiesta di eliminazione di una cartella
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di eliminare una cartella, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'esito dell'operazione. All'interno di quest'ultima deve essere presente il parametro "destroyed";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di eliminazione di una cartella contenente il parametro "destroyed";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'esito dell'operazione di eliminazione della cartella. Al suo interno deve essere presente il parametro "destroyed", il quale indica l'elenco degli identificativi degli oggetti che sono stati eliminati con successo come risultato della chiamata. Se nessun oggetto è stato eliminato sarà pari a null;
-
-===== UC54.3.7 - Ricezione del parametro "notCreated" all'interno della risposta alla richiesta di eliminazione di una cartella
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di eliminare una cartella, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'esito dell'operazione. All'interno di quest'ultima deve essere presente il parametro "notCreated";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di eliminazione di una cartella contenente il parametro "notCreated";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'esito dell'operazione di eliminazione della cartella. Al suo interno deve essere presente il parametro "notCreated", il quale indica un elenco degli oggetti che non sono stati creati con successo come risultato della chiamata. Per ogni oggetto che non è stato creato correttamente, viene fornito un oggetto SetError associato all'identificativo di creazione dell'oggetto. Se l'operazione è avvenuta con successo senza riscontrare problemi sarà pari a null;
-
-===== UC54.3.8 - Ricezione del parametro "notUpdated" all'interno della risposta alla richiesta di eliminazione di una cartella
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di eliminare una cartella, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'esito dell'operazione. All'interno di quest'ultima deve essere presente il parametro "notUpdated";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di eliminazione di una cartella contenente il parametro "notUpdated";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'esito dell'operazione di eliminazione della cartella. Al suo interno deve essere presente il parametro "notUpdated", il quale indica un elenco degli oggetti che non sono stati modificati con successo come risultato della chiamata. Per ogni oggetto che non è stato modificato correttamente, viene fornito un oggetto SetError associato all'identificativo dell'oggetto. Se l'operazione è avvenuta con successo senza riscontrare problemi sarà pari a null;
-
-===== UC54.3.9 - Ricezione del parametro "notDestroyed" all'interno della risposta alla richiesta di eliminazione di una cartella
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di eliminare una cartella, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'esito dell'operazione. All'interno di quest'ultima deve essere presente il parametro "notDestroyed";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di eliminazione di una cartella contenente il parametro "notDestroyed";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'esito dell'operazione di eliminazione della cartella. Al suo interno deve essere presente il parametro "notDestroyed", il quale indica un elenco degli oggetti che non sono stati distrutti con successo come risultato della chiamata. Per ogni oggetto che non è stato distrutto correttamente, viene fornito un oggetto SetError associato all'identificativo dell'oggetto. Se l'operazione è avvenuta con successo senza riscontrare problemi sarà pari a null;
 
 #figure(image("//imgs/use_cases/Gestione_contenuti_cartella.svg", width: 125%), caption: [UC55 - Gestione contenuti cartella])
   
@@ -2254,88 +1761,6 @@ Per essere i più precisi possibile, abbiamo seguito nella definizione degli err
 - *Postcondizioni*: Il client ha inserito all'interno dell'oggetto di argomenti della chiamata di metodo "Email/set", contenuto nell'array "methodCalls" della richiesta, il parametro "destroy";
 - *Scenario principale*: \
   + Il client specifica all'interno dell'oggetto di argomenti della chiamata di metodo il parametro "destroy",  il quale viene impostato a null, dato che nella gestione dei contenuti di una cartella nessun oggetto deve essere distrutto;
-
-==== UC55.3 - Ricezione della risposta alla richiesta di gestione dei contenuti di una cartella
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di gestire i contenuti di una cartella, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'esito delle operazioni;
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di gestione dei contenuti di una cartella;
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'esito delle operazioni di gestione dei contenuti di una cartella;
-
-#figure(image("//imgs/use_cases/Gestione_contenuti_cartella_dettaglio5.svg", width: 114%), caption: [Sottocasi UC55.3 - Ricezione della risposta alla richiesta di gestione dei contenuti di una cartella])
-  
-===== UC55.3.1 - Ricezione del parametro "accountId" all'interno della risposta alla richiesta di gestione dei contenuti di una cartella
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di gestire i contenuti di una cartella, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'esito delle operazioni. All'interno di quest'ultima deve essere presente il parametro "accountId";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di gestione dei contenuti di una cartella contenente il parametro "accountId";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'esito delle operazioni di gestione dei contenuti di una cartella. Al suo interno deve essere presente il parametro "accountId", il quale rappresenta l'identificativo dell'account utilizzato per eseguire la richiesta;
-
-===== UC55.3.2 - Ricezione del parametro "oldState" all'interno della risposta alla richiesta di gestione dei contenuti di una cartella
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di gestire i contenuti di una cartella, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'esito delle operazioni. All'interno di quest'ultima deve essere presente il parametro "oldState";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di gestione dei contenuti di una cartella contenente il parametro "oldState";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'esito delle operazioni di gestione dei contenuti di una cartella. Al suo interno deve essere presente il parametro "oldState", il quale rappresenta lo stato precedente del sistema prima di effettuare le modifiche richieste;
-
-===== UC55.3.3 - Ricezione del parametro "newState" all'interno della risposta alla richiesta di gestione dei contenuti di una cartella
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di gestire i contenuti di una cartella, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'esito delle operazioni. All'interno di quest'ultima deve essere presente il parametro "newState";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di gestione dei contenuti di una cartella contenente il parametro "newState";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'esito delle operazioni di gestione dei contenuti di una cartella. Al suo interno deve essere presente il parametro "newState", il quale rappresenta lo stato del sistema dopo aver effettuato le modifiche richieste;
-
-===== UC55.3.4 - Ricezione del parametro "created" all'interno della risposta alla richiesta di gestione dei contenuti di una cartella
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di gestire i contenuti di una cartella, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'esito delle operazioni. All'interno di quest'ultima deve essere presente il parametro "created";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di gestione dei contenuti di una cartella contenente il parametro "created";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'esito delle operazioni di gestione dei contenuti di una cartella. Al suo interno deve essere presente il parametro "created", il quale indica l'elenco degli oggetti che sono stati creati con successo come risultato della chiamata. Questo elenco contiene le informazioni sugli oggetti creati, compresi i dettagli forniti dal server che non erano presenti nella richiesta inviata dal client. Se nessun oggetto è stato creato sarà pari a null;
-
-===== UC55.3.5 - Ricezione del parametro "updated" all'interno della risposta alla richiesta di gestione dei contenuti di una cartella
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di gestire i contenuti di una cartella, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'esito delle operazioni. All'interno di quest'ultima deve essere presente il parametro "updated";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di gestione dei contenuti di una cartella contenente il parametro "updated";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'esito delle operazioni di gestione dei contenuti di una cartella. Al suo interno deve essere presente il parametro "updated", il quale indica l'elenco degli oggetti che sono stati modificati con successo come risultato della chiamata. Questo elenco contiene le informazioni sugli oggetti modificati, compresi i dettagli forniti dal server che non erano presenti nella richiesta inviata dal client. Se nessun oggetto è stato modificato sarà pari a null;
-
-===== UC55.3.6 - Ricezione del parametro "destroyed" all'interno della risposta alla richiesta di gestione dei contenuti di una cartella
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di gestire i contenuti di una cartella, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'esito delle operazioni. All'interno di quest'ultima deve essere presente il parametro "destroyed";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di gestione dei contenuti di una cartella contenente il parametro "destroyed";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'esito delle operazioni di gestione dei contenuti di una cartella. Al suo interno deve essere presente il parametro "destroyed", il quale indica l'elenco degli identificativi degli oggetti che sono stati eliminati con successo come risultato della chiamata. Se nessun oggetto è stato eliminato sarà pari a null;
-
-===== UC55.3.7 - Ricezione del parametro "notCreated" all'interno della risposta alla richiesta di gestione dei contenuti di una cartella
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di gestire i contenuti di una cartella, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'esito delle operazioni. All'interno di quest'ultima deve essere presente il parametro "notCreated";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di gestione dei contenuti di una cartella contenente il parametro "notCreated";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'esito delle operazioni di gestione dei contenuti di una cartella. Al suo interno deve essere presente il parametro "notCreated", il quale indica un elenco degli oggetti che non sono stati creati con successo come risultato della chiamata. Per ogni oggetto che non è stato creato correttamente, viene fornito un oggetto SetError associato all'identificativo di creazione dell'oggetto. Se l'operazione è avvenuta con successo senza riscontrare problemi sarà pari a null;
-
-===== UC55.3.8 - Ricezione del parametro "notUpdated" all'interno della risposta alla richiesta di gestione dei contenuti di una cartella
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di gestire i contenuti di una cartella, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'esito delle operazioni. All'interno di quest'ultima deve essere presente il parametro "notUpdated";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di gestione dei contenuti di una cartella contenente il parametro "notUpdated";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'esito delle operazioni di gestione dei contenuti di una cartella. Al suo interno deve essere presente il parametro "notUpdated", il quale indica un elenco degli oggetti che non sono stati modificati con successo come risultato della chiamata. Per ogni oggetto che non è stato modificato correttamente, viene fornito un oggetto SetError associato all'identificativo dell'oggetto. Se l'operazione è avvenuta con successo senza riscontrare problemi sarà pari a null;
-
-===== UC55.3.9 - Ricezione del parametro "notDestroyed" all'interno della risposta alla richiesta di gestione dei contenuti di una cartella
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di gestire i contenuti di una cartella, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'esito delle operazioni. All'interno di quest'ultima deve essere presente il parametro "notDestroyed";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di gestione dei contenuti di una cartella contenente il parametro "notDestroyed";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'esito delle operazioni di gestione dei contenuti di una cartella. Al suo interno deve essere presente il parametro "notDestroyed", il quale indica un elenco degli oggetti che non sono stati distrutti con successo come risultato della chiamata. Per ogni oggetto che non è stato distrutto correttamente, viene fornito un oggetto SetError associato all'identificativo dell'oggetto. Se l'operazione è avvenuta con successo senza riscontrare problemi sarà pari a null;
 
 #figure(image("//imgs/use_cases/Creazione_condivisione_cartella.svg", width: 125%), caption: [UC56 - Creazione condivisione cartella])
   
@@ -2536,88 +1961,6 @@ Per essere i più precisi possibile, abbiamo seguito nella definizione degli err
 - *Scenario principale*: \
   + Il client specifica all'interno dell'oggetto di argomenti della chiamata di metodo il parametro "destroy", il quale viene impostato a null, dato che nella modifica della proprietà di condivisione di una cartella nessun oggetto deve essere distrutto;
 
-==== UC56.3 - Ricezione della risposta alla richiesta di creazione della condivisione di una cartella
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di condividere una cartella, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'esito delle operazioni;
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di creazione della condivisione di una cartella;
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'esito delle operazioni di creazione della condivisione di una cartella;
-
-#figure(image("//imgs/use_cases/Creazione_condivisione_cartella_dettaglio7.svg", width: 114%), caption: [Sottocasi UC56.3 - Ricezione della risposta alla richiesta di creazione della condivisione di una cartella])
-  
-===== UC56.3.1 - Ricezione del parametro "accountId" all'interno della risposta alla richiesta di creazione della condivisione di una cartella
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di condividere una cartella, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'esito delle operazioni. All'interno di quest'ultima deve essere presente il parametro "accountId";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di creazione della condivisione di una cartella contenente il parametro "accountId";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'esito delle operazioni di creazione della condivisione di una cartella. Al suo interno deve essere presente il parametro "accountId", il quale rappresenta l'identificativo dell'account utilizzato per eseguire la richiesta;
-
-===== UC56.3.2 - Ricezione del parametro "oldState" all'interno della risposta alla richiesta di creazione della condivisione di una cartella
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di condividere una cartella, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'esito delle operazioni. All'interno di quest'ultima deve essere presente il parametro "oldState";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di creazione della condivisione di una cartella contenente il parametro "oldState";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'esito delle operazioni di creazione della condivisione di una cartella. Al suo interno deve essere presente il parametro "oldState", il quale rappresenta lo stato precedente del sistema prima di effettuare le modifiche richieste;
-
-===== UC56.3.3 - Ricezione del parametro "newState" all'interno della risposta alla richiesta di creazione della condivisione di una cartella
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di condividere una cartella, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'esito delle operazioni. All'interno di quest'ultima deve essere presente il parametro "newState";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di creazione della condivisione di una cartella contenente il parametro "newState";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'esito delle operazioni di creazione della condivisione di una cartella. Al suo interno deve essere presente il parametro "newState", il quale rappresenta lo stato del sistema dopo aver effettuato le modifiche richieste;
-
-===== UC56.3.4 - Ricezione del parametro "created" all'interno della risposta alla richiesta di creazione della condivisione di una cartella
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di condividere una cartella, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'esito delle operazioni. All'interno di quest'ultima deve essere presente il parametro "created";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di creazione della condivisione di una cartella contenente il parametro "created";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'esito delle operazioni di creazione della condivisione di una cartella. Al suo interno deve essere presente il parametro "created", il quale indica l'elenco degli oggetti che sono stati creati con successo come risultato della chiamata. Questo elenco contiene le informazioni sugli oggetti creati, compresi i dettagli forniti dal server che non erano presenti nella richiesta inviata dal client. Se nessun oggetto è stato creato sarà pari a null;
-
-===== UC56.3.5 - Ricezione del parametro "updated" all'interno della risposta alla richiesta di creazione della condivisione di una cartella
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di condividere una cartella, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'esito delle operazioni. All'interno di quest'ultima deve essere presente il parametro "updated";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di creazione della condivisione di una cartella contenente il parametro "updated";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'esito delle operazioni di creazione della condivisione di una cartella. Al suo interno deve essere presente il parametro "updated", il quale indica l'elenco degli oggetti che sono stati modificati con successo come risultato della chiamata. Questo elenco contiene le informazioni sugli oggetti modificati, compresi i dettagli forniti dal server che non erano presenti nella richiesta inviata dal client. Se nessun oggetto è stato modificato sarà pari a null;
-
-===== UC56.3.6 - Ricezione del parametro "destroyed" all'interno della risposta alla richiesta di creazione della condivisione di una cartella
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di condividere una cartella, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'esito delle operazioni. All'interno di quest'ultima deve essere presente il parametro "destroyed";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di creazione della condivisione di una cartella contenente il parametro "destroyed";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'esito delle operazioni di creazione della condivisione di una cartella. Al suo interno deve essere presente il parametro "destroyed", il quale indica l'elenco degli identificativi degli oggetti che sono stati eliminati con successo come risultato della chiamata. Se nessun oggetto è stato eliminato sarà pari a null;
-
-===== UC56.3.7 - Ricezione del parametro "notCreated" all'interno della risposta alla richiesta di creazione della condivisione di una cartella
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di condividere una cartella, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'esito delle operazioni. All'interno di quest'ultima deve essere presente il parametro "notCreated";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di creazione della condivisione di una cartella contenente il parametro "notCreated";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'esito delle operazioni di creazione della condivisione di una cartella. Al suo interno deve essere presente il parametro "notCreated", il quale indica un elenco degli oggetti che non sono stati creati con successo come risultato della chiamata. Per ogni oggetto che non è stato creato correttamente, viene fornito un oggetto SetError associato all'identificativo di creazione dell'oggetto. Se l'operazione è avvenuta con successo senza riscontrare problemi sarà pari a null;
-
-===== UC56.3.8 - Ricezione del parametro "notUpdated" all'interno della risposta alla richiesta di creazione della condivisione di una cartella
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di condividere una cartella, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'esito delle operazioni. All'interno di quest'ultima deve essere presente il parametro "notUpdated";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di creazione della condivisione di una cartella contenente il parametro "notUpdated";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'esito delle operazioni di creazione della condivisione di una cartella. Al suo interno deve essere presente il parametro "notUpdated", il quale indica un elenco degli oggetti che non sono stati modificati con successo come risultato della chiamata. Per ogni oggetto che non è stato modificato correttamente, viene fornito un oggetto SetError associato all'identificativo dell'oggetto. Se l'operazione è avvenuta con successo senza riscontrare problemi sarà pari a null;
-
-===== UC56.3.9 - Ricezione del parametro "notDestroyed" all'interno della risposta alla richiesta di creazione della condivisione di una cartella
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di condividere una cartella, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'esito delle operazioni. All'interno di quest'ultima deve essere presente il parametro "notDestroyed";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di creazione della condivisione di una cartella contenente il parametro "notDestroyed";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'esito delle operazioni di creazione della condivisione di una cartella. Al suo interno deve essere presente il parametro "notDestroyed", il quale indica un elenco degli oggetti che non sono stati distrutti con successo come risultato della chiamata. Per ogni oggetto che non è stato distrutto correttamente, viene fornito un oggetto SetError associato all'identificativo dell'oggetto. Se l'operazione è avvenuta con successo senza riscontrare problemi sarà pari a null;
-
 #figure(image("//imgs/use_cases/Modifica_principale.svg", width: 125%), caption: [UC57 - Modifica principale])
   
 === UC57 - Modifica principale
@@ -2736,88 +2079,6 @@ Per essere i più precisi possibile, abbiamo seguito nella definizione degli err
 - *Scenario principale*: \
   + Il client specifica all'interno dell'oggetto di argomenti della chiamata di metodo il parametro "destroy", il quale viene impostato a null, dato che nella modifica di un principale nessun oggetto deve essere distrutto;
 
-==== UC57.3 - Ricezione della risposta alla richiesta di modifica di un principale
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di modificare un principale, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'esito dell'operazione;
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di modifica di un principale;
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'esito dell'operazione di modifica del principale;
-
-#figure(image("//imgs/use_cases/Modifica_principale_dettaglio5.svg", width: 117%), caption: [Sottocasi UC57.3 - Ricezione della risposta alla richiesta di modifica di un principale])
-  
-===== UC57.3.1 - Ricezione del parametro "accountId" all'interno della risposta alla richiesta di modifica di un principale
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di modificare un principale, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'esito dell'operazione. All'interno di quest'ultima deve essere presente il parametro "accountId";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di modifica di un principale contenente il parametro "accountId";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'esito dell'operazione di modifica del principale. Al suo interno deve essere presente il parametro "accountId", il quale rappresenta l'identificativo dell'account utilizzato per eseguire la richiesta;
-
-===== UC57.3.2 - Ricezione del parametro "oldState" all'interno della risposta alla richiesta di modifica di un principale
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di modificare un principale, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'esito dell'operazione. All'interno di quest'ultima deve essere presente il parametro "oldState";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di modifica di un principale contenente il parametro "oldState";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'esito dell'operazione di modifica del principale. Al suo interno deve essere presente il parametro "oldState", il quale rappresenta lo stato precedente del sistema prima di effettuare le modifiche richieste;
-
-===== UC57.3.3 - Ricezione del parametro "newState" all'interno della risposta alla richiesta di modifica di un principale
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di modificare un principale, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'esito dell'operazione. All'interno di quest'ultima deve essere presente il parametro "newState";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di modifica di un principale contenente il parametro "newState";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'esito dell'operazione di modifica del principale. Al suo interno deve essere presente il parametro "newState", il quale rappresenta lo stato del sistema dopo aver effettuato le modifiche richieste;
-
-===== UC57.3.4 - Ricezione del parametro "created" all'interno della risposta alla richiesta di modifica di un principale
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di modificare un principale, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'esito dell'operazione. All'interno di quest'ultima deve essere presente il parametro "created";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di modifica di un principale contenente il parametro "created";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'esito dell'operazione di modifica del principale. Al suo interno deve essere presente il parametro "created", il quale indica l'elenco degli oggetti che sono stati creati con successo come risultato della chiamata. Questo elenco contiene le informazioni sugli oggetti creati, compresi i dettagli forniti dal server che non erano presenti nella richiesta inviata dal client. Se nessun oggetto è stato creato sarà pari a null;
-
-===== UC57.3.5 - Ricezione del parametro "updated" all'interno della risposta alla richiesta di modifica di un principale
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di modificare un principale, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'esito dell'operazione. All'interno di quest'ultima deve essere presente il parametro "updated";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di modifica di un principale contenente il parametro "updated";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'esito dell'operazione di modifica del principale. Al suo interno deve essere presente il parametro "updated", il quale indica l'elenco degli oggetti che sono stati modificati con successo come risultato della chiamata. Questo elenco contiene le informazioni sugli oggetti modificati, compresi i dettagli forniti dal server che non erano presenti nella richiesta inviata dal client. Se nessun oggetto è stato modificato sarà pari a null;
-
-===== UC57.3.6 - Ricezione del parametro "destroyed" all'interno della risposta alla richiesta di modifica di un principale
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di modificare un principale, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'esito dell'operazione. All'interno di quest'ultima deve essere presente il parametro "destroyed";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di modifica di un principale contenente il parametro "destroyed";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'esito dell'operazione di modifica del principale. Al suo interno deve essere presente il parametro "destroyed", il quale indica l'elenco degli identificativi degli oggetti che sono stati eliminati con successo come risultato della chiamata. Se nessun oggetto è stato eliminato sarà pari a null;
-
-===== UC57.3.7 - Ricezione del parametro "notCreated" all'interno della risposta alla richiesta di modifica di un principale
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di modificare un principale, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'esito dell'operazione. All'interno di quest'ultima deve essere presente il parametro "notCreated";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di modifica di un principale contenente il parametro "notCreated";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'esito dell'operazione di modifica del principale. Al suo interno deve essere presente il parametro "notCreated", il quale indica un elenco degli oggetti che non sono stati creati con successo come risultato della chiamata. Per ogni oggetto che non è stato creato correttamente, viene fornito un oggetto SetError associato all'identificativo di creazione dell'oggetto. Se l'operazione è avvenuta con successo senza riscontrare problemi sarà pari a null;
-
-===== UC57.3.8 - Ricezione del parametro "notUpdated" all'interno della risposta alla richiesta di modifica di un principale
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di modificare un principale, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'esito dell'operazione. All'interno di quest'ultima deve essere presente il parametro "notUpdated";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di modifica di un principale contenente il parametro "notUpdated";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'esito dell'operazione di modifica del principale. Al suo interno deve essere presente il parametro "notUpdated", il quale indica un elenco degli oggetti che non sono stati modificati con successo come risultato della chiamata. Per ogni oggetto che non è stato modificato correttamente, viene fornito un oggetto SetError associato all'identificativo dell'oggetto. Se l'operazione è avvenuta con successo senza riscontrare problemi sarà pari a null;
-
-===== UC57.3.9 - Ricezione del parametro "notDestroyed" all'interno della risposta alla richiesta di modifica di un principale
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di modificare un principale, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'esito dell'operazione. All'interno di quest'ultima deve essere presente il parametro "notDestroyed";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di modifica di un principale contenente il parametro "notDestroyed";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'esito dell'operazione di modifica del principale. Al suo interno deve essere presente il parametro "notDestroyed", il quale indica un elenco degli oggetti che non sono stati distrutti con successo come risultato della chiamata. Per ogni oggetto che non è stato distrutto correttamente, viene fornito un oggetto SetError associato all'identificativo dell'oggetto. Se l'operazione è avvenuta con successo senza riscontrare problemi sarà pari a null;
-
 #figure(image("//imgs/use_cases/Eliminazione_principale.svg", width: 120%), caption: [UC58 - Eliminazione principale])
   
 === UC58 - Eliminazione principale
@@ -2913,88 +2174,6 @@ Per essere i più precisi possibile, abbiamo seguito nella definizione degli err
 - *Postcondizioni*: Il client ha inserito all'interno dell'oggetto di argomenti della chiamata di metodo "Principal/set", contenuto nell'array "methodCalls" della richiesta, il parametro "destroy";
 - *Scenario principale*: \
   + Il client specifica all'interno dell'oggetto di argomenti della chiamata di metodo il parametro "destroy", il quale è utilizzato per specificare l'intenzione di eliminare un principale. Questo parametro è un array che contiene solamente l'identificativo del principale da eliminare;
-
-==== UC58.3 - Ricezione della risposta alla richiesta eliminazione di un principale
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di eliminare un principale, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'esito dell'operazione;
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di eliminazione di un principale;
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'esito dell'operazione di eliminazione del principale;
-
-#figure(image("//imgs/use_cases/Eliminazione_principale_dettaglio4.svg", width: 115%), caption: [Sottocasi UC58.3 - Ricezione della risposta alla richiesta eliminazione di un principale])
-  
-===== UC58.3.1 - Ricezione del parametro "accountId" all'interno della risposta alla richiesta di eliminazione di un principale
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di eliminare un principale, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'esito dell'operazione. All'interno di quest'ultima deve essere presente il parametro "accountId";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di eliminazione di un principale contenente il parametro "accountId";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'esito dell'operazione di eliminazione del principale. Al suo interno deve essere presente il parametro "accountId", il quale rappresenta l'identificativo dell'account utilizzato per eseguire la richiesta;
-
-===== UC58.3.2 - Ricezione del parametro "oldState" all'interno della risposta alla richiesta di eliminazione di un principale
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di eliminare un principale, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'esito dell'operazione. All'interno di quest'ultima deve essere presente il parametro "oldState";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di eliminazione di un principale contenente il parametro "oldState";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'esito dell'operazione di eliminazione del principale. Al suo interno deve essere presente il parametro "oldState", il quale rappresenta lo stato precedente del sistema prima di effettuare le modifiche richieste;
-
-===== UC58.3.3 - Ricezione del parametro "newState" all'interno della risposta alla richiesta di eliminazione di un principale
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di eliminare un principale, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'esito dell'operazione. All'interno di quest'ultima deve essere presente il parametro "newState";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di eliminazione di un principale contenente il parametro "newState";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'esito dell'operazione di eliminazione del principale. Al suo interno deve essere presente il parametro "newState", il quale rappresenta lo stato del sistema dopo aver effettuato le modifiche richieste;
-
-===== UC58.3.4 - Ricezione del parametro "created" all'interno della risposta alla richiesta di eliminazione di un principale
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di eliminare un principale, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'esito dell'operazione. All'interno di quest'ultima deve essere presente il parametro "created";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di eliminazione di un principale contenente il parametro "created";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'esito dell'operazione di eliminazione del principale. Al suo interno deve essere presente il parametro "created", il quale indica l'elenco degli oggetti che sono stati creati con successo come risultato della chiamata. Questo elenco contiene le informazioni sugli oggetti creati, compresi i dettagli forniti dal server che non erano presenti nella richiesta inviata dal client. Se nessun oggetto è stato creato sarà pari a null;
-
-===== UC58.3.5 - Ricezione del parametro "updated" all'interno della risposta alla richiesta di eliminazione di un principale
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di eliminare un principale, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'esito dell'operazione. All'interno di quest'ultima deve essere presente il parametro "updated";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di eliminazione di un principale contenente il parametro "updated";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'esito dell'operazione di eliminazione del principale. Al suo interno deve essere presente il parametro "updated", il quale indica l'elenco degli oggetti che sono stati modificati con successo come risultato della chiamata. Questo elenco contiene le informazioni sugli oggetti modificati, compresi i dettagli forniti dal server che non erano presenti nella richiesta inviata dal client. Se nessun oggetto è stato modificato sarà pari a null;
-
-===== UC58.3.6 - Ricezione del parametro "destroyed" all'interno della risposta alla richiesta di eliminazione di un principale
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di eliminare un principale, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'esito dell'operazione. All'interno di quest'ultima deve essere presente il parametro "destroyed";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di eliminazione di un principale contenente il parametro "destroyed";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'esito dell'operazione di eliminazione del principale. Al suo interno deve essere presente il parametro "destroyed", il quale indica l'elenco degli identificativi degli oggetti che sono stati eliminati con successo come risultato della chiamata. Se nessun oggetto è stato eliminato sarà pari a null;
-
-===== UC58.3.7 - Ricezione del parametro "notCreated" all'interno della risposta alla richiesta di eliminazione di un principale
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di eliminare un principale, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'esito dell'operazione. All'interno di quest'ultima deve essere presente il parametro "notCreated";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di eliminazione di un principale contenente il parametro "notCreated";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'esito dell'operazione di eliminazione del principale. Al suo interno deve essere presente il parametro "notCreated", il quale indica un elenco degli oggetti che non sono stati creati con successo come risultato della chiamata. Per ogni oggetto che non è stato creato correttamente, viene fornito un oggetto SetError associato all'identificativo di creazione dell'oggetto. Se l'operazione è avvenuta con successo senza riscontrare problemi sarà pari a null;
-
-===== UC58.3.8 - Ricezione del parametro "notUpdated" all'interno della risposta alla richiesta di eliminazione di un principale
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di eliminare un principale, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'esito dell'operazione. All'interno di quest'ultima deve essere presente il parametro "notUpdated";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di eliminazione di un principale contenente il parametro "notUpdated";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'esito dell'operazione di eliminazione del principale. Al suo interno deve essere presente il parametro "notUpdated", il quale indica un elenco degli oggetti che non sono stati modificati con successo come risultato della chiamata. Per ogni oggetto che non è stato modificato correttamente, viene fornito un oggetto SetError associato all'identificativo dell'oggetto. Se l'operazione è avvenuta con successo senza riscontrare problemi sarà pari a null;
-
-===== UC58.3.9 - Ricezione del parametro "notDestroyed" all'interno della risposta alla richiesta di eliminazione di un principale
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di eliminare un principale, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'esito dell'operazione. All'interno di quest'ultima deve essere presente il parametro "notDestroyed";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di eliminazione di un principale contenente il parametro "notDestroyed";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'esito dell'operazione di eliminazione del principale. Al suo interno deve essere presente il parametro "notDestroyed", il quale indica un elenco degli oggetti che non sono stati distrutti con successo come risultato della chiamata. Per ogni oggetto che non è stato distrutto correttamente, viene fornito un oggetto SetError associato all'identificativo dell'oggetto. Se l'operazione è avvenuta con successo senza riscontrare problemi sarà pari a null;
 
 #figure(image("//imgs/use_cases/Modifica_Eliminazione_condivisione_cartella.svg", width: 125%), caption: [UC59 - Modifica/Eliminazione condivisione cartella])
   
@@ -3114,88 +2293,6 @@ Per essere i più precisi possibile, abbiamo seguito nella definizione degli err
 - *Scenario principale*: \
   + Il client specifica all'interno dell'oggetto di argomenti della chiamata di metodo il parametro "destroy", il quale viene impostato a null, dato che nella modifica della proprietà di condivisione di una cartella nessun oggetto deve essere distrutto;
 
-==== UC59.3 - Ricezione della risposta alla richiesta di modifica/eliminazione della condivisione di una cartella
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di modificare la condivisione di una cartella (compresa l'eliminazione di quest'ultima), ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'esito dell'operazione;
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di modifica della condivisione della cartella;
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'esito dell' operazione di modifica della condivisione di una cartella;
-
-#figure(image("//imgs/use_cases/Modifica_Eliminazione_condivisione_cartella_dettaglio5.svg", width: 114%), caption: [Sottocasi UC59.3 - Ricezione della risposta alla richiesta di modifica/eliminazione della condivisione di una cartellaa])
-  
-===== UC59.3.1 - Ricezione del parametro "accountId" all'interno della risposta alla richiesta di modifica/eliminazione della condivisione di una cartella
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di modificare la condivisione di una cartella (compresa l'eliminazione di quest'ultima), ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'esito dell'operazione. All'interno di quest'ultima deve essere presente il parametro "accountId";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di modifica della condivisione della cartella contenente il parametro "accountId";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'esito dell' operazione di modifica della condivisione di una cartella. Al suo interno deve essere presente il parametro "accountId", il quale rappresenta l'identificativo dell'account utilizzato per eseguire la richiesta;
-
-===== UC59.3.2 - Ricezione del parametro "oldState" all'interno della risposta alla richiesta di modifica/eliminazione della condivisione di una cartella
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di modificare la condivisione di una cartella (compresa l'eliminazione di quest'ultima), ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'esito dell'operazione. All'interno di quest'ultima deve essere presente il parametro "oldState";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di modifica della condivisione della cartella contenente il parametro "oldState";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'esito dell' operazione di modifica della condivisione di una cartella. Al suo interno deve essere presente il parametro "oldState", il quale rappresenta lo stato precedente del sistema prima di effettuare le modifiche richieste;
-
-===== UC59.3.3 - Ricezione del parametro "newState" all'interno della risposta alla richiesta di modifica/eliminazione della condivisione di una cartella
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di modificare la condivisione di una cartella (compresa l'eliminazione di quest'ultima), ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'esito dell'operazione. All'interno di quest'ultima deve essere presente il parametro "newState";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di modifica della condivisione della cartella contenente il parametro "newState";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'esito dell' operazione di modifica della condivisione di una cartella. Al suo interno deve essere presente il parametro "newState", il quale rappresenta lo stato del sistema dopo aver effettuato le modifiche richieste;
-
-===== UC59.3.4 - Ricezione del parametro "created" all'interno della risposta alla richiesta di modifica/eliminazione della condivisione di una cartella
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di modificare la condivisione di una cartella (compresa l'eliminazione di quest'ultima), ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'esito dell'operazione. All'interno di quest'ultima deve essere presente il parametro "created";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di modifica della condivisione della cartella contenente il parametro "created";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'esito dell' operazione di modifica della condivisione di una cartella. Al suo interno deve essere presente il parametro "created", il quale indica l'elenco degli oggetti che sono stati creati con successo come risultato della chiamata. Questo elenco contiene le informazioni sugli oggetti creati, compresi i dettagli forniti dal server che non erano presenti nella richiesta inviata dal client. Se nessun oggetto è stato creato sarà pari a null;
-
-===== UC59.3.5 - Ricezione del parametro "updated" all'interno della risposta alla richiesta di modifica/eliminazione della condivisione di una cartella
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di modificare la condivisione di una cartella (compresa l'eliminazione di quest'ultima), ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'esito dell'operazione. All'interno di quest'ultima deve essere presente il parametro "updated";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di modifica della condivisione della cartella contenente il parametro "updated";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'esito dell' operazione di modifica della condivisione di una cartella. Al suo interno deve essere presente il parametro "updated", il quale indica l'elenco degli oggetti che sono stati modificati con successo come risultato della chiamata. Questo elenco contiene le informazioni sugli oggetti modificati, compresi i dettagli forniti dal server che non erano presenti nella richiesta inviata dal client. Se nessun oggetto è stato modificato sarà pari a null;
-
-===== UC59.3.6 - Ricezione del parametro "destroyed" all'interno della risposta alla richiesta di modifica/eliminazione della condivisione di una cartella
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di modificare la condivisione di una cartella (compresa l'eliminazione di quest'ultima), ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'esito dell'operazione. All'interno di quest'ultima deve essere presente il parametro "destroyed";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di modifica della condivisione della cartella contenente il parametro "destroyed";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'esito dell' operazione di modifica della condivisione di una cartella. Al suo interno deve essere presente il parametro "destroyed", il quale indica l'elenco degli identificativi degli oggetti che sono stati eliminati con successo come risultato della chiamata. Se nessun oggetto è stato eliminato sarà pari a null;
-
-===== UC59.3.7 - Ricezione del parametro "notCreated" all'interno della risposta alla richiesta di modifica/eliminazione della condivisione di una cartella
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di modificare la condivisione di una cartella (compresa l'eliminazione di quest'ultima), ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'esito dell'operazione. All'interno di quest'ultima deve essere presente il parametro "notCreated";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di modifica della condivisione della cartella contenente il parametro "notCreated";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'esito dell' operazione di modifica della condivisione di una cartella. Al suo interno deve essere presente il parametro "notCreated", il quale indica un elenco degli oggetti che non sono stati creati con successo come risultato della chiamata. Per ogni oggetto che non è stato creato correttamente, viene fornito un oggetto SetError associato all'identificativo di creazione dell'oggetto. Se l'operazione è avvenuta con successo senza riscontrare problemi sarà pari a null;
-
-===== UC59.3.8 - Ricezione del parametro "notUpdated" all'interno della risposta alla richiesta di modifica/eliminazione della condivisione di una cartella
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di modificare la condivisione di una cartella (compresa l'eliminazione di quest'ultima), ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'esito dell'operazione. All'interno di quest'ultima deve essere presente il parametro "notUpdated";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di modifica della condivisione della cartella contenente il parametro "notUpdated";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'esito dell' operazione di modifica della condivisione di una cartella. Al suo interno deve essere presente il parametro "notUpdated", il quale indica un elenco degli oggetti che non sono stati modificati con successo come risultato della chiamata. Per ogni oggetto che non è stato modificato correttamente, viene fornito un oggetto SetError associato all'identificativo dell'oggetto. Se l'operazione è avvenuta con successo senza riscontrare problemi sarà pari a null;
-
-===== UC59.3.9 - Ricezione del parametro "notDestroyed" all'interno della risposta alla richiesta di modifica/eliminazione della condivisione di una cartella
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di modificare la condivisione di una cartella (compresa l'eliminazione di quest'ultima), ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene l'esito dell'operazione. All'interno di quest'ultima deve essere presente il parametro "notDestroyed";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di modifica della condivisione della cartella contenente il parametro "notDestroyed";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene l'esito dell' operazione di modifica della condivisione di una cartella. Al suo interno deve essere presente il parametro "notDestroyed", il quale indica un elenco degli oggetti che non sono stati distrutti con successo come risultato della chiamata. Per ogni oggetto che non è stato distrutto correttamente, viene fornito un oggetto SetError associato all'identificativo dell'oggetto. Se l'operazione è avvenuta con successo senza riscontrare problemi sarà pari a null;
-
 #figure(image("//imgs/use_cases/Sincronizzazione_email.svg", width: 115%), caption: [UC60 - Sincronizzazione email])
   
 === UC60 - Sincronizzazione email
@@ -3272,72 +2369,6 @@ Per essere i più precisi possibile, abbiamo seguito nella definizione degli err
 - *Scenario principale*: \
   + Il client specifica all'interno dell'oggetto di argomenti della chiamata di metodo il parametro "maxChanges", il quale rappresenta il numero massimo di identificatori che il client desidera ricevere come risposta. Il server ha la facoltà di restituire un numero inferiore a questo valore, ma non deve superarlo. Se il client non fornisce questo parametro, il server può decidere autonomamente quanti identificatori restituire. Se il client lo specifica, il valore deve essere un numero intero positivo maggiore di zero. Se viene fornito un valore al di fuori di questo intervallo, il server deve respingere la chiamata con un errore di tipo invalidArguments;
 
-==== UC60.3 - Ricezione della risposta alla richiesta di sincronizzazione delle email
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di mantenersi sincronizzato con gli ultimi aggiornamenti per quanto riguarda le email, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene le informazioni necessarie al client per sincronizzarsi;
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di sincronizzazione delle email;
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene le informazioni necessarie al client per sincronizzarsi;
-
-#figure(image("//imgs/use_cases/Sincronizzazione_email_dettaglio4.svg", width: 124%), caption: [Sottocasi UC60.3 - Ricezione della risposta alla richiesta di sincronizzazione delle email])
-
-===== UC60.3.1 - Ricezione del parametro "accountId" all'interno della risposta alla richiesta di sincronizzazione delle email
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*:  Un client di posta elettronica, con lo scopo di mantenersi sincronizzato con gli ultimi aggiornamenti per quanto riguarda le email, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene le informazioni necessarie al client per sincronizzarsi. All'interno di quest'ultima deve essere presente il parametro "accountId";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di sincronizzazione delle email contenente il parametro "accountId";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene le informazioni necessarie al client per sincronizzarsi. Al suo interno deve essere presente il parametro "accountId", il quale rappresenta l'identificativo dell'account utilizzato per eseguire la richiesta;
-
-===== UC60.3.2 - Ricezione del parametro "oldState" all'interno della risposta alla richiesta di sincronizzazione delle email
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di mantenersi sincronizzato con gli ultimi aggiornamenti per quanto riguarda le email, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene le informazioni necessarie al client per sincronizzarsi. All'interno di quest'ultima deve essere presente il parametro "oldState";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di sincronizzazione delle email contenente il parametro "oldState";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene le informazioni necessarie al client per sincronizzarsi. Al suo interno deve essere presente il parametro "oldState", il quale non è altro che l'argomento sinceState ripetuto all'interno della risposta. Rappresenta lo stato dal quale il server sta restituendo gli aggiornamenti;
-
-===== UC60.3.3 - Ricezione del parametro "newState" all'interno della risposta alla richiesta di sincronizzazione delle email
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di mantenersi sincronizzato con gli ultimi aggiornamenti per quanto riguarda le email, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene le informazioni necessarie al client per sincronizzarsi. All'interno di quest'ultima deve essere presente il parametro "newState";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di sincronizzazione delle email contenente il parametro "newState";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene le informazioni necessarie al client per sincronizzarsi. Al suo interno deve essere presente il parametro "newState", il quale rappresenta lo stato in cui il client si troverà dopo aver applicato l'insieme di modifiche allo stato precedente per sincronizzarsi;
-
-===== UC60.3.4 - Ricezione del parametro "hasMoreChanges" all'interno della risposta alla richiesta di sincronizzazione delle email
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di mantenersi sincronizzato con gli ultimi aggiornamenti per quanto riguarda le email, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene le informazioni necessarie al client per sincronizzarsi. All'interno di quest'ultima deve essere presente il parametro "hasMoreChanges";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di sincronizzazione delle email contenente il parametro "hasMoreChanges";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene le informazioni necessarie al client per sincronizzarsi. Al suo interno deve essere presente il parametro "hasMoreChanges", il quale è un flag booleano che indica se ci sono ulteriori cambiamenti nel server relativi ai dati di tipo "Email" dopo quelli già restituiti nella risposta corrente. Questa informazione aiuta il client a capire se deve fare ulteriori chiamate per ottenere eventuali modifiche rimanenti o se può considerare la risposta attuale come completa;
-
-===== UC60.3.5 - Ricezione del parametro "created" all'interno della risposta alla richiesta di sincronizzazione delle email
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di mantenersi sincronizzato con gli ultimi aggiornamenti per quanto riguarda le email, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene le informazioni necessarie al client per sincronizzarsi. All'interno di quest'ultima deve essere presente il parametro "created";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di sincronizzazione delle email contenente il parametro "created";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene le informazioni necessarie al client per sincronizzarsi. Al suo interno deve essere presente il parametro "created", il quale contiene in un array gli identificatori degli oggetti di tipo "Email" che sono stati creati nel sistema dopo il momento rappresentato dallo stato precedente fornito dal client (oldState);
-
-===== UC60.3.6 - Ricezione del parametro "updated" all'interno della risposta alla richiesta di sincronizzazione delle email
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di mantenersi sincronizzato con gli ultimi aggiornamenti per quanto riguarda le email, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene le informazioni necessarie al client per sincronizzarsi. All'interno di quest'ultima deve essere presente il parametro "updated";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di sincronizzazione delle email contenente il parametro "updated";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene le informazioni necessarie al client per sincronizzarsi. Al suo interno deve essere presente il parametro "updated", il quale contiene in un array gli identificatori degli oggetti di tipo "Email" che sono stati modificati nel sistema dopo il momento rappresentato dallo stato precedente fornito dal client (oldState);
-
-===== UC60.3.7 - Ricezione del parametro "destroyed" all'interno della risposta alla richiesta di sincronizzazione delle email
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di mantenersi sincronizzato con gli ultimi aggiornamenti per quanto riguarda le email, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene le informazioni necessarie al client per sincronizzarsi. All'interno di quest'ultima deve essere presente il parametro "destroyed";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di sincronizzazione delle email contenente il parametro "destroyed";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene le informazioni necessarie al client per sincronizzarsi. Al suo interno deve essere presente il parametro "destroyed", il quale contiene in un array gli identificatori degli oggetti di tipo "Email" che sono stati eliminati nel sistema dopo il momento rappresentato dallo stato precedente fornito dal client (oldState);
-
 #figure(image("//imgs/use_cases/Sincronizzazione_cartelle.svg", width: 115%), caption: [UC61 - Sincronizzazione cartelle])
   
 === UC61 - Sincronizzazione cartelle
@@ -3413,80 +2444,6 @@ Per essere i più precisi possibile, abbiamo seguito nella definizione degli err
 - *Postcondizioni*: Il client ha inserito all'interno dell'oggetto di argomenti della chiamata di metodo "Mailbox/changes", contenuto nell'array "methodCalls" della richiesta, il parametro "maxChanges";
 - *Scenario principale*: \
   + Il client specifica all'interno dell'oggetto di argomenti della chiamata di metodo il parametro "maxChanges", il quale rappresenta il numero massimo di identificatori che il client desidera ricevere come risposta. Il server ha la facoltà di restituire un numero inferiore a questo valore, ma non deve superarlo. Se il client non fornisce questo parametro, il server può decidere autonomamente quanti identificatori restituire. Se il client lo specifica, il valore deve essere un numero intero positivo maggiore di zero. Se viene fornito un valore al di fuori di questo intervallo, il server deve respingere la chiamata con un errore di tipo invalidArguments;
-
-==== UC61.3 - Ricezione della risposta alla richiesta di sincronizzazione delle cartelle
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di mantenersi sincronizzato con gli ultimi aggiornamenti per quanto riguarda le cartelle, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene le informazioni necessarie al client per sincronizzarsi;
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di sincronizzazione delle cartelle;
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene le informazioni necessarie al client per sincronizzarsi;
-
-#figure(image("//imgs/use_cases/Sincronizzazione_cartelle_dettaglio4.svg", width: 119%), caption: [Sottocasi UC61.3 - Ricezione della risposta alla richiesta di sincronizzazione delle cartelle])
-  
-===== UC61.3.1 - Ricezione del parametro "accountId" all'interno della risposta alla richiesta di sincronizzazione delle cartelle
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*:  Un client di posta elettronica, con lo scopo di mantenersi sincronizzato con gli ultimi aggiornamenti per quanto riguarda le cartelle, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene le informazioni necessarie al client per sincronizzarsi. All'interno di quest'ultima deve essere presente il parametro "accountId";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di sincronizzazione delle cartelle contenente il parametro "accountId";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene le informazioni necessarie al client per sincronizzarsi. Al suo interno deve essere presente il parametro "accountId", il quale rappresenta l'identificativo dell'account utilizzato per eseguire la richiesta;
-
-===== UC61.3.2 - Ricezione del parametro "oldState" all'interno della risposta alla richiesta di sincronizzazione delle cartelle
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di mantenersi sincronizzato con gli ultimi aggiornamenti per quanto riguarda le cartelle, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene le informazioni necessarie al client per sincronizzarsi. All'interno di quest'ultima deve essere presente il parametro "oldState";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di sincronizzazione delle cartelle contenente il parametro "oldState";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene le informazioni necessarie al client per sincronizzarsi. Al suo interno deve essere presente il parametro "oldState", il quale non è altro che l'argomento sinceState ripetuto all'interno della risposta. Rappresenta lo stato dal quale il server sta restituendo gli aggiornamenti;
-
-===== UC61.3.3 - Ricezione del parametro "newState" all'interno della risposta alla richiesta di sincronizzazione delle cartelle
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di mantenersi sincronizzato con gli ultimi aggiornamenti per quanto riguarda le cartelle, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene le informazioni necessarie al client per sincronizzarsi. All'interno di quest'ultima deve essere presente il parametro "newState";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di sincronizzazione delle cartelle contenente il parametro "newState";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene le informazioni necessarie al client per sincronizzarsi. Al suo interno deve essere presente il parametro "newState", il quale rappresenta lo stato in cui il client si troverà dopo aver applicato l'insieme di modifiche allo stato precedente per sincronizzarsi;
-
-===== UC61.3.4 - Ricezione del parametro "hasMoreChanges" all'interno della risposta alla richiesta di sincronizzazione delle cartelle
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di mantenersi sincronizzato con gli ultimi aggiornamenti per quanto riguarda le cartelle, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene le informazioni necessarie al client per sincronizzarsi. All'interno di quest'ultima deve essere presente il parametro "hasMoreChanges";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di sincronizzazione delle cartelle contenente il parametro "hasMoreChanges";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene le informazioni necessarie al client per sincronizzarsi. Al suo interno deve essere presente il parametro "hasMoreChanges", il quale è un flag booleano che indica se ci sono ulteriori cambiamenti nel server relativi ai dati di tipo "Mailbox" dopo quelli già restituiti nella risposta corrente. Questa informazione aiuta il client a capire se deve fare ulteriori chiamate per ottenere eventuali modifiche rimanenti o se può considerare la risposta attuale come completa;
-
-===== UC61.3.5 - Ricezione del parametro "created" all'interno della risposta alla richiesta di sincronizzazione delle cartelle
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di mantenersi sincronizzato con gli ultimi aggiornamenti per quanto riguarda le cartelle, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene le informazioni necessarie al client per sincronizzarsi. All'interno di quest'ultima deve essere presente il parametro "created";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di sincronizzazione delle cartelle contenente il parametro "created";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene le informazioni necessarie al client per sincronizzarsi. Al suo interno deve essere presente il parametro "created", il quale contiene in un array gli identificatori degli oggetti di tipo "Mailbox" che sono stati creati nel sistema dopo il momento rappresentato dallo stato precedente fornito dal client (oldState);
-
-===== UC61.3.6 - Ricezione del parametro "updated" all'interno della risposta alla richiesta di sincronizzazione delle cartelle
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di mantenersi sincronizzato con gli ultimi aggiornamenti per quanto riguarda le cartelle, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene le informazioni necessarie al client per sincronizzarsi. All'interno di quest'ultima deve essere presente il parametro "updated";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di sincronizzazione delle cartelle contenente il parametro "updated";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene le informazioni necessarie al client per sincronizzarsi. Al suo interno deve essere presente il parametro "updated", il quale contiene in un array gli identificatori degli oggetti di tipo "Mailbox" che sono stati modificati nel sistema dopo il momento rappresentato dallo stato precedente fornito dal client (oldState);
-
-===== UC61.3.7 - Ricezione del parametro "destroyed" all'interno della risposta alla richiesta di sincronizzazione delle cartelle
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di mantenersi sincronizzato con gli ultimi aggiornamenti per quanto riguarda le cartelle, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene le informazioni necessarie al client per sincronizzarsi. All'interno di quest'ultima deve essere presente il parametro "destroyed";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di sincronizzazione delle cartelle contenente il parametro "destroyed";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene le informazioni necessarie al client per sincronizzarsi. Al suo interno deve essere presente il parametro "destroyed", il quale contiene in un array gli identificatori degli oggetti di tipo "Mailbox" che sono stati eliminati nel sistema dopo il momento rappresentato dallo stato precedente fornito dal client (oldState);
-
-===== UC61.3.8 - Ricezione del parametro "updatedProperties" all'interno della risposta alla richiesta di sincronizzazione delle cartelle
-- *Attore principale*: Client di posta elettronica autenticato;
-- *Descrizione*: Un client di posta elettronica, con lo scopo di mantenersi sincronizzato con gli ultimi aggiornamenti per quanto riguarda le cartelle, ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session, ed ha ottenuto una risposta che contiene le informazioni necessarie al client per sincronizzarsi. All'interno di quest'ultima deve essere presente il parametro "updatedProperties";
-- *Precondizioni*: Il client è riuscito ad autenticarsi ed ha ottenuto l'oggetto JSON che rappresenta la sessione. Successivamente ha eseguito una richiesta POST autenticata all'URL dell'API, il quale è definito all'interno della risorsa JMAP Session;
-- *Postcondizioni*: Il client ha ricevuto una risposta alla richiesta di sincronizzazione delle cartelle contenente il parametro "updatedProperties";
-- *Scenario principale*: \
-  + Dopo che il server ha elaborato la richiesta API fatta dal client, quest'ultimo ha ricevuto una risposta JSON che contiene le informazioni necessarie al client per sincronizzarsi. Al suo interno deve essere presente il parametro "updatedProperties". Se solo le proprietà "totalEmails", "unreadEmails", "totalThreads" e/o "unreadThreads" della cartella sono cambiate dallo stato precedente (oldState), questo sarà l'elenco delle proprietà che potrebbero essere cambiate. Se il server non è in grado di determinare se sono cambiate solo le proprietà specificate, deve restituire null;
 
 #pagebreak()
   
@@ -3887,16 +2844,7 @@ requirements("#f9fac5", (
   [R-056-F-1],
   [È necessario che il client riceva una risposta che contiene l'esito dell'operazione di invio dell'email con relativi parametri (come il nuovo stato, gli oggetti creati ed eventuali errori)],
   [
-    UC48.3\
-    UC48.3.1\
-    UC48.3.2\
-    UC48.3.3\
-    UC48.3.4\
-    UC48.3.5\
-    UC48.3.6\
-    UC48.3.7\ 
-    UC48.3.8\
-    UC48.3.9\
+    UC48 \
     Interno
   ],
 
@@ -3956,11 +2904,7 @@ requirements("#f9fac5", (
   [R-062-F-1],
   [È necessario che il client riceva una risposta che contiene l'esito dell'operazione di ricezione dell'email con relativi parametri (come lo stato corrente dei dati di tipo Email sul server, la lista delle email richieste ed eventuali errori)],
   [
-    UC49.3\
-    UC49.3.1\
-    UC49.3.2\
-    UC49.3.3\
-    UC49.3.4\
+    UC49 \
     Interno
   ],
 
@@ -4005,16 +2949,7 @@ requirements("#f9fac5", (
   [R-067-F-1],
   [È necessario che il client riceva una risposta che contiene l'esito dell'operazione di eliminazione delle email con relativi parametri (come il nuovo stato, gli identificativi degli oggetti eliminati ed eventuali errori)],
   [
-    UC50.3\
-    UC50.3.1\
-    UC50.3.2\
-    UC50.3.3\
-    UC50.3.4\
-    UC50.3.5\
-    UC50.3.6\
-    UC50.3.7\ 
-    UC50.3.8\
-    UC50.3.9\
+    UC50 \
     Interno
   ],
 
@@ -4064,11 +2999,7 @@ requirements("#f9fac5", (
   [R-073-F-1],
   [È necessario che il client riceva una risposta che contiene l'esito dell'operazione di ricezione della cartella con relativi parametri (come lo stato corrente dei dati di tipo Mailbox sul server, la lista delle cartelle richieste ed eventuali errori)],
   [
-    UC51.3\
-    UC51.3.1\
-    UC51.3.2\
-    UC51.3.3\
-    UC51.3.4\
+    UC51 \
     Interno
   ],
 
@@ -4113,16 +3044,7 @@ requirements("#f9fac5", (
   [R-078-F-1],
   [È necessario che il client riceva una risposta che contiene l'esito dell'operazione di creazione della cartella con relativi parametri (come lo stato corrente del server, la lista delle cartelle create ed eventuali errori)],
   [
-    UC52.3\
-    UC52.3.1\
-    UC52.3.2\
-    UC52.3.3\
-    UC52.3.4\
-    UC52.3.5\
-    UC52.3.6\
-    UC52.3.7\ 
-    UC52.3.8\
-    UC52.3.9\
+    UC52 \
     Interno
   ],
 
@@ -4167,16 +3089,7 @@ requirements("#f9fac5", (
   [R-083-F-1],
   [È necessario che il client riceva una risposta che contiene l'esito dell'operazione di modifica della cartella con relativi parametri (come lo stato corrente del server, la lista delle cartelle modificate ed eventuali errori)],
   [
-    UC53.3\
-    UC53.3.1\
-    UC53.3.2\
-    UC53.3.3\
-    UC53.3.4\
-    UC53.3.5\
-    UC53.3.6\
-    UC53.3.7\ 
-    UC53.3.8\
-    UC53.3.9\
+    UC53 \
     Interno
   ],
 
@@ -4229,16 +3142,7 @@ requirements("#f9fac5", (
   [R-089-F-1],
   [È necessario che il client riceva una risposta che contiene l'esito dell'operazione di eliminazione della cartella con relativi parametri (come lo stato corrente del server, la lista degli identificativi delle cartelle eliminate ed eventuali errori)],
   [
-    UC54.3\
-    UC54.3.1\
-    UC54.3.2\
-    UC54.3.3\
-    UC54.3.4\
-    UC54.3.5\
-    UC54.3.6\
-    UC54.3.7\ 
-    UC54.3.8\
-    UC54.3.9\
+    UC54 \
     Interno
   ],
 
@@ -4298,16 +3202,7 @@ requirements("#f9fac5", (
   [R-096-F-1],
   [È necessario che il client riceva una risposta che contiene l'esito delle operazioni di gestione dei contenuti di una cartella con relativi parametri (come lo stato corrente del server, la lista delle email modificate ed eventuali errori)],
   [
-    UC55.3\
-    UC55.3.1\
-    UC55.3.2\
-    UC55.3.3\
-    UC55.3.4\
-    UC55.3.5\
-    UC55.3.6\
-    UC55.3.7\ 
-    UC55.3.8\
-    UC55.3.9\
+    UC55 \
     Interno
   ],
 
@@ -4365,16 +3260,7 @@ requirements("#f9fac5", (
   [R-102-F-2],
   [È necessario che il client riceva una risposta che contiene l'esito delle operazioni di creazione della condivisione di una cartella con relativi parametri (come lo stato corrente dei dati sul server, la lista dei principali creati, la lista delle cartella modificate ed eventuali errori)],
   [
-    UC56.3\
-    UC56.3.1\
-    UC56.3.2\
-    UC56.3.3\
-    UC56.3.4\
-    UC56.3.5\
-    UC56.3.6\
-    UC56.3.7\ 
-    UC56.3.8\
-    UC56.3.9\
+    UC56 \
     Interno
   ],
 
@@ -4419,16 +3305,7 @@ requirements("#f9fac5", (
   [R-107-F-2],
   [È necessario che il client riceva una risposta che contiene l'esito dell'operazione di modifica del principale con relativi parametri (come lo stato corrente del server, la lista dei principali modificati ed eventuali errori)],
   [
-    UC57.3\
-    UC57.3.1\
-    UC57.3.2\
-    UC57.3.3\
-    UC57.3.4\
-    UC57.3.5\
-    UC57.3.6\
-    UC57.3.7\ 
-    UC57.3.8\
-    UC57.3.9\
+    UC57 \
     Interno
   ],
 
@@ -4473,16 +3350,7 @@ requirements("#f9fac5", (
   [R-112-F-2],
   [È necessario che il client riceva una risposta che contiene l'esito dell'operazione di eliminazione del principale con relativi parametri (come lo stato corrente del server, la lista degli identificativi dei principali eliminati ed eventuali errori)],
   [
-    UC58.3\
-    UC58.3.1\
-    UC58.3.2\
-    UC58.3.3\
-    UC58.3.4\
-    UC58.3.5\
-    UC58.3.6\
-    UC58.3.7\ 
-    UC58.3.8\
-    UC58.3.9\
+    UC58 \
     Interno
   ],
 
@@ -4527,16 +3395,7 @@ requirements("#f9fac5", (
   [R-117-F-2],
   [È necessario che il client riceva una risposta che contiene l'esito dell'operazione di modifica della condivisione di una cartella (compresa l'eliminazione di quest'ultima) con relativi parametri (come lo stato corrente del server, la lista degli identificativi delle cartelle modificate ed eventuali errori)],
   [
-    UC59.3\
-    UC59.3.1\
-    UC59.3.2\
-    UC59.3.3\
-    UC59.3.4\
-    UC59.3.5\
-    UC59.3.6\
-    UC59.3.7\ 
-    UC59.3.8\
-    UC59.3.9\
+    UC59 \
     Interno
   ],
 
@@ -4586,14 +3445,7 @@ requirements("#f9fac5", (
   [R-123-F-3],
   [È necessario che il client riceva una risposta che contiene le informazioni di cui ha bisogno per sincronizzarsi (come lo stato corrente del server, un flag booleano che indica se ci sono ulteriori cambiamenti nel server relativi ai dati di tipo Email, oltre a quelli già restituiti nella risposta corrente, e la lista delle email da creare/modificare/eliminare per sincronizzarsi)],
   [
-    UC60.3\
-    UC60.3.1\
-    UC60.3.2\
-    UC60.3.3\
-    UC60.3.4\
-    UC60.3.5\
-    UC60.3.6\
-    UC60.3.7\ 
+    UC60 \
     Interno
   ],
 
@@ -4643,14 +3495,7 @@ requirements("#f9fac5", (
   [R-129-F-3],
   [È necessario che il client riceva una risposta che contiene le informazioni di cui ha bisogno per sincronizzarsi (come lo stato corrente del server, un flag booleano che indica se ci sono ulteriori cambiamenti nel server relativi ai dati di tipo Mailbox, oltre a quelli già restituiti nella risposta corrente, e la lista delle cartelle da creare/modificare/eliminare per sincronizzarsi)],
   [
-    UC61.3\
-    UC61.3.1\
-    UC61.3.2\
-    UC61.3.3\
-    UC61.3.4\
-    UC61.3.5\
-    UC61.3.6\
-    UC61.3.7\ 
+    UC61 \ 
     Interno
   ],
   
@@ -4683,10 +3528,10 @@ requirements("#bbfabe", (
   [Occorre realizzare il codice sorgente con un sistema di versionamento.],
   [Capitolato],
   [R-007-Q-2],
-  [Occorre effettuare una serie di stress test (test di carico) per alcuni casi d'uso implementati e riportare con un apposito documento i benchmark del sistema in ogni situazione: normale, di carico e di sovraccarico.],
+  [Occorre effettuare una serie di stress test (test di carico) per alcuni casi d'uso implementati e riportare con un apposito documento i benchmark del sistema in ogni situazione: normale, di carico e di sovraccarico. Questi andranno specificati all'interno del `Piano di Qualifica` in una sezione dedicata.],
   [Capitolato],
   [R-008-Q-1],
-  [La codifica dell'intera soluzione informativa deve essere conferme con quanto riportato nel `Piano di Qualifica v1.0.0`.],
+  [La codifica dell'intera soluzione informativa deve essere conforme con quanto riportato nel `Piano di Qualifica v1.0.0`.],
   [Interno],
   [R-009-Q-1],
   [Nello creazione del prodotto software devono essere rispettate tutte le norme definite nel documento `Norme di progetto v1.0.0`.],
@@ -4694,11 +3539,12 @@ requirements("#bbfabe", (
 ))
 ,caption: [requisiti di qualità])
 
+#pagebreak()
 == Requisiti di vincolo
 #figure(
 requirements("#facf8e", ( 
   [R-001-V-1],
-  [Per implementare il prodotto va utilizzato un linguaggio a scelta del gruppo di lavoro, con preferenza per Java (essendo il linguaggio principale dello stack tecnologico di Carbonio).],
+  [Per implementare il prodotto dovrà essere utilizzato il linguaggio di programmazione Java.],
   [
     Capitolato
   ],
@@ -4709,7 +3555,7 @@ requirements("#facf8e", (
   [Il servizio sviluppato deve essere eseguibile in un sistema container, come Docker.],
   [Capitolato],
   [R-004-V-3],
-  [Il servizio sviluppato deve essere scalabile mediante l’inizializzazione di più nodi stateless.],
+  [Il servizio sviluppato deve essere scalabile mediante l’inizializzazione di più nodi stateless, ovvero alla richiesta di uno specifico client, fatta ad un’architettura contenente più di un’istanza del servizio dato, deve poter rispondere una qualsiasi istanza del servizio, poichè nessuna istanza deve contenere dati specifici di stato rispetto alle richieste dei client],
   [Capitolato]
 ))
 ,caption: [requisiti di vincolo])
@@ -4829,7 +3675,7 @@ tracking2((
   R-055-F-1
   ],
   [
-  UC48.3 e \ sottocasi
+  UC48
   ],
   [
   R-056-F-1
@@ -4860,7 +3706,7 @@ tracking2((
   R-061-F-1
   ],
   [
-  UC49.3 e \ sottocasi
+  UC49
   ],
   [
   R-062-F-1
@@ -4884,7 +3730,7 @@ tracking2((
   R-066-F-1
   ],
   [
-  UC50.3 e \ sottocasi
+  UC50
   ],
   [
   R-067-F-1
@@ -4914,7 +3760,7 @@ tracking2((
   R-072-F-1
   ],
   [
-  UC51.3 e \ sottocasi
+  UC51
   ],
   [
   R-073-F-1
@@ -4938,7 +3784,7 @@ tracking2((
   R-077-F-1
   ],
   [
-  UC52.3 e \ sottocasi
+  UC52
   ],
   [
   R-078-F-1
@@ -4962,7 +3808,7 @@ tracking2((
   R-082-F-1
   ],
   [
-  UC53.3 e \ sottocasi
+  UC53
   ],
   [
   R-083-F-1
@@ -4992,7 +3838,7 @@ tracking2((
   R-088-F-1
   ],
   [
-  UC54.3 e \ sottocasi
+  UC54
   ],
   [
   R-089-F-1
@@ -5028,7 +3874,7 @@ tracking2((
   R-095-F-1
   ],
   [
-  UC55.3 e \ sottocasi
+  UC55
   ],
   [
   R-096-F-1
@@ -5058,7 +3904,7 @@ tracking2((
   R-101-F-2
   ],
   [
-  UC56.3 e \ sottocasi
+  UC56
   ],
   [
   R-102-F-2
@@ -5082,7 +3928,7 @@ tracking2((
   R-106-F-2
   ],
   [
-  UC57.3 e \ sottocasi
+  UC57
   ],
   [
   R-107-F-2
@@ -5106,7 +3952,7 @@ tracking2((
   R-111-F-2
   ],
   [
-  UC58.3 e \ sottocasi
+  UC58
   ],
   [
   R-112-F-2
@@ -5130,7 +3976,7 @@ tracking2((
   R-116-F-2
   ],
   [
-  UC59.3 e \ sottocasi
+  UC59
   ],
   [
   R-117-F-2
@@ -5160,7 +4006,7 @@ tracking2((
   R-122-F-3
   ],
   [
-  UC60.3 e \ sottocasi
+  UC60
   ],
   [
   R-123-F-3
@@ -5190,7 +4036,7 @@ tracking2((
   R-128-F-3
   ],
   [
-  UC61.3 e \ sottocasi
+  UC61
   ],
   [
   R-129-F-3
