@@ -9,6 +9,7 @@
     [_#(p.zextras)_],
   ),
   changelog: (
+    "1.0.1", "2024-02-03" , p.amadori, p.bonavigo, "Sistemati i riferimenti ai documenti esterni",
     "1.0.0", "2024-01-13" , p.furno, p.bonavigo, "Approvazione per RTB",
     "0.3.0", "2024-01-07" , (p.vedovato, p.bonavigo), p.fabbian,
     [
@@ -184,6 +185,8 @@ La presenza di un termine all'interno del `Glossario` viene indicata applicando 
 - RFC8620: \ https://datatracker.ietf.org/doc/html/rfc8620
 
 - RFC8621: \ https://datatracker.ietf.org/doc/html/rfc8621
+
+- Glossario: \ https://overture-unipd.github.io/docs/rtb/esterni/glossario_v1.0.0.pdf
 #pagebreak()
 
 = *Descrizione generale del prodotto richiesto da _#(p.zextras)_*
