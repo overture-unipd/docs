@@ -2,14 +2,14 @@
 
 #show: project.with(
   title: "Lettera di presentazione",
-  managers:  p.furno,
+  managers:  p.amadori,
   recipients: (
     p.vardanega,
     p.cardin,
   ),
   group_is_recipient: false,
   changelog: (
-    none, "2023-14-01", p.bulychov, p.bonavigo, none,
+    none, "2024-03-02", p.furno, p.bettin, none,
   ),
   show_outline: false,
 )
@@ -18,14 +18,14 @@ Egregio #p.vardanega,
 
 Egregio #p.cardin,
 
-con la presente il gruppo _#(g.name)_ intende comunicarVi ufficialmente l’intenzione di sostenere la revisione *RTB* in data 2024-01-XX del progetto da voi commissionato, denominato 
+con la presente il gruppo _#(g.name)_ intende comunicarVi ufficialmente l’intenzione di sostenere la revisione *RTB* in data 2024-02-07 del progetto da voi commissionato, denominato 
 #align(center, text(13pt)[
   *JMAP: il nuovo protocollo per la posta elettronica*
 ])
 
 proposto dall’azienda _#(p.zextras)_.
 
-La documentazione fornita è consultabile presso la sezione *rtb* al seguente link:
+La documentazione fornita è consultabile presso la sezione *rtb* della repo al seguente link:
 
 #align(center, text(12.5pt)[
   #link(g.org+"/"+g.docs+"/tree/master/documents/rtb")
@@ -35,6 +35,7 @@ Al suo interno si possono trovare i documenti:\
 
 *Interni*:
   - `Norme di Progetto v1.0.0`;
+  - `Glossario v1.0.0`;
   - `Verbale interno del 2023-11-03 v1.1`;
   - `Verbale interno del 2023-11-07 v1.0`;
   - `Verbale interno del 2023-11-09 v1.0`;
@@ -48,11 +49,11 @@ Al suo interno si possono trovare i documenti:\
   - `Verbale interno del 2024-01-03 v1.0`;
   - `Verbale interno del 2024-01-09 v1.0`;
   - `Verbale interno del 2024-01-12 v1.0`.
+  - `Verbale interno del 2024-02-02 v1.0`.
 *Esterni*\
-- `Analisi dei Requisiti v1.0.0`;
-- `Glossario v1.0.0`;
+- `Analisi dei Requisiti v1.1.0`;
 - `Piano di Progetto v1.0.0`;
-- `Piano di Qualifica v1.0.0`;
+- `Piano di Qualifica v1.1.0`;
 - `Verbale esterno del 2023-11-09 v1.1`;
 - `Verbale esterno del 2023-11-21 v1.0`;
 - `Verbale esterno del 2023-11-30 v1.0`;
