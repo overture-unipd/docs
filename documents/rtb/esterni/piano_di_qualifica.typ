@@ -9,6 +9,10 @@
     [_#(p.zextras)_],
   ),
   changelog: (
+    "1.3.0", "2024-02-09", p.vedovato, p.fabbian, "Rimossa la sezione 'Iniziative di auto-miglioramento'",
+    "1.2.2", "2024-02-09", p.vedovato, p.fabbian, "Rimossi i test di unità ed integrazione prematuri",
+    "1.2.1", "2024-02-09", p.vedovato, p.fabbian, "Sistemate le anomalie stilistiche rilevate dalla revisione RTB",
+    "1.2.0", "2024-02-09", p.vedovato, p.fabbian, "Aggiornamento della sezione 'Cruscotto di valutazione della qualità' conseguente al periodo VI", 
     "1.1.0", "2024-02-03" , p.furno, p.bettin, "Modifiche conseguenti ai commenti derivanti dalla revisione RTB",
     "1.0.0", "2024-01-14" , p.bulychov, p.furno, "Approvazione per RTB",
     "0.3.1", "2024-01-14", p.bettin, p.furno, "Aggiornamento della sezione 'Iniziative di automiglioramento per la qualità'",
@@ -58,7 +62,7 @@ La presenza di un termine all'interno del `Glossario` viene indicata applicando 
 
 #pagebreak()
   
-= Obiettivi metrici di qualità
+= Obiettivi di qualità
 Ogni #glossary("processo") viene valutato mediante l'applicazione di metriche specifiche, le cui definizioni sono dettagliate dalle sezioni Metriche di qualitá del processo e Metriche di qualitá del prodotto del documento `Norme di Progetto v1.0.0`. Questa sezione delinea i criteri che le metriche devono rispettare per essere valutate come accettabili o eccellenti.
 
 == Qualità di processo 
@@ -242,12 +246,11 @@ La qualità di prodotto si riferisce all'insieme delle caratteristiche di un'ent
 #pagebreak()
 
 = Metodologie di testing
-In questa sezione vengono elencati i #glossary("test") eseguiti sul prodotto, necessari per dimostrare che i vincoli individuati nella sezione Requisiti del documento `Analisi dei Requisiti v1.0.0` siano soddisfatti.\ Come anticipato all'interno della sezione Verifica del documento `Norme di Progetto v1.0.0`, i test si dividono in:
+In questa sezione vengono elencati i #glossary("test") eseguiti sul prodotto, necessari per dimostrare che i vincoli individuati nella sezione Requisiti del documento `Analisi dei Requisiti v1.0.0` siano effettivamente soddisfatti.\ Come anticipato all'interno della sezione Verifica del documento `Norme di Progetto v1.0.0`, i test si dividono in:
 - *Test di unità*: definiti sulle unità software autonome più piccole, sono implementati principalmente durante la progettazione;
 - *Test di integrazione*: successivi ai test di unità, servono a verificare la corretta integrazione tra le diverse unità software;
 - *Test di sistema*: garantiscono il corretto funzionamento del sistema. In particolare, verificano che tutti i requisiti individuati siano rispettati;
 - *Test di accettazione*: alla presenza del committente, servono a verificare che il prodotto finale soddisfi tutti i requisiti.
-Per la prima revisione del prodotto (RTB) vengono inseriti esclusivamente i test di *unità* e *integrazione* implementati e verificati per il #glossary("Proof of Concept") (PoC); ne verrano dunque aggiunti molti altri in seguito. Mentre per quanto riguarda i test di *sistema*, questi sono completi.
 
 == Codice dei test
 Ogni test è associato ad un codice univoco definito nel seguente formato:
@@ -264,29 +267,8 @@ Ogni test ha uno *Stato*, che puo essere:
 - *E*: non verificato. Il test ha esito negativo;
 - *NI*: non implementato.
 
-== Test di unità
-I test di unità sono concepiti per verificare il corretto funzionamento delle singole componenti di codice. Per 'unità' si intendono funzioni, classi o, in modo più generico, ogni singola entità di codice Responsabile di svolgere specifiche attività interne nel software. Per implementare efficacemente questa tipologia di test, l'azienda proponente ha consigliato l'utilizzo dei framework di unit testing *JUnit* e *Mockito*.
-#figure(test(
-  (
-    "TU-1","Verificare il corretto funzionamento della funzione helper CreationIdResolver", "V",
-    "TU-2","Verificare il corretto funzionamento della funzione helper ResultReferenceResolver", "V",
-  )
-), caption: [Stato dei test di unitá.])
-
-== Test di integrazione
-I test di integrazione sono progettati per verificare che le diverse parti di un'applicazione si integrino correttamente e collaborino senza problemi quando vengono combinate. Questi test mirano a identificare eventuali errori o problemi di interoperabilità tra i moduli o le unità di codice.
-#figure(test(
-  (
-    "TI-1","Verificare che l'oggetto mail venga inserito correttamente nel database", "V",
-    "TI-2","Verificare che l'oggetto mail inviato dal database venga ricevuto correttamente", "V",
-    "TI-3","Verifica che la funzione create per la creazione di un oggetto mail imposti correttamente tutti i campi richiesti", "V",
-    "TI-4","Verificare che l'allegato di un oggetto mail venga inserito correttamente nel database", "V",
-    "TI-5","Verificare che l'allegato di un oggetto mail inviato dal database venga ricevuto correttamente", "V",
-  )
-), caption: [Stato dei test di integrazione.])
-
 == Test di sistema
-I test di sistema sono una fase del processo di testing software che mira a verificare che il sistema soddisfi i requisiti specificati nella sezione Requisiti del documento `Analisi dei Requisiti v1.0.0`. Questa fase di testing è condotta sul sistema nel suo complesso, dopo che i test di unità e di integrazione sono stati completati con successo. L'obiettivo principale dei test di sistema è assicurare che l'applicazione sia in grado di svolgere le sue funzioni nel contesto del suo ambiente operativo.
+I test di sistema sono una fase del processo di testing software che mira a verificare che il sistema soddisfi i requisiti specificati nella sezione Requisiti di funzionalità del documento `Analisi dei Requisiti v1.0.0`. Questa fase di testing è condotta sul sistema nel suo complesso, dopo che i test di unità e di integrazione sono stati completati con successo. L'obiettivo principale dei test di sistema è assicurare che l'applicazione sia in grado di svolgere le sue funzioni nel contesto del suo ambiente operativo.
 #figure(testSistema(
   (
     "TS-1","Verificare che un client di posta elettronica non autenticato possa autenticarsi all'interno del sistema.", "R-001-F-2", "NI",
@@ -424,7 +406,6 @@ I test di sistema sono una fase del processo di testing software che mira a veri
 #pagebreak()
 
 = Cruscotto di valutazione della qualità
-
 == MPC06 - Estimated at Completion (EAC)
 #figure(image("//imgs/PdQ_graphs/EAC.png", width: 100%), caption: [Proiezione della stima del costo totale nei vari periodi di progetto.])
 
@@ -493,123 +474,3 @@ I test di sistema sono una fase del processo di testing software che mira a veri
 #figure(image("//imgs/PdQ_graphs/EffTemp.png", width: 100%), caption: [Proiezione dell'efficienza temporale nei vari periodi di progetto.])
 
 *RTB*: Il grafico illustra l'andamento della metrica relativa all'efficienza temporale attraverso i vari periodi. È evidente che la metrica supera il limite accettabile superiore sia nel primo che nel secondo periodo, prima di stabilizzarsi al di sotto solo nel terzo periodo ed i seguenti. Questa tendenza è attribuibile alla necessità del gruppo, nei primi periodi, di prendere familiarità con le nuove tecnologie, ambienti e linguaggi richiesti dal capitolato, oltre che all'adattamento alle pratiche necessarie alla gestione del progetto. Si evidenzia comunque un miglioramento nel tempo, che dimostra come, per ottenere i risultati desiderati, ad oggi ci sia richiesto meno tempo di orologio rispetto che all'inizio del progetto. Questo fattore è attribuibile ad un aumento dell'esperienza dei membri del gruppo.
-
-#pagebreak()
-
-= Iniziative di automiglioramento per la qualità
-
-== Introduzione
-Un team di progetto è in grado di completare i compiti in modo efficiente, mantenendo un grado elevato di qualità, riducendo i costi e aumentando i profitti solo se mette la produttività in cima alla scala dei valori.\
-Di seguito infatti ci dedichiamo al tema del miglioramento della produttività dei processi coinvolti nella realizzazione del prodotto richiesto dal #glossary("Capitolato") C8. Essendo questo il primo progetto realistico affrontato dai membri del gruppo, è probabile che si verifichino problemi di natura organizzativa interna, di adempimento efficace dei ruoli assegnati e di giusto utilizzo degli strumenti scelti.\
-In questa sezione quindi andremo ad elencare i problemi più importanti che abbiamo riscontrato e le relative contromisure prese per risolvere o contenere i rallentamenti causati.
-
-== Problemi leagati all'organizzazione generale
-#figure(improvement("#ffeded", (
-  [Intero Progetto],
-  [È stato particolarmente complicato effettuare delle riunioni per fare il punto della situazione sul progetto dove fossero presenti tutti i membri del gruppo sia in presenza (poichè non si trovano aule libere che permettano ai membri di riunirsi e non tutti i componenti del gruppo seguono con frequenza le lezioni) che online (ognuno ha impegni diversi e dunque alle riunioni manca sempre qualche componente).],
-  [
-    Si è deciso dunque che per comodità tutte le riunioni devono essere svolte online (sulla piattaforma #glossary("Discord")) cosicchè ogni componente può collegarsi in qualunque situazione (capitava spesso di membri in viaggio o sui mezzi pubblici).\
-    Qualora uno dei componenti del gruppo non potesse comunque essere presente il Responsabile provederà a fornigli un riassunto vocale della discussione tramite il contatto #glossary("Telegram").
-  ],
-)), caption: [Contromisure adottate per limitare problemi di organizzazione generale.])
-
-== Valutazione sui ruoli
-#figure(improvementrole("#fffdde", (
-
-  [Intero Progetto],
-  [Verificatore],
-  [Dato che questo è il primo progetto in termini di complessità della documentazione che ogni membro del nostro gruppo affronta abbiamo notato (ed è comprensibile) che spesso i documenti pronti ad essere rilasciati nel #glossary("repository") pubblico avevano degli errori di vario genere (esempio: di formattazione del documento, errori semantici, etc.)],
-  [Avvertire i verificatori di questo fenomeno e non assegnare loro altri compiti durante lo svolgimento del processo di verifica in quanto il loro lavoro è molto oneroso (non si tratta di approvare e basta le nuove modifiche al repository ma di verificare, spesso in argomenti a loro sconosciuti, se ciò che è stato prodotto sia valido o meno).],
-  
-  [Fase iniziale],
-  [Responsabile],
-  [Nelle fasi iniziali del progetto è capitato che le attività venissero assegnate senza valutare in modo corretto il loro costo in termini di tempo ai vari componenti del gruppo. Questo ha portato chiaramente ad un sovraccarico per alcuni ruoli ed eccessivo tempo libero per altri.],
-  [Il Responsabile di turno deve ricontrollare l'assegnazione dei compiti per assicurarsi che siano equamente distribuiti tra i membri. In questo modo, si evitano rallentamenti dovuti a ridistribuzioni degli oneri di progetto.],
-
-  [#glossary("Analisi dei requisiti")],
-  [#glossary("Analista")],
-  [Per svolgere l'analisi dei requisiti abbiamo dovuto analizzare in modo approfondito il capitolato ma ci è risultato difficile comprendere fin dall'inizio quale fosse il suo vero scopo, in particolare capire quali fossero le parti che realmente il proponente si aspettava realizzassimo.\
-  Non potevamo lasciare nulla al caso perchè un'imprecisione in questa fase sarebbe stata riflessa immediatamente nei diagrammi dei casi d'uso e se non fosse stata risolta in tempo si sarebbe riflessa anche sul PoC.
-  ],
-  [Fissare a calendario degli incontri periodici con l'azienda proponente per chiarire quegli aspetti del progetto che ancora non erano ben espressi sul capitolato e successivamente riservare degli incontri anche con il docente Cardin per discutere alcuni aspetti tecnici del progetto (ad esempio: dato un caso d'uso, come sarebbe giusto formalizzarlo nei diagrammi dei casi d'uso seguendo lo standard).],
-
-  [Analisi\ dei requisiti\
-  \
-  PoC],
-  [Analista\
-  \
-  Programmatori
-  ],
-  [
-    Spesso durante diverse attività di progetto colui che doveva svolgere il proprio compito si sentiva afflitto da una miriade di dubbi con granularità fine su come procedere con il proprio lavoro (e.g.: l'Analista nella stesura dei casi d'uso oppure il Programmatore durante la realizzazione del PoC).
-  ],
-  [Dopo aver parlato di questo con il proponente siamo giunti alla conclusione di inserire uno dei referenti del progetto nel nostro canale privato Discord cosicchè da poter chiarire in maniera informale e immediata qualsiasi dubbio con granularità fine, lasciando i problemi più importanti ai meeting ufficiali con verbale esterno annesso.],
-
-  
-
-  
-)), caption: [Contromisure adottate per evitare problemi specifici dei ruoli interni.])
-
-#pagebreak()
-
-== Valutazione sugli strumenti
-#figure(improvementtool("#e8fcdc", (
-    [Intero progetto],
-    [#glossary("Typst")],
-    [
-      Trovare un metodo per cui tutti i membri del gruppo potessero redigere documenti indipendentemente dal dispositivo in uso, dal sistema operativo e anche dalle proprie conoscenze di base in materia (#glossary("LaTeX") non era una tecnologia conosciuta da tutti i membri del gruppo). 
-    ],
-    [
-      Siamo giunti alla conclusione di usare Typst, un linguaggio che da le stesse funzionalità di LaTeX, ma con una facilità maggiore e una documentazione più ricca per chi non lo conoscesse. Inoltre per redigere i documenti abbiamo a disposizione una repository web messa a disposizione dallo stesso typst che ci permette di scrivere i documenti in maniera collaborativa dove ognuno può vedere in diretta cosa sta svolgendo un altro membro del gruppo. 
-    ],
-  
-    [Fase iniziale],
-    [#glossary("Git"), #glossary("Github"), Typst e altri],
-    [
-      Nelle fasi iniziali del progetto è capitato spesso che venisse introdotta una nuova tecnologia da dei membri del gruppo (e.g.: scelta di git e github) che la sapevano utilizzare con destrezza (grazie al corso Metodi e Tecnologie per lo sviluppo software) e che avrebbe dovuto essere utilizzata in futuro da dei componenti che non avevano nessuna conoscenza della materia in questione.
-    ],
-    [Piuttosto che creare disallineamenti il gruppo ha preso una pausa, dove il Responsabile garantiva che tutti i membri del gruppo avessero una conoscenza delle tecnologie tale da lavorare in maniera ottimale. Questo spesso veniva raggiunto individuando all'interno del gruppo i soggetti più preparati su un argomento e chiedendo loro di realizzare dei video tutorial su una determinata tematica.],
-
-)), caption: [Contromisure adottate per limitare problemi relativi agli strumenti utilizzati])
-
-#pagebreak()
-
-== Considerazioni finali sul miglioramento
-
-In questa ultima sezione, presentiamo le valutazioni derivanti da un'analisi retrospettiva approfondita dell'intero percorso svolto fin dall'avvio del progetto fino ad ora.\
-Specificatamente, si è condotta una riflessione critica sui progressi conseguiti nei vari processi implementati con lo scopo di acquisire una compresione dell'evoluzione del nostro "way of working" e degli impatti che ne sono derivati per il gruppo.\
-Questa sezione mira a fornire una panoramica completa delle transformazioni operative che hanno contribuito a potenziare l'efficacia e l'efficienza complessiva del nostro team, oltre che ad evidenziare gli aspetti migliorati e le opportunità di ottimizzazione.
-
-=== Analisi delle pratiche seguite
-Il modo migliore per garantire al team efficacia a lungo termine nei miglioramenti è applicare il ciclo PDCA, basandolo su specifici obiettivi di avanzamento che hanno la caratteristica di essere quantificabili e relativi ad aspetti dei processi di maggior rilevanza ai fini del progetto.\
-L'approccio descritto permette di attuare miglioramenti volti a prevenire situazioni, tendenze o problemi futuri in modo da pianificare anticipatamente le azioni opportune prima dell'insorgere di problematiche che necessiterebbero correzioni reattive, realizzando quindi quello che deifniamo come miglioramento continuo.
-Durante i primi mesi del progetto però, questo approccio non è stato seguito a causa dell'inesperienza del gruppo che non aveva pienamente compreso la sua utilità. Spesso accadeva che il gruppo attuasse azioni correttive, adottate in risposta agli errori riscontrati durante l'avanzamneto del progetto. Queste hanno il vantaggio di portare costi inferiori in termini di risorse rispetto alle azioni proattive, ma sono spesso tardive e meno effaci in ottica di miglioramento continuo.\
-Quindi, per poter applicare il ciclo PDCA, gli obiettivi di miglioramento devono (per poter capire se e quando il loro scopo viene raggiunto) essere selettivi. Inoltre i miglioramenti vanno scelti valutandone opportunamente il rapporto costi/benefici per fare in modo che il piano di miglioramento continuo sia sostenibile in base alle risorse disponibili.
-
-
-
-
-=== Valutazioni generali sui miglioramenti conseguiti
-Anche se il gruppo non si era posto all'inizio del progetto degli specifici obiettivi di miglioramento è stato possibile apprezzare alcuni miglioramenti nei processi che costituiscono il way of working.\
-Ovviamente all'inizio del progetto le valutazioni sul miglioramento erano assai scarse in quanto il gruppo non aveva esperienza con i progetti e non sapeva quindi definire se si stava operando in modo corretto o meno. Il numero di autocorrezioni è cresciuto nel tempo a causa di una maggiore familiarità con la gestione dei progetti fino ad un azzeramento delle valutazioni sui miglioramenti quando (in seguito ad un progressivo raffinamento) il way of working del gruppo è stato ben definito e allineato con le buone pratiche che ci sono state insegnate.
-
-=== Valutazioni specifiche sui miglioramenti nei processi
-In questa sezione, in seguito ad un'analisi retrospettiva sul lavoro svolto, quindi una volta che il team ha sperimentato personalmente ciò che era efficace ed efficiente e cosa non lo era affatto, riportiamo alcune delle valutazioni critiche che hanno portato ad un miglioramento sostanziale nei processi istanziati dal gruppo.\
-Per ogni attività mezionata verranno quindi esposti gli specifici obiettivi di miglioramento raggiunti nel corso del progetto.
-
-===== Gestione delle comunicazioni e degli incontri
-Durante la prima fase del progetto il gruppo spendeva tantissimo tempo nell'organizzare dei meeting a regola d'arte: dove fossero presenti tutti i membri del gruppo trovando degli orari e dei giorni che andassero bene a tutti. Inoltre in questi incontri (spesso molto lunghi) parlavano sempre le solite persone (magari anche per una dote caratteriale) e spesso alcuni membri del gruppo venivano lasciati in disparte con ancora dei dubbi su come svolgere le loro parti del progetto.\
-In questo modo veniva perso tantissimo tempo e non era un modo di lavorare efficiente.
-
-*Obiettivi di miglioramento raggiunti*\
-Siamo giunti presto alla conclusione che è impossibile trovare un orario ed un giorno dove fossero tutti presenti.\
-Abbiamo predisposto dei sondaggi cosicchè da trovare i giorni dove erano presenti il maggior numero di persone. Successivamente il Responsabile avrebbe fornito agli assenti un messaggio vocale su Telegram contenente i principali temi discussi.\
-Inoltre, la durata degli incontri è stata ridotta a non più di un'ora e ogni membro del gruppo è tenuto a dire pubblicamente cosa ha fatto fino a quel momento, di cosa si sta occupando e cosa prevede di fare come prossima attività, così da garantire una piena partecipazione all'incontro di tutti i membri.
-
-
-===== Pianificazione
-Fin dall'inizio del progetto attuare rotazione dei ruoli è stata uno dei compiti più difficile per il gruppo. Il fatto di dover mettere mano alla documentazione che è stata strutturata e sviluppata da persone diverse ha subito scatenato confusione e ha chiaramente portato ad ovvi rallentamenti.
-
-*Obiettivi di miglioramento raggiunti*\
-Dedicando uno spazio dei meeting di gruppo alle discussioni generali si è permesso a tutti i membri del gruppo di osservare la struttura generale del progetto cosicchè da farsi trovare pronto riguardo ogni argomento.\
-Se un membro del gruppo avesse delle domande specifiche riguardo ad una sezione non le comunica a tutto il gruppo durante il meeting (per evitare una perdita inutile di tempo) ma le comunica privatamente al soggetto direttamente interessato.
