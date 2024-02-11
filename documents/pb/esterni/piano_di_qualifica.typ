@@ -48,7 +48,7 @@ La presenza di un termine all'interno del `Glossario` viene indicata applicando 
 
 == Riferimenti
 === Riferimenti normativi
-- `Norme di Progetto v1.0.0`
+- `Norme di Progetto v1.0.0`: \ https://overture-unipd.github.io/docs/rtb/interni/norme_di_progetto_v1.0.0.pdf
 - *Capitolato d'appalto C8*: JMAP, il nuovo protocollo standard per la comunicazione email \
   https://www.math.unipd.it/~tullio/IS-1/2023/Progetto/C8.pdf
 
@@ -57,8 +57,7 @@ La presenza di un termine all'interno del `Glossario` viene indicata applicando 
   https://en.wikipedia.org/wiki/ISO/IEC_9126
 - *ISO/IEC 12207* \
   https://www.math.unipd.it/~tullio/IS-1/2009/Approfondimenti/ISO_12207-1995.pdf
-- *Glossario* \
-  https://overture-unipd.github.io/docs/rtb/esterni/glossario_v1.0.0.pdf
+- `Glossario v1.0.0`: \ https://overture-unipd.github.io/docs/rtb/interni/glossario_v1.0.0.pdf 
 
 #pagebreak()
   
