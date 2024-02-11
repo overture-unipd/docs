@@ -9,6 +9,7 @@
     [_#(p.zextras)_],
   ),
   changelog: (
+    "1.1.2", "2024-02-11", p.bonavigo, p.fabbian, "Ristrutturazione dei contenuti per risolvere le problematiche evidenziate dalla revisione RTB",
     "1.1.1", "2024-02-11", p.bonavigo, p.bettin, "Aggiunto il preventivo e la pianificazione del periodo VII",
     "1.1.0", "2024-02-09", p.bonavigo, p.bettin, "Aggiunto il consuntivo e la retrospettiva del periodo VI (periodo in attesa del passaggio della RTB)",
     "1.0.0", "2024-01-14" , p.furno, p.bonavigo, "Approvazione per RTB",
@@ -185,7 +186,8 @@ Per ogni periodo si riportano di seguito le seguenti informazioni:
 - Tempo stimato per poter completare tutte le attività previste (preventivo);
 - Confronto fra il lavoro svolto (avanzamento conseguito) e quello preventivato, con annessa analisi dei costi;
 - Rischi effettivamente occorsi, valutandone il loro impatto e la loro mitigazione;
-- Retrospettiva di periodo per capire cosa e come migliorare in futuro e cosa invece mantenere.
+- Retrospettiva di periodo per capire cosa e come migliorare in futuro e cosa invece mantenere;
+- Punto di avanzamento raggiunto e prospettive di completamento.
 I periodi vengono suddivisi in 3 grandi insiemi corrispondenti alle revisioni di avanzamento del progetto:
 - RTB (#glossary("Requirements and Technology Baseline"));
 - PB (Product #glossary("Baseline"));
@@ -284,6 +286,11 @@ Lo studio condiviso delle librerie JMAP tra i diversi incaricati ha velocizzato 
 L'approccio adottato dai Responsabili per assegnare le attività si è rivelato corretto: le task sono state distribuite in modo equo ai diversi componenti del gruppo che hanno impiegato un numero congruo di ore per il loro svolgimento e hanno ultimato il lavoro entro i tempi stabiliti. \
 Infine va migliorata la stima tramite preventivo del tempo necessario per poter completare tutte le attività, la quale è risultata essere leggermente imprecisa.
 
+==== Punto di avanzamento raggiunto e prospettive di completamento
+In questo primo periodo abbiamo gettato le basi per il progetto. Il gruppo ha risolto con successo i problemi rilevati nella fase di candidatura e definito la struttura di base dei documenti necessari. Inoltre le operazioni sono state automatizzate per migliorare l'efficienza, mentre è stato svolto uno studio approfondito del dominio del problema e delle tecnologie coinvolte. \
+Il nuovo preventivo a finire aumenta rispetto alla stima iniziale, ammontando a 12.700€, ma la data di consegna del prodotto resta al momento confermata per il 2024-03-15.
+#progress(1.59,"I")
+
 === Periodo II
 Inizio: 2023-11-22\
 Fine prevista: 2023-12-06\
@@ -377,6 +384,11 @@ Il secondo periodo di lavoro ci ha fatto capire quanto sia importante promuovere
 Inoltre va incoraggiato l'atteggiamento che è stato adottato dai Programmatori, i quali rapidamente hanno comunicato al gruppo le problematiche legate all'uso della libreria esterna, favorendo una comunicazione efficace per superarle. \
 Infine è fondamentale migliorare ulteriormente la stima del tempo necessario attraverso preventivo per completare tutte le attività, poiché si è riscontrata nuovamente una leggera imprecisione. Nel primo periodo abbiamo sottostimato il tempo necessario, mentre nel secondo periodo lo abbiamo sovrastimato, quindi è cruciale trovare un equilibrio e adottare una maggiore precisione nella valutazione temporale delle attività.
 
+==== Punto di avanzamento raggiunto e prospettive di completamento
+All'interno del secondo periodo il gruppo ha fatto progressi significativi nello sviluppo della documentazione, concentrandosi soprattutto sul documento di `Analisi dei Requisiti` e organizzando incontri telematici per ottenere feedback. È stata data molta attenzione anche al consolidamento delle `Norme di Progetto` e alla selezione delle tecnologie per lo sviluppo del progetto. Sono state poi sviluppate diverse versioni parallele di Proof of Concept per esplorare varie prospettive, mentre il `Glossario` è stato arricchito con terminologia aggiuntiva. \
+Il nuovo preventivo a finire diminuisce rispetto allo scorso periodo, ammontando a 12.595€, e la data di consegna del prodotto resta al momento confermata per il 2024-03-15.
+#progress(3.4,"II")
+
 === Periodo III
 Inizio: 2023-12-07\
 Fine prevista: 2023-12-21\
@@ -463,6 +475,11 @@ Inoltre, la pianificazione del lavoro da svolgere per il PoC è stata insufficie
 ==== Retrospettiva 
 Il terzo periodo si è rivelato, come da aspettative, il più intenso dei tre. Affinchè il gruppo potesse partecipare alla prima revisione del prodotto prima di Natale, tutti i membri hanno sostenuto dei ritmi altissimi. Purtroppo l'obiettivo non è stato raggiunto.\ Nonostante gran parte della documentazione fosse stata ultimata, abbiamo sopravvalutato le nostre capacità ed ora necessitiamo di ulteriore lavoro per completare l'`Analisi dei Requisiti` e il PoC. \
 Tutto sommato, il carico di lavoro poteva essere distribuito diversamente, magari su più periodi di lavoro, gravando meno pesantemente sui membri del gruppo prima di Natale.\ Abbiamo pianificato erroneamente, seguendo un obiettivo desiderabile, ma difficilmente realizzabile.
+
+==== Punto di avanzamento raggiunto e prospettive di completamento
+Al termine di questo periodo, visto anche il carico di lavoro più intenso, il gruppo è riuscito a progredire significativamente verso il raggiungimento degli obiettivi prefissati per la prima revisione di avanzamento del prodotto. Purtroppo però l'elaborazione dell'`Analisi dei Requisiti` non è ancora considerata completa. Inoltre, il Proof of Concept (PoC) richiede ulteriori sviluppi e uno sforzo maggiore rispetto a quanto previsto. Per quanto riguarda il resto della documentazione, invece, si ritiene che abbia raggiunto uno stato conforme alle aspettative. \
+Il nuovo preventivo a finire comunque diminuisce rispetto allo scorso periodo, ammontando a 12.535€, e la data di consegna del prodotto resta al momento confermata per il 2024-03-15.
+#progress(5.46,"III")
 
 === Periodo IV
 Inizio: 2023-12-21\
@@ -552,6 +569,11 @@ Il quarto periodo, coincidendo con le vacanze Natalizie, è risultato meno costa
 All'interno del gruppo è stata molto apprezzata la disponibilità di alcuni membri nel dedicare più ore per evitare un rallentamento eccessivo nell'avanzamento complessivo del progetto. In futuro, però, sarebbe importante evitare situazioni simili, anche se ha evidenziato la volontà della maggior parte del gruppo di procedere a passo spedito.\ 
 Infine l'aspetto fondamentale su cui concentrarsi nel corso del prossimo periodo è lo sviluppo del PoC, necessario per effettuare la candidatura per l'RTB, dato che ormai la documentazione è praticamente pronta.
 
+==== Punto di avanzamento raggiunto e prospettive di completamento
+Durante il quarto periodo, il gruppo ha rallentato leggermente la velocità di avanzamento del progetto, principalmente a causa delle vacanze di Natale. Tuttavia, poiché gran parte del lavoro era già stato completato, ciò non ha rappresentato un problema significativo. L'`Analisi dei Requisiti` è stata finalmente considerata come completa dal gruppo, raggiungendo così il resto della documentazione. Rimangono ancora da completare le ultime attività relative al Proof of Concept (PoC), ma una volta fatto ciò saremo ormai pronti per candidarci a sostenere la revisione RTB. \
+Il nuovo preventivo a finire aumenta un po' rispetto allo scorso periodo, ammontando a 12.630€, vista l'impossibilità di confrontarsi direttamente con il #p.cardin, la quale comporta delle incertezze che potrebbero richiedere più ore da Analista del previsto, ma la data di consegna del prodotto resta al momento confermata per il 2024-03-15.
+#progress(6.6,"IV")
+
 === Periodo V
 Inizio: 2024-01-09\
 Fine prevista: 2024-01-14\
@@ -563,7 +585,7 @@ Durante lo scorso periodo il team Overture ha completato la redazione di tutta l
 Per quanto riguarda l'organizzazione di questo periodo, abbiamo deciso di ridurre la durata di quest'ultimo ad una settimana, con lo scopo di rifinire gli ultimi dettagli essenziali per poter completare tutto il lavoro necessario per la candidatura alla RTB.\
 Facciamo presente che, qualora non fosse possibile candidarsi alla RTB al termine di questo periodo, allora dovremo ripianificare una futura data per la candidatura, in quanto il team di sviluppo per un paio di settimane sarà impegnato a studiare per gli altri esami di questo semestre.\
 I dettagli che intediamo rifinire per essere pronti alla candidatura RTB sono: 
-- la validazione di tutti i documenti (compresi `Piano di Qualifica` e `Piano di Progetto` in seguito ai consueti aggiornamenti);
+- l'approvazione di tutti i documenti (compresi `Piano di Qualifica` e `Piano di Progetto` in seguito ai consueti aggiornamenti);
 - l'aggiustamento di stile dei documenti;
 - assicurarsi che non ci siano errori nel `Glossario`;
 - risolvere tutti i problemi emersi con il PoC negli scorsi periodi.
@@ -638,6 +660,11 @@ Per quanto riguarda il quinto periodo, il gruppo di progetto ha deciso di attuar
 Organizzare le attività in un periodo cosi ridotto ha portato l'immediato beneficio di garantire una pianificazione più fine e precisa delle singole attività e una assegnazione delle risorse più mirata. Tutto ciò ha comportato quindi una maggiore efficienza nel raggiungimento degli obiettivi prefissati e il completamento di tutte le attività.\
 Durante questa settimana intensiva si sottolinea un'ottima coesione del nostro gruppo verso un'unico scopo: il raggiungimento della candidatura alla RTB. L'estrema sincronia e collaborazione tra i membri del gruppo ha contribuito a creare un ambiente di lavoro stimolante e altamente produttivo portando quindi un successo complessivo per quanto riguarda questo periodo.\
 Si desidera mettere in rilevo che durante questo periodo non si evidenziano aspetti negativi rilevanti, ma al contrario i valori positivi emersi ci costrigono a valutare di replicare questo modello di fase intensiva e ridotta in termini di tempo anche in un futuro prossimo.
+
+==== Punto di avanzamento raggiunto e prospettive di completamento
+Durante questo periodo il team di progetto ha finalizzato e approvato tutta la documentazione richiesta per la candidatura alla revisione RTB. Inoltre, sono stati risolti tutti i problemi riscontrati con il PoC nel periodo precedente, rendendolo pronto per la presentazione. Infine, sono stati affinati gli ultimi dettagli per garantire una presentazione di alta qualità. \
+Il nuovo preventivo a finire ammonta a 12.615€ e la data di consegna del prodotto slitta di una settimana, per via del tempo da dedicare allo studio per gli esami, ed è prevista per la data 2024-03-22.
+#progress(7.2,"V")
 
 === Sommario finale
 Dopo svariate intense settimane di lavoro, iniziato in data 2023-11-06, il gruppo si ritiene pronto a sostenere la prima revisione del prodotto che, come da accordi con il #p.cardin, inizierà il *2024-01-19* e continuerà poi con il colloquio con il #p.vardanega.\
@@ -757,6 +784,11 @@ Tuttavia ci ha comunque insegnato delle cose importanti:
 - È stato apprezzato il modo in cui le domande sono state gestite durante la presentazione, il che indica che è stato fatto un buon lavoro da questo punto di vista;
 - C'è spazio per migliorare la gestione del tempo durante la presentazione. Questo suggerisce che potrebbe esserci stata una mancanza di precisione nel cronometrare o gestire l'esposizione delle informazioni, e che potrebbe essere necessario fare un maggiore sforzo per rispettare i limiti di tempo stabiliti.
 Dai punti evidenziati è importante trarre insegnamenti per migliorare le prestazioni future. È essenziale conservare gli elementi positivi, come la capacità di gestire efficacemente le domande, mentre si lavora per migliorare gli aspetti critici individuati, come la gestione del tempo durante la presentazione.
+
+==== Punto di avanzamento raggiunto e prospettive di completamento
+Durante questo periodo il gruppo ha dedicato la maggior parte del tempo alla preparazione degli esami, tuttavia, ciò non ci ha impedito di superare con successo entrambi i colloqui relativi alla revisione RTB. \ Nonostante non fosse previsto alcun avanzamento nel progetto, abbiamo lavorato comunque per risolvere i problemi evidenziati dal #p.cardin riguardanti l'`Analisi dei Requisiti` e, di conseguenza, il `Piano di Qualifica`. Questo ci ha permesso di raggiungere un lieve ma importante progresso nel progetto.\
+Il nuovo preventivo a finire rimane lo stesso dello scorso periodo, ammontando a 12.615€, e la data di consegna del prodotto resta al momento confermata per il 2024-03-22, come comunicato durante il colloquio con il #p.vardanega.
+#progress(7.6,"VI")
 
 #pagebreak()
 
