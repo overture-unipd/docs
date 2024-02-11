@@ -9,6 +9,7 @@
     [_#(p.zextras)_],
   ),
   changelog: (
+    "1.1.1", "2024-02-11", p.bonavigo, p.bettin, "Aggiunto il preventivo e la pianificazione del periodo VII",
     "1.1.0", "2024-02-09", p.bonavigo, p.bettin, "Aggiunto il consuntivo e la retrospettiva del periodo VI (periodo in attesa del passaggio della RTB)",
     "1.0.0", "2024-01-14" , p.furno, p.bonavigo, "Approvazione per RTB",
     "0.5.2", "2024-01-14", p.bonavigo, p.furno, "Aggiunta la pianificazione in attesa del passaggio della RTB",
@@ -683,6 +684,9 @@ Il nuovo preventivo del progetto equivale a _*12615€*_, mentre la consegna fin
     ("1115€", "1275€", "1445€", "820€", "430€", "5085€" ),
   )
 ), caption: [Aggiornamenti economici del progetto al termine del periodo di preparazione al RTB.])
+
+#pagebreak()
+
 == Tra RTB e PB
 
 === Periodo VI
@@ -753,3 +757,50 @@ Tuttavia ci ha comunque insegnato delle cose importanti:
 - È stato apprezzato il modo in cui le domande sono state gestite durante la presentazione, il che indica che è stato fatto un buon lavoro da questo punto di vista;
 - C'è spazio per migliorare la gestione del tempo durante la presentazione. Questo suggerisce che potrebbe esserci stata una mancanza di precisione nel cronometrare o gestire l'esposizione delle informazioni, e che potrebbe essere necessario fare un maggiore sforzo per rispettare i limiti di tempo stabiliti.
 Dai punti evidenziati è importante trarre insegnamenti per migliorare le prestazioni future. È essenziale conservare gli elementi positivi, come la capacità di gestire efficacemente le domande, mentre si lavora per migliorare gli aspetti critici individuati, come la gestione del tempo durante la presentazione.
+
+#pagebreak()
+
+== PB
+=== Periodo VII
+Inizio: 2024-02-07\
+Fine prevista: 2024-02-21\
+//Fine attuale: 2024-02-21\
+//Giorni di ritardo: #pos("0")
+
+==== Pianificazione
+All'interno del settimo periodo, il quale nasce contestualmente al passaggio della revisione RTB da parte del gruppo, dovremo affacciarci per la prima volta alla fase di progettazione (design) del prodotto software che andremo a realizzare. In queste due settimane sarà quindi essenziale condurre uno studio approfondito della documentazione pertinente, con l'obiettivo di definirne la struttura di base ed iniziare ad arricchirla con i contenuti principali. Inoltre è fondamentale aggiornare costantemente la documentazione esistente, in modo da non trascurarla, e proprio per questo prevediamo soprattutto un arricchimento delle `Norme di Progetto`. \
+Per facilitare la transizione verso questa nuova fase del progetto, sarà utile organizzare un colloquio con l'azienda proponente #p.zextras al fine di ottenere supporto e chiarimenti. \
+Inoltre, in questo periodo prevediamo di risolvere tutte le problematiche emerse dalla valutazione seguente alla revisione RTB il prima possibile, in modo da poter operare su una baseline pulita. \
+Infine, non va dimenticato lo sviluppo del prodotto software effettivo, il quale però non potrà essere il focus principale di questo periodo, dato che per poter passare alla codifica sarà necessario prima aver definito almeno una base di progettazione. Tuttavia, finché quest'ultima non sarà almeno parzialmente pronta, intendiamo comunque assegnare ai programmatori il compito di completare l'esplorazione delle funzionalità mancanti nel Proof of Concept (PoC) e condurre test sui client che ci serviranno in futuro per dimostrare le funzionalità del nostro prodotto software.\
+Le attività previste durante questo periodo sono quindi le seguenti:
+- Risolvere le problematiche emerse dalla revisione RTB;
+- Arricchire il più possibile le `Norme di Progetto`;
+- Aggiornare `Piano di Qualifica` e `Piano di Progetto` come di consueto;
+- Definire una struttura di base per la nuova documentazione;
+- Arricchire il più possibile la nuova documentazione;
+- Studiare i possibili design da implementare;
+- Procedere, per quanto possibile, alla codifica del prodotto software.
+
+===== Rischi attesi
+I rischi che ci aspettiamo di correre in questo periodo sono i seguenti: 
+- #link(<RT1>)[*RT1 - Inesperienza*];
+- #link(<RO1>)[*RO1 - Imprecisioni nella pianificazione delle attività*];
+- #link(<RO2>)[*RO2 - Elevati costi delle attività*];
+Poiché siamo nelle fasi iniziali della progettazione, molti aspetti di essa rimangono per noi ancora incerti e stiamo attualmente organizzandoci mentre continuiamo ad apprendere. Di conseguenza, c'è una considerevole probabilità di incontrare problemi tra quelli menzionati. Inoltre, questo è il primo periodo in cui possiamo concentrarci esclusivamente sul progetto, senza dover pensare a lezioni o esami, il che potrebbe rendere più difficile essere precisi nella pianificazione delle attività.
+
+==== Preventivo
+Ruoli coinvolti: Responsabile, Amministratore, Verificatore, Progettista, Programmatore.
+
+#period(
+  (
+    (5, 0, 0, 0, 0, 13),
+    (0, 0, 10, 0, 0, 7),
+    (0, 4, 0, 0, 12, 0),
+    (3, 0, 0, 0, 12, 0),
+    (0, 0, 8, 0, 8, 0),
+    (0, 0, 10, 0, 0, 8),
+    (0, 2, 0, 0, 12, 0)
+    ),
+  (3, 2, 1),
+  "VII"
+)
