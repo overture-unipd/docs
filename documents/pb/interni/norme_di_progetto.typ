@@ -4,6 +4,7 @@
   title: "Norme di Progetto",
   managers: p.vedovato,
   changelog: (
+    "1.0.2", "2024-02-11", p.bulychov, p.fabbian, "Aggiunta della sezione 'Risoluzione dei problemi'",
     "1.0.1", "2024-02-09", p.amadori, p.bettin, "Migliorata la sezione 'Gestione della qualità'",
     "1.0.0", "2024-01-13" , p.bulychov, p.furno, "Approvazione per RTB",
     "0.2.1", "2024-01-08", p.bonavigo, p.bulychov, "Descrizione della repo `jmap` e chiarimenti su branch e PR",
@@ -665,6 +666,27 @@ Ci si attende che il gruppo rispetti gli standard qualitativi definiti di comune
 Per poter garantire la gestione della qualità utilizziamo delle metriche che sono differenti a seconda del processo coinvolto. In questo modo abbiamo uno strumento oggettivo per valutare il lavoro svolto.\
 In genere, si fissano le regole finalizzate a garantire un livello di qualità desiderato di un prodotto attraverso la verifica e la valutazione sistematica del risultato prodotto. Questo è finalizzato a verificare se ciò che è stato prodotto è conforme al documento `Piano di Qualifica` che definisce tutte le specifiche di qualità attese.\
 Avere dei processi definiti per il controllo di queste metriche è fondamentale per ottenere dei prodotti che siano in linea con gli standard di qualità richiesti e fissati ad inizio progetto.
+
+== Risoluzione dei problemi
+
+=== Scopo
+Il processo di risoluzione dei problemi è pensato per analizzare e risolvere i problemi, indipendentemente dalla loro natura o origine, che vengono scoperti durante l'esecuzione di fornitura, sviluppo o altri processi primari. L'obiettivo principale è fornire un mezzo tempestivo, responsabile e documentato per garantire che tutti i problemi scoperti siano analizzati e risolti, e che siano riconosciuti eventuali trend.
+
+=== Descrizione
+Questo processo aiuta a gestire e affrontare le sfide che possono emergere durante le varie fasi del progetto, garantendo che vengano affrontate in modo efficace e che vengano identificati eventuali schemi ricorrenti che potrebbero richiedere azioni preventive o correttive a lungo termine. \
+Si suddivide in due attività: rilevamento dei problemi e soluzione dei problemi.
+
+==== Rilevamento dei problemi 
+Per garantire che tutti i problemi rilevati siano tempestivamente segnalati e inseriti nell'attività di risoluzione dei problemi, le parti interessate pertinenti devono essere subito avvisate dell'esistenza del problema. A questo punto vanno identificate le cause, le quali saranno poi analizzate e, se possibile, eliminate. Ogni problema deve essere classificato per categoria e priorità per facilitare l'analisi dei trend e la risoluzione dei problemi. Di questo va tenuto traccia nei verbali, in modo da avere uno storico dei problemi affrontati.
+
+==== Soluzione dei problemi
+Una volta individuato il problema e le sue cause occorre, dopo una opprtuna analisi, andare a risolverlo. Si realizzano quindi le soluzioni scelte e occorre verificare l'esito positivo della correzione, valutando che i problemi siano stati effettivamente risolti, che i trend negativi siano stati invertiti e che le modifiche siano state correttamente implementate nei prodotti software e nelle attività appropriate. Inoltre, è necessario verificare se siano stati introdotti problemi aggiuntivi, andando, in caso, a risolvere pure quelli.
+
+=== Aspettative
+Ci si aspetta che i problemi vengano segnalati in modo tempestivo, senza ritardi indebiti, e che siano risolti in modo efficiente ed efficace, minimizzando l'impatto sulle operazioni e massimizzando il valore per il team. Il processo di risoluzione dei problemi deve quindi essere gestito in modo responsabile, trasparente e orientato ai risultati, con l'obiettivo di migliorare continuamente le operazioni e garantire la soddisfazione del cliente.
+
+=== Strumenti
+Per poter garantire una buona risoluzione dei problemi, uno strumento fondamentale che ci viene in aiuto sono gli incontri interni fra i membri del team. Facendo infatti un brainstorming collettivo e chiedendosi ripetutamente "perché" un problema sia accaduto sarà molto più semplice individuare la causa radicale di esso.
 
 = Processi organizzativi
 == Gestione dei processi
