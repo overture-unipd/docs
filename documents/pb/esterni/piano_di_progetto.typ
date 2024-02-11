@@ -10,7 +10,7 @@
   ),
   changelog: (
     "1.1.2", "2024-02-11", p.bonavigo, p.fabbian, "Ristrutturazione dei contenuti per risolvere le problematiche evidenziate dalla revisione RTB",
-    "1.1.1", "2024-02-11", p.bonavigo, p.bettin, "Aggiunto il preventivo e la pianificazione del periodo VII",
+    "1.1.1", "2024-02-10", p.bonavigo, p.bettin, "Aggiunto il preventivo e la pianificazione del periodo VII",
     "1.1.0", "2024-02-09", p.bonavigo, p.bettin, "Aggiunto il consuntivo e la retrospettiva del periodo VI (periodo in attesa del passaggio della RTB)",
     "1.0.0", "2024-01-14" , p.furno, p.bonavigo, "Approvazione per RTB",
     "0.5.2", "2024-01-14", p.bonavigo, p.furno, "Aggiunta la pianificazione in attesa del passaggio della RTB",
@@ -54,7 +54,7 @@ La presenza di un termine all'interno del `Glossario` viene indicata applicando 
 
 == Riferimenti
 === Riferimenti normativi
-- `Norme di Progetto v1.0.0`
+- `Norme di Progetto v1.0.0`: \ https://overture-unipd.github.io/docs/rtb/interni/norme_di_progetto_v1.0.0.pdf 
 - *PD2 - Regolamento del progetto didattico* \
   https://www.math.unipd.it/~tullio/IS-1/2023/Dispense/PD2.pdf
 - *Capitolato d'appalto C8*: JMAP, il nuovo protocollo standard per la comunicazione email \
@@ -65,8 +65,7 @@ La presenza di un termine all'interno del `Glossario` viene indicata applicando 
   https://www.math.unipd.it/~tullio/IS-1/2023/Dispense/T2.pdf
 - *T4 - Gestione di progetto* \
   https://www.math.unipd.it/~tullio/IS-1/2023/Dispense/T4.pdf
-- *Glossario* \
-  https://overture-unipd.github.io/docs/rtb/esterni/glossario_v1.0.0.pdf
+- `Glossario v1.0.0`: \ https://overture-unipd.github.io/docs/rtb/interni/glossario_v1.0.0.pdf 
 
 == Preventivo iniziale
 Il preventivo iniziale presentato in fase di candidatura è reperibile al seguente link: #link("https://github.com/overture-unipd/docs/blob/master/documents/candidatura/dichiarazione_impegni_v1.1.pdf")[Preventivo iniziale].\
@@ -74,7 +73,7 @@ All'interno di tale documento viene indicato che il preventivo calcolato del pro
 
 #pagebreak()
 
-= *Analisi dei Rischi*
+= *Analisi dei rischi*
 Durante lo sviluppo del progetto è essenziale mitigare gli impatti delle difficoltà riscontrate attraverso una corretta analisi dei rischi. Al fine di gestire efficacemente le problematiche derivanti da diverse condizioni intervenute durante l'implementazione, è stata inclusa questa sezione nel `Piano di Progetto v1.0.0`.\
 Dopo aver elencato i potenziali rischi, sono stati identificati una serie di passi da intraprendere nel caso in cui uno di essi si verifichi. Questa raccolta indica le soluzioni da applicare per limitare i danni.\
 Secondo lo standard #glossary("ISO")/#glossary("IEC") 31000:2009, il #glossary("processo") di gestione dei rischi si articola in 5 fasi:
@@ -89,7 +88,7 @@ I fattori fondamentali per identificare i rischi sono:
 - Indice è un valore numerico incrementale che identifica univocamente il rischio per ogni Tipologia.
 Per questo motivo si è deciso di adottare la seguente convenzione `R[Tipologia][Indice]`.
 
-== Rischi Tecnologici
+== Rischi tecnologici
 *RT1 - Inesperienza* <RT1>
 #figure(risks((
  [Dato l'alto grado di specializzazione richiesto dal #glossary("capitolato"), alcuni membri del gruppo potrebbero non possedere le competenze necessarie inizialmente. Ciò potrebbe causare ritardi sia nella fase di progettazione che nello sviluppo, poiché la formazione sarà essenziale per acquisire le competenze richieste],
@@ -117,7 +116,7 @@ Per questo motivo si è deciso di adottare la seguente convenzione `R[Tipologia]
   [Nel caso in cui si verifichi una perdita di mail è necessario avere una fonte da cui poter ripristinare (copia di backup / replicazione)],
 )),caption: "Rischio tecnologico \"Perdita di informazioni\"")
 
-== Rischi Organizzativi
+== Rischi organizzativi
 
 *RO1 - Imprecisioni nella pianificazione delle attività* <RO1>
 #figure(risks(( 
@@ -146,7 +145,7 @@ Per questo motivo si è deciso di adottare la seguente convenzione `R[Tipologia]
   [Il Responsabile rivede la suddivisione dei compiti e delle risorse o, in casi più gravi, sposta alcune scadenze se la pianificazione non tiene conto di questi periodi.],
 )),caption: "Rischio organizzativo \"Impegni personali e universitari\"")
 
-== Rischi Comunicativi
+== Rischi comunicativi
 
 *RC1 - Rischio di conflitti interni* <RC1>
 #figure(risks((

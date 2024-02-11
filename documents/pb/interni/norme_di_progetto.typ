@@ -51,8 +51,7 @@ La presenza di un termine all'interno del glossario viene indicata applicando #g
 === Riferimenti informativi
 - I processi di ciclo di vita del software \
   https://www.math.unipd.it/~tullio/IS-1/2023/Dispense/T2.pdf
-- Glossario \
-  https://overture-unipd.github.io/docs/rtb/esterni/glossario_v1.0.0.pdf
+- `Glossario v1.0.0`: \ https://overture-unipd.github.io/docs/rtb/interni/glossario_v1.0.0.pdf
 
 #pagebreak()
 
@@ -541,7 +540,7 @@ Ogni cambiamento, seguito dalla relativa approvazione, produce un incremento di 
 - *Github*: servizio di hosting per progetti software utilizzato dal gruppo per coordinare le operazioni di versionamento. Viene utilizzato anche come Issue Tracking System.
 
 === Repository
-==== Lista Repository
+==== Lista repository
 Il gruppo utilizza 2 repository all'interno della propria "organizzazione #glossary("GitHub")":
 - #link("https://github.com/overture-unipd/docs"): contenente tutta la documentazione del progetto;
 - #link("https://github.com/overture-unipd/jmap"): contenente tutto il codice del progetto.
@@ -607,7 +606,7 @@ Per la repository `docs` è `sources`. Attenzione che `master` è comunque il br
 
 Per la repository `jmap`, il branch principale è `develop` mentre il branch di default rimane sempre `master`.
 
-==== Pull Request
+==== Pull request
 Quando un'attività viene ultimata ed è pronta per la verifica, il membro del gruppo che ci ha lavorato, ha il compito di aprire una pull request. Il Verificatore è incaricato di controllare le modifiche attuate e, se non ci sono problemi, unirle al branch principale.
 
 Al completamento di una serie di attività legate
