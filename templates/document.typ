@@ -426,94 +426,68 @@
 
   v(1em)
 
-  let sums = ()
-  for j in range(data.first().len()) {
-    let t = ()
-    for i in range(data.len()) {
-      t += (data.at(i).at(j),)
-    }
-    sums += (t.sum(),)
-  }
-  
   data = people.zip(data).map(x => x.flatten())
-  let pal = (rgb("#e60049"), rgb("#0bb4ff"), rgb("#50e991"), rgb("#e6d800"), rgb("#9b19f5"), rgb("#ffa300"), rgb("#dc0ab4"), rgb("#b3d4ff"), rgb("#00bfa0"))
+  let pal_colors =  (rgb("#e60049"), rgb("#0bb4ff"), rgb("#50e991"), rgb("#e6d800"), rgb("#9b19f5"), rgb("#ffa300"), rgb("#dc0ab4"), rgb("#b3d4ff"), rgb("#00bfa0"))
+  let pal = palette.new(colors: pal_colors)
 
   figure(
     [
-    #rect(stroke: (thickness: 0.7pt, dash: "dashed"))[
-      Legenda:
-      #let t = roles.zip(pal)
-      #stack(
-        dir: ltr, spacing: 0.3em,
-        ..t.map(x => stack(
-          dir: ltr,
-          spacing: 0.1em,
-          circle(fill: x.at(1), width: .8em, height: 0.8em), " " + x.at(0)))
+      #rect(stroke: (thickness: 0.7pt, dash: "dashed"))[
+        Legenda:
+        #let t = roles.zip(pal_colors).enumerate().filter(x => data.map(y => y.at(x.first()+1)).sum() > 0).map(x => x.last())
+        #stack(
+          dir: ltr, spacing: 0.3em,
+          ..t.map(x => stack(
+            dir: ltr,
+            spacing: 0.1em,
+            circle(fill: x.at(1), width: .8em, height: 0.8em), " " + x.at(0)))
+        )
+      ]
+      #align(center,
+        canvas({
+          draw.scale(1.8)
+          chart.columnchart(data, size:(auto,4), mode: "clustered", value-key: (1,2,3,4,5,6), y-tick-step: 1, bar-style: pal)
+        })
       )
-    ]
-    #align(center,
-      canvas({
-        import draw: *
-        scale(1.8)
-        chart.columnchart(size:(auto,4), mode: "clustered", value-key: (1,2,3,4,5,6), data, y-tick-step: 1, bar-style: palette.new(black, pal))
-      })
-    )],
+    ],
     caption: [Visualizzazione dell'impegno temporale di ciascun membro nei rispettivi ruoli assegnati nel periodo #period_number.],
   )
 
   v(1em)
 
+  let sums = ()
+  for j in range(data.first().len()-1) {
+    let t = ()
+    for i in range(data.len()) {
+      t += (data.at(i).at(j+1),)
+    }
+    sums += ((value: t.sum(), label: roles.at(j)),)
+  }
+
   figure(
     align(center,
       canvas({
         import draw: *
-        let chart(..values, name: none) = {
-          let values = values.pos()
-          let offset = 0
-          let total = values.fold(0, (s, v) => s + v.at(0))
-          let segment(from, to) = {
-            merge-path(close: true, {
-              line((0, 0), (rel: (360deg * from, 1)))
-              arc((), start: from * 360deg, stop: to * 360deg, radius: 1)
-            })
-          }
-          group(name: name, {
-            stroke((paint: black, join: "round"))
-            for v in values {
-              fill(v.at(1))
-              let value = v.at(0) / total
-              // Draw the segment
-              segment(offset, offset + value)
-              // Place an anchor for each segment
-              anchor(v.at(2), (offset * 360deg + value * 180deg, 0.6))
-              offset += value
-            }
-          })
-        }
-        scale(2)
-  
-        chart(
-          (sums.at(0), pal.at(0), roles.at(0)),
-          (sums.at(1), pal.at(1), roles.at(1)),
-          (sums.at(2), pal.at(2), roles.at(2)),
-          (sums.at(3), pal.at(3), roles.at(3)),
-          (sums.at(4), pal.at(4), roles.at(4)),
-          (sums.at(5), pal.at(5), roles.at(5)),
-          name: "chart"
+        scale(1.8)
+        chart.piechart(
+          sums,
+          slice-style: pal_colors,
+          value-key: "value",
+          label-key: "label",
+          outer-label: (content: "",),
+          name: "pie"
         )
-  
         let positions = ((2,0),)*dirs.at(0)+((-2,0),)*dirs.at(1)+((2,0),)*dirs.at(2)
-        let anchors = ("left",)*dirs.at(0)+("right",)*dirs.at(1)+("left",)*dirs.at(2)
-        set-style(mark: (fill: white, start: "o", stroke: black),
-                  content: (padding: .1))
+        let anchors = ("west",)*dirs.at(0)+("east",)*dirs.at(1)+("west",)*dirs.at(2)
+        set-style(mark: (fill: white, start: "o", stroke: black), content: (padding: .1))
         for i in range(roles.len()) {
-          if sums.at(i) != 0 {
-            line("chart."+roles.at(i), ((), "-|", positions.at(i)))
-            let t = calc.quo(sums.at(i)*100, sums.sum())
+          if sums.at(i).at("value") > 0 {
+            line("pie.item-"+str(i), ((), "-|", positions.at(i))) // should start at the center though
+            let t = calc.round(sums.at(i).at("value") * 100 / sums.map(x => x.at("value")).sum())
             content((), [#roles.at(i) - #t%], anchor: anchors.at(i))
           }
         }
-      })
+      }),
     ),
     caption: [Ripartizione in percentuale dei ruoli nel periodo #period_number.]
   )
@@ -564,6 +538,8 @@
   )
 }
 
+
+
 #let costiFinaliRuolo(r) = {
   let costs_header = ([*Ruolo*], [*Periodo I*], [*Periodo II*], [*Periodo III*], [*Periodo IV*], [*Periodo V*], [*Totali per ruolo*])
   let people = ("Responsabile", "Amministratore", "Verificatore", "Analista", "Progettista", "Programmatore", "Totale preventivo", "Totali per periodo").map(el => [*#el*])
@@ -577,5 +553,51 @@
       align: center,
       ..r.map(el => text(size: 0.85em, hyphenate: false)[#par(justify: false, el)],)
     )
+  )
+}
+
+#let progress(percentage, period_number) = {
+  figure(
+    [
+      #align(center,
+        canvas({
+          draw.set-style(
+           rect: (
+           fill: rgb(69, 255, 78),
+           stroke: none
+           )
+          )
+          draw.rect((0,0), (percentage,1), name: "progress")
+          draw.set-style(
+           rect: (
+           stroke:  (thickness:0.8pt),
+           fill: none
+           )
+          )
+          draw.rect((0,0), (7.2,1), name: "rtb")
+          draw.rect((0,0), (17.4,1), name: "pb")
+          draw.rect((0,0), (18,1), name: "paf")
+          draw.content(
+           ("rtb.mid", 0, "rtb.mid"),
+           padding: -.5,
+           anchor: "south",
+           [RTB]
+          )
+          draw.content(
+           ("pb.mid", 0, "pb.mid"),
+           padding: -.5,
+           anchor: "south",
+           [PB]
+          )
+          draw.content(
+           ("paf.mid", 0, "paf.mid"),
+           padding: -.5,
+           anchor: "south",
+           [PaF]
+          )
+        })
+      )
+    ],
+    caption: [Punto di avanzamento raggiunto nel periodo #period_number.],
   )
 }
