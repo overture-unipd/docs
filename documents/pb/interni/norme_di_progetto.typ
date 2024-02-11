@@ -4,6 +4,7 @@
   title: "Norme di Progetto",
   managers: p.vedovato,
   changelog: (
+    "1.0.3", "2024-02-11", p.amadori, p.furno, "Uniformizzazione del processo 'Sviluppo' per risolvere le problematiche evidenziate dalla revisione RTB",
     "1.0.2", "2024-02-11", p.bulychov, p.fabbian, "Aggiunta della sezione 'Risoluzione dei problemi'",
     "1.0.1", "2024-02-09", p.amadori, p.bettin, "Migliorata la sezione 'Gestione della qualità'",
     "1.0.0", "2024-01-13" , p.bulychov, p.furno, "Approvazione per RTB",
@@ -300,6 +301,14 @@ Successivamente, il programmatore deve procedere con l'installazione del prodott
 Innanzitutto, il programmatore è tenuto a supportare la revisione e il testing di accettazione del prodotto software da parte dell'acquirente. La revisione e il testing di accettazione devono tenere conto dei risultati delle Verifiche, del Testing di Qualificazione del Software e del Testing di Qualificazione di Sistema. I risultati della revisione e del testing di accettazione devono essere accuratamente documentati.\
 Successivamente, il programmatore deve completare e consegnare il prodotto software come specificato nel contratto.
 
+=== Aspettative
+Il processo di sviluppo deve garantire che tutte le attività e i compiti definiti siano adeguatamente eseguiti. Ciò implica soddisfare i requisiti di analisi, progettazione, codifica, integrazione, testing, installazione e accettazione del prodotto software. \
+Il fornitore deve inoltre adattare il processo di sviluppo alle specifiche esigenze e alle caratteristiche del progetto, seguendo le indicazioni fornite nel processo di miglioramento.
+
+=== Strumenti
+I seguenti strumenti sono stati scelti dal gruppo per il processo di sviluppo:
+- *Draw.io*: strumento di diagrammazione online per la creazione di diagrammi UML (Unified Modeling Language) che consentono agli sviluppatori di visualizzare e progettare modelli di software, inclusi diagrammi delle classi, diagrammi dei casi d'uso e diagrammi delle sequenze, tramite #link("draw.io")\;
+- *Visual Studio Code*: editor di codice sorgente sviluppato da Microsoft che fornisce funzionalità avanzate per il completamento automatico del codice, la formattazione del codice, il riconoscimento della sintassi, refactoring del codice e molto altro ancora, che migliorano la produttività degli sviluppatori.
 
 = Processi di supporto
 == Documentazione
