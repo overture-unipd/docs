@@ -601,3 +601,106 @@
     caption: [Punto di avanzamento raggiunto nel periodo #period_number.],
   )
 }
+
+#let tecnologieUsate(r) = {
+  let header = ([*Nome*], [*Versione*], [*Descrizione*])
+  r = header + r
+  align(center,
+    table(
+      fill: (_, row) => if calc.odd(row) { luma(215) } else { white },
+      inset: 0.5em,
+      columns: (20%, 10%, auto),
+      align: center,
+      ..r.map(el => text(size: 0.85em, hyphenate: false)[#par(justify: false, el)],)
+    )
+  )
+}
+
+#let requisitiSoddisfatti(r) = {
+  let header = ([*Codice*], [*Tipo*], [*Descrizione*], [*Stato*])
+  r = header + r
+  align(center,
+    table(
+      fill: (_, row) => if calc.odd(row) { luma(215) } else { white },
+      inset: 0.5em,
+      columns: (auto, auto, auto, auto),
+      align: center,
+      ..r.map(el => text(size: 0.85em, hyphenate: false)[#par(justify: false, el)],)
+    )
+  )
+}
+
+#let resumeRequisiti(percentageTotale, percentageObbligatori, percentageDesiderabili, percentageOpzionali) = {
+  let dataTotale = (
+    ([Soddisfatti], percentageTotale),
+    ([Non soddisfatti], 100-percentageTotale)
+  )
+  let dataObbligatori = (
+    ([Soddisfatti], percentageObbligatori),
+    ([Non soddisfatti], 100-percentageObbligatori)
+  )
+  let dataDesiderabili = (
+    ([Soddisfatti], percentageDesiderabili),
+    ([Non soddisfatti], 100-percentageDesiderabili)
+  )
+  let dataOpzionali = (
+    ([Soddisfatti], percentageOpzionali),
+    ([Non soddisfatti], 100-percentageOpzionali)
+  )
+  figure(
+      canvas({
+        chart.piechart(
+          dataTotale,
+          value-key: 1,
+          label-key: 0,
+          radius: 3.5,
+          slice-style: gradient.linear(green, red, red),
+          inner-radius: 0.5,
+          inner-label: (content: (value, label) => [#text(white, label)], radius: 100%),
+          outer-label: (content: "%", radius: 118%))
+      })
+    , caption: [Stato dei requisiti funzionali totali]
+  )
+  figure(
+      canvas({
+        chart.piechart(
+          dataObbligatori,
+          value-key: 1,
+          label-key: 0,
+          radius: 3.5,
+          slice-style: gradient.linear(green, red, red),
+          inner-radius: 0.5,
+          inner-label: (content: (value, label) => [#text(white, label)], radius: 100%),
+          outer-label: (content: "%", radius: 118%))
+      })
+    , caption: [Stato dei requisiti funzionali obbligatori]
+  )
+  figure(
+      canvas({
+        chart.piechart(
+          dataDesiderabili,
+          value-key: 1,
+          label-key: 0,
+          radius: 3.5,
+          slice-style: gradient.linear(green, red, red),
+          inner-radius: 0.5,
+          inner-label: (content: (value, label) => [#text(white, label)], radius: 100%),
+          outer-label: (content: "%", radius: 118%))
+      })
+    , caption: [Stato dei requisiti funzionali desiderabili]
+  )
+  figure(
+      canvas({
+        chart.piechart(
+          dataOpzionali,
+          value-key: 1,
+          label-key: 0,
+          radius: 3.5,
+          slice-style: gradient.linear(green, red, red),
+          inner-radius: 0.5,
+          inner-label: (content: (value, label) => [#text(white, label)], radius: 100%),
+          outer-label: (content: "%", radius: 118%))
+      })
+    , caption: [Stato dei requisiti funzionali opzionali]
+  )
+}
