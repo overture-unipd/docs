@@ -9,6 +9,10 @@
     [_#(p.zextras)_],
   ),
   changelog: (
+    "0.0.3", "2024-02-15", p.fabbian, p.furno,
+    [
+      Aggiunta la sezione 'Collegamento di un client di posta elettronica installato su un dispositivo Android'.
+    ],
     "0.0.2", "2024-02-14", (p.vedovato, p.bonavigo), p.bettin,
     [
       Aggiunta la sezione 'Avvio del server di posta elettronica'.
@@ -18,6 +22,7 @@
       Struttura di base del documento e introduzione.
     ]
   ),
+  show_images_list: true,
   outline_depth: 3,
 )
 
@@ -124,12 +129,12 @@ Se sono stati rispettati tutti i requisiti della sezione #link(<RTS>)[*Requisiti
 Come prima cosa assicuriamoci che:
 - Docker sia attivo nel computer in uso con il relativo comando (`sudo systemctl status docker` in ambiente Linux e `docker info` in ambiente Windows);
 - Java sia stato installato correttamente (quindi ne verifichiamo la versione con il comando `java -version`);
-- Gradle sia stato installato correttamente (quindi ne verifichiamo la versione con il comando `gradle -versione`).
+- Gradle sia stato installato correttamente (quindi ne verifichiamo la versione con il comando `gradle -version`).
 
 A questo punto se si desidera avviare il server di posta elettronica si devono digitare manualmente i comandi presenti nel file .justfile (ovviamente questo passaggio può essere evitato qualora si abbia installato Just e di conseguenza si riesca ad avviare automaticamente tutti i comandi dal justfile fornito). I comandi per l'avvio del server quindi sono i seguenti:
 
 - `gradle dockerBuilImage`: per creare l'immagine docker per l'applicazione;
-- `docker build -t overture-unipd/caddy:latest -f caddy.dockerfile`: per creare l'immagine di caddy, in quanto nel file caddy.dockerfile ci sono le istruzioni per creare la nostra immagine personalizzata di caddy che richiede l'integrazione con duckdns per avere il certificato https;
+- `docker build -t overture-unipd/caddy:latest -f caddy.dockerfile .`: per creare l'immagine di caddy, in quanto nel file caddy.dockerfile ci sono le istruzioni per creare la nostra immagine personalizzata di caddy che richiede l'integrazione con duckdns per avere il certificato https;
 - `docker compose up` : per avviare tutti i container.
 
 Qualora ci fossero degli errori, essi verranno mostrati nel terminale nel quale si hanno digitato i comandi.
@@ -138,3 +143,31 @@ Come prova del nove per verificare che il server sia attivo possiamo aprire un b
 
 == Istruzioni per lo spegnimento
 Per spegnere il server avviato seguendo le direttive specificate nella sezione #link(<IPA>)[*Istruzioni per l'avvio*] possiamo usare il seguente comando (anch'esso presente nel file .justfile): docker compose down.
+
+#pagebreak()
+
+= Collegamento di un client di posta elettronica installato su un dispositivo Android
+
+== Operazioni preliminari
+Per collegare un client di posta elettronica installato su un dipositivo (come ad esempio un cellulare) Android è necessario prima eseguire delle verifiche per aumentare il successo dell'operazione.
+
+Prima di tutto dobbiamo assicurarci che il dipositivo in questione sia collegato alla stessa LAN del server e che possa comunicare con quest'ultimo. Per verificare questo dobbiamo installare un software di ping sul dispositivo Android e provare ad effettuare un DNS Lookup per il sottodominio configurato precedentemente sulla sezione: #link(<DuckDNS>)[*Duck DNS*].\
+Qualora tutto fosse installato correttamente questo dovrebbe essere il risultato:
+#figure(image("//imgs/Manuale_Utente/DNSLookup.jpg", width: 30%), caption: [Ping tra il dispositivo mobile e il server avvenuto con successo.])
+
+
+== Installazione, avvio del client e collegamento
+Come prima cosa dobbiamo scegliere uno dei client presenti nel seguente repository pubblico nel sito ufficiale di jmap: https://jmap.io/software.html. Fatto questo, dobbiamo installarlo nel dispositivo in uso seguendo la guida ufficiale associata al README presente su ogni client scelto nella pagina github relativa.\
+Nel nostro caso noi abbiamo scelto di utilizzare il client Ltt.rs (https://github.com/iNPUTmice/lttrs-android).\
+
+Arrivati a questo punto avviamo il client ed effettuiamo l'accesso con uno degli account presenti nel file .env del server installato precedentemente. A partire dall'indirizzo email dell'account con il quale si vuole effettuare l'accesso il client riconoscerà automaticamente il dominio (a partire da alice$at$overture.duckdns.org, il client saprà che dovrà collegarsi al server presente al dominio overture.duckdns.org e quindi all'indirizzo IP relativo al record DNS fornito da Duck DNS).
+
+#figure(image("//imgs/Manuale_Utente/Email.jpg", width: 30%), caption: [Inserimento dell'email con il quale si vuole effettuare l'accesso.])
+
+Successivamente inseriamo la password associata a quell'account (la troviamo nel file .env) e clicchiamo su "Avanti":
+
+#figure(image("//imgs/Manuale_Utente/Password.jpg", width: 30%), caption: [Inserimento della password relativa all'account inserito prima.])
+
+Se tutto è stato eseguito correttamente avremo il seguente risultato:
+
+#figure(image("//imgs/Manuale_Utente/SchermataPrincipale.jpg", width: 30%), caption: [Schermata principale con la lista di tutte le email ricevute.])
