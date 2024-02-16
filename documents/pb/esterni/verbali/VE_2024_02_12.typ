@@ -9,6 +9,7 @@
     [_#(p.zextras)_],
   ),
   changelog: (
+    "1.1", "2024-02-16", p.amadori, p.fabbian, "Correzioni al verbale",
     "1.0", "2024-02-13", p.bulychov, p.furno, "Stesura del verbale",
     "0.1", "2024-02-12", p.bulychov, p.furno, "Prima bozza con risposte alle domande",
   ),
@@ -47,7 +48,7 @@ Il prodotto che stiamo sviluppando ha per sua natura poca business logic. Questo
 
 Tuttavia, ce ne sono diversi che possiamo adottare.
 Innanzitutto, è sensato fare uso del "builder pattern": risulta più agevole di avere un costruttore con tutte le variabili per ogni classe.\
-È buona norma usare anche la "dependency injection"; l'azienda consiglia la libreria `Guice`, che introduce meno complessità di `Spring`.\ 
+È buona norma usare anche la "dependency injection"; l'azienda consiglia `Guice`, il quale non è una framework completo ma solo una libreria per la dependency injection, la quale si può paragonare all'autowiring di `Spring`.\ 
 Lo "stategy pattern" è inseribile nella fase di dispatch delle `methodCall` di JMAP: invece di un controllo sul tipo concreto e successivo cast per la chiamata `execute`, conviene definire una interfaccia e classi che la implementano.\  
 Per quanto rigurda la parte di persistenza, l'azienda consiglia di valutare l'utilizzo di un "adapter pattern", che consente la sostituzione della libreria utilizzata per l'accesso al database.
 
