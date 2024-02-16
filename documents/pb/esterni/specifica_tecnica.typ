@@ -9,6 +9,10 @@
     [_#(p.zextras)_],
   ),
   changelog: (
+    "0.0.3", "2024-02-15", p.bulychov, p.fabbian, 
+    [
+      Aggiunta la sezione 'Tecnologie per la codifica'.
+    ],
     "0.0.2", "2024-02-15", p.vedovato, p.furno, 
     [
       Aggiunta la sezione 'Stato dei requisiti funzionali'.
@@ -18,6 +22,8 @@
       Struttura di base del documento e introduzione.
     ]
   ),
+  show_images_list: true,
+  show_tables_list: true,
   outline_depth: 3,
 )
 
@@ -42,6 +48,41 @@ La presenza di un termine all'interno del `Glossario` viene indicata applicando 
 === Riferimenti informativi
 - `Glossario v1.0.0`: \ https://overture-unipd.github.io/docs/rtb/interni/glossario_v1.0.0.pdf
 - `Analisi dei Requisiti v1.1.0`: \ https://overture-unipd.github.io/docs/rtb/esterni/analisi_dei_requisiti_v1.1.0.pdf
+
+#pagebreak()
+
+= Tecnologie
+
+In questa sezione vengono elencate tutte le tecnologie utilizzate per l'implementazione del prodotto richiesto dal capitolato.
+
+== Tecnologie per la codifica
+=== Linguaggi
+#figure(tecnologieUsate(
+  (
+    "Java", "21 LTS", "Linguaggio di programmazione ad alto livello, orientato agli oggetti e a tipizzazione statica."
+  ),
+), caption: [])
+=== Strumenti e servizi
+#figure(tecnologieUsate(
+  (
+    "Docker", "25.0.0", "Strumento di conteinerizzazione.",
+    "RethinkDB", "2.4.4", "Database NoSQL.",
+    "Gradle", "8.6", "Strumento di automazione della build e di gestione delle dipendenze.",
+    "Caddy", "2.7.0", "Web server che converte il traffico da HTTP a HTTPS."
+  ),
+), caption: [])
+=== Framework
+#figure(tecnologieUsate(
+  (
+    "Spark", "3.5.0", "Lightweight framework per lo sviluppo di applicazioni web in Java."
+  )
+), caption: [])
+=== Librerie
+#figure(tecnologieUsate(
+  (
+    "Java JMAP iNPUTmice Library", "0.8.13", "Libreria che sincronizza i dati tra client e server utilizzando il JSON Meta Application Protocol."
+  )
+), caption: [])
 
 #pagebreak()
 
