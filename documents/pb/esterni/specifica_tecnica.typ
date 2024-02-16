@@ -9,6 +9,10 @@
     [_#(p.zextras)_],
   ),
   changelog: (
+    "0.0.4", "2024-02-16", p.fabbian, p.furno, 
+    [
+      Aggiunta la sezione 'Tecnologie per l'analisi del codice'.
+    ],
     "0.0.3", "2024-02-15", p.bulychov, p.fabbian, 
     [
       Aggiunta la sezione 'Tecnologie per la codifica'.
@@ -48,41 +52,71 @@ La presenza di un termine all'interno del `Glossario` viene indicata applicando 
 === Riferimenti informativi
 - `Glossario v1.0.0`: \ https://overture-unipd.github.io/docs/rtb/interni/glossario_v1.0.0.pdf
 - `Analisi dei Requisiti v1.1.0`: \ https://overture-unipd.github.io/docs/rtb/esterni/analisi_dei_requisiti_v1.1.0.pdf
+- Progettazione: le dipendenze fra le componenti, #p.cardin \ https://www.math.unipd.it/~rcardin/swea/2023/Object-Oriented%20Progamming%20Principles%20Revised.pdf
+- Progettazione e programmazione: diagrammi delle classi (UML), #p.cardin \ https://www.math.unipd.it/~rcardin/swea/2023/Diagrammi%20delle%20Classi.pdf
+- Progettazione: i _pattern_ architetturali, #p.cardin \ https://www.math.unipd.it/~rcardin/swea/2022/Software%20Architecture%20Patterns.pdf
+- Progettazione: il _pattern Dependency Injection_, #p.cardin \ https://www.math.unipd.it/~rcardin/swea/2022/Design%20Pattern%20Architetturali%20-%20Dependency%20Injection.pdf
+- Progettazione _software_ (T6), #p.vardanega \ https://www.math.unipd.it/~tullio/IS-1/2023/Dispense/T6.pdf
+- Progettazione: i _pattern_ creazionali (GoF), #p.cardin \ https://www.math.unipd.it/~rcardin/swea/2022/Design%20Pattern%20Creazionali.pdf
+- Progettazione: i _pattern_ strutturali (GoF), #p.cardin \ https://www.math.unipd.it/~rcardin/swea/2022/Design%20Pattern%20Strutturali.pdf
+- Progettazione: i _pattern_ di comportamento (GoF), #p.cardin \ https://www.math.unipd.it/~rcardin/swea/2021/Design%20Pattern%20Comportamentali_4x4.pdf
+- Programmazione: SOLID _programming_, #p.cardin \ https://www.math.unipd.it/~rcardin/swea/2021/SOLID%20Principles%20of%20Object-Oriented%20Design_4x4.pdf
 
 #pagebreak()
 
 = Tecnologie
 
-In questa sezione vengono elencate tutte le tecnologie utilizzate per l'implementazione del prodotto richiesto dal capitolato.
+In questa sezione vengono elencate tutte le tecnologie utilizzate per l'implementazione del prodotto richiesto dal capitolato. 
 
 == Tecnologie per la codifica
 === Linguaggi
 #figure(tecnologieUsate(
   (
-    "Java", "21 LTS", "Linguaggio di programmazione ad alto livello, orientato agli oggetti e a tipizzazione statica."
+    "Java", "21 LTS", "Linguaggio di programmazione ad alto livello, orientato agli oggetti e a tipizzazione statica. Fortemente consigliato dall'azienda proponente Zextras dato che è il linguaggio principale nello stack tencologico di Carbonio."
   ),
-), caption: [])
+), caption: [Linguaggi di programmazione usati per la codifica])
 === Strumenti e servizi
 #figure(tecnologieUsate(
   (
-    "Docker", "25.0.0", "Strumento di conteinerizzazione.",
-    "RethinkDB", "2.4.4", "Database NoSQL.",
-    "Gradle", "8.6", "Strumento di automazione della build e di gestione delle dipendenze.",
-    "Caddy", "2.7.0", "Web server che converte il traffico da HTTP a HTTPS."
+    "Docker", "25.0.0", "Strumento di conteinerizzazione richiesto esplicitamente dall'azienda proponente. Ogni contenitore viene eseguito in modo isolato dagli altri. Si integra facilmente con Gradle tramite un plugin.",
+    "Docker-compose", "2.24.0", "Strumento di conteinerizzazione utilizzato per la definizione di servizi multi-container. Semplifica la gestione e la scalabilità delle applicazioni.",
+    "RethinkDB", "2.4.4", "Database NoSQL che supporta subqueries e changefeed. Facilita la gestione e le conversioni degli oggetti Json e consente di rappresentare facilmente dati complessi e annidati.",
+    "Gradle", "8.6", "Strumento di automazione della build e di gestione delle dipendenze, progettato per la compilazione, il testing e la distribuzione di progetti software. Utilizza un linguaggio DSL basato su Groovy o Kotlin e supporta la build incrementale. ",
+    "Caddy", "2.7.0", "Web server open-source che converte il traffico da HTTP a HTTPS. Si distingue per la sua facilità d'uso, configurazione automatizzata e supporto nativo per HTTPS. Necessario in quanto richiesto dai client."
   ),
-), caption: [])
+), caption: [Strumenti e servizi usati per la codifica])
 === Framework
 #figure(tecnologieUsate(
   (
-    "Spark", "3.5.0", "Lightweight framework per lo sviluppo di applicazioni web in Java."
+    "Spark", "3.5.0", "Lightweight framework open-source per lo sviluppo di applicazioni web in Java. Ideale per progetti agili che cercano di mantenere la complessità sotto controllo."
   )
-), caption: [])
+), caption: [Framework usati per la codifica])
 === Librerie
 #figure(tecnologieUsate(
   (
-    "Java JMAP iNPUTmice Library", "0.8.13", "Libreria che sincronizza i dati tra client e server utilizzando il JSON Meta Application Protocol."
+    "Java JMAP iNPUTmice Library", "0.8.13", "Libreria consgliata dall'azienda proponente che sincronizza i dati tra client e server utilizzando il JSON Meta Application Protocol. Definisce classi per ogni operazione possibile, funzioni per operare su di esse e conversioni da e verso Json."
   )
-), caption: [])
+), caption: [Librerie usate per la codifica])
+
+#pagebreak()
+
+== Tecnologie per l'analisi del codice
+=== Analisi statica
+#figure(tecnologieUsate(
+  (
+    "Compilatore Java", "?", "Traduce il codice sorgente scritto in linguaggio di programmazione Java in un formato eseguibile, generalmente chiamato bytecode Java. Il bytecode Java può essere eseguito da una macchina virtuale Java (JVM) su qualsiasi piattaforma che abbia una JVM disponibile, rendendo il codice Java altamente portabile.",
+    "Spotless", "2.42.0", "Plugin Gradle open-source utilizzato per applicare automaticamente le convenzioni di formattazione del codice a progetti Java. Garantisce che il codice sorgente sia formattato secondo regole specifiche, migliorandone la leggibilità e la manutenibilità."
+  )
+), caption: [Tecnologie usate per l'analisi statica del codice])
+
+=== Analisi dinamica
+#figure(tecnologieUsate(
+  (
+    "Junit", "5.10.0", "Framework open source per l'automazione di unit testing per il linguaggio di programmazione Java. Offre un ambiente di sviluppo strutturato per la scrittura dei test, consentendo agli sviluppatori di verificare il comporamento delle singole unità di codice in modo efficiente e affidabile.",
+    "Mockito", "5.10.0", "Framework open surce di testing per il linguaggio di programmazione Java. È utlizzato per la creazione, configurazione e gestione di oggetti mock nei test di unità. Consente agli sviluppatori di simulare il comporamento di oggetti reali durante l'esecuzione dei test.",
+    "TestContainers", "1.19.4", "Framework open source che fornisce un'interfaccia per l'integrazione di container Docker nelle attività di testing. È particolarmente utile per lo sviluppo di test di integrazione che coinvolgono componenti dipendenti come database o qualsiasi altro servizio che può essere eseguito in un container Docker." 
+  )
+), caption: [Tecnologie usate per l'analisi dinamica del codice])
 
 #pagebreak()
 
