@@ -9,6 +9,10 @@
     [_#(p.zextras)_],
   ),
   changelog: (
+    "0.0.5", "2024-02-16", p.bonavigo, p.bettin, 
+    [
+      Aggiunta la sezione 'Tecnologie per il testing'.
+    ],
     "0.0.4", "2024-02-16", p.fabbian, p.furno, 
     [
       Aggiunta la sezione 'Tecnologie per l'analisi del codice'.
@@ -117,6 +121,23 @@ In questa sezione vengono elencate tutte le tecnologie utilizzate per l'implemen
     "TestContainers", "1.19.4", "Framework open source che fornisce un'interfaccia per l'integrazione di container Docker nelle attività di testing. È particolarmente utile per lo sviluppo di test di integrazione che coinvolgono componenti dipendenti come database o qualsiasi altro servizio che può essere eseguito in un container Docker." 
   )
 ), caption: [Tecnologie usate per l'analisi dinamica del codice])
+
+#pagebreak()
+
+== Tecnologie per il testing
+=== Linguaggi
+#figure(tecnologieUsate(
+  (
+    "Python", "3.12.1", "Linguaggio di programmazione ad alto livello, interpretato e general-purpose. È noto per la sua sintassi chiara e leggibile, che lo rende molto adatto per sviluppare rapidamente script e applicazioni."
+  )
+), caption: [Linguaggi di programmazione usati per il testing])
+
+=== Framework
+#figure(tecnologieUsate(
+  (
+    "Locust","2.23.1","Framework open source di testing di carico e stress delle applicazioni. È scritto in Python e permette agli sviluppatori di scrivere test di carico simulando il comporamento di migliaia di utenti concorrenti."
+  )
+), caption: [Framework utilizzati per il testing])
 
 #pagebreak()
 
