@@ -9,6 +9,7 @@
     [_#(p.zextras)_],
   ),
   changelog: (
+    "1.3.1", "2024-02-21", p.vedovato, p.bulychov, "Miglioramenti alla sezione 'Qualità di prodotto'",
     "1.3.0", "2024-02-09", p.vedovato, p.fabbian, "Rimossa la sezione 'Iniziative di auto-miglioramento'",
     "1.2.2", "2024-02-09", p.vedovato, p.fabbian, "Rimossi i test di unità ed integrazione prematuri",
     "1.2.1", "2024-02-09", p.vedovato, p.fabbian, "Sistemate le anomalie stilistiche rilevate dalla revisione RTB",
@@ -188,7 +189,7 @@ La qualità di prodotto si riferisce all'insieme delle caratteristiche di un'ent
 #figure(metrics((
   [MPD04],
   [Code coverage],
-  [≥ 80%],
+  [≥ 90%],
   [100%],
   [MPD05],
   [#glossary("Branch") coverage],
@@ -207,10 +208,6 @@ La qualità di prodotto si riferisce all'insieme delle caratteristiche di un'ent
 === Usabilitá
 #figure(metrics((
   [MPD08],
-  [Facilitá di utilizzo],
-  [≤ 3 errori commessi nell'interazione],
-  [0 errori commessi nell'interazione],
-  [MPD09],
   [Tempo di apprendimento],
   [≤ 15 minuti],
   [≤ 5 minuti]
@@ -220,7 +217,7 @@ La qualità di prodotto si riferisce all'insieme delle caratteristiche di un'ent
 
 === Efficienza
 #figure(metrics((
-  [MPD10],
+  [MPD09],
   [Utilizzo risorse],
   [≥ 75%],
   [100%]
@@ -228,18 +225,14 @@ La qualità di prodotto si riferisce all'insieme delle caratteristiche di un'ent
 
 === Manutenibilitá
 #figure(metrics((
-  [MPD11],
+  [MPD10],
   [Complessità ciclomatica],
-  [1-10],
   [11-20],
-  [MPD12],
+  [1-10],
+  [MPD11],
   [Code smell],
   [0],
-  [0],
-  [MPD13],
-  [Coefficient of Coupling (COC)],
-  [≤ 30%],
-  [≤ 10%]
+  [0]
 )), caption: [Valori accettabili e ottimi per ogni metrica riguardante la manutenibilitá del prodotto.])
 
 #pagebreak()

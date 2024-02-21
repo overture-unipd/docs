@@ -4,6 +4,7 @@
   title: "Norme di Progetto",
   managers: p.vedovato,
   changelog: (
+    "1.1.0", "2024-02-21", p.vedovato, p.bulychov, "Miglioramento della sezione 'Metriche di qualitá del prodotto'",
     "1.0.3", "2024-02-11", p.amadori, p.furno, "Uniformizzazione del processo 'Sviluppo' per risolvere le problematiche evidenziate dalla revisione RTB",
     "1.0.2", "2024-02-11", p.bulychov, p.fabbian, "Aggiunta della sezione 'Risoluzione dei problemi'",
     "1.0.1", "2024-02-09", p.amadori, p.bettin, "Migliorata la sezione 'Gestione della qualità'",
@@ -430,6 +431,7 @@ Nei documenti, esclusi i verbali, verranno utilizzati:
   - I nomi delle repository;
   - I nomi delle cartelle;
   - I nomi dei #glossary("branch");
+  - I comandi da inserire nel terminale.
   - Esempi di codice.
 - Il #underline("sottolineato") per:
   - I link;
@@ -1018,16 +1020,11 @@ L'acronimo principale utilizzato in questa sezione è MPD da #underline[M]etrich
 -  *MPD07 - Failure density*: calcola il numero di fallimenti correttamente riscontrati durante i test per unità di dimensione del codice.
 
 == Usabilitá
--  *MPD08 - Facilitá di utilizzo*: valuta la facilità con cui gli utenti possono interagire con il sistema;
--  *MPD09 - Tempo di apprendimento*: valuta quanto tempo gli utenti impiegano per imparare ad utilizzare efficacemente il server mail e tutte le sue funzionalità.
+-  *MPD08 - Tempo di apprendimento*: valuta quanto tempo gli utenti impiegano per imparare ad utilizzare efficacemente il server mail e tutte le sue funzionalità.
 
 == Efficienza
--  *MPD10 - Utilizzo risorse*: misura l'efficienza del sistema in termini di utilizzo delle risorse.
+-  *MPD09 - Utilizzo risorse*: misura l'efficienza del sistema in termini di utilizzo delle risorse.
 
 == Manutenibilitá
--  *MPD11 - Complessità ciclomatica*: valuta la complessità del codice sorgente attraverso la misurazione del numero di cammini indipendenti attraverso il grafo di controllo di flusso;
--  *MPD12 - Code smell*: rileva potenziali problemi di progettazione o codice che potrebbe richiedere manutenzione;
--  *MPD13 - Coefficient of Coupling (COC)*: fornisce una valutazione quantitativa del grado di dipendenza tra i moduli o le componenti di un sistema:
-  #align(center)[$"COC" = "NDIP" / "NMOD" *100$]
-  - *NDIP*: numero totale di dipendenze tra moduli;
-  - *NMOD*: numero totale di moduli nel sistema.
+-  *MPD10 - Complessità ciclomatica*: valuta la complessità del codice sorgente attraverso la misurazione del numero di cammini indipendenti attraverso il grafo di controllo di flusso;
+-  *MPD11 - Code smell*: rileva potenziali problemi di progettazione o codice che potrebbe richiedere manutenzione.
