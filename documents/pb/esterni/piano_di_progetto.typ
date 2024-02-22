@@ -9,6 +9,7 @@
     [_#(p.zextras)_],
   ),
   changelog: (
+    "1.2.0", "2024-02-22", p.bettin, p.bonavigo, "Aggiunti il consuntivo, la retrospettiva e l'avanzamento raggiunto relativi al periodo VII",
     "1.1.2", "2024-02-11", p.bonavigo, p.fabbian, "Ristrutturazione dei contenuti per risolvere le problematiche evidenziate dalla revisione RTB",
     "1.1.1", "2024-02-10", p.bonavigo, p.bettin, "Aggiunto il preventivo e la pianificazione del periodo VII",
     "1.1.0", "2024-02-09", p.bonavigo, p.bettin, "Aggiunto il consuntivo e la retrospettiva del periodo VI (periodo in attesa del passaggio della RTB)",
@@ -795,8 +796,8 @@ Il nuovo preventivo a finire rimane lo stesso dello scorso periodo, ammontando a
 === Periodo VII
 Inizio: 2024-02-07\
 Fine prevista: 2024-02-21\
-//Fine attuale: 2024-02-21\
-//Giorni di ritardo: #pos("0")
+Fine attuale: 2024-02-21\
+Giorni di ritardo: #pos("0")
 
 ==== Pianificazione
 All'interno del settimo periodo, il quale nasce contestualmente al passaggio della revisione RTB da parte del gruppo, dovremo affacciarci per la prima volta alla fase di progettazione (design) del prodotto software che andremo a realizzare. In queste due settimane sarà quindi essenziale condurre uno studio approfondito della documentazione pertinente, con l'obiettivo di definirne la struttura di base ed iniziare ad arricchirla con i contenuti principali. Inoltre è fondamentale aggiornare costantemente la documentazione esistente, in modo da non trascurarla, e proprio per questo prevediamo soprattutto un arricchimento delle `Norme di Progetto`. \
@@ -835,3 +836,49 @@ Ruoli coinvolti: Responsabile, Amministratore, Verificatore, Progettista, Progra
   (3, 2, 1),
   "VII"
 )
+
+==== Consuntivo
+Le attività previste sono tutte state svolte con successo. \
+Come si può notare dal confronto tra preventivo e consuntivo:
+- Programmatori hanno richiesto *più* ore;
+- Verificatori e Progettisti hanno richiesto *meno* ore.
+
+===== Prospetto orario
+#figure(consuntivo(
+  (
+    ("5", "0", "0", "0", "0", "15 "+neg("+2"), "20"),
+    ("0", "0", "9 "+pos("-1"), "0", "0", "7", "16"),
+    ("0", "4", "0", "0", "12", "0", "16"),
+    ("3", "0", "0", "0", "12", "0", "15"),
+    ("0", "0", "8", "0", "7 "+pos("-1"), "0", "15"),
+    ("0", "0", "10", "0", "0", "10 "+neg("+2"), "20"),
+    ("0", "2", "0", "0", "12", "0", "14"),
+    ("8", "6", "27", "0", "43", "32", "116")
+  )
+), caption: [Impegno orario effettivo per ruolo di ciascun membro nel periodo VII rispetto le ore preventivate.])
+===== Prospetto economico
+#figure(costi(
+  (
+    ("8", "240€", "-"),
+    ("6", "120€", "-"),
+    ("27 "+pos("-1"), "405€", pos("-15€")),
+    ("-", "-", "-"),
+    ("43 "+pos("-1"), "1075€", pos("-25€")),
+    ("32 "+neg("+4"), "480€", neg("+60")),
+    ("114", "2300€","-"),
+    ("116 "+neg("+2"), "2320€",neg("+20€"))
+  )
+), caption: [Aggiornamenti economici del progetto al termine del periodo VII, riflettendo le variazioni tra preventivo e ore effettivamente lavorate.])
+
+===== Rischi occorsi, impatto e loro mitigazione
+Nel periodo appena trascorso, il nostro gruppo ha dovuto affrontare una significativa mancanza di esperienza nella fase di progettazione. Infatti questa è stata la prima volta in cui i membri si sono trovati a delineare l'architettura logica e di distribuzione di un progetto di dimensioni considerevoli come il nostro, e ciò ha comportato diverse difficoltà nel procedere, visti i nostri dubbi a riguardo. Tuttavia il confronto con l'azienda proponente e la nostra forza di volontà ci hanno permesso comunque di raggiungere gli obiettivi posti per questo periodo, mitigando adeguatamente il rischio occorso e riducendo il suo impatto sul progetto, anche se questo ha richiesto un numero di ore di orologio abbastanza elevato rispetto alle ore produttive da parte dei Progettisti.
+
+==== Retrospettiva
+Nel corso del settimo periodo di lavoro, è importante evidenziare l'efficace pianificazione che è stata raggiunta. Difatti, nonostante le nostre iniziali preoccupazioni, siamo soddisfatti di constatare che tutto è proceduto per il meglio e che le ore effettivamente impiegate si discostano solo leggermente da quelle preventivate, con una differenza minima in percentuale. Inoltre, durante questo periodo abbiamo compreso ancora di più l'importanza del confronto con il proponente ed il committente, i quali hanno giocato un ruolo fondamentale nell'apprendere appieno il contenuto della nuova documentazione e nell'avviare la fase di progettazione con solidità, permettendoci di risparmiare tempo ed agevolando il nostro lavoro. 
+
+Per quanto riguarda i lati negativi, senza la presenza delle lezioni che ci tenevano uniti e ci permettavano di vederci più spesso, nell'ultima settimana abbiamo notato una certa dispersione e distanza tra di noi rispetto al solito. È evidente che questa situazione non sia ideale per la collaborazione efficace e il raggiungimento degli obiettivi comuni. Pertanto, è fondamentale concentrarsi sull'implementazione di strategie che possano favorire una maggiore coesione e comunicazione all'interno del team, anche al di fuori delle lezioni.
+
+==== Punto di avanzamento raggiunto e prospettive di completamento
+In questo periodo il gruppo ha aumentato notevolmente il ritmo di avanzamento rispetto ai periodi precedenti, principalmente grazie alla cessazione delle lezioni e degli esami che ci ha permesso di dedicare maggiore tempo e risorse al progetto. Abbiamo avviato con successo la fase di progettazione del prodotto software, defininendo l'architettura logica e di deployement, oltre ad alcuni possibili pattern da implementare, focalizzandoci poi sull'analisi dettagliata della documentazione pertinente (`Specifica Tecnica` e `Manuale Utente`) e sulla definizione della sua struttura di base e delle prime sezioni di quest'ultima. Inoltre, abbiamo aggiornato e arricchito le `Norme di Progetto`, garantendo la coerenza e la completezza delle nostre linee guida. Dopo ancora abbiamo affrontato le problematiche individuate durante la revisione RTB in modo tempestivo, assicurandoci di operare su una baseline pulita per il proseguimento del progetto. Abbiamo inoltre organizzato un colloquio con l'azienda proponente, #p.zextras, per ottenere ulteriore supporto e chiarezza, il quale si è rivelato estremamente utile. Infine, sebbene non sia stato inizialmente possibile procedere pienamente con la codifica senza una base di progettazione definita (abbiamo potuto farlo solo verso la fine della seconda settimana), abbiamo continuato l'esplorazione delle funzionalità mancanti nel Proof of Concept (PoC) e abbiamo condotto ulteriori test sui client necessari per dimostrare le capacità del nostro prodotto, individuando dei punti critici su cui sarà necessario discutere con l'azienda.\
+Il nuovo preventivo a finire diminuisce rispetto allo scorso periodo, ammontando a 12.585€, poichè abbiamo capito che probabilmente necessiteremo di meno ore da Verificatore rispetto a quanto precedetemente preventivato, e la data di consegna del prodotto resta confermata per il 2024-03-22.
+#progress(11,"VII")
