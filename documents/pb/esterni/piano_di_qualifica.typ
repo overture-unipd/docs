@@ -9,6 +9,8 @@
     [_#(p.zextras)_],
   ),
   changelog: (
+    "1.4.0", "2024-02-22", p.furno, p.bonavigo, "Aggiornamento della sezione 'Cruscotto di valutazione della qualità' conseguente al periodo VII",
+    "1.3.2", "2024-02-22", p.furno, p.amadori, "Aggiunta delle metriche di qualità del prodotto alla sezione 'Cruscotto di valutazione della qualità'",
     "1.3.1", "2024-02-21", p.vedovato, p.bulychov, "Miglioramenti alla sezione 'Qualità di prodotto'",
     "1.3.0", "2024-02-09", p.vedovato, p.fabbian, "Rimossa la sezione 'Iniziative di auto-miglioramento'",
     "1.2.2", "2024-02-09", p.vedovato, p.fabbian, "Rimossi i test di unità ed integrazione prematuri",
@@ -449,6 +451,16 @@ I test di sistema sono una fase del processo di testing software che mira a veri
 
 #pagebreak()
 
+== MPC13 - Code Coverage
+#figure(image("//imgs/PdQ_graphs/CodeCov.png", width: 100%), caption: [Proiezione della code coverage nei vari periodi di progetto.])
+
+#pagebreak()
+
+== MPC14 - Passed Test Cases Percentage
+#figure(image("//imgs/PdQ_graphs/PassedTest.png", width: 100%), caption: [Proiezione della percentuale di test terminati con successo nei vari periodi di progetto.])
+
+#pagebreak()
+
 == MPC15 - Quality Metrics Satisfied
 #figure(image("//imgs/PdQ_graphs/QualityMetSat.png", width: 100%), caption: [Proiezione della percentuale di metriche di qualità soddisfatte nei vari periodi di progetto.])
 
@@ -467,3 +479,47 @@ I test di sistema sono una fase del processo di testing software che mira a veri
 #figure(image("//imgs/PdQ_graphs/EffTemp.png", width: 100%), caption: [Proiezione dell'efficienza temporale nei vari periodi di progetto.])
 
 *RTB*: Il grafico illustra l'andamento della metrica relativa all'efficienza temporale attraverso i vari periodi. È evidente che la metrica supera il limite accettabile superiore sia nel primo che nel secondo periodo, prima di stabilizzarsi al di sotto solo nel terzo periodo ed i seguenti. Questa tendenza è attribuibile alla necessità del gruppo, nei primi periodi, di prendere familiarità con le nuove tecnologie, ambienti e linguaggi richiesti dal capitolato, oltre che all'adattamento alle pratiche necessarie alla gestione del progetto. Si evidenzia comunque un miglioramento nel tempo, che dimostra come, per ottenere i risultati desiderati, ad oggi ci sia richiesto meno tempo di orologio rispetto che all'inizio del progetto. Questo fattore è attribuibile ad un aumento dell'esperienza dei membri del gruppo.
+
+#pagebreak()
+
+== MPD01 - Copertura dei requisiti obbligatori
+#figure(image("//imgs/PdQ_graphs/CRO.png", width: 100%), caption: [Proiezione della copertura dei requisiti obbligatori nei vari periodi di progetto.])
+
+#pagebreak()
+
+== MPD02 - Copertura dei requisiti desiderabili
+#figure(image("//imgs/PdQ_graphs/CRD.png", width: 100%), caption: [Proiezione della copertura dei requisiti desiderabili nei vari periodi di progetto.])
+
+#pagebreak()
+
+== MPD03 - Copertura dei requisiti opzionali
+#figure(image("//imgs/PdQ_graphs/CRP.png", width: 100%), caption: [Proiezione della copertura dei requisiti opzionali nei vari periodi di progetto.])
+
+#pagebreak()
+
+== MPD04 - Code coverage
+#figure(image("//imgs/PdQ_graphs/CodeCov.png", width: 100%), caption: [Proiezione della code coverage nei vari periodi di progetto.])
+
+#pagebreak()
+
+== MPD05 - Branch coverage
+#figure(image("//imgs/PdQ_graphs/BrCov.png", width: 100%), caption: [Proiezione della branch coverage nei vari periodi di progetto.])
+
+#pagebreak()
+
+== MPD06 - Statement coverage
+#figure(image("//imgs/PdQ_graphs/StCov.png", width: 100%), caption: [Proiezione della statement coverage nei vari periodi di progetto.])
+
+#pagebreak()
+
+== MPD07 - Failure density
+#figure(image("//imgs/PdQ_graphs/FailD.png", width: 100%), caption: [Proiezione della failure density nei vari periodi di progetto.])
+
+#pagebreak()
+
+== MPD10 - Complessità ciclomatica
+#figure(image("//imgs/PdQ_graphs/CC.png", width: 100%), caption: [Proiezione della complessità ciclomatica nei vari periodi di progetto.])
+
+#pagebreak()
+== MPD11 - Code smell
+#figure(image("//imgs/PdQ_graphs/CS.png", width: 100%), caption: [Proiezione del numero di code smell nei vari periodi di progetto.])
