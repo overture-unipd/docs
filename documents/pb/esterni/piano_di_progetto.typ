@@ -9,6 +9,7 @@
     [_#(p.zextras)_],
   ),
   changelog: (
+    "1.2.1", "2024-02-23", p.amadori, p.bulychov, "Aggiunto il preventivo e la pianificazione del periodo VIII",
     "1.2.0", "2024-02-22", p.bettin, p.bonavigo, "Aggiunti il consuntivo, la retrospettiva e l'avanzamento raggiunto relativi al periodo VII",
     "1.1.2", "2024-02-11", p.bonavigo, p.fabbian, "Ristrutturazione dei contenuti per risolvere le problematiche evidenziate dalla revisione RTB",
     "1.1.1", "2024-02-10", p.bonavigo, p.bettin, "Aggiunto il preventivo e la pianificazione del periodo VII",
@@ -55,7 +56,7 @@ La presenza di un termine all'interno del `Glossario` viene indicata applicando 
 
 == Riferimenti
 === Riferimenti normativi
-- `Norme di Progetto v1.0.0`: \ https://overture-unipd.github.io/docs/rtb/interni/norme_di_progetto_v1.0.0.pdf 
+- `Norme di Progetto v1.0.0`: \ https://overture-unipd.github.io/docs/rtb/interni/norme_di_progetto_v1.0.0.pdf
 - *PD2 - Regolamento del progetto didattico* \
   https://www.math.unipd.it/~tullio/IS-1/2023/Dispense/PD2.pdf
 - *Capitolato d'appalto C8*: JMAP, il nuovo protocollo standard per la comunicazione email \
@@ -66,7 +67,7 @@ La presenza di un termine all'interno del `Glossario` viene indicata applicando 
   https://www.math.unipd.it/~tullio/IS-1/2023/Dispense/T2.pdf
 - *T4 - Gestione di progetto* \
   https://www.math.unipd.it/~tullio/IS-1/2023/Dispense/T4.pdf
-- `Glossario v1.0.0`: \ https://overture-unipd.github.io/docs/rtb/interni/glossario_v1.0.0.pdf 
+- `Glossario v1.0.0`: \ https://overture-unipd.github.io/docs/rtb/interni/glossario_v1.0.0.pdf
 
 == Preventivo iniziale
 Il preventivo iniziale presentato in fase di candidatura è reperibile al seguente link: #link("https://github.com/overture-unipd/docs/blob/master/documents/candidatura/dichiarazione_impegni_v1.1.pdf")[Preventivo iniziale].\
@@ -882,3 +883,43 @@ Per quanto riguarda i lati negativi, senza la presenza delle lezioni che ci tene
 In questo periodo il gruppo ha aumentato notevolmente il ritmo di avanzamento rispetto ai periodi precedenti, principalmente grazie alla cessazione delle lezioni e degli esami che ci ha permesso di dedicare maggiore tempo e risorse al progetto. Abbiamo avviato con successo la fase di progettazione del prodotto software, defininendo l'architettura logica e di deployement, oltre ad alcuni possibili pattern da implementare, focalizzandoci poi sull'analisi dettagliata della documentazione pertinente (`Specifica Tecnica` e `Manuale Utente`) e sulla definizione della sua struttura di base e delle prime sezioni di quest'ultima. Inoltre, abbiamo aggiornato e arricchito le `Norme di Progetto`, garantendo la coerenza e la completezza delle nostre linee guida. Dopo ancora abbiamo affrontato le problematiche individuate durante la revisione RTB in modo tempestivo, assicurandoci di operare su una baseline pulita per il proseguimento del progetto. Abbiamo inoltre organizzato un colloquio con l'azienda proponente, #p.zextras, per ottenere ulteriore supporto e chiarezza, il quale si è rivelato estremamente utile. Infine, sebbene non sia stato inizialmente possibile procedere pienamente con la codifica senza una base di progettazione definita (abbiamo potuto farlo solo verso la fine della seconda settimana), abbiamo continuato l'esplorazione delle funzionalità mancanti nel Proof of Concept (PoC) e abbiamo condotto ulteriori test sui client necessari per dimostrare le capacità del nostro prodotto, individuando dei punti critici su cui sarà necessario discutere con l'azienda.\
 Il nuovo preventivo a finire diminuisce rispetto allo scorso periodo, ammontando a 12.585€, poichè abbiamo capito che probabilmente necessiteremo di meno ore da Verificatore rispetto a quanto precedetemente preventivato, e la data di consegna del prodotto resta confermata per il 2024-03-22.
 #progress(11,"VII")
+
+=== Periodo VIII
+Inizio: 2024-02-21\
+Fine prevista: 2024-03-06\
+
+==== Pianificazione 
+Nel periodo precedente abbiamo avviato con successo la fase di progettazione del software, completando la definizione dell'architettura logica e di deployment del prodotto, oltre a identificare alcuni potenziali pattern da implementare. Ora, durante questo nuovo periodo, prevediamo di concentrarci maggiormente sulla progettazione di dettaglio e di intensificare l'attività di codifica. \
+Andremo quindi a definire e stendere nuove sezioni all'interno della `Specifica Tecnica` riguardanti i diagrammi UML delle classi, che già abbiamo abbozzato, ed i design pattern che utilizzermo all'interno del prodotto, descrivendo come siamo riusciti ad individuarli, lo studio relativo alla loro scelta e come siamo riusciti ad integrarli nella nostra architettura. \
+Man mano che i pezzi dell'architettura di dettaglio verranno definiti, sarà inoltre possibile andare a scrivere il codice definitivo del prodotto e ad implementare i test relativi studiati nelle fasi di progettazione. \
+Per quanto riguarda il `Manuale Utente` non prevediamo modifiche in queste due settimane, poichè per poter completare il suddetto documento dovremo prima chiarire dei dubbi con la proponente, ma soprattutto dovremo completare il prodotto. \
+Le attività previste durante questo periodo sono quindi le seguenti:
+- Aggiornare `Piano di Qualifica` e `Piano di Progetto` come di consueto;
+- Arricchire il `Glossario` con nuova terminologia identificata nelle fasi di progettazione;
+- Inserire nuove sezioni all'interno della `Specifica Tecnica` riguardanti i diagrammi UML delle classi ed i design pattern utilizzati;
+- Inserire nel `Piano di Qualifica` i test che dovranno essere implementati nella fase di codifica;
+- Continuare la codifica del prodotto software seguendo il design definito;
+- Cercare feedback sul nostro lavoro e chiarire i dubbi emersi con la proponente.
+
+===== Rischi attesi 
+I rischi che ci aspettiamo di correre in questo periodo sono i seguenti: 
+- #link(<RT1>)[*RT1 - Inesperienza*];
+Infatti, sebbene nel periodo precedente siano stati fatti progressi significativi nel migliorare le nostre competenze nella fase di progettazione, è evidente che non abbiamo ancora raggiunto il massimo livello di padronanza in questo ambito. \
+È essenziale poi riconoscere anche la nostra limitata esperienza nei test, i quali rivestono un ruolo fondamentale per assicurare il successo del progetto, ma per i quali dobbiamo ammettere di non essere ancora abbastanza pratici.
+
+==== Preventivo 
+Ruoli coinvolti: Responsabile, Amministratore, Verificatore, Progettista, Programmatore.
+
+#period(
+  (
+    (0, 3, 10, 0, 4, 0),
+    (0, 4, 0, 0, 11, 0),
+    (0, 0, 10, 0, 0, 8),
+    (0, 0, 10, 0, 0, 6),
+    (0, 0, 0, 0, 10, 5),
+    (5, 0, 0, 0, 11, 0),
+    (3, 0, 0, 0, 0, 15)
+    ),
+  (2, 3, 1),
+  "VIII"
+)
