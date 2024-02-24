@@ -4,6 +4,7 @@
   title: "Glossario",
   managers: p.vedovato,
   changelog: (
+    "1.1.0", "2024-02-24", p.fabbian, p.amadori, "Aggiunta dei nuovi termini identificati nelle fasi di progettazione",
     "1.0.0", "2024-01-11", p.amadori, p.bonavigo, "Approvazione per RTB",
     "0.2.0", "2023-12-20", p.bonavigo, p.bulychov, "Incremento del vocabolario",
     "0.1.1", "2023-12-11", p.bonavigo, p.fabbian, "Ripristino ordine alfabetico, aggiunta termini specifici",
@@ -37,6 +38,9 @@ Definisce quindi cosa deve succedere per rispondere alle richieste fatte al prod
 
 - API
 Acronimo di Application Programming Interface (Interfaccia di Programmazione delle Applicazioni), è un insieme di regole e protocolli che consentono a diversi software o componenti di comunicare tra loro. Esse definiscono i metodi e le strutture dati che possono essere utilizzati per interagire con un'applicazione o un servizio, consentendo a diverse applicazioni di scambiare informazioni e funzionalità in modo standardizzato, agendo in sostanza come un ponte che consente a diversi programmi di collaborare e condividere dati in modo efficiente.
+
+-Architettura di deployment
+L'architettura di deployment è la struttura e l'organizzazione delle componenti di un'applicazione o di un sistema software all'interno dell'ambiente di produzione o di esecuzione. Stabilisce la disposizione e la gestione delle risorse (come eseguibili, configurazioni, dati) e può includere strategie per la distribuzione, la gestione, la scalabilità e il monitoraggio dell'applicazione nel contesto di un ambiente operativo reale.
 
 - Attore
 Un attore è una qualsiasi entità, umana o meno, che interagisce con la parte di prodotto alla quale l’attore è esposto (sistema) per raggiungere uno scopo o soddisfare un bisogno. Questo viene fatto eseguendo una serie di azioni possibili definite dal ruolo assunto dall'attore e dai casi d'uso associati a quest'ultimo.
@@ -77,6 +81,9 @@ Nello sviluppo software un branch è una copia separata del codice sorgente che 
 - Budget At Completion
 Costo complessivo del progetto pianificato per eseguire tutte le attività e consegnare il prodotto finale.
 
+- Business logic
+La business logic rappresenta la logica operativa fondamentale che governa il comportamento e il funzionamento di un prodotto software. Determina come l'applicazione deve elaborare i dati, eseguire i calcoli e gestire il workflow.
+
 #pagebreak()
 = C
 - Capitolato
@@ -88,11 +95,17 @@ Carbonio, il prodotto principale di _#(p.zextras)_, è una soluzione di collabor
 - Caso d’uso
 Un caso d'uso descrive interazioni tra sistema (una parte del prodotto) e attori come sono percepite dagli utenti, definendo come il sistema deve essere utilizzato e che funzionalità espone. Consiste dunque di un insieme di scenari (sequenze di azioni) che hanno in comune uno scopo finale (obiettivo) per un utente (attore).
 
+- Changefeed
+Un changefeed è una funzionalità offerta da alcuni database, come RethinkDB, che consente agli sviluppatori di monitorare i cambiamenti nei dati all'interno del database in tempo reale. Quando avvengono modifiche ai dati, il changefeed invia notifiche istantanee agli sviluppatori, consentendo loro di creare applicazioni reattive e basate sugli eventi.
+
 - Client CLI
 Il termine "client CLI" si riferisce a un client che interagisce con un sistema o un'applicazione attraverso un'interfaccia a riga di comando (CLI, Command Line Interface).
 
 - Consuntivo
 Bilancio dei risultati ottenuti a rendiconto di un certo periodo temporale di attività, in termini di tempo e risorse.
+
+- Container
+Un container è una tecnologia che consente di eseguire e distribuire applicazioni in modo isolato e portabile su un sistema operativo ospite. Un container include tutto ciò di cui un'applicazione ha bisogno per essere eseguita come il codice, le librerie, le dipendenze e i file di esecuzione. I container sono leggeri, veloci da avviare e possono essere gestiti in modo efficiente su infrastrutture distribuite. Una delle implementazioni più popolari dei container è Docker.
 
 - Cruscotto
 Definito in inglese come "dashboard", permette di avere una panoramica chiara, univoca e dinamica nel tempo, dello stato d’avanzamento delle attività da svolgere.
@@ -104,6 +117,9 @@ Un sistema organizzato per la raccolta, la memorizzazione e la gestione di dati 
 
 - Discord
 Discord è una piattaforma di comunicazione online che combina chat testuale, vocale e video. Consente agli utenti di creare server, organizzare discussioni in canali e personalizzare l'esperienza di comunicazione. Discord, inoltre, offre un sistema di ruoli e autorizzazioni che consente di controllare l'accesso agli utenti e di definire chi può fare cosa all'interno del server. Inoltre supporta bot e integrazioni di terze parti che consentono di aggiungere funzionalità personalizzate ai server.
+
+- DNS
+Acronimo di Domain Name System, indica un sistema utilizzato per assegnare nomi ai nodi della rete. Traduce i nomi di dominio degli indirizzi web (come example.com) in indirizzi IP (come 192.0.2.1) che i computer possono comprendere e utilizzare per comunicare tra loro in modo efficiente e affidabile.
 
 - Docker
 Una piattaforma open-source che consente di automatizzare il processo di distribuzione delle applicazioni all'interno di contenitori leggeri e portabili.
@@ -164,6 +180,9 @@ Un IMAP-to-JMAP proxy è un software che consente ai client di posta elettronica
 - Inspection
 Tecnica di analisi statica utilizzata per ricercare errori attraverso una lettura mirata.
 
+- IP
+Acronimo di Internet Protocol, è un protocollo di comunicazione che definisce le regole e i formati utilizzati per indirizzare e instradare i pacchetti di dati attraverso una rete.  Per consentire la trasmissione dei dati, ad ogni device viene assegnato un indirizzo IP univoco all'interno della rete.
+
 - ISO
 Acronimo di International Organization for Standardization, organizzazione di riferimento a
 livello mondiale per le normative di qualità, definite come standard nel settore.
@@ -186,18 +205,17 @@ Il termine "know-how" si riferisce generalmente alla conoscenza pratica, all'esp
 
 #pagebreak()
 = L
+- LAN
+Una LAN, acronimo di Local Area Network, è un sistema di comunicazione circoscritto a un'area geografica limitata, come un edificio o un appartamento. Le LAN permettono ai dispositivi connessi, come computer e stampanti, di condividere risorse come file e connessioni Internet.
+
 - LaTeX
 Un sistema di preparazione di documenti basato su un linguaggio di markup. È spesso utilizzato per la creazione di documenti tecnici, accademici e scientifici.
 
 
 #pagebreak()
 = M 
-- Manuale Utente
+- `Manuale Utente`
 Nota come guida utente (user guide) o manuale d’uso (user manual), ha lo scopo di assistere gli utenti nell'utilizzo di un particolare prodotto, servizio o applicazione: è scritta con un gergo semplice, diretto e comprensibile.
-
-- Manuale Sviluppatore
-Anche noto come Manuale del Manutentore, ha lo scopo di fornire una linea guida per gli sviluppatori che andranno a mantenere o estendere il prodotto, dando informazioni relative
-a linguaggi, tecnologie e framework utilizzati per la fase di realizzazione.
 
 - Manutenzione
 Nell'ingegneria del software, è la modifica di un prodotto software dopo la consegna per correggere i bug, vulnerabilità, migliorare le prestazioni in relazione all'avvento di nuove tecnologie più performanti.
@@ -209,15 +227,21 @@ Le architetture dei microservizi permettono di scalare e sviluppare le applicazi
 - Milestone
 Una milestone è una data di calendario che denota un punto di avanzamento atteso. Nel contesto di GitHub o di altre piattaforme di gestione progetti, le milestone sono spesso utilizzate per organizzare e tenere traccia di gruppi di issues o di attività correlate. Associare un gruppo di issues a una milestone può aiutare a monitorare il progresso e a stabilire obiettivi intermedi, contribuendo a gestire in modo più efficace lo sviluppo del progetto.
 
+- Monolite
+Il termine 'monolite' si riferisce a un'applicazione software o sistema che integra tutte le sue componenti all'interno di un'unica entità. In un monolite, tutte le funzionalità dell'applicazione, come l'interfaccia utente, la logica di business e la persistenza dei dati, sono implementate e distribuite insieme in un unico processo o eseguibile. Sebbene questa architettura offra semplicità e facilità di sviluppo e distribuzione iniziali, può diventare complessa e difficile da gestire man mano che l'applicazione cresce in dimensioni e complessità.
+
 #pagebreak()
 = N
 - Norme
 Insieme di regole, linee guida o standard che stabiliscono come comportarsi in
 un determinato contesto o settore. Hanno lo scopo di garantire la sicurezza, la qualità, l'efficienza e l'efficacia delle attività svolte.
 
+- NoSQL
+NoSQL (Not Only SQL) è una categoria di database progettata per gestire dati non strutturati o semi-strutturati in modo flessibile e scalabile. Questi sistemi di gestione dei dati sono ottimizzati per ambienti distribuiti e possono scalare orizzontalmente per gestire grandi volumi di dati. Sono utilizzati principalmente in contesti in cui sono necessarie prestazioni veloci,  disponibilità e flessibilità.
 #pagebreak()
 = O
-
+- Overhead
+L'overhead è un concetto utilizzato per valutare le prestazioni di un programma o di un sistema informatico. Si riferisce alla quantità di risorse aggiuntive, come tempo di elaborazione, memoria o larghezza di banda, richieste per supportare un'operazione, un protocollo o una funzione specifica. Questo costo aggiuntivo può impattare sulle prestazioni complessive del sistema, rallentandolo o limitandone le capacità.
 
 #pagebreak()
 = P
@@ -276,6 +300,9 @@ tenere traccia dei progressi e modificarli, se necessario.
 - SMTP
 Acronimo di Simple Mail Transfer Protocol, è un protocollo di comunicazione utilizzato per l'inoltro e la consegna di email su Internet. Esso definisce le regole e i comandi per il trasferimento di messaggi email tra il client e il server di posta del destinatario. SMTP è fondamentale per l'invio di email e garantisce che i messaggi vengano consegnati in modo affidabile e standardizzato attraverso la rete.
 
+- `Specifica Tecnica`
+Il documento `Specifica Tecnica` ha lo scopo di elencare e motivare le scelte architetturali prese per la realizzazione dell'infrastruttura informatica di un prodotto. Fornisce anche diagrammi delle classi e dei package per illustrare dettagliatamente il prodotto software realizzato.
+
 - Sprint
 Periodo di tempo prefissato entro il quale lavorare producendo dei risultati documentati: sono il core delle metodologie Agile, atte a produrre risultati dicreti in dimensione ma in maniera costante.
 
@@ -291,6 +318,9 @@ Il termine "stateless" in un contesto informatico si riferisce a un sistema o a 
 
 - Stress test
 Uno stress test è un tipo di test che mette sotto pressione un sistema informatico, come un server o un'applicazione, al fine di valutarne le prestazioni e la stabilità in situazioni di carico massimo o condizioni di utilizzo intensivo. Questo tipo di test simula carichi di lavoro elevati o situazioni di sovraccarico al fine di identificare eventuali problemi di performance, di gestione delle risorse o di stabilità del sistema.
+
+- Subquery
+Una subquery è una query che viene incorporata ed eseguita all'interno del corpo di un'altra query. Sono comunemente utilizzate per eseguire interrogazioni al database complesse che coinvolgono più tabelle o che richiedono operazioni di aggragazione o filtraggio avanzate.
 
 - Suite di funzionalità
 Il termine "suite di funzionalità" si riferisce a un insieme coordinato di caratteristiche o servizi offerti all'interno di un software, un'applicazione o un sistema. Una suite di funzionalità è progettata per soddisfare le esigenze degli utenti fornendo una gamma completa di strumenti, opzioni o capacità.
