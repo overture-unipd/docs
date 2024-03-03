@@ -9,6 +9,7 @@
     [_#(p.zextras)_],
   ),
   changelog: (
+    "1.4.1", "2024-03-03", p.bettin, p.bonavigo, "Inseriti i test di accettazione nella sezione 'Metodologie di testing'",
     "1.4.0", "2024-02-22", p.furno, p.bonavigo, "Aggiornamento della sezione 'Cruscotto di valutazione della qualità' conseguente al periodo VII",
     "1.3.2", "2024-02-22", p.furno, p.amadori, "Aggiunta delle metriche di qualità del prodotto alla sezione 'Cruscotto di valutazione della qualità'",
     "1.3.1", "2024-02-21", p.vedovato, p.bulychov, "Miglioramenti alla sezione 'Qualità di prodotto'",
@@ -60,7 +61,7 @@ La presenza di un termine all'interno del `Glossario` viene indicata applicando 
   https://en.wikipedia.org/wiki/ISO/IEC_9126
 - *ISO/IEC 12207* \
   https://www.math.unipd.it/~tullio/IS-1/2009/Approfondimenti/ISO_12207-1995.pdf
-- `Glossario v1.0.0`: \ https://overture-unipd.github.io/docs/rtb/interni/glossario_v1.0.0.pdf 
+- `Glossario v1.0.0`: \ https://overture-unipd.github.io/docs/rtb/interni/glossario_v1.0.0.pdf
 
 #pagebreak()
   
@@ -258,7 +259,7 @@ Dove *Tipologia* indica la tipologia del test:
 - *A*: di accettazione.
 Ogni test ha uno *Stato*, che puo essere:
 - *V*: verificato. Il test ha esito positivo;
-- *E*: non verificato. Il test ha esito negativo;
+- *NV*: non verificato. Il test ha esito negativo;
 - *NI*: non implementato.
 
 == Test di sistema
@@ -396,6 +397,33 @@ I test di sistema sono una fase del processo di testing software che mira a veri
     "TS-129","Verificare che il client abbia ricevuto una risposta contenente le informazioni di cui ha bisogno per sincronizzarsi per quanto riguarda le cartelle.", "R-129-F-3", "NI"
   )
 ), caption: [Stato dei test di sistema.])
+
+#pagebreak()
+
+==  Test di accettazione
+I test di accettazione sono finalizzati a garantire che il prodotto soddisfi i requisiti utente come specificati nel capitolato. Essi vengono eseguiti in presenza del committente e dimostrano la conformità del prodotto alle aspettative attraverso l'esecuzione dei casi di prova previsti nel capitolato. Il superamento positivo di tali test durante il collaudo finale generalmente conduce al rilascio definitivo del prodotto.
+
+#figure(test(
+  (
+    "TA-1","Verificare che il prodotto supporti l'invio di email.","V",
+    "TA-2","Verificare che il prodotto supporti la ricezione di email.","V",
+    "TA-3","Verificare che il prodotto supporti l'eliminazione di email.","V",
+    "TA-4","Verificare che il prodotto supporti la creazione delle cartelle.","V",
+    "TA-5","Verificare che il prodotto supporti la modifica delle cartelle.","V",
+    "TA-6","Verificare che il prodotto supporti l'eliminazione delle cartelle.","V",
+    "TA-7","Verificare che il prodotto supporti la gestione dei contenuti di una cartella.","V",
+    "TA-8","Verificare che il prodotto supporti la condivisione di una cartella.","NI",
+    "TA-9","Verificare che il prodotto supporti l’eliminazione di una condivisione di cartella.","NI",
+    "TA-10","Verificare che il prodotto implementi un sistema di sincronizzazione che permetta ad un client di mantenersi aggiornato con gli ultimi aggiornamenti della casella di posta visualizzata.","V",
+    "TA-11","Verificare che il prodotto supporti la gestione di calendari e appuntamenti.","NI",
+    "TA-12","Verificare che il prodotto supporti la gestione di contatti e rubriche contatti.","NI",
+    "TA-13","Verificare che il prodotto faccia utilizzo della libreria iNPUTmice/jmap per l’implementazione del protocollo JMAP.","V",
+    "TA-14","Verificare che il prodotto sia eseguibile in un sistema container, come Docker.","V",
+    "TA-15","Verificare che il prodotto sia scalabile mediante l’inizializzazione di più nodi stateless. Per stateless si intende che alla richiesta di uno specifico client fatta ad un’architettura contenente più di un’istanza del servizio dato, può rispondere una qualsiasi istanza del servizio, perché nessuna istanza contiene dati specifici di stato rispetto alle richieste dei client","V",
+    "TA-16","Verificare che il prodotto sia sottoponibile a stress test da noi fortniti che riescano a misurare le performance della soluzione provvista.","V"
+  )
+), caption: [Stato dei test di accettazione.])
+
 
 #pagebreak()
 
