@@ -9,6 +9,10 @@
     [_#(p.zextras)_],
   ),
   changelog: (
+    "0.0.9", "2024-02-24", p.amadori, p.bonavigo, 
+    [
+      Aggiunta la sezione 'Diagramma delle classi'.
+    ],
     "0.0.8", "2024-02-20", p.bulychov, p.furno, 
     [
       Aggiunta la sezione 'Database'.
@@ -201,6 +205,13 @@ Il servizio di database è creato mediante l'immagine `rethinkdb:2.4.2-bullseye-
 Il servizio di caddy invece lo attiviamo con l'immagine custom `overture-unipd/caddy:latest` ricavata dall'immagine di base `caddy:latest` ma integrata con il plugin per Duck DNS. Anche qui vengono mappate le porte 80 e 443 del container con quelle dell'host e vengono configurati i  volumi Docker per condividere dati tra il container e l'host, ad esempio per persistere i dati del server web Caddy e per fornire un file di configurazione Caddy personalizzato.\
 
 Si nota che tutti i volumi che i servizi montano, sono riportati alla fine del file "docker-compose.yml" dopo il record `volumes`.
+
+#pagebreak()
+
+== Diagramma delle classi
+#figure(image("//imgs/Specifica_Tecnica/UML.png", width: 100%), caption: [Diagramma delle classi])
+
+#pagebreak
 
 == Database
 Come già citato nella sezione #link(<Tech>)[*Tecnologie*] del documento, il nostro prodotto utilizza RethinkDB come database NoSQL per la gestione dei dati. Il database viene inizializzato con la creazione delle collezioni richieste (account, email, mailbox, attachment, update...) e l'inserimento di dati di esempio. Successivamente, viene utilizzato per l'aggiunta di nuovi dati o la sostituzione di quelli esistenti. 
