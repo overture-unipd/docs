@@ -9,6 +9,7 @@
     [_#(p.zextras)_],
   ),
   changelog: (
+    "1.4.2", "2024-03-05", p.furno, p.amadori, "Inseriti i test di integrazione nella sezione 'Metodologie di testing'",
     "1.4.1", "2024-03-03", p.bettin, p.bonavigo, "Inseriti i test di accettazione nella sezione 'Metodologie di testing'",
     "1.4.0", "2024-02-22", p.furno, p.bonavigo, "Aggiornamento della sezione 'Cruscotto di valutazione della qualità' conseguente al periodo VII",
     "1.3.2", "2024-02-22", p.furno, p.amadori, "Aggiunta delle metriche di qualità del prodotto alla sezione 'Cruscotto di valutazione della qualità'",
@@ -261,6 +262,25 @@ Ogni test ha uno *Stato*, che puo essere:
 - *V*: verificato. Il test ha esito positivo;
 - *NV*: non verificato. Il test ha esito negativo;
 - *NI*: non implementato.
+
+== Test di integrazione
+I test di integrazione sono progettati per verificare che le diverse parti di un'applicazione si integrino correttamente e collaborino senza problemi quando vengono combinate. Questi test mirano a identificare eventuali errori o problemi di interoperabilità tra i moduli o le unità di codice.
+#figure(test(
+  (
+    "TI-1","Verificare che il metodo AccountImpl.getId restituisca correttamente l'id corrispondente dal database", "V",
+    "TI-2","Verificare che il metodo AccountImpl.getPassword restituisca correttamente la password corrispondente dal database", "V",
+    "TI-3","Verificare che il metodo AccountImpl.getState restituisca correttamente lo stato corrispondente dal database", "V",
+    "TI-4","Verificare che il metodo AccountImpl.incrementState incrementi con successo lo stato corrispondente nel database", "V",
+    "TI-5","Verificare che il metodo AttachmentImpl.insertAttachment inserisca correttamente l'attachment corrispondente nel database", "V",
+    "TI-6","Verificare che il metodo AttachmentImpl.getAttachment restituisca correttamente l'attachment corrispondente dal database", "V",
+    "TI-7","Verificare che il metodo AttachmentImpl.deleteAttachment elimini con successo l'attachment corrispondente dal database", "V",
+    "TI-8","Verificare che il metodo EmailImpl.insertEmail inserisca correttamente la mail corrispondente nel database", "V",
+    "TI-9","Verificare che il metodo EmailImpl.getEmail restituisca correttamente la mail corrispondente dal database", "V",
+    "TI-10","Verificare che il metodo EmailImpl.deleteEmail elimini con successo la mail corrispondente dal database", "V",
+    "TI-11","Verificare che il metodo IdentityImpl.getIdentity restituisca correttamente l'identity corrispondente dal database", "V",
+    "TI-12","Verificare che il metodo IdentityImpl.getFirstIdentity restituisca correttamente la prima identity corrispondente dal database", "V",
+  )
+), caption: [Stato dei test di integrazione.])
 
 == Test di sistema
 I test di sistema sono una fase del processo di testing software che mira a verificare che il sistema soddisfi i requisiti specificati nella sezione Requisiti di funzionalità del documento `Analisi dei Requisiti v1.0.0`. Questa fase di testing è condotta sul sistema nel suo complesso, dopo che i test di unità e di integrazione sono stati completati con successo. L'obiettivo principale dei test di sistema è assicurare che l'applicazione sia in grado di svolgere le sue funzioni nel contesto del suo ambiente operativo.
