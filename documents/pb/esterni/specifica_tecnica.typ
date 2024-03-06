@@ -9,6 +9,10 @@
     [_#(p.zextras)_],
   ),
   changelog: (
+    "0.0.16", "2024-03-05", p.amadori, p.bulychov, 
+    [
+      Aggiunto 'Builder' all'interno della sezione 'Design pattern utilizzati'.
+    ],
     "0.0.15", "2024-03-02", p.bettin, p.amadori, 
     [
       Rimosso 'Chain of Responsibility' dalla sezione 'Design pattern utilizzati'.
@@ -416,6 +420,96 @@ AccountImpl accountImpl = injector.getInstance(AccountImpl.class);
 Con l'injector creato utilizzando Guice, è possibile ottenere un'istanza di `AccountImpl`. Guice si occuperà di soddisfare le dipendenze necessarie, come la `Connection`, iniettandole automaticamente nel costruttore di `AccountImpl`.
 
 In generale, l'utilizzo di Guice semplifica la gestione delle dipendenze nel codice, separando la creazione delle istanze delle classi e la gestione delle dipendenze in un framework esterno. Ciò rende il codice più modulare, facilitando la manutenzione e il testing.
+
+=== Builder
+
+==== Motivazioni e studio del design pattern
+Builder è uno dei design pattern creazionali più noti e utilizzati. Questo pattern è progettato per semplificare la creazione di oggetti complessi con molti attributi, guidando il processo di costruzione attraverso una serie di passaggi definiti tramite una catena di metodi. La sua principale utilità risiede nel separare la logica di costruzione di un oggetto complesso dalla sua rappresentazione, permettendo così di creare diverse rappresentazioni dello stesso oggetto mediante lo stesso processo di costruzione. La scelta di adottare il pattern Builder da parte dello sviluppatore della libreria da noi utilizzata è quindi più che comprensibile, in quanto migliora l'organizzazione del processo di creazione degli oggetti e contribuisce a rendere il codice più leggibile, modulare e manutenibile.
+
+==== Implementazione del design pattern
+Il creatore della libreria ha saggiamente scelto di non implementare direttamente il pattern, bensì ha preferito affidarsi a Lombok, una libreria Java che offre una serie di annotazioni e strumenti per semplificare lo sviluppo riducendo la quantità di codice boilerplate che è necessario scrivere. Lombok semplifica l'implementazione del pattern Builder introducendo l'annotazione \@Builder, la quale, se applicata a una classe, farà si che, quando si compila il codice, venga generato automaticamente un Builder interno per quella classe da parte della libreria. Questo Builder consente di creare un'istanza della classe in questione in modo fluente, impostando i valori dei campi desiderati uno per uno. 
+
+===== Utilizzo
+Vediamo quindi come lo sviluppatore della libreria utilizza Lombok per implementare il design pattern Builder, prendendo come esempio la classe SessionResource:
+```java
+package rs.ltt.jmap.common;
+
+import java.util.Collection;
+import java.util.Map;
+import lombok.*;
+import rs.ltt.jmap.common.entity.Account;
+import rs.ltt.jmap.common.entity.AccountCapability;
+import rs.ltt.jmap.common.entity.Capability;
+
+@Builder
+@Getter
+@ToString
+public class SessionResource {
+
+    private String username;
+    private String apiUrl;
+    private String downloadUrl;
+    private String uploadUrl;
+    private String eventSourceUrl;
+    @Singular private Map<String, Account> accounts;
+
+    ...
+
+    public static class SessionResourceBuilder {
+        public SessionResourceBuilder capabilities(
+                Map<Class<? extends Capability>, Capability> capabilities) {
+            for (Map.Entry<Class<? extends Capability>, Capability> entry :
+                    capabilities.entrySet()) {
+                final Class<? extends Capability> key = entry.getKey();
+                final Capability value = entry.getValue();
+                if (key != value.getClass()) {
+                    throw new IllegalArgumentException(
+                            String.format(
+                                  "key %s does not match value type %s", key, value.getClass()));
+                }
+            }
+            this.capabilities = capabilities;
+            return this;
+        }
+    }
+}
+```
+L'esempio illustra l'ampio utilizzo di Lombok nel codice. La classe SessionResource è marcata con l'annotazione \@Builder, che genera automaticamente un Builder per la classe stessa. Inoltre, in questo caso particolare, viene anche definito il metodo capabilities() all'interno della classe SessionResourceBuilder, il quale serve a impostare le capacità della sessione. 
+In altri casi, invece, viene utilizzata soltanto l'annotazione \@Builder. \
+Volendo, esaminando ulteriormente il codice della libreria, è possibile trovare altri esempi di utilizzo, poiché Lombok viene impiegato per la definizione di un Builder per praticamente ogni oggetto.
+
+==== Integrazione del pattern
+Per andare a vedere come abbiamo integrato questo pattern nel nostro prodotto si può spaziare nelle varie classi che compongono la business logic di quest'ultimo, infatti quasi tutte andranno a costruire oggetti core della libreria e per farlo si affideranno alla catena di metodi dei Builder relativi. \
+Prendiamo come esempio la creazione della risorsa JMAP Session all'interno della classe SessionManager:
+```java
+final SessionResource sessionResource =
+        SessionResource.builder()
+          .apiUrl("http://localhost:8000/api/jmap")
+          .uploadUrl("http://localhost:8000/api/upload")
+          .downloadUrl("http://localhost:8000/api/download" + "?blobid={blobId}")
+          .state(accountPort.getState(username))
+          .username(username)
+          .eventSourceUrl("")
+          .account(
+              accountid,
+              Account.builder()
+                .accountCapabilities(
+                  ImmutableMap.of(
+                      MailAccountCapability.class,
+                      MailAccountCapability.builder()
+                          .maxSizeAttachmentsPerEmail(50 * 1024 * 1024L) // 50MiB
+                          .build()))
+                .isPersonal(true)
+                .isReadOnly(false)
+                .build())
+          .capabilities(capabilityBuilder.build())
+          .primaryAccounts(ImmutableMap.of(MailAccountCapability.class, accountid))
+          .build();
+```
+In questo esempio, possiamo osservare come l'oggetto SessionResource, definito dalla libreria, venga costruito in modo chiaro e conciso attraverso una catena di metodi. Questa catena di chiamate imposta i valori desiderati come i diversi URL, lo stato della sessione e lo username dell'utente. È interessante notare che alcuni parametri vengono costruiti a loro volta utilizzando dei Builder dedicati, come ad esempio l'oggetto Account, all'interno del quale un'altra catena di metodi ancora crea l'oggetto MailAccountCapability della libreria.\
+Si noti come l'ampio utilizzo del pattern Builder da parte dello sviluppatore della libreria porti a un codice più leggibile, flessibile e manutenibile. Questo riduce notevolmente la complessità associata alla creazione di oggetti con un gran numero di parametri, come dimostrato nell'esempio. Inoltre, l'uso del pattern Builder ci consente di evitare la configurazione dei parametri opzionali della sessione quando non sono necessari, semplificando ulteriormente il processo di creazione degli oggetti.
+
+In conclusione, l'integrazione del pattern Builder nel nostro prodotto è una pratica comune ogni volta che è necessario costruire un oggetto della libreria con un Builder associato. Questo migliora l'efficienza dello sviluppo e la qualità del nostro software, garantendo un codice più pulito e manutenibile.
 
 #pagebreak()
 
