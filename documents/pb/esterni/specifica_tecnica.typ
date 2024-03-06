@@ -9,6 +9,10 @@
     [_#(p.zextras)_],
   ),
   changelog: (
+    "0.0.15", "2024-03-02", p.bettin, p.amadori, 
+    [
+      Rimosso 'Chain of Responsibility' dalla sezione 'Design pattern utilizzati'.
+    ],
     "0.0.14", "2024-03-02", p.fabbian, p.bulychov, 
     [
       Aggiunta la sottosezione 'Interfacciamento al database' all'interno della sezione 'Diagramma delle classi'.
@@ -412,20 +416,6 @@ AccountImpl accountImpl = injector.getInstance(AccountImpl.class);
 Con l'injector creato utilizzando Guice, è possibile ottenere un'istanza di `AccountImpl`. Guice si occuperà di soddisfare le dipendenze necessarie, come la `Connection`, iniettandole automaticamente nel costruttore di `AccountImpl`.
 
 In generale, l'utilizzo di Guice semplifica la gestione delle dipendenze nel codice, separando la creazione delle istanze delle classi e la gestione delle dipendenze in un framework esterno. Ciò rende il codice più modulare, facilitando la manutenzione e il testing.
-
-=== Chain of responsability
-
-==== Studio del pattern
-Il design pattern "chain of responsibility" è un pattern comportamentale che consente di creare una catena di oggetti responsabili del trattamento di una richiesta, in modo che ogni oggetto nella catena possa decidere se trattare la richiesta o passarla al prossimo oggetto nella catena.
-
-Nel nostro caso il pattern è stato individuato poichè dovevamo gestire le richieste provenienti dai client che si interfacciano con il nostro prodotto e volevamo farlo evitando di specificare esplicitamente quale oggetto dovesse gestire la richiesta. Chain of responsibility infatti va a definire un Handler, il quale è un'interfaccia o una classe astratta che definisce un metodo per gestire le richieste e mantiene un riferimento al prossimo oggetto nella catena. Il ConcreteHandler poi implementerà l'interfaccia o la classe astratta per gestire le richieste specifiche, decidendo se può gestire una richiesta o se deve passarla al prossimo gestore nella catena. Quindi, quando il client invia una richiesta, questa viene inviata al primo oggetto nella catena, il quale deciderà se può gestire la richiesta o se deve passarla al prossimo oggetto nella catena. Se un oggetto nella catena è in grado di gestire la richiesta, allora la catena interrompe il passaggio della richiesta agli altri oggetti, mentre se nessun oggetto della catena è in grado di gestire la richiesta, il client può essere informato di ciò.
-
-Questo pattern è stato scelto poichè garantisce i seguenti vantaggi: 
-- riduce l'accoppiamento;
-- rende flessibile l'aggiunta o la rimozione di nuovi gestori di richieste;
-- permette di assegnare dinamicamente responsabilità agli oggetti senza conoscere esplicitamente i dettagli dell'implementazione.
-
-È dunque perfetto per il nostro caso, dove vogliamo gestire nel modo migliore possibile la vastità di richieste provenienti dai client. Grazie ad esso potremo rendere facilmente estendibile il codice, in modo che anche le funzionalità che non andremo ad implentare possano essere facilmente aggiunte in futuro tramite i relativi gestori. Infine ci permette di evitare di dover sapere come viene gestita una richiesta o chi la gestirà, garantendo una migliore modularità e manutenibilità del codice.
 
 #pagebreak()
 
