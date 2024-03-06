@@ -9,6 +9,10 @@
     [_#(p.zextras)_],
   ),
   changelog: (
+    "0.0.13", "2024-03-01", p.furno, p.bonavigo, 
+    [
+      Aggiunta la sottosezione 'Gestione delle richieste' all'interno della sezione 'Diagramma delle classi'.
+    ],
     "0.0.12", "2024-02-29", p.amadori, p.bonavigo, 
     [
       Aggiunto 'Chain of Responsibility' all'interno della sezione 'Design pattern utilizzati'.
@@ -431,6 +435,25 @@ Il pezzo di diagramma riportato illustra le componenti fondamentali per gestire 
 - *Request*: gestore principale dell'ingresso delle richieste in arrivo (input), il cui scopo è quello di definire molteplici rotte utilizzando il framework Spark. Include al suo interno la gestione iniziale delle operazioni come l'autenticazione, la gestione delle sessioni e la manipolazione dei dati attraverso diverse operazioni come upload e download;
 - *RequestPort*: porta in ingresso che funge da punto di accesso per l'interazione tra il dominio dell'applicazione (core) e il mondo esterno. Essa definisce un insieme di operazioni che rappresentano le azioni che l'applicazione può eseguire in risposta alle richieste esterne provenienti dai client. La sua implementazione è responsabilità di classi concrete che forniranno la logica specifica per gestire tali operazioni in modo efficace all'interno dell'applicazione, mantenendo così la separazione tra la logica di business dell'applicazione e i dettagli di implementazione relativi alle richieste in arrivo;
 - *RequestHandler*: implementazione dell'interfaccia RequestPort. Essenzialmente, funge da intermediario tra le richieste provenienti dall'esterno dell'applicazione e la logica di business sottostante. Riceve le richieste in arrivo e in base al tipo di richiesta e ai dati associati, determina come instradarla all'interno dell'applicazione. 
+
+=== Gestione delle richieste
+#figure(image("//imgs/Specifica_Tecnica/UML2.png", width: 35%), caption: [Modellazione delle componenti che gestiscono le rischieste all'interno dell'applicazione])
+
+Le componenti riportate nel frammento di diagramma soprastante sono quelle necessarie per la gestione delle richieste, implementando dunque la business logic del prodotto. Vi si trovano le seguenti classi:
+- *Dispatcher*: componente responsabile di indirizzare le richieste in arrivo ai corrispondenti handler di metodo (come Email, Mailbox, ecc.), dove vengono effettivamente eseguite le operazioni richieste. Fornisce risposte appropriate in base al tipo di operazione istanziata, come l'invio o la ricezione di email e la gestione dei dati correlati. Questo processo avviene attraverso la decodifica delle richieste in arrivo, l'esecuzione delle operazioni richieste e la restituzione delle risposte appropriate ai client;
+- *Email*: componente responsabile della gestione delle email all'interno del sistema;
+- *EmailSubmission*: componente responsabile della gestione dell'invio di un'email per la consegna a uno o più destinatari all'interno del sistema;
+- *Authentication*: componente responsabile della gestione dell'autenticazione all'interno del sistema;
+- *Account*: componente responsabile della gestione degli account all'interno del sistema;
+- *Identity*: componente responsabile della gestione delle identità all'interno del sistema;
+- *Session*: componente responsabile della gestione delle sessioni all'interno del sistema;
+- *Mailbox*: componente responsabile della gestione delle caselle di posta all'interno del sistema;
+- *MailboxInfo*: componente responsabile della gestione delle informazioni riguardanti le caselle di posta all'interno del sistema;
+- *Thread*: componente responsabile della gestione dei thread all'interno del sistema;
+- *Echo*: componente responsabile della gestione degli echo all'interno del sistema;
+- *Update*: componente responsabile della sincronizzazione all'interno del sistema;
+- *UpdateDeserializer*: componente responsabile della deserializzazione degli oggetti di tipo Update dalla loro rappresentazione JSON;
+- *Converter*: componente il cui scopo è fornire funzionalità di serializzazione e deserializzazione di oggetti utilizzando la libreria Gson.
 
 #pagebreak
 
