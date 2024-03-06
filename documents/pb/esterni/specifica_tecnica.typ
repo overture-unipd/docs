@@ -9,6 +9,10 @@
     [_#(p.zextras)_],
   ),
   changelog: (
+    "0.0.10", "2024-02-26", p.bettin, p.bulychov, 
+    [
+      Aggiunto 'Dependecy injection' all'interno della sezione 'Design pattern utilizzati'.
+    ],
     "0.0.9", "2024-02-24", p.amadori, p.bonavigo, 
     [
       Aggiunta la sezione 'Diagramma delle classi'.
@@ -205,6 +209,193 @@ Il servizio di database è creato mediante l'immagine `rethinkdb:2.4.2-bullseye-
 Il servizio di caddy invece lo attiviamo con l'immagine custom `overture-unipd/caddy:latest` ricavata dall'immagine di base `caddy:latest` ma integrata con il plugin per Duck DNS. Anche qui vengono mappate le porte 80 e 443 del container con quelle dell'host e vengono configurati i  volumi Docker per condividere dati tra il container e l'host, ad esempio per persistere i dati del server web Caddy e per fornire un file di configurazione Caddy personalizzato.\
 
 Si nota che tutti i volumi che i servizi montano, sono riportati alla fine del file "docker-compose.yml" dopo il record `volumes`.
+
+== Design pattern utilizzati
+
+=== Dependency injection
+
+==== Motivazioni e studio del design pattern
+In qualsiasi progetto non banale, quindi costituito da un numero di componenti considerevole, risulta fondamentale la gestione e quindi la minimizzazione delle dipendenze.
+Questo non tanto nel momento in cui si sviluppa il codice, ma più nella fase di manutenzione o implementazione di nuove features nel momento in cui il software è gia in produzione.
+Lo scopo di questo design pattern è quindi quello di separare il comportamento di un componente dalla risoluzione delle sue dipendenze con l'obiettivo di semplificare l'albero delle dipendenze. Se tale albero diventa troppo complesso (aggiungendo debito tecnico) si ha una situazione in cui ogni componente del progetto dipende da altri, facendo si che una modifica a quest'ultimo comporti delle modifiche a cascata di tutti gli altri componenti.
+
+==== Implementazione del design pattern
+Il gruppo di progetto ha deciso di implementare il pattern dependecy injection con il framework Guice. Semplicemente, Guice ci permette di realizzare questo design pattern evitando di scrivere tutto il boilerplate code necessario se lo implementassimo con il metodo tradizionale senza l'utilizzo di strumenti esterni.
+In parole povere, Guice allevia la necessità di avere componenti factories nel proprio codice e di usare la parola chiave `new` per ogni oggetto che si vuole costruire. Il costrutto $at$Inject di Guice è il nuovo `new` di Java. Bisognerà comunque implementare delle classi factories in certi casi, ma il codice non dipenderà direttamente da esse e il codice risultante sarà più facile da modificare, da testare e da riutilizzare.
+
+===== Concetti principali di Guice ed esempio di utilizzo
+Dependecy Injection  è un pattern dove le classi dichiarano le loro dipendenze come argomenti al posto di creare oggetti legati a queste dipendenze direttamente al loro interno. Ad esempio, un client che vorrebbe chiamare un servizio non dovrebbe sapere come costruire questo servizio, ma al contrario, del codice esterno deve essere responsabile per fornire questo servizio al client.
+
+====== Costruttore $at$Inject
+Tutte le classi di Java che sono annotate con $at$Inject possono essere chiamate da Guice tramite un processo di "costructor injection", dove ogni argomento viene creato e fornito da Guice stesso.
+Questo è un esempio di classe demo che usa il "costructor injection":
+```java
+class Saluto {
+  private final String messaggio;
+  private final int conta;
+
+
+  // La classe Saluto dichiara che necessita di una stringa per il messaggio
+  // e un intero che rappresenta il numero di volte che un messaggio è
+  // stampato.
+  // L'annotazione @Inject segna il costruttore come istanziabile da Guice.
+  @Inject
+  Saluto(@Messaggio String messaggio, @Conta int conta) {
+    this.messaggio = messaggio;
+    this.conta = conta;
+  }
+
+  void diciCiao() {
+    for (int i=0; i < conta; i++) {
+      System.out.println(messaggio);
+    }
+  }
+}
+```
+
+La classe Saluto ha un costruttore che è chiamato quando l'applicazione chiede a Guice di istanziare un oggetto Saluto. Guice creerà i due argomenti richiesti e invocherà il costruttore. Le dipendeze, che sono gli argomenti da passare al costruttore, sono noti a Guice grazione ai codiddetti: Moduli, che soddisfano queste dipendenze.
+
+====== Moduli di Guice
+I moduli sono dei costrutti di Guice che permettono di soddisfare le dipendenze richieste dal costruttore di una classe. Questo è fatto grazie alla creazione di una classe (il modulo appunto) che specifica come soddisfare tali dipendenze automaticamente.
+Ecco un esempio di modulo che soddisfa le dipendenze della classe Saluto:
+```java
+
+import com.google.inject.Provides;
+
+class DemoModulo extends AbstractModule {
+  @Provides
+  @Conta
+  static Integer fornisciConta() {
+    return 3;
+  }
+
+  @Provides
+  @Messaggio
+  static String fornisciMessaggio() {
+    return "hello world";
+  }
+}
+
+```
+
+====== Utilizzo 
+Incapsuliamo il codice precedente in una classe apposita di demo:
+```java
+
+package guicedemo;
+
+import static java.lang.annotation.RetentionPolicy.RUNTIME;
+
+import com.google.inject.AbstractModule;
+import com.google.inject.Guice;
+import com.google.inject.Injector;
+import com.google.inject.Key;
+import com.google.inject.Provides;
+import java.lang.annotation.Retention;
+import javax.inject.Inject;
+import javax.inject.Qualifier;
+
+public class GuiceDemo {
+  @Qualifier
+  @Retention(RUNTIME)
+  @interface Messaggio {}
+
+  @Qualifier
+  @Retention(RUNTIME)
+  @interface Conta {}
+
+  static class DemoModulo extends AbstractModule {
+  @Provides
+  @Conta
+  static Integer fornisciConta() {
+    return 3;
+  }
+
+  @Provides
+  @Messaggio
+  static String fornisciMessaggio() {
+    return "hello world";
+  }
+
+  static class Saluto {
+    private final String messaggio;
+    private final int conta;
+  
+    @Inject
+    Saluto(@Messaggio String messaggio, @Conta int conta) {
+      this.messaggio = messaggio;
+      this.conta = conta;
+    }
+  
+    void diciCiao() {
+      for (int i=0; i < conta; i++) {
+        System.out.println(messaggio);
+      }
+    }
+  }
+}
+
+```
+
+
+Ecco come possiamo usare l'infrastruttura creata precedentemente e testare la potenza di Guice:
+```java
+
+public static void main(String[] args) {
+    /*
+     * Guice.createInjector() prende uno o più moduli e ritorna una nuova istanza di Inject.
+    */
+    Injector injector = Guice.createInjector(new DemoModulo());
+
+    /*
+     * Ora che abbiamo l'injector possiamo creare un istanza della classe Saluto.
+     */
+    Saluto saluto = injector.getInstance(Saluto.class);
+
+    // Stampa "hello world" 3 volte nella console.
+    greeter.diciCiao();
+  }
+
+```
+
+==== Integrazione del pattern
+Per vedere come abbiamo utilizzato Guice nel nostro progetto, basta prendere una classe che ha un costruttore: come la classe `AccountImpl`. 
+
+```java
+
+@Inject
+AccountImpl(Connection conn) {
+    this.conn = conn;
+}
+
+```
+
+
+Notiamo che il costruttore della classe dichiara delle dipendenze tra la classe `AccountImpl` e la classe `Connection`.\
+Il costruttore è marchato con l'annotazione $at$Inject per denotare che Guice sarà responasabile di fornire un'istanza di `Connection` quando si vorrà creare un'istanza di `AccountImp`.\
+
+La configurazione di del modulo Guice è fatta su un'altra file: `Init.java` che si occupa di soddisfare le dipendenze necesarie per la classe connection con il costrutto Injector.
+```java
+
+Injector injector = Guice.createInjector(
+    new DatabaseModule(),
+    new WebserverModule(),
+);
+
+```
+
+Nel momento in cui si volesse ottenere un'stanza di `AccountImpl` basterà chiamare il metodo getInstance cono l'oggetto injector creato precedentemente:
+
+```java
+
+Injector injector = Guice.createInjector(/* ... */);
+AccountImpl accountImpl = injector.getInstance(AccountImpl.class);
+
+```
+
+Con l'injector creato utilizzando Guice, è possibile ottenere un'istanza di `AccountImpl`. Guice si occuperà di soddisfare le dipendenze necessarie, come la `Connection`, iniettandole automaticamente nel costruttore di `AccountImpl`.
+
+In generale, l'utilizzo di Guice semplifica la gestione delle dipendenze nel codice, separando la creazione delle istanze delle classi e la gestione delle dipendenze in un framework esterno. Ciò rende il codice più modulare, facilitando la manutenzione e il testing.
 
 #pagebreak()
 
