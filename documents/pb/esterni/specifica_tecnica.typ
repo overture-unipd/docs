@@ -9,6 +9,10 @@
     [_#(p.zextras)_],
   ),
   changelog: (
+    "0.0.11", "2024-02-27", p.fabbian, p.amadori, 
+    [
+      Aggiunta la sottosezione 'Ingresso delle richieste nell'applicazione' all'interno della sezione 'Diagramma delle classi'.
+    ],
     "0.0.10", "2024-02-26", p.bettin, p.bulychov, 
     [
       Aggiunto 'Dependecy injection' all'interno della sezione 'Design pattern utilizzati'.
@@ -401,6 +405,14 @@ In generale, l'utilizzo di Guice semplifica la gestione delle dipendenze nel cod
 
 == Diagramma delle classi
 #figure(image("//imgs/Specifica_Tecnica/UML.png", width: 100%), caption: [Diagramma delle classi])
+
+=== Ingresso delle richieste nell'applicazione
+#figure(image("//imgs/Specifica_Tecnica/UML1.png", width: 35%), caption: [Modellazione delle componenti che gestiscono l'ingresso delle richieste nell'applicazione])
+
+Il pezzo di diagramma riportato illustra le componenti fondamentali per gestire l'ingresso delle richieste provenienti dai client all'interno del sistema. Vi si trovano le seguenti classi:
+- *Request*: gestore principale dell'ingresso delle richieste in arrivo (input), il cui scopo è quello di definire molteplici rotte utilizzando il framework Spark. Include al suo interno la gestione iniziale delle operazioni come l'autenticazione, la gestione delle sessioni e la manipolazione dei dati attraverso diverse operazioni come upload e download;
+- *RequestPort*: porta in ingresso che funge da punto di accesso per l'interazione tra il dominio dell'applicazione (core) e il mondo esterno. Essa definisce un insieme di operazioni che rappresentano le azioni che l'applicazione può eseguire in risposta alle richieste esterne provenienti dai client. La sua implementazione è responsabilità di classi concrete che forniranno la logica specifica per gestire tali operazioni in modo efficace all'interno dell'applicazione, mantenendo così la separazione tra la logica di business dell'applicazione e i dettagli di implementazione relativi alle richieste in arrivo;
+- *RequestHandler*: implementazione dell'interfaccia RequestPort. Essenzialmente, funge da intermediario tra le richieste provenienti dall'esterno dell'applicazione e la logica di business sottostante. Riceve le richieste in arrivo e in base al tipo di richiesta e ai dati associati, determina come instradarla all'interno dell'applicazione. 
 
 #pagebreak
 
