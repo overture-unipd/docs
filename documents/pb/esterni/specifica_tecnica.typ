@@ -9,6 +9,10 @@
     [_#(p.zextras)_],
   ),
   changelog: (
+    "0.0.17", "2024-03-06", p.furno, p.bulychov, 
+    [
+      Modifiche dovute alla risoluzione dei problemi rilevati nel colloquio con il #p.cardin.
+    ],
     "0.0.16", "2024-03-05", p.amadori, p.bulychov, 
     [
       Aggiunto 'Builder' all'interno della sezione 'Design pattern utilizzati'.
@@ -520,49 +524,55 @@ In conclusione, l'integrazione del pattern Builder nel nostro prodotto è una pr
 #figure(image("//imgs/Specifica_Tecnica/UML1.png", width: 35%), caption: [Modellazione delle componenti che gestiscono l'ingresso delle richieste nell'applicazione])
 
 Il pezzo di diagramma riportato illustra le componenti fondamentali per gestire l'ingresso delle richieste provenienti dai client all'interno del sistema. Vi si trovano le seguenti classi:
-- *Request*: gestore principale dell'ingresso delle richieste in arrivo (input), il cui scopo è quello di definire molteplici rotte utilizzando il framework Spark. Include al suo interno la gestione iniziale delle operazioni come l'autenticazione, la gestione delle sessioni e la manipolazione dei dati attraverso diverse operazioni come upload e download;
-- *RequestPort*: porta in ingresso che funge da punto di accesso per l'interazione tra il dominio dell'applicazione (core) e il mondo esterno. Essa definisce un insieme di operazioni che rappresentano le azioni che l'applicazione può eseguire in risposta alle richieste esterne provenienti dai client. La sua implementazione è responsabilità di classi concrete che forniranno la logica specifica per gestire tali operazioni in modo efficace all'interno dell'applicazione, mantenendo così la separazione tra la logica di business dell'applicazione e i dettagli di implementazione relativi alle richieste in arrivo;
-- *RequestHandler*: implementazione dell'interfaccia RequestPort. Essenzialmente, funge da intermediario tra le richieste provenienti dall'esterno dell'applicazione e la logica di business sottostante. Riceve le richieste in arrivo e in base al tipo di richiesta e ai dati associati, determina come instradarla all'interno dell'applicazione. 
+- *Spark*: gestore principale dell'ingresso delle richieste in arrivo (input), il cui scopo è quello di definire molteplici rotte utilizzando il framework Spark. Include al suo interno la gestione iniziale delle operazioni come l'autenticazione, la gestione delle sessioni e la manipolazione dei dati attraverso diverse operazioni come upload e download;
+- *AuthenticationPort*: porta in ingresso che funge da punto di accesso per l'interazione tra il dominio dell'applicazione (core) e il mondo esterno. Essa definisce un insieme di operazioni che rappresentano le azioni che l'applicazione può eseguire in risposta alle richieste esterne provenienti dai client riguardanti l'autenticazione. La sua implementazione è responsabilità di classi concrete che forniranno la logica specifica per gestire tali operazioni in modo efficace all'interno dell'applicazione, mantenendo così la separazione tra i diversi tipi di logiche;
+- *SessionPort*: porta in ingresso che funge da punto di accesso per l'interazione tra il dominio dell'applicazione (core) e il mondo esterno. Essa definisce un insieme di operazioni che rappresentano le azioni che l'applicazione può eseguire in risposta alle richieste esterne provenienti dai client riguardanti la sessione. La sua implementazione è responsabilità di classi concrete che forniranno la logica specifica per gestire tali operazioni in modo efficace all'interno dell'applicazione, mantenendo così la separazione tra i diversi tipi di logiche;
+- *MethodPort*: porta in ingresso che funge da punto di accesso per l'interazione tra il dominio dell'applicazione (core) e il mondo esterno. Essa definisce un insieme di operazioni che rappresentano le azioni che l'applicazione può eseguire in risposta alle richieste esterne provenienti dai client riguardanti i vari metodi del protocollo JMAP. La sua implementazione è responsabilità di classi concrete che forniranno la logica specifica per gestire tali operazioni in modo efficace all'interno dell'applicazione, mantenendo così la separazione tra i diversi tipi di logiche;
+- *UploadPort*: porta in ingresso che funge da punto di accesso per l'interazione tra il dominio dell'applicazione (core) e il mondo esterno. Essa definisce un insieme di operazioni che rappresentano le azioni che l'applicazione può eseguire in risposta alle richieste esterne provenienti dai client riguardanti l'upload di dati. La sua implementazione è responsabilità di classi concrete che forniranno la logica specifica per gestire tali operazioni in modo efficace all'interno dell'applicazione, mantenendo così la separazione tra i diversi tipi di logiche;
+- *DownloadPort*: porta in ingresso che funge da punto di accesso per l'interazione tra il dominio dell'applicazione (core) e il mondo esterno. Essa definisce un insieme di operazioni che rappresentano le azioni che l'applicazione può eseguire in risposta alle richieste esterne provenienti dai client riguardanti il download di dati. La sua implementazione è responsabilità di classi concrete che forniranno la logica specifica per gestire tali operazioni in modo efficace all'interno dell'applicazione, mantenendo così la separazione tra i diversi tipi di logiche;
+- *AuthenticationController*: implementazione dell'interfaccia AuthenticationPort. Essenzialmente, funge da intermediario tra le richieste provenienti dall'esterno dell'applicazione rigurdanti l'autenticazione e la logica di business sottostante, gestendo quindi la parte di application logic relativa. Al suo interno si esegue dunque una prima validazione delle richieste di questo tipo, in modo da evitare di arrivare alla business logic nel caso in cui il formato della richiesta non fosse conforme allo standard;
+- *SessionController*: implementazione dell'interfaccia SessionPort. Essenzialmente, funge da intermediario tra le richieste provenienti dall'esterno dell'applicazione rigurdanti la sessione e la logica di business sottostante, gestendo quindi la parte di application logic relativa. Al suo interno si esegue dunque una prima validazione delle richieste di questo tipo, in modo da evitare di arrivare alla business logic nel caso in cui il formato della richiesta non fosse conforme allo standard;
+- *MethodController*: implementazione dell'interfaccia MethodPort. Essenzialmente, funge da intermediario tra le richieste provenienti dall'esterno dell'applicazione rigurdanti i vari metodi del protocollo JMAP e la logica di business sottostante, gestendo quindi la parte di application logic relativa. Al suo interno si esegue dunque una prima validazione delle richieste di questo tipo, in modo da evitare di arrivare alla business logic nel caso in cui il formato della richiesta non fosse conforme allo standard. Riceve le richieste in arrivo e in base al tipo di richiesta e ai dati associati, determina come instradarla all'interno dell'applicazione;
+- *AttachmentController*: implementazione delle interfacce UploadPort e DownloadPort. Essenzialmente, funge da intermediario tra le richieste provenienti dall'esterno dell'applicazione rigurdanti l'upload o il download degli allegati e la logica di business sottostante, gestendo quindi la parte di application logic relativa. Al suo interno si esegue dunque una prima validazione delle richieste di questo tipo, in modo da evitare di arrivare alla business logic nel caso in cui il formato della richiesta non fosse conforme allo standard;
 
 === Gestione delle richieste
 #figure(image("//imgs/Specifica_Tecnica/UML2.png", width: 35%), caption: [Modellazione delle componenti che gestiscono le rischieste all'interno dell'applicazione])
 
 Le componenti riportate nel frammento di diagramma soprastante sono quelle necessarie per la gestione delle richieste, implementando dunque la business logic del prodotto. Vi si trovano le seguenti classi:
-- *Dispatcher*: componente responsabile di indirizzare le richieste in arrivo ai corrispondenti handler di metodo (come Email, Mailbox, ecc.), dove vengono effettivamente eseguite le operazioni richieste. Fornisce risposte appropriate in base al tipo di operazione istanziata, come l'invio o la ricezione di email e la gestione dei dati correlati. Questo processo avviene attraverso la decodifica delle richieste in arrivo, l'esecuzione delle operazioni richieste e la restituzione delle risposte appropriate ai client;
-- *Email*: componente responsabile della gestione delle email all'interno del sistema;
-- *EmailSubmission*: componente responsabile della gestione dell'invio di un'email per la consegna a uno o più destinatari all'interno del sistema;
-- *Authentication*: componente responsabile della gestione dell'autenticazione all'interno del sistema;
-- *Account*: componente responsabile della gestione degli account all'interno del sistema;
-- *Identity*: componente responsabile della gestione delle identità all'interno del sistema;
-- *Session*: componente responsabile della gestione delle sessioni all'interno del sistema;
-- *Mailbox*: componente responsabile della gestione delle caselle di posta all'interno del sistema;
-- *MailboxInfo*: componente responsabile della gestione delle informazioni riguardanti le caselle di posta all'interno del sistema;
-- *Thread*: componente responsabile della gestione dei thread all'interno del sistema;
-- *Echo*: componente responsabile della gestione degli echo all'interno del sistema;
-- *Update*: componente responsabile della sincronizzazione all'interno del sistema;
-- *UpdateDeserializer*: componente responsabile della deserializzazione degli oggetti di tipo Update dalla loro rappresentazione JSON;
-- *Converter*: componente il cui scopo è fornire funzionalità di serializzazione e deserializzazione di oggetti utilizzando la libreria Gson.
+- *AuthenticationManager*: componente responsabile della gestione dell'autenticazione all'interno del sistema. Si occupa quindi di tutte le operazioni relative alla business logic di questo tipo;
+- *SessionManager*: componente responsabile della gestione delle sessioni all'interno del sistema. Si occupa quindi di tutte le operazioni relative alla business logic di questo tipo;
+- *IdentityManager*: componente responsabile della gestione delle identità all'interno del sistema. Si occupa quindi di tutte le operazioni relative alla business logic di questo tipo;
+- *EmailManager*: componente responsabile della gestione delle email all'interno del sistema. Si occupa quindi di tutte le operazioni relative alla business logic di questo tipo;
+- *EmailSubmissionManager*: componente responsabile della gestione dell'invio di un'email per la consegna a uno o più destinatari all'interno del sistema. Si occupa quindi di tutte le operazioni relative alla business logic di questo tipo;
+- *ThreadManager*: componente responsabile della gestione dei thread all'interno del sistema. Si occupa quindi di tutte le operazioni relative alla business logic di questo tipo;
+- *MailboxManager*: componente responsabile della gestione delle caselle di posta all'interno del sistema. Si occupa quindi di tutte le operazioni relative alla business logic di questo tipo;
+- *MailboxInfo*: componente responsabile della gestione delle informazioni riguardanti le caselle di posta all'interno del sistema. Si occupa quindi di tutte le operazioni relative alla business logic di questo tipo;
+- *EchoManager*: componente responsabile della gestione degli echo all'interno del sistema. Si occupa quindi di tutte le operazioni relative alla business logic di questo tipo;
+- *AttachmentManager*: componente responsabile della gestione degli allegati all'interno del sistema. Si occupa quindi di tutte le operazioni relative alla business logic di questo tipo;
+- *StateManager*: componente responsabile della gestione dello stato del client e della sincronizzazione all'interno del sistema. Si occupa quindi di tutte le operazioni relative alla business logic di questo tipo;
+- *Update*: componente responsabile della gestione degli aggiornamenti all'interno del sistema;
+- *UpdateDeserializer*: componente responsabile della deserializzazione degli oggetti di tipo Update dalla loro rappresentazione JSON.
 
 === Interfacciamento al database
 #figure(image("//imgs/Specifica_Tecnica/UML3.png", width: 35%), caption: [Modellazione delle componenti che gestiscono l'interfacciamento al database])
 
-Nell'ultima parte del diagramma delle classi si trovano le componenti dedicate alla gestione dell'interfacciamento con il database. Qui si trovano, quindi, tutte le porte in uscita dall'esagono contenente la business logic e le classi concrete che svolgono operazioni specifiche su vari tipi di dati con il database. Nello specifico queste sono le seguenti:
+Nell'ultima parte del diagramma delle classi si trovano le componenti dedicate alla gestione dell'interfacciamento con il database. Qui si incontrano, quindi, tutte le porte in uscita dall'esagono contenente la business logic e le classi concrete che svolgono operazioni specifiche su vari tipi di dati con il database. Nello specifico queste sono le seguenti:
 - *AccountPort*: porta in uscita che definisce una serie di metodi per l'accesso alle informazioni sugli account, nonché per svolgere operazioni su quest'ultimi all'interno del database;
 - *IdentityPort*: porta in uscita che definisce una serie di metodi per l'accesso alle informazioni sulle identità, nonché per svolgere operazioni su quest'ultime all'interno del database;
 - *EmailPort*: porta in uscita che definisce una serie di metodi per svolgere operazioni sulle email all'interno del database;
+- *EmailSubmissionPort*: porta in uscita che definisce una serie di metodi per svolgere operazioni sull'invio di un'email per la consegna a uno o più destinatari all'interno del database;
 - *MailboxPort*: porta in uscita che definisce una serie di metodi per svolgere operazioni sulle caselle di posta all'interno del database;
 - *ThreadPort*: porta in uscita che definisce una serie di metodi per svolgere operazioni sui thread all'interno del database;
 - *UpdatePort*: porta in uscita che definisce una serie di metodi per svolgere operazioni sugli update all'interno del database;
 - *AttachmentPort*: porta in uscita che definisce una serie di metodi per svolgere operazioni sugli allegati all'interno del database;
-- *AccountImpl*: implementazione dell'interfaccia AccountPort che realizza i metodi necessari per l'accesso alle informazioni sugli account, nonché per svolgere operazioni su quest'ultimi all'interno del database;
-- *IdentityImpl*: implementazione dell'interfaccia IdentityPort che realizza i metodi necessari per l'accesso alle informazioni sulle identità, nonché per svolgere operazioni su quest'ultime all'interno del database;
-- *EmailImpl*: implementazione dell'interfaccia EmailPort che realizza i metodi necessari per svolgere operazioni sulle email all'interno del database;
-- *MailboxImpl*: implementazione dell'interfaccia MailboxPort che realizza i metodi necessari per svolgere operazioni sulle caselle di posta all'interno del database;
-- *ThreadImpl*: implementazione dell'interfaccia ThreadPort che realizza i metodi necessari per svolgere operazioni sui thread all'interno del database;
-- *UpdateImpl*: implementazione dell'interfaccia UpdatePort che realizza i metodi necessari per svolgere operazioni sugli update all'interno del database;
-- *AttachmentImpl*: implementazione dell'interfaccia AttachmentPort che realizza i metodi necessari per svolgere operazioni sugli allegati all'interno del database;
-- *RethinkDBConnection*: componente che fornisce un'astrazione per la gestione delle connessioni a un database RethinkDB all'interno dell'applicazione;
-- *MinioConnection*: componente che fornisce un'astrazione per la gestione delle connessioni a Minio all'interno dell'applicazione.
+- *AccountRepository*: implementazione dell'interfaccia AccountPort che realizza i metodi necessari per l'accesso alle informazioni sugli account, nonché per svolgere operazioni su quest'ultimi all'interno del database;
+- *IdentityRepository*: implementazione dell'interfaccia IdentityPort che realizza i metodi necessari per l'accesso alle informazioni sulle identità, nonché per svolgere operazioni su quest'ultime all'interno del database;
+- *EmailRepository*: implementazione dell'interfaccia EmailPort che realizza i metodi necessari per svolgere operazioni sulle email all'interno del database;
+- *EmailSubmissionRepository*: implementazione dell'interfaccia EmailSubmissionPort che realizza i metodi necessari per svolgere operazioni sull'invio di un'email per la consegna a uno o più destinatari all'interno del database;
+- *MailboxRepository*: implementazione dell'interfaccia MailboxPort che realizza i metodi necessari per svolgere operazioni sulle caselle di posta all'interno del database;
+- *ThreadRepository*: implementazione dell'interfaccia ThreadPort che realizza i metodi necessari per svolgere operazioni sui thread all'interno del database;
+- *UpdateRepository*: implementazione dell'interfaccia UpdatePort che realizza i metodi necessari per svolgere operazioni sugli update all'interno del database;
+- *AttachmentRepository*: implementazione dell'interfaccia AttachmentPort che realizza i metodi necessari per svolgere operazioni sugli allegati all'interno del database.
 
 #pagebreak()
 
