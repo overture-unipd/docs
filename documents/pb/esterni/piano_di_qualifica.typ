@@ -9,6 +9,7 @@
     [_#(p.zextras)_],
   ),
   changelog: (
+    "1.5.0", "2024-03-06", p.fabbian, p.bulychov, "Inseriti i test di unità nella sezione 'Metodologie di testing'",
     "1.4.2", "2024-03-05", p.furno, p.amadori, "Inseriti i test di integrazione nella sezione 'Metodologie di testing'",
     "1.4.1", "2024-03-03", p.bettin, p.bonavigo, "Inseriti i test di accettazione nella sezione 'Metodologie di testing'",
     "1.4.0", "2024-02-22", p.furno, p.bonavigo, "Aggiornamento della sezione 'Cruscotto di valutazione della qualità' conseguente al periodo VII",
@@ -262,6 +263,49 @@ Ogni test ha uno *Stato*, che puo essere:
 - *V*: verificato. Il test ha esito positivo;
 - *NV*: non verificato. Il test ha esito negativo;
 - *NI*: non implementato.
+
+
+== Test di unità
+I test di unità sono concepiti per verificare il corretto funzionamento delle singole componenti di codice. Per 'unità' si intendono funzioni, classi o, in modo più generico, ogni singola entità di codice Responsabile di svolgere specifiche attività interne nel software. Per implementare efficacemente questa tipologia di test, l'azienda proponente ha consigliato l'utilizzo dei framework di unit testing *JUnit* e *Mockito*.
+#figure(test(
+  (
+    "TU-1","Verificare che il metodo Dispatcher.dispatch restituisca il gson corretto dato uno specifico input JSON.", "V",
+    "TU-2","Verificare che il metodo Dispatcher.dispatch restituisca un errore NOT_REQUESTED nel caso in cui la richiesta non contenga alcuna method call.", "V",
+    "TU-3","Verificare che il metodo Dispatcher.dispatch restituisca un errore NOT_REQUESTED nel caso in cui la richiesta non contenga il parametro using.", "V",
+    "TU-4","Verificare che il metodo Dispatcher.dispatch restituisca la corrispondente Response nel caso in cui la richiesta sia correttamente strutturata.", "V",
+    "TU-5","Verificare che il metodo Dispatcher.pick esegua la method call all'attributo corretto dato un input method call specifico.", "V",
+    "TU-6","Verificare che il metodo Dispatcher.pick restituisca un UnknownMethodErrorResponse nel caso in cui non sia presente il corrispondente getter per la method call in input.", "V",
+    "TU-7","Verifica che il metodo EmailBiz.get restituisca una GetEmailMethodResponse con gli attributi corretti.", "V",
+    "TU-8","Verifica che il metodo EmailBiz.get  restituisca correttamente una InvalidResultReferenceMethodErrorResponse nel caso in cui il parametro idsReference presente nella method call in input sia diverso da 'null' ma non sia possibile risolvere il riferimento in base al percorso specificato all'interno dell'oggetto idsReference.", "V",
+    "TU-9","Verifica che il metodo EmailBiz.query restituisca una QueryEmailMethodResponse con gli attributi corretti.", "V",
+    "TU-10","Verifica che il metodo EmailBiz.query  restituisca correttamente una AnchorNotFoundMethodErrorResponse nel caso in cui il parametro anchor presente nella method call in input sia diverso da 'null' ma non sia presente all'interno dell'array ids.", "V",
+    "TU-11","Verifica che il metodo EmailBiz.applyFilter applichi correttamente alla Stream di Email il filtro in input.", "V",
+    "TU-12","Verificare che il metodo EmailBiz.changes restituisca una ChangesEmailMethodResponse con attributi updated, created e destroyed uguali a '' nel caso in cui il parametro since della method call in input sia uguale a getState e non 'null'.", "V",
+    "TU-13","Verificare che il metodo EmailBiz.changes restituisca una CannotCalculateChangesMethodResponse nel caso in cui il parametro since della method call in input non sia uguale a getState o 'null' ed il parametro update sia 'null'.", "V",
+    "TU-14","Verificare che il metodo EmailBiz.changes restituisca una ChangesEmailMethodResponse con attributi aggiornati nel caso in cui il parametro since della method call in input sia uguale a getState, diverso da 'null' ed il parametro update sia anch'esso diverso 'null'.", "V",
+    "TU-15","Verifica che il metodo EmailBiz.set restituisca una StateMismatchMethodErrorResponse nel caso in cui il parametro ifInState della method call in input diverso sia da 'null che dall'oldState.", "V",
+    "TU-16","Verifica che il metodo EmailBiz.set restituisca una SetEmailMethodResponse correttamente implementato.", "V",
+    "TU-17","Verifica che il metodo EmailBiz.patchEmail restituisca una IllegalArgumentException nel caso in cui una delle patch inviate contenga, nel percorso, come primo argomento 'mailboxIds' ma non sia un'istanza di Boolean con lunghezza del percorso uguale a 2 oppure un'istanza di Map.", "V",
+    "TU-18","Verifica che il metodo EmailBiz.patchEmail restituisca una IllegalArgumentException nel caso in cui una delle patch inviate non contenga, nel percorso, come primo argomento 'keywords' o 'mailboxIds'.", "V",
+    "TU-19","Verifica che il metodo EmailBiz.patchEmail restituisca una IllegalArgumentException nel caso in cui una delle patch inviate contenga, nel percorso, come primo argomento 'keywords' ed un percorso di lunghezza diversa da 2.", "V",
+    "TU-20","Verifica che il metodo EmailBiz.patchEmail restituisca una MailboxInfo correttamente implementata.", "V",
+    "TU-21","Verificare che il metodo MailboxBiz.changes restituisca una ChangesMailboxMethodResponse con attributi updated, created, destroyed e updatedProperties uguali a '' nel caso in cui il parametro since della method call in input sia uguale a getState e non 'null'.", "V",
+    "TU-22","Verificare che il metodo MailboxBiz.changes restituisca una CannotCalculateChangesMethodResponse nel caso in cui il parametro since della method call in input non sia uguale a getState o 'null' ed il parametro update sia 'null'.", "V",
+    "TU-23","Verificare che il metodo MailboxBiz.changes restituisca una ChangesMailboxMethodResponse con attributi aggiornati nel caso in cui il parametro since della method call in input sia uguale a getState, diverso da 'null' ed il parametro update sia anch'esso diverso 'null'.", "V",
+    "TU-24","Verifica che il metodo MailboxBiz.get restituisca una GetMailboxMethodResponse con gli attributi corretti.", "V",
+    "TU-25","Verifica che il metodo MailboxBiz.get  restituisca correttamente una InvalidResultReferenceMethodErrorResponse nel caso in cui il parametro idsReference presente nella method call in input sia diverso da 'null' ma non sia possibile risolvere il riferimento in base al percorso specificato all'interno dell'oggetto idsReference.", "V",
+    "TU-26","Verifica che il metodo MailboxBiz.toMailbox restituisca un oggetto MailboxBiz con gli attributi correttamente impostati.", "V",
+    "TU-27","Verifica che il metodo MailboxBiz.set restituisca una StateMismatchMethodErrorResponse nel caso in cui il parametro ifInState della method call in input diverso sia da 'null che dall'oldState.", "V",
+    "TU-28","Verifica che il metodo MailboxBiz.set restituisca una setMailboxResponse correttamente implementato.", "V",
+    "TU-29","Verifica che il metodo MailboxBiz.patchMailbox restituisca una IllegalArgumentException nel caso in cui una delle patch inviate non contenga, nel percorso, alcun argomento precedente allo slash (/).", "V",
+    "TU-30","Verifica che il metodo MailboxBiz.patchMailbox restituisca una MailboxInfo correttamente implementata.", "V",
+    "TU-31","Verifica che il metodo ThreadBiz.changes restituisca una ChangesThreadMethodResponse con attributi updated, created, destroyed uguali a '' nel caso in cui il parametro since della method call in input sia uguale a getState e non 'null'.", "V",
+    "TU-32","Verificare che il metodo ThreadBiz.changes restituisca una CannotCalculateChangesMethodResponse nel caso in cui il parametro since della method call in input non sia uguale a getState o 'null' ed il parametro update sia 'null'.", "V",
+    "TU-33","Verificare che il metodo ThreadBiz.changes restituisca una ChangesThreadMethodResponse con attributi aggiornati nel caso in cui il parametro since della method call in input sia uguale a getState, diverso da 'null' ed il parametro update sia anch'esso diverso 'null'.", "V",
+    "TU-34","Verifica che il metodo ThreadBiz.get restituisca una GetThreadMethodResponse con gli attributi corretti.", "V",
+    "TU-35","Verifica che il metodo ThreadBiz.get  restituisca correttamente una InvalidResultReferenceMethodErrorResponse nel caso in cui il parametro idsReference presente nella method call in input sia diverso da 'null' ma non sia possibile risolvere il riferimento in base al percorso specificato all'interno dell'oggetto idsReference.", "V",
+  )
+), caption: [Stato dei test di unitá.])
 
 == Test di integrazione
 I test di integrazione sono progettati per verificare che le diverse parti di un'applicazione si integrino correttamente e collaborino senza problemi quando vengono combinate. Questi test mirano a identificare eventuali errori o problemi di interoperabilità tra i moduli o le unità di codice.
