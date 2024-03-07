@@ -9,6 +9,7 @@
     [_#(p.zextras)_],
   ),
   changelog: (
+    "1.3.0", "2024-03-07", p.furno, p.fabbian, "Aggiunti il consuntivo, la retrospettiva e l'avanzamento raggiunto relativi al periodo VIII",
     "1.2.1", "2024-02-23", p.amadori, p.bulychov, "Aggiunto il preventivo e la pianificazione del periodo VIII",
     "1.2.0", "2024-02-22", p.bettin, p.bonavigo, "Aggiunti il consuntivo, la retrospettiva e l'avanzamento raggiunto relativi al periodo VII",
     "1.1.2", "2024-02-11", p.bonavigo, p.fabbian, "Ristrutturazione dei contenuti per risolvere le problematiche evidenziate dalla revisione RTB",
@@ -887,6 +888,8 @@ Il nuovo preventivo a finire diminuisce rispetto allo scorso periodo, ammontando
 === Periodo VIII
 Inizio: 2024-02-21\
 Fine prevista: 2024-03-06\
+Fine attuale: 2024-03-06\
+Giorni di ritardo: #pos("0")
 
 ==== Pianificazione 
 Nel periodo precedente abbiamo avviato con successo la fase di progettazione del software, completando la definizione dell'architettura logica e di deployment del prodotto, oltre a identificare alcuni potenziali pattern da implementare. Ora, durante questo nuovo periodo, prevediamo di concentrarci maggiormente sulla progettazione di dettaglio e di intensificare l'attività di codifica. \
@@ -923,3 +926,49 @@ Ruoli coinvolti: Responsabile, Amministratore, Verificatore, Progettista, Progra
   (2, 3, 1),
   "VIII"
 )
+
+==== Consuntivo
+Le attività previste sono tutte state svolte con successo. \
+Come si può notare dal confronto tra preventivo e consuntivo:
+- Programmatori hanno richiesto *più* ore;
+
+===== Prospetto orario
+#figure(consuntivo(
+  (
+    ("0", "3", "10", "0", "4", "2 "+neg("+2"), "19"),
+    ("0", "4", "0", "0", "11", "0", "15"),
+    ("0", "0", "10", "0", "0", "8", "18"),
+    ("0", "0", "10", "0", "0", "6", "16"),
+    ("0", "0", "0", "0", "10", "5", "15"),
+    ("5", "0", "0", "0", "11", "0", "16"),
+    ("3", "0", "0", "0", "0", "15", "18"),
+    ("8", "7", "30", "0", "36", "36", "117")
+  )
+), caption: [Impegno orario effettivo per ruolo di ciascun membro nel periodo VIII rispetto le ore preventivate.])
+
+===== Prospetto economico 
+#figure(costi(
+  (
+    ("8", "240€", "-"),
+    ("7", "140€", "-"),
+    ("30", "450€", "-"),
+    ("-", "-", "-"),
+    ("36", "900€", "-"),
+    ("36 "+neg("+2"), "540€", neg("+30")),
+    ("115", "2240€","-"),
+    ("117 "+neg("+2"), "2270€",neg("+30€"))
+  )
+), caption: [Aggiornamenti economici del progetto al termine del periodo VIII, riflettendo le variazioni tra preventivo e ore effettivamente lavorate.])
+
+===== Rischi occorsi, impatto e loro mitigazione 
+All'interno di questo periodo si è fatta sentire molto meno pesante la mancanza di esperienza nella progettazione. Difatti, nonostante non fossimo ancora del tutto esperti, abbiamo imparato molto e l'incontro che abbiamo svolto con il #p.cardin è stato estremamente vantaggioso, riuscendo quindi a non avere grosse difficoltà sotto questo aspetto. \
+Invece, ciò che ha rappresentato una sfida significativa per noi è stata la definizione ed implementazione dei diversi test. Tuttavia, avevamo previsto questo rischio e quindi abbiamo chiesto assistenza all'azienda proponente, che ci ha fornito preziose indicazioni per dissipare i nostri dubbi. Sebbene questa attività abbia richiesto un po' più di tempo del previsto, siamo riusciti comunque a gestirla efficacemente, mitigando l'impatto della nostra inesperienza grazie anche all'aiuto esterno della proponente.
+
+==== Retrospettiva 
+Anche in questo periodo, come nel precedente, è importante sottolineare l'efficace pianificazione che abbiamo raggiunto, segno tangibile che stiamo procedendo nella giusta direzione e che dobbiamo continuare così. È necessario anche evidenziare la capacità di adattamento dei membri del gruppo, che hanno affrontato con successo cambiamenti significativi, come l'adozione di Postman e la ridefinizione di alcune parti dell'architettura di dettaglio in seguito al colloquio con il #p.cardin. \
+Rispetto al periodo precedente è inoltre emersa una maggiore coesione da parte del team, mentre un aspetto che solitamente è stato gestito con successo ma che stavolta ha evidenziato delle problematiche è stata la lentezza nella fase di verifica. Essendo un caso isolato non ci preoccupa, ma è bene che questa cosa non si ripeta in futuro.
+
+==== Punto di avanzamento raggiunto e prospettive di completamento
+Nel corso dell'ottavo periodo di lavoro il gruppo ha mantenuto un ritmo di avanzamento elevato, permettendoci di compiere un progresso estremamente significativo. Abbiamo quasi completato con successo il documento di `Specifica Tecnica`, includendo le nuove sezioni riguardanti i diagrammi UML delle classi ed i design pattern utilizzati nel nostro prodotto. Questo documento ora fornisce dunque una chiara visione dell'architettura di dettaglio del software, anche se alcune parti saranno sicuramente migliorate nei prossimi giorni e restano ancora dei punti da sistemare emersi grazie al colloquio con il #p.cardin. Anche la codifica del prodotto software è progredita molto: abbiamo implementato parecchie delle parti dell'architettura di dettaglio definite durante questo periodo e nel precedente, avvicinandoci sempre più alla realizzazione del codice definitivo del prodotto. Inoltre, abbiamo definito tutti i tipi di test necessari per valutare il prodotto, ed abbiamo già implementato una piccola parte di essi. Dopo ancora abbiamo svolto sia un incontro con l'azienda proponente, #p.zextras, che con il #p.cardin, i quali ci hanno permesso di essere più sicuri e di superare dubbi e difficoltà riscontrati, garantendoci di essere sulla giusta strada per terminare a breve. Infine abbiamo arricchito il `Glossario` con la nuova terminologia identificata durante le fasi di progettazione.\
+Il nuovo preventivo a finire diminuisce di molto rispetto allo scorso periodo, ammontando circa a 12.250€, poichè abbiamo deciso che non effettueremo la revisione CA, bensì ci fermeremo alla PB, e la data di consegna del prodotto viene posticipata di un giorno corrispondendo al 2024-03-23.
+#progress2(14.4,"VIII")

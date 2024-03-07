@@ -374,7 +374,7 @@
 }
 
 #let consuntivo(r) = {
-  let period_header = ("", "Res.", "Amm.", "Ver.", "Ana.", "Progett.", "Program.", "Totali per persona").map(r => [*#r*])
+  let period_header = ("", "Res.", "Amm.", "Ver.", "Ana.", "Proget.", "Program.", "Totali per persona").map(r => [*#r*])
   let people = ((p.amadori, p.bettin, p.bonavigo, p.bulychov, p.fabbian, p.furno, p.vedovato).map(n => n.split().last()) + ("Ore totali per ruolo",)).map(el => [*#el*])
   r = period_header + people.zip(r).flatten()
 
@@ -556,6 +556,22 @@
   )
 }
 
+#let costiFinaliRuoloPB(r) = {
+  let costs_header = ([*Ruolo*], [*P. I*], [*P. II*], [*P. III*], [*P. IV*], [*P. V*], [*P. VI*], [*P. VII*], [*P. VIII*], [*P. IX*], [*Totali per ruolo*])
+  let people = ("Responsabile", "Amministratore", "Verificatore", "Analista", "Progettista", "Programmatore", "Totale preventivo", "Totali per periodo").map(el => [*#el*])
+  r = costs_header + people.zip(r).flatten()
+
+  align(center,
+    table(
+      fill: (_, row) => if calc.odd(row) { luma(215) } else { white },
+      inset: 0.5em,
+      columns: (auto,)*11,
+      align: center,
+      ..r.map(el => text(size: 0.85em, hyphenate: false)[#par(justify: false, el)],)
+    )
+  )
+}
+
 #let progress(percentage, period_number) = {
   figure(
     [
@@ -594,6 +610,45 @@
            padding: -.5,
            anchor: "south",
            [PaF]
+          )
+        })
+      )
+    ],
+    caption: [Punto di avanzamento raggiunto nel periodo #period_number.],
+  )
+}
+
+#let progress2(percentage, period_number) = {
+  figure(
+    [
+      #align(center,
+        canvas({
+          draw.set-style(
+           rect: (
+           fill: rgb(69, 255, 78),
+           stroke: none
+           )
+          )
+          draw.rect((0,0), (percentage,1), name: "progress")
+          draw.set-style(
+           rect: (
+           stroke:  (thickness:0.8pt),
+           fill: none
+           )
+          )
+          draw.rect((0,0), (7.2,1), name: "rtb")
+          draw.rect((0,0), (18,1), name: "paf")
+          draw.content(
+           ("rtb.mid", 0, "rtb.mid"),
+           padding: -.5,
+           anchor: "south",
+           [RTB]
+          )
+          draw.content(
+           ("paf.mid", 0, "paf.mid"),
+           padding: -.5,
+           anchor: "south",
+           [PB = PaF]
           )
         })
       )
