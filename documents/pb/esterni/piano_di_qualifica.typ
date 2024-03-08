@@ -9,6 +9,7 @@
     [_#(p.zextras)_],
   ),
   changelog: (
+    "1.6.0", "2024-03-08", p.bonavigo, p.furno, "Aggiornamento della sezione 'Cruscotto di valutazione della qualità' conseguente al periodo VIII",
     "1.5.0", "2024-03-06", p.fabbian, p.bulychov, "Inseriti i test di unità nella sezione 'Metodologie di testing'",
     "1.4.2", "2024-03-05", p.furno, p.amadori, "Inseriti i test di integrazione nella sezione 'Metodologie di testing'",
     "1.4.1", "2024-03-03", p.bettin, p.bonavigo, "Inseriti i test di accettazione nella sezione 'Metodologie di testing'",
@@ -321,8 +322,16 @@ I test di integrazione sono progettati per verificare che le diverse parti di un
     "TI-8","Verificare che il metodo EmailImpl.insertEmail inserisca correttamente la mail corrispondente nel database", "V",
     "TI-9","Verificare che il metodo EmailImpl.getEmail restituisca correttamente la mail corrispondente dal database", "V",
     "TI-10","Verificare che il metodo EmailImpl.deleteEmail elimini con successo la mail corrispondente dal database", "V",
-    "TI-11","Verificare che il metodo IdentityImpl.getIdentity restituisca correttamente l'identity corrispondente dal database", "V",
+    "TI-11","Verificare che il metodo IdentityImpl.getIdentities restituisca correttamente l'identity corrispondente dal database", "V",
     "TI-12","Verificare che il metodo IdentityImpl.getFirstIdentity restituisca correttamente la prima identity corrispondente dal database", "V",
+    "TI-13","Verificare che il metodo MailboxImpl.insertMailbox inserisca correttamente la mailbox corrispondente nel database", "V",
+    "TI-14","Verificare che il metodo MailboxImpl.getMailbox restituisca correttamente la mailbox corrispondente dal database", "V",
+    "TI-15","Verificare che il metodo MailboxImpl.getAccountMailbox restituisca correttamente l'account corrispondente alla mailbox dal database", "V",
+    "TI-16","Verificare che il metodo MailboxImpl.deleteMailbox elimini con successo la mailbox corrispondente dal database", "V",
+    "TI-17","Verificare che il metodo Thread.getThread restituisca correttamente il thread corrispondente dal database", "V",
+    "TI-18","Verificare che il metodo UpdateImpl.insertUpdate inserisca correttamente l'update corrispondente nel database", "V",
+    "TI-19","Verificare che il metodo UpdateImpl.getUpdate restituisca correttamente l'update corrispondente dal database", "V",
+    "TI-20","Verificare che il metodo UpdateImpl.deleteUpdate elimini con successo l'update corrispondente dal database", "V",
   )
 ), caption: [Stato dei test di integrazione.])
 
