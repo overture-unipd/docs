@@ -9,6 +9,7 @@
     [_#(p.zextras)_],
   ),
   changelog: (
+    "1.3.1", "2024-03-08", p.vedovato, p.bonavigo, "Aggiunto il preventivo e la pianificazione del periodo IX",
     "1.3.0", "2024-03-07", p.furno, p.fabbian, "Aggiunti il consuntivo, la retrospettiva e l'avanzamento raggiunto relativi al periodo VIII",
     "1.2.1", "2024-02-23", p.amadori, p.bulychov, "Aggiunto il preventivo e la pianificazione del periodo VIII",
     "1.2.0", "2024-02-22", p.bettin, p.bonavigo, "Aggiunti il consuntivo, la retrospettiva e l'avanzamento raggiunto relativi al periodo VII",
@@ -971,4 +972,40 @@ Rispetto al periodo precedente è inoltre emersa una maggiore coesione da parte 
 ==== Punto di avanzamento raggiunto e prospettive di completamento
 Nel corso dell'ottavo periodo di lavoro il gruppo ha mantenuto un ritmo di avanzamento elevato, permettendoci di compiere un progresso estremamente significativo. Abbiamo quasi completato con successo il documento di `Specifica Tecnica`, includendo le nuove sezioni riguardanti i diagrammi UML delle classi ed i design pattern utilizzati nel nostro prodotto. Questo documento ora fornisce dunque una chiara visione dell'architettura di dettaglio del software, anche se alcune parti saranno sicuramente migliorate nei prossimi giorni e restano ancora dei punti da sistemare emersi grazie al colloquio con il #p.cardin. Anche la codifica del prodotto software è progredita molto: abbiamo implementato parecchie delle parti dell'architettura di dettaglio definite durante questo periodo e nel precedente, avvicinandoci sempre più alla realizzazione del codice definitivo del prodotto. Inoltre, abbiamo definito tutti i tipi di test necessari per valutare il prodotto, ed abbiamo già implementato una piccola parte di essi. Dopo ancora abbiamo svolto sia un incontro con l'azienda proponente, #p.zextras, che con il #p.cardin, i quali ci hanno permesso di essere più sicuri e di superare dubbi e difficoltà riscontrati, garantendoci di essere sulla giusta strada per terminare a breve. Infine abbiamo arricchito il `Glossario` con la nuova terminologia identificata durante le fasi di progettazione.\
 Il nuovo preventivo a finire diminuisce di molto rispetto allo scorso periodo, ammontando circa a 12.250€, poichè abbiamo deciso che non effettueremo la revisione CA, bensì ci fermeremo alla PB, e la data di consegna del prodotto viene posticipata di un giorno corrispondendo al 2024-03-23.
-#progress2(14.4,"VIII")
+#progress2(14.4,"VIII") 
+
+=== Periodo IX
+Inizio: 2024-03-06\
+Fine prevista: 2024-03-22\
+
+==== Pianificazione 
+All'interno del nono e, idealmente, ultimo periodo di lavoro miriamo a concludere definitivamente la fase di progettazione entro la prima settimana, con l'eccezione di eventuali piccolissimi ritocchi. Pertanto, ci aspettiamo che il documento `Specifica Tecnica` raggiunga rapidamente la sua completa elaborazione, permettendoci di poterci concentrare maggiormente sugli altri aspetti mancanti del progetto. Restano infatti da implementare ancora una modesta quantità di componenti e la maggior parte dei test che sono stati definiti nel periodo precedente. Inoltre in questo periodo andrà ultimato anche il `Manuale Utente`, la cui stesura riprenderà dopo un periodo di stop, all'interno del quale occorrerà inserire una sezione dedicata all'uso di Postman per dimostare la correttezza del nostro prodotto ed andare a spiegare come avviare gli stress test fortemente richiesti dall'azienda proponente. \
+Per quanto riguarda `Glossario`, `Norme di Progetto` ed `Analisi dei Requisiti`, questi documenti non prevedono modifiche in questo periodo, tranne la loro approvazione per la revisione PB. Analogamente anche `Piano di Qualifica` e `Piano di Progetto` una volta aggiornati alla fine del periodo, dovranno essere approvati, ma non presumiamo cambiamenti alla loro struttura interna. \
+Le attività previste durante questo periodo sono quindi le seguenti:
+- Aggiornare `Piano di Qualifica` e `Piano di Progetto` come di consueto;
+- Aggiustare lo stile dei vari documenti e correggere eventuali piccoli errori riscontrati;
+- Terminare la stesura della `Specifica Tecnica`;
+- Terminare la codifica del prodotto software;
+- Sviluppare tutti i test necessari a dimostrare la correttezza del nostro prodotto software;
+- Completare il `Manuale Utente`;
+- Approvare tutti i documenti per la revisione PB.
+
+===== Rischi attesi 
+Per la prima volta in assoluto non prevediamo l'occorrere di alcun rischio all'interno del periodo. Attualmente, la nostra unica preoccupazione potrebbe essere legata all'utilizzo di Postman, strumento con cui stiamo ancora acquisendo familiarità. Tuttavia, fino ad ora non abbiamo incontrato particolari difficoltà nell'impiego di questo software, e non ci aspettiamo che ciò cambi nel prossimo futuro. Abbiamo ormai acquisito sufficiente esperienza da affrontare la fase di codifica, lo sviluppo dei test e ogni altra attività prevista in questo periodo con sicurezza e competenza. Pertanto, non è per superbia ma per fiducia nei nostri mezzi che siamo convinti di poter arrivare alla fine del progetto in questo periodo senza riscontrare alcun tipo di rischio.
+
+==== Preventivo 
+Ruoli coinvolti: Responsabile, Amministratore, Verificatore, Progettista, Programmatore.
+
+#period(
+  (
+    (0, 0, 0, 0, 15, 0),
+    (3, 0, 3, 0, 6, 7),
+    (3, 2, 2, 0, 0, 9),
+    (4, 0, 0, 0, 6, 8),
+    (2, 1, 3, 0, 0, 12),
+    (0, 2, 4, 0, 5, 6),
+    (0, 2, 11, 0, 4, 0),
+    ),
+  (2, 3, 1),
+  "IX"
+)
