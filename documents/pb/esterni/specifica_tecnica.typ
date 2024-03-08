@@ -9,6 +9,10 @@
     [_#(p.zextras)_],
   ),
   changelog: (
+    "0.0.18", "2024-03-08", p.amadori, p.vedovato, 
+    [
+      Integrate le tecnologie mancanti.
+    ],
     "0.0.17", "2024-03-06", p.furno, p.bulychov, 
     [
       Modifiche dovute alla risoluzione dei problemi rilevati nel colloquio con il #p.cardin.
@@ -134,7 +138,8 @@ In questa sezione vengono elencate tutte le tecnologie utilizzate per l'implemen
     "Docker-compose", "2.24.0", "Strumento di conteinerizzazione utilizzato per la definizione di servizi multi-container. Semplifica la gestione e la scalabilità delle applicazioni.",
     "RethinkDB", "2.4.4", "Database NoSQL che supporta subqueries e changefeed. Facilita la gestione e le conversioni degli oggetti Json e consente di rappresentare facilmente dati complessi e annidati.",
     "Gradle", "8.6", "Strumento di automazione della build e di gestione delle dipendenze, progettato per la compilazione, il testing e la distribuzione di progetti software. Utilizza un linguaggio DSL basato su Groovy o Kotlin e supporta la build incrementale. ",
-    "Caddy", "2.7.0", "Web server open-source che converte il traffico da HTTP a HTTPS. Si distingue per la sua facilità d'uso, configurazione automatizzata e supporto nativo per HTTPS. Necessario in quanto richiesto dai client."
+    "Caddy", "2.7.0", "Web server open-source che converte il traffico da HTTP a HTTPS. Si distingue per la sua facilità d'uso, configurazione automatizzata e supporto nativo per HTTPS. Necessario in quanto richiesto dai client.",
+    "MinIO", "Release 2024-01-31", "Server open-source progettato per implementare l'archiviazione di oggetti in modo scalabile e distribuito."
   ),
 ), caption: [Strumenti e servizi usati per la codifica])
 === Framework
@@ -183,7 +188,8 @@ In questa sezione vengono elencate tutte le tecnologie utilizzate per l'implemen
 === Framework
 #figure(tecnologieUsate(
   (
-    "Locust","2.23.1","Framework open source di testing di carico e stress delle applicazioni. È scritto in Python e permette agli sviluppatori di scrivere test di carico simulando il comporamento di migliaia di utenti concorrenti."
+    "Locust","2.23.1","Framework open source di testing di carico e stress delle applicazioni. È scritto in Python e permette agli sviluppatori di scrivere test di carico simulando il comporamento di migliaia di utenti concorrenti.",
+    "Postman", "10.22", "Strumento di collaborazione per lo sviluppo di API. In particolare ne semplifica i processi di sviluppo, test e documentazione. Consente la creazione di richieste HTTP personalizzate."
   )
 ), caption: [Framework utilizzati per il testing])
 
