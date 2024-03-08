@@ -9,6 +9,10 @@
     [_#(p.zextras)_],
   ),
   changelog: (
+    "0.0.4", "2024-03-07", p.bettin, p.vedovato,
+    [
+      Aggiunta la sezione 'Supporto tecnico'.
+    ],
     "0.0.3", "2024-02-15", p.fabbian, p.furno,
     [
       Aggiunta la sezione 'Collegamento di un client di posta elettronica installato su un dispositivo Android'.
@@ -171,3 +175,7 @@ Successivamente inseriamo la password associata a quell'account (la troviamo nel
 Se tutto è stato eseguito correttamente avremo il seguente risultato:
 
 #figure(image("//imgs/Manuale_Utente/SchermataPrincipale.jpg", width: 30%), caption: [Schermata principale con la lista di tutte le email ricevute.])
+
+= Supporto tecnico
+Il nostro team è disponibile per assisterti in caso di problemi o domande sul nostro prodotto. Dunque se riscontri difficoltà tecniche, oppure hai dei dubbi riguardo alle funzionalità o all'installazione, non esitare a contattarci inviando un'email all'indirizzo: #link("overture.unipd@gmail.com"). \
+Assicurati di includere una descrizione dettagliata del problema o della domanda, eventuali messaggi di errore che hai ricevuto, la data in cui il malfunzionamento è stato riscontrato e qualsiasi altro dettaglio che ci possa permettere di assisterti nel miglior modo possibile. Il nostro team farà del suo meglio per risolvere rapidamente qualsiasi problema e fornirti le informazioni necessarie per utilizzare al meglio il frutto del nostro lavoro.
