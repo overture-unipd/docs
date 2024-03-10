@@ -9,6 +9,10 @@
     [_#(p.zextras)_],
   ),
   changelog: (
+    "0.0.19", "2024-03-09", p.bulychov, p.bettin, 
+    [
+      Aggiunto 'Adapter' all'interno della sezione 'Design pattern utilizzati'.
+    ],
     "0.0.18", "2024-03-08", p.amadori, p.vedovato, 
     [
       Integrate le tecnologie mancanti.
@@ -430,6 +434,17 @@ AccountImpl accountImpl = injector.getInstance(AccountImpl.class);
 Con l'injector creato utilizzando Guice, è possibile ottenere un'istanza di `AccountImpl`. Guice si occuperà di soddisfare le dipendenze necessarie, come la `Connection`, iniettandole automaticamente nel costruttore di `AccountImpl`.
 
 In generale, l'utilizzo di Guice semplifica la gestione delle dipendenze nel codice, separando la creazione delle istanze delle classi e la gestione delle dipendenze in un framework esterno. Ciò rende il codice più modulare, facilitando la manutenzione e il testing.
+
+=== Adapter
+
+==== Motivazioni e studio del design pattern
+Dato che abbiamo scelto di adottare un'architettura esagonale, diventa essenziale integrare il pattern Adapter nel nostro sistema. Questo pattern svolge un ruolo fondamentale come interfaccia tra l'architettura esagonale e le componenti esterne, facilitando una collaborazione armoniosa all'interno dell'intero sistema. Grazie all'Adapter siamo in grado di mantenere coerenza e indipendenza tra i vari moduli dell'architettura, garantendo al contempo un'integrazione senza problemi delle componenti esterne. Inoltre, questo approccio ci consente di mettere al centro del progetto la business logic, concentrandoci sulle funzionalità principali senza essere intralciati dalle complessità delle componenti esterne. Con Adapter infatti possiamo trasformare le interfacce delle componenti esterne per adattarle alle nostre esigenze specifiche all'interno dell'architettura esagonale in maniera estramente agevole. 
+
+==== Implementazione del design pattern
+Per l'implementazione di questo pattern abbiamo scelto di sviluppare internamente il codice necessario, evitando l'utilizzo di librerie o framework esterni, in modo da avere il controllo completo sul comportamento dell'Adapter e poterlo personalizzare in base alle esigenze del progetto.
+
+===== Utilizzo
+Per ogni componente esterna con cui interagire abbiamo definito una o più porte di accesso al sistema, che altro non sono che una serie di interfacce contenenti i metodi necessari per comunicare con l'architettura esagonale, permettendo dunque l'isolamento della business logic. Successivamente, abbiamo definito una classe interna che implementi l'interfaccia dell'Adapter, incaricata di adattare l'interfaccia delle componenti esterne a quella dell'architettura. All'interno di questa classe viene implementata la logica necessaria per convertire gli oggetti tra le due interfacce. Infine, l'Adapter viene utilizzato all'interno dell'architettura esagonale per gestire la comunicazione con le componenti esterne.
 
 === Builder
 
