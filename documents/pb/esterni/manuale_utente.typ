@@ -9,6 +9,10 @@
     [_#(p.zextras)_],
   ),
   changelog: (
+    "0.0.5", "2024-03-10", p.bulychov, p.furno,
+    [
+      Aggiunta la sezione 'Avvio degli stress test'.
+    ],
     "0.0.4", "2024-03-07", p.bettin, p.vedovato,
     [
       Aggiunta la sezione 'Supporto tecnico'.
@@ -175,6 +179,56 @@ Successivamente inseriamo la password associata a quell'account (la troviamo nel
 Se tutto è stato eseguito correttamente avremo il seguente risultato:
 
 #figure(image("//imgs/Manuale_Utente/SchermataPrincipale.jpg", width: 30%), caption: [Schermata principale con la lista di tutte le email ricevute.])
+
+#pagebreak()
+
+= Avvio degli stress test
+Questa sezione fornisce istruzioni dettagliate su come eseguire gli stress test utilizzando il framework Locust, attraverso il quale è possibile simulare il carico di lavoro su un sistema e valutarne le prestazioni. \
+I test sono organizzati in file Python denominati `test1` e `test2`, con i dettagli delle richieste contenuti nei file JSON presenti nella cartella `requests`.
+
+== Requisiti preliminari
+Assicurarsi di avere Python installato sul sistema e di disporre del framework Locust. Nel caso in cui quest'ultimo non sia presente nel vostro sistema, per installarlo eseguire il seguente comando sul terminale: `pip install locust`. Di seguito la guida ufficiale per l'installazione: https://docs.locust.io/en/stable/installation.html.
+
+== Descrizione dei test
+=== `test1` - Accesso all'inbox
+Simula una grande quantità di utenti che accedono all'inbox contemporaneamente. Questo test è finalizzato a valutare le prestazioni del server durante l'accesso simultaneo di numerosi utenti alla propria inbox. Il codice è stato sviluppato per simulare l'intero processo di visualizzazione dell'inbox, dalla fase di apertura dell'applicazione fino alla visualizzazione effettiva delle email, al fine di ricreare uno scenario realistico. 
+
+All'inizio del codice sono definite variabili che consentono la personalizzazione dei dati del server, come il dominio e gli utenti. Successivamente vengono aperti e memorizzati i payload delle richieste da inviare successivamente.
+
+Il codice, eseguito ripetutamente da Locust, seleziona casualmente un utente tra quelli disponibili e invia una richiesta GET per ottenere l'ID dell'account, fondamentale per le richieste future. Successivamente vengono inviate solo richieste POST contenenti i payload memorizzati in precedenza. Dopo un'ulteriore verifica tramite una richiesta Identity/get, viene visualizzato l'elenco delle caselle di posta disponibili, da cui viene estratto l'ID dell'inbox, necessario per la visualizzazione delle email. In seguito viene ottenuto lo stato della sessione corrente, utilizzato insieme all'ID dell'account e dell'inbox per richiedere la visualizzazione delle email contenute nell'inbox. Al termine, viene eseguita una richiesta per aggiornare lo stato della sessione, in preparazione a eventuali future richieste.
+
+=== `test2` - Invio di email
+Crea uno scenario in cui molti utenti inviano email contemporaneamente, variando il numero di destinatari e la dimensione dell'email per testare la capacità del server di gestire carichi di lavoro diversi. Il test simula lo scenario in cui un utente, dopo essersi autenticato nell'applicazione e aver visualizzato l'inbox, decide di inviare una email, al fine di valutare il comportamento del server in questa operazione. 
+
+Il codice presenta molte analogie con il test precedente, in quanto l'utente visualizza la pagina di inbox prima di poter eseguire qualsiasi altra operazione.
+
+Dopo l'autenticazione e l'ottenimento dell'ID dell'utente, viene effettuata una richiesta per visualizzare le caselle di posta disponibili, tra cui quella delle email inviate, che sarà necessaria per l'invio della nuova email. Nel caso in cui non siano state inviate email in precedenza e di conseguenza la casella di posta non esista ancora, questa verrà creata successivamente. Dopo aver visualizzato l'inbox come nel test precedente, viene creata la casella di posta per le email inviate, se non esiste ancora, e viene inviata effettivamente la richiesta per inviare l'email. In questo caso, l'oggetto dell'email rimane identico per tutte le richieste poiché ininfluente, mentre il numero di destinatari viene scelto casualmente per un massimo di 3 e il contenuto dell'email ha una lunghezza variabile tra 16 e 3200 caratteri, al fine di testare la capacità del server di gestire differenti carichi di lavoro.
+
+== Esecuzione dei test
+- Passo 1 - Modifica dei parametri:
+    - Passo 1.1: Aprire il file Python relativo al test desiderato;
+    - Passo 1.2: Modificare le informazioni necessarie nelle prime righe del file per adattare il test al server e agli utenti desiderati. I valori corretti verranno sostituiti automaticamente lungo tutto il codice.
+- Passo 2 - Avvio del test:
+    - Passo 2.1: Aprire il terminale;
+    - Passo 2.2: Eseguire il comando seguente: 
+    `locust -f test.py --host=http://localhost:8000`
+    
+    Sostituendo "test.py" con il nome del file del test da eseguire e "http://localhost:8000" con l'indirizzo IP del server.
+- Passo 3 - Visualizzazione dell'interfaccia utente:
+    - Passo 3.1: Aprire qualsiasi browser e accedere all'indirizzo http://localhost:8089. Da ora sarà possibile interagire con Locust attraverso l'interfaccia grafica.
+
+=== Configurazione dei parametri
+Durante l'utilizzo dell'interfaccia utente, saranno richieste le seguenti informazioni:
+- Numero di utenti (frequenza massima): indica il numero massimo di utenti simulati durante il test. Ad esempio, impostando il numero di utenti a 100, Locust simulerà l'attività di 100 utenti che interagiscono con il sistema contemporaneamente;
+- Aumento graduale (utenti inizializzati al secondo): definisce il tasso di aggiunta di nuovi utenti simulati nel tempo. Ad esempio, impostando l'aumento graduale a 10 utenti al secondo e il numero di utenti a 100, Locust inizierà con 10 utenti e ne aggiungerà altri 10 ogni secondo fino al raggiungimento del numero massimo di 100 utenti.
+
+=== Monitoraggio dei risultati
+Una volta avviata la simulazione, verrà presentata un'interfaccia intuitiva che fornisce una vasta gamma di informazioni. Queste includono il tipo di richiesta, il suo nome e il numero di richieste effettuate, insieme ad altri dettagli tecnici pertinenti. In alto a destra è possibile regolare i parametri della simulazione in tempo reale senza interrompere il processo. È inoltre possibile anche interrompere e ripristinare la simulazione in qualsiasi momento. \
+Navigando tra le schede successive si avrà accesso ad ulteriori dettagli sulla simulazione in corso. Li si troveranno grafici chiari che mostrano le richieste totali inviate al secondo, i tempi di risposta e il numero di utenti attivi. Ulteriori schede offriranno informazioni ancora più dettagliate, consentendo inoltre di scaricare i dati generati durante la simulazione e visualizzare i log forniti da Locust.
+
+Per ulteriori informazioni e dettagli sul framework Locust, si consiglia di consultare la documentazione ufficiale: https://docs.locust.io/en/stable/.
+
+#pagebreak()
 
 = Supporto tecnico
 Il nostro team è disponibile per assisterti in caso di problemi o domande sul nostro prodotto. Dunque se riscontri difficoltà tecniche, oppure hai dei dubbi riguardo alle funzionalità o all'installazione, non esitare a contattarci inviando un'email all'indirizzo: #link("overture.unipd@gmail.com"). \
