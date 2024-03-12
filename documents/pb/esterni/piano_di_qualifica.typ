@@ -9,6 +9,7 @@
     [_#(p.zextras)_],
   ),
   changelog: (
+    "1.7.0", "2024-03-12", p.bonavigo, p.vedovato, "Inseriti i test di regressione nella sezione 'Metodologie di testing'",
     "1.6.0", "2024-03-08", p.bonavigo, p.furno, "Aggiornamento della sezione 'Cruscotto di valutazione della qualità' conseguente al periodo VIII",
     "1.5.0", "2024-03-06", p.fabbian, p.bulychov, "Inseriti i test di unità nella sezione 'Metodologie di testing'",
     "1.4.2", "2024-03-05", p.furno, p.amadori, "Inseriti i test di integrazione nella sezione 'Metodologie di testing'",
@@ -248,6 +249,7 @@ In questa sezione vengono elencati i #glossary("test") eseguiti sul prodotto, ne
 - *Test di unità*: definiti sulle unità software autonome più piccole, sono implementati principalmente durante la progettazione;
 - *Test di integrazione*: successivi ai test di unità, servono a verificare la corretta integrazione tra le diverse unità software;
 - *Test di sistema*: garantiscono il corretto funzionamento del sistema. In particolare, verificano che tutti i requisiti individuati siano rispettati;
+- *Test di regressione*: verificano che le correzioni o le estensioni apportate a specifiche unità non causino danni al resto del sistema. Essi consistono nella ripetizione mirata di test di unità, integrazione e sistema;
 - *Test di accettazione*: alla presenza del committente, servono a verificare che il prodotto finale soddisfi tutti i requisiti.
 
 == Codice dei test
@@ -471,7 +473,16 @@ I test di sistema sono una fase del processo di testing software che mira a veri
   )
 ), caption: [Stato dei test di sistema.])
 
-#pagebreak()
+== Test di regressione
+I test di regressione hanno lo scopo di assicurare che le modifiche apportate al codice non abbiano effetti indesiderati sul funzionamento complessivo del sistema. Questi test mirano a rilevare eventuali regressioni, cioè il ripresentarsi di difetti precedentemente risolti o l'introduzione di nuovi difetti, in seguito a modifiche o aggiornamenti del software. \
+Essi consistono nell'esecuzione di una serie di test di unità, integrazione e sistema precedentemente definiti che coprono le funzionalità critiche del sistema. Dopo ogni modifica al codice, l'intero insieme di casi di test di regressione viene eseguito per verificare che tutte le funzionalità precedentemente funzionanti continuino a operare correttamente. \
+#figure(testRegressione(
+  (
+    "TU-1, TU-4, TU-5, TU-6, TU-8, TU-9, TU-11, TU-12, TU-14, TU-15, TU-19, TU-21, TU-23, TU-25, TU-28, TU-29, TU-30, TU-32",
+    "TI-2, TI-4, TI-5, TI-7, TI-9, TI-10, TI-11, TI-13, TI-15, TI-17, TI-19",
+    "TS-1, TS-50, TS-57, TS-63, TS-68, TS-74, TS-79, TS-84, TS-90, TS-118, TS-124",
+  )
+), caption: [Test di regressione selezionati.])
 
 ==  Test di accettazione
 I test di accettazione sono finalizzati a garantire che il prodotto soddisfi i requisiti utente come specificati nel capitolato. Essi vengono eseguiti in presenza del committente e dimostrano la conformità del prodotto alle aspettative attraverso l'esecuzione dei casi di prova previsti nel capitolato. Il superamento positivo di tali test durante il collaudo finale generalmente conduce al rilascio definitivo del prodotto.
