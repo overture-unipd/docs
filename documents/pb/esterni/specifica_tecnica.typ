@@ -9,6 +9,10 @@
     [_#(p.zextras)_],
   ),
   changelog: (
+    "0.0.21", "2024-03-12", p.bettin, p.furno, 
+    [
+      Migliorata la sezione 'Database'.
+    ],
     "0.0.20", "2024-03-10", p.furno, p.bonavigo, 
     [
       Migliorata la sezione 'Architettura logica'.
@@ -604,7 +608,8 @@ Nell'ultima parte del diagramma delle classi si trovano le componenti dedicate a
 #pagebreak()
 
 == Database
-Come già citato nella sezione #link(<Tech>)[*Tecnologie*] del documento, il nostro prodotto utilizza RethinkDB come database NoSQL per la gestione dei dati. Il database viene inizializzato con la creazione delle collezioni richieste (account, email, mailbox, attachment, update...) e l'inserimento di dati di esempio. Successivamente, viene utilizzato per l'aggiunta di nuovi dati o la sostituzione di quelli esistenti. 
+Come già citato nella sezione #link(<Tech>)[*Tecnologie*] del documento, il nostro prodotto utilizza RethinkDB come database NoSQL principale per la gestione dei dati. Il database viene inizializzato con la creazione delle collezioni richieste (account, email, mailbox...) e l'inserimento di dati di esempio. Successivamente, viene utilizzato per l'aggiunta di nuovi dati o la sostituzione di quelli esistenti. \
+Inoltre, per la gestione degli allegati abbiamo scelto di utilizzare una tecnologia diversa, affidandoci a MinIO. Questa scelta è stata fatta principalmente per dimostrare le potenzialità della nostra architettura che, operando tramite porte, ci permette di utilizzare sistemi di persistenza differenti con estrema facilità.
 
 === Scelta di RethinkDB
 RethinkDB è stata la nostra scelta principale per molteplici motivi che rispecchiano le esigenze uniche del progetto: la necessità di un sistema altamente flessibile, scalabile e performante, in grado di adattarsi a diverse condizioni operative, che includono sia situazioni normali che di elevato carico e sovraccarico.\
@@ -617,10 +622,91 @@ RethinkDB offre, inoltre, un potente sistema di query che semplifica l'accesso e
 - *Subqueries*: sono query annidate all'interno di altre query e consentono agli sviluppatori di scrivere query più complesse e efficienti per soddisfare le esigenze specifiche delle loro applicazioni;
 - *Changefeeds*: permettono agli sviluppatori di tracciare le modifiche nei dati e di ricevere notifiche istantanee quando avvengono cambiamenti nel database, facilitando lo sviluppo di applicazioni reattive.
 
+=== Utilizzo di MinIO
+MinIO è un sistema open-source di archiviazione di oggetti ideale per archiviare grandi quanittà di dati non strutturati (anche immagini, video e grandi backup sono inclusi). È compatibile con lo standard S3 (Simple Storage Service) di Amazon Web Services (AWS) ed è progettato per fornire una soluzione di storage di oggetti ad alte prestazioni. Gli oggetti in MinIO sono archiviati in modo distribuito su nodi multipli, consentendo una rapida accessibilità e un'alta disponibilità, questo fa si che le performance di MinIO consentano di supportare un carico di lavoro che i tradizionali sistemi di archiviazione di oggetti non possono supportare.\
+
+\
+\
+\
+==== Implementazione di MinIO sul nostro progetto
+In questa sezione andremo ad approfondire come abbiamo utilizzato MinIO all'interno del nostro progetto analizzando la classe `AttachmentRepository.java`.\
+
+In questa prima parte avviene la connessione a MinIO.
+
+```java
+
+public class AttachmentRepository implements AttachmentPort {
+  private MinioClient conn;
+  private BucketName buck;
+
+  @Inject
+  AttachmentRepository(MinioClient conn, BucketName buck) {
+    this.conn = conn;
+    this.buck = buck;
+  }
+
+```
+
+Si dichiara un campo `MinIO conn` per rappresentare la connessione al servizio MinIO. Questa connessione viene iniettata nel costruttore della classe attraverso l'annotazione $at$Inject di Guice.
+Si dichiara anche un campo che è un'istanza della classe `BucketName` per rappresentare il nome del bucket MinIO e l'hai iniettata anch'essa nel costruttore della classe.
+
+In questa seconda parte avviene l'implementazione delle operazioni di base:
+
+```java
+
+@Override
+  public byte[] getAttachment(String id) {
+    try {
+      return conn.getObject(
+        GetObjectArgs.builder()
+          .bucket(buck.getName())
+          .object(id)
+          .build()).readAllBytes();
+    } catch (Exception e) {
+    }
+    return null;
+  }
+
+  @Override
+  public boolean deleteAttachment(String id) {
+    try {
+      conn.removeObject(
+        RemoveObjectArgs.builder()
+          .bucket(buck.getName())
+          .object(id)
+          .build());
+      return true;
+    } catch (Exception e) {
+    }
+    return false;
+  }
+
+  @Override
+  public String insertAttachment(byte[] data) {
+    try {
+      var name = UUID.randomUUID().toString();
+      conn.putObject(
+        PutObjectArgs.builder()
+          .bucket(buck.getName())
+          .object(name)
+          .stream(new ByteArrayInputStream(data), 0, -1)
+          .build());
+        return name;
+    } catch (Exception e) {
+    }
+    return null;
+  }
+
+```
+
+Il recupero di un allegato avviene tramite il metodo `getAttachment`,  utilizzando conn.getObject con un oggetto GetObjectArgs.\
+Per inserire un nuovo allegato si utilizza il metodo `insertAttachment` che genera un nome univoco usando `UUID.randomUUID()` e successivamente usato `conn.putObject` con un oggetto `PutObjectArgs`.\
+Per rimuovere un allegato invece si utilizza il metodo `deleteAttachment`, che utilizza `conn.removeObject` con un oggetto `RemoveObjectArgs`.
+
 
 === Conclusioni
-L'adozione di RethinkDB nel nostro server di posta elettronica rappresenta un elemento chiave nella nostra strategia di gestione dei dati. Grazie alla sua flessibilità, scalabilità e capacità di query avanzate, siamo in grado di offrire un servizio di posta elettronica affidabile, efficiente e altamente performante. Questo ci permette di ottenere i migliori risulati possibili durante i test di carico (stress test) richiesti dal proponente.
- 
+L'adozione di RethinkDB nel nostro server di posta elettronica rappresenta un elemento chiave nella nostra strategia di gestione dei dati. Grazie alla sua flessibilità, scalabilità e capacità di query avanzate, siamo in grado di offrire un servizio di posta elettronica affidabile, efficiente e altamente performante. Questo ci permette di ottenere i migliori risultati possibili durante i test di carico (stress test) richiesti dal proponente. \
+Inoltre l'uso di MinIO per la gestione degli allegati delle email non solo ci permette di dar prova dei vantaggi della nostra scelta architetturale, bensì offre anch'esso prestazioni elevate, scalabilità, affidabilità, flessibilità e sicurezza, contribuendo a ottimizzare il processo di gestione delle email e migliorando l'esperienza degli utenti finali.
 
 #pagebreak()
 
