@@ -9,10 +9,14 @@
     [_#(p.zextras)_],
   ),
   changelog: (
+    "0.1.0", "2024-03-13", p.vedovato, p.fabbian, 
+    [
+      Migliorata la sezione 'Diagramma delle classi'.
+    ],
     "0.0.21", "2024-03-12", p.bettin, p.furno, 
     [
       Migliorata la sezione 'Database'.
-    ],
+    ], 
     "0.0.20", "2024-03-10", p.furno, p.bonavigo, 
     [
       Migliorata la sezione 'Architettura logica'.
@@ -157,13 +161,13 @@ In questa sezione vengono elencate tutte le tecnologie utilizzate per l'implemen
 === Framework
 #figure(tecnologieUsate(
   (
-    "Spark", "3.5.0", "Lightweight framework open-source per lo sviluppo di applicazioni web in Java. Ideale per progetti agili che cercano di mantenere la complessità sotto controllo."
+    "Spark", "2.9.4", "Lightweight framework open-source per lo sviluppo di applicazioni web in Java. Ideale per progetti agili che cercano di mantenere la complessità sotto controllo."
   )
 ), caption: [Framework usati per la codifica])
 === Librerie
 #figure(tecnologieUsate(
   (
-    "Java JMAP iNPUTmice Library", "0.8.13", "Libreria consgliata dall'azienda proponente che sincronizza i dati tra client e server utilizzando il JSON Meta Application Protocol. Definisce classi per ogni operazione possibile, funzioni per operare su di esse e conversioni da e verso Json."
+    "Java JMAP iNPUTmice Library", "0.8.18", "Libreria consgliata dall'azienda proponente che sincronizza i dati tra client e server utilizzando il JSON Meta Application Protocol. Definisce classi per ogni operazione possibile, funzioni per operare su di esse e conversioni da e verso Json."
   )
 ), caption: [Librerie usate per la codifica])
 
@@ -174,16 +178,16 @@ In questa sezione vengono elencate tutte le tecnologie utilizzate per l'implemen
 #figure(tecnologieUsate(
   (
     "Compilatore Java", "JDK 21", "Traduce il codice sorgente scritto in linguaggio di programmazione Java in un formato eseguibile, generalmente chiamato bytecode Java. Il bytecode Java può essere eseguito da una macchina virtuale Java (JVM) su qualsiasi piattaforma che abbia una JVM disponibile, rendendo il codice Java altamente portabile.",
-    "Spotless", "2.42.0", "Plugin Gradle open-source utilizzato per applicare automaticamente le convenzioni di formattazione del codice a progetti Java. Garantisce che il codice sorgente sia formattato secondo regole specifiche, migliorandone la leggibilità e la manutenibilità."
+    "Spotless", "6.23.3", "Plugin Gradle open-source utilizzato per applicare automaticamente le convenzioni di formattazione del codice a progetti Java. Garantisce che il codice sorgente sia formattato secondo regole specifiche, migliorandone la leggibilità e la manutenibilità."
   )
 ), caption: [Tecnologie usate per l'analisi statica del codice])
 
 === Analisi dinamica
 #figure(tecnologieUsate(
   (
-    "Junit", "5.10.0", "Framework open source per l'automazione di unit testing per il linguaggio di programmazione Java. Offre un ambiente di sviluppo strutturato per la scrittura dei test, consentendo agli sviluppatori di verificare il comporamento delle singole unità di codice in modo efficiente e affidabile.",
-    "Mockito", "5.10.0", "Framework open surce di testing per il linguaggio di programmazione Java. È utlizzato per la creazione, configurazione e gestione di oggetti mock nei test di unità. Consente agli sviluppatori di simulare il comporamento di oggetti reali durante l'esecuzione dei test.",
-    "TestContainers", "1.19.4", "Framework open source che fornisce un'interfaccia per l'integrazione di container Docker nelle attività di testing. È particolarmente utile per lo sviluppo di test di integrazione che coinvolgono componenti dipendenti come database o qualsiasi altro servizio che può essere eseguito in un container Docker." 
+    "Junit", "5.9.3", "Framework open source per l'automazione di unit testing per il linguaggio di programmazione Java. Offre un ambiente di sviluppo strutturato per la scrittura dei test, consentendo agli sviluppatori di verificare il comporamento delle singole unità di codice in modo efficiente e affidabile.",
+    "Mockito", "5.1.1", "Framework open surce di testing per il linguaggio di programmazione Java. È utlizzato per la creazione, configurazione e gestione di oggetti mock nei test di unità. Consente agli sviluppatori di simulare il comporamento di oggetti reali durante l'esecuzione dei test.",
+    "TestContainers", "1.19.3", "Framework open source che fornisce un'interfaccia per l'integrazione di container Docker nelle attività di testing. È particolarmente utile per lo sviluppo di test di integrazione che coinvolgono componenti dipendenti come database o qualsiasi altro servizio che può essere eseguito in un container Docker." 
   )
 ), caption: [Tecnologie usate per l'analisi dinamica del codice])
 
@@ -258,6 +262,8 @@ Il servizio di caddy invece lo attiviamo con l'immagine custom `overture-unipd/c
 
 Si nota che tutti i volumi che i servizi montano, sono riportati alla fine del file "docker-compose.yml" dopo il record `volumes`.
 
+#pagebreak()
+
 == Design pattern utilizzati
 
 === Dependency injection
@@ -283,6 +289,9 @@ class Saluto {
   private final int conta;
 
 
+
+  
+
   // La classe Saluto dichiara che necessita di una stringa per il messaggio
   // e un intero che rappresenta il numero di volte che un messaggio è
   // stampato.
@@ -293,11 +302,7 @@ class Saluto {
     this.conta = conta;
   }
 
-  void diciCiao() {
-    for (int i=0; i < conta; i++) {
-      System.out.println(messaggio);
-    }
-  }
+  ...
 }
 ```
 
@@ -307,7 +312,6 @@ La classe Saluto ha un costruttore che è chiamato quando l'applicazione chiede 
 I moduli sono dei costrutti di Guice che permettono di soddisfare le dipendenze richieste dal costruttore di una classe. Questo è fatto grazie alla creazione di una classe (il modulo appunto) che specifica come soddisfare tali dipendenze automaticamente.
 Ecco un esempio di modulo che soddisfa le dipendenze della classe Saluto:
 ```java
-
 import com.google.inject.Provides;
 
 class DemoModulo extends AbstractModule {
@@ -326,69 +330,9 @@ class DemoModulo extends AbstractModule {
 
 ```
 
-====== Utilizzo 
-Incapsuliamo il codice precedente in una classe apposita di demo:
+====== Utilizzo
+Incapsulando il codice precedente in una classe apposita di demo ecco come possiamo usare l'infrastruttura creata per testare la potenza di Guice:
 ```java
-
-package guicedemo;
-
-import static java.lang.annotation.RetentionPolicy.RUNTIME;
-
-import com.google.inject.AbstractModule;
-import com.google.inject.Guice;
-import com.google.inject.Injector;
-import com.google.inject.Key;
-import com.google.inject.Provides;
-import java.lang.annotation.Retention;
-import javax.inject.Inject;
-import javax.inject.Qualifier;
-
-public class GuiceDemo {
-  @Qualifier
-  @Retention(RUNTIME)
-  @interface Messaggio {}
-
-  @Qualifier
-  @Retention(RUNTIME)
-  @interface Conta {}
-
-  static class DemoModulo extends AbstractModule {
-  @Provides
-  @Conta
-  static Integer fornisciConta() {
-    return 3;
-  }
-
-  @Provides
-  @Messaggio
-  static String fornisciMessaggio() {
-    return "hello world";
-  }
-
-  static class Saluto {
-    private final String messaggio;
-    private final int conta;
-  
-    @Inject
-    Saluto(@Messaggio String messaggio, @Conta int conta) {
-      this.messaggio = messaggio;
-      this.conta = conta;
-    }
-  
-    void diciCiao() {
-      for (int i=0; i < conta; i++) {
-        System.out.println(messaggio);
-      }
-    }
-  }
-}
-
-```
-
-
-Ecco come possiamo usare l'infrastruttura creata precedentemente e testare la potenza di Guice:
-```java
-
 public static void main(String[] args) {
     /*
      * Guice.createInjector() prende uno o più moduli e ritorna una nuova istanza di Inject.
@@ -407,10 +351,8 @@ public static void main(String[] args) {
 ```
 
 ==== Integrazione del pattern
-Per vedere come abbiamo utilizzato Guice nel nostro progetto, basta prendere una classe che ha un costruttore: come la classe `AccountImpl`. 
-
+Per vedere come abbiamo utilizzato Guice nel nostro progetto, basta prendere una classe che ha un costruttore, come la classe `AccountImpl`. 
 ```java
-
 @Inject
 AccountImpl(Connection conn) {
     this.conn = conn;
@@ -424,18 +366,13 @@ Il costruttore è marchato con l'annotazione $at$Inject per denotare che Guice s
 
 La configurazione di del modulo Guice è fatta su un'altra file: `Init.java` che si occupa di soddisfare le dipendenze necesarie per la classe connection con il costrutto Injector.
 ```java
-
 Injector injector = Guice.createInjector(
     new DatabaseModule(),
     new WebserverModule(),
 );
-
 ```
-
 Nel momento in cui si volesse ottenere un'stanza di `AccountImpl` basterà chiamare il metodo getInstance cono l'oggetto injector creato precedentemente:
-
 ```java
-
 Injector injector = Guice.createInjector(/* ... */);
 AccountImpl accountImpl = injector.getInstance(AccountImpl.class);
 
@@ -443,29 +380,92 @@ AccountImpl accountImpl = injector.getInstance(AccountImpl.class);
 
 Con l'injector creato utilizzando Guice, è possibile ottenere un'istanza di `AccountImpl`. Guice si occuperà di soddisfare le dipendenze necessarie, come la `Connection`, iniettandole automaticamente nel costruttore di `AccountImpl`.
 
-In generale, l'utilizzo di Guice semplifica la gestione delle dipendenze nel codice, separando la creazione delle istanze delle classi e la gestione delle dipendenze in un framework esterno. Ciò rende il codice più modulare, facilitando la manutenzione e il testing.
+In generale, l'utilizzo di Guice semplifica la gestione delle dipendenze nel codice, separando la creazione delle istanze delle classi e la gestione delle dipendenze in un framework esterno, e viene integrato nel nostro prodotto per la maggioranza delle classi dotate di costruttore con delle dipendenze. Ciò rende il codice più modulare, facilitando la manutenzione e il testing.
 
 === Adapter
 
 ==== Motivazioni e studio del design pattern
-Dato che abbiamo scelto di adottare un'architettura esagonale, diventa essenziale integrare il pattern Adapter nel nostro sistema. Questo pattern svolge un ruolo fondamentale come interfaccia tra l'architettura esagonale e le componenti esterne, facilitando una collaborazione armoniosa all'interno dell'intero sistema. Grazie all'Adapter siamo in grado di mantenere coerenza e indipendenza tra i vari moduli dell'architettura, garantendo al contempo un'integrazione senza problemi delle componenti esterne. Inoltre, questo approccio ci consente di mettere al centro del progetto la business logic, concentrandoci sulle funzionalità principali senza essere intralciati dalle complessità delle componenti esterne. Con Adapter infatti possiamo trasformare le interfacce delle componenti esterne per adattarle alle nostre esigenze specifiche all'interno dell'architettura esagonale in maniera estramente agevole. 
+Dato che abbiamo scelto di adottare un'architettura esagonale, diventa essenziale integrare il pattern adapter nel nostro sistema. Questo pattern svolge un ruolo fondamentale come interfaccia tra l'architettura esagonale e le componenti esterne, facilitando una collaborazione armoniosa all'interno dell'intero sistema. Grazie all'adapter siamo in grado di mantenere coerenza e indipendenza tra i vari moduli dell'architettura, garantendo al contempo un'integrazione senza problemi delle componenti esterne. Inoltre, questo approccio ci consente di mettere al centro del progetto la business logic, concentrandoci sulle funzionalità principali senza essere intralciati dalle complessità delle componenti esterne. Con adapter infatti possiamo trasformare le interfacce delle componenti esterne per adattarle alle nostre esigenze specifiche all'interno dell'architettura esagonale in maniera estramente agevole. 
 
 ==== Implementazione del design pattern
-Per l'implementazione di questo pattern abbiamo scelto di sviluppare internamente il codice necessario, evitando l'utilizzo di librerie o framework esterni, in modo da avere il controllo completo sul comportamento dell'Adapter e poterlo personalizzare in base alle esigenze del progetto.
+Per l'implementazione di questo pattern abbiamo scelto di sviluppare internamente il codice necessario, evitando l'utilizzo di librerie o framework esterni, in modo da avere il controllo completo sul comportamento dell'adapter e poterlo personalizzare in base alle esigenze del progetto.
 
 ===== Utilizzo
-Per ogni componente esterna con cui interagire abbiamo definito una o più porte di accesso al sistema, che altro non sono che una serie di interfacce contenenti i metodi necessari per comunicare con l'architettura esagonale, permettendo dunque l'isolamento della business logic. Successivamente, abbiamo definito una classe interna che implementi l'interfaccia dell'Adapter, incaricata di adattare l'interfaccia delle componenti esterne a quella dell'architettura. All'interno di questa classe viene implementata la logica necessaria per convertire gli oggetti tra le due interfacce. Infine, l'Adapter viene utilizzato all'interno dell'architettura esagonale per gestire la comunicazione con le componenti esterne.
+Per ogni componente esterna con cui interagire abbiamo definito una o più porte di accesso al sistema, che altro non sono che una serie di interfacce contenenti i metodi necessari per comunicare con l'architettura esagonale, permettendo dunque l'isolamento della business logic. Successivamente, abbiamo definito una classe che implementi l'interfaccia dell'adapter, incaricata di adattare l'interfaccia delle componenti esterne a quella dell'architettura. All'interno di questa classe viene implementata la logica necessaria per convertire gli oggetti tra le due interfacce. Infine, l'adapter viene utilizzato all'interno dell'architettura esagonale per gestire la comunicazione con le componenti esterne.
+
+==== Integrazione del pattern
+Per una migliore comprensione dell'integrazione del pattern adapter nel nostro prodotto, possiamo esaminare una qualsiasi delle componenti esterne all'esagono insieme alla sua porta associata. Prendiamo ad esempio la classe EmailRepository e la relativa porta di accesso al sistema EmailPort:
+```java
+public interface EmailPort {
+  Email get(String id);
+  Map<String, Email> getOf(String accountid);
+  void insert(Email email);
+  void replace(Email email);
+  void delete(String id);
+}
+```
+Partendo dalla porta, si vede facilmente come essa sia una semplice interfaccia che espone i metodi necessari per svolgere le classiche operazioni CRUD nel database riguardanti le email. Essa fornisce quindi un'astrazione per consentire la gestione delle email nel database, la quale può essere utilizzata dalle classi di business senza che quest'ultime debbano preoccuparsi dei dettagli di implementazione sottostanti.
+```java
+public class EmailRepository implements EmailPort {
+  private final RethinkDB r = RethinkDB.r;
+  private Connection conn;
+  private Gson gson;
+
+  @Inject
+  EmailRepository(Connection conn, Gson gson) {
+    this.conn = conn;
+    this.gson = gson;
+  }
+
+  @Override
+  public Email get(String id) {
+    String res = r.table("email")
+                   .get(id)
+                   .toJson()
+                   .run(conn)
+                   .single()
+                   .toString();
+    return gson.fromJson(res, Email.class);
+  }
+
+  @Override
+  public Map<String, Email> getOf(String accountid) {
+    ...
+  }
+
+  @Override
+  public void insert(Email email) {
+   r.table("email")
+      .insert(gson.toJson(email))
+      .run(conn);
+  }
+
+  
+  @Override
+  public void replace(Email email) {
+    ...
+  }
+
+  @Override
+  public void delete(String id) {
+    ...
+  }
+}
+```
+La classe EmailRepository fornisce poi un'implementazione concreta dei metodi definiti nell'interfaccia sopra menzionata. Attualmente utilizziamo RethinkDB come database per eseguire tali operazioni, ma questa scelta non ha alcun impatto sulle classi di business. Pertanto, nel caso in cui decidessimo di cambiare il sistema di persistenza in futuro, sarebbe sufficiente aggiornare questa classe. I metodi infatti operano tramite oggetti di business passati come argomenti, tipo Email, consentendo di mantenere l'indipendenza dalle logiche di persistenza del prodotto.
+
+In conclusione, quando ci troviamo ad interagire con componenti esterne adottiamo sempre adapter di questo tipo, basandoci sugli oggetti di business in modo che rimangano al centro di ogni operazione. Le porte permettono di definire un'interfaccia chiara e stabile per l'interazione con il mondo esterno, consentendo così una facile sostituzione o aggiornamento delle implementazioni sottostanti. D'altra parte, le loro implementazioni forniscono il collegamento reale tra l'esagono e i servizi esterni, gestendo dunque la logica di adattamento.
 
 === Builder
 
 ==== Motivazioni e studio del design pattern
-Builder è uno dei design pattern creazionali più noti e utilizzati. Questo pattern è progettato per semplificare la creazione di oggetti complessi con molti attributi, guidando il processo di costruzione attraverso una serie di passaggi definiti tramite una catena di metodi. La sua principale utilità risiede nel separare la logica di costruzione di un oggetto complesso dalla sua rappresentazione, permettendo così di creare diverse rappresentazioni dello stesso oggetto mediante lo stesso processo di costruzione. La scelta di adottare il pattern Builder da parte dello sviluppatore della libreria da noi utilizzata è quindi più che comprensibile, in quanto migliora l'organizzazione del processo di creazione degli oggetti e contribuisce a rendere il codice più leggibile, modulare e manutenibile.
+Builder è uno dei design pattern creazionali più noti e utilizzati. Questo pattern è progettato per semplificare la creazione di oggetti complessi con molti attributi, guidando il processo di costruzione attraverso una serie di passaggi definiti tramite una catena di metodi. La sua principale utilità risiede nel separare la logica di costruzione di un oggetto complesso dalla sua rappresentazione, permettendo così di creare diverse rappresentazioni dello stesso oggetto mediante lo stesso processo di costruzione. La scelta di adottare il pattern builder da parte dello sviluppatore della libreria da noi utilizzata è quindi più che comprensibile, in quanto migliora l'organizzazione del processo di creazione degli oggetti e contribuisce a rendere il codice più leggibile, modulare e manutenibile.
 
 ==== Implementazione del design pattern
-Il creatore della libreria ha saggiamente scelto di non implementare direttamente il pattern, bensì ha preferito affidarsi a Lombok, una libreria Java che offre una serie di annotazioni e strumenti per semplificare lo sviluppo riducendo la quantità di codice boilerplate che è necessario scrivere. Lombok semplifica l'implementazione del pattern Builder introducendo l'annotazione \@Builder, la quale, se applicata a una classe, farà si che, quando si compila il codice, venga generato automaticamente un Builder interno per quella classe da parte della libreria. Questo Builder consente di creare un'istanza della classe in questione in modo fluente, impostando i valori dei campi desiderati uno per uno. 
+Il creatore della libreria ha saggiamente scelto di non implementare direttamente il pattern, bensì ha preferito affidarsi a Lombok, una libreria Java che offre una serie di annotazioni e strumenti per semplificare lo sviluppo riducendo la quantità di codice boilerplate che è necessario scrivere. Lombok semplifica l'implementazione del pattern builder introducendo l'annotazione \@Builder, la quale, se applicata a una classe, farà si che, quando si compila il codice, venga generato automaticamente un builder interno per quella classe da parte della libreria. Questo builder consente di creare un'istanza della classe in questione in modo fluente, impostando i valori dei campi desiderati uno per uno. 
 
 ===== Utilizzo
-Vediamo quindi come lo sviluppatore della libreria utilizza Lombok per implementare il design pattern Builder, prendendo come esempio la classe SessionResource:
+Vediamo quindi come lo sviluppatore della libreria utilizza Lombok per implementare il design pattern builder, prendendo come esempio la classe SessionResource:
 ```java
 package rs.ltt.jmap.common;
 
@@ -509,13 +509,13 @@ public class SessionResource {
     }
 }
 ```
-L'esempio illustra l'ampio utilizzo di Lombok nel codice. La classe SessionResource è marcata con l'annotazione \@Builder, che genera automaticamente un Builder per la classe stessa. Inoltre, in questo caso particolare, viene anche definito il metodo capabilities() all'interno della classe SessionResourceBuilder, il quale serve a impostare le capacità della sessione. 
+L'esempio illustra l'ampio utilizzo di Lombok nel codice. La classe SessionResource è marcata con l'annotazione \@Builder, che genera automaticamente un builder per la classe stessa. Inoltre, in questo caso particolare, viene anche definito il metodo capabilities() all'interno della classe SessionResourceBuilder, il quale serve a impostare le capacità della sessione. 
 In altri casi, invece, viene utilizzata soltanto l'annotazione \@Builder. \
-Volendo, esaminando ulteriormente il codice della libreria, è possibile trovare altri esempi di utilizzo, poiché Lombok viene impiegato per la definizione di un Builder per praticamente ogni oggetto.
+Volendo, esaminando ulteriormente il codice della libreria, è possibile trovare altri esempi di utilizzo, poiché Lombok viene impiegato per la definizione di un builder per praticamente ogni oggetto.
 
 ==== Integrazione del pattern
-Per andare a vedere come abbiamo integrato questo pattern nel nostro prodotto si può spaziare nelle varie classi che compongono la business logic di quest'ultimo, infatti quasi tutte andranno a costruire oggetti core della libreria e per farlo si affideranno alla catena di metodi dei Builder relativi. \
-Prendiamo come esempio la creazione della risorsa JMAP Session all'interno della classe SessionManager:
+Per andare a vedere come abbiamo integrato questo pattern nel nostro prodotto si può spaziare nelle varie classi che compongono la business logic di quest'ultimo, infatti quasi tutte andranno a costruire oggetti core della libreria e per farlo si affideranno alla catena di metodi dei builder relativi. \
+Prendiamo come esempio la creazione della risorsa JMAP Session all'interno della classe SessionLogic:
 ```java
 final SessionResource sessionResource =
         SessionResource.builder()
@@ -541,21 +541,23 @@ final SessionResource sessionResource =
           .primaryAccounts(ImmutableMap.of(MailAccountCapability.class, accountid))
           .build();
 ```
-In questo esempio, possiamo osservare come l'oggetto SessionResource, definito dalla libreria, venga costruito in modo chiaro e conciso attraverso una catena di metodi. Questa catena di chiamate imposta i valori desiderati come i diversi URL, lo stato della sessione e lo username dell'utente. È interessante notare che alcuni parametri vengono costruiti a loro volta utilizzando dei Builder dedicati, come ad esempio l'oggetto Account, all'interno del quale un'altra catena di metodi ancora crea l'oggetto MailAccountCapability della libreria.\
-Si noti come l'ampio utilizzo del pattern Builder da parte dello sviluppatore della libreria porti a un codice più leggibile, flessibile e manutenibile. Questo riduce notevolmente la complessità associata alla creazione di oggetti con un gran numero di parametri, come dimostrato nell'esempio. Inoltre, l'uso del pattern Builder ci consente di evitare la configurazione dei parametri opzionali della sessione quando non sono necessari, semplificando ulteriormente il processo di creazione degli oggetti.
+In questo esempio, possiamo osservare come l'oggetto SessionResource, definito dalla libreria, venga costruito in modo chiaro e conciso attraverso una catena di metodi. Questa catena di chiamate imposta i valori desiderati come i diversi URL, lo stato della sessione e lo username dell'utente. È interessante notare che alcuni parametri vengono costruiti a loro volta utilizzando dei builder dedicati, come ad esempio l'oggetto Account, all'interno del quale un'altra catena di metodi ancora crea l'oggetto MailAccountCapability della libreria.\
+Si noti come l'ampio utilizzo del pattern builder da parte dello sviluppatore della libreria porti a un codice più leggibile, flessibile e manutenibile. Questo riduce notevolmente la complessità associata alla creazione di oggetti con un gran numero di parametri, come dimostrato nell'esempio. Inoltre, l'uso del pattern builder ci consente di evitare la configurazione dei parametri opzionali della sessione quando non sono necessari, semplificando ulteriormente il processo di creazione degli oggetti.
 
-In conclusione, l'integrazione del pattern Builder nel nostro prodotto è una pratica comune ogni volta che è necessario costruire un oggetto della libreria con un Builder associato. Questo migliora l'efficienza dello sviluppo e la qualità del nostro software, garantendo un codice più pulito e manutenibile.
+In conclusione, l'integrazione del pattern builder nel nostro prodotto è una pratica comune ogni volta che è necessario costruire un oggetto della libreria con un builder associato. Questo migliora l'efficienza dello sviluppo e la qualità del nostro software, garantendo un codice più pulito e manutenibile.
 
 #pagebreak()
 
 == Diagramma delle classi
-#figure(image("//imgs/Specifica_Tecnica/UML.png", width: 100%), caption: [Diagramma delle classi])
+#figure(image("//imgs/Specifica_Tecnica/UML.png", width: 120%), caption: [Diagramma delle classi])
+
+#pagebreak()
 
 === Ingresso delle richieste nell'applicazione
-#figure(image("//imgs/Specifica_Tecnica/UML1.png", width: 35%), caption: [Modellazione delle componenti che gestiscono l'ingresso delle richieste nell'applicazione])
+#figure(image("//imgs/Specifica_Tecnica/UML1.png", width: 55%), caption: [Modellazione delle componenti che gestiscono l'ingresso delle richieste nell'applicazione])
 
 Il pezzo di diagramma riportato illustra le componenti fondamentali per gestire l'ingresso delle richieste provenienti dai client all'interno del sistema. Vi si trovano le seguenti classi:
-- *Spark*: gestore principale dell'ingresso delle richieste in arrivo (input), il cui scopo è quello di definire molteplici rotte utilizzando il framework Spark. Include al suo interno la gestione iniziale delle operazioni come l'autenticazione, la gestione delle sessioni e la manipolazione dei dati attraverso diverse operazioni come upload e download;
+- *Spark*: gestore principale dell'ingresso delle richieste in arrivo (input), il cui scopo è quello di definire molteplici rotte utilizzando il framework Spark. Include al suo interno la gestione iniziale delle operazioni come l'autenticazione, la gestione delle sessioni, la gestione dei metodi di JMAP e la manipolazione degli allegati attraverso upload e download;
 - *AuthenticationPort*: porta in ingresso che funge da punto di accesso per l'interazione tra il dominio dell'applicazione (core) e il mondo esterno. Essa definisce un insieme di operazioni che rappresentano le azioni che l'applicazione può eseguire in risposta alle richieste esterne provenienti dai client riguardanti l'autenticazione. La sua implementazione è responsabilità di classi concrete che forniranno la logica specifica per gestire tali operazioni in modo efficace all'interno dell'applicazione, mantenendo così la separazione tra i diversi tipi di logiche;
 - *SessionPort*: porta in ingresso che funge da punto di accesso per l'interazione tra il dominio dell'applicazione (core) e il mondo esterno. Essa definisce un insieme di operazioni che rappresentano le azioni che l'applicazione può eseguire in risposta alle richieste esterne provenienti dai client riguardanti la sessione. La sua implementazione è responsabilità di classi concrete che forniranno la logica specifica per gestire tali operazioni in modo efficace all'interno dell'applicazione, mantenendo così la separazione tra i diversi tipi di logiche;
 - *MethodPort*: porta in ingresso che funge da punto di accesso per l'interazione tra il dominio dell'applicazione (core) e il mondo esterno. Essa definisce un insieme di operazioni che rappresentano le azioni che l'applicazione può eseguire in risposta alle richieste esterne provenienti dai client riguardanti i vari metodi del protocollo JMAP. La sua implementazione è responsabilità di classi concrete che forniranno la logica specifica per gestire tali operazioni in modo efficace all'interno dell'applicazione, mantenendo così la separazione tra i diversi tipi di logiche;
@@ -564,45 +566,49 @@ Il pezzo di diagramma riportato illustra le componenti fondamentali per gestire 
 - *AuthenticationController*: implementazione dell'interfaccia AuthenticationPort. Essenzialmente, funge da intermediario tra le richieste provenienti dall'esterno dell'applicazione rigurdanti l'autenticazione e la logica di business sottostante, gestendo quindi la parte di application logic relativa. Al suo interno si esegue dunque una prima validazione delle richieste di questo tipo, in modo da evitare di arrivare alla business logic nel caso in cui il formato della richiesta non fosse conforme allo standard;
 - *SessionController*: implementazione dell'interfaccia SessionPort. Essenzialmente, funge da intermediario tra le richieste provenienti dall'esterno dell'applicazione rigurdanti la sessione e la logica di business sottostante, gestendo quindi la parte di application logic relativa. Al suo interno si esegue dunque una prima validazione delle richieste di questo tipo, in modo da evitare di arrivare alla business logic nel caso in cui il formato della richiesta non fosse conforme allo standard;
 - *MethodController*: implementazione dell'interfaccia MethodPort. Essenzialmente, funge da intermediario tra le richieste provenienti dall'esterno dell'applicazione rigurdanti i vari metodi del protocollo JMAP e la logica di business sottostante, gestendo quindi la parte di application logic relativa. Al suo interno si esegue dunque una prima validazione delle richieste di questo tipo, in modo da evitare di arrivare alla business logic nel caso in cui il formato della richiesta non fosse conforme allo standard. Riceve le richieste in arrivo e in base al tipo di richiesta e ai dati associati, determina come instradarla all'interno dell'applicazione;
-- *AttachmentController*: implementazione delle interfacce UploadPort e DownloadPort. Essenzialmente, funge da intermediario tra le richieste provenienti dall'esterno dell'applicazione rigurdanti l'upload o il download degli allegati e la logica di business sottostante, gestendo quindi la parte di application logic relativa. Al suo interno si esegue dunque una prima validazione delle richieste di questo tipo, in modo da evitare di arrivare alla business logic nel caso in cui il formato della richiesta non fosse conforme allo standard;
+- *AttachmentController*: implementazione delle interfacce UploadPort e DownloadPort. Essenzialmente, funge da intermediario tra le richieste provenienti dall'esterno dell'applicazione rigurdanti l'upload o il download degli allegati e la logica di business sottostante, gestendo quindi la parte di application logic relativa. Al suo interno si esegue dunque una prima validazione delle richieste di questo tipo, in modo da evitare di arrivare alla business logic nel caso in cui il formato della richiesta non fosse conforme allo standard.
+
+#pagebreak()
 
 === Gestione delle richieste
-#figure(image("//imgs/Specifica_Tecnica/UML2.png", width: 35%), caption: [Modellazione delle componenti che gestiscono le rischieste all'interno dell'applicazione])
+#figure(image("//imgs/Specifica_Tecnica/UML2.png", width: 30%), caption: [Modellazione delle componenti che gestiscono le rischieste all'interno dell'applicazione])
 
 Le componenti riportate nel frammento di diagramma soprastante sono quelle necessarie per la gestione delle richieste, implementando dunque la business logic del prodotto. Vi si trovano le seguenti classi:
-- *AuthenticationManager*: componente responsabile della gestione dell'autenticazione all'interno del sistema. Si occupa quindi di tutte le operazioni relative alla business logic di questo tipo;
-- *SessionManager*: componente responsabile della gestione delle sessioni all'interno del sistema. Si occupa quindi di tutte le operazioni relative alla business logic di questo tipo;
-- *IdentityManager*: componente responsabile della gestione delle identità all'interno del sistema. Si occupa quindi di tutte le operazioni relative alla business logic di questo tipo;
-- *EmailManager*: componente responsabile della gestione delle email all'interno del sistema. Si occupa quindi di tutte le operazioni relative alla business logic di questo tipo;
-- *EmailSubmissionManager*: componente responsabile della gestione dell'invio di un'email per la consegna a uno o più destinatari all'interno del sistema. Si occupa quindi di tutte le operazioni relative alla business logic di questo tipo;
-- *ThreadManager*: componente responsabile della gestione dei thread all'interno del sistema. Si occupa quindi di tutte le operazioni relative alla business logic di questo tipo;
-- *MailboxManager*: componente responsabile della gestione delle caselle di posta all'interno del sistema. Si occupa quindi di tutte le operazioni relative alla business logic di questo tipo;
-- *MailboxInfo*: componente responsabile della gestione delle informazioni riguardanti le caselle di posta all'interno del sistema. Si occupa quindi di tutte le operazioni relative alla business logic di questo tipo;
-- *EchoManager*: componente responsabile della gestione degli echo all'interno del sistema. Si occupa quindi di tutte le operazioni relative alla business logic di questo tipo;
-- *AttachmentManager*: componente responsabile della gestione degli allegati all'interno del sistema. Si occupa quindi di tutte le operazioni relative alla business logic di questo tipo;
-- *StateManager*: componente responsabile della gestione dello stato del client e della sincronizzazione all'interno del sistema. Si occupa quindi di tutte le operazioni relative alla business logic di questo tipo;
-- *Update*: componente responsabile della gestione degli aggiornamenti all'interno del sistema;
-- *UpdateDeserializer*: componente responsabile della deserializzazione degli oggetti di tipo Update dalla loro rappresentazione JSON.
+- *AuthenticationLogic*: componente responsabile della gestione dell'autenticazione all'interno del sistema. Si occupa quindi di tutte le operazioni relative alla business logic di questo tipo;
+- *SessionLogic*: componente responsabile della gestione delle sessioni all'interno del sistema. Si occupa quindi di tutte le operazioni relative alla business logic di questo tipo;
+- *IdentityLogic*: componente responsabile della gestione delle identità all'interno del sistema. Si occupa quindi di tutte le operazioni relative alla business logic di questo tipo;
+- *EmailLogic*: componente responsabile della gestione delle email all'interno del sistema. Si occupa quindi di tutte le operazioni relative alla business logic di questo tipo, tra cui anche l’implementazione di un sistema di sincronizzazione che permetta ad un client di mantenersi aggiornato con gli ultimi aggiornamenti della casella di posta visualizzata per quanto riguarda le email;
+- *MailboxLogic*: componente responsabile della gestione delle caselle di posta all'interno del sistema. Si occupa quindi di tutte le operazioni relative alla business logic di questo tipo, tra cui anche l’implementazione di un sistema di sincronizzazione che permetta ad un client di mantenersi aggiornato con gli ultimi aggiornamenti della casella di posta visualizzata per quanto riguarda le cartelle;
+- *EmailSubmissionLogic*: componente responsabile della gestione dell'invio di un'email per la consegna a uno o più destinatari all'interno del sistema. Si occupa quindi di tutte le operazioni relative alla business logic di questo tipo;
+- *ThreadLogic*: componente responsabile della gestione dei thread all'interno del sistema. Si occupa quindi di tutte le operazioni relative alla business logic di questo tipo;
+- *EchoLogic*: componente responsabile della gestione degli echo all'interno del sistema. Si occupa quindi di tutte le operazioni relative alla business logic di questo tipo;
+- *AttachmentLogic*: componente responsabile della gestione degli allegati all'interno del sistema. Si occupa quindi di tutte le operazioni relative alla business logic di questo tipo.
+
+#pagebreak()
 
 === Interfacciamento al database
-#figure(image("//imgs/Specifica_Tecnica/UML3.png", width: 35%), caption: [Modellazione delle componenti che gestiscono l'interfacciamento al database])
+#figure(image("//imgs/Specifica_Tecnica/UML3.png", width: 55%), caption: [Modellazione delle componenti che gestiscono l'interfacciamento al database])
 
 Nell'ultima parte del diagramma delle classi si trovano le componenti dedicate alla gestione dell'interfacciamento con il database. Qui si incontrano, quindi, tutte le porte in uscita dall'esagono contenente la business logic e le classi concrete che svolgono operazioni specifiche su vari tipi di dati con il database. Nello specifico queste sono le seguenti:
-- *AccountPort*: porta in uscita che definisce una serie di metodi per l'accesso alle informazioni sugli account, nonché per svolgere operazioni su quest'ultimi all'interno del database;
+- *CredentialsPort*: porta in uscita che definisce una serie di metodi per operare con le credenziali degli utenti all'interno del database;
+- *StatePort*: porta in uscita che definisce una serie di metodi per svolgere operazioni riguardanti lo stato dei client all'interno del database;
 - *IdentityPort*: porta in uscita che definisce una serie di metodi per l'accesso alle informazioni sulle identità, nonché per svolgere operazioni su quest'ultime all'interno del database;
 - *EmailPort*: porta in uscita che definisce una serie di metodi per svolgere operazioni sulle email all'interno del database;
-- *EmailSubmissionPort*: porta in uscita che definisce una serie di metodi per svolgere operazioni sull'invio di un'email per la consegna a uno o più destinatari all'interno del database;
+- *EmailChangesPort*: porta in uscita che definisce una serie di metodi per svolgere operazioni sui cambiamenti avvenuti alle email all'interno del database;
+- *MailboxChangesPort*: porta in uscita che definisce una serie di metodi per svolgere operazioni sui cambiamenti avvenuti alle cartelle all'interno del database;
 - *MailboxPort*: porta in uscita che definisce una serie di metodi per svolgere operazioni sulle caselle di posta all'interno del database;
+- *EmailSubmissionPort*: porta in uscita che definisce una serie di metodi per svolgere operazioni sull'invio di un'email per la consegna a uno o più destinatari all'interno del database;
 - *ThreadPort*: porta in uscita che definisce una serie di metodi per svolgere operazioni sui thread all'interno del database;
-- *UpdatePort*: porta in uscita che definisce una serie di metodi per svolgere operazioni sugli update all'interno del database;
 - *AttachmentPort*: porta in uscita che definisce una serie di metodi per svolgere operazioni sugli allegati all'interno del database;
-- *AccountRepository*: implementazione dell'interfaccia AccountPort che realizza i metodi necessari per l'accesso alle informazioni sugli account, nonché per svolgere operazioni su quest'ultimi all'interno del database;
+- *CredentialsRepository*: implementazione dell'interfaccia CredentialsPort che realizza i metodi necessari per operare con le credenziali degli utenti all'interno del database;
+- *StateRepository*: implementazione dell'interfaccia StatePort che realizza i metodi necessari per svolgere operazioni riguardanti lo stato dei client all'interno del database;
 - *IdentityRepository*: implementazione dell'interfaccia IdentityPort che realizza i metodi necessari per l'accesso alle informazioni sulle identità, nonché per svolgere operazioni su quest'ultime all'interno del database;
 - *EmailRepository*: implementazione dell'interfaccia EmailPort che realizza i metodi necessari per svolgere operazioni sulle email all'interno del database;
-- *EmailSubmissionRepository*: implementazione dell'interfaccia EmailSubmissionPort che realizza i metodi necessari per svolgere operazioni sull'invio di un'email per la consegna a uno o più destinatari all'interno del database;
+- *EmailChangesRepository*: implementazione dell'interfaccia EmailChangesPort che realizza i metodi necessari per svolgere operazioni sui cambiamenti avvenuti alle email all'interno del database;
+- *MailboxChangesRepository*: implementazione dell'interfaccia MailboxChangesPort che realizza i metodi necessari per svolgere operazioni sui cambiamenti avvenuti alle cartelle all'interno del database;
 - *MailboxRepository*: implementazione dell'interfaccia MailboxPort che realizza i metodi necessari per svolgere operazioni sulle caselle di posta all'interno del database;
+- *EmailSubmissionRepository*: implementazione dell'interfaccia EmailSubmissionPort che realizza i metodi necessari per svolgere operazioni sull'invio di un'email per la consegna a uno o più destinatari all'interno del database;
 - *ThreadRepository*: implementazione dell'interfaccia ThreadPort che realizza i metodi necessari per svolgere operazioni sui thread all'interno del database;
-- *UpdateRepository*: implementazione dell'interfaccia UpdatePort che realizza i metodi necessari per svolgere operazioni sugli update all'interno del database;
 - *AttachmentRepository*: implementazione dell'interfaccia AttachmentPort che realizza i metodi necessari per svolgere operazioni sugli allegati all'interno del database.
 
 #pagebreak()
@@ -625,9 +631,6 @@ RethinkDB offre, inoltre, un potente sistema di query che semplifica l'accesso e
 === Utilizzo di MinIO
 MinIO è un sistema open-source di archiviazione di oggetti ideale per archiviare grandi quanittà di dati non strutturati (anche immagini, video e grandi backup sono inclusi). È compatibile con lo standard S3 (Simple Storage Service) di Amazon Web Services (AWS) ed è progettato per fornire una soluzione di storage di oggetti ad alte prestazioni. Gli oggetti in MinIO sono archiviati in modo distribuito su nodi multipli, consentendo una rapida accessibilità e un'alta disponibilità, questo fa si che le performance di MinIO consentano di supportare un carico di lavoro che i tradizionali sistemi di archiviazione di oggetti non possono supportare.\
 
-\
-\
-\
 ==== Implementazione di MinIO sul nostro progetto
 In questa sezione andremo ad approfondire come abbiamo utilizzato MinIO all'interno del nostro progetto analizzando la classe `AttachmentRepository.java`.\
 
