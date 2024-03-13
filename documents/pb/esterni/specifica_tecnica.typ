@@ -9,6 +9,10 @@
     [_#(p.zextras)_],
   ),
   changelog: (
+    "0.1.1", "2024-03-13", p.amadori, p.bonavigo, 
+    [
+      Aggiunta la sezione 'API'.
+    ],
     "0.1.0", "2024-03-13", p.vedovato, p.fabbian, 
     [
       Migliorata la sezione 'Diagramma delle classi'.
@@ -208,6 +212,79 @@ In questa sezione vengono elencate tutte le tecnologie utilizzate per l'implemen
     "Postman", "10.22", "Strumento di collaborazione per lo sviluppo di API. In particolare ne semplifica i processi di sviluppo, test e documentazione. Consente la creazione di richieste HTTP personalizzate."
   )
 ), caption: [Framework utilizzati per il testing])
+
+#pagebreak()
+
+= API
+Nel contesto del nostro progetto, le API costituiscono il principale punto di accesso attraverso il quale i client possono interagire con il sistema.\
+Di seguito vengono esaminate le diverse API fornite all'interno del nostro prodotto; ciascuna di esse è soggetta a verifica attraverso il filtro di autenticazione `authenticate`, `/api/*`,che viene eseguito prima di procedere con l'effettiva gestione della richiesta.
+
+== Jmap (standard)
+Questo endpoint è standard ed è definito all'interno della specifica di JMAP. Esegue il redirect all'endpoint JMAP da noi definito. 
+- *Endpoint:* `/.well-known/jmap`;
+- *Metodo HTTP:* `GET`;
+- *Ritorno*: `null`.
+
+== Jmap (custom)
+Questo endpoint custom funziona in due modi: `GET` e `POST`, entrambi autenticati. 
+
+=== GET
+Il metodo `GET` consente di ricevere l'oggetto `session` definito dallo standard.
+- *Endpoint:* `/api/jmap`;
+- *Metodo HTTP:* `GET`;
+- *Ritorno*: oggetto `session`.
+-> TO FIX: tabella
+#api(
+  (
+    "Positivo", text(weight: "bold", "200") + ": OK", "",
+    "Negativo", text(weight: "bold", "401") + ": Unauthorized", "Le credenziali inserite sono errate.",
+    "Negativo", text(weight: "bold", "500") + ": Internal Server Error", ""
+  )
+)
+
+=== POST
+Il metodo `POST` consente di inoltrare "metodi" JMAP, così definiti dallo standard. 
+- *Endpoint:* `/api/jmap`;
+- *Metodo HTTP:* `POST`;
+- *Ritorno*: risposta dei metodi JMAP inviati.
+-> TO FIX: tabella
+#api(
+  (
+    "Positivo", text(weight: "bold", "200") + ": OK", "",
+    "Negativo", text(weight: "bold", "401") + ": Unauthorized", "Le credenziali inserite sono errate.",
+    "Negativo", text(weight: "bold", "500") + ": Internal Server Error", ""
+  )
+)
+
+== Upload
+Upload è un endpoint di tipo di tipo REST che consente di caricare un allegato dal database MinIO. Rappresenta una richiesta autenticata. 
+- *Endpoint:* `/api/upload`;
+- *Metodo HTTP:* `GET`;
+- *Ritorno*: stringa JSON che rappresenta l'oggetto appena caricato.
+-> TO FIX: tabella
+#api(
+  (
+    "Positivo", text(weight: "bold", "200") + ": OK", "Il download ha successo e idati richiesti sono stati inviati correttamente al client.",
+    "Negativo", text(weight: "bold", "401") + ": Unauthorized", "Le credenziali inserite sono errate.",
+    "Negativo", text(weight: "bold", "500") + ": Internal Server Error", "Si è verificato un errore imprevisto durante il download."
+  )
+)
+
+== Download
+Download è un endpoint di tipo di tipo REST che consente di scaricare un allegato dal database MinIO. Rappresenta una richiesta autenticata. 
+- *Endpoint:* `/api/download`;
+- *Metodo HTTP:* `GET`;
+- *Ritorno*: octet stream (byte).
+-> Error 401 alla fine è solo uno?
+#api(
+  (
+    "Positivo", text(weight: "bold", "200") + ": OK", "Il download ha successo e idati richiesti sono stati inviati correttamente al client.",
+    /*"Negativo", text(weight: "bold", "401") + ": Unauthorized", "Le richieste devono essere autenticate per poter essere eseguite.",
+    "Negativo", text(weight: "bold", "401") + ": Unauthorized", "Si è verificato un errore nel client.",*/
+    "Negativo", text(weight: "bold", "401") + ": Unauthorized", "Le credenziali inserite sono errate.",
+    "Negativo", text(weight: "bold", "500") + ": Internal Server Error", "Si è verificato un errore imprevisto durante il download."
+  )
+)
 
 #pagebreak()
 

@@ -538,7 +538,19 @@
   )
 }
 
-
+#let testRegressione(r) = {
+  let test = ("Test di unità selezionati", "Test di integrazione selezionati", "Test di sistema selezionati").map(el => [*#el*])
+  r = test.zip(r).flatten()
+  align(center,
+    table(
+      fill: (_, row) => if calc.odd(row) { white } else { luma(215) },
+      inset: 0.5em,
+      columns: auto,
+      align: auto,
+      ..r.map(el => text(size: 0.95em, hyphenate: false)[#par(justify: false, el)],)
+    )
+  )
+}
 
 #let costiFinaliRuolo(r) = {
   let costs_header = ([*Ruolo*], [*Periodo I*], [*Periodo II*], [*Periodo III*], [*Periodo IV*], [*Periodo V*], [*Totali per ruolo*])
@@ -555,7 +567,6 @@
     )
   )
 }
-
 #let costiFinaliRuoloPB(r) = {
   let costs_header = ([*Ruolo*], [*P. I*], [*P. II*], [*P. III*], [*P. IV*], [*P. V*], [*P. VI*], [*P. VII*], [*P. VIII*], [*P. IX*], [*Totali per ruolo*])
   let people = ("Responsabile", "Amministratore", "Verificatore", "Analista", "Progettista", "Programmatore", "Totale preventivo", "Totali per periodo").map(el => [*#el*])
@@ -672,13 +683,13 @@
 }
 
 #let requisitiSoddisfatti(r) = {
-  let header = ([*Codice*], [*Tipo*], [*Descrizione*], [*Stato*])
+  let header = ([*Codice*], [*Tipo*], [*Descrizione*], [*Stato*], [*Riferimento*])
   r = header + r
   align(center,
     table(
       fill: (_, row) => if calc.odd(row) { luma(215) } else { white },
       inset: 0.5em,
-      columns: (auto, auto, auto, auto),
+      columns: (6em,6em,auto,6em,auto),
       align: center,
       ..r.map(el => text(size: 0.85em, hyphenate: false)[#par(justify: false, el)],)
     )
@@ -711,7 +722,7 @@
           radius: 3.5,
           slice-style: gradient.linear(green, red, red),
           inner-radius: 0.5,
-          inner-label: (content: (value, label) => [#text(white, label)], radius: 100%),
+          inner-label: (content: (value, label) => [#text(white, label)], radius: 114%),
           outer-label: (content: "%", radius: 118%))
       })
     , caption: [Stato dei requisiti funzionali totali]
@@ -757,5 +768,19 @@
           outer-label: (content: "%", radius: 118%))
       })
     , caption: [Stato dei requisiti funzionali opzionali]
+  )
+}
+
+#let api(r) = {
+  let header = ([*Esito*], [*Codice HTTP*], [*Descrizione*])
+  r = header + r
+  align(center,
+    table(
+      fill: (_, row) => if calc.odd(row) { luma(215) } else { white },
+      inset: 0.5em,
+      columns: (auto, auto, auto),
+      align: center,
+      ..r.map(el => text(size: 0.85em, hyphenate: false)[#par(justify: false, el)],)
+    )
   )
 }
