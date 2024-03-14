@@ -9,6 +9,7 @@
     [_#(p.zextras)_],
   ),
   changelog: (
+    "2.0.0", "2024-03-14" , p.vedovato, p.furno, "Approvazione per PB",
     "1.1.0", "2024-02-03" , p.fabbian, p.bonavigo, "Modifiche conseguenti ai commenti derivanti dalla revisione RTB",
     "1.0.1", "2024-02-03" , p.amadori, p.bonavigo, "Sistemati i riferimenti ai documenti esterni",
     "1.0.0", "2024-01-13" , p.furno, p.bonavigo, "Approvazione per RTB",
@@ -167,7 +168,7 @@ La presenza di un termine all'interno del `Glossario` viene indicata applicando 
 
 == Riferimenti
 === Riferimenti normativi
-- `Norme di Progetto v1.0.0`: \ https://overture-unipd.github.io/docs/rtb/interni/norme_di_progetto_v1.0.0.pdf
+- `Norme di Progetto v2.0.0`: \ https://overture-unipd.github.io/docs/rtb/interni/norme_di_progetto_v2.0.0.pdf
 
 - Capitolato d'appalto C8: JMAP, il nuovo protocollo standard per la comunicazione email \
   https://www.math.unipd.it/~tullio/IS-1/2023/Progetto/C8.pdf
@@ -187,7 +188,8 @@ La presenza di un termine all'interno del `Glossario` viene indicata applicando 
 
 - RFC8621: \ https://datatracker.ietf.org/doc/html/rfc8621
 
-- `Glossario v1.0.0`: \ https://overture-unipd.github.io/docs/rtb/interni/glossario_v1.0.0.pdf
+- `Glossario v2.0.0`: \ https://overture-unipd.github.io/docs/rtb/interni/glossario_v2.0.0.pdf
+
 #pagebreak()
 
 = *Descrizione generale del prodotto richiesto da _#(p.zextras)_*
