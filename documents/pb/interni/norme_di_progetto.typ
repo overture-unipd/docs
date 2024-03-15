@@ -4,6 +4,7 @@
   title: "Norme di Progetto",
   managers: p.vedovato,
   changelog: (
+    "2.0.0", "2024-03-15" , p.fabbian, p.vedovato, "Approvazione per PB",
     "1.1.0", "2024-02-21", p.vedovato, p.bulychov, "Miglioramento della sezione 'Metriche di qualitá del prodotto'",
     "1.0.3", "2024-02-11", p.amadori, p.furno, "Uniformizzazione del processo 'Sviluppo' per risolvere le problematiche evidenziate dalla revisione RTB",
     "1.0.2", "2024-02-11", p.bulychov, p.fabbian, "Aggiunta della sezione 'Risoluzione dei problemi'",
@@ -52,7 +53,7 @@ La presenza di un termine all'interno del glossario viene indicata applicando #g
 === Riferimenti informativi
 - I processi di ciclo di vita del software \
   https://www.math.unipd.it/~tullio/IS-1/2023/Dispense/T2.pdf
-- `Glossario v1.0.0`: \ https://overture-unipd.github.io/docs/rtb/interni/glossario_v1.0.0.pdf
+- `Glossario v2.0.0`: \ https://overture-unipd.github.io/docs/rtb/interni/glossario_v2.0.0.pdf
 
 #pagebreak()
 
@@ -565,9 +566,9 @@ Le cartelle relative alle versioni dei documenti sono organizzate nel modo segue
     - `piano_di_qualifica_v1.0.0.pdf`;
     - `piano_di_progetto_v1.0.0.pdf`;
     - `analisi_dei_requisiti_v1.0.0.pdf`;
-    - `glossario_v1.0.0.pdf`;
     - *`verbali`*: cartella contenente i verbali esterni.
   - *`interni`*, con all'interno:
+    - `glossario_v1.0.0.pdf`;
     - `norme_di_progetto_v1.0.0.pdf`;
     - *`verbali`*: cartella contenente i verbali interni.
 - *`pb`* suddivisa in:
@@ -576,9 +577,9 @@ Le cartelle relative alle versioni dei documenti sono organizzate nel modo segue
     - `piano_di_progetto_v2.0.0.pdf`;
     - `analisi_dei_requisiti_v2.0.0.pdf`;
     - `manuale_utente_v1.0.0.pdf`;
-    - `glossario_v2.0.0.pdf`;
     - *`verbali`*: cartella contenente i verbali esterni.
   - *`interni`*, con all'interno:
+    - `glossario_v2.0.0.pdf`;
     - `norme_di_progetto_v2.0.0.pdf`;
     - *`verbali`*: cartella contenente i verbali interni.
     
