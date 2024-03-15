@@ -4,6 +4,7 @@
   title: "Glossario",
   managers: p.vedovato,
   changelog: (
+    "1.2.0", "2024-03-15", p.bettin, p.furno, "Inserimento degli ultimi termini necessari",
     "1.1.0", "2024-02-24", p.fabbian, p.amadori, "Aggiunta dei nuovi termini identificati nelle fasi di progettazione",
     "1.0.0", "2024-01-11", p.amadori, p.bonavigo, "Approvazione per RTB",
     "0.2.0", "2023-12-20", p.bonavigo, p.bulychov, "Incremento del vocabolario",
@@ -121,6 +122,9 @@ Discord è una piattaforma di comunicazione online che combina chat testuale, vo
 - DNS
 Acronimo di Domain Name System, indica un sistema utilizzato per assegnare nomi ai nodi della rete. Traduce i nomi di dominio degli indirizzi web (come example.com) in indirizzi IP (come 192.0.2.1) che i computer possono comprendere e utilizzare per comunicare tra loro in modo efficiente e affidabile.
 
+- DNS Lookup
+Con il termine DNS Lookup si intende il processo di ricerca di un indirizzo IP associato a un determinato nome di dominio. È una tecnica utilizzata dal browser o dal sistema operativo  per risalire all'indirizzo IP collegato al nome di un dominio.
+
 - Docker
 Una piattaforma open-source che consente di automatizzare il processo di distribuzione delle applicazioni all'interno di contenitori leggeri e portabili.
 
@@ -165,6 +169,11 @@ Uno strumento di automazione della compilazione utilizzato principalmente per pr
 - Hosting
 Un servizio di hosting è un servizio che fornisce spazio di archiviazione su un server web a terzi, in cambio di un canone periodico. Questo servizio è necessario per rendere accessibili i siti web e le applicazioni web agli utenti di Internet.
 
+- HTTP
+Acronimo di Hyper Text Transfer Protocol, è il protocollo standard per la comunicazione tra client e server web. A differenza del protocollo HTTPS, non è presente la crittografia:  i dati vengono trasmessi in chiaro, con il rischio che possano venire intercettati ed utilizzati da altri utenti.
+
+- HTTPS
+Acronimo di Hyper Text Transfer Protocol Secure, è una versione più sicura del protocollo HTTP. Prima di trasferire i dati, il browser e il client stabiliscono una connessione sicura e crittografata.
 
 #pagebreak()
 = I 
@@ -197,6 +206,9 @@ In ambito di GitHub, una issue (problema) rappresenta un meccanismo attraverso i
 = J
 - JMAP
 Acronimo di JSON Meta Application Protocol, è un protocollo di comunicazione progettato per facilitare l'accesso e la gestione efficiente delle informazioni su server di posta elettronica e servizi di calendario. La caratteristica distintiva di JMAP è l'uso del formato di dati JSON (JavaScript Object Notation) per rappresentare le informazioni scambiate tra client e server, riducendo la quantità di dati scambiati. JMAP nasce inoltre per essere estendibile, consentendo l’introduzione di nuove funzionalità senza dover modificare il protocollo.
+
+- JSON
+Acronimo di JavaScript Object Notation, è un semplice formato di testo utilizzato per lo scambio di dati. Utilizza convenzioni conosciute dai programmatori di linguaggi della famiglia del C, come C++, Java, JavaScript, python e altri ancora. Questa notazione utilizza un insieme di coppie nome/valore oppure un elenco ordinato di valori.
 
 #pagebreak()
 = K
@@ -245,6 +257,9 @@ L'overhead è un concetto utilizzato per valutare le prestazioni di un programma
 
 #pagebreak()
 = P
+- Payload
+Chiamato anche "carico utile", il payload di un messaggio indica la parte di dati trasmessi effettiva che è destinata all'utilizzatore, a differenza di metadati e headers che servono esclusivamente a fare funzionare il protocollo di comunicazione.
+
 - Principale
 Nel contesto di JMAP si riferisce a un'entità che può essere un individuo, un gruppo di persone, una risorsa, una posizione o un'altra entità all'interno di un ambiente collaborativo.
 
