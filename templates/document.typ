@@ -683,13 +683,13 @@
 }
 
 #let requisitiSoddisfatti(r) = {
-  let header = ([*Codice*], [*Tipo*], [*Descrizione*], [*Stato*], [*Riferimento*])
+  let header = ([*Codice*], [*Tipo*], [*Descrizione*], [*Stato*])
   r = header + r
   align(center,
     table(
       fill: (_, row) => if calc.odd(row) { luma(215) } else { white },
       inset: 0.5em,
-      columns: (6em,6em,auto,6em,auto),
+      columns: (auto, auto, auto, auto),
       align: center,
       ..r.map(el => text(size: 0.85em, hyphenate: false)[#par(justify: false, el)],)
     )
