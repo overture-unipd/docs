@@ -9,6 +9,10 @@
     [_#(p.zextras)_],
   ),
   changelog: (
+    "0.2.0", "2024-03-18", p.vedovato, p.bettin, 
+    [
+      Aggiornato lo stato dei requisiti funzionali.
+    ],
     "0.1.1", "2024-03-13", p.amadori, p.bonavigo, 
     [
       Aggiunta la sezione 'API'.
@@ -165,9 +169,13 @@ In questa sezione vengono elencate tutte le tecnologie utilizzate per l'implemen
 === Framework
 #figure(tecnologieUsate(
   (
-    "Spark", "2.9.4", "Lightweight framework open-source per lo sviluppo di applicazioni web in Java. Ideale per progetti agili che cercano di mantenere la complessità sotto controllo."
+    "Spark", "2.9.4", "Lightweight framework open-source per lo sviluppo di applicazioni web in Java. Ideale per progetti agili che cercano di mantenere la complessità sotto controllo.",
+    "Guice", "7.0.0", "Lightweight framework open-source per Java progettato per semplificare lo sviluppo di applicazioni attraverso l'iniezione di dipendenze. Offre un modo semplice e dichiarativo per gestire le dipendenze tra i componenti che costituiscono l'applicazione, migliorando la manutenibilità e la testabilità del codice. Ideale per progetti che vogliono mantenere la complessità sotto controllo."
   )
 ), caption: [Framework usati per la codifica])
+
+#pagebreak()
+
 === Librerie
 #figure(tecnologieUsate(
   (
@@ -217,7 +225,7 @@ In questa sezione vengono elencate tutte le tecnologie utilizzate per l'implemen
 
 = API
 Nel contesto del nostro progetto, le API costituiscono il principale punto di accesso attraverso il quale i client possono interagire con il sistema.\
-Di seguito vengono esaminate le diverse API fornite all'interno del nostro prodotto; ciascuna di esse è soggetta a verifica attraverso il filtro di autenticazione `authenticate`, `/api/*`,che viene eseguito prima di procedere con l'effettiva gestione della richiesta.
+Di seguito vengono esaminate le diverse API fornite all'interno del nostro prodotto; ciascuna di esse è soggetta a verifica attraverso il filtro di autenticazione `authenticate`, `/api/*`, che viene eseguito prima di procedere con l'effettiva gestione della richiesta.
 
 == Jmap (standard)
 Questo endpoint è standard ed è definito all'interno della specifica di JMAP. Esegue il redirect all'endpoint JMAP da noi definito. 
@@ -233,12 +241,11 @@ Il metodo `GET` consente di ricevere l'oggetto `session` definito dallo standard
 - *Endpoint:* `/api/jmap`;
 - *Metodo HTTP:* `GET`;
 - *Ritorno*: oggetto `session`.
--> TO FIX: tabella
 #api(
   (
-    "Positivo", text(weight: "bold", "200") + ": OK", "",
+    "Positivo", text(weight: "bold", "200") + ": OK", "L'oggetto session viene inviato correttamente al client.",
     "Negativo", text(weight: "bold", "401") + ": Unauthorized", "Le credenziali inserite sono errate.",
-    "Negativo", text(weight: "bold", "500") + ": Internal Server Error", ""
+    "Negativo", text(weight: "bold", "500") + ": Internal Server Error", "Si è verificato un errore imprevisto durante la ricezione dell'oggetto " + `session` + "."
   )
 )
 
@@ -247,26 +254,26 @@ Il metodo `POST` consente di inoltrare "metodi" JMAP, così definiti dallo stand
 - *Endpoint:* `/api/jmap`;
 - *Metodo HTTP:* `POST`;
 - *Ritorno*: risposta dei metodi JMAP inviati.
--> TO FIX: tabella
 #api(
   (
-    "Positivo", text(weight: "bold", "200") + ": OK", "",
+    "Positivo", text(weight: "bold", "200") + ": OK", "La richiesta contenente uno o più metodi JMAP viene inviata correttamente al server.",
     "Negativo", text(weight: "bold", "401") + ": Unauthorized", "Le credenziali inserite sono errate.",
-    "Negativo", text(weight: "bold", "500") + ": Internal Server Error", ""
+    "Negativo", text(weight: "bold", "500") + ": Internal Server Error", "Si è verificato un errore imprevisto durante l'invio della richiesta."
   )
 )
+
+#pagebreak()
 
 == Upload
 Upload è un endpoint di tipo di tipo REST che consente di caricare un allegato dal database MinIO. Rappresenta una richiesta autenticata. 
 - *Endpoint:* `/api/upload`;
 - *Metodo HTTP:* `GET`;
 - *Ritorno*: stringa JSON che rappresenta l'oggetto appena caricato.
--> TO FIX: tabella
 #api(
   (
-    "Positivo", text(weight: "bold", "200") + ": OK", "Il download ha successo e idati richiesti sono stati inviati correttamente al client.",
+    "Positivo", text(weight: "bold", "200") + ": OK", "L'upload ha successo e i dati caricati sono stati inviati correttamente al server.",
     "Negativo", text(weight: "bold", "401") + ": Unauthorized", "Le credenziali inserite sono errate.",
-    "Negativo", text(weight: "bold", "500") + ": Internal Server Error", "Si è verificato un errore imprevisto durante il download."
+    "Negativo", text(weight: "bold", "500") + ": Internal Server Error", "Si è verificato un errore imprevisto durante l'upload."
   )
 )
 
@@ -274,14 +281,12 @@ Upload è un endpoint di tipo di tipo REST che consente di caricare un allegato 
 Download è un endpoint di tipo di tipo REST che consente di scaricare un allegato dal database MinIO. Rappresenta una richiesta autenticata. 
 - *Endpoint:* `/api/download`;
 - *Metodo HTTP:* `GET`;
-- *Ritorno*: octet stream (byte).
--> Error 401 alla fine è solo uno?
+- *Ritorno*: octet stream (byte) che rappresentano l'oggetto appena scaricato.
 #api(
   (
-    "Positivo", text(weight: "bold", "200") + ": OK", "Il download ha successo e idati richiesti sono stati inviati correttamente al client.",
-    /*"Negativo", text(weight: "bold", "401") + ": Unauthorized", "Le richieste devono essere autenticate per poter essere eseguite.",
-    "Negativo", text(weight: "bold", "401") + ": Unauthorized", "Si è verificato un errore nel client.",*/
+    "Positivo", text(weight: "bold", "200") + ": OK", "Il download ha successo e i dati richiesti sono stati inviati correttamente al client.",
     "Negativo", text(weight: "bold", "401") + ": Unauthorized", "Le credenziali inserite sono errate.",
+    "Negativo", text(weight: "bold", "404") + ": Not found", "I dati richiesti dal client non sono stati trovati nel server.",
     "Negativo", text(weight: "bold", "500") + ": Internal Server Error", "Si è verificato un errore imprevisto durante il download."
   )
 )
@@ -332,17 +337,19 @@ L'uso della conteinerizzazione nell'ambito dell'architettura di deployment è co
 Complessivamente, la containerizzazione offre numerosi vantaggi nell'ambito dell'architettura di deployment, migliorando l'efficienza, la portabilità e la gestione delle applicazioni.
 
 ==== Come lo abbiamo utilizzato noi
+#figure(image("//imgs/Specifica_Tecnica/ArcDeploy.jpeg", width: 100%), caption: [Architettura di deployment del prodotto])
+
 Se andiamo sulla cartella root del nostro progetto noteremo che c'è un file chiamato "docker-compose.yml". Questo definisce una configurazione di Docker Compose per orchestrare i container di tre servizi diversi: web server, database e caddy.\
 Il servizio web server è attivato mediante l'immagine custom `overture-unipd/jmap:latest` ricavata dall'immagine di base `openjdk:21-jdk-slim` e esposta nella porta 8000.\
 Il servizio di database è creato mediante l'immagine `rethinkdb:2.4.2-bullseye-slim` disponibile direttamente sul repository pubblico al seguente link https://hub.docker.com/_/rethinkdb mappando le porte 9000, 29015 e 28015 del container con rispettivamente le porte 8080. 29015 e 28015 dell'host e configurando i volumi in modo tale da consentire la persistenza dei dati del database tra le esecuzioni del container.\
-Il servizio di caddy invece lo attiviamo con l'immagine custom `overture-unipd/caddy:latest` ricavata dall'immagine di base `caddy:latest` ma integrata con il plugin per Duck DNS. Anche qui vengono mappate le porte 80 e 443 del container con quelle dell'host e vengono configurati i  volumi Docker per condividere dati tra il container e l'host, ad esempio per persistere i dati del server web Caddy e per fornire un file di configurazione Caddy personalizzato.\
+Il servizio di caddy lo attiviamo con l'immagine custom `overture-unipd/caddy:latest` ricavata dall'immagine di base `caddy:latest` ma integrata con il plugin per Duck DNS. Anche qui vengono mappate le porte 80 e 443 del container con quelle dell'host e vengono configurati i  volumi Docker per condividere dati tra il container e l'host, ad esempio per persistere i dati del server web Caddy e per fornire un file di configurazione Caddy personalizzato.\
+Il servizio MinIO è creato mediante l'immagine `minio/minio:RELEASE.2024-02-24T17-11-14Z` disponibile direttamente sul repository pubblico di Docker Hub al seguente link: https://hub.docker.com/r/minio/minio. Vengono mappate le porte: 100000 e 100001 con le rispettive porte: 9000 e 9001. Il volume minio:/data viene mappato per memorizzare i dati di Minio nella directory /data all'interno del contenitore. Questo significa che i dati di Minio saranno memorizzati in modo persistente nel volume Docker, consentendo al contenitore di accedervi e manipolarli anche dopo il riavvio.
 
 Si nota che tutti i volumi che i servizi montano, sono riportati alla fine del file "docker-compose.yml" dopo il record `volumes`.
 
 #pagebreak()
 
 == Design pattern utilizzati
-
 === Dependency injection
 
 ==== Motivazioni e studio del design pattern
@@ -365,6 +372,12 @@ class Saluto {
   private final String messaggio;
   private final int conta;
 
+
+
+
+  
+
+  
 
 
   
@@ -407,7 +420,7 @@ class DemoModulo extends AbstractModule {
 
 ```
 
-====== Utilizzo
+====== Utilizzo 
 Incapsulando il codice precedente in una classe apposita di demo ecco come possiamo usare l'infrastruttura creata per testare la potenza di Guice:
 ```java
 public static void main(String[] args) {
@@ -634,16 +647,67 @@ In conclusione, l'integrazione del pattern builder nel nostro prodotto è una pr
 #figure(image("//imgs/Specifica_Tecnica/UML1.png", width: 55%), caption: [Modellazione delle componenti che gestiscono l'ingresso delle richieste nell'applicazione])
 
 Il pezzo di diagramma riportato illustra le componenti fondamentali per gestire l'ingresso delle richieste provenienti dai client all'interno del sistema. Vi si trovano le seguenti classi:
-- *Spark*: gestore principale dell'ingresso delle richieste in arrivo (input), il cui scopo è quello di definire molteplici rotte utilizzando il framework Spark. Include al suo interno la gestione iniziale delle operazioni come l'autenticazione, la gestione delle sessioni, la gestione dei metodi di JMAP e la manipolazione degli allegati attraverso upload e download;
-- *AuthenticationPort*: porta in ingresso che funge da punto di accesso per l'interazione tra il dominio dell'applicazione (core) e il mondo esterno. Essa definisce un insieme di operazioni che rappresentano le azioni che l'applicazione può eseguire in risposta alle richieste esterne provenienti dai client riguardanti l'autenticazione. La sua implementazione è responsabilità di classi concrete che forniranno la logica specifica per gestire tali operazioni in modo efficace all'interno dell'applicazione, mantenendo così la separazione tra i diversi tipi di logiche;
-- *SessionPort*: porta in ingresso che funge da punto di accesso per l'interazione tra il dominio dell'applicazione (core) e il mondo esterno. Essa definisce un insieme di operazioni che rappresentano le azioni che l'applicazione può eseguire in risposta alle richieste esterne provenienti dai client riguardanti la sessione. La sua implementazione è responsabilità di classi concrete che forniranno la logica specifica per gestire tali operazioni in modo efficace all'interno dell'applicazione, mantenendo così la separazione tra i diversi tipi di logiche;
-- *MethodPort*: porta in ingresso che funge da punto di accesso per l'interazione tra il dominio dell'applicazione (core) e il mondo esterno. Essa definisce un insieme di operazioni che rappresentano le azioni che l'applicazione può eseguire in risposta alle richieste esterne provenienti dai client riguardanti i vari metodi del protocollo JMAP. La sua implementazione è responsabilità di classi concrete che forniranno la logica specifica per gestire tali operazioni in modo efficace all'interno dell'applicazione, mantenendo così la separazione tra i diversi tipi di logiche;
-- *UploadPort*: porta in ingresso che funge da punto di accesso per l'interazione tra il dominio dell'applicazione (core) e il mondo esterno. Essa definisce un insieme di operazioni che rappresentano le azioni che l'applicazione può eseguire in risposta alle richieste esterne provenienti dai client riguardanti l'upload di dati. La sua implementazione è responsabilità di classi concrete che forniranno la logica specifica per gestire tali operazioni in modo efficace all'interno dell'applicazione, mantenendo così la separazione tra i diversi tipi di logiche;
-- *DownloadPort*: porta in ingresso che funge da punto di accesso per l'interazione tra il dominio dell'applicazione (core) e il mondo esterno. Essa definisce un insieme di operazioni che rappresentano le azioni che l'applicazione può eseguire in risposta alle richieste esterne provenienti dai client riguardanti il download di dati. La sua implementazione è responsabilità di classi concrete che forniranno la logica specifica per gestire tali operazioni in modo efficace all'interno dell'applicazione, mantenendo così la separazione tra i diversi tipi di logiche;
-- *AuthenticationController*: implementazione dell'interfaccia AuthenticationPort. Essenzialmente, funge da intermediario tra le richieste provenienti dall'esterno dell'applicazione rigurdanti l'autenticazione e la logica di business sottostante, gestendo quindi la parte di application logic relativa. Al suo interno si esegue dunque una prima validazione delle richieste di questo tipo, in modo da evitare di arrivare alla business logic nel caso in cui il formato della richiesta non fosse conforme allo standard;
-- *SessionController*: implementazione dell'interfaccia SessionPort. Essenzialmente, funge da intermediario tra le richieste provenienti dall'esterno dell'applicazione rigurdanti la sessione e la logica di business sottostante, gestendo quindi la parte di application logic relativa. Al suo interno si esegue dunque una prima validazione delle richieste di questo tipo, in modo da evitare di arrivare alla business logic nel caso in cui il formato della richiesta non fosse conforme allo standard;
-- *MethodController*: implementazione dell'interfaccia MethodPort. Essenzialmente, funge da intermediario tra le richieste provenienti dall'esterno dell'applicazione rigurdanti i vari metodi del protocollo JMAP e la logica di business sottostante, gestendo quindi la parte di application logic relativa. Al suo interno si esegue dunque una prima validazione delle richieste di questo tipo, in modo da evitare di arrivare alla business logic nel caso in cui il formato della richiesta non fosse conforme allo standard. Riceve le richieste in arrivo e in base al tipo di richiesta e ai dati associati, determina come instradarla all'interno dell'applicazione;
+- *Spark*: gestore principale dell'ingresso delle richieste in arrivo (input), il cui scopo è quello di definire molteplici rotte utilizzando il framework Spark. Include al suo interno la gestione iniziale delle operazioni come l'autenticazione, la gestione delle sessioni, la gestione dei metodi di JMAP e la manipolazione degli allegati attraverso upload e download.
+  - _Proprietà_:
+    \ \- authentication: AuthenticationPort - Un'istanza di AuthenticationPort utilizzata per gestire l'autenticazione degli utenti;
+    \ \- session: SessionPort - Un'istanza di SessionPort utilizzata per gestire le sessioni degli utenti;
+    \ \- method: MethodPort - Un'istanza di MethodPort utilizzata per gestire i metodi di JMAP;
+    \ \- upload: UploadPort - Un'istanza di UploadPort utilizzata per gestire le operazioni di caricamento degli allegati;
+    \ \- download: DownloadPort - Un'istanza di DownloadPort utilizzata per gestire le operazioni di scaricamento degli allegati.
+  - _Operazioni_:
+    \ \- ```java authenticate(q: Request, a: Response): String ``` - Verifica dell'autenticazione dell'utente;
+    \ \- ```java up(q: Request, a: Response): String ```- Verifica della corretta esecuzione del server;
+    \ \- ```java wellKnown(q: Request, a: Response): String ```- Effettua un reindirizzamento alla rotta "/api/jmap";
+    \ \- ```java getJmap(q: Request, a: Response): String ```- Gestisce le richieste GET per la rotta "/api/jmap" e restituisce i dati  di sessione in formato JSON;
+    \ \- ```java postJmap(q: Request, a: Response): String ```- Gestisce le richieste POST per la rotta "/api/jmap" e restituisce i dati elaborati in base al corpo della richiesta;
+    \ \- ```java download(q: Request, a: Response): String ```- Gestisce le richieste GET per la rotta "/api/download" riguardanti gli allegati e restituisce il contenuto richiesto;
+    \ \- ```java upload(q: Request, a: Response): String ```- Gestisce le richieste POST per la rotta "/api/download" riguardanti gli allegati e li carica nel server;
+    \ \+ ```java start(): void ```- Configura e avvia il server Spark, impostando la porta e definendo i filtri e le rotte con i rispettivi handler di richieste HTTP.
+- *AuthenticationPort*: porta in ingresso che funge da punto di accesso per l'interazione tra il dominio dell'applicazione (core) e il mondo esterno. Essa definisce un insieme di operazioni che rappresentano le azioni che l'applicazione può eseguire in risposta alle richieste esterne provenienti dai client riguardanti l'autenticazione. La sua implementazione è responsabilità di classi concrete che forniranno la logica specifica per gestire tali operazioni in modo efficace all'interno dell'applicazione, mantenendo così la separazione tra i diversi tipi di logiche.
+    - _Operazioni_:
+      \ \# ```java authenticate(auth: String): boolean ```- Restituisce un valore booleano che indica se l'autenticazione è riuscita o meno. L'implementazione concreta di questo metodo è lasciata alle classi che implementano questa interfaccia, in modo che possano definire la logica specifica per verificare l'autenticità delle credenziali fornite.
+- *SessionPort*: porta in ingresso che funge da punto di accesso per l'interazione tra il dominio dell'applicazione (core) e il mondo esterno. Essa definisce un insieme di operazioni che rappresentano le azioni che l'applicazione può eseguire in risposta alle richieste esterne provenienti dai client riguardanti la sessione. La sua implementazione è responsabilità di classi concrete che forniranno la logica specifica per gestire tali operazioni in modo efficace all'interno dell'applicazione, mantenendo così la separazione tra i diversi tipi di logiche.
+  - _Operazioni_:
+      \ \# ```java get(auth: String): String ```- Restituisce una stringa che rappresenta le informazioni di sessione. L'implementazione concreta di questo metodo è lasciata alle classi che implementano questa interfaccia, in modo che possano definire la logica specifica per ottenere le informazioni di sessione in base alle credenziali fornite.
+- *MethodPort*: porta in ingresso che funge da punto di accesso per l'interazione tra il dominio dell'applicazione (core) e il mondo esterno. Essa definisce un insieme di operazioni che rappresentano le azioni che l'applicazione può eseguire in risposta alle richieste esterne provenienti dai client riguardanti i vari metodi del protocollo JMAP. La sua implementazione è responsabilità di classi concrete che forniranno la logica specifica per gestire tali operazioni in modo efficace all'interno dell'applicazione, mantenendo così la separazione tra i diversi tipi di logiche.
+  - _Operazioni_:
+      \ \# ```java dispatch(in: String): String ```- Prende una stringa come parametro, la quale rappresenta una richiesta in formato JSON, la elabora e restituisce una stringa che rappresenta la risposta alla richiesta. L'implementazione concreta di questo metodo è lasciata alle classi che implementano questa interfaccia, in modo che possano definire la logica specifica per l'elaborazione delle richieste.
+- *UploadPort*: porta in ingresso che funge da punto di accesso per l'interazione tra il dominio dell'applicazione (core) e il mondo esterno. Essa definisce un insieme di operazioni che rappresentano le azioni che l'applicazione può eseguire in risposta alle richieste esterne provenienti dai client riguardanti l'upload di allegati. La sua implementazione è responsabilità di classi concrete che forniranno la logica specifica per gestire tali operazioni in modo efficace all'interno dell'applicazione, mantenendo così la separazione tra i diversi tipi di logiche.
+  - _Operazioni_:
+      \ \# ```java push(data: byte[]): String ```- Prende un array di byte come parametro, ovvero i dati che devono essere caricati relativi agli allegati. La richiesta di upload verrà poi elaborata e verrà restituita una stringa rappresentante un identificatore univoco assegnato al dato caricato. L'implementazione concreta di questo metodo è lasciata alle classi che implementano questa interfaccia, in modo che possano definire la logica specifica per il caricamento dei dati degli allegati.
+- *DownloadPort*: porta in ingresso che funge da punto di accesso per l'interazione tra il dominio dell'applicazione (core) e il mondo esterno. Essa definisce un insieme di operazioni che rappresentano le azioni che l'applicazione può eseguire in risposta alle richieste esterne provenienti dai client riguardanti il download di allegati. La sua implementazione è responsabilità di classi concrete che forniranno la logica specifica per gestire tali operazioni in modo efficace all'interno dell'applicazione, mantenendo così la separazione tra i diversi tipi di logiche.
+  - _Operazioni_:
+      \ \# ```java pull(id: String): byte[] ```- Prende una stringa come parametro corrispondente ad un identificatore univoco assegnato ai dati di un allegato precedentemente caricato e che ora si vuole scaricare. La richiesta di download verrà poi elaborata cercando i dati dell'allegato associati a quell'identificatore, i quali verranno restituiti come un array di byte. L'implementazione concreta di questo metodo è lasciata alle classi che implementano questa interfaccia, in modo che possano definire la logica specifica per il recupero dei dati in base all'identificatore fornito.
+- *AuthenticationController*: implementazione dell'interfaccia AuthenticationPort. Essenzialmente, funge da intermediario tra le richieste provenienti dall'esterno dell'applicazione rigurdanti l'autenticazione e la logica di business sottostante, gestendo quindi la parte di application logic relativa. Al suo interno si esegue dunque una prima validazione delle richieste di questo tipo, in modo da evitare di arrivare alla business logic nel caso in cui il formato della richiesta non fosse conforme allo standard.
+  - _Proprietà_:
+    \ \- authenticationLogic: AuthenticationLogic - Un'istanza di AuthenticationLogic utilizzata per gestire la logica di business riguardante l'autenticazione degli utenti.
+  - _Operazioni_:
+    \ \+ ```java authenticate(auth: String): boolean ```- Implementa il metodo authenticate dell'interfaccia AuthenticationPort. Esegue una prima validazione della richiesta prima di passarla alla classe di business relativa.
+- *SessionController*: implementazione dell'interfaccia SessionPort. Essenzialmente, funge da intermediario tra le richieste provenienti dall'esterno dell'applicazione rigurdanti la sessione e la logica di business sottostante, gestendo quindi la parte di application logic relativa. Al suo interno si esegue dunque una prima validazione delle richieste di questo tipo, in modo da evitare di arrivare alla business logic nel caso in cui il formato della richiesta non fosse conforme allo standard.
+  - _Proprietà_:
+    \ \- gson: Gson - Un'istanza di Gson utilizzata per serializzare gli oggetti in formato JSON;
+    \ \- sessionLogic: SessionLogic - Un'istanza di SessionLogic utilizzata per gestire la logica di business riguardante la sessione.
+  - _Operazioni_:
+    \ \+ ```java get(auth: String): String ```- Implementa il metodo get dell'interfaccia SessionPort. Prende in input una stringa che contiene le credenziali di autenticazione, estrae il token di autenticazione e decodifica quest'ultimo utilizzando Base64 per ottenere il nome utente e la password, validando la parte di application logic. Successivamente passa il nome utente estratto all'istanza di SessionLogic posseduta, la quale si occuperà di gestire la business logic, e serializza l'oggetto restituito da quest'ultima in formato JSON utilizzando l'istanza di Gson, restituendo infine il JSON risultante dalle operazioni eseguite.
+- *MethodController*: implementazione dell'interfaccia MethodPort. Essenzialmente, funge da intermediario tra le richieste provenienti dall'esterno dell'applicazione rigurdanti i vari metodi del protocollo JMAP e la logica di business sottostante, gestendo quindi la parte di application logic relativa. Al suo interno si esegue dunque una prima validazione delle richieste di questo tipo, in modo da evitare di arrivare alla business logic nel caso in cui il formato della richiesta non fosse conforme allo standard. Riceve le richieste in arrivo e in base al tipo di richiesta e ai dati associati, determina come instradarla all'interno dell'applicazione.
+  - _Proprietà_:
+    \ \- gson: Gson - Un'istanza di Gson utilizzata per serializzare gli oggetti in formato JSON;
+    \ \- echo: EchoLogic - Un'istanza di EchoLogic utilizzata per gestire la logica di business riguardante le richieste di eco;
+    \ \- email: EmailLogic - Un'istanza di EmailLogic utilizzata per gestire la logica di business riguardante le operazioni relative alle email;
+    \ \- submission: EmailSubmissionLogic - Un'istanza di EmailSubmissionLogic utilizzata per gestire la logica di business riguardante le operazioni relative all'invio di email;
+    \ \- identity: IdentityLogic - Un'istanza di IdentityLogic utilizzata per gestire la logica di business riguardante le operazioni relative all'identità;
+    \ \- mailbox: MailboxLogic - Un'istanza di MailboxLogic utilizzata per gestire la logica di business riguardante le operazioni relative alle caselle di posta;
+    \ \- thread: ThreadLogic - Un'istanza di ThreadLogic utilizzata per gestire la logica di business riguardante le operazioni relative ai thread di email.
+  - _Operazioni_:
+    \ \# ```java dispatch(in: String): String ```- Implementa il metodo dispatch dell'interfaccia MethodPort. Prende in input una stringa contenente una richiesta JMAP, estrae le chiamate di metodo dalla richiesta, esegue una prima validazione di quest'ultime e determina come instradarle all'interno dell'applicazione utilizzando il metodo privato pick. Infine aggrega le risposte ottenute dalle classi di business in una risposta JMAP complessiva e restituisce la rappresentazione JSON di quest'ultima;
+    \ \- ```java pick(methodCall: MethodCall, prevResponses: ListMultimap\<String, Response.Invocation>): MethodResponse[] ```- Prende in input una MethodCall e una mappa delle risposte precedenti in modo da determinare quale metodo della logica di business corrispondente chiamare per poter elaborare la richiesta ed infine restituisce la risposta corrispondente. Se il tipo di MethodCall è sconosciuto, restituisce una risposta di errore.
 - *AttachmentController*: implementazione delle interfacce UploadPort e DownloadPort. Essenzialmente, funge da intermediario tra le richieste provenienti dall'esterno dell'applicazione rigurdanti l'upload o il download degli allegati e la logica di business sottostante, gestendo quindi la parte di application logic relativa. Al suo interno si esegue dunque una prima validazione delle richieste di questo tipo, in modo da evitare di arrivare alla business logic nel caso in cui il formato della richiesta non fosse conforme allo standard.
+  - _Proprietà_:
+    \ \- gson: Gson - Un'istanza di Gson utilizzata per serializzare gli oggetti in formato JSON;
+    \ \- attachmentLogic: AttachmentLogic - Un'istanza di AttachmentLogic utilizzata per gestire la logica di business riguardante la gestione degli allegati nell'applicazione.
+  - _Operazioni_:
+    \ \+ ```java pull(id: String): byte[] ```- Implementa il metodo pull dell'interfaccia DownloadPort. Prende in input un identificatore e utilizza l'istanza di AttachmentLogic per scaricare l'allegato corrispondente. Restituisce quindi i dati dell'allegato sotto forma di array di byte;
+    \ \+ ```java push(data: byte[]): String ```- Implementa il metodo push dell'interfaccia UploadPort. Prende in input un array di byte rappresentante i dati dell'allegato da caricare e utilizza l'istanza di AttachmentLogic per eseguire il caricamento dell'allegato e ottenere una risposta, corrispondente ad un identificatore univoco assegnato al dato. Questa risposta viene quindi serializzata in formato JSON utilizzando l'istanza di Gson e restituita come una stringa JSON.
 
 #pagebreak()
 
@@ -651,15 +715,78 @@ Il pezzo di diagramma riportato illustra le componenti fondamentali per gestire 
 #figure(image("//imgs/Specifica_Tecnica/UML2.png", width: 30%), caption: [Modellazione delle componenti che gestiscono le rischieste all'interno dell'applicazione])
 
 Le componenti riportate nel frammento di diagramma soprastante sono quelle necessarie per la gestione delle richieste, implementando dunque la business logic del prodotto. Vi si trovano le seguenti classi:
-- *AuthenticationLogic*: componente responsabile della gestione dell'autenticazione all'interno del sistema. Si occupa quindi di tutte le operazioni relative alla business logic di questo tipo;
-- *SessionLogic*: componente responsabile della gestione delle sessioni all'interno del sistema. Si occupa quindi di tutte le operazioni relative alla business logic di questo tipo;
-- *IdentityLogic*: componente responsabile della gestione delle identità all'interno del sistema. Si occupa quindi di tutte le operazioni relative alla business logic di questo tipo;
-- *EmailLogic*: componente responsabile della gestione delle email all'interno del sistema. Si occupa quindi di tutte le operazioni relative alla business logic di questo tipo, tra cui anche l’implementazione di un sistema di sincronizzazione che permetta ad un client di mantenersi aggiornato con gli ultimi aggiornamenti della casella di posta visualizzata per quanto riguarda le email;
-- *MailboxLogic*: componente responsabile della gestione delle caselle di posta all'interno del sistema. Si occupa quindi di tutte le operazioni relative alla business logic di questo tipo, tra cui anche l’implementazione di un sistema di sincronizzazione che permetta ad un client di mantenersi aggiornato con gli ultimi aggiornamenti della casella di posta visualizzata per quanto riguarda le cartelle;
-- *EmailSubmissionLogic*: componente responsabile della gestione dell'invio di un'email per la consegna a uno o più destinatari all'interno del sistema. Si occupa quindi di tutte le operazioni relative alla business logic di questo tipo;
-- *ThreadLogic*: componente responsabile della gestione dei thread all'interno del sistema. Si occupa quindi di tutte le operazioni relative alla business logic di questo tipo;
-- *EchoLogic*: componente responsabile della gestione degli echo all'interno del sistema. Si occupa quindi di tutte le operazioni relative alla business logic di questo tipo;
+- *AuthenticationLogic*: componente responsabile della gestione dell'autenticazione all'interno del sistema. Si occupa quindi di tutte le operazioni relative alla business logic di questo tipo.
+  - _Proprietà_:
+    \ \- account: AccountPort - Un'istanza di AccountPort utilizzata per operare con gli account degli utenti all'interno del database.
+  - _Operazioni_:
+    \ \# ```java authenticate(username: String, password: String): boolean ```- Riceve in input un nome utente e una password e verifica se le credenziali fornite corrispondono a quelle memorizzate nel sistema utilizzando l'istanza di AccountPort.
+- *SessionLogic*: componente responsabile della gestione delle sessioni all'interno del sistema. Si occupa quindi di tutte le operazioni relative alla business logic di questo tipo.
+  - _Proprietà_:
+    \ \- account: AccountPort - Un'istanza di AccountPort utilizzata per operare con gli account degli utenti all'interno del database;
+    \ \- statePort: StatePort - Un'istanza di StatePort utilizzata per svolgere operazioni riguardanti lo stato dei client all'interno del database.
+  - _Operazioni_:
+    \ \# ```java get(username: String): SessionResource ```- Riceve in input un nome utente e crea una risorsa JMAP Session associata a quell'utente. La risorsa di sessione contiene informazioni quali URL dell'API, URL di upload e download, stato dell'account, elenco delle capacità supportate e altre informazioni relative alla sessione. Restituisce infine la risorsa di sessione creata.
+- *IdentityLogic*: componente responsabile della gestione delle identità all'interno del sistema. Si occupa quindi di tutte le operazioni relative alla business logic di questo tipo.
+  - _Proprietà_:
+    \ \- identityPort: IdentityPort - Un'istanza di IdentityPort utilizzata per l'accesso alle informazioni sulle identità, nonché per svolgere operazioni su quest'ultime all'interno del database;
+  - _Operazioni_:
+    \ \# ```java get(methodCall: GetIdentityMethodCall, previousResponses: ListMultimap\<String, Response.Invocation>): MethodResponse[] ```- Riceve in input una chiamata di metodo GetIdentityMethodCall e una mappa di risposte precedenti. Restituisce un array di MethodResponse che contiene le informazioni richieste sull'identità dell'utente. Quest'ultime includono l'id dell'account e altre informazioni aggiuntive che possono essere recuperate attraverso l'istanza di IdentityPort.
+- *EmailLogic*: componente responsabile della gestione delle email all'interno del sistema. Si occupa quindi di tutte le operazioni relative alla business logic di questo tipo, tra cui anche l’implementazione di un sistema di sincronizzazione che permetta ad un client di mantenersi aggiornato con gli ultimi aggiornamenti della casella di posta visualizzata per quanto riguarda le email.
+  - _Proprietà_:
+    \ \- mailboxPort: MailboxPort - Un'istanza di MailboxPort utilizzata per svolgere operazioni sulle caselle di posta all'interno del database;
+    \ \- emailPort: EmailPort - Un'istanza di EmailPort utilizzata per svolgere operazioni sulle email all'interno del database;
+    \ \- statePort: StatePort - Un'istanza di StatePort utilizzata per svolgere operazioni riguardanti lo stato dei client all'interno del database;
+    - mailboxUpdatePort: MailboxUpdatePort - Un'istanza di MailboxUpdatePort utilizzata per svolgere operazioni sui cambiamenti avvenuti alle caselle di posta all'interno del database.
+  - _Operazioni_:
+    \ \# ```java get(methodCall: GetEmailMethodCall, previousResponses: ListMultimap<String, Response.Invocation>): MethodResponse[] ```-  Riceve una richiesta GetEmailMethodCall e restituisce una lista di risposte di tipo MethodResponse. Recupera un insieme di email in base a una specifica richiesta GetEmailMethodCall, la quale contiene gli identificativi delle email da reperire. Riceve informazioni sulle chiamate precedenti per ragioni di efficienza, in modo che la risposta ad una richiesta precedente possa essere utilizzata in input per la richiesta corrente. Se vengono specificate proprietà specifiche da recuperare, vengono recuperate solo quelle proprietà per le email restituite;
+    \ \# ```java query(methodCall: QueryEmailMethodCall, previousResponses: ListMultimap<String, Response.Invocation>): MethodResponse[] ```- Riceve una richiesta QueryEmailMethodCall e restituisce una lista di risposte di tipo MethodResponse. Esegue una query sulle email corrispondenti ai criteri specificati nella richiesta. La query può essere filtrata in base a diversi criteri come la casella di posta, l'oggetto, i destinatari, e così via. Riceve informazioni sulle chiamate precedenti per ragioni di efficienza, in modo che la risposta ad una richiesta precedente possa essere utilizzata in input per la richiesta corrente;
+    \ \# ```java set(methodCall: SetEmailMethodCall, previousResponses: ListMultimap<String, Response.Invocation>): MethodResponse[] ```-  Riceve una richiesta SetEmailMethodCall e restituisce una lista di risposte di tipo MethodResponse. La richiesta può contenere un elenco di email da aggiornare, creare o eliminare. Utilizza l'EmailPort per eseguire le modifiche richieste, ad esempio aggiornando le proprietà delle email esistenti o creandone di nuove. Riceve un elenco di risposte di invocazione precedenti per ragioni di efficienza, in modo che la risposta ad una richiesta precedente possa essere utilizzata in input per la richiesta corrente, e restituisce una lista di risposte che indicano lo stato delle operazioni eseguite;
+    \ \# ```java changes(methodCall: ChangesEmailMethodCall, previousResponses: ListMultimap<String, Response.Invocation>): MethodResponse[] ```- Riceve una richiesta ChangesEmailMethodCall e restituisce una lista di risposte di tipo MethodResponse. Consente di ottenere i cambiamenti avvenuti nelle email da un certo punto temporale in poi, in base all'ultimo stato noto contenuto nella richiesta fornita;
+    \ \- ```java patchEmail(String, Map<String, Object>, ListMultimap<String, Response.Invocation>): Email ```- Riceve le modifiche da applicare sotto forma di una mappa di chiavi e valori, e restituisce l'email modificata;
+    \ \- ```java processCreateEmail(Map<String, Email>, SetEmailMethodResponse.SetEmailMethodResponseBuilder, ListMultimap<String, Response.Invocation>, String): void ```- Gestisce la creazione di nuove email. Prende in input una mappa di email da creare, le elabora e le inserisce nel database attraverso l'EmailPort associando le email all'account specificato. Se è presente un identificativo di creazione, viene utilizzato quest'ultimo per associare la risposta di creazione all'identificativo specificato;
+    \ \- ```java getAccumulatedUpdateSince(String, String): Update ```- Restituisce gli aggiornamenti accumulati per un account riguardanti le email a partire dalla versione specificata;
+    \ \- ```java injectId(Attachment): EmailBodyPart ```- Inietta un nuovo identificativo in un allegato email. Riceve un oggetto Attachment e restituisce un oggetto EmailBodyPart con un identificativo generato casualmente, utilizzato per identificare l'allegato;
+    \ \- ```java applyFilter(Filter<Email>, Stream<Email>): Stream<Email> ```- Applica un filtro agli oggetti Email all'interno dello stream fornito;
+    \ \- ```java distinctByKey(Function<? super T, ?>): Predicate<T> ```- Restituisce un predicato che filtra gli oggetti in base a una chiave estratta da ognuno di essi, garantendo che siano distinti in base alla chiave.
+- *MailboxLogic*: componente responsabile della gestione delle caselle di posta all'interno del sistema. Si occupa quindi di tutte le operazioni relative alla business logic di questo tipo, tra cui anche l’implementazione di un sistema di sincronizzazione che permetta ad un client di mantenersi aggiornato con gli ultimi aggiornamenti della casella di posta visualizzata per quanto riguarda le cartelle.
+  - _Proprietà_:
+    \ \- emailPort: EmailPort - Un'istanza di EmailPort utilizzata per svolgere operazioni sulle email all'interno del database;
+    \ \- mailboxPort: MailboxPort - Un'istanza di MailboxPort utilizzata per svolgere operazioni sulle caselle di posta all'interno del database;
+    \ \- statePort: StatePort - Un'istanza di StatePort utilizzata per svolgere operazioni riguardanti lo stato dei client all'interno del database;
+    \ \- mailboxUpdatePort: MailboxUpdatePort - Un'istanza di MailboxUpdatePort utilizzata per svolgere operazioni sui cambiamenti avvenuti alle cartelle all'interno del database.
+  - _Operazioni_:
+    \ \# ```java get(GetMailboxMethodCall, ListMultimap<String, Response.Invocation>): MethodResponse[] ```- Ottiene le informazioni delle caselle di posta specificate nella richiesta. Riceve una chiamata GetMailboxMethodCall, che specifica le caselle di posta di interesse, e restituisce una serie di risposte che includono le informazioni richieste e lo stato aggiornato;
+    \ \# ```java set(SetMailboxMethodCall, ListMultimap<String, Response.Invocation>): MethodResponse[] ```-  Gestisce le richieste di impostazione delle caselle di posta, inclusa la creazione e la modifica. Riceve una chiamata SetMailboxMethodCall, che contiene le informazioni sulla creazione o la modifica delle cartelle, e restituisce una serie di risposte che includono lo stato aggiornato delle caselle di posta in risposta alle richieste;
+    \ \# ```java changes(ChangesMailboxMethodCall, ListMultimap<String, Response.Invocation>): MethodResponse[] ```- Riceve una richiesta ChangesMailboxMethodCall e restituisce una lista di risposte di tipo MethodResponse. Consente di ottenere i cambiamenti avvenuti nelle cartelle da un certo punto temporale in poi, in base all'ultimo stato noto contenuto nella richiesta fornita;
+    \ \- ```java getAccumulatedUpdateSince(String, String): Update ```- Restituisce gli aggiornamenti accumulati per un account riguardanti le cartelle a partire dalla versione specificata;
+    \ \- ```java toMailbox(MailboxInfo, String): Mailbox ```- Converte un oggetto MailboxInfo nel formato richiesto per la risposta del metodo get, includendo le informazioni aggiuntive sul numero di email e thread nelle caselle di posta;
+    \ \- ```java processCreateMailbox(Map<String, Mailbox>, SetMailboxMethodResponse.SetMailboxMethodResponseBuilder, String): void ```- Gestisce la creazione di nuove caselle di posta, controllando se esistono caselle di posta con lo stesso nome e aggiornando di conseguenza la risposta;
+    \ \- ```java processUpdateMailbox(Map<String, Map<String, Object>>, SetMailboxMethodResponse.SetMailboxMethodResponseBuilder, ListMultimap<String, Response.Invocation>, String): void ```- Gestisce la modifica delle caselle di posta esistenti e aggiorna di conseguenza la risposta, controllando le modifiche e applicandole ai valori esistenti delle caselle di posta;
+    \ \- ```java patchMailbox(String, Map<String, Object>, ListMultimap<String, Response.Invocation>, String): MailboxInfo ```- Applica le modifiche specificate a una casella di posta esistente, come la modifica del ruolo della casella di posta, e restituisce le informazioni aggiornate della casella di posta.
+- *EmailSubmissionLogic*: componente responsabile della gestione dell'invio di un'email per la consegna a uno o più destinatari all'interno del sistema. Si occupa quindi di tutte le operazioni relative alla business logic di questo tipo.
+  - _Proprietà_:
+    //TODO
+  - _Operazioni_:
+    //TODO
+- *ThreadLogic*: componente responsabile della gestione dei thread all'interno del sistema. Si occupa quindi di tutte le operazioni relative alla business logic di questo tipo.
+  - _Proprietà_:
+    \ \- threadPort: ThreadPort - Un'istanza di ThreadPort utilizzata per svolgere operazioni sui thread all'interno del database;
+    \ \- threadUpdatePort: ThreadUpdatePort - Un'istanza di ThreadUpdatePort utilizzata per l'accesso alle informazioni sugli aggiornamenti dei thread e per svolgere operazioni su di essi all'interno del database;
+    \ \- statePort: StatePort - Un'istanza di StatePort utilizzata per svolgere operazioni riguardanti lo stato dei client all'interno del database;
+    \ \- emailPort: EmailPort - Un'istanza di EmailPort utilizzata per svolgere operazioni sulle email all'interno del database.
+  - _Operazioni_:
+    \ \# ```java changes(methodCall: ChangesThreadMethodCall, previousResponses: ListMultimap\<String, Response.Invocation>): MethodResponse[] ```- Riceve una richiesta ChangesThreadMethodCall e restituisce una lista di risposte di tipo MethodResponse. Consente di ottenere i cambiamenti avvenuti nei thread da un certo punto temporale in poi, in base all'ultimo stato noto contenuto nella richiesta fornita;
+    \ \# ```java get(methodCall: GetThreadMethodCall, previousResponses: ListMultimap\<String, Response.Invocation>): MethodResponse[] ```- Ottiene le informazioni sui thread delle email specificati nella richiesta. Riceve una chiamata GetThreadMethodCall, che specifica i thread di interesse, e restituisce una serie di risposte che includono le informazioni richieste e lo stato aggiornato;
+    \ \- ```java getAccumulatedUpdateSince(oldVersion: String, accountid: String): Update ```- Restituisce gli aggiornamenti accumulati per un account riguardanti i thread a partire dalla versione specificata.
+- *EchoLogic*: componente responsabile della gestione degli echo per testare la connettività all'interno del sistema. Si occupa quindi di tutte le operazioni relative alla business logic di questo tipo.
+  - _Operazioni_:
+    \ \# ```java echo(methodCall: EchoMethodCall, previousResponses: ListMultimap\<String, Response.Invocation>): MethodResponse[]```- Gestisce la logica di esecuzione della chiamata EchoMethodCall. Restituisce un array contenente la risposta di echo.
 - *AttachmentLogic*: componente responsabile della gestione degli allegati all'interno del sistema. Si occupa quindi di tutte le operazioni relative alla business logic di questo tipo.
+  - _Proprietà_:
+    \ \- attachmentPort: AttachmentPort - Un'istanza di AttachmentPort utilizzata per svolgere operazioni sugli allegati all'interno del database.
+  - _Operazioni_:
+    \ \# ```java upload(data: byte[]): Upload ```- Carica i dati dell'allegato forniti utilizzando la porta attachmentPort e restituisce un oggetto Upload contenente l'identificativo del blob caricato;
+    \ \# ```java download(id: String): byte[] ```- Scarica i dati dell'allegato con l'identificativo fornito utilizzando la porta attachmentPort e restituisce i dati come array di byte.
 
 #pagebreak()
 
@@ -667,26 +794,96 @@ Le componenti riportate nel frammento di diagramma soprastante sono quelle neces
 #figure(image("//imgs/Specifica_Tecnica/UML3.png", width: 55%), caption: [Modellazione delle componenti che gestiscono l'interfacciamento al database])
 
 Nell'ultima parte del diagramma delle classi si trovano le componenti dedicate alla gestione dell'interfacciamento con il database. Qui si incontrano, quindi, tutte le porte in uscita dall'esagono contenente la business logic e le classi concrete che svolgono operazioni specifiche su vari tipi di dati con il database. Nello specifico queste sono le seguenti:
-- *CredentialsPort*: porta in uscita che definisce una serie di metodi per operare con le credenziali degli utenti all'interno del database;
-- *StatePort*: porta in uscita che definisce una serie di metodi per svolgere operazioni riguardanti lo stato dei client all'interno del database;
-- *IdentityPort*: porta in uscita che definisce una serie di metodi per l'accesso alle informazioni sulle identità, nonché per svolgere operazioni su quest'ultime all'interno del database;
+- *AccountPort*: porta in uscita che definisce una serie di metodi per operare con gli account degli utenti all'interno del database. 
+  - _Operazioni_:
+      \ \# ```java getId(username: String): String ```- Prende in input un parametro che rappresenta lo username dell'account di cui si desidera ottenere l'identificativo. Restituisce una stringa che rappresenta l'identificativo associato all'account specificato. L'implementazione concreta è lasciata alle classi che implementano questa interfaccia;
+      \ \# ```java getPassword(id: String): String ```- Prende in input un parametro che rappresenta l'identificatore dell'account di cui si desidera ottenere la password. Restituisce una stringa che rappresenta la password corrente associata all'account specificato. L'implementazione concreta è lasciata alle classi che implementano questa interfaccia.
+- *StatePort*: porta in uscita che definisce una serie di metodi per svolgere operazioni riguardanti lo stato dei client all'interno del database.
+  - _Operazioni_:
+    \ \# ```java getState(accountid: String): String ```- Prende in input un parametro che rappresenta l'identificatore dell'account di cui si desidera ottenere lo stato. Restituisce una stringa che rappresenta lo stato corrente associato all'account specificato. L'implementazione concreta di questo metodo è lasciata alle classi che implementano questa interfaccia;
+    \ \# ```java incrementState(accountid: String): void ```- Prende in input un parametro che rappresenta l'identificatore dell'account di cui si desidera incrementare lo stato e lo aggiorna.  L'implementazione concreta di questo metodo è lasciata alle classi che implementano questa interfaccia.
+- *IdentityPort*: porta in uscita che definisce una serie di metodi per l'accesso alle informazioni sulle identità, nonché per svolgere operazioni su quest'ultime all'interno del database.
+  - _Operazioni_:
+    \ \# ```java getOf(accountid: String): Identity[] ```- Prende in input un parametro che rappresenta l'identificatore dell'account di cui si desidera ottenere le informazioni sulle identità associate. Restituisce un array di oggetti Identity che rappresentano le identità associate all'account specificato. L'implementazione concreta è lasciata alle classi che implementano questa interfaccia.
 - *EmailPort*: porta in uscita che definisce una serie di metodi per svolgere operazioni sulle email all'interno del database;
-- *EmailChangesPort*: porta in uscita che definisce una serie di metodi per svolgere operazioni sui cambiamenti avvenuti alle email all'interno del database;
-- *MailboxChangesPort*: porta in uscita che definisce una serie di metodi per svolgere operazioni sui cambiamenti avvenuti alle cartelle all'interno del database;
+  - _Operazioni_:
+    \ \# ```java get(id: String): Email ```- Prende in input un parametro che rappresenta l'identificativo univoco di un'email e restituisce l'oggetto Email corrispondente. L'implementazione concreta è lasciata alle classi che implementano questa interfaccia;
+    \ \# ```java getOf(accountid: String): Map<String, Email> ```- Prende in input un parametro che rappresenta l'identificatore dell'account di cui si desiderano ottenere le email associate e restituisce una mappa che associa gli identificatori univoci delle email ai rispettivi oggetti Email. L'implementazione concreta è lasciata alle classi che implementano questa interfaccia;
+    \ \# ```java insert(accountid: String, email: Email): void ```- Prende in input due parametri, l'identificatore dell'account e un oggetto Email da inserire, e aggiunge l'email associata all'account specificato nel database. L'implementazione concreta è lasciata alle classi che implementano questa interfaccia;
+    \ \# ```java delete(id: String): void ```- Prende in input un parametro che rappresenta l'identificativo univoco di un'email e elimina l'email corrispondente dal database. L'implementazione concreta è lasciata alle classi che implementano questa interfaccia.
+- *EmailUpdatePort*: porta in uscita che definisce una serie di metodi per svolgere operazioni sui cambiamenti avvenuti alle email all'interno del database;
+  - _Operazioni_:
+    \ \# ```java get(accountid: String, state: String): Update ```- Prende in input due parametri, l'identificatore dell'account e lo stato corrente delle email, e restituisce l'oggetto Update relativo alle modifiche apportate alle email associate all'account specificato. L'implementazione concreta è lasciata alle classi che implementano questa interfaccia;
+    \ \# ```java getOf(accountid: String): Map<String, Update> ```- Prende in input un parametro che rappresenta l'identificatore dell'account di cui si desiderano ottenere gli aggiornamenti delle email e restituisce una mappa che associa gli identificatori univoci delle email agli oggetti Update corrispondenti. L'implementazione concreta è lasciata alle classi che implementano questa interfaccia;
+    \ \# ```java insert(accountid: String, oldstate: String, update: Update): String ```- Prende in input tre parametri, l'identificatore dell'account, lo stato precedente delle email e un oggetto Update rappresentante le modifiche apportate alle email, e restituisce una stringa che rappresenta un identificativo univoco dell'operazione di aggiornamento delle email inserita nel database. L'implementazione concreta è lasciata alle classi che implementano questa interfaccia.
+- *MailboxUpdatePort*: porta in uscita che definisce una serie di metodi per svolgere operazioni sui cambiamenti avvenuti alle cartelle all'interno del database;
+  - _Operazioni_:
+    \ \#```java  get(accountid: String, state: String): Update ```- Prende in input due parametri, l'identificatore dell'account e lo stato corrente delle caselle di posta elettronica, e restituisce l'oggetto Update relativo alle modifiche apportate alle caselle di posta associate all'account specificato. L'implementazione concreta è lasciata alle classi che implementano questa interfaccia;
+    \ \# ```java getOf(accountid: String): Map<String, Update> ```- Prende in input un parametro che rappresenta l'identificatore dell'account di cui si desiderano ottenere gli aggiornamenti delle caselle di posta elettronica e restituisce una mappa che associa gli identificatori univoci delle caselle di posta agli oggetti Update corrispondenti. L'implementazione concreta è lasciata alle classi che implementano questa interfaccia;
+    \ \# ```java insert(accountid: String, oldstate: String, update: Update): String ```- Prende in input tre parametri, l'identificatore dell'account, lo stato precedente delle caselle di posta elettronica e un oggetto Update rappresentante le modifiche apportate alle caselle di posta, e restituisce una stringa che rappresenta un identificativo univoco dell'operazione di aggiornamento delle caselle di posta inserita nel database. L'implementazione concreta è lasciata alle classi che implementano questa interfaccia.
 - *MailboxPort*: porta in uscita che definisce una serie di metodi per svolgere operazioni sulle caselle di posta all'interno del database;
+  - _Operazioni_:
+    \ \# ```java get(id: String): MailboxInfo ```- Prende in input un parametro che rappresenta l'identificativo univoco di una casella di posta elettronica e restituisce l'oggetto MailboxInfo corrispondente. L'implementazione concreta è lasciata alle classi che implementano questa interfaccia;
+    \ \# ```java getOf(accountid: String): Map<String, MailboxInfo> ```- Prende in input un parametro che rappresenta l'identificatore dell'account di cui si desiderano ottenere le caselle di posta elettronica associate e restituisce una mappa che associa gli identificatori univoci delle caselle di posta ai rispettivi oggetti MailboxInfo. L'implementazione concreta è lasciata alle classi che implementano questa interfaccia;
+    \ \# ```java insert(accountid: String, mailbox: MailboxInfo): String ```- Prende in input due parametri, l'identificatore dell'account e un oggetto MailboxInfo da inserire, e restituisce una stringa che rappresenta l'identificativo univoco della casella di posta inserita nel database. L'implementazione concreta è lasciata alle classi che implementano questa interfaccia;
+    \ \# ```java delete(id: String): void ```- Prende in input un parametro che rappresenta l'identificativo univoco di una casella di posta elettronica e elimina la casella di posta corrispondente dal database. L'implementazione concreta è lasciata alle classi che implementano questa interfaccia.
 - *EmailSubmissionPort*: porta in uscita che definisce una serie di metodi per svolgere operazioni sull'invio di un'email per la consegna a uno o più destinatari all'interno del database;
+  - _Operazioni_:
+    \ \# ```java insert(accountid: String, submission: EmailSubmission): String ```- Prende in input due parametri, l'identificatore dell'account e un oggetto EmailSubmission da inserire, e restituisce una stringa che rappresenta l'identificativo univoco della sottomissione di email inserita nel database. L'implementazione concreta è lasciata alle classi che implementano questa interfaccia.
 - *ThreadPort*: porta in uscita che definisce una serie di metodi per svolgere operazioni sui thread all'interno del database;
+  - _Operazioni_:
+    \ \# ```java get(id: String): Thread ```- Prende in input un parametro che rappresenta l'identificativo univoco di un thread e restituisce l'oggetto Thread corrispondente. L'implementazione concreta è lasciata alle classi che implementano questa interfaccia;
+    \ \# ```java insert(account: String, id: Thread): String ```- Prende in input due parametri, l'identificatore dell'account e un oggetto Thread da inserire, e restituisce una stringa che rappresenta l'identificativo univoco del thread inserito nel database. L'implementazione concreta è lasciata alle classi che implementano questa interfaccia.
+- *ThreadUpdatePort*: porta in uscita che definisce una serie di metodi per l'accesso alle informazioni sugli aggiornamenti dei thread e per svolgere operazioni su di essi all'interno del database.
+  - _Operazioni_:
+    \ \# ```java get(accountid: String, state: String): Update ```- Prende in input due parametri, l'identificatore dell'account e lo stato corrente dei thread, e restituisce l'oggetto Update relativo alle modifiche apportate ai thread associati all'account specificato. L'implementazione concreta è lasciata alle classi che implementano questa interfaccia;
+    \ \# ```java getOf(accountid: String): Map<String, Update> ```- Prende in input un parametro che rappresenta l'identificatore dell'account di cui si desiderano ottenere gli aggiornamenti dei thread e restituisce una mappa che associa gli identificatori univoci dei thread agli oggetti Update corrispondenti. L'implementazione concreta è lasciata alle classi che implementano questa interfaccia;
+    \ \# ```java insert(accountid: String, oldstate: String, update: Update): String ```- Prende in input tre parametri, l'identificatore dell'account, lo stato precedente dei thread e un oggetto Update rappresentante le modifiche apportate ai thread, e restituisce una stringa che rappresenta un identificativo univoco dell'operazione di aggiornamento dei thread inserita nel database. L'implementazione concreta è lasciata alle classi che implementano questa interfaccia.
+- *UpdatePort*: porta in uscita che definisce una serie di metodi per gestire gli aggiornamenti nel sistema.
+  - _Operazioni_:
+    \ \# ```java get(id: String): Update ```- Prende in input un parametro che rappresenta l'identificativo univoco di un aggiornamento e restituisce l'oggetto Update corrispondente. L'implementazione concreta è lasciata alle classi che implementano questa interfaccia;
+    \ \# ```java getOf(accountid: String): Map<String, Update> ```- Prende in input un parametro che rappresenta l'identificatore dell'account di cui si desiderano ottenere gli aggiornamenti e restituisce una mappa che associa gli identificatori univoci degli aggiornamenti agli oggetti Update corrispondenti. L'implementazione concreta è lasciata alle classi che implementano questa interfaccia;
+    \ \# ```java insert(id: String, update: Update): String ```- Prende in input due parametri, l'identificativo univoco dell'aggiornamento e un oggetto Update da inserire, e restituisce una stringa che rappresenta l'identificativo univoco dell'aggiornamento inserito nel database. L'implementazione concreta è lasciata alle classi che implementano questa interfaccia;
+    \ \# ```java java delete(id: String): void ```- Prende in input un parametro che rappresenta l'identificativo univoco di un aggiornamento e lo elimina dal database. L'implementazione concreta è lasciata alle classi che implementano questa interfaccia.
 - *AttachmentPort*: porta in uscita che definisce una serie di metodi per svolgere operazioni sugli allegati all'interno del database;
-- *CredentialsRepository*: implementazione dell'interfaccia CredentialsPort che realizza i metodi necessari per operare con le credenziali degli utenti all'interno del database;
+  - _Operazioni_:
+    \ \# ```java get(id: String): byte[] ```- Prende in input un parametro che rappresenta l'identificativo univoco di un allegato e restituisce un array di byte che rappresenta i dati dell'allegato corrispondente. L'implementazione concreta è lasciata alle classi che implementano questa interfaccia;
+    \ \# ```java insert(data: byte[]): String ```- Prende in input un array di byte che rappresenta i dati di un allegato e inserisce l'allegato nel database. Restituisce una stringa che rappresenta l'identificativo univoco dell'allegato inserito. L'implementazione concreta è lasciata alle classi che implementano questa interfaccia;
+    \ \# ```java delete(id: String): boolean - ```Prende in input un parametro che rappresenta l'identificativo univoco di un allegato e elimina l'allegato corrispondente dal database. Restituisce true se l'operazione di eliminazione è avvenuta con successo, altrimenti restituisce false. L'implementazione concreta è lasciata alle classi che implementano questa interfaccia.
+- *AccountRepository*: implementazione dell'interfaccia AccountPort che realizza i metodi necessari per operare con gli account degli utenti all'interno del database;
+  - _Operazioni_:
+    \ \+ ```java getId(username: String): String``` Implementa il metodo getId dell'interfaccia AccountPort;
+    \ \+ ```java getPassword(id: String): String``` Implementa il metodo getPassword dell'interfaccia AccountPort.
 - *StateRepository*: implementazione dell'interfaccia StatePort che realizza i metodi necessari per svolgere operazioni riguardanti lo stato dei client all'interno del database;
+  - _Operazioni_:
+    \ \+ ```java getId(username: String): String``` Implementa il metodo getId dell'interfaccia AccountPort;
+    \ \+ ```java getPassword(id: String): String``` Implementa il metodo getPassword dell'interfaccia AccountPort.
 - *IdentityRepository*: implementazione dell'interfaccia IdentityPort che realizza i metodi necessari per l'accesso alle informazioni sulle identità, nonché per svolgere operazioni su quest'ultime all'interno del database;
+  - _Operazioni_:
+    \ \+ ```java getOf(accountid: String): Identity[]``` Implementa il metodo getOf dell'interfaccia IdentityPort;
 - *EmailRepository*: implementazione dell'interfaccia EmailPort che realizza i metodi necessari per svolgere operazioni sulle email all'interno del database;
+  - _Operazioni_:
+    \ \+ ```java get(id: String): Email``` Implementa il metodo get dell'interfaccia EmailPort;
+    \ \+ ```java getOf(accountid: String): Map<String, Email>``` Implementa il metodo getOf dell'interfaccia EmailPort;
+    \ \+ ```java insert(accountid: String, email: Email): void``` Implementa il metodo insert dell'interfaccia EmailPort;
+    \ \+ ```java delete(id: String): void``` Implementa il metodo delete dell'interfaccia EmailPort.
 - *EmailChangesRepository*: implementazione dell'interfaccia EmailChangesPort che realizza i metodi necessari per svolgere operazioni sui cambiamenti avvenuti alle email all'interno del database;
 - *MailboxChangesRepository*: implementazione dell'interfaccia MailboxChangesPort che realizza i metodi necessari per svolgere operazioni sui cambiamenti avvenuti alle cartelle all'interno del database;
 - *MailboxRepository*: implementazione dell'interfaccia MailboxPort che realizza i metodi necessari per svolgere operazioni sulle caselle di posta all'interno del database;
 - *EmailSubmissionRepository*: implementazione dell'interfaccia EmailSubmissionPort che realizza i metodi necessari per svolgere operazioni sull'invio di un'email per la consegna a uno o più destinatari all'interno del database;
+  - _Operazioni_:
+    \ \+ ```java insert(accountid: String, email: EmailSubmission): String``` Implementa il metodo insert dell'interfaccia EmailSubmissionPort. TO DO nel codice?
+- *EmailUpdateRepository*: implementazione dell'interfaccia EmailUpdatePort che realizza i metodi necessari per svolgere operazioni sui cambiamenti avvenuti alle email all'interno del database;
+  - _Operazioni_:
+    \ \+ ```java get(accountid: String, state: String): Update``` Implementa il metodo get dell'interfaccia EmailUpdatePort;
+    \ \+ ```java getOf(accountid: String): Map<String, Update>``` Implementa il metodo getOf dell'interfaccia EmailUpdatePort;
+    \ \+ ```java delete(accountid: String): void``` Implementa il metodo delete dell'interfaccia EmailUpdatePort. TO DO nel codice? è commentato
 - *ThreadRepository*: implementazione dell'interfaccia ThreadPort che realizza i metodi necessari per svolgere operazioni sui thread all'interno del database;
 - *AttachmentRepository*: implementazione dell'interfaccia AttachmentPort che realizza i metodi necessari per svolgere operazioni sugli allegati all'interno del database.
+  - _Operazioni_:
+    \ \+ ```java get(id: String): byte[]``` Implementa il metodo get dell'interfaccia AttachmentPort;
+    \ \+ ```java delete(id: String): boolean``` Implementa il metodo delete dell'interfaccia AttachmentPort;
+    \ \+ ```java insert(data: byte[]): String``` Implementa il metodo delete dell'interfaccia AttachmentPort.
 
 #pagebreak()
 
@@ -704,6 +901,77 @@ RethinkDB è stata la nostra scelta principale per molteplici motivi che rispecc
 RethinkDB offre, inoltre, un potente sistema di query che semplifica l'accesso e la manipolazione dei dati, inclusi strumenti come subqueries e changefeed.
 - *Subqueries*: sono query annidate all'interno di altre query e consentono agli sviluppatori di scrivere query più complesse e efficienti per soddisfare le esigenze specifiche delle loro applicazioni;
 - *Changefeeds*: permettono agli sviluppatori di tracciare le modifiche nei dati e di ricevere notifiche istantanee quando avvengono cambiamenti nel database, facilitando lo sviluppo di applicazioni reattive.
+
+=== Utilizzo di RethinkDb nel nostro progetto
+In questa sezione andremo ad analizzare (come abbiamo fatto con tutte le tecnologie viste fino ad ora) un caso di utilizzo vero e proprio di RethinkDB nel nostro progetto. Come prima cosa, andremo a vedere la procedura necessaria per creare la connessione al database, quindi il collegamento tra il nostro server e il database. In secondo luogo andremo ad approfondire una classe Java all'interno del nostro progetto per mostrare le procedure di base per inserire o prelevare dati dal nostro db.
+
+==== Creazione di una connessione, quindi collegamento al database
+Per effettuare una connessione con il Database, vista la nostra architettura, abbiamo creato una classe apposita: `RethinkDBConnection.java`.
+
+```java
+
+public class RethinkDBConnection {
+  private Connection conn;
+
+  public RethinkDBConnection(String host, Integer port, String db) {
+    this.conn = RethinkDB.r.connection().hostname(host).port(port).connect().use(db);
+  }
+
+  @Provides
+  public Connection provideConnection() {
+    return conn;
+  }
+}
+
+```
+
+Questa classe viene istanziata nel metodo main, dove le vengono fornite tutte le informazioni per poter effettuare il collegamento al Database.
+
+```java
+
+new RethinkDBConnection(
+    System.getenv("RETHINKDB_HOST"),
+    Integer.parseInt(System.getenv("RETHINKDB_PORT")),
+    System.getenv("RETHINKDB_DB")
+);
+
+```
+
+==== Operazioni sui dati del database
+Eseguiti questi step preliminari, possiamo mostrare un utilizzo vero e proprio del database nella classe: `EmailRepository`. Qui troviamo il metodo `get` che data una stringa id, trova nel database l'oggetto Email serializzato sottoforma di json con quel determinato id e lo resistituisce al metodo che successivamente farà un cast per trasformarlo in un oggetto Email.
+
+Di seguito il metodo in questione.
+
+```java
+
+public class EmailRepository implements EmailPort {
+  private final RethinkDB r = RethinkDB.r;
+  // private final TypeReference<Map<String, Object>> stringObjectMap = Types.mapOf(String.class, Object.class);
+  private Connection conn;
+  private Gson gson;
+
+  @Inject
+  EmailRepository(Connection conn, Gson gson) {
+    this.conn = conn;
+    this.gson = gson;
+  }
+
+  @Override
+  public Email get(String id) {
+    String res = r.table("email")
+                   .get(id)
+                   .toJson()
+                   .run(conn)
+                   .single()
+                   .toString();
+    return gson.fromJson(res, Email.class);
+  }
+
+
+```
+
+
+
 
 === Utilizzo di MinIO
 MinIO è un sistema open-source di archiviazione di oggetti ideale per archiviare grandi quanittà di dati non strutturati (anche immagini, video e grandi backup sono inclusi). È compatibile con lo standard S3 (Simple Storage Service) di Amazon Web Services (AWS) ed è progettato per fornire una soluzione di storage di oggetti ad alte prestazioni. Gli oggetti in MinIO sono archiviati in modo distribuito su nodi multipli, consentendo una rapida accessibilità e un'alta disponibilità, questo fa si che le performance di MinIO consentano di supportare un carico di lavoro che i tradizionali sistemi di archiviazione di oggetti non possono supportare.\
@@ -791,105 +1059,112 @@ Inoltre l'uso di MinIO per la gestione degli allegati delle email non solo ci pe
 #pagebreak()
 
 = Stato dei requisiti funzionali
+Vengono di seguito riportati i requisiti funzionali individuati durante la fase di analisi. Per ognuno di essi vengono forniti:
+- *Codice*: identificativo;
+- *Tipo*: priorità;
+- *Descrizione*;
+- *Stato*: soddisfatto/non soddisfatto;
+- *Riferimento*: classe del prodotto in cui il requisito è stato realizzato.
+Per maggiori dettagli su Codice e Tipo si rimanda alla sezione `Requisiti` del documento `Analisi dei Requisiti v2.0.0`.
 #figure(
   requisitiSoddisfatti(
   (
-    "R-001-F-2", "Desiderabile", "L’utente che utilizza un client di posta elettronica per interagire con il server deve autenticarsi all’interno del sistema.", "Non soddisfatto",
-    "R-002-F-2", "Desiderabile", "È necessario che il client fornisca all’interno della richiesta l’indirizzo email personale dell’utente per procedere con l’autenticazione.", "Non soddisfatto",
-    "R-003-F-2", "Desiderabile", "È necessario che il client fornisca all’interno della richiesta la password associata all’indirizzo email personale dell’utente per procedere con l’autenticazione.", "Non soddisfatto",
-    "R-004-F-2", "Desiderabile", "Se la fase di autenticazione è fallita allora è necessario che il client riceva dal server una risposta con eventuali dettagli che ne indicano il motivo.", "Non soddisfatto",
-    "R-005-F-1", "Obbligatorio", "Il client deve essere in grado di reperire la risorsa JMAP Session, contenente informazioni sulle capacità del server, dettagli sull’account dell’utente e le URL per le richieste API future, in modo da poter interagire con dati e servizi offerti dal server.", "Non soddisfatto",
-    "R-006-F-1", "Obbligatorio", "È necessario che il client riceva in risposta l'errore \"unkownCapability\" in caso di esecuzione di una richiesta con proprietà \"using\" non supportata dal server.", "Non soddisfatto",
-    "R-007-F-1", "Obbligatorio", "È necessario che il client riceva in risposta l'errore \"notJSON\" se il contenuto di una richiesta inviata al server non era application/json o se la richiesta non è stata interpretata dal server come I-JSON.", "Non soddisfatto",
-    "R-008-F-1", "Obbligatorio", "È necessario che il client riceva in risposta l'errore \"notRequest\" se una richiesta JSON non ha corrisposto alla firma di tipo dell'oggetto di richiesta (Request).", "Non soddisfatto",
-    "R-009-F-1", "Obbligatorio", "È necessario che il client riceva in risposta l'errore \"limit\" in caso di inserimento di una richiesta che supera uno dei limiti definiti sull'oggetto di capacità, come maxSizeRequest, maxCallsInRequest o maxCurrentRequests.", "Non soddisfatto",
-    "R-010-F-1", "Obbligatorio", "È necessario che il client riceva in risposta l'errore \"serverUnavailable\" in caso di inserimento di una richiesta che necessita di alcune risorse interne del server momentaneamente non disponibili.", "Non soddisfatto",
-    "R-011-F-1", "Obbligatorio", "È necessario che il client riceva in risposta l'errore \"serverFail\" in caso si verifichi un errore inaspettato o sconosciuto durante l'elaborazione di una sua richiesta dal server.", "Non soddisfatto",
-    "R-012-F-1", "Obbligatorio", "È necessario che il client riceva in risposta l'errore \"serverPartialFail\" e proceda risincronizzando i dati in caso si verifichi un errore inaspettato o sconosciuto durante l'elaborazione di una sua richiesta dal server.", "Non soddisfatto",
-    "R-013-F-1", "Obbligatorio", "È necessario che il client riceva in risposta l'errore \"unknownMethod\" in caso di inserimento di una richiesta contenente un metodo non riconosciuto dal server.", "Non soddisfatto",
-    "R-014-F-1", "Obbligatorio", "È necessario che il client riceva in risposta l'errore \"invalidArguments\" se uno degli argomenti di un metodo fornito all'interno di una richiesta al server è di tipo errato, non valido o, nel caso in cui sia obbligatorio, è assente.", "Non soddisfatto",
-    "R-015-F-1", "Obbligatorio", "È necessario che il client riceva in risposta l'errore \"invalidResultReference\" se uno degli argomenti di un metodo fornito all'interno di una richiesta al server ha utilizzato un riferimento di risultato che non è stato possibile risolvere da parte del server.", "Non soddisfatto",
-    "R-016-F-1", "Obbligatorio", "È necessario che il client riceva in risposta l'errore \"forbidden\" in caso utilizzi, all'interno di una richiesta al server, un metodo la cui esecuzione violerebbe una Access Control List (ACL) o un’altra policy di autorizzazione.", "Non soddisfatto",
-    "R-017-F-1", "Obbligatorio", "È necessario che il client riceva in risposta l'errore \"accountNotFound\" se l’\"accountID\" fornito all'interno di una richiesta al server non corrisponde a un account valido.", "Non soddisfatto",
-    "R-018-F-1", "Obbligatorio", "È necessario che il client riceva in risposta l'errore \"accountNotSupportedByMethod\" se all'interno di una richiesta al server è presente un metodo o tipo di dato non supportato dall’\"accountID\" fornito.", "Non soddisfatto",
-    "R-019-F-1", "Obbligatorio", "È necessario che il client riceva in risposta l'errore \"accountReadOnly\" se all'interno di una richiesta al server è presente un metodo che tenta di modificare lo stato nonostante l’account sia in sola lettura.", "Non soddisfatto",
-    "R-020-F-1", "Obbligatorio", "È necessario che il client riceva in risposta l'errore \"cannotCalculateChanges\" se, in seguito all'inserimento di una richiesta, il server non possa calcolare le modifiche dello stato dalla stringa di stato fornita dal client.", "Non soddisfatto",
-    "R-021-F-1", "Obbligatorio", "È necessario che il client riceva in risposta l'errore \"overQuota\" se una richiesta inserita nel server richiede la creazione di oggetti che per dimensione o quantità superano il limite imposto dal server.", "Non soddisfatto",
-    "R-022-F-1", "Obbligatorio", "È necessario che il client riceva in risposta l'errore \"notFound\" se una richiesta inserita nel server fornisce degli ID che non possono essere trovati.", "Non soddisfatto",
-    "R-023-F-1", "Obbligatorio", "È necessario che il client riceva in risposta l'errore \"willDestroy\" se ha richiesto che un oggetto fosse sia aggiornato che distrutto all'interno della stessa richiesta al server.", "Non soddisfatto",
-    "R-024-F-1", "Obbligatorio", "È necessario che il client riceva in risposta l'errore \"tooLarge\" se una richiesta inserita nel server richiede la creazione di un oggetto che supera il limite definito dal server per la dimensione massima per un oggetto di quel tipo.", "Non soddisfatto",
-    "R-025-F-1", "Obbligatorio", "È necessario che il client riceva in risposta l'errore \"rateLimit\" se una richiesta inserita nel server comporta la creazione di un oggetto per cui sono stati creati troppi oggetti quel tipo di recente, raggiungendo un limite di frequenza definito dal server.", "Non soddisfatto",
-    "R-026-F-1", "Obbligatorio", "È necessario che il client riceva in risposta l'errore \"invalidPatch\" se una richiesta inserita nel server fornisce un PatchObject non valido per modificare il record.", "Non soddisfatto",
-    "R-027-F-1", "Obbligatorio", "È necessario che il client riceva in risposta l'errore \"invalidProperties\" se una richiesta inserita nel server fornisce un record non valido.", "Non soddisfatto",
-    "R-028-F-1", "Obbligatorio", "È necessario che il client riceva in risposta l'errore \"singleton\" se una richiesta inserita nel server tentasse di agire erroneamente su un tipo singleton.", "Non soddisfatto",
-    "R-029-F-1", "Obbligatorio", "È necessario che il client riceva in risposta l'errore \"requestTooLarge\" se una richiesta inserita nel server contiene un numero di azioni che supera il massimo che il server è disposto a elaborare in una singola chiamata di metodo interna alla richiesta.", "Non soddisfatto",
-    "R-030-F-1", "Obbligatorio", "È necessario che il client riceva in risposta l'errore \"stateMismatch\" se una richiesta inserita nel server contiene un argomento ifInState e questo non corrisponde allo stato attuale.", "Non soddisfatto",
-    "R-031-F-1", "Obbligatorio", "È necessario che il client riceva in risposta l'errore \"blobNotFound\" se una richiesta inserita nel server contiene almeno un ID blob fornito per una parte del corpo dell'email che non esiste.", "Non soddisfatto",
-    "R-032-F-1", "Obbligatorio", "È necessario che il client riceva in risposta l'errore \"tooManyKeywords\" se una richiesta inserita nel server modifica un numero di parole chiave dell'email superiore al limite massimo definito dal server.", "Non soddisfatto",
-    "R-033-F-1", "Obbligatorio", "È necessario che il client riceva in risposta l'errore \"tooManyMailboxes\" se una richiesta inserita nel server modifica un numero di cartelle a cui appartiene l'email superiore al limite massimo definito dal server.", "Non soddisfatto",
-    "R-034-F-1", "Obbligatorio", "È necessario che il client riceva in risposta l'errore \"alreadyExists\" se una richiesta inserita in un server che vieta i duplicati contiene un record già esistente nell'account di destinazione.", "Non soddisfatto",
-    "R-035-F-1", "Obbligatorio", "È necessario che il client riceva in risposta l'errore \"fromAccountNotFound\" se una richiesta inserita nel server contiene un fromAccountId che non corrisponde a nessun account valido.", "Non soddisfatto",
-    "R-036-F-1", "Obbligatorio", "È necessario che il client riceva in risposta l'errore \"fromAccountNotSupportedByMethod\" se una richiesta inserita nel server contiene un fromAccountId che non supporta un tipo di dato utilizzato.", "Non soddisfatto",
-    "R-037-F-1", "Obbligatorio", "È necessario che il client riceva in risposta l'errore \"anchorNotFound\" se una richiesta inserita nel server contiene un argomento di ancoraggio che non è stato trovato nei risultati della query.", "Non soddisfatto",
-    "R-038-F-1", "Obbligatorio", "È necessario che il client riceva in risposta l'errore \"unsupportedSort\" se una richiesta inserita nel server presenta una clausola di ordinamento non supportata o un metodo di collezione non riconosciuto dal server.", "Non soddisfatto",
-    "R-039-F-1", "Obbligatorio", "È necessario che il client riceva in risposta l'errore \"unsupportedFilter\" se una richiesta inserita nel server contiene un filtro che il server non è grado di elaborare.", "Non soddisfatto",
-    "R-040-F-1", "Obbligatorio", "È necessario che il client riceva in risposta l'errore \"tooManyChanges\" se una richiesta inserita nel server contiene un numero di modifiche superiore all'argomento maxChanges inserito del client.", "Non soddisfatto",
-    "R-041-F-1", "Obbligatorio", "È necessario che il client riceva in risposta l'errore \"mailboxHasChild\" se una richiesta inserita nel server desidera rimuovere una cartella(Mailbox) che ha ancora almeno una cartella figlia.", "Non soddisfatto",
-    "R-042-F-1", "Obbligatorio", "È necessario che il client riceva in risposta l'errore \"mailboxHasEmail\" se una richiesta inserita nel server, con l'argomento onDestroyRemoveEmails impostato su false, desidera rimuovere una cartella(Mailbox) che ha al suo interno almeno una email.", "Non soddisfatto",
-    "R-043-F-1", "Obbligatorio", "È necessario che il client riceva in risposta l'errore \"invalidEmail\" se una richiesta inserita nel server contiene un'email da inviare non valida.", "Non soddisfatto",
-    "R-044-F-1", "Obbligatorio", "È necessario che il client riceva in risposta l'errore \"tooManyRecipients\" se una richiesta inserita nel server contiene un envelope (insieme di destinatari) che ha più destinatari di quanti il server consenta.", "Non soddisfatto",
-    "R-045-F-1", "Obbligatorio", "È necessario che il client riceva in risposta l'errore \"noRecipients\" se una richiesta inserita nel server contiene un envelope (insieme di destinatari) che non presenta alcun destinatario.", "Non soddisfatto",
-    "R-046-F-1", "Obbligatorio", "È necessario che il client riceva in risposta l'errore \"invalidRecipients\" se una richiesta inserita nel server contiene un envelope (insieme di destinatari) con almeno un indirizzo email destinatario non valido.", "Non soddisfatto",
-    "R-047-F-1", "Obbligatorio", "È necessario che il client riceva in risposta l'errore \"forbiddenMailFrom\" se una richiesta è inserita in un server che non consente all'utente di inviare un messaggio con quel indirizzo mittente nell'envelope (From address).", "Non soddisfatto",
-    "R-048-F-1", "Obbligatorio", "È necessario che il client riceva in risposta l'errore \"forbiddenFrom\" se una richiesta è inserita in un server che non consente all'utente di inviare un messaggio con il campo di intestazione From del messaggio da inviare.", "Non soddisfatto",
-    "R-049-F-1", "Obbligatorio", "È necessario che il client riceva in risposta l'errore \"forbiddenToSend\" se una richiesta è inserita in un server che non consente all'utente di inviare un messaggio in quel momento.", "Non soddisfatto",
-    "R-050-F-1", "Obbligatorio", "L'utente che utilizza un client di posta elettronica per interagire con il server deve avere la possibilità di inviare email.", "Non soddisfatto",
-    "R-051-F-1", "Obbligatorio", "È necessario che il client inserisca all'interno della richiesta l'identificazione delle capacità necessarie all'invio di una email.", "Non soddisfatto",
-    "R-052-F-1", "Obbligatorio", "È necessario che il client inserisca all'interno della richiesta le chiamate di metodo necessarie all'invio di una email, con relativi parametri (sia quelli comuni, come l'identificativo dell'account da utilizzare, sia quelli specifici del caso) e un identificatore univoco associato.", "Non soddisfatto",
-    "R-053-F-1", "Obbligatorio", "È necessario che il client inserisca all'interno della richiesta le proprietà dell'oggetto Email da creare (cartelle in cui è contenuta, mittente, destinatari, oggetto, corpo del messaggio ed altri dettagli definiti dall'RFC5322).", "Non soddisfatto",
-    "R-054-F-1", "Obbligatorio", "È necessario che il client inserisca all'interno della richiesta le proprietà dell'oggetto EmailSubmission da creare (l'identificativo dell'email creata in precedenza ed ora da inviare, le informazioni necessarie per l'invio ed altri dettagli).", "Non soddisfatto",
-    "R-055-F-1", "Obbligatorio", "È possibile che il client inserisca all'interno della richiesta eventuali azioni da compiere in seguito al corretto invio dell'email.", "Non soddisfatto",
-    "R-056-F-1", "Obbligatorio", "È necessario che il client riceva una risposta che contiene l'esito dell'operazione di invio dell'email con relativi parametri (come il nuovo stato, gli oggetti creati ed eventuali errori).", "Non soddisfatto",
-    "R-057-F-1", "Obbligatorio", "L'utente che utilizza un client di posta elettronica per interagire con il server deve avere la possibilità di ricevere email e visualizzarne il dettaglio.", "Non soddisfatto",
-    "R-058-F-1", "Obbligatorio", "È necessario che il client inserisca all'interno della richiesta l'identificazione delle capacità necessarie alla ricezione di una email.", "Non soddisfatto",
-    "R-059-F-1", "Obbligatorio", "È necessario che il client inserisca all'interno della richiesta le chiamate di metodo necessarie alla ricezione di una email, con relativi parametri (sia quelli comuni, come l'identificativo dell'account da utilizzare, sia quelli specifici del caso) e un identificatore univoco associato.", "Non soddisfatto",
-    "R-060-F-1", "Obbligatorio", "È necessario che il client inserisca all'interno della richiesta l'identificativo delle email da ricevere", "Non soddisfatto",
-    "R-061-F-1", "Obbligatorio", "È possibile che il client inserisca all'interno della richiesta le proprietà specifiche delle email che è interessato a ricevere", "Non soddisfatto",
-    "R-062-F-1", "Obbligatorio", "È necessario che il client riceva una risposta che contiene l'esito dell'operazione di ricezione dell'email con relativi parametri (come lo stato corrente dei dati di tipo Email sul server, la lista delle email richieste ed eventuali errori)", "Non soddisfatto",
-    "R-063-F-1", "Obbligatorio", "L'utente che utilizza un client di posta elettronica per interagire con il server deve avere la possibilità di eliminare email.", "Non soddisfatto",
-    "R-064-F-1", "Obbligatorio", "È necessario che il client inserisca all'interno della richiesta l'identificazione delle capacità necessarie all'eliminazione di una email.", "Non soddisfatto",
-    "R-065-F-1", "Obbligatorio", "È necessario che il client inserisca all'interno della richiesta le chiamate di metodo necessarie all'eliminazione di una email, con relativi parametri (sia quelli comuni, come l'identificativo dell'account da utilizzare, sia quelli specifici del caso) e un identificatore univoco associato.", "Non soddisfatto",
-    "R-066-F-1", "Obbligatorio", "È necessario che il client inserisca all'interno della richiesta la lista degli identificativi delle email da eliminare.", "Non soddisfatto",
-    "R-067-F-1", "Obbligatorio", "È necessario che il client riceva una risposta che contiene l'esito dell'operazione di eliminazione delle email con relativi parametri (come il nuovo stato, gli identificativi degli oggetti eliminati ed eventuali errori)", "Non soddisfatto",
-    "R-068-F-1", "Obbligatorio", "L'utente che utilizza un client di posta elettronica per interagire con il server deve avere la possibilità di ricevere cartelle e visualizzarne il dettaglio.", "Non soddisfatto",
-    "R-069-F-1", "Obbligatorio", "È necessario che il client inserisca all'interno della richiesta l'identificazione delle capacità necessarie alla ricezione di una cartella.", "Non soddisfatto",
-    "R-070-F-1", "Obbligatorio", "È necessario che il client inserisca all'interno della richiesta le chiamate di metodo necessarie alla ricezione di una cartella, con relativi parametri (sia quelli comuni, come l'identificativo dell'account da utilizzare, sia quelli specifici del caso) e un identificatore univoco associato.", "Non soddisfatto",
-    "R-071-F-1", "Obbligatorio", "È necessario che il client inserisca all'interno della richiesta l'identificativo delle cartelle da ricevere", "Non soddisfatto",
-    "R-072-F-1", "Obbligatorio", "È possibile che il client inserisca all'interno della richiesta le proprietà specifiche delle cartelle che è interessato a ricevere", "Non soddisfatto",
-    "R-073-F-1", "Obbligatorio", "È necessario che il client riceva una risposta che contiene l'esito dell'operazione di ricezione della cartella con relativi parametri (come lo stato corrente dei dati di tipo Mailbox sul server, la lista delle cartelle richieste ed eventuali errori)", "Non soddisfatto",
-    "R-074-F-1", "Obbligatorio", "L'utente che utilizza un client di posta elettronica per interagire con il server deve avere la possibilità di creare cartelle.", "Non soddisfatto",
-    "R-075-F-1", "Obbligatorio", "È necessario che il client inserisca all'interno della richiesta l'identificazione delle capacità necessarie alla creazione di una cartella.", "Non soddisfatto",
-    "R-076-F-1", "Obbligatorio", "È necessario che il client inserisca all'interno della richiesta le chiamate di metodo necessarie alla creazione di una cartella, con relativi parametri (sia quelli comuni, come l'identificativo dell'account da utilizzare, sia quelli specifici del caso) e un identificatore univoco associato.", "Non soddisfatto",
-    "R-077-F-1", "Obbligatorio", "È necessario che il client inserisca all'interno della richiesta le proprietà dell'oggetto Mailbox da creare (nome, eventuale genitore, ruolo ed altri dettagli).", "Non soddisfatto",
-    "R-078-F-1", "Obbligatorio", "È necessario che il client riceva una risposta che contiene l'esito dell'operazione di creazione della cartella con relativi parametri (come lo stato corrente del server, la lista delle cartelle create ed eventuali errori)", "Non soddisfatto",
-    "R-079-F-1", "Obbligatorio", "L'utente che utilizza un client di posta elettronica per interagire con il server deve avere la possibilità di modificare cartelle esistenti.", "Non soddisfatto",
-    "R-080-F-1", "Obbligatorio", "È necessario che il client inserisca all'interno della richiesta l'identificazione delle capacità necessarie alla modifica di una cartella.", "Non soddisfatto",
-    "R-081-F-1", "Obbligatorio", "È necessario che il client inserisca all'interno della richiesta le chiamate di metodo necessarie alla modifica di una cartella, con relativi parametri (sia quelli comuni, come l'identificativo dell'account da utilizzare, sia quelli specifici del caso) e un identificatore univoco associato.", "Non soddisfatto",
-    "R-082-F-1", "Obbligatorio", "È necessario che il client inserisca all'interno della richiesta le modifiche da apportare all'oggetto Mailbox che l'utente desidera modificare.", "Non soddisfatto",
-    "R-083-F-1", "Obbligatorio", "È necessario che il client riceva una risposta che contiene l'esito dell'operazione di modifica della cartella con relativi parametri (come lo stato corrente del server, la lista delle cartelle modificate ed eventuali errori)", "Non soddisfatto",
-    "R-084-F-1", "Obbligatorio", "L'utente che utilizza un client di posta elettronica per interagire con il server deve avere la possibilità di eliminare cartelle esistenti.", "Non soddisfatto",
-    "R-085-F-1", "Obbligatorio", "È necessario che il client inserisca all'interno della richiesta l'identificazione delle capacità necessarie alla eliminazione di una cartella.", "Non soddisfatto",
-    "R-086-F-1", "Obbligatorio", "È necessario che il client inserisca all'interno della richiesta le chiamate di metodo necessarie alla eliminazione di una cartella, con relativi parametri (sia quelli comuni, come l'identificativo dell'account da utilizzare, sia quelli specifici del caso) e un identificatore univoco associato.", "Non soddisfatto",
-    "R-087-F-1", "Obbligatorio", "È necessario che il client inserisca all'interno della richiesta la lista degli identificativi delle cartelle da eliminare.", "Non soddisfatto",
-    "R-088-F-1", "Obbligatorio", "È necessario che il client specifichi all'interno della richiesta il comportamento desiderato da parte del server quando si cerca di eliminare una cartella che contiene ancora delle email.", "Non soddisfatto",
-    "R-089-F-1", "Obbligatorio", "È necessario che il client riceva una risposta che contiene l'esito dell'operazione di eliminazione della cartella con relativi parametri (come lo stato corrente del server, la lista degli identificativi delle cartelle eliminate ed eventuali errori)", "Non soddisfatto",
-    "R-090-F-1", "Obbligatorio", "L'utente che utilizza un client di posta elettronica per interagire con il server deve avere la possibilità di gestire i contenuti di una cartella.", "Non soddisfatto",
-    "R-091-F-1", "Obbligatorio", "È necessario che il client inserisca all'interno della richiesta l'identificazione delle capacità necessarie alla gestione dei contenuti di una cartella.", "Non soddisfatto",
-    "R-092-F-1", "Obbligatorio", "È necessario che il client inserisca all'interno della richiesta le chiamate di metodo necessarie alla gestione dei contenuti di una cartella, con relativi parametri (sia quelli comuni, come l'identificativo dell'account da utilizzare, sia quelli specifici del caso) e un identificatore univoco associato.", "Non soddisfatto",
-    "R-093-F-1", "Obbligatorio", "È necessario che il client inserisca all'interno della richiesta le modifiche da apportare agli oggetti Email che l'utente desidera aggiungere ad una o più cartelle.", "Non soddisfatto",
-    "R-094-F-1", "Obbligatorio", "È necessario che il client inserisca all'interno della richiesta le modifiche da apportare agli oggetti Email che l'utente desidera rimuovere da una o più cartelle.", "Non soddisfatto",
-    "R-095-F-1", "Obbligatorio", "È necessario che il client inserisca all'interno della richiesta le modifiche da apportare agli oggetti Email che l'utente desidera spostare da una o più cartelle ad una o più cartelle.", "Non soddisfatto",
-    "R-096-F-1", "Obbligatorio", "È necessario che il client riceva una risposta che contiene l'esito delle operazioni di gestione dei contenuti di una cartella con relativi parametri (come lo stato corrente del server, la lista delle email modificate ed eventuali errori)", "Non soddisfatto",
+    "R-001-F-2", "Desiderabile", "L’utente che utilizza un client di posta elettronica per interagire con il server deve autenticarsi all’interno del sistema.", "Soddisfatto",
+    "R-002-F-2", "Desiderabile", "È necessario che il client fornisca all’interno della richiesta l’indirizzo email personale dell’utente per procedere con l’autenticazione.", "Soddisfatto",
+    "R-003-F-2", "Desiderabile", "È necessario che il client fornisca all’interno della richiesta la password associata all’indirizzo email personale dell’utente per procedere con l’autenticazione.", "Soddisfatto",
+    "R-004-F-2", "Desiderabile", "Se la fase di autenticazione è fallita allora è necessario che il client riceva dal server una risposta con eventuali dettagli che ne indicano il motivo.", "Soddisfatto",
+    "R-005-F-1", "Obbligatorio", "Il client deve essere in grado di reperire la risorsa JMAP Session, contenente informazioni sulle capacità del server, dettagli sull’account dell’utente e le URL per le richieste API future, in modo da poter interagire con dati e servizi offerti dal server.", "Soddisfatto",
+    "R-006-F-1", "Obbligatorio", "È necessario che il client riceva in risposta l'errore \"unkownCapability\" in caso di esecuzione di una richiesta con proprietà \"using\" non supportata dal server.", "Soddisfatto",
+    "R-007-F-1", "Obbligatorio", "È necessario che il client riceva in risposta l'errore \"notJSON\" se il contenuto di una richiesta inviata al server non era application/json o se la richiesta non è stata interpretata dal server come I-JSON.", "Soddisfatto",
+    "R-008-F-1", "Obbligatorio", "È necessario che il client riceva in risposta l'errore \"notRequest\" se una richiesta JSON non ha corrisposto alla firma di tipo dell'oggetto di richiesta (Request).", "Soddisfatto",
+    "R-009-F-1", "Obbligatorio", "È necessario che il client riceva in risposta l'errore \"limit\" in caso di inserimento di una richiesta che supera uno dei limiti definiti sull'oggetto di capacità, come maxSizeRequest, maxCallsInRequest o maxCurrentRequests.", "Soddisfatto",
+    "R-010-F-1", "Obbligatorio", "È necessario che il client riceva in risposta l'errore \"serverUnavailable\" in caso di inserimento di una richiesta che necessita di alcune risorse interne del server momentaneamente non disponibili.", "Soddisfatto",
+    "R-011-F-1", "Obbligatorio", "È necessario che il client riceva in risposta l'errore \"serverFail\" in caso si verifichi un errore inaspettato o sconosciuto durante l'elaborazione di una sua richiesta dal server.", "Soddisfatto",
+    "R-012-F-1", "Obbligatorio", "È necessario che il client riceva in risposta l'errore \"serverPartialFail\" e proceda risincronizzando i dati in caso si verifichi un errore inaspettato o sconosciuto durante l'elaborazione di una sua richiesta dal server.", "Soddisfatto",
+    "R-013-F-1", "Obbligatorio", "È necessario che il client riceva in risposta l'errore \"unknownMethod\" in caso di inserimento di una richiesta contenente un metodo non riconosciuto dal server.", "Soddisfatto",
+    "R-014-F-1", "Obbligatorio", "È necessario che il client riceva in risposta l'errore \"invalidArguments\" se uno degli argomenti di un metodo fornito all'interno di una richiesta al server è di tipo errato, non valido o, nel caso in cui sia obbligatorio, è assente.", "Soddisfatto",
+    "R-015-F-1", "Obbligatorio", "È necessario che il client riceva in risposta l'errore \"invalidResultReference\" se uno degli argomenti di un metodo fornito all'interno di una richiesta al server ha utilizzato un riferimento di risultato che non è stato possibile risolvere da parte del server.", "Soddisfatto",
+    "R-016-F-1", "Obbligatorio", "È necessario che il client riceva in risposta l'errore \"forbidden\" in caso utilizzi, all'interno di una richiesta al server, un metodo la cui esecuzione violerebbe una Access Control List (ACL) o un’altra policy di autorizzazione.", "Soddisfatto",
+    "R-017-F-1", "Obbligatorio", "È necessario che il client riceva in risposta l'errore \"accountNotFound\" se l’\"accountID\" fornito all'interno di una richiesta al server non corrisponde a un account valido.", "Soddisfatto",
+    "R-018-F-1", "Obbligatorio", "È necessario che il client riceva in risposta l'errore \"accountNotSupportedByMethod\" se all'interno di una richiesta al server è presente un metodo o tipo di dato non supportato dall’\"accountID\" fornito.", "Soddisfatto",
+    "R-019-F-1", "Obbligatorio", "È necessario che il client riceva in risposta l'errore \"accountReadOnly\" se all'interno di una richiesta al server è presente un metodo che tenta di modificare lo stato nonostante l’account sia in sola lettura.", "Soddisfatto",
+    "R-020-F-1", "Obbligatorio", "È necessario che il client riceva in risposta l'errore \"cannotCalculateChanges\" se, in seguito all'inserimento di una richiesta, il server non possa calcolare le modifiche dello stato dalla stringa di stato fornita dal client.", "Soddisfatto",
+    "R-021-F-1", "Obbligatorio", "È necessario che il client riceva in risposta l'errore \"overQuota\" se una richiesta inserita nel server richiede la creazione di oggetti che per dimensione o quantità superano il limite imposto dal server.", "Soddisfatto",
+    "R-022-F-1", "Obbligatorio", "È necessario che il client riceva in risposta l'errore \"notFound\" se una richiesta inserita nel server fornisce degli ID che non possono essere trovati.", "Soddisfatto",
+    "R-023-F-1", "Obbligatorio", "È necessario che il client riceva in risposta l'errore \"willDestroy\" se ha richiesto che un oggetto fosse sia aggiornato che distrutto all'interno della stessa richiesta al server.", "Soddisfatto",
+    "R-024-F-1", "Obbligatorio", "È necessario che il client riceva in risposta l'errore \"tooLarge\" se una richiesta inserita nel server richiede la creazione di un oggetto che supera il limite definito dal server per la dimensione massima per un oggetto di quel tipo.", "Soddisfatto",
+    "R-025-F-1", "Obbligatorio", "È necessario che il client riceva in risposta l'errore \"rateLimit\" se una richiesta inserita nel server comporta la creazione di un oggetto per cui sono stati creati troppi oggetti quel tipo di recente, raggiungendo un limite di frequenza definito dal server.", "Soddisfatto",
+    "R-026-F-1", "Obbligatorio", "È necessario che il client riceva in risposta l'errore \"invalidPatch\" se una richiesta inserita nel server fornisce un PatchObject non valido per modificare il record.", "Soddisfatto",
+    "R-027-F-1", "Obbligatorio", "È necessario che il client riceva in risposta l'errore \"invalidProperties\" se una richiesta inserita nel server fornisce un record non valido.", "Soddisfatto",
+    "R-028-F-1", "Obbligatorio", "È necessario che il client riceva in risposta l'errore \"singleton\" se una richiesta inserita nel server tentasse di agire erroneamente su un tipo singleton.", "Soddisfatto",
+    "R-029-F-1", "Obbligatorio", "È necessario che il client riceva in risposta l'errore \"requestTooLarge\" se una richiesta inserita nel server contiene un numero di azioni che supera il massimo che il server è disposto a elaborare in una singola chiamata di metodo interna alla richiesta.", "Soddisfatto",
+    "R-030-F-1", "Obbligatorio", "È necessario che il client riceva in risposta l'errore \"stateMismatch\" se una richiesta inserita nel server contiene un argomento ifInState e questo non corrisponde allo stato attuale.", "Soddisfatto",
+    "R-031-F-1", "Obbligatorio", "È necessario che il client riceva in risposta l'errore \"blobNotFound\" se una richiesta inserita nel server contiene almeno un ID blob fornito per una parte del corpo dell'email che non esiste.", "Soddisfatto",
+    "R-032-F-1", "Obbligatorio", "È necessario che il client riceva in risposta l'errore \"tooManyKeywords\" se una richiesta inserita nel server modifica un numero di parole chiave dell'email superiore al limite massimo definito dal server.", "Soddisfatto",
+    "R-033-F-1", "Obbligatorio", "È necessario che il client riceva in risposta l'errore \"tooManyMailboxes\" se una richiesta inserita nel server modifica un numero di cartelle a cui appartiene l'email superiore al limite massimo definito dal server.", "Soddisfatto",
+    "R-034-F-1", "Obbligatorio", "È necessario che il client riceva in risposta l'errore \"alreadyExists\" se una richiesta inserita in un server che vieta i duplicati contiene un record già esistente nell'account di destinazione.", "Soddisfatto",
+    "R-035-F-1", "Obbligatorio", "È necessario che il client riceva in risposta l'errore \"fromAccountNotFound\" se una richiesta inserita nel server contiene un fromAccountId che non corrisponde a nessun account valido.", "Soddisfatto",
+    "R-036-F-1", "Obbligatorio", "È necessario che il client riceva in risposta l'errore \"fromAccountNotSupportedByMethod\" se una richiesta inserita nel server contiene un fromAccountId che non supporta un tipo di dato utilizzato.", "Soddisfatto",
+    "R-037-F-1", "Obbligatorio", "È necessario che il client riceva in risposta l'errore \"anchorNotFound\" se una richiesta inserita nel server contiene un argomento di ancoraggio che non è stato trovato nei risultati della query.", "Soddisfatto",
+    "R-038-F-1", "Obbligatorio", "È necessario che il client riceva in risposta l'errore \"unsupportedSort\" se una richiesta inserita nel server presenta una clausola di ordinamento non supportata o un metodo di collezione non riconosciuto dal server.", "Soddisfatto",
+    "R-039-F-1", "Obbligatorio", "È necessario che il client riceva in risposta l'errore \"unsupportedFilter\" se una richiesta inserita nel server contiene un filtro che il server non è grado di elaborare.", "Soddisfatto",
+    "R-040-F-1", "Obbligatorio", "È necessario che il client riceva in risposta l'errore \"tooManyChanges\" se una richiesta inserita nel server contiene un numero di modifiche superiore all'argomento maxChanges inserito del client.", "Soddisfatto",
+    "R-041-F-1", "Obbligatorio", "È necessario che il client riceva in risposta l'errore \"mailboxHasChild\" se una richiesta inserita nel server desidera rimuovere una cartella(Mailbox) che ha ancora almeno una cartella figlia.", "Soddisfatto",
+    "R-042-F-1", "Obbligatorio", "È necessario che il client riceva in risposta l'errore \"mailboxHasEmail\" se una richiesta inserita nel server, con l'argomento onDestroyRemoveEmails impostato su false, desidera rimuovere una cartella(Mailbox) che ha al suo interno almeno una email.", "Soddisfatto",
+    "R-043-F-1", "Obbligatorio", "È necessario che il client riceva in risposta l'errore \"invalidEmail\" se una richiesta inserita nel server contiene un'email da inviare non valida.", "Soddisfatto",
+    "R-044-F-1", "Obbligatorio", "È necessario che il client riceva in risposta l'errore \"tooManyRecipients\" se una richiesta inserita nel server contiene un envelope (insieme di destinatari) che ha più destinatari di quanti il server consenta.", "Soddisfatto",
+    "R-045-F-1", "Obbligatorio", "È necessario che il client riceva in risposta l'errore \"noRecipients\" se una richiesta inserita nel server contiene un envelope (insieme di destinatari) che non presenta alcun destinatario.", "Soddisfatto",
+    "R-046-F-1", "Obbligatorio", "È necessario che il client riceva in risposta l'errore \"invalidRecipients\" se una richiesta inserita nel server contiene un envelope (insieme di destinatari) con almeno un indirizzo email destinatario non valido.", "Soddisfatto",
+    "R-047-F-1", "Obbligatorio", "È necessario che il client riceva in risposta l'errore \"forbiddenMailFrom\" se una richiesta è inserita in un server che non consente all'utente di inviare un messaggio con quel indirizzo mittente nell'envelope (From address).", "Soddisfatto",
+    "R-048-F-1", "Obbligatorio", "È necessario che il client riceva in risposta l'errore \"forbiddenFrom\" se una richiesta è inserita in un server che non consente all'utente di inviare un messaggio con il campo di intestazione From del messaggio da inviare.", "Soddisfatto",
+    "R-049-F-1", "Obbligatorio", "È necessario che il client riceva in risposta l'errore \"forbiddenToSend\" se una richiesta è inserita in un server che non consente all'utente di inviare un messaggio in quel momento.", "Soddisfatto",
+    "R-050-F-1", "Obbligatorio", "L'utente che utilizza un client di posta elettronica per interagire con il server deve avere la possibilità di inviare email.", "Soddisfatto",
+    "R-051-F-1", "Obbligatorio", "È necessario che il client inserisca all'interno della richiesta l'identificazione delle capacità necessarie all'invio di una email.", "Soddisfatto",
+    "R-052-F-1", "Obbligatorio", "È necessario che il client inserisca all'interno della richiesta le chiamate di metodo necessarie all'invio di una email, con relativi parametri (sia quelli comuni, come l'identificativo dell'account da utilizzare, sia quelli specifici del caso) e un identificatore univoco associato.", "Soddisfatto",
+    "R-053-F-1", "Obbligatorio", "È necessario che il client inserisca all'interno della richiesta le proprietà dell'oggetto Email da creare (cartelle in cui è contenuta, mittente, destinatari, oggetto, corpo del messaggio ed altri dettagli definiti dall'RFC5322).", "Soddisfatto",
+    "R-054-F-1", "Obbligatorio", "È necessario che il client inserisca all'interno della richiesta le proprietà dell'oggetto EmailSubmission da creare (l'identificativo dell'email creata in precedenza ed ora da inviare, le informazioni necessarie per l'invio ed altri dettagli).", "Soddisfatto",
+    "R-055-F-1", "Obbligatorio", "È possibile che il client inserisca all'interno della richiesta eventuali azioni da compiere in seguito al corretto invio dell'email.", "Soddisfatto",
+    "R-056-F-1", "Obbligatorio", "È necessario che il client riceva una risposta che contiene l'esito dell'operazione di invio dell'email con relativi parametri (come il nuovo stato, gli oggetti creati ed eventuali errori).", "Soddisfatto",
+    "R-057-F-1", "Obbligatorio", "L'utente che utilizza un client di posta elettronica per interagire con il server deve avere la possibilità di ricevere email e visualizzarne il dettaglio.", "Soddisfatto",
+    "R-058-F-1", "Obbligatorio", "È necessario che il client inserisca all'interno della richiesta l'identificazione delle capacità necessarie alla ricezione di una email.", "Soddisfatto",
+    "R-059-F-1", "Obbligatorio", "È necessario che il client inserisca all'interno della richiesta le chiamate di metodo necessarie alla ricezione di una email, con relativi parametri (sia quelli comuni, come l'identificativo dell'account da utilizzare, sia quelli specifici del caso) e un identificatore univoco associato.", "Soddisfatto",
+    "R-060-F-1", "Obbligatorio", "È necessario che il client inserisca all'interno della richiesta l'identificativo delle email da ricevere", "Soddisfatto",
+    "R-061-F-1", "Obbligatorio", "È possibile che il client inserisca all'interno della richiesta le proprietà specifiche delle email che è interessato a ricevere", "Soddisfatto",
+    "R-062-F-1", "Obbligatorio", "È necessario che il client riceva una risposta che contiene l'esito dell'operazione di ricezione dell'email con relativi parametri (come lo stato corrente dei dati di tipo Email sul server, la lista delle email richieste ed eventuali errori)", "Soddisfatto",
+    "R-063-F-1", "Obbligatorio", "L'utente che utilizza un client di posta elettronica per interagire con il server deve avere la possibilità di eliminare email.", "Soddisfatto",
+    "R-064-F-1", "Obbligatorio", "È necessario che il client inserisca all'interno della richiesta l'identificazione delle capacità necessarie all'eliminazione di una email.", "Soddisfatto",
+    "R-065-F-1", "Obbligatorio", "È necessario che il client inserisca all'interno della richiesta le chiamate di metodo necessarie all'eliminazione di una email, con relativi parametri (sia quelli comuni, come l'identificativo dell'account da utilizzare, sia quelli specifici del caso) e un identificatore univoco associato.", "Soddisfatto",
+    "R-066-F-1", "Obbligatorio", "È necessario che il client inserisca all'interno della richiesta la lista degli identificativi delle email da eliminare.", "Soddisfatto",
+    "R-067-F-1", "Obbligatorio", "È necessario che il client riceva una risposta che contiene l'esito dell'operazione di eliminazione delle email con relativi parametri (come il nuovo stato, gli identificativi degli oggetti eliminati ed eventuali errori)", "Soddisfatto",
+    "R-068-F-1", "Obbligatorio", "L'utente che utilizza un client di posta elettronica per interagire con il server deve avere la possibilità di ricevere cartelle e visualizzarne il dettaglio.", "Soddisfatto",
+    "R-069-F-1", "Obbligatorio", "È necessario che il client inserisca all'interno della richiesta l'identificazione delle capacità necessarie alla ricezione di una cartella.", "Soddisfatto",
+    "R-070-F-1", "Obbligatorio", "È necessario che il client inserisca all'interno della richiesta le chiamate di metodo necessarie alla ricezione di una cartella, con relativi parametri (sia quelli comuni, come l'identificativo dell'account da utilizzare, sia quelli specifici del caso) e un identificatore univoco associato.", "Soddisfatto",
+    "R-071-F-1", "Obbligatorio", "È necessario che il client inserisca all'interno della richiesta l'identificativo delle cartelle da ricevere", "Soddisfatto",
+    "R-072-F-1", "Obbligatorio", "È possibile che il client inserisca all'interno della richiesta le proprietà specifiche delle cartelle che è interessato a ricevere", "Soddisfatto",
+    "R-073-F-1", "Obbligatorio", "È necessario che il client riceva una risposta che contiene l'esito dell'operazione di ricezione della cartella con relativi parametri (come lo stato corrente dei dati di tipo Mailbox sul server, la lista delle cartelle richieste ed eventuali errori)", "Soddisfatto",
+    "R-074-F-1", "Obbligatorio", "L'utente che utilizza un client di posta elettronica per interagire con il server deve avere la possibilità di creare cartelle.", "Soddisfatto",
+    "R-075-F-1", "Obbligatorio", "È necessario che il client inserisca all'interno della richiesta l'identificazione delle capacità necessarie alla creazione di una cartella.", "Soddisfatto",
+    "R-076-F-1", "Obbligatorio", "È necessario che il client inserisca all'interno della richiesta le chiamate di metodo necessarie alla creazione di una cartella, con relativi parametri (sia quelli comuni, come l'identificativo dell'account da utilizzare, sia quelli specifici del caso) e un identificatore univoco associato.", "Soddisfatto",
+    "R-077-F-1", "Obbligatorio", "È necessario che il client inserisca all'interno della richiesta le proprietà dell'oggetto Mailbox da creare (nome, eventuale genitore, ruolo ed altri dettagli).", "Soddisfatto",
+    "R-078-F-1", "Obbligatorio", "È necessario che il client riceva una risposta che contiene l'esito dell'operazione di creazione della cartella con relativi parametri (come lo stato corrente del server, la lista delle cartelle create ed eventuali errori)", "Soddisfatto",
+    "R-079-F-1", "Obbligatorio", "L'utente che utilizza un client di posta elettronica per interagire con il server deve avere la possibilità di modificare cartelle esistenti.", "Soddisfatto",
+    "R-080-F-1", "Obbligatorio", "È necessario che il client inserisca all'interno della richiesta l'identificazione delle capacità necessarie alla modifica di una cartella.", "Soddisfatto",
+    "R-081-F-1", "Obbligatorio", "È necessario che il client inserisca all'interno della richiesta le chiamate di metodo necessarie alla modifica di una cartella, con relativi parametri (sia quelli comuni, come l'identificativo dell'account da utilizzare, sia quelli specifici del caso) e un identificatore univoco associato.", "Soddisfatto",
+    "R-082-F-1", "Obbligatorio", "È necessario che il client inserisca all'interno della richiesta le modifiche da apportare all'oggetto Mailbox che l'utente desidera modificare.", "Soddisfatto",
+    "R-083-F-1", "Obbligatorio", "È necessario che il client riceva una risposta che contiene l'esito dell'operazione di modifica della cartella con relativi parametri (come lo stato corrente del server, la lista delle cartelle modificate ed eventuali errori)", "Soddisfatto",
+    "R-084-F-1", "Obbligatorio", "L'utente che utilizza un client di posta elettronica per interagire con il server deve avere la possibilità di eliminare cartelle esistenti.", "Soddisfatto",
+    "R-085-F-1", "Obbligatorio", "È necessario che il client inserisca all'interno della richiesta l'identificazione delle capacità necessarie alla eliminazione di una cartella.", "Soddisfatto",
+    "R-086-F-1", "Obbligatorio", "È necessario che il client inserisca all'interno della richiesta le chiamate di metodo necessarie alla eliminazione di una cartella, con relativi parametri (sia quelli comuni, come l'identificativo dell'account da utilizzare, sia quelli specifici del caso) e un identificatore univoco associato.", "Soddisfatto",
+    "R-087-F-1", "Obbligatorio", "È necessario che il client inserisca all'interno della richiesta la lista degli identificativi delle cartelle da eliminare.", "Soddisfatto",
+    "R-088-F-1", "Obbligatorio", "È necessario che il client specifichi all'interno della richiesta il comportamento desiderato da parte del server quando si cerca di eliminare una cartella che contiene ancora delle email.", "Soddisfatto",
+    "R-089-F-1", "Obbligatorio", "È necessario che il client riceva una risposta che contiene l'esito dell'operazione di eliminazione della cartella con relativi parametri (come lo stato corrente del server, la lista degli identificativi delle cartelle eliminate ed eventuali errori)", "Soddisfatto",
+    "R-090-F-1", "Obbligatorio", "L'utente che utilizza un client di posta elettronica per interagire con il server deve avere la possibilità di gestire i contenuti di una cartella.", "Soddisfatto",
+    "R-091-F-1", "Obbligatorio", "È necessario che il client inserisca all'interno della richiesta l'identificazione delle capacità necessarie alla gestione dei contenuti di una cartella.", "Soddisfatto",
+    "R-092-F-1", "Obbligatorio", "È necessario che il client inserisca all'interno della richiesta le chiamate di metodo necessarie alla gestione dei contenuti di una cartella, con relativi parametri (sia quelli comuni, come l'identificativo dell'account da utilizzare, sia quelli specifici del caso) e un identificatore univoco associato.", "Soddisfatto",
+    "R-093-F-1", "Obbligatorio", "È necessario che il client inserisca all'interno della richiesta le modifiche da apportare agli oggetti Email che l'utente desidera aggiungere ad una o più cartelle.", "Soddisfatto",
+    "R-094-F-1", "Obbligatorio", "È necessario che il client inserisca all'interno della richiesta le modifiche da apportare agli oggetti Email che l'utente desidera rimuovere da una o più cartelle.", "Soddisfatto",
+    "R-095-F-1", "Obbligatorio", "È necessario che il client inserisca all'interno della richiesta le modifiche da apportare agli oggetti Email che l'utente desidera spostare da una o più cartelle ad una o più cartelle.", "Soddisfatto",
+    "R-096-F-1", "Obbligatorio", "È necessario che il client riceva una risposta che contiene l'esito delle operazioni di gestione dei contenuti di una cartella con relativi parametri (come lo stato corrente del server, la lista delle email modificate ed eventuali errori)", "Soddisfatto",
     "R-097-F-2", "Desiderabile", "L'utente che utilizza un client di posta elettronica per interagire con il server deve avere la possibilità di condividere le sue cartelle con altri utenti.", "Non soddisfatto",
     "R-098-F-2", "Desiderabile", "È necessario che il client inserisca all'interno della richiesta l'identificazione delle capacità necessarie alla creazione della condivisione di una cartella.", "Non soddisfatto",
     "R-099-F-2", "Desiderabile", "È necessario che il client inserisca all'interno della richiesta le chiamate di metodo necessarie alla creazione della condivisione di una cartella, con relativi parametri (sia quelli comuni, come l'identificativo dell'account da utilizzare, sia quelli specifici del caso) e un identificatore univoco associato.", "Non soddisfatto",
@@ -911,21 +1186,21 @@ Inoltre l'uso di MinIO per la gestione degli allegati delle email non solo ci pe
     "R-115-F-2", "Desiderabile", "È necessario che il client inserisca all'interno della richiesta le chiamate di metodo necessarie alla modifica della condivisione di una cartella (compresa l'eliminazione di quest'ultima), con relativi parametri (sia quelli comuni, come l'identificativo dell'account da utilizzare, sia quelli specifici del caso) e un identificatore univoco associato.", "Non soddisfatto",
     "R-116-F-2", "Desiderabile", "È necessario che il client inserisca all'interno della richiesta le modifiche da apportare all'oggetto Mailbox di cui l'utente desidera modificare/eliminare la condivisione, specificando i nuovi diritti che hanno su quest'ultimo i membri del principale a cui si sta condividendo.", "Non soddisfatto",
     "R-117-F-2", "Desiderabile", "È necessario che il client riceva una risposta che contiene l'esito dell'operazione di modifica della condivisione di una cartella (compresa l'eliminazione di quest'ultima) con relativi parametri (come lo stato corrente del server, la lista degli identificativi delle cartelle modificate ed eventuali errori)", "Non soddisfatto",
-    "R-118-F-3", "Opzionale", "Un client di posta elettronica utilizzato da un utente per interagire con il server deve avere la possibilità di mantenersi sincronizzato con gli ultimi aggiornamenti per quanto riguarda le email.", "Non soddisfatto",
-    "R-119-F-3", "Opzionale", "È necessario che il client inserisca all'interno della richiesta l'identificazione delle capacità necessarie alla sincronizzazione delle email.", "Non soddisfatto",
-    "R-120-F-3", "Opzionale", "È necessario che il client inserisca all'interno della richiesta le chiamate di metodo necessarie alla sincronizzazione delle email, con relativi parametri (sia quelli comuni, come l'identificativo dell'account da utilizzare, sia quelli specifici del caso) e un identificatore univoco associato.", "Non soddisfatto",
-    "R-121-F-3", "Opzionale", "È necessario che il client inserisca all'interno della richiesta il suo stato corrente per quanto riguarda le email, con lo scopo di sincronizzarsi.", "Non soddisfatto",
-    "R-122-F-3", "Opzionale", "È necessario che il client inserisca all'interno della richiesta il numero massimo di identificatori di email che desidera ricevere come risposta, con lo scopo di sincronizzarsi.", "Non soddisfatto",
-    "R-123-F-3", "Opzionale", "È necessario che il client riceva una risposta che contiene le informazioni di cui ha bisogno per sincronizzarsi (come lo stato corrente del server, un flag booleano che indica se ci sono ulteriori cambiamenti nel server relativi ai dati di tipo Email, oltre a quelli già restituiti nella risposta corrente, e la lista delle email da creare/modificare/eliminare per sincronizzarsi)", "Non soddisfatto",
-    "R-124-F-3", "Opzionale", "Un client di posta elettronica utilizzato da un utente per interagire con il server deve avere la possibilità di mantenersi sincronizzato con gli ultimi aggiornamenti per quanto riguarda le cartelle.", "Non soddisfatto",
-    "R-125-F-3", "Opzionale", "È necessario che il client inserisca all'interno della richiesta l'identificazione delle capacità necessarie alla sincronizzazione delle cartelle.", "Non soddisfatto",
-    "R-126-F-3", "Opzionale", "È necessario che il client inserisca all'interno della richiesta le chiamate di metodo necessarie alla sincronizzazione delle cartelle, con relativi parametri (sia quelli comuni, come l'identificativo dell'account da utilizzare, sia quelli specifici del caso) e un identificatore univoco associato.", "Non soddisfatto",
-    "R-127-F-3", "Opzionale", "È necessario che il client inserisca all'interno della richiesta il suo stato corrente per quanto riguarda le cartelle, con lo scopo di sincronizzarsi.", "Non soddisfatto",
-    "R-128-F-3", "Opzionale", "È necessario che il client inserisca all'interno della richiesta il numero massimo di identificatori di cartelle che desidera ricevere come risposta, con lo scopo di sincronizzarsi.", "Non soddisfatto",
-    "R-129-F-3", "Opzionale", "È necessario che il client riceva una risposta che contiene le informazioni di cui ha bisogno per sincronizzarsi (come lo stato corrente del server, un flag booleano che indica se ci sono ulteriori cambiamenti nel server relativi ai dati di tipo Mailbox, oltre a quelli già restituiti nella risposta corrente, e la lista delle cartelle da creare/modificare/eliminare per sincronizzarsi)", "Non soddisfatto"
+    "R-118-F-3", "Opzionale", "Un client di posta elettronica utilizzato da un utente per interagire con il server deve avere la possibilità di mantenersi sincronizzato con gli ultimi aggiornamenti per quanto riguarda le email.", "Soddisfatto",
+    "R-119-F-3", "Opzionale", "È necessario che il client inserisca all'interno della richiesta l'identificazione delle capacità necessarie alla sincronizzazione delle email.", "Soddisfatto",
+    "R-120-F-3", "Opzionale", "È necessario che il client inserisca all'interno della richiesta le chiamate di metodo necessarie alla sincronizzazione delle email, con relativi parametri (sia quelli comuni, come l'identificativo dell'account da utilizzare, sia quelli specifici del caso) e un identificatore univoco associato.", "Soddisfatto",
+    "R-121-F-3", "Opzionale", "È necessario che il client inserisca all'interno della richiesta il suo stato corrente per quanto riguarda le email, con lo scopo di sincronizzarsi.", "Soddisfatto",
+    "R-122-F-3", "Opzionale", "È necessario che il client inserisca all'interno della richiesta il numero massimo di identificatori di email che desidera ricevere come risposta, con lo scopo di sincronizzarsi.", "Soddisfatto",
+    "R-123-F-3", "Opzionale", "È necessario che il client riceva una risposta che contiene le informazioni di cui ha bisogno per sincronizzarsi (come lo stato corrente del server, un flag booleano che indica se ci sono ulteriori cambiamenti nel server relativi ai dati di tipo Email, oltre a quelli già restituiti nella risposta corrente, e la lista delle email da creare/modificare/eliminare per sincronizzarsi)", "Soddisfatto",
+    "R-124-F-3", "Opzionale", "Un client di posta elettronica utilizzato da un utente per interagire con il server deve avere la possibilità di mantenersi sincronizzato con gli ultimi aggiornamenti per quanto riguarda le cartelle.", "Soddisfatto",
+    "R-125-F-3", "Opzionale", "È necessario che il client inserisca all'interno della richiesta l'identificazione delle capacità necessarie alla sincronizzazione delle cartelle.", "Soddisfatto",
+    "R-126-F-3", "Opzionale", "È necessario che il client inserisca all'interno della richiesta le chiamate di metodo necessarie alla sincronizzazione delle cartelle, con relativi parametri (sia quelli comuni, come l'identificativo dell'account da utilizzare, sia quelli specifici del caso) e un identificatore univoco associato.", "Soddisfatto",
+    "R-127-F-3", "Opzionale", "È necessario che il client inserisca all'interno della richiesta il suo stato corrente per quanto riguarda le cartelle, con lo scopo di sincronizzarsi.", "Soddisfatto",
+    "R-128-F-3", "Opzionale", "È necessario che il client inserisca all'interno della richiesta il numero massimo di identificatori di cartelle che desidera ricevere come risposta, con lo scopo di sincronizzarsi.", "Soddisfatto",
+    "R-129-F-3", "Opzionale", "È necessario che il client riceva una risposta che contiene le informazioni di cui ha bisogno per sincronizzarsi (come lo stato corrente del server, un flag booleano che indica se ci sono ulteriori cambiamenti nel server relativi ai dati di tipo Mailbox, oltre a quelli già restituiti nella risposta corrente, e la lista delle cartelle da creare/modificare/eliminare per sincronizzarsi)", "Soddisfatto"
   )
 )
 ,caption: [Stato dei requisiti funzionali])
 
 == Grafici riassuntivi
-#resumeRequisiti(0,0,0,0)
+#resumeRequisiti(83,100,16,100)
