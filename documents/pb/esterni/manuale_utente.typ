@@ -9,6 +9,10 @@
     [_#(p.zextras)_],
   ),
   changelog: (
+    "0.1.0", "2024-03-17", p.furno, p.bettin,
+    [
+      Aggiunta la sezione 'Guida all'uso di Postman'.
+    ],
     "0.0.5", "2024-03-10", p.bulychov, p.furno,
     [
       Aggiunta la sezione 'Avvio degli stress test'.
@@ -40,8 +44,8 @@ Lo scopo principale del prodotto é quello di permettere all'azienda #glossary("
 Attualmente, Carbonio fa affidamento su protocolli standard come IMAP, POP e #glossary("Exchange Active Sync"). Di conseguenza, l'implementazione di JMAP potrebbe offrire potenzialmente un aumento di #glossary("funzionalità") e #glossary("efficienza") a un costo inferiore.
 
 == Scopo del documento
-Questo documento ha lo scopo di spiegare ai committenti le modalità di utilizzo e le funzionalità del sistema informatico che il gruppo Overture ha dovuto sviluppare per adempiere alle richieste fatte in merito allo studio del protocollo JMAP per la posta elettronica.\
-Al suo interno verranno illustrate tutte le istruzioni per avviare il server di posta elettronica (quindi il nostro backend), le istruzioni per avviare un client di posta elettronica, una breve guida per mostrare il funzionamento di un client e di come riesce a fruire di tutti i requisiti che il server implementa e infine come avviare gli stress test richiesti dal committente così da poterli modificare a piacimento, con il fine di testare più approfonditamente o in modo diverso alcune parti.
+Questo documento ha lo scopo di spiegare ai committenti le modalità di utilizzo e di verifica delle funzionalità del sistema informatico che il gruppo Overture ha dovuto sviluppare per adempiere alle richieste fatte in merito allo studio del protocollo JMAP per la posta elettronica.\
+Al suo interno verranno illustrate tutte le istruzioni per avviare il server di posta elettronica (quindi il nostro backend), le istruzioni per collegarsi ad esso tramite un client di posta elettronica, una breve guida all'uso di Postman per dimostrare il corretto funzionamento del nostro prodotto e le funzionalità che esso espone ed, infine, come avviare gli stress test richiesti dal committente così da poterli modificare a piacimento, con il fine di testare più approfonditamente o in modo diverso alcune parti.
 
 == Glossario
 Per evitare ambiguitá o incomprensioni riguardanti la terminologia usata nel documento, é stato deciso di adottare un glossario in cui vengono riportate le varie definizioni. In questa maniera in esso verranno riportati tutti i termini specifici del dominio d'uso con relativi significati.
@@ -73,10 +77,25 @@ Successivamente il sistema deve aver installato al suo interno Java in una sua v
 Infine si richiede l'installazione di Gradle che è il sistema di build scelto. Di seguito la guida ufficiale per l'installazione: https://gradle.org/install/.
 
 === Requisiti opzionali
-Ai fini di un'avvio del server che richieda il minor sforzo da parte dell'utente è possibile installare il pacchetto Just per evitare di copiare e incollare manualmente i commandi neccessari all'avvio presenti nel file .justile come spiegato nella sezione #link(<Justfile>)[*File: .justfile*].
+==== Just e guida per l'installazione
+Ai fini di un'avvio del server che richieda il minor sforzo da parte dell'utente è possibile installare il pacchetto Just per evitare di copiare e incollare manualmente i commandi neccessari all'avvio presenti nel file .justile come spiegato nella sezione #link(<Justfile>)[*File: .justfile*]. Just è uno strumento di automazione leggero e flessibile che semplifica l'esecuzione di comandi e task attraverso l'utilizzo di un file di configurazione chiamato "Justfile".\
+Per installare questo tool è necessario recarsi sul seguente repository di github https://github.com/casey/just e seguire la guida ufficiale in base al sistema operativo della macchina sulla quale si vuole effettuare l'installazione.\
+Per verificare che Just sia stato installato correttamente, digita il seguente comando nel terminale: `just --version`.
+Se l'installazione è avvenuta con successo, vedrai la versione di Just attualmente installata.
+
+===== Guida per l'utilizzo
+- Passo 1: Naviga nella Directory del Progetto: apri il terminale e spostati nella directory del progetto e assicurati di essere nella stessa directory del file ".justfile".
+
+- Passo 2: Esegui i Task: una volta nella directory del progetto, puoi eseguire i task definiti nel ".justfile" con il comando just seguito dal nome del task. Ad esempio, se esiste un task chiamato "build" nel ".justfile", digita: `just build`.
+
+- Passo 3: Visualizza la Lista dei Task: se si vuole visualizzare la lista dei task disponibili nel ".justfile", puoi eseguire il comando just senza argomenti: `just`. Questo mostrerà un elenco di tutti i task definiti nel ".justfile".
+
+- Passo 4: Ulteriori Opzioni: just offre molte opzioni e funzionalità avanzate. Si può esplorare ulteriori opzioni eseguendo il comando `just --help` per visualizzare la documentazione.
 
 == Download del repository relativo al codice sorgente del server
-Per scaricare i sorgenti relativi al codice sorgente del server basta clonare la repository dedicata al link: https://github.com/overture-unipd/jmap.git.
+Per scaricare i sorgenti relativi al codice sorgente del server basta scaricare la cartella zip presente nel seguente repository dedicata al seguente link: https://github.com/overture-unipd/jmap.git.\
+
+Alternativamente, se si ha installato il sistema di versionamento Git sul sistema dove si vuole effettuare il download dei sorgenti è possibile clonare direttamente il repository su una cartella a piacere digitando il seguente comando: `git clone https://github.com/overture-unipd/jmap.git`.
 
 == Spiegazione dei principali file presenti nei sorgenti
 
@@ -170,21 +189,42 @@ Nel nostro caso noi abbiamo scelto di utilizzare il client Ltt.rs (https://githu
 
 Arrivati a questo punto avviamo il client ed effettuiamo l'accesso con uno degli account presenti nel file .env del server installato precedentemente. A partire dall'indirizzo email dell'account con il quale si vuole effettuare l'accesso il client riconoscerà automaticamente il dominio (a partire da alice$at$overture.duckdns.org, il client saprà che dovrà collegarsi al server presente al dominio overture.duckdns.org e quindi all'indirizzo IP relativo al record DNS fornito da Duck DNS).
 
-#figure(image("//imgs/Manuale_Utente/Email.jpg", width: 30%), caption: [Inserimento dell'email con il quale si vuole effettuare l'accesso.])
+#figure(image("//imgs/Manuale_Utente/Email.jpg", width: 29%), caption: [Inserimento dell'email con il quale si vuole effettuare l'accesso.])
 
 Successivamente inseriamo la password associata a quell'account (la troviamo nel file .env) e clicchiamo su "Avanti":
 
-#figure(image("//imgs/Manuale_Utente/Password.jpg", width: 30%), caption: [Inserimento della password relativa all'account inserito prima.])
+#figure(image("//imgs/Manuale_Utente/Password.jpg", width: 29%), caption: [Inserimento della password relativa all'account inserito prima.])
 
 Se tutto è stato eseguito correttamente avremo il seguente risultato:
 
-#figure(image("//imgs/Manuale_Utente/SchermataPrincipale.jpg", width: 30%), caption: [Schermata principale con la lista di tutte le email ricevute.])
+#figure(image("//imgs/Manuale_Utente/SchermataPrincipale.jpg", width: 29%), caption: [Schermata principale con la lista di tutte le email ricevute.])
+
+#pagebreak()
+
+= Guida all'uso di Postman
+== Introduzione
+Questo sezione ha lo scopo di guidare l'utente attraverso il processo di importazione delle richieste, la visualizzazione dei dettagli di ciascuna richiesta, l'esecuzione dei test e l'interpretazione delle risposte utilizzando l'applicazione Postman.
+
+== Installazione ed accesso
+Per iniziare, il primo passo è scaricare e installare l'applicazione sul proprio dispositivo. Puoi scegliere tra una versione gratuita e una a pagamento, ma per le nostre necessità, la versione gratuita sarà più che sufficiente. Puoi trovare il link per il download qui: https://www.postman.com/downloads/. \
+Una volta completata l'installazione, procedi creando un account oppure accedi se ne possiedi già uno. Questa operazione ti permetterà di accedere alle funzionalità necessarie per raggiungere il nostro scopo.
+
+== Importazione delle richieste
+Dopo aver effettuato l'accesso, all'interno della pagina principale di Postman si troveranno varie opzioni. L'operazione che ci interessa svolgere è l'importazione del file JSON contenente tutte le richieste. Questa può essere fatta selezionando il tasto "Import" situato in alto a sinistra, accanto al nome del nostro Workspace. \
+Una volta importato il file JSON, verrà creata una cartella denominata "JMAP" contenente tutte le richieste gestite dal server. Ogni richiesta è denominata con il suo specifico nome e al suo interno si trova una serie di dettagli. Per semplicità, è stato incluso un solo esempio per ciascuna richiesta.
+
+== Visualizzazione dei dettagli della richiesta
+Quando si seleziona una richiesta è possibile visualizzarne i dettagli, compreso l'indirizzo a cui viene inviata, i parametri, l'autorizzazione, gli headers, il body ed i test da eseguire. Le schede rilevanti sono contrassegnate da un cerchio verde, indicando che sono state modificate rispetto al valore predefinito. \
+Ad esempio, è possibile vedere l'autorizzazione eseguita a nome dell'utente "alice", il corpo della richiesta in formato JSON e i test JavaScript che verranno eseguiti sulla risposta del server per verificare la correttezza della struttura e dei parametri ricevuti.
+
+== Esecuzione dei test ed interpretazione delle risposte
+Tornando alla lista delle richieste sulla sinistra, ciascuna è associata a una risposta con lo stesso nome, contenente un esempio di risposta corretta. Selezionando una risposta è possibile cliccare su "Try" in alto a destra per effettuare effettivamente la richiesta. Il risultato verrà visualizzato nella parte inferiore della schermata, mostrando il corpo della nuova risposta, eventuali cookies, gli headers ed i risultati dei test. Quest'ultimi includono una preview dei test eseguiti e di quelli che sono passati correttamente. Selezionando questa sezione, verranno visualizzati i nomi dei test effettuati ed i relativi risultati.
 
 #pagebreak()
 
 = Avvio degli stress test
 Questa sezione fornisce istruzioni dettagliate su come eseguire gli stress test utilizzando il framework Locust, attraverso il quale è possibile simulare il carico di lavoro su un sistema e valutarne le prestazioni. \
-I test sono organizzati in file Python denominati `test1` e `test2`, con i dettagli delle richieste contenuti nei file JSON presenti nella cartella `requests`.
+I test sono organizzati in file Python denominati `test1`, `test2` e `test3`, con i dettagli delle richieste contenuti nei file JSON presenti nella cartella `requests`.
 
 == Requisiti preliminari
 Assicurarsi di avere Python installato sul sistema e di disporre del framework Locust. Nel caso in cui quest'ultimo non sia presente nel vostro sistema, per installarlo eseguire il seguente comando sul terminale: `pip install locust`. Di seguito la guida ufficiale per l'installazione: https://docs.locust.io/en/stable/installation.html.
@@ -204,6 +244,11 @@ Il codice presenta molte analogie con il test precedente, in quanto l'utente vis
 
 Dopo l'autenticazione e l'ottenimento dell'ID dell'utente, viene effettuata una richiesta per visualizzare le caselle di posta disponibili, tra cui quella delle email inviate, che sarà necessaria per l'invio della nuova email. Nel caso in cui non siano state inviate email in precedenza e di conseguenza la casella di posta non esista ancora, questa verrà creata successivamente. Dopo aver visualizzato l'inbox come nel test precedente, viene creata la casella di posta per le email inviate, se non esiste ancora, e viene inviata effettivamente la richiesta per inviare l'email. In questo caso, l'oggetto dell'email rimane identico per tutte le richieste poiché ininfluente, mentre il numero di destinatari viene scelto casualmente per un massimo di 3 e il contenuto dell'email ha una lunghezza variabile tra 16 e 3200 caratteri, al fine di testare la capacità del server di gestire differenti carichi di lavoro.
 
+=== `test3` - Gestione delle cartelle
+Questo test è progettato per valutare le prestazioni del server durante la creazione ed eliminazione simultanea di cartelle da parte di numerosi utenti. Anche in questo caso il test simula lo scenario in cui un utente si autentica ed accede alla propria inbox, dopodiché procede alla creazione di una cartella e alla sua eliminazione.
+
+Esattamente come nel test di Accesso all'Inbox, l'utente si autentica e, dopo aver ricevuto tutti i parametri necessari come descritto nei test precedenti, esegue la richiesta per la visualizzazione dell'Inbox. A questo punto é come se l'utente fosse davanti alla schermata iniziale del suo client e proseguisse con la creazione di una nuova cartella chiamata "Test". Dopo aver ottenuto l'identificativo di quest'ultima, procede alla sua eliminazione.
+
 == Esecuzione dei test
 - Passo 1 - Modifica dei parametri:
     - Passo 1.1: Aprire il file Python relativo al test desiderato;
@@ -221,6 +266,8 @@ Dopo l'autenticazione e l'ottenimento dell'ID dell'utente, viene effettuata una 
 Durante l'utilizzo dell'interfaccia utente, saranno richieste le seguenti informazioni:
 - Numero di utenti (frequenza massima): indica il numero massimo di utenti simulati durante il test. Ad esempio, impostando il numero di utenti a 100, Locust simulerà l'attività di 100 utenti che interagiscono con il sistema contemporaneamente;
 - Aumento graduale (utenti inizializzati al secondo): definisce il tasso di aggiunta di nuovi utenti simulati nel tempo. Ad esempio, impostando l'aumento graduale a 10 utenti al secondo e il numero di utenti a 100, Locust inizierà con 10 utenti e ne aggiungerà altri 10 ogni secondo fino al raggiungimento del numero massimo di 100 utenti.
+
+#pagebreak()
 
 === Monitoraggio dei risultati
 Una volta avviata la simulazione, verrà presentata un'interfaccia intuitiva che fornisce una vasta gamma di informazioni. Queste includono il tipo di richiesta, il suo nome e il numero di richieste effettuate, insieme ad altri dettagli tecnici pertinenti. In alto a destra è possibile regolare i parametri della simulazione in tempo reale senza interrompere il processo. È inoltre possibile anche interrompere e ripristinare la simulazione in qualsiasi momento. \
