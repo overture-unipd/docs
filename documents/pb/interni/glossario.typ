@@ -4,6 +4,7 @@
   title: "Glossario",
   managers: p.vedovato,
   changelog: (
+    "2.0.0", "2024-03-19", p.bulychov, p.bettin, "Approvazione per PB",
     "1.2.0", "2024-03-15", p.bettin, p.furno, "Inserimento degli ultimi termini necessari",
     "1.1.0", "2024-02-24", p.fabbian, p.amadori, "Aggiunta dei nuovi termini identificati nelle fasi di progettazione",
     "1.0.0", "2024-01-11", p.amadori, p.bonavigo, "Approvazione per RTB",
@@ -40,7 +41,7 @@ Definisce quindi cosa deve succedere per rispondere alle richieste fatte al prod
 - API
 Acronimo di Application Programming Interface (Interfaccia di Programmazione delle Applicazioni), è un insieme di regole e protocolli che consentono a diversi software o componenti di comunicare tra loro. Esse definiscono i metodi e le strutture dati che possono essere utilizzati per interagire con un'applicazione o un servizio, consentendo a diverse applicazioni di scambiare informazioni e funzionalità in modo standardizzato, agendo in sostanza come un ponte che consente a diversi programmi di collaborare e condividere dati in modo efficiente.
 
--Architettura di deployment
+- Architettura di deployment
 L'architettura di deployment è la struttura e l'organizzazione delle componenti di un'applicazione o di un sistema software all'interno dell'ambiente di produzione o di esecuzione. Stabilisce la disposizione e la gestione delle risorse (come eseguibili, configurazioni, dati) e può includere strategie per la distribuzione, la gestione, la scalabilità e il monitoraggio dell'applicazione nel contesto di un ambiente operativo reale.
 
 - Attore
