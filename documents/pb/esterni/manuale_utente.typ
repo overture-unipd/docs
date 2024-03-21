@@ -9,6 +9,10 @@
     [_#(p.zextras)_],
   ),
   changelog: (
+    "1.0.0", "2024-03-21", p.bettin, p.bonavigo, 
+    [
+      Approvazione per PB.
+    ],
     "0.1.0", "2024-03-17", p.furno, p.bettin,
     [
       Aggiunta la sezione 'Guida all'uso di Postman'.
@@ -54,14 +58,14 @@ La presenza di un termine all'interno del `Glossario` viene indicata applicando 
 
 == Riferimenti
 === Riferimenti normativi
-- `Norme di Progetto v1.0.0`: \ https://overture-unipd.github.io/docs/rtb/interni/norme_di_progetto_v1.0.0.pdf
+- `Norme di Progetto vw.0.0`: \ https://overture-unipd.github.io/docs/rtb/interni/norme_di_progetto_v2.0.0.pdf
 - *PD2 - Regolamento del progetto didattico* \
   https://www.math.unipd.it/~tullio/IS-1/2023/Dispense/PD2.pdf
 - *Capitolato d'appalto C8*: JMAP, il nuovo protocollo standard per la comunicazione email \
   https://www.math.unipd.it/~tullio/IS-1/2023/Progetto/C8.pdf
 
 === Riferimenti informativi
-- `Glossario v1.0.0`: \ https://overture-unipd.github.io/docs/rtb/interni/glossario_v1.0.0.pdf
+- `Glossario v2.0.0`: \ https://overture-unipd.github.io/docs/rtb/interni/glossario_v2.0.0.pdf
 
 #pagebreak()
 
@@ -213,12 +217,22 @@ Una volta completata l'installazione, procedi creando un account oppure accedi s
 Dopo aver effettuato l'accesso, all'interno della pagina principale di Postman si troveranno varie opzioni. L'operazione che ci interessa svolgere è l'importazione del file JSON contenente tutte le richieste. Questa può essere fatta selezionando il tasto "Import" situato in alto a sinistra, accanto al nome del nostro Workspace. \
 Una volta importato il file JSON, verrà creata una cartella denominata "JMAP" contenente tutte le richieste gestite dal server. Ogni richiesta è denominata con il suo specifico nome e al suo interno si trova una serie di dettagli. Per semplicità, è stato incluso un solo esempio per ciascuna richiesta.
 
+#figure(image("//imgs/Manuale_Utente/postman_1.png", width: 95%), caption: [Importazione del file JSON contenente tutte le richieste in Postman.])
+
 == Visualizzazione dei dettagli della richiesta
 Quando si seleziona una richiesta è possibile visualizzarne i dettagli, compreso l'indirizzo a cui viene inviata, i parametri, l'autorizzazione, gli headers, il body ed i test da eseguire. Le schede rilevanti sono contrassegnate da un cerchio verde, indicando che sono state modificate rispetto al valore predefinito. \
 Ad esempio, è possibile vedere l'autorizzazione eseguita a nome dell'utente "alice", il corpo della richiesta in formato JSON e i test JavaScript che verranno eseguiti sulla risposta del server per verificare la correttezza della struttura e dei parametri ricevuti.
 
+#figure(image("//imgs/Manuale_Utente/postman_2.png", width: 100%), caption: [Schermata di visualizzazione dei dettagli della richiesta.])
+
+#pagebreak()
+
 == Esecuzione dei test ed interpretazione delle risposte
 Tornando alla lista delle richieste sulla sinistra, ciascuna è associata a una risposta con lo stesso nome, contenente un esempio di risposta corretta. Selezionando una risposta è possibile cliccare su "Try" in alto a destra per effettuare effettivamente la richiesta. Il risultato verrà visualizzato nella parte inferiore della schermata, mostrando il corpo della nuova risposta, eventuali cookies, gli headers ed i risultati dei test. Quest'ultimi includono una preview dei test eseguiti e di quelli che sono passati correttamente. Selezionando questa sezione, verranno visualizzati i nomi dei test effettuati ed i relativi risultati.
+
+#figure(image("//imgs/Manuale_Utente/postman_3.png", width: 120%), caption: [Schermata di esecuzione dei test.])
+\
+#figure(image("//imgs/Manuale_Utente/postman_4.png", width: 120%), caption: [Visualizzazione del risultato dei test eseguiti sulla richiesta fornita.])
 
 #pagebreak()
 
@@ -262,10 +276,14 @@ Esattamente come nel test di Accesso all'Inbox, l'utente si autentica e, dopo av
 - Passo 3 - Visualizzazione dell'interfaccia utente:
     - Passo 3.1: Aprire qualsiasi browser e accedere all'indirizzo http://localhost:8089. Da ora sarà possibile interagire con Locust attraverso l'interfaccia grafica.
 
+#pagebreak()
+    
 === Configurazione dei parametri
 Durante l'utilizzo dell'interfaccia utente, saranno richieste le seguenti informazioni:
 - Numero di utenti (frequenza massima): indica il numero massimo di utenti simulati durante il test. Ad esempio, impostando il numero di utenti a 100, Locust simulerà l'attività di 100 utenti che interagiscono con il sistema contemporaneamente;
 - Aumento graduale (utenti inizializzati al secondo): definisce il tasso di aggiunta di nuovi utenti simulati nel tempo. Ad esempio, impostando l'aumento graduale a 10 utenti al secondo e il numero di utenti a 100, Locust inizierà con 10 utenti e ne aggiungerà altri 10 ogni secondo fino al raggiungimento del numero massimo di 100 utenti.
+
+#figure(image("//imgs/Manuale_Utente/locust_1.png", width: 100%), caption: [Schermata di configurazione dei parametri in Locust.])
 
 #pagebreak()
 
@@ -274,6 +292,10 @@ Una volta avviata la simulazione, verrà presentata un'interfaccia intuitiva che
 Navigando tra le schede successive si avrà accesso ad ulteriori dettagli sulla simulazione in corso. Li si troveranno grafici chiari che mostrano le richieste totali inviate al secondo, i tempi di risposta e il numero di utenti attivi. Ulteriori schede offriranno informazioni ancora più dettagliate, consentendo inoltre di scaricare i dati generati durante la simulazione e visualizzare i log forniti da Locust.
 
 Per ulteriori informazioni e dettagli sul framework Locust, si consiglia di consultare la documentazione ufficiale: https://docs.locust.io/en/stable/.
+
+#figure(image("//imgs/Manuale_Utente/locust_2.png", width: 95%), caption: [Schermata di monitoraggio dei risultati.])
+\
+#figure(image("//imgs/Manuale_Utente/locust_3.png", width: 95%), caption: [Schermata di monitoraggio dei grafici.])
 
 #pagebreak()
 
