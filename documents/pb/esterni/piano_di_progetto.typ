@@ -9,7 +9,8 @@
     [_#(p.zextras)_],
   ),
   changelog: (
-    "1.4.0", "2024-03-21", p.fabbian, p.bettin, "Aggiunti il consuntivo, la retrospettiva e l'avanzamento raggiunto relativi al periodo IX",
+    "1.4.1", "2024-03-22", p.furno, p.fabbian, "Aggiunto il sommario finale per la PB",
+    "1.4.0", "2024-03-22", p.fabbian, p.bettin, "Aggiunti il consuntivo, la retrospettiva e l'avanzamento raggiunto relativi al periodo IX",
     "1.3.1", "2024-03-08", p.vedovato, p.bonavigo, "Aggiunto il preventivo e la pianificazione del periodo IX",
     "1.3.0", "2024-03-07", p.furno, p.fabbian, "Aggiunti il consuntivo, la retrospettiva e l'avanzamento raggiunto relativi al periodo VIII",
     "1.2.1", "2024-02-23", p.amadori, p.bulychov, "Aggiunto il preventivo e la pianificazione del periodo VIII",
@@ -59,7 +60,7 @@ La presenza di un termine all'interno del `Glossario` viene indicata applicando 
 
 == Riferimenti
 === Riferimenti normativi
-- `Norme di Progetto v2.0.0`: \ https://overture-unipd.github.io/docs/rtb/interni/norme_di_progetto_v2.0.0.pdf 
+- `Norme di Progetto v2.0.0`: \ https://overture-unipd.github.io/docs/rtb/interni/norme_di_progetto_v2.0.0.pdf
 - *PD2 - Regolamento del progetto didattico* (data di ultimo accesso: 2024-03-22)\
   https://www.math.unipd.it/~tullio/IS-1/2023/Dispense/PD2.pdf
 - *Capitolato d'appalto C8*: JMAP, il nuovo protocollo standard per la comunicazione email (data di ultimo accesso: 2024-03-22)\
@@ -1058,3 +1059,40 @@ Il nostro percorso all'interno del progetto giunge ora alla sua conclusione, tut
 Al termine del nono periodo di lavoro, durante il quale il nostro gruppo ha dedicato grande impegno e determinazione per portare a termine il progetto, possiamo finalmente considerarci pronti per affrontare la revisione PB. In questo periodo la fase di progettazione è stata completamente finalizzata, con la `Specifica Tecnica` elaborata in modo dettagliato e completo, e sono stati effettuati gli ultimi ritocchi e aggiornamenti nei vari documenti, garantendo uno stile uniforme ed aggiornando i riferimenti contenuti al loro interno. La codifica del prodotto software è stata completata con successo, così come sono stati implementati tutti i test necessari per dimostrare la correttezza del nostro prodotto, partendo dai test di unità, fino ad arrivare ai test di sistema ed andando a sviluppare pure gli stress test richiesti dall'azienda proponente tramite Locust. Successivamente il `Manuale Utente` è stato interamente redatto ed include ora tutte le sezioni essenziali per fornire agli utenti del nostro prodotto le istruzioni necessarie per utilizzarlo in modo ottimale e senza difficoltà. Infine sono stati approvati tutti i documenti per la revisione PB ed è stato fatto un incontro con la proponente che ha valutato il frutto del nostro lavoro come MVP (Minimum Viable Product).\
 In conclusione, il progetto è stato portato a termine con successo e siamo pronti per presentare i nostri risultati nella revisione PB, dimostrando un notevole impegno e una solida preparazione da parte del team.
 #progress2(18,"IX")
+
+=== Sommario finale
+Dopo aver completato la revisione RTB in data 2024-02-08, il gruppo si è potuto dedicare a tempo pieno al completamento del progetto didattico e si considera ora pronto per affrontare la seconda revisione del progetto. Quest'ultima, come concordato con il #p.cardin, inizierà il *2024-03-26* e continuerà successivamente in un incontro con il #p.vardanega.\
+Durante questo periodo di lavoro tra le due revisioni, sono stati definiti i documenti specifici relativi al prodotto, come la `Specifica Tecnica` ed il `Manuale Utente`, mentre quelli definiti per la prima revisione del prodotto hanno subito per lo più aggiornamenti e piccoli aggiustamenti. Gran parte delle ore di lavoro sono state impiegate nella progettazione e nello studio dell'architettura del prodotto, oltre che nella codifica e nello sviluppo dei test.\
+Ogni membro del team ha rispettato i vincoli sulle ore di lavoro, stabilite tra 80 e 95 ore produttive.\
+Il preventivo a finire previsto dopo la candidatura alla RTB era di 12.615€, ma dopo varie considerazioni fatte al termine di ogni periodo, e visto soprattutto che ci fermeremo alla PB, è sceso a circa 12.250€ al termine del periodo VIII. Attualmente, il preventivo a finire definitivo equivale a *_12.265€_* e la consegna finale del prodotto, programmata per la data _*2024-03-23*_ al termine del periodo VIII, è stata rispettata. 
+
+==== Riepilogo prospetto orario
+
+===== Ore consumate
+#figure(consuntivo(
+  (
+    ("8", "8", "19", "8", "17", "26", "86"),
+    ("9", "7", "20", "11", "17", "24", "88"),
+    ("9","8","20","9","17","26","89"),
+    ("9","8","19","8","19","24","87"),
+    ("9","8","20","10","17","24","88"),
+    ("8","8","21","11","17","24","89"),
+    ("9","7","21","11","17","24","89"),
+    ("61","54","140","68","121","172","616"),
+   )
+), caption: [Impegno orario effettivo per ruolo di ciascun membro al termine del periodo di preparazione alla PB.])
+
+==== Riepilogo prospetto economico
+
+===== Costi totali
+#figure(costiFinaliRuoloPB(
+  (
+    ("210€", "210€", "180€", "150€", "150€", "90€", "240€", "240€", "360€", "1830€"), 
+    ("120€", "140€", "180€", "100€", "100€", "40€", "120€", "140€", "140€", "1080€"), 
+    ("135€", "255€", "270€", "150€", "60€", "30€", "405€", "450€", "345€", "2100€"), 
+    ("450€", "400€", "500€", "225€", "-", "75€", "-", "-", "-", "1650€"), 
+    ("200€", "-", "-", "-", "-", "-", "1075€", "900€", "850€", "3025€"), 
+    ("-", "270€", "315€", "195€", "120€", "-", "480€", "540€", "660€", "2580€"), 
+    ("1115€", "1275€", "1445€", "820€", "430€", "235€", "2320€", "2270€", "2355€", "12265€"),
+  )
+), caption: [Resoconto economico del progetto al termine del periodo di preparazione alla PB.])
