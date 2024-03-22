@@ -9,6 +9,7 @@
     [_#(p.zextras)_],
   ),
   changelog: ( 
+    "2.0.0", "2024-03-22", p.bulychov, p.bettin, "Approvazione per PB",
     "1.8.0", "2024-03-22", p.fabbian, p.furno, "Aggiornamento della sezione 'Cruscotto di valutazione della qualità' conseguente al periodo IX",
     "1.7.1", "2024-03-20", p.vedovato, p.bonavigo, "Aggiornamento dello stato dei test nella sezione 'Metodologie di testing'",
     "1.7.0", "2024-03-12", p.bonavigo, p.vedovato, "Inseriti i test di regressione nella sezione 'Metodologie di testing'",
@@ -48,7 +49,7 @@ Questo documento presenta le strategie di verifica e validazione implementate pe
 Saranno inoltre riportati i risultati delle verifiche effettuate sul prodotto, con l'obiettivo di correggere tempestivamente eventuali problematiche riscontrate.
 
 == Scopo del prodotto
-Il prodotto mira principalmente a consentire all'azienda #glossary("proponente") di valutare se sia conveniente dedicare tempo e risorse all'integrazione del #glossary("protocollo") #glossary("JMAP") nel loro prodotto principale chiamato #glossary("Carbonio"), una soluzione di collaborazione online centrata sulla gestione delle email. Infatti JMAP é un protocollo di comunicazione progettato per semplificare l'interazione tra client e server nelle applicazioni di posta elettronica.\
+Il prodotto mira principalmente a consentire all'azienda #glossary("proponente") di valutare se sia conveniente dedicare tempo e risorse all'integrazione del #glossary("protocollo") #glossary("JMAP") nel loro prodotto principale chiamato #glossary("Carbonio"), una soluzione di collaborazione online centrata sulla gestione delle email. Infatti #glossary("JMAP") é un protocollo di comunicazione progettato per semplificare l'interazione tra client e server nelle applicazioni di posta elettronica.\
 Al momento, Carbonio utilizza protocolli standard come IMAP, POP e #glossary("Exchange Active Sync"), perció l'implementazione di JMAP potrebbe potenzialmente garantire maggiori #glossary("funzionalità") ed efficienza a un costo più contenuto.
 
 == Glossario
@@ -58,7 +59,7 @@ La presenza di un termine all'interno del `Glossario` viene indicata applicando 
 
 == Riferimenti
 === Riferimenti normativi
-- `Norme di Progetto v2.0.0`: \ https://overture-unipd.github.io/docs/rtb/interni/norme_di_progetto_v2.0.0.pdf
+- `Norme di Progetto v2.0.0`: \ https://overture-unipd.github.io/docs/pb/interni/norme_di_progetto_v2.0.0.pdf
 - *Capitolato d'appalto C8*: JMAP, il nuovo protocollo standard per la comunicazione email (data di ultimo accesso: 2024-03-22)\
   https://www.math.unipd.it/~tullio/IS-1/2023/Progetto/C8.pdf
 
@@ -67,7 +68,7 @@ La presenza di un termine all'interno del `Glossario` viene indicata applicando 
   https://en.wikipedia.org/wiki/ISO/IEC_9126
 - *ISO/IEC 12207* (data di ultimo accesso: 2024-03-22)\
   https://www.math.unipd.it/~tullio/IS-1/2009/Approfondimenti/ISO_12207-1995.pdf
-- `Glossario v2.0.0`: \ https://overture-unipd.github.io/docs/rtb/interni/glossario_v2.0.0.pdf
+- `Glossario v2.0.0`: \ https://overture-unipd.github.io/docs/pb/interni/glossario_v2.0.0.pdf
 
 #pagebreak()
   
@@ -75,7 +76,7 @@ La presenza di un termine all'interno del `Glossario` viene indicata applicando 
 Ogni #glossary("processo") viene valutato mediante l'applicazione di metriche specifiche, le cui definizioni sono dettagliate dalle sezioni Metriche di qualitá del processo e Metriche di qualitá del prodotto del documento `Norme di Progetto v2.0.0`. Questa sezione delinea i criteri che le metriche devono rispettare per essere valutate come accettabili o eccellenti.
 
 == Qualità di processo 
-La qualità di processo è esigenza primaria nello sviluppo software, difatti per poter avere un prodotto finale di qualità è necessario trovare alla base un'applicazione rigorosa di #glossary("best practice") ben definite che ci permettano di svolgere nel miglior modo possibile l'insieme delle attività da effettuare. \
+La #glossary("qualità") di processo è esigenza primaria nello sviluppo software, difatti per poter avere un prodotto finale di qualità è necessario trovare alla base un'applicazione rigorosa di #glossary("best practice") ben definite che ci permettano di svolgere nel miglior modo possibile l'insieme delle attività da effettuare. \
 
 === Processi primari
 
@@ -274,41 +275,46 @@ Ogni test ha uno *Stato*, che puo essere:
 I test di unità sono concepiti per verificare il corretto funzionamento delle singole componenti di codice. Per 'unità' si intendono funzioni, classi o, in modo più generico, ogni singola entità di codice Responsabile di svolgere specifiche attività interne nel software. Per implementare efficacemente questa tipologia di test, l'azienda proponente ha consigliato l'utilizzo dei framework di unit testing *JUnit* e *Mockito*.
 #figure(test(
   (
-    "TU-1","Verificare che il metodo Dispatcher.dispatch restituisca il gson corretto dato uno specifico input JSON.", "V",
-    "TU-2","Verificare che il metodo Dispatcher.dispatch restituisca un errore NOT_REQUESTED nel caso in cui la richiesta non contenga alcuna method call.", "V",
-    "TU-3","Verificare che il metodo Dispatcher.dispatch restituisca un errore NOT_REQUESTED nel caso in cui la richiesta non contenga il parametro using.", "V",
-    "TU-4","Verificare che il metodo Dispatcher.dispatch restituisca la corrispondente Response nel caso in cui la richiesta sia correttamente strutturata.", "V",
-    "TU-5","Verificare che il metodo Dispatcher.pick esegua la method call all'attributo corretto dato un input method call specifico.", "V",
-    "TU-6","Verificare che il metodo Dispatcher.pick restituisca un UnknownMethodErrorResponse nel caso in cui non sia presente il corrispondente getter per la method call in input.", "V",
-    "TU-7","Verifica che il metodo EmailBiz.get restituisca una GetEmailMethodResponse con gli attributi corretti.", "V",
-    "TU-8","Verifica che il metodo EmailBiz.get  restituisca correttamente una InvalidResultReferenceMethodErrorResponse nel caso in cui il parametro idsReference presente nella method call in input sia diverso da 'null' ma non sia possibile risolvere il riferimento in base al percorso specificato all'interno dell'oggetto idsReference.", "V",
-    "TU-9","Verifica che il metodo EmailBiz.query restituisca una QueryEmailMethodResponse con gli attributi corretti.", "V",
-    "TU-10","Verifica che il metodo EmailBiz.query  restituisca correttamente una AnchorNotFoundMethodErrorResponse nel caso in cui il parametro anchor presente nella method call in input sia diverso da 'null' ma non sia presente all'interno dell'array ids.", "V",
-    "TU-11","Verifica che il metodo EmailBiz.applyFilter applichi correttamente alla Stream di Email il filtro in input.", "V",
-    "TU-12","Verificare che il metodo EmailBiz.changes restituisca una ChangesEmailMethodResponse con attributi updated, created e destroyed uguali a '' nel caso in cui il parametro since della method call in input sia uguale a getState e non 'null'.", "V",
-    "TU-13","Verificare che il metodo EmailBiz.changes restituisca una CannotCalculateChangesMethodResponse nel caso in cui il parametro since della method call in input non sia uguale a getState o 'null' ed il parametro update sia 'null'.", "V",
-    "TU-14","Verificare che il metodo EmailBiz.changes restituisca una ChangesEmailMethodResponse con attributi aggiornati nel caso in cui il parametro since della method call in input sia uguale a getState, diverso da 'null' ed il parametro update sia anch'esso diverso 'null'.", "V",
-    "TU-15","Verifica che il metodo EmailBiz.set restituisca una StateMismatchMethodErrorResponse nel caso in cui il parametro ifInState della method call in input diverso sia da 'null che dall'oldState.", "V",
-    "TU-16","Verifica che il metodo EmailBiz.set restituisca una SetEmailMethodResponse correttamente implementato.", "V",
-    "TU-17","Verifica che il metodo EmailBiz.patchEmail restituisca una IllegalArgumentException nel caso in cui una delle patch inviate contenga, nel percorso, come primo argomento 'mailboxIds' ma non sia un'istanza di Boolean con lunghezza del percorso uguale a 2 oppure un'istanza di Map.", "V",
-    "TU-18","Verifica che il metodo EmailBiz.patchEmail restituisca una IllegalArgumentException nel caso in cui una delle patch inviate non contenga, nel percorso, come primo argomento 'keywords' o 'mailboxIds'.", "V",
-    "TU-19","Verifica che il metodo EmailBiz.patchEmail restituisca una IllegalArgumentException nel caso in cui una delle patch inviate contenga, nel percorso, come primo argomento 'keywords' ed un percorso di lunghezza diversa da 2.", "V",
-    "TU-20","Verifica che il metodo EmailBiz.patchEmail restituisca una MailboxInfo correttamente implementata.", "V",
-    "TU-21","Verificare che il metodo MailboxBiz.changes restituisca una ChangesMailboxMethodResponse con attributi updated, created, destroyed e updatedProperties uguali a '' nel caso in cui il parametro since della method call in input sia uguale a getState e non 'null'.", "V",
-    "TU-22","Verificare che il metodo MailboxBiz.changes restituisca una CannotCalculateChangesMethodResponse nel caso in cui il parametro since della method call in input non sia uguale a getState o 'null' ed il parametro update sia 'null'.", "V",
-    "TU-23","Verificare che il metodo MailboxBiz.changes restituisca una ChangesMailboxMethodResponse con attributi aggiornati nel caso in cui il parametro since della method call in input sia uguale a getState, diverso da 'null' ed il parametro update sia anch'esso diverso 'null'.", "V",
-    "TU-24","Verifica che il metodo MailboxBiz.get restituisca una GetMailboxMethodResponse con gli attributi corretti.", "V",
-    "TU-25","Verifica che il metodo MailboxBiz.get  restituisca correttamente una InvalidResultReferenceMethodErrorResponse nel caso in cui il parametro idsReference presente nella method call in input sia diverso da 'null' ma non sia possibile risolvere il riferimento in base al percorso specificato all'interno dell'oggetto idsReference.", "V",
-    "TU-26","Verifica che il metodo MailboxBiz.toMailbox restituisca un oggetto MailboxBiz con gli attributi correttamente impostati.", "V",
-    "TU-27","Verifica che il metodo MailboxBiz.set restituisca una StateMismatchMethodErrorResponse nel caso in cui il parametro ifInState della method call in input diverso sia da 'null che dall'oldState.", "V",
-    "TU-28","Verifica che il metodo MailboxBiz.set restituisca una setMailboxResponse correttamente implementato.", "V",
-    "TU-29","Verifica che il metodo MailboxBiz.patchMailbox restituisca una IllegalArgumentException nel caso in cui una delle patch inviate non contenga, nel percorso, alcun argomento precedente allo slash (/).", "V",
-    "TU-30","Verifica che il metodo MailboxBiz.patchMailbox restituisca una MailboxInfo correttamente implementata.", "V",
-    "TU-31","Verifica che il metodo ThreadBiz.changes restituisca una ChangesThreadMethodResponse con attributi updated, created, destroyed uguali a '' nel caso in cui il parametro since della method call in input sia uguale a getState e non 'null'.", "V",
-    "TU-32","Verificare che il metodo ThreadBiz.changes restituisca una CannotCalculateChangesMethodResponse nel caso in cui il parametro since della method call in input non sia uguale a getState o 'null' ed il parametro update sia 'null'.", "V",
-    "TU-33","Verificare che il metodo ThreadBiz.changes restituisca una ChangesThreadMethodResponse con attributi aggiornati nel caso in cui il parametro since della method call in input sia uguale a getState, diverso da 'null' ed il parametro update sia anch'esso diverso 'null'.", "V",
-    "TU-34","Verifica che il metodo ThreadBiz.get restituisca una GetThreadMethodResponse con gli attributi corretti.", "V",
-    "TU-35","Verifica che il metodo ThreadBiz.get restituisca correttamente una InvalidResultReferenceMethodErrorResponse nel caso in cui il parametro idsReference presente nella method call in input sia diverso da 'null' ma non sia possibile risolvere il riferimento in base al percorso specificato all'interno dell'oggetto idsReference.", "V",
+    "TU-1","Verificare che il metodo AttachmentController.pull restituisca il blob corretto dato uno specifico id in input.", "V",
+    "TU-2","Verificare che il metodo AttachmentController.push restituisca un JSON contenente accountId, blobId, type e size dato in input un blob.", "V",
+    "TU-3","Verificare che il metodo AttachmentLogic.upload restituisca un bolobId valido dato in input un blob.", "V",
+    "TU-4","Verificare che il metodo AttachmentLogic.download restituisca il corretto blob dato in input un blobId valido.", "V",
+    "TU-5","Verificare che il metodo AuthenticationController.authenticate esegua correttamente l'auteticazione data in input una stringa valida.", "V",
+    "TU-6","Verificare che il metodo AuthenticationController.authenticateTestNoToken esegua correttamente l'auteticazione data in input una stringa non valida.", "V",
+    "TU-7","Verificare che il metodo AuthenticationController.authenticateTestInvalidToken esegua correttamente l'auteticazione data in input una stringa non valida.", "V",
+    "TU-8","Verificare che il metodo AuthenticationLogic.authenticate restituisca true date in inpute delle credenziali corrette.", "V",
+    "TU-9","Verificare che il metodo AuthenticationLogic.authenticateTestWrongUsername restituisca false dato in input uno username invalido.", "V",
+    "TU-10","Verificare che il metodo AuthenticationLogic.authenticateTestWrongPassword restituisca false dato in input una password invalida.", "V",
+    "TU-11","Verificare che il metodo EchoLogic.echo restituisca una EchoMethodResponse contenente la libreria inserita nella EchoMethodCall in input.", "V",
+    "TU-12","Verificare che il metodo IdentityLogic.get restituisca una GetIdentityMethodResponse contenente l'identità dell'account che ha eseguito la richiesta.", "V",
+    "TU-13","Verificare che il metodo SessionController.get restituisca lo username corretto datogli in input il token dell'autenticazione.", "V",
+    "TU-14","Verificare che il metodo SessionLogic.get restituisca lo username corretto, all'interno della SessionResource ritornata, datogli in input lo username dell'account utilizzato.", "V",
+    "TU-15","Verificare che il metodo ThreadLogic.getAccumulatedUpdateSince restituisca un oggetto Update non nullo dati in input stato ed account corretti.", "V",
+    "TU-16","Verificare che il metodo ThreadLogic.getAccumulatedUpdateSinceFailed restituisca un oggetto Update nullo dati in input uno stato sbagliato.", "V",
+    "TU-17","Verificare che il metodo ThreadLogic.changesTest restituisca una MethodResponse[] contenete un oggetto instanceof di ChangesThreadMethodResponse non nullo, dati in input una ChangesThreadMethodCall ed una ListMultimap<String, Response.Invocation> correttamente impostati.", "V",
+    "TU-18","Verificare che il metodo ThreadLogic.changesTest2 restituisca una MethodResponse[] contenete un oggetto instanceof di ChangesThreadMethodResponse non nullo, dati in input una ChangesThreadMethodCall, con sinceState vecchio, ed una ListMultimap<String, Response.Invocation>.", "V",
+    "TU-19","Verificare che il metodo ThreadLogic.changesTestFailed non restituisca una MethodResponse[] contenete un oggetto instanceof di ChangesThreadMethodResponse, dati in input una ChangesThreadMethodCall, con sinceState sbagliato, ed una ListMultimap<String, Response.Invocation>.", "V",
+    "TU-20","Verificare che il metodo ThreadLogic.getTest restituisca una MethodResponse[] contenete un oggetto instanceof di GetThreadMethodResponse, dati in input una GetThreadMethodCall ed una ListMultimap<String, Response.Invocation> correttamente impostati.", "V",
+    "TU-21","Verificare che il metodo EmailLogic.getAccumulatedUpdateSince restituisca un oggetto Update non nullo dati in input stato ed account corretti.", "V",
+    "TU-22","Verificare che il metodo EmailLogic.getAccumulatedUpdateSinceFailed restituisca un oggetto Update nullo dati in input uno stato sbagliato.", "V",
+    "TU-23","Verificare che il metodo EmailLogic.getTest restituisca un oggetto GetEmailMethodResponse contenente lo stesso account id presente nella GetEmailMethodCall data in input.", "V",
+    "TU-24","Verificare che il metodo EmailLogic.getTest2 restituisca un oggetto GetEmailMethodResponse contenente lo stesso account id presente nella GetEmailMethodCall data in input, in questo caso testata con Email.Properties.THREAD_ID in properties.", "V",
+    "TU-25","Verificare che il metodo EmailLogic.getTest3 restituisca un oggetto GetEmailMethodResponse contenente lo stesso account id presente nella GetEmailMethodCall data in input, in questo caso testata con Email.Properties.MUTABLE in properties.", "V",
+    "TU-25","Verificare che il metodo EmailLogic.queryTest restituisca un oggetto QueryEmailMethodResponse data una QueryEmailMethodCall in input.", "V",
+    "TU-26","Verificare che il metodo EmailLogic.queryTestFailed non restituisca un oggetto QueryEmailMethodResponse data una QueryEmailMethodCall in input con 'anchor' come return di getAnchor.", "V",
+    "TU-27","Verificare che il metodo EmailLogic.queryTestFailed2 non restituisca un oggetto QueryEmailMethodResponse data una QueryEmailMethodCall con i return di emailFilterCondition diversi da null.", "V",
+    "TU-28","Verificare il comportamento del metodo set della classe EmailLogic. Viene testata la creazione di un'email con varie proprietà, aggiornando le proprietà esistenti, l'aggiunta di keywords, il cambio di mailboxIds, e varie combinazioni di queste operazioni.", "V",
+    "TU-29","Verificare il comportamento del metodo changes della classe EmailLogic. Viene testata la corretta gestione dei cambiamenti nelle email dallo stato precedente a quello attuale.", "V",
+    "TU-30","Simile a changesTest, ma con lo stato precedente uguale a quello attuale, quindi non dovrebbero esserci cambiamenti.", "V",
+    "TU-31","Questo test verifica il comportamento del metodo changes quando lo stato precedente fornito non corrisponde a uno stato valido. In questo caso, ci si aspetta che il test fallisca.", "V",
+    "TU-32","Questo test verifica il comportamento della funzione injectId della classe EmailLogic. Viene testata la creazione di un EmailBodyPart con un allegato, verificando che l'id del blob sia iniettato correttamente e che le altre proprietà dell'allegato siano mantenute.", "V",
+    "TU-33","Verificare che il metodo MailboxLogic.getAccumulatedUpdateSince restituisca un oggetto Update non nullo dati in input stato ed account corretti.", "V",
+    "TU-34","Verificare che il metodo MailboxLogic.changesTest restituisca un oggetto ChangesMailboxMethodResponse data una ChangesMailboxMethodCall in input.", "V",
+    "TU-35","Verificare che il metodo MailboxLogic.changesTest2 restituisca un oggetto ChangesMailboxMethodResponse data una ChangesMailboxMethodCall in input.", "V",
+    "TU-36","Verificare che il metodo MailboxLogic.getTest restituisca un oggetto GetMailboxMethodResponse data una GetMailboxMethodCall in input.", "V",
+    "TU-37","Verificare che il metodo MailboxLogic.getTest2 restituisca un oggetto GetMailboxMethodResponse data una GetMailboxMethodCall in input.", "V",
+    "TU-38","Verificare che il metodo MailboxLogic.getTest3 restituisca un oggetto GetMailboxMethodResponse data una GetMailboxMethodCall in input.", "V",
+    "TU-39","Verificare che il metodo MailboxLogic.setTest restituisca un oggetto SetMailboxMethodResponse data una SetMailboxMethodCall in input.", "V",
   )
 ), caption: [Stato dei test di unitá.])
 
@@ -316,26 +322,28 @@ I test di unità sono concepiti per verificare il corretto funzionamento delle s
 I test di integrazione sono progettati per verificare che le diverse parti di un'applicazione si integrino correttamente e collaborino senza problemi quando vengono combinate. Questi test mirano a identificare eventuali errori o problemi di interoperabilità tra i moduli o le unità di codice.
 #figure(test(
   (
-    "TI-1","Verificare che il metodo AccountImpl.getId restituisca correttamente l'id corrispondente dal database", "V",
-    "TI-2","Verificare che il metodo AccountImpl.getPassword restituisca correttamente la password corrispondente dal database", "V",
-    "TI-3","Verificare che il metodo AccountImpl.getState restituisca correttamente lo stato corrispondente dal database", "V",
-    "TI-4","Verificare che il metodo AccountImpl.incrementState incrementi con successo lo stato corrispondente nel database", "V",
-    "TI-5","Verificare che il metodo AttachmentImpl.insertAttachment inserisca correttamente l'attachment corrispondente nel database", "V",
-    "TI-6","Verificare che il metodo AttachmentImpl.getAttachment restituisca correttamente l'attachment corrispondente dal database", "V",
-    "TI-7","Verificare che il metodo AttachmentImpl.deleteAttachment elimini con successo l'attachment corrispondente dal database", "V",
-    "TI-8","Verificare che il metodo EmailImpl.insertEmail inserisca correttamente la mail corrispondente nel database", "V",
-    "TI-9","Verificare che il metodo EmailImpl.getEmail restituisca correttamente la mail corrispondente dal database", "V",
-    "TI-10","Verificare che il metodo EmailImpl.deleteEmail elimini con successo la mail corrispondente dal database", "V",
-    "TI-11","Verificare che il metodo IdentityImpl.getIdentities restituisca correttamente l'identity corrispondente dal database", "V",
-    "TI-12","Verificare che il metodo IdentityImpl.getFirstIdentity restituisca correttamente la prima identity corrispondente dal database", "V",
-    "TI-13","Verificare che il metodo MailboxImpl.insertMailbox inserisca correttamente la mailbox corrispondente nel database", "V",
-    "TI-14","Verificare che il metodo MailboxImpl.getMailbox restituisca correttamente la mailbox corrispondente dal database", "V",
-    "TI-15","Verificare che il metodo MailboxImpl.getAccountMailbox restituisca correttamente l'account corrispondente alla mailbox dal database", "V",
-    "TI-16","Verificare che il metodo MailboxImpl.deleteMailbox elimini con successo la mailbox corrispondente dal database", "V",
-    "TI-17","Verificare che il metodo Thread.getThread restituisca correttamente il thread corrispondente dal database", "V",
-    "TI-18","Verificare che il metodo UpdateImpl.insertUpdate inserisca correttamente l'update corrispondente nel database", "V",
-    "TI-19","Verificare che il metodo UpdateImpl.getUpdate restituisca correttamente l'update corrispondente dal database", "V",
-    "TI-20","Verificare che il metodo UpdateImpl.deleteUpdate elimini con successo l'update corrispondente dal database", "V",
+    "TI-1","Verificare che il metodo AccountRepository.getId restituisca correttamente l'id corrispondente dal database", "V",
+    "TI-2","Verificare che il metodo AccountRepository.getPassword restituisca correttamente la password corrispondente dal database", "V",
+    "TI-3","Verificare che il metodo AccountRepository.getState restituisca correttamente lo stato corrispondente dal database", "V",
+    "TI-4","Verificare che il metodo AccountRepository.incrementState incrementi con successo lo stato corrispondente nel database", "V",
+    "TI-5","Verificare che il metodo AttachmentRepository.insert inserisca correttamente l'attachment corrispondente nel database", "V",
+    "TI-6","Verificare che il metodo AttachmentRepository.get restituisca correttamente l'attachment corrispondente dal database", "V",
+    "TI-7","Verificare che il metodo AttachmentRepository.delete elimini con successo l'attachment corrispondente dal database", "V",
+    "TI-8","Verificare che il metodo EmailRepository.insert inserisca correttamente la mail corrispondente nel database", "V",
+    "TI-9","Verificare che il metodo EmailRepository.get restituisca correttamente la mail corrispondente dal database", "V",
+    "TI-10","Verificare che il metodo EmailRepository.delete elimini con successo la mail corrispondente dal database", "V",
+    "TI-11","Verificare che il metodo IdentityRepository.getOf restituisca correttamente la prima identity corrispondente dal database", "V",
+    "TI-12","Verificare che il metodo MailboxRepository.insert inserisca correttamente la mailbox corrispondente nel database", "V",
+    "TI-13","Verificare che il metodo MailboxRepository.get restituisca correttamente la mailbox corrispondente dal database", "V",
+    "TI-14","Verificare che il metodo MailboxRepository.getOf restituisca correttamente l'account corrispondente alla mailbox dal database", "V",
+    "TI-15","Verificare che il metodo MailboxRepository.delete elimini con successo la mailbox corrispondente dal database", "V",
+    "TI-16","Verificare che il metodo Thread.getOf restituisca correttamente il thread corrispondente dal database", "V",
+    "TI-17","Verificare che il metodo UpdateRepository.insert inserisca correttamente l'update corrispondente nel database", "V",
+    "TI-18","Verificare che il metodo UpdateRepository.get restituisca correttamente l'update corrispondente dal database", "V",
+    "TI-19","Verificare che il metodo UpdateRepository.delete elimini con successo l'update corrispondente dal database", "V",
+    "TI-18","Verificare che il metodo UpdateRepository.getOf restituisca correttamente tutti gli update corrispondente ad un utente dal database", "V",
+    "TI-21","Verificare che il metodo StateRepository.get restituisca correttamente lo stato corrispondente dal database", "V",
+    "TI-22","Verificare che il metodo StateRepository.insert inserisca correttamente lo stato corrispondente nel database", "V",
   )
 ), caption: [Stato dei test di integrazione.])
 
@@ -481,14 +489,14 @@ Essi consistono nell'esecuzione di una serie di test di unità, integrazione e s
 
 #figure(testRegressione(
   (
-    "TU-1, TU-4, TU-5, TU-6, TU-8, TU-9, TU-11, TU-12, TU-14, TU-15, TU-19, TU-21, TU-23, TU-25, TU-28, TU-29, TU-30, TU-32",
-    "TI-2, TI-4, TI-5, TI-7, TI-9, TI-10, TI-11, TI-13, TI-15, TI-17, TI-19",
+    "TU-5, TU-17, TU-20, TU-23, TU-25, TU-28, TU-30, TU-34, TU-36, TU-39",
+    "TI-1, TI-2, TI-3, TI-5, TI-6, TI-8, TI-9, TI-13, TI-15, TI-17, TI-18",
     "TS-1, TS-50, TS-57, TS-63, TS-68, TS-74, TS-79, TS-84, TS-90, TS-118, TS-124",
   )
 ), caption: [Test di regressione selezionati.])
 
 ==  Test di accettazione
-I test di accettazione sono finalizzati a garantire che il prodotto soddisfi i requisiti utente come specificati nel capitolato. Essi vengono eseguiti in presenza del committente e dimostrano la conformità del prodotto alle aspettative attraverso l'esecuzione dei casi di prova previsti nel capitolato. Il superamento positivo di tali test durante il collaudo finale generalmente conduce al rilascio definitivo del prodotto.
+I test di accettazione sono finalizzati a garantire che il prodotto soddisfi i requisiti utente come specificati nel #glossary("capitolato"). Essi vengono eseguiti in presenza del committente e dimostrano la conformità del prodotto alle aspettative attraverso l'esecuzione dei casi di prova previsti nel capitolato. Il superamento positivo di tali test durante il collaudo finale generalmente conduce al rilascio definitivo del prodotto.
 
 #figure(test(
   (
@@ -505,7 +513,7 @@ I test di accettazione sono finalizzati a garantire che il prodotto soddisfi i r
     "TA-11","Verificare che il prodotto supporti la gestione di calendari e appuntamenti.","NI",
     "TA-12","Verificare che il prodotto supporti la gestione di contatti e rubriche contatti.","NI",
     "TA-13","Verificare che il prodotto faccia utilizzo della libreria iNPUTmice/jmap per l’implementazione del protocollo JMAP.","V",
-    "TA-14","Verificare che il prodotto sia eseguibile in un sistema container, come Docker.","V",
+    "TA-14","Verificare che il prodotto sia eseguibile in un sistema "+[#glossary("container")] +", come Docker.","V",
     "TA-15","Verificare che il prodotto sia scalabile mediante l’inizializzazione di più nodi stateless. Per stateless si intende che alla richiesta di uno specifico client fatta ad un’architettura contenente più di un’istanza del servizio dato, può rispondere una qualsiasi istanza del servizio, perché nessuna istanza contiene dati specifici di stato rispetto alle richieste dei client","V",
     "TA-16","Verificare che il prodotto sia sottoponibile a stress test da noi fortniti che riescano a misurare le performance della soluzione provvista.","V"
   )
@@ -519,7 +527,7 @@ I test di accettazione sono finalizzati a garantire che il prodotto soddisfi i r
 == MPC06 - Estimated at Completion (EAC)
 #figure(image("//imgs/PdQ_graphs/EAC.png", width: 100%), caption: [Proiezione della stima del costo totale nei vari periodi di progetto.])
 
-*RTB*: Osservando il grafico ne emerge che in seguito al primo periodo del progetto le stime dei costi totali si discostavano leggermente dal valore ottimale (ovvero la stima iniziale, detta anche BAC) di qualche decina di euro in eccesso. Questa discrepanza è attribuibile alla previsione di un maggior numero di ore nel ruolo di Analista rispetto a quelle successivamente stimate nei periodi II e III, di conseguenza, si è verificata una diminuzione dei costi in questi due periodi. Quest'ultima è stata seguita poi da un leggero aumento poichè, come riportato dalle sezioni Periodo III e Periodo IV del documento `Piano di Progetto v1.0.0`, tra il terzo ed il quarto periodo il gruppo si è reso conto di necessitare di quelle ore che ritenevamo superflue per approfondire ancora di più il documento `Analisi dei Requisiti`. Infine nel quinto ed ultimo periodo la stima è rimasta pressochè costante dato che tutto ha proceduto secondo i piani.
+*RTB*: Osservando il grafico ne emerge che in seguito al primo periodo del progetto le stime dei costi totali si discostavano leggermente dal valore ottimale (ovvero la stima iniziale, detta anche BAC) di qualche decina di euro in eccesso. Questa discrepanza è attribuibile alla previsione di un maggior numero di ore nel ruolo di#glossary("Analista") rispetto a quelle successivamente stimate nei periodi II e III, di conseguenza, si è verificata una diminuzione dei costi in questi due periodi. Quest'ultima è stata seguita poi da un leggero aumento poichè, come riportato dalle sezioni Periodo III e Periodo IV del documento `Piano di Progetto v1.0.0`, tra il terzo ed il quarto periodo il gruppo si è reso conto di necessitare di quelle ore che ritenevamo superflue per approfondire ancora di più il documento `Analisi dei Requisiti`. Infine nel quinto ed ultimo periodo la stima è rimasta pressochè costante dato che tutto ha proceduto secondo i piani.
 
 *PB*: Da un'attenta analisi del grafico, si può notare come nei periodi V, VI e VII l'EAC si mantenga sostanzialmente costante e prossima al valore ottimale. Solo nell'ultimo periodo menzionato si registra una leggera diminuzione, attribuibile alla previsione di un minore numero di ore nel ruolo di Verificatore rispetto a quelle stimate in precedenza. Tuttavia, si nota un significativo calo durante il periodo VIII. Questo è dovuto alla decisione definitiva del gruppo di non proseguire con la revisione CA, bensì di fermarsi alla PB, comportando di conseguenza una riduzione dei costi totali previsti per il completamento del progetto. Infine, nel nono e ultimo periodo, si registra un lieve aumento della stima, ma è importante sottolineare che durante l'intera durata del progetto l'EAC è rimasta entro i valori accettabili da noi definiti.
 
@@ -558,7 +566,7 @@ Al termine dell'ultimo periodo, che corrisponde alla candidatura alla revisione 
 
 *RTB*: Il grafico illustra la dinamica della metrica RSI, volta a valutare la stabilità dei requisiti del progetto nel corso del tempo. Emerge chiaramente una rapida crescita tra il primo e il secondo periodo, coincidente con l'avvio dell'analisi dei requisiti da parte del gruppo. Inoltre, si nota un ulteriore aumento tra il secondo e il terzo periodo, indicativo di modifiche e/o aggiornamenti nell'analisi dei requisiti che sono andati a diminuire. Il parametro poi è diminuito nuovamente per via di modifiche importanti, necessarie a raggiungere un livello di dettaglio dei requisiti ancora maggiore. Infine si nota che nel quinto ed ultimo periodo i requisiti non sono stati toccati e quindi la metrica RSI risulta pari al 100%.
 
-*PB*: Dal grafico si può osservare come, in seguito ad un piccolo aggiustamento dei requisiti conseguente alla revisione RTB avvenuto nel periodo V, i requisiti non siano più stati modificati dal periodo VI in poi, comportando una RSI pari al 100%. Questo aspetto è assolutamente positivo poiché indica una stabilità nel quadro dei requisiti del progetto, il che ha portato a diverse conseguenze benefiche come stabilità del `Piano di Progetto`, risparmio di tempo e risorse, chiarezza negli obiettivi e minore rischio di errori. Una buona `Analisi dei Requisiti` alla base quindi ha sicuramente influito positivamente sul successo del nostro progetto.
+*PB*: Dal grafico si può osservare come, in seguito ad un piccolo aggiustamento dei requisiti conseguente alla revisione RTB avvenuto nel periodo V, i requisiti non siano più stati modificati dal periodo VI in poi, comportando una RSI pari al 100%. Questo aspetto è assolutamente positivo poiché indica una stabilità nel quadro dei requisiti del progetto, il che ha portato a diverse conseguenze benefiche come stabilità del `Piano di Progetto`, risparmio di tempo e risorse, chiarezza negli obiettivi e minore #glossary("rischio") di errori. Una buona `Analisi dei Requisiti` alla base quindi ha sicuramente influito positivamente sul successo del nostro progetto.
 
 #pagebreak()
 
@@ -592,7 +600,7 @@ In aggiunta troviamo i documenti `Manuale Utente` e `Specifica Tecnica`. Il prim
 == MPC15 - Quality Metrics Satisfied
 #figure(image("//imgs/PdQ_graphs/QualityMetSat.png", width: 100%), caption: [Proiezione della percentuale di metriche di qualità soddisfatte nei vari periodi di progetto.])
 
-*RTB*: Dal grafico emerge che nei primi periodi una parte delle metriche di qualità definite dal gruppo non ha raggiunto valori accettabili. Questo è stato dovuto specialmente all'inesperienza iniziale dei membri, i quali però hanno poi appreso dai loro errori, permettendoci di raggiungere valori accettabili, fino a giungere al valore ottimo (100%) al termine del quinto periodo. Questo dimostra quindi un miglioramento nel nostro way of working e nei risultati qualitativi ottenuti.
+*RTB*: Dal grafico emerge che nei primi periodi una parte delle metriche di qualità definite dal gruppo non ha raggiunto valori accettabili. Questo è stato dovuto specialmente all'inesperienza iniziale dei membri, i quali però hanno poi appreso dai loro errori, permettendoci di raggiungere valori accettabili, fino a giungere al valore ottimo (100%) al termine del quinto periodo. Questo dimostra quindi un miglioramento nel nostro #glossary("way of working") e nei risultati qualitativi ottenuti.
 
 *PB*: Il grafico evidenzia come, dopo il superamento della revisione RTB, il valore della metrica sia costantemente rimasto al di sopra del livello accettabile. Inizialmente si è verificato un calo, poiché era evidente che le metriche di qualità del prodotto potevano essere soddisfatte solo verso la fase finale del progetto. Tuttavia, nell'ultimo periodo, si può notare un significativo miglioramento: a parte una singola metrica, tutte le altre hanno raggiunto valori accettabili o addirittura ottimi. Questo indica un notevole sforzo da parte del team nel migliorare la qualità complessiva del prodotto, e testimonia l'efficacia delle azioni correttive implementate nel corso del tempo.
 
@@ -608,7 +616,7 @@ In aggiunta troviamo i documenti `Manuale Utente` e `Specifica Tecnica`. Il prim
 #pagebreak()
 
 == MPC17 - Efficienza Temporale
-#figure(image("//imgs/PdQ_graphs/EffTemp.png", width: 100%), caption: [Proiezione dell'efficienza temporale nei vari periodi di progetto.])
+#figure(image("//imgs/PdQ_graphs/EffTemp.png", width: 100%), caption: [Proiezione dell'#glossary("efficienza") temporale nei vari periodi di progetto.])
 
 *RTB*: Il grafico illustra l'andamento della metrica relativa all'efficienza temporale attraverso i vari periodi. È evidente che la metrica supera il limite accettabile superiore sia nel primo che nel secondo periodo, prima di stabilizzarsi al di sotto solo nel terzo periodo ed i seguenti. Questa tendenza è attribuibile alla necessità del gruppo, nei primi periodi, di prendere familiarità con le nuove tecnologie, ambienti e linguaggi richiesti dal capitolato, oltre che all'adattamento alle pratiche necessarie alla gestione del progetto. Si evidenzia comunque un miglioramento nel tempo, che dimostra come, per ottenere i risultati desiderati, ad oggi ci sia richiesto meno tempo di orologio rispetto che all'inizio del progetto. Questo fattore è attribuibile ad un aumento dell'esperienza dei membri del gruppo.
 
@@ -647,7 +655,7 @@ In seguito, nel periodo VII, purtroppo la metrica ha superato nuovamente il limi
 #pagebreak()
 
 == MPD05 - Branch coverage
-#figure(image("//imgs/PdQ_graphs/BrCov.png", width: 100%), caption: [Proiezione della branch coverage nei vari periodi di progetto.])
+#figure(image("//imgs/PdQ_graphs/BrCov.png", width: 100%), caption: [Proiezione della #glossary("branch") coverage nei vari periodi di progetto.])
 
 *PB*: Da una analisi dettagliata del grafico emerge chiaramente che, fin dall'introduzione dei primi test all'inizio del periodo VIII, la branch coverage ha mantenuto un valore accettabile, aumentando nel tempo. Questo suggerisce che l'implementazione dei test ha avuto un impatto positivo fin dalle fasi iniziali della loro introduzione, contribuendo a garantire una buona copertura delle possibili diramazioni nel flusso di esecuzione del codice. Questa stabilità nella copertura dei vari rami riflette l'efficacia della nostra strategia di testing nel garantire la qualità e l'affidabilità del software.
 
@@ -658,3 +666,10 @@ In seguito, nel periodo VII, purtroppo la metrica ha superato nuovamente il limi
 
 *PB*: Dal momento dell'introduzione dei primi test, avvenuta all'inizio del periodo VIII, il grafico evidenzia che tutti i difetti del prodotto da noi individuati sono stati identificati con successo. Questo risultato riveste una notevole importanza poiché dimostra l'efficacia del processo di testing implementato. Trovare e correggere i difetti in anticipo consente infatti di garantire la qualità del prodotto finale, riducendo il rischio di errori e migliorando la soddisfazione del cliente. Inoltre, individuare tempestivamente i problemi consente di risparmiare tempo e risorse, poiché evita che i difetti si accumulino e diventino più difficili da risolvere in fasi successive dello sviluppo del prodotto. \
 Certamente, è importante sottolineare che il fatto di aver identificato tutti i difetti fin dall'inizio dei test non garantisce che non ce ne siano altri presenti nel prodotto. Nonostante il processo di testing possa essere accurato, è sempre possibile che alcune problematiche rimangano non rilevate o che ne emergano di nuove in seguito a modifiche o interazioni complesse nel sistema. 
+
+#pagebreak()
+
+== MPD11 - Code smell
+#figure(image("//imgs/PdQ_graphs/CS.png", width: 100%), caption: [Proiezione del numero di code smell nei vari periodi di progetto.])
+
+*PB*: Il grafico mostra il numero di code smell, ossia potenziali problemi di progettazione o codice che potrebbero richiedere #glossary("manutenzione"), nel corso del tempo. Nel periodo VII abbiamo identificato un unico code smell, causato da un caso particolare riguardante lo smistamento delle richieste nel sistema, per il quale non avevamo una soluzione soddisfacente. Per risolvere questa problematica abbiamo consultato il #p.cardin, il quale ci ha fornito preziosi suggerimenti che ci hanno permesso di superare questo problema all'interno del periodo VIII. Tuttavia, in tutti gli altri periodi, il numero di code smell è rimasto costantemente pari a 0. Questo evidenzia che, dopo aver risolto il singolo problema riscontrato nel periodo VII, non ne sono stati rilevati altri nei periodi successivi. Ciò suggerisce un miglioramento complessivo della qualità del software nel corso dello sviluppo attribuibile alla nostra attenzione costante alla progettazione e allo sviluppo di codice pulito e ben strutturato, nonché alla prontezza nel risolvere i problemi identificati.
