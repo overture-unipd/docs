@@ -9,6 +9,7 @@
     [_#(p.zextras)_],
   ),
   changelog: (
+    "2.0.0", "2024-03-22", p.bettin, p.furno, "Approvazione per PB",
     "1.5.0", "2024-03-22", p.bonavigo, p.vedovato, "Aggiunta la sezione CA",
     "1.4.1", "2024-03-22", p.furno, p.fabbian, "Aggiunto il sommario finale per la PB",
     "1.4.0", "2024-03-22", p.fabbian, p.bettin, "Aggiunti il consuntivo, la retrospettiva e l'avanzamento raggiunto relativi al periodo IX",
