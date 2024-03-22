@@ -9,6 +9,7 @@
     [_#(p.zextras)_],
   ),
   changelog: (
+    "1.5.0", "2024-03-22", p.bonavigo, p.vedovato, "Aggiunta la sezione CA",
     "1.4.1", "2024-03-22", p.furno, p.fabbian, "Aggiunto il sommario finale per la PB",
     "1.4.0", "2024-03-22", p.fabbian, p.bettin, "Aggiunti il consuntivo, la retrospettiva e l'avanzamento raggiunto relativi al periodo IX",
     "1.3.1", "2024-03-08", p.vedovato, p.bonavigo, "Aggiunto il preventivo e la pianificazione del periodo IX",
@@ -1096,3 +1097,9 @@ Il preventivo a finire previsto dopo la candidatura alla RTB era di 12.615€, m
     ("1115€", "1275€", "1445€", "820€", "430€", "235€", "2320€", "2270€", "2355€", "12265€"),
   )
 ), caption: [Resoconto economico del progetto al termine del periodo di preparazione alla PB.])
+
+== CA
+=== Sommario finale
+Dopo approfondite discussioni, il gruppo si considera pienamente soddisfatto del lavoro svolto e, di conseguenza, in comune accordo tra tutti i membri, ha scelto di non partecipare alla terza revisione del prodotto denominata Customer Acceptance.\
+Dopo l'incontro esterno del 2024-03-22, l'azienda proponente ha valutato lo stato di avanzamento del nostro prodotto come un Minimum Viable Product (MVP). \
+Il superamento della revisione PB segna, pertanto, la conclusione del nostro progetto didattico.
