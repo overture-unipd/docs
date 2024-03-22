@@ -9,6 +9,7 @@
     [_#(p.zextras)_],
   ),
   changelog: ( 
+    "1.8.0", "2024-03-22", p.fabbian, p.furno, "Aggiornamento della sezione 'Cruscotto di valutazione della qualità' conseguente al periodo IX",
     "1.7.1", "2024-03-20", p.vedovato, p.bonavigo, "Aggiornamento dello stato dei test nella sezione 'Metodologie di testing'",
     "1.7.0", "2024-03-12", p.bonavigo, p.vedovato, "Inseriti i test di regressione nella sezione 'Metodologie di testing'",
     "1.6.0", "2024-03-08", p.bonavigo, p.furno, "Aggiornamento della sezione 'Cruscotto di valutazione della qualità' conseguente al periodo VIII",
@@ -57,21 +58,21 @@ La presenza di un termine all'interno del `Glossario` viene indicata applicando 
 
 == Riferimenti
 === Riferimenti normativi
-- `Norme di Progetto v1.0.0`: \ https://overture-unipd.github.io/docs/rtb/interni/norme_di_progetto_v1.0.0.pdf
-- *Capitolato d'appalto C8*: JMAP, il nuovo protocollo standard per la comunicazione email \
+- `Norme di Progetto v2.0.0`: \ https://overture-unipd.github.io/docs/rtb/interni/norme_di_progetto_v2.0.0.pdf
+- *Capitolato d'appalto C8*: JMAP, il nuovo protocollo standard per la comunicazione email (data di ultimo accesso: 2024-03-22)\
   https://www.math.unipd.it/~tullio/IS-1/2023/Progetto/C8.pdf
 
 === Riferimenti informativi
-- *ISO/IEC 9126* \
+- *ISO/IEC 9126* (data di ultimo accesso: 2024-03-22)\
   https://en.wikipedia.org/wiki/ISO/IEC_9126
-- *ISO/IEC 12207* \
+- *ISO/IEC 12207* (data di ultimo accesso: 2024-03-22)\
   https://www.math.unipd.it/~tullio/IS-1/2009/Approfondimenti/ISO_12207-1995.pdf
-- `Glossario v1.0.0`: \ https://overture-unipd.github.io/docs/rtb/interni/glossario_v1.0.0.pdf
+- `Glossario v2.0.0`: \ https://overture-unipd.github.io/docs/rtb/interni/glossario_v2.0.0.pdf
 
 #pagebreak()
   
 = Obiettivi di qualità
-Ogni #glossary("processo") viene valutato mediante l'applicazione di metriche specifiche, le cui definizioni sono dettagliate dalle sezioni Metriche di qualitá del processo e Metriche di qualitá del prodotto del documento `Norme di Progetto v1.0.0`. Questa sezione delinea i criteri che le metriche devono rispettare per essere valutate come accettabili o eccellenti.
+Ogni #glossary("processo") viene valutato mediante l'applicazione di metriche specifiche, le cui definizioni sono dettagliate dalle sezioni Metriche di qualitá del processo e Metriche di qualitá del prodotto del documento `Norme di Progetto v2.0.0`. Questa sezione delinea i criteri che le metriche devono rispettare per essere valutate come accettabili o eccellenti.
 
 == Qualità di processo 
 La qualità di processo è esigenza primaria nello sviluppo software, difatti per poter avere un prodotto finale di qualità è necessario trovare alla base un'applicazione rigorosa di #glossary("best practice") ben definite che ci permettano di svolgere nel miglior modo possibile l'insieme delle attività da effettuare. \
@@ -144,7 +145,7 @@ La qualità di processo è esigenza primaria nello sviluppo software, difatti pe
 #figure(metrics((
   [MPC13],
   [Code coverage],
-  [≥ 90%],
+  [≥ 85%],
   [100%],
   [MPC14],
   [Passed test cases percentage],
@@ -197,7 +198,7 @@ La qualità di prodotto si riferisce all'insieme delle caratteristiche di un'ent
 #figure(metrics((
   [MPD04],
   [Code coverage],
-  [≥ 90%],
+  [≥ 85%],
   [100%],
   [MPD05],
   [#glossary("Branch") coverage],
@@ -246,7 +247,7 @@ La qualità di prodotto si riferisce all'insieme delle caratteristiche di un'ent
 #pagebreak()
 
 = Metodologie di testing
-In questa sezione vengono elencati i #glossary("test") eseguiti sul prodotto, necessari per dimostrare che i vincoli individuati nella sezione Requisiti del documento `Analisi dei Requisiti v1.0.0` siano effettivamente soddisfatti.\ Come anticipato all'interno della sezione Verifica del documento `Norme di Progetto v1.0.0`, i test si dividono in:
+In questa sezione vengono elencati i #glossary("test") eseguiti sul prodotto, necessari per dimostrare che i vincoli individuati nella sezione Requisiti del documento `Analisi dei Requisiti v2.0.0` siano effettivamente soddisfatti.\ Come anticipato all'interno della sezione Verifica del documento `Norme di Progetto v2.0.0`, i test si dividono in:
 - *Test di unità*: definiti sulle unità software autonome più piccole, sono implementati principalmente durante la progettazione;
 - *Test di integrazione*: successivi ai test di unità, servono a verificare la corretta integrazione tra le diverse unità software;
 - *Test di sistema*: garantiscono il corretto funzionamento del sistema. In particolare, verificano che tutti i requisiti individuati siano rispettati;
@@ -520,12 +521,16 @@ I test di accettazione sono finalizzati a garantire che il prodotto soddisfi i r
 
 *RTB*: Osservando il grafico ne emerge che in seguito al primo periodo del progetto le stime dei costi totali si discostavano leggermente dal valore ottimale (ovvero la stima iniziale, detta anche BAC) di qualche decina di euro in eccesso. Questa discrepanza è attribuibile alla previsione di un maggior numero di ore nel ruolo di Analista rispetto a quelle successivamente stimate nei periodi II e III, di conseguenza, si è verificata una diminuzione dei costi in questi due periodi. Quest'ultima è stata seguita poi da un leggero aumento poichè, come riportato dalle sezioni Periodo III e Periodo IV del documento `Piano di Progetto v1.0.0`, tra il terzo ed il quarto periodo il gruppo si è reso conto di necessitare di quelle ore che ritenevamo superflue per approfondire ancora di più il documento `Analisi dei Requisiti`. Infine nel quinto ed ultimo periodo la stima è rimasta pressochè costante dato che tutto ha proceduto secondo i piani.
 
+*PB*: Da un'attenta analisi del grafico, si può notare come nei periodi V, VI e VII l'EAC si mantenga sostanzialmente costante e prossima al valore ottimale. Solo nell'ultimo periodo menzionato si registra una leggera diminuzione, attribuibile alla previsione di un minore numero di ore nel ruolo di Verificatore rispetto a quelle stimate in precedenza. Tuttavia, si nota un significativo calo durante il periodo VIII. Questo è dovuto alla decisione definitiva del gruppo di non proseguire con la revisione CA, bensì di fermarsi alla PB, comportando di conseguenza una riduzione dei costi totali previsti per il completamento del progetto. Infine, nel nono e ultimo periodo, si registra un lieve aumento della stima, ma è importante sottolineare che durante l'intera durata del progetto l'EAC è rimasta entro i valori accettabili da noi definiti.
+
 #pagebreak()
 
 == MPC01 - Earned Value (EV) e MPC02 - Planned Value (PV)
 #figure(image("//imgs/PdQ_graphs/EV_PV.png", width: 100%), caption: [Proiezione dell'EV e del PV nei vari periodi di progetto.])
 
 *RTB*: Dal grafico, è evidente che le curve dell'Earned Value (valore guadagnato) e del Planned Value (valore pianificato) si sovrappongono, indicando che il lavoro effettivamente svolto è conforme alla pianificazione. Questa sovrapposizione suggerisce un avanzamento positivo rispetto alla pianificazione del progetto.
+
+*PB*: Osservando il grafico si nota come anche nella seconda fase del progetto le due metriche procedano parallelamente, tranne che al termine del periodo V, all'interno del quale non avevamo pianificato alcun avanzamento per via della sessione di esami e del passaggio della revisione RTB, tuttavia, abbiamo poi effettuato del progresso nonostante ciò. Comunque, ad esclusione di questa eccezione, l'andamento quasi perfettamente parallelo di EV e PV dimostra un'ottima capacità di pianificazione acquisita nel corso del progetto da parte del team.
 
 #pagebreak()
 
@@ -534,6 +539,9 @@ I test di accettazione sono finalizzati a garantire che il prodotto soddisfi i r
 
 *RTB*: Il grafico visualizza l'Estimate to Complete (ETC), cioè la stima del costo rimanente previsto per portare a termine il progetto durante i vari periodi, e l'Actual Cost (AC), ossia una stima del costo effettivamente sostenuto per il lavoro eseguito fino al periodo attuale. Si osserva come l'ETC tenda giustamente a diminuire nel corso del periodo, mentre l'AC mostra una crescita proporzionale alla velocità con cui l'ETC decresce.
 
+*PB*: Guardando il grafico, si può notare che durante il periodo V c'è stato soltanto un leggero aumento nell'AC, di molto inferiore ai restanti periodi, attribuibile al focus dedicato agli esami e al passaggio della RTB in quella finestra temporale. Tuttavia, oltre a questo caso particolare, nei successivi periodi si osserva un rapido aumento dell'AC, accompagnato da una decrescita proporzionale dell'ETC, indicando un notevole impegno lavorativo accompagnato da un'equivalente spesa. \
+Al termine dell'ultimo periodo, che corrisponde alla candidatura alla revisione PB, l'AC ha chiaramente raggiunto l'Estimated at Completion (EAC), mentre l'ETC è rimasto leggermente superiore allo zero di alcune centinaia di euro poiché abbiamo scelto di non eseguire la revisione CA, spendendo dunque meno di quanto inizialmente preventivato in fase di candidatura.
+
 #pagebreak()
 
 == MPC04 - Cost Variance (CV) e MPC05 - Schedule Variance (SV)
@@ -541,12 +549,16 @@ I test di accettazione sono finalizzati a garantire che il prodotto soddisfi i r
 
 *RTB*: Il grafico evidenzia la Cost Variance (CV), rappresentante la differenza tra il valore guadagnato (EV) e i costi sostenuti (AC) in percentuale, e la Schedule Variance (SV), indicando la differenza tra il valore guadagnato (EV) e il valore pianificato (PV) in percentuale. Mentre la Cost Variance nei vari periodi è costante e pari a 0, dato che indica una corrispondenza tra i costi sostenuti e l'avanzamento reale nel progetto, si nota un andamento della Schedule Variance abbastanza altalenante. La prima diminuzione è attribuibile a incomprensioni interne che hanno impattato negativamente sul lavoro e, di conseguenza, sul valore guadagnato rispetto a quanto inizialmente specificato. Questa per fortuna, però, è stata seguita da un grande aumento dovuto ad uno sforzo del gruppo di tentare di svolgere più lavoro possibile, anche se non pianificato inizialmente. Infine si ha un calo dovuto ad una previsione di ore necessarie alla risoluzione del PoC che si è rivelata essere eccessiva.
 
+*PB*: Guardando il grafico si può osservare come anche nella seconda fase del progetto la CV rimanga costante e pari a 0, confermando l'accurata corrispondenza tra i costi sostenuti e l'avanzamento effettivo del progetto. Per quanto riguarda la SV invece, al termine del periodo V si evidenzia un'eccezione poiché, nonostante non fosse previsto alcun avanzamento, questo si è verificato, determinando una differenza percentuale del 100%. Tuttavia, ad eccezione di questo caso particolare, la SV mostra una minore variazione rispetto alla prima parte del progetto. Il gruppo si è dimostrato infatti estremamente preciso nella pianificazione della fase compresa tra RTB e PB, risultando in una differenza percentuale minima tra il valore guadagnato e il valore pianificato.
+
 #pagebreak()
 
 == MPC08 - Requirements stability index (RSI)
 #figure(image("//imgs/PdQ_graphs/RSI.png", width: 100%), caption: [Proiezione del RSI nei vari periodi di progetto.])
 
 *RTB*: Il grafico illustra la dinamica della metrica RSI, volta a valutare la stabilità dei requisiti del progetto nel corso del tempo. Emerge chiaramente una rapida crescita tra il primo e il secondo periodo, coincidente con l'avvio dell'analisi dei requisiti da parte del gruppo. Inoltre, si nota un ulteriore aumento tra il secondo e il terzo periodo, indicativo di modifiche e/o aggiornamenti nell'analisi dei requisiti che sono andati a diminuire. Il parametro poi è diminuito nuovamente per via di modifiche importanti, necessarie a raggiungere un livello di dettaglio dei requisiti ancora maggiore. Infine si nota che nel quinto ed ultimo periodo i requisiti non sono stati toccati e quindi la metrica RSI risulta pari al 100%.
+
+*PB*: Dal grafico si può osservare come, in seguito ad un piccolo aggiustamento dei requisiti conseguente alla revisione RTB avvenuto nel periodo V, i requisiti non siano più stati modificati dal periodo VI in poi, comportando una RSI pari al 100%. Questo aspetto è assolutamente positivo poiché indica una stabilità nel quadro dei requisiti del progetto, il che ha portato a diverse conseguenze benefiche come stabilità del `Piano di Progetto`, risparmio di tempo e risorse, chiarezza negli obiettivi e minore rischio di errori. Una buona `Analisi dei Requisiti` alla base quindi ha sicuramente influito positivamente sul successo del nostro progetto.
 
 #pagebreak()
 
@@ -556,6 +568,9 @@ I test di accettazione sono finalizzati a garantire che il prodotto soddisfi i r
 
 *RTB*: Dall'analisi del grafico emerge un generale trend di aumento e/o stabilizzazione dell'indice per ciascun documento nel corso dei differenti periodi. L'eccezione a questa tendenza è rappresentata dal `Piano di Progetto`, il quale si discosta da tale andamento a causa di una variazione sostanziale del suo contenuto nel corso del tempo. Inoltre, si osserva che l'`Analisi dei Requisiti` è l'unico documento che inizia al di sotto del limite accettabile inferiore, fenomeno causato dalla specificità degli argomenti trattati e dal linguaggio utilizzato in quest'ambito. Tuttavia tutti i documenti risultano comprensibili per chi ha la licenza media.
 
+*PB*: Osservando il grafico si può notare come, nei periodi seguenti alla revisione RTB, i documenti già esistenti abbiano mantenuto un indice di Gulpease pressochè costante e pari a quello precedente, indicando che il loro contenuto è stato mantenuto ad un livello di comprensibilità uniforme nel tempo, senza variazioni significative nella complessità o nella struttura delle frasi. \
+In aggiunta troviamo i documenti `Manuale Utente` e `Specifica Tecnica`. Il primo si presenta più accessibile, mentre il secondo risulta meno comprensibile, il che è coerente con la natura dei rispettivi contenuti, dunque non ci sorprende. Alla fine del progetto, possiamo affermare che tutti i documenti prodotti sono comprensibili per chi possiede almeno la licenza media.
+
 #pagebreak()
 
 == MPC12 - Correttezza Ortografica
@@ -563,10 +578,14 @@ I test di accettazione sono finalizzati a garantire che il prodotto soddisfi i r
 
 *RTB*: Osservando il grafico emerge una particolare attenzione da parte dei membri del gruppo nell'evitare di commettere errori di ortografia all'interno dei vari documenti: qualche errore è sfuggito (cosa inevitabile vista la nostra natura umana) ma tutto sommato la maggior parte dei documenti ha presentato 0 errori per la maggior parte della loro esistenza, raggiungendo l'ottimo nell'ultimo periodo.
 
+*PB*: Il grafico mostra come il numero di errori ortografici si sia mantenuto basso anche nella seconda parte del progetto, anche se lo 0 è stato raggiunto su tutti i documenti soltanto nell'ultimo periodo. Questo risultato riflette un'impeccabile attenzione alla qualità della scrittura e un impegno costante nel correggere eventuali errori, anche se naturalmente qualcuno ci è sfuggito.
+
 #pagebreak()
 
 == MPC14 - Passed Test Cases Percentage
 #figure(image("//imgs/PdQ_graphs/PassedTest.png", width: 100%), caption: [Proiezione della percentuale di test terminati con successo nei vari periodi di progetto.])
+
+*PB*: L'analisi del grafico rivela che fin dall'introduzione dei primi test, corrispondente all'inizio del periodo VIII, essi sono stati completamente superati. È significativo notare che non esiste alcuna disparità tra il limite minimo accettabile e il valore ottimale, poiché è imperativo che il prodotto superi con successo tutti i test a cui viene sottoposto. Questo sottolinea l'importanza di garantire che il prodotto mantenga costantemente gli standard più elevati di performance e qualità.
 
 #pagebreak()
 
@@ -575,12 +594,16 @@ I test di accettazione sono finalizzati a garantire che il prodotto soddisfi i r
 
 *RTB*: Dal grafico emerge che nei primi periodi una parte delle metriche di qualità definite dal gruppo non ha raggiunto valori accettabili. Questo è stato dovuto specialmente all'inesperienza iniziale dei membri, i quali però hanno poi appreso dai loro errori, permettendoci di raggiungere valori accettabili, fino a giungere al valore ottimo (100%) al termine del quinto periodo. Questo dimostra quindi un miglioramento nel nostro way of working e nei risultati qualitativi ottenuti.
 
+*PB*: Il grafico evidenzia come, dopo il superamento della revisione RTB, il valore della metrica sia costantemente rimasto al di sopra del livello accettabile. Inizialmente si è verificato un calo, poiché era evidente che le metriche di qualità del prodotto potevano essere soddisfatte solo verso la fase finale del progetto. Tuttavia, nell'ultimo periodo, si può notare un significativo miglioramento: a parte una singola metrica, tutte le altre hanno raggiunto valori accettabili o addirittura ottimi. Questo indica un notevole sforzo da parte del team nel migliorare la qualità complessiva del prodotto, e testimonia l'efficacia delle azioni correttive implementate nel corso del tempo.
+
 #pagebreak()
 
 == MPC16 - Non-Calculated Risk
 #figure(image("//imgs/PdQ_graphs/NonCalcRisk.png", width: 100%), caption: [Proiezione rischi non identificati nei vari periodi di progetto.])
 
 *RTB*: Il grafico evidenzia come per la maggior parte del tempo non si siano verificati rischi non previsti da parte del gruppo. L'unica eccezione è il quarto periodo, dove sbadatamente non abbiamo tenuto conto della possibilità di non poter riuscire ad organizzare un colloquio con il #p.cardin per ottenere un feedback. È importante chiarire che la metrica non assicura l'assenza completa di rischi non previsti, ma si limita a indicare se essi siano o meno emersi. Comunque il grafico sottolinea una ottima previsione dei rischi da parte del gruppo.
+
+*PB*: Osservando il grafico, si può notare come nella seconda parte del progetto non si sia verificato nessun rischio imprevisto, il che rappresenta un risultato estremamente positivo. Questo dato sottolinea non solo l'efficacia delle strategie di gestione del rischio implementate, ma anche la solida pianificazione e l'attenta valutazione dei potenziali scenari da parte del team. La mancanza di eventi imprevisti indica una grande capacità di anticipare le possibili sfide e di adottare misure preventive appropriate. Inoltre, questo successo testimonia l'alto livello di competenza e professionalità del team nel gestire in modo proattivo le incertezze e nel garantire il progresso senza intoppi del progetto. La mancanza di rischi imprevisti rappresenta quindi una conferma tangibile della solidità del processo decisionale e dell'efficacia complessiva della gestione del progetto.
 
 #pagebreak()
 
@@ -589,46 +612,49 @@ I test di accettazione sono finalizzati a garantire che il prodotto soddisfi i r
 
 *RTB*: Il grafico illustra l'andamento della metrica relativa all'efficienza temporale attraverso i vari periodi. È evidente che la metrica supera il limite accettabile superiore sia nel primo che nel secondo periodo, prima di stabilizzarsi al di sotto solo nel terzo periodo ed i seguenti. Questa tendenza è attribuibile alla necessità del gruppo, nei primi periodi, di prendere familiarità con le nuove tecnologie, ambienti e linguaggi richiesti dal capitolato, oltre che all'adattamento alle pratiche necessarie alla gestione del progetto. Si evidenzia comunque un miglioramento nel tempo, che dimostra come, per ottenere i risultati desiderati, ad oggi ci sia richiesto meno tempo di orologio rispetto che all'inizio del progetto. Questo fattore è attribuibile ad un aumento dell'esperienza dei membri del gruppo.
 
+*PB*: Nella seconda parte del progetto, abbiamo inizialmente raggiunto il valore ottimo della metrica, ottenendo una corrispondenza precisa tra le ore produttive e quelle di orologio al termine del periodo VI. Questo risultato è stato possibile poiché in quel momento ci siamo dedicati principalmente a compiti che già conoscevamo bene, come il perfezionamento dei requisiti del progetto e dei test di sistema corrispondenti. Questa familiarità con le attività svolte ci ha permesso quindi di lavorare in modo efficiente e di ottenere risultati di alta qualità. \
+In seguito, nel periodo VII, purtroppo la metrica ha superato nuovamente il limite accettabile superiore dopo un lungo periodo dall'ultima volta.  Questo fenomeno è stato causato dall'introduzione di nuove attività, come la progettazione del prodotto, con le quali ci siamo confrontati per la prima volta. Il numero di ore di orologio corrispondenti alle ore produttive è poi andato a scendere, raggiungendo il valore di 3 durante il periodo VIII, quando eravamo ancora alle prime armi con i test, e 2 nell'ultimo periodo, quando finalmente abbiamo acquisito esperienza.
+
 #pagebreak()
 
 == MPD01 - Copertura dei requisiti obbligatori
 #figure(image("//imgs/PdQ_graphs/CRO.png", width: 100%), caption: [Proiezione della copertura dei requisiti obbligatori nei vari periodi di progetto.])
+
+*PB*: Osservando il grafico si può notare facilmente come tutti i requisiti obbligatori siano stati coperti al termine del periodo IX, corrispondente alla nostra candidatura alla revisione PB. Una parte minore di essi è stata soddisfatta durante il periodo VII, la maggioranza nel periodo VIII ed infine li abbiamo conclusi nel periodo IX, dato che era necessario progettare accuratamente i moduli richiesti prima di poterli sviluppare. Questa categoria di requisiti è stata prioritarizzata rispetto agli altri poiché sono considerati i più cruciali ed era quindi fondamentale per noi non trascurare neanche uno di essi.
 
 #pagebreak()
 
 == MPD02 - Copertura dei requisiti desiderabili
 #figure(image("//imgs/PdQ_graphs/CRD.png", width: 100%), caption: [Proiezione della copertura dei requisiti desiderabili nei vari periodi di progetto.])
 
+*PB*: Dall'analisi del grafico emerge che, purtroppo, per questa metrica non siamo mai riusciti a raggiungere il limite accettabile inferiore. La nostra intenzione iniziale era infatti quella di completare almeno il 50% dei requisiti desiderabili, ma purtroppo le risorse a nostra disposizione ci hanno posto dei limiti. Date le restrizioni temporali, siamo stati in grado di implementare solo le funzionalità desiderabili relative all'autenticazione degli utenti. Tuttavia, non siamo riusciti a coprire quelle relative alla gestione della condivisione delle cartelle nel nostro prodotto. \
+È comunque importante evidenziare che la decisione di non soddisfare i requisiti funzionali desiderabili riguardanti la gestione della condivisione delle cartelle è stata preso in accordo con l'azienda, la quale ha preferito investissimo il nostro tempo e i nostri sforzi su altri aspetti ritenuti di maggiore importanza per il progetto, come lo sviluppo di test di carico che permettessero di rispondere meglio alle domande poste dal capitolato.
+
 #pagebreak()
 
 == MPD03 - Copertura dei requisiti opzionali
 #figure(image("//imgs/PdQ_graphs/CRP.png", width: 100%), caption: [Proiezione della copertura dei requisiti opzionali nei vari periodi di progetto.])
+
+*PB*: Dal grafico si può vedere come tutti i requisiti opzionali siano stati soddisfatti all'interno dell'ultimo periodo, ovvero il periodo IX. Infatti, nei periodi precedenti abbiamo preferito dare priorità ai requisiti di maggiore valenza per il progetto, tuttavia, ritenendo anche l’implementazione di un sistema di sincronizzazione molto importante per il nostro prodotto, sebbene fosse opzionale, abbiamo deciso di dedicare tempo e risorse per soddisfare anche questa esigenza, superando così il valore ottimale inferiore per questa metrica.
 
 #pagebreak()
 
 == MPD04 - Code coverage
 #figure(image("//imgs/PdQ_graphs/CodeCov.png", width: 100%), caption: [Proiezione della code coverage nei vari periodi di progetto.])
 
+*PB*: Analizzando il grafico, notiamo come la code coverage raggiunga un valore accettabile solo nell'ultimo periodo. Ciò è dovuto al fatto che nei periodi precedenti abbiamo concentrato la maggior parte delle nostre risorse sulla progettazione, ed è stato solo a partire dal periodo VIII che siamo riusciti a dedicarci allo sviluppo dei test. Nonostante il desiderio di fare di più, abbiamo dovuto confrontarci con le realtà delle scadenze e della disponibilità di risorse, dovendoci accontentare di una copertura dell'87%. Tuttavia, è importante sottolineare che, nonostante le sfide incontrate, siamo riusciti a reagire in modo efficace e adottare una strategia che ci ha permesso comunque di superare il valore accettabile.
+
 #pagebreak()
 
 == MPD05 - Branch coverage
 #figure(image("//imgs/PdQ_graphs/BrCov.png", width: 100%), caption: [Proiezione della branch coverage nei vari periodi di progetto.])
 
-#pagebreak()
-
-== MPD06 - Statement coverage
-#figure(image("//imgs/PdQ_graphs/StCov.png", width: 100%), caption: [Proiezione della statement coverage nei vari periodi di progetto.])
+*PB*: Da una analisi dettagliata del grafico emerge chiaramente che, fin dall'introduzione dei primi test all'inizio del periodo VIII, la branch coverage ha mantenuto un valore accettabile, aumentando nel tempo. Questo suggerisce che l'implementazione dei test ha avuto un impatto positivo fin dalle fasi iniziali della loro introduzione, contribuendo a garantire una buona copertura delle possibili diramazioni nel flusso di esecuzione del codice. Questa stabilità nella copertura dei vari rami riflette l'efficacia della nostra strategia di testing nel garantire la qualità e l'affidabilità del software.
 
 #pagebreak()
 
 == MPD07 - Failure density
 #figure(image("//imgs/PdQ_graphs/FailD.png", width: 100%), caption: [Proiezione della failure density nei vari periodi di progetto.])
 
-#pagebreak()
-
-== MPD10 - Complessità ciclomatica
-#figure(image("//imgs/PdQ_graphs/CC.png", width: 100%), caption: [Proiezione della complessità ciclomatica nei vari periodi di progetto.])
-
-#pagebreak()
-== MPD11 - Code smell
-#figure(image("//imgs/PdQ_graphs/CS.png", width: 100%), caption: [Proiezione del numero di code smell nei vari periodi di progetto.])
+*PB*: Dal momento dell'introduzione dei primi test, avvenuta all'inizio del periodo VIII, il grafico evidenzia che tutti i difetti del prodotto da noi individuati sono stati identificati con successo. Questo risultato riveste una notevole importanza poiché dimostra l'efficacia del processo di testing implementato. Trovare e correggere i difetti in anticipo consente infatti di garantire la qualità del prodotto finale, riducendo il rischio di errori e migliorando la soddisfazione del cliente. Inoltre, individuare tempestivamente i problemi consente di risparmiare tempo e risorse, poiché evita che i difetti si accumulino e diventino più difficili da risolvere in fasi successive dello sviluppo del prodotto. \
+Certamente, è importante sottolineare che il fatto di aver identificato tutti i difetti fin dall'inizio dei test non garantisce che non ce ne siano altri presenti nel prodotto. Nonostante il processo di testing possa essere accurato, è sempre possibile che alcune problematiche rimangano non rilevate o che ne emergano di nuove in seguito a modifiche o interazioni complesse nel sistema. 
