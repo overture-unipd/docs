@@ -9,6 +9,7 @@
     [_#(p.zextras)_],
   ),
   changelog: (
+    "1.4.0", "2024-03-21", p.fabbian, p.bettin, "Aggiunti il consuntivo, la retrospettiva e l'avanzamento raggiunto relativi al periodo IX",
     "1.3.1", "2024-03-08", p.vedovato, p.bonavigo, "Aggiunto il preventivo e la pianificazione del periodo IX",
     "1.3.0", "2024-03-07", p.furno, p.fabbian, "Aggiunti il consuntivo, la retrospettiva e l'avanzamento raggiunto relativi al periodo VIII",
     "1.2.1", "2024-02-23", p.amadori, p.bulychov, "Aggiunto il preventivo e la pianificazione del periodo VIII",
@@ -58,18 +59,18 @@ La presenza di un termine all'interno del `Glossario` viene indicata applicando 
 
 == Riferimenti
 === Riferimenti normativi
-- `Norme di Progetto v1.0.0`: \ https://overture-unipd.github.io/docs/rtb/interni/norme_di_progetto_v1.0.0.pdf
-- *PD2 - Regolamento del progetto didattico* \
+- `Norme di Progetto v2.0.0`: \ https://overture-unipd.github.io/docs/rtb/interni/norme_di_progetto_v2.0.0.pdf 
+- *PD2 - Regolamento del progetto didattico* (data di ultimo accesso: 2024-03-22)\
   https://www.math.unipd.it/~tullio/IS-1/2023/Dispense/PD2.pdf
-- *Capitolato d'appalto C8*: JMAP, il nuovo protocollo standard per la comunicazione email \
+- *Capitolato d'appalto C8*: JMAP, il nuovo protocollo standard per la comunicazione email (data di ultimo accesso: 2024-03-22)\
   https://www.math.unipd.it/~tullio/IS-1/2023/Progetto/C8.pdf
 
 === Riferimenti informativi
-- *T2 - Processi di ciclo di vita del software* \
+- *T2 - Processi di ciclo di vita del software* (data di ultimo accesso: 2024-03-22)\
   https://www.math.unipd.it/~tullio/IS-1/2023/Dispense/T2.pdf
-- *T4 - Gestione di progetto* \
+- *T4 - Gestione di progetto* (data di ultimo accesso: 2024-03-22)\
   https://www.math.unipd.it/~tullio/IS-1/2023/Dispense/T4.pdf
-- `Glossario v1.0.0`: \ https://overture-unipd.github.io/docs/rtb/interni/glossario_v1.0.0.pdf
+- `Glossario v2.0.0`: \ https://overture-unipd.github.io/docs/rtb/interni/glossario_v2.0.0.pdf
 
 == Preventivo iniziale
 Il preventivo iniziale presentato in fase di candidatura è reperibile al seguente link: #link("https://github.com/overture-unipd/docs/blob/master/documents/candidatura/dichiarazione_impegni_v1.1.pdf")[Preventivo iniziale].\
@@ -977,6 +978,8 @@ Il nuovo preventivo a finire diminuisce di molto rispetto allo scorso periodo, a
 === Periodo IX
 Inizio: 2024-03-06\
 Fine prevista: 2024-03-22\
+Fine attuale: 2024-03-22\
+Giorni di ritardo: #pos("0")
 
 ==== Pianificazione 
 All'interno del nono e, idealmente, ultimo periodo di lavoro miriamo a concludere definitivamente la fase di progettazione entro la prima settimana, con l'eccezione di eventuali piccolissimi ritocchi. Pertanto, ci aspettiamo che il documento `Specifica Tecnica` raggiunga rapidamente la sua completa elaborazione, permettendoci di poterci concentrare maggiormente sugli altri aspetti mancanti del progetto. Restano infatti da implementare ancora una modesta quantità di componenti e la maggior parte dei test che sono stati definiti nel periodo precedente. Inoltre in questo periodo andrà ultimato anche il `Manuale Utente`, la cui stesura riprenderà dopo un periodo di stop, all'interno del quale occorrerà inserire una sezione dedicata all'uso di Postman per dimostare la correttezza del nostro prodotto ed andare a spiegare come avviare gli stress test fortemente richiesti dall'azienda proponente. \
@@ -1009,3 +1012,49 @@ Ruoli coinvolti: Responsabile, Amministratore, Verificatore, Progettista, Progra
   (2, 3, 1),
   "IX"
 )
+
+==== Consuntivo
+Le attività previste sono tutte state svolte con successo. \
+Come si può notare dal confronto tra preventivo e consuntivo:
+- Programmatori hanno richiesto *più* ore;
+- Progettisti hanno richiesto *meno* ore;
+
+===== Prospetto orario
+#figure(consuntivo(
+  (
+    ("0", "0", "0", "0", "13 "+pos("-2"), "0", "13"),
+    ("3", "0", "3", "0", "6", "7", "19"),
+    ("3", "2", "2", "0", "0", "9", "16"),
+    ("4", "0", "0", "0", "6", "8", "18"),
+    ("2", "1", "3", "0", "0", "14 "+neg("+2"), "20"),
+    ("0", "2", "4", "0", "5", "6", "17"),
+    ("0", "2", "11", "0", "4", "0", "17"),
+    ("12", "7", "23", "0", "34", "44", "120")
+  )
+), caption: [Impegno orario effettivo per ruolo di ciascun membro nel periodo IX rispetto le ore preventivate.])
+
+===== Prospetto economico 
+#figure(costi(
+  (
+    ("12", "360€", "-"),
+    ("7", "140€", "-"),
+    ("23", "345€", "-"),
+    ("-", "-", "-"),
+    ("34 "+pos("-2"), "850€", pos("-50")),
+    ("44 "+neg("+2"), "660€", neg("+30")),
+    ("120", "2375€","-"),
+    ("120", "2355€",pos("-20€"))
+  )
+), caption: [Aggiornamenti economici del progetto al termine del periodo IX, riflettendo le variazioni tra preventivo e ore effettivamente lavorate.])
+
+===== Rischi occorsi, impatto e loro mitigazione 
+Come previsto all'inizio del periodo, durante le ultime due settimane di lavoro non abbiamo riscontrato alcun rischio. La nostra esperienza acquisita ci ha infatti reso abili nel completare tutte le attività senza incontrare alcun ostacolo. Abbiamo dimostrato una grande capacità di adattamento e risoluzione dei problemi, garantendo così il completamento senza intoppi di tutte le attività pianificate.
+
+==== Retrospettiva 
+Per l'ennesima volta la precisione nella pianificazione delle ore si è dimostrata quasi impeccabile, a testimonianza del nostro continuo apprendimento e della nostra crescente capacità di gestire le attività con efficienza ed accuratezza. Inoltre, è importante sottolineare il notevole impegno dimostrato dai membri del team, i quali si sono distinti per il desiderio di eseguire le attività con precisione e rispettare scrupolosamente la data di scadenza comunicata al passaggio della revisione RTB. Questo periodo infatti è stato quello in cui abbiamo registrato il maggior progresso e dedicato più ore di lavoro rispetto a tutti gli altri. \
+Il nostro percorso all'interno del progetto giunge ora alla sua conclusione, tuttavia, nel caso in cui avessimo deciso di proseguire, il principale aspetto da migliorare sarebbe stato lo sviluppo dei test. Sebbene efficace, lo svolgimento di questa attività si è rivelato inefficiente, richiedendo un considerevole dispendio di tempo che avrebbe potuto essere ridotto con l'adozione di opportuni accorgimenti.
+
+==== Punto di avanzamento raggiunto e prospettive di completamento
+Al termine del nono periodo di lavoro, durante il quale il nostro gruppo ha dedicato grande impegno e determinazione per portare a termine il progetto, possiamo finalmente considerarci pronti per affrontare la revisione PB. In questo periodo la fase di progettazione è stata completamente finalizzata, con la `Specifica Tecnica` elaborata in modo dettagliato e completo, e sono stati effettuati gli ultimi ritocchi e aggiornamenti nei vari documenti, garantendo uno stile uniforme ed aggiornando i riferimenti contenuti al loro interno. La codifica del prodotto software è stata completata con successo, così come sono stati implementati tutti i test necessari per dimostrare la correttezza del nostro prodotto, partendo dai test di unità, fino ad arrivare ai test di sistema ed andando a sviluppare pure gli stress test richiesti dall'azienda proponente tramite Locust. Successivamente il `Manuale Utente` è stato interamente redatto ed include ora tutte le sezioni essenziali per fornire agli utenti del nostro prodotto le istruzioni necessarie per utilizzarlo in modo ottimale e senza difficoltà. Infine sono stati approvati tutti i documenti per la revisione PB ed è stato fatto un incontro con la proponente che ha valutato il frutto del nostro lavoro come MVP (Minimum Viable Product).\
+In conclusione, il progetto è stato portato a termine con successo e siamo pronti per presentare i nostri risultati nella revisione PB, dimostrando un notevole impegno e una solida preparazione da parte del team.
+#progress2(18,"IX")
