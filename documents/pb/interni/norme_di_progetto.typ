@@ -37,7 +37,7 @@ I membri del gruppo si impegnano a visionare regolarmente questo documento e a r
 
 == Scopo del progetto
 L'obiettivo primario del progetto è eseguire una valutazione approfondita sulle performance di un server implementato con il #glossary("protocollo") #glossary("JMAP") e sviluppato utilizzando il linguaggio di programmazione Java. Tale valutazione non si limiterà alla semplice analisi delle prestazioni, ma comprenderà un'analisi dettagliata dei limiti di tale implementazione.\
-Questo processo di valutazione è stato concepito con l'intento di fornire all'azienda #glossary("proponente") un quadro completo, facilitandola nel confronto con gli standard attualmente implementati. L'analisi sarà arricchita dai risultati ottenuti attraverso #glossary("stress test") elaborati dal nostro gruppo. Questi stress #glossary("test") mirano a mettere alla prova l'implementazione del protocollo JMAP sotto diverse condizioni, valutando aspetti cruciali come le performance in situazioni di carico elevato, la manutenibilità del sistema e la completezza dell'implementazione del protocollo.
+Questo processo di valutazione è stato concepito con l'intento di fornire all'azienda #glossary("proponente") un quadro completo, facilitandola nel confronto con gli standard attualmente implementati. L'analisi sarà arricchita dai risultati ottenuti attraverso #glossary("stress test") elaborati dal nostro gruppo. Questi stress #glossary("test") mirano a mettere alla prova l'implementazione del #glossary("protocollo") JMAP sotto diverse condizioni, valutando aspetti cruciali come le performance in situazioni di carico elevato, la manutenibilità del sistema e la completezza dell'implementazione del #glossary("protocollo").
 
 == Glossario
 Per evitare ambiguità o incomprensioni riguardanti la terminologia usata nel documento, é stato deciso di adottare un glossario in cui vengono riportate le varie definizioni. In questa maniera in esso verranno posti tutti i termini specifici del dominio d'uso con relativi significati.\
@@ -45,15 +45,15 @@ La presenza di un termine all'interno del glossario viene indicata applicando #g
 
 == Riferimenti
 === Riferimenti normativi
-- Capitolato d'appalto C8: JMAP, il nuovo protocollo standard per la comunicazione email \
+- Capitolato d'appalto C8: JMAP, il nuovo protocollo standard per la comunicazione email (data di ultimo accesso: 2024-03-22)\
   https://www.math.unipd.it/~tullio/IS-1/2023/Progetto/C8.pdf
-- Standard ISO/IEC 12207:1995 \
+- Standard ISO/IEC 12207:1995 (data di ultimo accesso: 2024-03-22)\
   https://www.math.unipd.it/~tullio/IS-1/2009/Approfondimenti/ISO_12207-1995.pdf
 
 === Riferimenti informativi
-- I processi di ciclo di vita del software \
+- I processi di ciclo di vita del software (data di ultimo accesso: 2024-03-22)\
   https://www.math.unipd.it/~tullio/IS-1/2023/Dispense/T2.pdf
-- `Glossario v2.0.0`: \ https://overture-unipd.github.io/docs/rtb/interni/glossario_v2.0.0.pdf
+- `Glossario v2.0.0`: \ https://overture-unipd.github.io/docs/pb/interni/glossario_v2.0.0.pdf
 
 #pagebreak()
 
@@ -308,7 +308,7 @@ Il fornitore deve inoltre adattare il processo di sviluppo alle specifiche esige
 
 === Strumenti
 I seguenti strumenti sono stati scelti dal gruppo per il processo di sviluppo:
-- *Draw.io*: strumento di diagrammazione online per la creazione di diagrammi UML (Unified Modeling Language) che consentono agli sviluppatori di visualizzare e progettare modelli di software, inclusi diagrammi delle classi, diagrammi dei casi d'uso e diagrammi delle sequenze, tramite #link("draw.io")\;
+- *Draw.io*: strumento di diagrammazione online per la creazione di diagrammi #glossary("UML") (Unified Modeling Language) che consentono agli sviluppatori di visualizzare e progettare modelli di software, inclusi diagrammi delle classi, diagrammi dei casi d'uso e diagrammi delle sequenze, tramite #link("draw.io")\;
 - *Visual Studio Code*: editor di codice sorgente sviluppato da Microsoft che fornisce funzionalità avanzate per il completamento automatico del codice, la formattazione del codice, il riconoscimento della sintassi, refactoring del codice e molto altro ancora, che migliorano la produttività degli sviluppatori.
 
 = Processi di supporto
@@ -526,7 +526,7 @@ Il processo di gestione della configurazione viene attuato durante tutta la vita
 Lo scopo di questo processo è di gestire e organizzare la procedura di modifica sulla documentazione e sul codice prodotto relative al progetto. Le modifiche passate saranno accessibili in qualsiasi momento, in questo modo sarà possibile controllare rapidamente le motivazioni alla base dei cambiamenti effettuati ed i relativi autori.  
 
 === Versionamento
-Il versionamento consente di tracciare le modifiche avvenute all'interno di un documento. In questo modo è possibile visualizzare i cambiamenti avvenuti nel tempo e, nel caso ce ne fosse bisogno, riportare il documento ad uno stadio precedente.\
+Il #glossary("versionamento") consente di tracciare le modifiche avvenute all'interno di un documento. In questo modo è possibile visualizzare i cambiamenti avvenuti nel tempo e, nel caso ce ne fosse bisogno, riportare il documento ad uno stadio precedente.\
 Il gruppo _#(g.name)_ ha deciso di adottare il seguente formato per il versionamento dei documenti:
 #set align(center)
 `X.Y.Z`
@@ -552,7 +552,7 @@ Il gruppo utilizza 2 repository all'interno della propria "organizzazione #gloss
 ==== Struttura della repository `docs`
 Il contenuto della repository è separato da due branch che svolgono funzioni differenti: `master` continene i PDF compilati, `sources` contiene invece i sorgenti Typst.
 
-Per entrambe le repository, abbiamo deciso di separare in modo netto i documenti dal resto dei file di supporto (`LICENSE`, `README`, `actions`, `templates`, ...). Nella cartella `documents` si trova quindi la documentazione relativa alle varie fasi del progetto: `candidatura` (per la gara di appalto dei capitolati), `rtb` (Requirements and Technology Baseline), e `pb` (Product Baseline).
+Per entrambe le repository, abbiamo deciso di separare in modo netto i documenti dal resto dei file di supporto (`LICENSE`, `README`, `actions`, `templates`, ...). Nella cartella `documents` si trova quindi la documentazione relativa alle varie fasi del progetto: `candidatura` (per la gara di appalto dei capitolati), `#glossary("Requirements and Technology Baseline")` (Requirements and Technology Baseline), e `pb` (Product Baseline).
 Le cartelle relative alle versioni dei documenti sono organizzate nel modo seguente:
 - *`candidatura`* contenente in:
   - `dichiarazione_impegni_v1.1.pdf`;
@@ -618,10 +618,10 @@ Questo consente
 
 == Gestione della qualità
 === Scopo
-Il processo di gestione della qualità mira a garantire in modo adeguato che il software, gli artefatti ed i processi nel ciclo di vita del progetto siano allineati ai piani stabiliti e conformi ai canoni di qualità rispetto ai requisiti specificati. 
+Il processo di gestione della #glossary("qualità") mira a garantire in modo adeguato che il software, gli artefatti ed i processi nel ciclo di vita del progetto siano allineati ai piani stabiliti e conformi ai canoni di qualità rispetto ai requisiti specificati. 
 
 === Descrizione
-Per poter garantire un determinato livello di qualità, abbiamo scelto di fare affidamento sui processi di verifica e validazione. Difatti, una volta definiti gli standard qualitativi da rispettare nel `Piano di Qualifica`, ciò che resta da fare è assicurarsi che questi vengano effettivamente applicati. Dunque inizialmente sono state definite le best practices per guidare l'esecuzione dei vari processi, oltre ai diversi canoni di qualità per i prodotti del progetto, ed in seguito per certificare l'adesione a quest'ultimi abbiamo delegato tale responsabilità ai Verificatori.
+Per poter garantire un determinato livello di qualità, abbiamo scelto di fare affidamento sui processi di verifica e validazione. Difatti, una volta definiti gli standard qualitativi da rispettare nel `Piano di Qualifica`, ciò che resta da fare è assicurarsi che questi vengano effettivamente applicati. Dunque inizialmente sono state definite le  per guidare l'esecuzione dei vari processi, oltre ai diversi canoni di qualità per i prodotti del progetto, ed in seguito per certificare l'adesione a quest'ultimi abbiamo delegato tale responsabilità ai Verificatori.
 
 ==== ISO 9000:2000  e principi della qualità
 Lo standard #glossary("ISO 9000:2000"), o meglio noto come: 'Sistemi per la qualità-Fondamenti e terminologia', è riuscito ad introdurre gli otto principi di base per la gestione della qualità:
@@ -637,7 +637,7 @@ Lo standard #glossary("ISO 9000:2000"), o meglio noto come: 'Sistemi per la qual
 Questi sono i principi comunemente utilizzati dal responsabile per guidare l'organizzazione verso il miglioramento delle prestazioni.
 
 ==== Istanziazione dei processi
-Crediamo che un requisito necessario per garantire la qualità del progetto sia quello di curare le attività fin dalla loro nascita, quindi abbiamo definito le seguenti regole da seguire ogni volta che si crea un processo:
+Crediamo che un #glossary("Requisito") necessario per garantire la qualità del progetto sia quello di curare le attività fin dalla loro nascita, quindi abbiamo definito le seguenti regole da seguire ogni volta che si crea un processo:
 - Unicità dell'obiettivo: ogni processo deve avere un unico obietivo ben definito per evitare complessità e confusione;
 - Assenza di sovrapposizioni: gli obiettivi dei processi non devono sovrapporsi.
 - Efficienza nell'uso delle risorse: l'organizzazione di un processo nuovo deve tenere in considerazione le risorse già in utilizzo per gli altri processi attivi per garantire per non causare dei sovraccarichi;
@@ -647,7 +647,7 @@ Crediamo che un requisito necessario per garantire la qualità del progetto sia 
 ==== Gestione del cambiamento
 L'adozione del principio riportato nel capitolo precedente (ISO 9000:2000) trova maggiori benefici nel momento in cui c'è un cambiamento da parte del team nei comportamenti e nell'approccio generale che si ha verso le attività di progetto.\
 Per spiegare meglio questo concetto riportiamo l'esempio che il team deve sempre reagire Proattivamente e non Reattivamente ai cambiamenti.
-Con approccio Reattivo si intende il concetto di cambiamento visto come una costrizione, un obbligo ad adattarsi senza convinzione ad una pratica non portando alcun beneficio e costituendo la peggiore delle condizioni in cui un gruppo si possa trovare. D'altra parta un appoccio Proattivo significa adattarsi al cambiamento per necessità, perchè si è fermamente convinti che il nuovo way of working porti dei benefici al lavoro. Questa è la migliore situazione e la migliore risposta ai cambiamenti.\
+Con approccio Reattivo si intende il concetto di cambiamento visto come una costrizione, un obbligo ad adattarsi senza convinzione ad una pratica non portando alcun beneficio e costituendo la peggiore delle condizioni in cui un gruppo si possa trovare. D'altra parta un appoccio Proattivo significa adattarsi al cambiamento per necessità, perchè si è fermamente convinti che il nuovo #glossary("way of working") porti dei benefici al lavoro. Questa è la migliore situazione e la migliore risposta ai cambiamenti.\
 
 Il concetto di cambiamento viene spiegato dallo standard come un'opportunità per:
 - Cambiare un comportamento;
@@ -738,7 +738,7 @@ I suoi principali compiti sono:
 - Curare i rapporti tra i membri del gruppo e soggetti esterni.
 
 *Amministratore di Progetto*\
-L'Amministratore definisce, controlla e gestisce l'ambiente e gli strumenti di lavoro del gruppo, con piena responsabilità sull'efficacia ed efficienza del Way of Working.\
+L'Amministratore definisce, controlla e gestisce l'ambiente e gli strumenti di lavoro del gruppo, con piena responsabilità sull'#glossary("efficacia") ed efficienza del Way of Working.\
 I suoi principali compiti sono:
 - Migliorare l'ambiente di lavoro: ricercare gli strumenti necessari ad automatizzare i processi;
 - Gestione dei processi: atta a risolverne i problemi legati ai processi;
@@ -769,7 +769,7 @@ Ha il compito di:
 *Programmatore*\
 Il Programmatore è incaricato di svolgere l'attività di codifica del progetto e delle componenti di supporto con lo scopo di realizzare l'architettura proposta dal progettista.\
 Ha il compito di:
-- Implementare la Specifica Tecnica scritta dal Progettista;
+- Implementare la #glossary("specifica tecnica") scritta dal Progettista;
 - Scrivere codice mantenibile, che rispetti le `Norme di Progetto`;
 - Creare test per la verifica e validazione del codice;
 - Scrivere il #glossary("manuale utente").
@@ -787,11 +787,11 @@ Le Issue sono create dal Responsabile e sono composte da:
 - *Stato*: avanzamento del task.
 Ogni qualvolta ci sia la necessità di portare a termine un compito è necessario seguire la seguente procedura:
 + Il Responsabile crea una nuova Issue con stato "to do" su GitHub e la assegna;
-+ All'inizio del lavoro di produzione la Issue cambia stato, passando da "to do" ad "in progress", inoltre viene creato un nuovo branch per ogni Issue;
++ All'inizio del lavoro di produzione la Issue cambia stato, passando da "to do" ad "in progress", inoltre viene creato un nuovo  per ogni Issue;
 + Finito il lavoro di produzione, viene aperta una pull request su GitHub, viene inserito nella descrizione il comando `closes #X`, dove X identifica univocamente la Issue e viene assegnato il Verificatore;
 + Il Verificatore si controlla il lavoro svolto e:
   - Se la verifica ha esito *positivo*:
-    + Il Verificatore conferma su GitHub la pull requet ed effettua il merge al branch principale;
+    + Il Verificatore conferma su GitHub la pull requet ed effettua il merge al  principale;
     + La Issue viene marcata "Done" su GitHub automaticamente.
   - Se la verifica ha esito *negativo*:
     + Il Verificatore rilascia una lista di cambiamenti suggeriti nella relativa Issue su GitHub;
@@ -804,12 +804,12 @@ La comunicazione, cruciale per garantire chiarezza e concisione nel dialogo tra 
 
 ==== Comunicazioni
 *Comunicazioni interne*
-Le comunicazioni saranno gestite attraverso due canali principali: *#glossary("Telegram")* e *Discord*. Telegram, un servizio di messaggistica istantanea, sarà impiegato per facilitare conversazioni rapide, informali e accessibili tramite dispositivi mobili. Le riunioni a distanza e le discussioni più strutturate saranno invece condotte su Discord.\
+Le comunicazioni saranno gestite attraverso due canali principali: *#glossary("Telegram")* e *#glossary("Discord")*. Telegram, un servizio di messaggistica istantanea, sarà impiegato per facilitare conversazioni rapide, informali e accessibili tramite dispositivi mobili. Le riunioni a distanza e le discussioni più strutturate saranno invece condotte su Discord.\
 Al fine di coordinare in modo efficace le attività di gruppo, le discussioni di routine avverranno su Telegram, mentre eventuali questioni critiche saranno affrontate durante incontri straordinari attraverso videochiamate su Discord. In caso di inconvenienti tecnici con Telegram, il gruppo si trasferirà temporaneamente su Discord, comprese le conversazioni informali.\
 Il canale Discord includerà una sezione testuale informale dedicata alle comunicazioni rapide con il proponente e canali specifici saranno creati per tracciare le diverse conversazioni in base agli argomenti trattati.
 
 *Comunicazioni esterne*
-Il Responsabile del progetto sarà incaricato di gestire il dialogo esterno attraverso l'indirizzo email: #link("mailto:"+g.mail). Si assicurerà che ogni membro del gruppo sia informato sulle corrispondenze con committenti e proponente, seguendo le norme precedentemente stabilite per le comunicazioni interne.
+Il Responsabile del progetto sarà incaricato di gestire il dialogo esterno attraverso l'indirizzo email: #link("mailto:"+g.mail). Si assicurerà che ogni membro del gruppo sia informato sulle corrispondenze con committenti e proponente, seguendo le #glossary("norme") precedentemente stabilite per le comunicazioni interne.
 
 ==== Riunioni
 Al fine di garantire l'efficienza delle riunioni il responsabile corrente avrà il compito di introdurre l'agenda e trattare in modo chiaro gli argomenti di discussione, inoltre sarà responsabile di riepilogare i punti principali e l'esito delle votazioni nel verbale successivo alla riunione.
@@ -882,11 +882,11 @@ Infine, una volta capito cosa e da dove studiare, è necessario che ognuno dei c
 È previsto che ciascun membro del gruppo acquisisca le competenze fondamentali per lo svolgimento del progetto attraverso un adeguato percorso formativo. Questo non riguarda soltanto le tecnologie necessarie, ma si estende anche a ogni altro aspetto coinvolto nell'ingegneria del software.
 
 === Strumenti
-Al fine di agevolare il processo di formazione, abbiamo optato per l'adozione di un repository privato, accessibile esclusivamente ai membri del gruppo, nel quale tutte le risorse utili sono organizzate in categorie per favorire un accesso efficiente e ordinato.
+Al fine di agevolare il processo di formazione, abbiamo optato per l'adozione di un #glossary("repository") privato, accessibile esclusivamente ai membri del gruppo, nel quale tutte le risorse utili sono organizzate in categorie per favorire un accesso efficiente e ordinato.
 
 = Standard ISO/IEC 9126 per la qualità
 La norma ISO/IEC 9126 è uno standard internazionale che ha contribuito a definire i parametri essenziali per valutare la qualità del software. Questa norma rappresenta un insieme di linee guida dettagliate e criteri di valutazione per gli attributi chiave della qualità del software. In particolare, identifica sei macro-categorie di attributi di qualità del software, ognuna delle quali è ulteriormente scomposta in sottoattributi specifici:
-- *Funzionalità*;
+- *#glossary("Funzionalità")*;
 - *Affidabilità*;
 - *Usabilità*;
 - *Efficienza*;
@@ -984,7 +984,7 @@ L'acronimo principale utilizzato in questa sezione è MPC da #underline[M]etrich
 
 === Verifica
 -  *MPC13 - Code coverage*: indica la percentuale di codice sorgente testato rispetto al totale;
--  *MPC14 - Passed test cases percentage*: valuta la percentuale di casi di test superati con successo.
+-  *MPC14 - Passed test cases percentage*: valuta la percentuale di casi di #glossary("test") superati con successo.
 
 === Gestione della qualitá
 -  *MPC15 - Quality metrics satisfied*: monitora il grado di soddisfacimento delle metriche di qualità stabilite.
@@ -1028,4 +1028,4 @@ L'acronimo principale utilizzato in questa sezione è MPD da #underline[M]etrich
 
 == Manutenibilitá
 -  *MPD10 - Complessità ciclomatica*: valuta la complessità del codice sorgente attraverso la misurazione del numero di cammini indipendenti attraverso il grafo di controllo di flusso;
--  *MPD11 - Code smell*: rileva potenziali problemi di progettazione o codice che potrebbe richiedere manutenzione.
+-  *MPD11 - Code smell*: rileva potenziali problemi di progettazione o codice che potrebbe richiedere #glossary("manutenzione").

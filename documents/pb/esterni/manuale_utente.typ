@@ -49,7 +49,7 @@ Attualmente, Carbonio fa affidamento su protocolli standard come IMAP, POP e #gl
 
 == Scopo del documento
 Questo documento ha lo scopo di spiegare ai committenti le modalità di utilizzo e di verifica delle funzionalità del sistema informatico che il gruppo Overture ha dovuto sviluppare per adempiere alle richieste fatte in merito allo studio del protocollo JMAP per la posta elettronica.\
-Al suo interno verranno illustrate tutte le istruzioni per avviare il server di posta elettronica (quindi il nostro backend), le istruzioni per collegarsi ad esso tramite un client di posta elettronica, una breve guida all'uso di Postman per dimostrare il corretto funzionamento del nostro prodotto e le funzionalità che esso espone ed, infine, come avviare gli stress test richiesti dal committente così da poterli modificare a piacimento, con il fine di testare più approfonditamente o in modo diverso alcune parti.
+Al suo interno verranno illustrate tutte le istruzioni per avviare il server di posta elettronica (quindi il nostro #glossary("backend")), le istruzioni per collegarsi ad esso tramite un client di posta elettronica, una breve guida all'uso di Postman per dimostrare il corretto funzionamento del nostro prodotto e le funzionalità che esso espone ed, infine, come avviare gli #glossary("stress test") richiesti dal committente così da poterli modificare a piacimento, con il fine di testare più approfonditamente o in modo diverso alcune parti.
 
 == Glossario
 Per evitare ambiguitá o incomprensioni riguardanti la terminologia usata nel documento, é stato deciso di adottare un glossario in cui vengono riportate le varie definizioni. In questa maniera in esso verranno riportati tutti i termini specifici del dominio d'uso con relativi significati.
@@ -58,14 +58,14 @@ La presenza di un termine all'interno del `Glossario` viene indicata applicando 
 
 == Riferimenti
 === Riferimenti normativi
-- `Norme di Progetto vw.0.0`: \ https://overture-unipd.github.io/docs/rtb/interni/norme_di_progetto_v2.0.0.pdf
-- *PD2 - Regolamento del progetto didattico* \
+- `Norme di Progetto v2.0.0`: \ https://overture-unipd.github.io/docs/pb/interni/norme_di_progetto_v2.0.0.pdf
+- *PD2 - Regolamento del progetto didattico* (data di ultimo accesso: 2024-03-22)\
   https://www.math.unipd.it/~tullio/IS-1/2023/Dispense/PD2.pdf
-- *Capitolato d'appalto C8*: JMAP, il nuovo protocollo standard per la comunicazione email \
+- *Capitolato d'appalto C8*: JMAP, il nuovo protocollo standard per la comunicazione email (data di ultimo accesso: 2024-03-22)\
   https://www.math.unipd.it/~tullio/IS-1/2023/Progetto/C8.pdf
 
 === Riferimenti informativi
-- `Glossario v2.0.0`: \ https://overture-unipd.github.io/docs/rtb/interni/glossario_v2.0.0.pdf
+- `Glossario v2.0.0`: \ https://overture-unipd.github.io/docs/pb/interni/glossario_v2.0.0.pdf
 
 #pagebreak()
 
@@ -74,16 +74,16 @@ La presenza di un termine all'interno del `Glossario` viene indicata applicando 
 == Requisiti tecnici per avviare il server <RTS>
 In questa sezione andiamo a definire la lista dei requisiti che un server a livello di software debba avere per poter procedere all'installazione e all'avvio del codice sorgente del server fornito.\
 
-Come prima cosa il dispositivo in questione deve aver installato Docker e Docker Compose per la gestione di applicazioni Docker multi-container. Di seguito la guida ufficiale per l'installazione: https://docs.docker.com/engine/install.
+Come prima cosa il dispositivo in questione deve aver installato #glossary("Docker") e #glossary("Docker Compose") per la gestione di applicazioni Docker multi-#glossary("container"). Di seguito la guida ufficiale per l'installazione: https://docs.docker.com/engine/install.
 
 Successivamente il sistema deve aver installato al suo interno Java in una sua versione uguale o successiva alla 21. Di seguito la guida ufficiale per l'installazione: https://docs.oracle.com/en/java/javase/21/install/#Java-Platform%2C-Standard-Edition.
 
-Infine si richiede l'installazione di Gradle che è il sistema di build scelto. Di seguito la guida ufficiale per l'installazione: https://gradle.org/install/.
+Infine si richiede l'installazione di #("Gradle") che è il sistema di build scelto. Di seguito la guida ufficiale per l'installazione: https://gradle.org/install/.
 
 === Requisiti opzionali
 ==== Just e guida per l'installazione
 Ai fini di un'avvio del server che richieda il minor sforzo da parte dell'utente è possibile installare il pacchetto Just per evitare di copiare e incollare manualmente i commandi neccessari all'avvio presenti nel file .justile come spiegato nella sezione #link(<Justfile>)[*File: .justfile*]. Just è uno strumento di automazione leggero e flessibile che semplifica l'esecuzione di comandi e task attraverso l'utilizzo di un file di configurazione chiamato "Justfile".\
-Per installare questo tool è necessario recarsi sul seguente repository di github https://github.com/casey/just e seguire la guida ufficiale in base al sistema operativo della macchina sulla quale si vuole effettuare l'installazione.\
+Per installare questo tool è necessario recarsi sul seguente repository di #("github") https://github.com/casey/just e seguire la guida ufficiale in base al sistema operativo della macchina sulla quale si vuole effettuare l'installazione.\
 Per verificare che Just sia stato installato correttamente, digita il seguente comando nel terminale: `just --version`.
 Se l'installazione è avvenuta con successo, vedrai la versione di Just attualmente installata.
 
@@ -99,7 +99,7 @@ Se l'installazione è avvenuta con successo, vedrai la versione di Just attualme
 == Download del repository relativo al codice sorgente del server
 Per scaricare i sorgenti relativi al codice sorgente del server basta scaricare la cartella zip presente nel seguente repository dedicata al seguente link: https://github.com/overture-unipd/jmap.git.\
 
-Alternativamente, se si ha installato il sistema di versionamento Git sul sistema dove si vuole effettuare il download dei sorgenti è possibile clonare direttamente il repository su una cartella a piacere digitando il seguente comando: `git clone https://github.com/overture-unipd/jmap.git`.
+Alternativamente, se si ha installato il sistema di #glossary("versionamento") #glossary("Git") sul sistema dove si vuole effettuare il download dei sorgenti è possibile clonare direttamente il repository su una cartella a piacere digitando il seguente comando: `git clone https://github.com/overture-unipd/jmap.git`.
 
 == Spiegazione dei principali file presenti nei sorgenti
 
@@ -107,7 +107,7 @@ Alternativamente, se si ha installato il sistema di versionamento Git sul sistem
 Il file Compose.yml è un file di configurazione utilizzato per definire e gestire i servizi di un'applicazione Docker. Docker Compose è uno strumento che semplifica il processo di definizione, configurazione e orchestrazione di più contenitori Docker come parte di un'applicazione complessa.\
 Al suo interno troviamo la definizione dei seguenti servizi (quindi l'istanziazione delle seguenti immagini):
 - overture-unipd/jmap:latest: il nostro server jmap sotto forma di container, dunque un vero e proprio web server istanziato con il codice sorgente del repository;
-- rethinkdb:2.4.2-bullseye-slim: il nostro database Rethink Db;
+- rethinkdb:2.4.2-bullseye-slim: il nostro #glossary("database") Rethink Db;
 - overture-unipd/caddy:latest: il servizio caddy necessario qualora un client necessiti di https per avviare una comunicazione con il server (feature ricorrente nei client android).
 
 === File: Caddyfile
@@ -132,9 +132,9 @@ Qui troviamo tutti i comandi specificati nella sezione successiva di questo docu
 
 
 == Duck DNS <DuckDNS>
-Dalla lista di client che ci sono stati forniti da `Zextras` in un repository pubblico, abbiamo scoperto che alcuni di questi necessitano una comunicazione https per potersi collegare al server (senza https per questioni di sicurezza rifiutano le risposte del server).\
-Per questo motivo, considerando il contesto in cui dobbiamo lavorare (dove questo grado di sicurezza non ci serve e non abbiamo neanche a disposizione un server in rete con un certificato https) abbiamo deciso di bypassare questo problema utilizzando Duck DNS, il quale ci consente di generare dei certificati https per qualunque sottodominio duckdns.org preferiamo.\
-Quindi nel nostro caso abbiamo creato il sottodominio overture1.duckdns.org e gli abbiamo associato l'indirizzo IP privato del server all'interno della LAN. A questo punto, qualora un client volesse collegarsi al server lo dovrà farà con il sottodominio overture1.duckdns.org. Così facendo, esso non darà nessun errore di sicurezza in quanto Duck DNS fornirà un certificato https valido per quel sottodominio che in realtà sarà il nostro server situato nella stessa LAN.
+Dalla lista di client che ci sono stati forniti da `Zextras` in un repository pubblico, abbiamo scoperto che alcuni di questi necessitano una comunicazione #glossary("https") per potersi collegare al server (senza https per questioni di sicurezza rifiutano le risposte del server).\
+Per questo motivo, considerando il contesto in cui dobbiamo lavorare (dove questo grado di sicurezza non ci serve e non abbiamo neanche a disposizione un server in rete con un certificato https) abbiamo deciso di bypassare questo problema utilizzando Duck #glossary("DNS"), il quale ci consente di generare dei certificati https per qualunque sottodominio duckdns.org preferiamo.\
+Quindi nel nostro caso abbiamo creato il sottodominio overture1.duckdns.org e gli abbiamo associato l'indirizzo #glossary("IP") privato del server all'interno della LAN. A questo punto, qualora un client volesse collegarsi al server lo dovrà farà con il sottodominio overture1.duckdns.org. Così facendo, esso non darà nessun errore di sicurezza in quanto Duck DNS fornirà un certificato https valido per quel sottodominio che in realtà sarà il nostro server situato nella stessa LAN.
 
 === Guida a Duck DNS
 Come prima cosa dobbiamo capire quale è l'indirizzo IP privato del server dove vogliamo eseguire l'installazione nella LAN (il comando per capirlo differisce in base al sistema operativo). A questo punto occorre recarsi sul sito di Duck DNS (https://www.duckdns.org/domains) e registrarsi.\
@@ -182,7 +182,7 @@ Per spegnere il server avviato seguendo le direttive specificate nella sezione #
 == Operazioni preliminari
 Per collegare un client di posta elettronica installato su un dipositivo (come ad esempio un cellulare) Android è necessario prima eseguire delle verifiche per aumentare il successo dell'operazione.
 
-Prima di tutto dobbiamo assicurarci che il dipositivo in questione sia collegato alla stessa LAN del server e che possa comunicare con quest'ultimo. Per verificare questo dobbiamo installare un software di ping sul dispositivo Android e provare ad effettuare un DNS Lookup per il sottodominio configurato precedentemente sulla sezione: #link(<DuckDNS>)[*Duck DNS*].\
+Prima di tutto dobbiamo assicurarci che il dipositivo in questione sia collegato alla stessa LAN del server e che possa comunicare con quest'ultimo. Per verificare questo dobbiamo installare un software di ping sul dispositivo Android e provare ad effettuare un #glossary("DNS Lookup") per il sottodominio configurato precedentemente sulla sezione: #link(<DuckDNS>)[*Duck DNS*].\
 Qualora tutto fosse installato correttamente questo dovrebbe essere il risultato:
 #figure(image("//imgs/Manuale_Utente/DNSLookup.jpg", width: 30%), caption: [Ping tra il dispositivo mobile e il server avvenuto con successo.])
 
@@ -214,7 +214,7 @@ Per iniziare, il primo passo è scaricare e installare l'applicazione sul propri
 Una volta completata l'installazione, procedi creando un account oppure accedi se ne possiedi già uno. Questa operazione ti permetterà di accedere alle funzionalità necessarie per raggiungere il nostro scopo.
 
 == Importazione delle richieste
-Dopo aver effettuato l'accesso, all'interno della pagina principale di Postman si troveranno varie opzioni. L'operazione che ci interessa svolgere è l'importazione del file JSON contenente tutte le richieste. Questa può essere fatta selezionando il tasto "Import" situato in alto a sinistra, accanto al nome del nostro Workspace. \
+Dopo aver effettuato l'accesso, all'interno della pagina principale di Postman si troveranno varie opzioni. L'operazione che ci interessa svolgere è l'importazione del file #glossary("JSON") contenente tutte le richieste. Questa può essere fatta selezionando il tasto "Import" situato in alto a sinistra, accanto al nome del nostro Workspace. \
 Una volta importato il file JSON, verrà creata una cartella denominata "JMAP" contenente tutte le richieste gestite dal server. Ogni richiesta è denominata con il suo specifico nome e al suo interno si trova una serie di dettagli. Per semplicità, è stato incluso un solo esempio per ciascuna richiesta.
 
 #figure(image("//imgs/Manuale_Utente/postman_1.png", width: 95%), caption: [Importazione del file JSON contenente tutte le richieste in Postman.])
@@ -247,7 +247,7 @@ Assicurarsi di avere Python installato sul sistema e di disporre del framework L
 === `test1` - Accesso all'inbox
 Simula una grande quantità di utenti che accedono all'inbox contemporaneamente. Questo test è finalizzato a valutare le prestazioni del server durante l'accesso simultaneo di numerosi utenti alla propria inbox. Il codice è stato sviluppato per simulare l'intero processo di visualizzazione dell'inbox, dalla fase di apertura dell'applicazione fino alla visualizzazione effettiva delle email, al fine di ricreare uno scenario realistico. 
 
-All'inizio del codice sono definite variabili che consentono la personalizzazione dei dati del server, come il dominio e gli utenti. Successivamente vengono aperti e memorizzati i payload delle richieste da inviare successivamente.
+All'inizio del codice sono definite variabili che consentono la personalizzazione dei dati del server, come il dominio e gli utenti. Successivamente vengono aperti e memorizzati i #glossary("payload") delle richieste da inviare successivamente.
 
 Il codice, eseguito ripetutamente da Locust, seleziona casualmente un utente tra quelli disponibili e invia una richiesta GET per ottenere l'ID dell'account, fondamentale per le richieste future. Successivamente vengono inviate solo richieste POST contenenti i payload memorizzati in precedenza. Dopo un'ulteriore verifica tramite una richiesta Identity/get, viene visualizzato l'elenco delle caselle di posta disponibili, da cui viene estratto l'ID dell'inbox, necessario per la visualizzazione delle email. In seguito viene ottenuto lo stato della sessione corrente, utilizzato insieme all'ID dell'account e dell'inbox per richiedere la visualizzazione delle email contenute nell'inbox. Al termine, viene eseguita una richiesta per aggiornare lo stato della sessione, in preparazione a eventuali future richieste.
 
