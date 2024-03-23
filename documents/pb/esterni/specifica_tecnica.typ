@@ -9,6 +9,10 @@
     [_#(p.zextras)_],
   ),
   changelog: (
+    "1.0.0", "2024-03-22", p.bonavigo, p.vedovato, 
+    [
+      Approvazione per PB.
+    ],
     "0.2.0", "2024-03-18", p.vedovato, p.bettin, 
     [
       Aggiornato lo stato dei requisiti funzionali.
@@ -114,7 +118,7 @@
 = Introduzione
 
 == Scopo del documento
-Lo scopo di questo documento è quello di elencare e motivare le scelte architetturali che il gruppo Overture ha intrapreso per la realizzazione dell'infrastruttura informatica richiesta. Il documento comprende anche i diagrammi delle classi e dei package al fine di spiegare in maniera più chiara e dettagliata il software sviluppato.
+Lo scopo di questo documento è quello di elencare e motivare le scelte architetturali ed il design che il gruppo Overture ha intrapreso per la realizzazione dell'infrastruttura informatica richiesta. Comprende quindi la lista delle tecnologie utilizzate, una lista degli #glossary("endpoint") esposti e tutti i dettagli riguardanti l'architettura scelta, comprese le motivazioni associate. In questo documento si trovano anche i diagrammi delle classi, al fine di spiegare in maniera più chiara e dettagliata il software sviluppato.
 
 == Glossario
 Per evitare ambiguitá o incomprensioni riguardanti la terminologia usata nel documento, é stato deciso di adottare un glossario in cui vengono riportate le varie definizioni. In questa maniera in esso verranno riportati tutti i termini specifici del dominio d'uso con relativi significati.
@@ -123,24 +127,24 @@ La presenza di un termine all'interno del `Glossario` viene indicata applicando 
 
 == Riferimenti
 === Riferimenti normativi
-- `Norme di Progetto v1.0.0`: \ https://overture-unipd.github.io/docs/rtb/interni/norme_di_progetto_v1.0.0.pdf
-- *PD2 - Regolamento del progetto didattico* \
+- `Norme di Progetto v2.0.0`: \ https://overture-unipd.github.io/docs/pb/interni/norme_di_progetto_v2.0.0.pdf
+- *PD2 - Regolamento del progetto didattico* (data di ultimo accesso: 2024-03-22)\
   https://www.math.unipd.it/~tullio/IS-1/2023/Dispense/PD2.pdf
-- *Capitolato d'appalto C8*: JMAP, il nuovo protocollo standard per la comunicazione email \
+- *Capitolato d'appalto C8*: JMAP, il nuovo protocollo standard per la comunicazione email (data di ultimo accesso: 2024-03-22)\
   https://www.math.unipd.it/~tullio/IS-1/2023/Progetto/C8.pdf
 
 === Riferimenti informativi
-- `Glossario v1.0.0`: \ https://overture-unipd.github.io/docs/rtb/interni/glossario_v1.0.0.pdf
-- `Analisi dei Requisiti v1.1.0`: \ https://overture-unipd.github.io/docs/rtb/esterni/analisi_dei_requisiti_v1.1.0.pdf
-- Progettazione: le dipendenze fra le componenti, #p.cardin \ https://www.math.unipd.it/~rcardin/swea/2023/Object-Oriented%20Progamming%20Principles%20Revised.pdf
-- Progettazione e programmazione: diagrammi delle classi (UML), #p.cardin \ https://www.math.unipd.it/~rcardin/swea/2023/Diagrammi%20delle%20Classi.pdf
-- Progettazione: i _pattern_ architetturali, #p.cardin \ https://www.math.unipd.it/~rcardin/swea/2022/Software%20Architecture%20Patterns.pdf
-- Progettazione: il _pattern Dependency Injection_, #p.cardin \ https://www.math.unipd.it/~rcardin/swea/2022/Design%20Pattern%20Architetturali%20-%20Dependency%20Injection.pdf
-- Progettazione _software_ (T6), #p.vardanega \ https://www.math.unipd.it/~tullio/IS-1/2023/Dispense/T6.pdf
-- Progettazione: i _pattern_ creazionali (GoF), #p.cardin \ https://www.math.unipd.it/~rcardin/swea/2022/Design%20Pattern%20Creazionali.pdf
-- Progettazione: i _pattern_ strutturali (GoF), #p.cardin \ https://www.math.unipd.it/~rcardin/swea/2022/Design%20Pattern%20Strutturali.pdf
-- Progettazione: i _pattern_ di comportamento (GoF), #p.cardin \ https://www.math.unipd.it/~rcardin/swea/2021/Design%20Pattern%20Comportamentali_4x4.pdf
-- Programmazione: SOLID _programming_, #p.cardin \ https://www.math.unipd.it/~rcardin/swea/2021/SOLID%20Principles%20of%20Object-Oriented%20Design_4x4.pdf
+- `Glossario v2.0.0`: \ https://overture-unipd.github.io/docs/pb/interni/glossario_v2.0.0.pdf
+- `Analisi dei Requisiti v2.0.0`: \ https://overture-unipd.github.io/docs/pb/esterni/analisi_dei_requisiti_v2.0.0.pdf
+- *Progettazione: le dipendenze fra le componenti*, #p.cardin  (data di ultimo accesso: 2024-03-22)\ https://www.math.unipd.it/~rcardin/swea/2023/Object-Oriented%20Progamming%20Principles%20Revised.pdf
+- *Progettazione e programmazione: diagrammi delle classi (UML)*, #p.cardin (data di ultimo accesso: 2024-03-22)\ https://www.math.unipd.it/~rcardin/swea/2023/Diagrammi%20delle%20Classi.pdf
+- *Progettazione: i _pattern_ architetturali*, #p.cardin (data di ultimo accesso: 2024-03-22)\ https://www.math.unipd.it/~rcardin/swea/2022/Software%20Architecture%20Patterns.pdf
+- *Progettazione: il _pattern Dependency Injection_*, #p.cardin (data di ultimo accesso: 2024-03-22)\ https://www.math.unipd.it/~rcardin/swea/2022/Design%20Pattern%20Architetturali%20-%20Dependency%20Injection.pdf
+- *Progettazione _software_ (T6)*, #p.vardanega (data di ultimo accesso: 2024-03-22)\ https://www.math.unipd.it/~tullio/IS-1/2023/Dispense/T6.pdf
+- *Progettazione: i _pattern_ creazionali (GoF)*, #p.cardin (data di ultimo accesso: 2024-03-22)\ https://www.math.unipd.it/~rcardin/swea/2022/Design%20Pattern%20Creazionali.pdf
+- *Progettazione: i _pattern_ strutturali (GoF)*, #p.cardin (data di ultimo accesso: 2024-03-22)\ https://www.math.unipd.it/~rcardin/swea/2022/Design%20Pattern%20Strutturali.pdf
+- *Progettazione: i _pattern_ di comportamento (GoF)*, #p.cardin (data di ultimo accesso: 2024-03-22)\ https://www.math.unipd.it/~rcardin/swea/2021/Design%20Pattern%20Comportamentali_4x4.pdf
+- *Programmazione: SOLID _programming_*, #p.cardin (data di ultimo accesso: 2024-03-22)\ https://www.math.unipd.it/~rcardin/swea/2021/SOLID%20Principles%20of%20Object-Oriented%20Design_4x4.pdf
 
 #pagebreak()
 
@@ -152,17 +156,17 @@ In questa sezione vengono elencate tutte le tecnologie utilizzate per l'implemen
 === Linguaggi
 #figure(tecnologieUsate(
   (
-    "Java", "21 LTS", "Linguaggio di programmazione ad alto livello, orientato agli oggetti e a tipizzazione statica. Fortemente consigliato dall'azienda proponente Zextras dato che è il linguaggio principale nello stack tencologico di Carbonio."
+    "Java", "21 LTS", "Linguaggio di programmazione ad alto livello, orientato agli oggetti e a tipizzazione statica. Fortemente consigliato dall'azienda "+[#glossary("proponente")]+" Zextras dato che è il linguaggio principale nello stack tencologico di "+ [#glossary("Carbonio")] +".",
   ),
 ), caption: [Linguaggi di programmazione usati per la codifica])
 === Strumenti e servizi
 #figure(tecnologieUsate(
   (
     "Docker", "25.0.0", "Strumento di conteinerizzazione richiesto esplicitamente dall'azienda proponente. Ogni contenitore viene eseguito in modo isolato dagli altri. Si integra facilmente con Gradle tramite un plugin.",
-    "Docker-compose", "2.24.0", "Strumento di conteinerizzazione utilizzato per la definizione di servizi multi-container. Semplifica la gestione e la scalabilità delle applicazioni.",
-    "RethinkDB", "2.4.4", "Database NoSQL che supporta subqueries e changefeed. Facilita la gestione e le conversioni degli oggetti Json e consente di rappresentare facilmente dati complessi e annidati.",
+    "Docker-compose", "2.24.0", "Strumento di conteinerizzazione utilizzato per la definizione di servizi multi-"+[#glossary("container")]+". Semplifica la gestione e la scalabilità delle applicazioni.",
+    "RethinkDB", "2.4.4", [#glossary("Database")] +" "+[#glossary("NoSQL")]+" che supporta subqueries e "+[#glossary("changefeed")] +". Facilita la gestione e le conversioni degli oggetti "+[#glossary("Json")]+" e consente di rappresentare facilmente dati complessi e annidati.",
     "Gradle", "8.6", "Strumento di automazione della build e di gestione delle dipendenze, progettato per la compilazione, il testing e la distribuzione di progetti software. Utilizza un linguaggio DSL basato su Groovy o Kotlin e supporta la build incrementale. ",
-    "Caddy", "2.7.0", "Web server open-source che converte il traffico da HTTP a HTTPS. Si distingue per la sua facilità d'uso, configurazione automatizzata e supporto nativo per HTTPS. Necessario in quanto richiesto dai client.",
+    "Caddy", "2.7.0", "Web server open-source che converte il traffico da "+[#glossary("HTTP")] +" a "+[#glossary("HTTPS")] +". Si distingue per la sua facilità d'uso, configurazione automatizzata e supporto nativo per HTTPS. Necessario in quanto richiesto dai client.",
     "MinIO", "Release 2024-01-31", "Server open-source progettato per implementare l'archiviazione di oggetti in modo scalabile e distribuito."
   ),
 ), caption: [Strumenti e servizi usati per la codifica])
@@ -190,7 +194,7 @@ In questa sezione vengono elencate tutte le tecnologie utilizzate per l'implemen
 #figure(tecnologieUsate(
   (
     "Compilatore Java", "JDK 21", "Traduce il codice sorgente scritto in linguaggio di programmazione Java in un formato eseguibile, generalmente chiamato bytecode Java. Il bytecode Java può essere eseguito da una macchina virtuale Java (JVM) su qualsiasi piattaforma che abbia una JVM disponibile, rendendo il codice Java altamente portabile.",
-    "Spotless", "6.23.3", "Plugin Gradle open-source utilizzato per applicare automaticamente le convenzioni di formattazione del codice a progetti Java. Garantisce che il codice sorgente sia formattato secondo regole specifiche, migliorandone la leggibilità e la manutenibilità."
+    "Spotless", "6.23.3", "Plugin" + [#glossary("Gradle")] +" open-source utilizzato per applicare automaticamente le convenzioni di formattazione del codice a progetti Java. Garantisce che il codice sorgente sia formattato secondo regole specifiche, migliorandone la leggibilità e la manutenibilità."
   )
 ), caption: [Tecnologie usate per l'analisi statica del codice])
 
@@ -217,14 +221,14 @@ In questa sezione vengono elencate tutte le tecnologie utilizzate per l'implemen
 #figure(tecnologieUsate(
   (
     "Locust","2.23.1","Framework open source di testing di carico e stress delle applicazioni. È scritto in Python e permette agli sviluppatori di scrivere test di carico simulando il comporamento di migliaia di utenti concorrenti.",
-    "Postman", "10.22", "Strumento di collaborazione per lo sviluppo di API. In particolare ne semplifica i processi di sviluppo, test e documentazione. Consente la creazione di richieste HTTP personalizzate."
+    "Postman", "10.22", "Strumento di collaborazione per lo sviluppo di API. In particolare ne semplifica i processi di sviluppo, test e documentazione. Consente la creazione di richieste " +[#glossary("HTTP")]+ " personalizzate."
   )
 ), caption: [Framework utilizzati per il testing])
 
 #pagebreak()
 
 = API
-Nel contesto del nostro progetto, le API costituiscono il principale punto di accesso attraverso il quale i client possono interagire con il sistema.\
+Nel contesto del nostro progetto, le #glossary("API") costituiscono il principale punto di accesso attraverso il quale i client possono interagire con il sistema.\
 Di seguito vengono esaminate le diverse API fornite all'interno del nostro prodotto; ciascuna di esse è soggetta a verifica attraverso il filtro di autenticazione `authenticate`, `/api/*`, che viene eseguito prima di procedere con l'effettiva gestione della richiesta.
 
 == Jmap (standard)
@@ -297,7 +301,7 @@ Download è un endpoint di tipo di tipo REST che consente di scaricare un allega
 La descrizione dell'architettura del prodotto adotta un approccio top-down, partendo dalla struttura generale per poi scendere nel dettaglio.
 
 == Architettura logica
-Nell'architettura logica che abbiamo scelto di adottare, il server di posta è organizzato in un modello esagonale che riflette una suddivisione chiara delle responsabilità e delle funzionalità delle varie componenti, andando a porre al centro la business logic, la quale non andrà così a dipendere da altre parti del sistema riguardanti, per esempio, logiche di persistenza.
+Nell'architettura logica che abbiamo scelto di adottare, il server di posta è organizzato in un modello esagonale che riflette una suddivisione chiara delle responsabilità e delle #glossary("funzionalità") delle varie componenti, andando a porre al centro la #glossary("business logic"), la quale non andrà così a dipendere da altre parti del sistema riguardanti, per esempio, logiche di persistenza.
 
 #figure(image("//imgs/Specifica_Tecnica/ArcLogica.jpeg", width: 100%), caption: [Architettura logica del prodotto])
 
@@ -309,17 +313,17 @@ Al centro dell'esagono risiede poi la business logic del server di posta elettro
 
 Infine, all'esterno dell'esagono, in uscita, troviamo l'insieme di componenenti che si occupano dell'interfacciamento con il database. Queste classi hanno il ruolo di gestire la persistenza dei dati necessari per il funzionamento del sistema, inclusi salvataggio delle email, memorizzazione delle cartelle, persistenza degli account e così via. Assicurano che i dati vengano salvati e recuperati in modo affidabile ed efficiente.
 
-L'adozione di questa architettura esagonale favorisce una gestione modulare e scalabile del server di posta elettronica. Ogni componente svolge un ruolo specifico e ben definito, facilitando la manutenzione, l'aggiornamento e l'espansione del sistema nel tempo. Inoltre, la chiara separazione delle responsabilità e delle funzionalità promuove la testabilità del sistema, consentendo una maggiore fiducia nella robustezza e nella stabilità complessiva del prodotto.
+L'adozione di questa architettura esagonale favorisce una gestione modulare e scalabile del server di posta elettronica. Ogni componente svolge un ruolo specifico e ben definito, facilitando la #glossary("manutenzione"), l'aggiornamento e l'espansione del sistema nel tempo. Inoltre, la chiara separazione delle responsabilità e delle funzionalità promuove la testabilità del sistema, consentendo una maggiore fiducia nella robustezza e nella stabilità complessiva del prodotto.
 
 Un grande vantaggio di questa architettura è la facilità nel cambiare, per esempio, il database sottostante. Supponendo infatti che si voglia aggiornare il sistema di persistenza dei dati, grazie alla netta separazione delle componenti e all'interfacciamento ben definito con il database è relativamente semplice farlo senza dover apportare modifiche significative al resto del sistema. Questa flessibilità consente di adattare il server di posta elettronica alle esigenze future e alle evoluzioni tecnologiche, garantendo una maggiore longevità e versatilità del prodotto.
 
 == Architettura di deployment
 
 === Struttura a monolite vs struttura a microservizi
-Dal momento in cui il prodotto software che dobbiamo andare a realizzare ha lo scopo di fornire una implementazione per un nuovo protocollo, per poi successivamente testarne le performance con degli stress test, la scelta di un architettura a monolite rispetto che ad altre, come quella a microservizi, è motivata da una vasta gamma di fattori.\
+Dal momento in cui il prodotto software che dobbiamo andare a realizzare ha lo scopo di fornire una implementazione per un nuovo #glossary("protocollo"), per poi successivamente testarne le performance con degli #glossary("stress test"), la scelta di un architettura a #glossary("monolite") rispetto che ad altre, come quella a microservizi, è motivata da una vasta gamma di fattori.\
 Prima di tutto, come detto prima, il software non necessiterà di particolari espansioni future, una volta forniti i risultati degli stress test essa verra utilizzata dal committente per effettuare ulteriori test o al massimo per osservare come abbiamo implementato certe funzionalità di jmap nel caso volessero integrarle nei loro sistemi.\
 Fatte queste premesse, l'approccio monolitico è quindi preferito per la sua rapidità e semplicità. L'applicazione è destinata ad essere di dimensioni limitate e a svolgere un compito specifico, il team dunque intende semplificare lo sviluppo senza la necessità di gestire la complessità aggiuntiva introdotta da un'architettura a microservizi.\
-Inoltre, in un progetto dove il team di sviluppo ha un esperienza di programmazione scarsa e necessita di modificare e correggere continuamente alcune parti del software, l'architettura monolitica risulta essere più gestibile in quanto permette di semplificare il processo di sviluppo riducendo la necessità di coordinazione tra diversi servizi, come richiesto dalle architetture a microservizi.
+Inoltre, in un progetto dove il team di sviluppo ha un esperienza di programmazione scarsa e necessita di modificare e correggere continuamente alcune parti del software, l'architettura monolitica risulta essere più gestibile in quanto permette di semplificare il #glossary("processo") di sviluppo riducendo la necessità di coordinazione tra diversi servizi, come richiesto dalle architetture a microservizi.
 
 ==== Conclusioni
 L'architettura monolitica è raccomandata per applicazioni semplici e per prototipi, semplificando lo sviluppo senza la necessità di integrare molteplici servizi. D'altra parte l'architettura a microservizi si adatta meglio a sistemi complessi offrendo un'aggiunta flessibile di nuove funzionalità.\
@@ -328,21 +332,21 @@ In secondo luogo la scelta dell'architettura è anche condizionata dall'infrastr
 Per conludere, il team _Overture_ riconosce i vantaggi che alcune architetture più complesse, come quella a microservizi, porterebbero sicuramente al prodotto sviluppato, ma per una serie di ragioni legate alla complessità instriseca delle architetture stesse riteniamo che nel nostro scenario i vantaggi non coprano assolutamente gli sforzi e i tempi necessari nel presente per adottare queste architetture. Per questo abbiamo optato per una architettura monolitica.
 
 === Docker e conteinerizzazione dell'applicazione
-L'uso della conteinerizzazione nell'ambito dell'architettura di deployment è considerato interessante per i seguenti motivi (i quali ci hanno fatto comprendere il motivo per cui il comittente aveva inserito la containerizzazione dell'applicazione come requisito obbligatorio):
+L'uso della conteinerizzazione nell'ambito dell'#glossary("architettura di deployment") è considerato interessante per i seguenti motivi (i quali ci hanno fatto comprendere il motivo per cui il comittente aveva inserito la containerizzazione dell'applicazione come requisito obbligatorio):
 - Portabilità: i container forniscono un ambiente isolato che include tutte le dipendenze. Questo rende l'applicazione altamente portabile tra diversi ambienti, eliminado le preoccupazioni legate alle differenze di configurazione tra i sistemi di sviluppo e produzione.
 - Consistenza: la containerizzazione garantisce che l'applicazione venga eseguita in un ambiente consistente, indipendentemente dalla macchina host. Ciò riduce i problemi legati a differenze di configurazione tra le diverse fasi di sviluppo e deployment, migliorando la coerenza del processo.
 - Scalabilità: i container sono leggeri e possono essere avviati rapidamente. Questo facilita la scalabilità orizzontale, consentendo l'esecuzione di più istanze di un'applicazione su più container.
-- Gestione delle risorse: i container condividono il kernel del sistema operativo host, riducendo l'overhead rispetto a soluzioni di virtualizzazione tradizionali. Ciò consente di utilizzare in modo più efficiente le risorse hardware, riducendo i costi e migliorando le prestazioni complessive del sistema.
+- Gestione delle risorse: i container condividono il kernel del sistema operativo host, riducendo l'#glossary("overhead") rispetto a soluzioni di virtualizzazione tradizionali. Ciò consente di utilizzare in modo più efficiente le risorse hardware, riducendo i costi e migliorando le prestazioni complessive del sistema.
 
-Complessivamente, la containerizzazione offre numerosi vantaggi nell'ambito dell'architettura di deployment, migliorando l'efficienza, la portabilità e la gestione delle applicazioni.
+Complessivamente, la containerizzazione offre numerosi vantaggi nell'ambito dell'architettura di deployment, migliorando l'#glossary("efficienza"), la portabilità e la gestione delle applicazioni.
 
 ==== Come lo abbiamo utilizzato noi
 #figure(image("//imgs/Specifica_Tecnica/ArcDeploy.jpeg", width: 100%), caption: [Architettura di deployment del prodotto])
 
-Se andiamo sulla cartella root del nostro progetto noteremo che c'è un file chiamato "docker-compose.yml". Questo definisce una configurazione di Docker Compose per orchestrare i container di tre servizi diversi: web server, database e caddy.\
+Se andiamo sulla cartella root del nostro progetto noteremo che c'è un file chiamato "docker-compose.yml". Questo definisce una configurazione di #glossary("Docker") Compose per orchestrare i container di quattro servizi diversi: web server, database RethinkDB, caddy e MinIO.\
 Il servizio web server è attivato mediante l'immagine custom `overture-unipd/jmap:latest` ricavata dall'immagine di base `openjdk:21-jdk-slim` e esposta nella porta 8000.\
-Il servizio di database è creato mediante l'immagine `rethinkdb:2.4.2-bullseye-slim` disponibile direttamente sul repository pubblico al seguente link https://hub.docker.com/_/rethinkdb mappando le porte 9000, 29015 e 28015 del container con rispettivamente le porte 8080. 29015 e 28015 dell'host e configurando i volumi in modo tale da consentire la persistenza dei dati del database tra le esecuzioni del container.\
-Il servizio di caddy lo attiviamo con l'immagine custom `overture-unipd/caddy:latest` ricavata dall'immagine di base `caddy:latest` ma integrata con il plugin per Duck DNS. Anche qui vengono mappate le porte 80 e 443 del container con quelle dell'host e vengono configurati i  volumi Docker per condividere dati tra il container e l'host, ad esempio per persistere i dati del server web Caddy e per fornire un file di configurazione Caddy personalizzato.\
+Il servizio di database RethinkDB è creato mediante l'immagine `rethinkdb:2.4.2-bullseye-slim` disponibile direttamente sul #glossary("repository") pubblico al seguente link https://hub.docker.com/_/rethinkdb mappando le porte 9000, 29015 e 28015 del container con rispettivamente le porte 8080. 29015 e 28015 dell'host e configurando i volumi in modo tale da consentire la persistenza dei dati del database tra le esecuzioni del container.\
+Il servizio di caddy lo attiviamo con l'immagine custom `overture-unipd/caddy:latest` ricavata dall'immagine di base `caddy:latest` ma integrata con il plugin per Duck #glossary("DNS"). Anche qui vengono mappate le porte 80 e 443 del container con quelle dell'host e vengono configurati i  volumi Docker per condividere dati tra il container e l'host, ad esempio per persistere i dati del server web Caddy e per fornire un file di configurazione Caddy personalizzato.\
 Il servizio MinIO è creato mediante l'immagine `minio/minio:RELEASE.2024-02-24T17-11-14Z` disponibile direttamente sul repository pubblico di Docker Hub al seguente link: https://hub.docker.com/r/minio/minio. Vengono mappate le porte: 100000 e 100001 con le rispettive porte: 9000 e 9001. Il volume minio:/data viene mappato per memorizzare i dati di Minio nella directory /data all'interno del contenitore. Questo significa che i dati di Minio saranno memorizzati in modo persistente nel volume Docker, consentendo al contenitore di accedervi e manipolarli anche dopo il riavvio.
 
 Si nota che tutti i volumi che i servizi montano, sono riportati alla fine del file "docker-compose.yml" dopo il record `volumes`.
@@ -350,6 +354,7 @@ Si nota che tutti i volumi che i servizi montano, sono riportati alla fine del f
 #pagebreak()
 
 == Design pattern utilizzati
+
 === Dependency injection
 
 ==== Motivazioni e studio del design pattern
@@ -362,26 +367,16 @@ Il gruppo di progetto ha deciso di implementare il pattern dependecy injection c
 In parole povere, Guice allevia la necessità di avere componenti factories nel proprio codice e di usare la parola chiave `new` per ogni oggetto che si vuole costruire. Il costrutto $at$Inject di Guice è il nuovo `new` di Java. Bisognerà comunque implementare delle classi factories in certi casi, ma il codice non dipenderà direttamente da esse e il codice risultante sarà più facile da modificare, da testare e da riutilizzare.
 
 ===== Concetti principali di Guice ed esempio di utilizzo
-Dependecy Injection  è un pattern dove le classi dichiarano le loro dipendenze come argomenti al posto di creare oggetti legati a queste dipendenze direttamente al loro interno. Ad esempio, un client che vorrebbe chiamare un servizio non dovrebbe sapere come costruire questo servizio, ma al contrario, del codice esterno deve essere responsabile per fornire questo servizio al client.
+Dependecy Injection è un pattern dove le classi dichiarano le loro dipendenze come argomenti al posto di creare oggetti legati a queste dipendenze direttamente al loro interno. Ad esempio, un client che vorrebbe chiamare un servizio non dovrebbe sapere come costruire questo servizio, ma al contrario, del codice esterno deve essere responsabile per fornire questo servizio al client.
 
 ====== Costruttore $at$Inject
 Tutte le classi di Java che sono annotate con $at$Inject possono essere chiamate da Guice tramite un processo di "costructor injection", dove ogni argomento viene creato e fornito da Guice stesso.
 Questo è un esempio di classe demo che usa il "costructor injection":
-```java
+#sourcecode[```java
 class Saluto {
   private final String messaggio;
   private final int conta;
-
-
-
-
   
-
-  
-
-
-  
-
   // La classe Saluto dichiara che necessita di una stringa per il messaggio
   // e un intero che rappresenta il numero di volte che un messaggio è
   // stampato.
@@ -394,14 +389,14 @@ class Saluto {
 
   ...
 }
-```
+```]
 
 La classe Saluto ha un costruttore che è chiamato quando l'applicazione chiede a Guice di istanziare un oggetto Saluto. Guice creerà i due argomenti richiesti e invocherà il costruttore. Le dipendeze, che sono gli argomenti da passare al costruttore, sono noti a Guice grazione ai codiddetti: Moduli, che soddisfano queste dipendenze.
 
 ====== Moduli di Guice
 I moduli sono dei costrutti di Guice che permettono di soddisfare le dipendenze richieste dal costruttore di una classe. Questo è fatto grazie alla creazione di una classe (il modulo appunto) che specifica come soddisfare tali dipendenze automaticamente.
 Ecco un esempio di modulo che soddisfa le dipendenze della classe Saluto:
-```java
+#sourcecode[```java
 import com.google.inject.Provides;
 
 class DemoModulo extends AbstractModule {
@@ -418,11 +413,11 @@ class DemoModulo extends AbstractModule {
   }
 }
 
-```
+```]
 
 ====== Utilizzo 
 Incapsulando il codice precedente in una classe apposita di demo ecco come possiamo usare l'infrastruttura creata per testare la potenza di Guice:
-```java
+#sourcecode[```java
 public static void main(String[] args) {
     /*
      * Guice.createInjector() prende uno o più moduli e ritorna una nuova istanza di Inject.
@@ -438,39 +433,140 @@ public static void main(String[] args) {
     greeter.diciCiao();
   }
 
-```
+```]
 
-==== Integrazione del pattern
-Per vedere come abbiamo utilizzato Guice nel nostro progetto, basta prendere una classe che ha un costruttore, come la classe `AccountImpl`. 
-```java
-@Inject
-AccountImpl(Connection conn) {
+==== Integrazione del pattern nel nostro progetto
+Nel nostro progetto abbiamo scelto di utilizzare la struttura esagonale come modello architetturale. Per questo motivo, tutte le informazioni e le risorse sono organizzate mediante una serie di porte, dove ad ogni porta corrisponde un'interfaccia, che rappresentano i punti di accesso all'interno del sistema dove richieste e output possono essere scambiati e gestiti.
+
+Ad ogni porta è associata una classe chiamata "adapter", quindi un componente che agisce da intermediario tra la porta e il sistema. Guice deve sapere il tipo di implementazione di ogni interfaccia, quindi abbiamo creato un'apposita classe `BindModule.java` che per ogni richiesta con la relativa porta dice a Guice come costruire il relativo adapter.
+
+#sourcecode[```java
+public class BindModule extends AbstractModule {
+  @Override
+  public void configure() {
+    // in
+    bind(AuthenticationPort.class).to(AuthenticationController.class);
+    bind(DownloadPort.class).to(AttachmentController.class);
+    bind(MethodPort.class).to(MethodController.class);
+    bind(SessionPort.class).to(SessionController.class);
+    bind(UploadPort.class).to(AttachmentController.class);
+
+    // out
+		bind(AccountPort.class).to(AccountRepository.class);
+		bind(AttachmentPort.class).to(AttachmentRepository.class);
+		bind(EmailPort.class).to(EmailRepository.class);
+		bind(EmailSubmissionPort.class).to(EmailSubmissionRepository.class);
+    bind(EmailUpdatePort.class).to(EmailUpdateRepository.class);
+    bind(IdentityPort.class).to(IdentityRepository.class);
+    bind(MailboxPort.class).to(MailboxRepository.class);
+    bind(MailboxUpdatePort.class).to(MailboxUpdateRepository.class);
+    bind(StatePort.class).to(StateRepository.class);
+    bind(ThreadPort.class).to(ThreadRepository.class);
+    bind(ThreadUpdatePort.class).to(ThreadUpdateRepository.class);
+
+    bind(String.class)
+      .annotatedWith(Names.named("MINIO_BUCKET"))
+      .toInstance(System.getenv("MINIO_BUCKET"));
+  }
+
+  @Provides
+  public Connection provideConnection() {
+    return RethinkDB.r.connection().hostname(
+        System.getenv("RETHINKDB_HOST"))
+                .port(Integer.parseInt(System.getenv("RETHINKDB_PORT")))
+                .connect()
+                .use(System.getenv("RETHINKDB_DB"));
+  }
+
+  @Provides
+  public MinioClient provideMinioClient() {
+    return MinioClient.builder()
+      .endpoint(System.getenv("MINIO_HOST"), Integer.parseInt(System.getenv("MINIO_PORT")), false)
+      .credentials(System.getenv("MINIO_ACCESS"), System.getenv("MINIO_SECRET"))
+      .build();    
+  }
+  
+  @Provides
+  public Gson provideGson() {
+    var gsonBuilder = new GsonBuilder();
+    JmapAdapters.register(gsonBuilder);
+    gsonBuilder.registerTypeAdapter(Update.class, new UpdateSerializer());
+    gsonBuilder.registerTypeAdapter(Update.class, new UpdateDeserializer());
+    return gsonBuilder.disableHtmlEscaping().create();
+  }
+}
+```]
+
+Se ad esempio prendiamo la prima riga di codice che specifica un bind:
+
+#sourcecode[```java
+
+bind(String.class)
+      .annotatedWith(Names.named("MINIO_BUCKET"))
+      .toInstance(System.getenv("MINIO_BUCKET"));
+```]
+
+notiamo che il framework Guice associa ad ogni richiesta che verrà fatta per la named string "MINIO_BUCKET" la stringa ottenuta in esecuzione dal metodo System.getenv("MINIO_BUCKET").
+
+Nel costruttore della classe AttachmentRepository, la dipendenza viene iniettata tramite l'annotazione $at$Named("MINIO_BUCKET"), che indica al framework di iniezione delle dipendenze di utilizzare il valore associato alla stringa "MINIO_BUCKET" nel contesto del binding precedentemente definito. Quindi, quando viene istanziata un'istanza di AttachmentRepository, il framework saprà esattamente cosa passare al costruttore della classe AttachmentRepository.
+Di seguito il codice del costruttore:
+
+
+#sourcecode[```java
+public class AttachmentRepository implements AttachmentPort {
+  private MinioClient conn;
+  private String bucket;
+
+  @Inject
+  AttachmentRepository(MinioClient conn, @Named("MINIO_BUCKET") String bucket) {
     this.conn = conn;
+    this.bucket = bucket;
+  }
+
+  ...
+
+}
+```]
+
+Successessivamente notiamo, sempre sulla classe `BindModule.java` la presenza di tre metodi provides. Questi sono un altro costrutto del framework Guice e permettono di definire come istanziare determinate tipi di classi. Ad esempio il provides `provideConnection()`:
+
+
+#sourcecode[```java
+
+ @Provides
+  public Connection provideConnection() {
+    return RethinkDB.r.connection().hostname(
+        System.getenv("RETHINKDB_HOST"))
+                .port(Integer.parseInt(System.getenv("RETHINKDB_PORT")))
+                .connect()
+                .use(System.getenv("RETHINKDB_DB"));
+  }
+
+```]
+
+definisce come costruire una determinata istanza per un oggetto qualora ce ne fosse la necessità.
+
+===== Classe Init
+
+#sourcecode[```java
+
+package it.unipd.overture;
+
+import com.google.inject.Guice;
+import com.google.inject.Injector;
+import it.unipd.overture.adapter.in.Spark;
+public class Init {
+  public static void main(String[] args) throws Exception {
+    Injector injector = Guice.createInjector(new BindModule());
+
+    Spark spark = injector.getInstance(Spark.class);
+    spark.start();
+  }
 }
 
-```
+```]
 
-
-Notiamo che il costruttore della classe dichiara delle dipendenze tra la classe `AccountImpl` e la classe `Connection`.\
-Il costruttore è marchato con l'annotazione $at$Inject per denotare che Guice sarà responasabile di fornire un'istanza di `Connection` quando si vorrà creare un'istanza di `AccountImp`.\
-
-La configurazione di del modulo Guice è fatta su un'altra file: `Init.java` che si occupa di soddisfare le dipendenze necesarie per la classe connection con il costrutto Injector.
-```java
-Injector injector = Guice.createInjector(
-    new DatabaseModule(),
-    new WebserverModule(),
-);
-```
-Nel momento in cui si volesse ottenere un'stanza di `AccountImpl` basterà chiamare il metodo getInstance cono l'oggetto injector creato precedentemente:
-```java
-Injector injector = Guice.createInjector(/* ... */);
-AccountImpl accountImpl = injector.getInstance(AccountImpl.class);
-
-```
-
-Con l'injector creato utilizzando Guice, è possibile ottenere un'istanza di `AccountImpl`. Guice si occuperà di soddisfare le dipendenze necessarie, come la `Connection`, iniettandole automaticamente nel costruttore di `AccountImpl`.
-
-In generale, l'utilizzo di Guice semplifica la gestione delle dipendenze nel codice, separando la creazione delle istanze delle classi e la gestione delle dipendenze in un framework esterno, e viene integrato nel nostro prodotto per la maggioranza delle classi dotate di costruttore con delle dipendenze. Ciò rende il codice più modulare, facilitando la manutenzione e il testing.
+Questa classe crea un Injector, specifando come Modulo di iniezione un'istanza della classe analizzata precedentemente: `BindModule.java`. A questo punto, l'iniettore appena creato viene utilizzato per creare un'istanza della classe Spark (incaricata per ricevere le richieste http). Quest'ultima viene avviata tramite il metodo start().
 
 === Adapter
 
@@ -485,17 +581,16 @@ Per ogni componente esterna con cui interagire abbiamo definito una o più porte
 
 ==== Integrazione del pattern
 Per una migliore comprensione dell'integrazione del pattern adapter nel nostro prodotto, possiamo esaminare una qualsiasi delle componenti esterne all'esagono insieme alla sua porta associata. Prendiamo ad esempio la classe EmailRepository e la relativa porta di accesso al sistema EmailPort:
-```java
+#sourcecode[```java
 public interface EmailPort {
   Email get(String id);
   Map<String, Email> getOf(String accountid);
-  void insert(Email email);
-  void replace(Email email);
+  void insert(String accountid, Email email);
   void delete(String id);
 }
-```
+```]
 Partendo dalla porta, si vede facilmente come essa sia una semplice interfaccia che espone i metodi necessari per svolgere le classiche operazioni CRUD nel database riguardanti le email. Essa fornisce quindi un'astrazione per consentire la gestione delle email nel database, la quale può essere utilizzata dalle classi di business senza che quest'ultime debbano preoccuparsi dei dettagli di implementazione sottostanti.
-```java
+#sourcecode[```java
 public class EmailRepository implements EmailPort {
   private final RethinkDB r = RethinkDB.r;
   private Connection conn;
@@ -509,13 +604,7 @@ public class EmailRepository implements EmailPort {
 
   @Override
   public Email get(String id) {
-    String res = r.table("email")
-                   .get(id)
-                   .toJson()
-                   .run(conn)
-                   .single()
-                   .toString();
-    return gson.fromJson(res, Email.class);
+    ...
   }
 
   @Override
@@ -524,24 +613,22 @@ public class EmailRepository implements EmailPort {
   }
 
   @Override
-  public void insert(Email email) {
-   r.table("email")
-      .insert(gson.toJson(email))
-      .run(conn);
-  }
-
-  
-  @Override
-  public void replace(Email email) {
-    ...
+  public void insert(String accountid, Email email) {
+    r.table("email")
+    .insert(
+      r.json("{\"account\":\""+accountid+"\","+gson.toJson(email).substring(1))
+    )
+    .optArg("conflict", "replace")
+    .run(conn);
   }
 
   @Override
   public void delete(String id) {
-    ...
+    r.table("email").get(id).delete().run(conn);
   }
 }
-```
+
+```]
 La classe EmailRepository fornisce poi un'implementazione concreta dei metodi definiti nell'interfaccia sopra menzionata. Attualmente utilizziamo RethinkDB come database per eseguire tali operazioni, ma questa scelta non ha alcun impatto sulle classi di business. Pertanto, nel caso in cui decidessimo di cambiare il sistema di persistenza in futuro, sarebbe sufficiente aggiornare questa classe. I metodi infatti operano tramite oggetti di business passati come argomenti, tipo Email, consentendo di mantenere l'indipendenza dalle logiche di persistenza del prodotto.
 
 In conclusione, quando ci troviamo ad interagire con componenti esterne adottiamo sempre adapter di questo tipo, basandoci sugli oggetti di business in modo che rimangano al centro di ogni operazione. Le porte permettono di definire un'interfaccia chiara e stabile per l'interazione con il mondo esterno, consentendo così una facile sostituzione o aggiornamento delle implementazioni sottostanti. D'altra parte, le loro implementazioni forniscono il collegamento reale tra l'esagono e i servizi esterni, gestendo dunque la logica di adattamento.
@@ -556,7 +643,7 @@ Il creatore della libreria ha saggiamente scelto di non implementare direttament
 
 ===== Utilizzo
 Vediamo quindi come lo sviluppatore della libreria utilizza Lombok per implementare il design pattern builder, prendendo come esempio la classe SessionResource:
-```java
+#sourcecode[```java
 package rs.ltt.jmap.common;
 
 import java.util.Collection;
@@ -598,7 +685,7 @@ public class SessionResource {
         }
     }
 }
-```
+```]
 L'esempio illustra l'ampio utilizzo di Lombok nel codice. La classe SessionResource è marcata con l'annotazione \@Builder, che genera automaticamente un builder per la classe stessa. Inoltre, in questo caso particolare, viene anche definito il metodo capabilities() all'interno della classe SessionResourceBuilder, il quale serve a impostare le capacità della sessione. 
 In altri casi, invece, viene utilizzata soltanto l'annotazione \@Builder. \
 Volendo, esaminando ulteriormente il codice della libreria, è possibile trovare altri esempi di utilizzo, poiché Lombok viene impiegato per la definizione di un builder per praticamente ogni oggetto.
@@ -606,7 +693,7 @@ Volendo, esaminando ulteriormente il codice della libreria, è possibile trovare
 ==== Integrazione del pattern
 Per andare a vedere come abbiamo integrato questo pattern nel nostro prodotto si può spaziare nelle varie classi che compongono la business logic di quest'ultimo, infatti quasi tutte andranno a costruire oggetti core della libreria e per farlo si affideranno alla catena di metodi dei builder relativi. \
 Prendiamo come esempio la creazione della risorsa JMAP Session all'interno della classe SessionLogic:
-```java
+#sourcecode[```java
 final SessionResource sessionResource =
         SessionResource.builder()
           .apiUrl("http://localhost:8000/api/jmap")
@@ -630,265 +717,320 @@ final SessionResource sessionResource =
           .capabilities(capabilityBuilder.build())
           .primaryAccounts(ImmutableMap.of(MailAccountCapability.class, accountid))
           .build();
-```
+```]
 In questo esempio, possiamo osservare come l'oggetto SessionResource, definito dalla libreria, venga costruito in modo chiaro e conciso attraverso una catena di metodi. Questa catena di chiamate imposta i valori desiderati come i diversi URL, lo stato della sessione e lo username dell'utente. È interessante notare che alcuni parametri vengono costruiti a loro volta utilizzando dei builder dedicati, come ad esempio l'oggetto Account, all'interno del quale un'altra catena di metodi ancora crea l'oggetto MailAccountCapability della libreria.\
 Si noti come l'ampio utilizzo del pattern builder da parte dello sviluppatore della libreria porti a un codice più leggibile, flessibile e manutenibile. Questo riduce notevolmente la complessità associata alla creazione di oggetti con un gran numero di parametri, come dimostrato nell'esempio. Inoltre, l'uso del pattern builder ci consente di evitare la configurazione dei parametri opzionali della sessione quando non sono necessari, semplificando ulteriormente il processo di creazione degli oggetti.
 
-In conclusione, l'integrazione del pattern builder nel nostro prodotto è una pratica comune ogni volta che è necessario costruire un oggetto della libreria con un builder associato. Questo migliora l'efficienza dello sviluppo e la qualità del nostro software, garantendo un codice più pulito e manutenibile.
+In conclusione, l'integrazione del pattern builder nel nostro prodotto è una pratica comune ogni volta che è necessario costruire un oggetto della libreria con un builder associato. Questo migliora l'efficienza dello sviluppo e la #glossary("qualità") del nostro software, garantendo un codice più pulito e manutenibile.
 
 #pagebreak()
+
+#set page(flipped: true)
 
 == Diagramma delle classi
-#figure(image("//imgs/Specifica_Tecnica/UML.png", width: 120%), caption: [Diagramma delle classi])
+#figure(image("//imgs/Specifica_Tecnica/uml.svg", width:120%, height: 90%), caption: [Diagramma delle classi])
 
 #pagebreak()
+#set page(flipped: false)
 
+=== Componenti di utilità
+#figure(image("//imgs/Specifica_Tecnica/uml1.svg", width: 90%), caption: [Modellazione delle componenti di utilità])
+
+Il frammento di diagramma soprastante contiene una serie di componenti di utilità necessarie per il corretto funzionamento del progetto. Queste includono le seguenti:
+
+- *Init*: Questa componente rappresenta il punto di accesso dell'applicazione e si occupa di avviare il server Spark per gestire le richieste in arrivo.
+  - _Operazioni_:
+    \ \+ ```java main(args: String[]): void ```- Istanzia un oggetto Injector utilizzando Guice e un modulo di binding personalizzato BindModule. Successivamente, ottiene un'istanza della componente Spark dall'injector e avvia il server.
+    
+- *BindModule*: Questa componente è un modulo di configurazione Guice che si occupa di legare le interfacce delle porte in ingresso e in uscita alle rispettive implementazioni concrete dei controller e dei repository. Inoltre, fornisce dipendenze come la connessione al database RethinkDB e il client MinioClient per l'accesso ai servizi di archiviazione. Infine, fornisce un'istanza personalizzata di Gson configurata con gli adapter necessari per la serializzazione e la deserializzazione dei dati JSON, inclusi adapter specifici per l'interoperabilità con il protocollo JMAP.
+  - _Operazioni_:
+    \ \+ ```java configure(): void ```- Configura Guice legando le interfacce delle porte alle implementazioni concrete dei controller e dei repository, e fornisce dipendenze come la connessione al database e il client MinioClient per l'archiviazione. Inoltre, registra gli adapter necessari per la serializzazione e la deserializzazione dei dati JSON tramite Gson;
+    \ \+ ```java provideConnection(): Connection ```- Fornisce una connessione al database RethinkDB utilizzando le informazioni di configurazione recuperate dalle variabili d'ambiente;
+    \ \+ ```java provideMinioClient(): MinioClient ```- Fornisce un client MinioClient per l'accesso ai servizi di archiviazione Minio, utilizzando le informazioni di configurazione recuperate dalle variabili d'ambiente;
+    \ \+ ```java provideGson(): Gson ```- Fornisce un'istanza di Gson configurata con gli adapter necessari per la serializzazione e la deserializzazione dei dati JSON, inclusi adapter specifici per l'interoperabilità con il protocollo JMAP.
+    
+- *UpdateSerializer*: Questa componente implementa l'interfaccia JsonSerializer della libreria Gson per serializzare oggetti Update in formato JSON. Viene utilizzata insieme alla libreria per convertire gli oggetti Update in rappresentazioni JSON. La serializzazione avviene mediante l'aggiunta delle modifiche e della nuova versione dell'aggiornamento a un oggetto JSON.
+  - _Operazioni_:
+    \ \+ ```java serialize(update: Update, typeOfT: Type, context: JsonSerializationContext): JsonElement ```- Serializza un oggetto Update in formato JSON. Crea un nuovo oggetto JSON e aggiunge le modifiche e la nuova versione dell'aggiornamento ad esso. Le modifiche vengono serializzate separatamente per ciascuna classe di entità, utilizzando il contesto di serializzazione fornito da Gson.
+  
+- *UpdateDeserializer*: Questa componente implementa l'interfaccia JsonDeserializer della libreria Gson per deserializzare oggetti Update da formato JSON. Viene utilizzata insieme alla libreria per convertire rappresentazioni JSON in oggetti Update. La deserializzazione avviene mediante l'estrazione delle modifiche e della nuova versione dall'oggetto JSON e la creazione di un nuovo oggetto Update con queste informazioni.
+  - _Operazioni_:
+    \ \+ ```java deserialize(json: JsonElement, typeOfT: Type, context: JsonDeserializationContext): Update ```- Deserializza un oggetto Update da formato JSON. Estrae le modifiche e la nuova versione dall'oggetto JSON fornito e crea un nuovo oggetto Update utilizzando queste informazioni. Le modifiche vengono deserializzate separatamente per ciascuna classe di entità, utilizzando il contesto di deserializzazione fornito da Gson.
+
+#pagebreak()
+    
 === Ingresso delle richieste nell'applicazione
-#figure(image("//imgs/Specifica_Tecnica/UML1.png", width: 55%), caption: [Modellazione delle componenti che gestiscono l'ingresso delle richieste nell'applicazione])
+#figure(image("//imgs/Specifica_Tecnica/uml2.svg", width: 78.5%), caption: [Modellazione delle componenti che gestiscono l'ingresso delle richieste nell'applicazione])
 
 Il pezzo di diagramma riportato illustra le componenti fondamentali per gestire l'ingresso delle richieste provenienti dai client all'interno del sistema. Vi si trovano le seguenti classi:
+
 - *Spark*: gestore principale dell'ingresso delle richieste in arrivo (input), il cui scopo è quello di definire molteplici rotte utilizzando il framework Spark. Include al suo interno la gestione iniziale delle operazioni come l'autenticazione, la gestione delle sessioni, la gestione dei metodi di JMAP e la manipolazione degli allegati attraverso upload e download.
-  - _Proprietà_:
-    \ \- authentication: AuthenticationPort - Un'istanza di AuthenticationPort utilizzata per gestire l'autenticazione degli utenti;
-    \ \- session: SessionPort - Un'istanza di SessionPort utilizzata per gestire le sessioni degli utenti;
-    \ \- method: MethodPort - Un'istanza di MethodPort utilizzata per gestire i metodi di JMAP;
-    \ \- upload: UploadPort - Un'istanza di UploadPort utilizzata per gestire le operazioni di caricamento degli allegati;
-    \ \- download: DownloadPort - Un'istanza di DownloadPort utilizzata per gestire le operazioni di scaricamento degli allegati.
+  - _Attributi_:
+    \ \- ```java authentication: AuthenticationPort ```- Un'istanza di AuthenticationPort utilizzata per gestire l'autenticazione degli utenti;
+    \ \- ```java session: SessionPort ```- Un'istanza di SessionPort utilizzata per gestire le sessioni degli utenti;
+    \ \- ```java method: MethodPort ```- Un'istanza di MethodPort utilizzata per gestire i metodi di JMAP;
+    \ \- ```java upload: UploadPort ```- Un'istanza di UploadPort utilizzata per gestire le operazioni di caricamento degli allegati;
+    \ \-```java download: DownloadPort ```- Un'istanza di DownloadPort utilizzata per gestire le operazioni di scaricamento degli allegati.
   - _Operazioni_:
     \ \- ```java authenticate(q: Request, a: Response): String ``` - Verifica dell'autenticazione dell'utente;
     \ \- ```java up(q: Request, a: Response): String ```- Verifica della corretta esecuzione del server;
     \ \- ```java wellKnown(q: Request, a: Response): String ```- Effettua un reindirizzamento alla rotta "/api/jmap";
-    \ \- ```java getJmap(q: Request, a: Response): String ```- Gestisce le richieste GET per la rotta "/api/jmap" e restituisce i dati  di sessione in formato JSON;
+    \ \- ```java getJmap(q: Request, a: Response): String ```- Gestisce le richieste GET per la rotta "/api/jmap" e restituisce i dati di sessione in formato JSON;
     \ \- ```java postJmap(q: Request, a: Response): String ```- Gestisce le richieste POST per la rotta "/api/jmap" e restituisce i dati elaborati in base al corpo della richiesta;
     \ \- ```java download(q: Request, a: Response): String ```- Gestisce le richieste GET per la rotta "/api/download" riguardanti gli allegati e restituisce il contenuto richiesto;
     \ \- ```java upload(q: Request, a: Response): String ```- Gestisce le richieste POST per la rotta "/api/download" riguardanti gli allegati e li carica nel server;
     \ \+ ```java start(): void ```- Configura e avvia il server Spark, impostando la porta e definendo i filtri e le rotte con i rispettivi handler di richieste HTTP.
 - *AuthenticationPort*: porta in ingresso che funge da punto di accesso per l'interazione tra il dominio dell'applicazione (core) e il mondo esterno. Essa definisce un insieme di operazioni che rappresentano le azioni che l'applicazione può eseguire in risposta alle richieste esterne provenienti dai client riguardanti l'autenticazione. La sua implementazione è responsabilità di classi concrete che forniranno la logica specifica per gestire tali operazioni in modo efficace all'interno dell'applicazione, mantenendo così la separazione tra i diversi tipi di logiche.
     - _Operazioni_:
-      \ \# ```java authenticate(auth: String): boolean ```- Restituisce un valore booleano che indica se l'autenticazione è riuscita o meno. L'implementazione concreta di questo metodo è lasciata alle classi che implementano questa interfaccia, in modo che possano definire la logica specifica per verificare l'autenticità delle credenziali fornite.
+      \ \+ ```java authenticate(auth: String): boolean ```- Restituisce un valore booleano che indica se l'autenticazione è riuscita o meno. L'implementazione concreta di questo metodo è lasciata alle classi che implementano questa interfaccia, in modo che possano definire la logica specifica per verificare l'autenticità delle credenziali fornite.
 - *SessionPort*: porta in ingresso che funge da punto di accesso per l'interazione tra il dominio dell'applicazione (core) e il mondo esterno. Essa definisce un insieme di operazioni che rappresentano le azioni che l'applicazione può eseguire in risposta alle richieste esterne provenienti dai client riguardanti la sessione. La sua implementazione è responsabilità di classi concrete che forniranno la logica specifica per gestire tali operazioni in modo efficace all'interno dell'applicazione, mantenendo così la separazione tra i diversi tipi di logiche.
   - _Operazioni_:
-      \ \# ```java get(auth: String): String ```- Restituisce una stringa che rappresenta le informazioni di sessione. L'implementazione concreta di questo metodo è lasciata alle classi che implementano questa interfaccia, in modo che possano definire la logica specifica per ottenere le informazioni di sessione in base alle credenziali fornite.
+      \ \+ ```java get(auth: String): String ```- Restituisce una stringa che rappresenta un oggetto JSON contenente le informazioni di sessione. L'implementazione concreta di questo metodo è lasciata alle classi che implementano questa interfaccia, in modo che possano definire la logica specifica per ottenere le informazioni di sessione in base alle credenziali fornite.
 - *MethodPort*: porta in ingresso che funge da punto di accesso per l'interazione tra il dominio dell'applicazione (core) e il mondo esterno. Essa definisce un insieme di operazioni che rappresentano le azioni che l'applicazione può eseguire in risposta alle richieste esterne provenienti dai client riguardanti i vari metodi del protocollo JMAP. La sua implementazione è responsabilità di classi concrete che forniranno la logica specifica per gestire tali operazioni in modo efficace all'interno dell'applicazione, mantenendo così la separazione tra i diversi tipi di logiche.
   - _Operazioni_:
-      \ \# ```java dispatch(in: String): String ```- Prende una stringa come parametro, la quale rappresenta una richiesta in formato JSON, la elabora e restituisce una stringa che rappresenta la risposta alla richiesta. L'implementazione concreta di questo metodo è lasciata alle classi che implementano questa interfaccia, in modo che possano definire la logica specifica per l'elaborazione delle richieste.
+      \ \+ ```java dispatch(in: String): String ```- Prende una stringa come parametro, la quale rappresenta una richiesta in formato JSON, la elabora e restituisce una stringa che rappresenta un oggetto JSON contenente la risposta alla richiesta. L'implementazione concreta di questo metodo è lasciata alle classi che implementano questa interfaccia, in modo che possano definire la logica specifica per l'elaborazione delle richieste.
 - *UploadPort*: porta in ingresso che funge da punto di accesso per l'interazione tra il dominio dell'applicazione (core) e il mondo esterno. Essa definisce un insieme di operazioni che rappresentano le azioni che l'applicazione può eseguire in risposta alle richieste esterne provenienti dai client riguardanti l'upload di allegati. La sua implementazione è responsabilità di classi concrete che forniranno la logica specifica per gestire tali operazioni in modo efficace all'interno dell'applicazione, mantenendo così la separazione tra i diversi tipi di logiche.
   - _Operazioni_:
-      \ \# ```java push(data: byte[]): String ```- Prende un array di byte come parametro, ovvero i dati che devono essere caricati relativi agli allegati. La richiesta di upload verrà poi elaborata e verrà restituita una stringa rappresentante un identificatore univoco assegnato al dato caricato. L'implementazione concreta di questo metodo è lasciata alle classi che implementano questa interfaccia, in modo che possano definire la logica specifica per il caricamento dei dati degli allegati.
+      \ \+ ```java push(data: byte[], type: String, size: Long): String```- Prende un array di byte come parametro, ovvero i dati che devono essere caricati relativi agli allegati. La richiesta di upload verrà poi elaborata e verrà restituita una stringa rappresentante un identificatore univoco assegnato al dato caricato. L'implementazione concreta di questo metodo è lasciata alle classi che implementano questa interfaccia, in modo che possano definire la logica specifica per il caricamento dei dati degli allegati.
 - *DownloadPort*: porta in ingresso che funge da punto di accesso per l'interazione tra il dominio dell'applicazione (core) e il mondo esterno. Essa definisce un insieme di operazioni che rappresentano le azioni che l'applicazione può eseguire in risposta alle richieste esterne provenienti dai client riguardanti il download di allegati. La sua implementazione è responsabilità di classi concrete che forniranno la logica specifica per gestire tali operazioni in modo efficace all'interno dell'applicazione, mantenendo così la separazione tra i diversi tipi di logiche.
   - _Operazioni_:
-      \ \# ```java pull(id: String): byte[] ```- Prende una stringa come parametro corrispondente ad un identificatore univoco assegnato ai dati di un allegato precedentemente caricato e che ora si vuole scaricare. La richiesta di download verrà poi elaborata cercando i dati dell'allegato associati a quell'identificatore, i quali verranno restituiti come un array di byte. L'implementazione concreta di questo metodo è lasciata alle classi che implementano questa interfaccia, in modo che possano definire la logica specifica per il recupero dei dati in base all'identificatore fornito.
+      \ \+ ```java pull(id: String): byte[] ```- Prende una stringa come parametro corrispondente ad un identificatore univoco assegnato ai dati di un allegato precedentemente caricato e che ora si vuole scaricare. La richiesta di download verrà poi elaborata cercando i dati dell'allegato associati a quell'identificatore, i quali verranno restituiti come un array di byte. L'implementazione concreta di questo metodo è lasciata alle classi che implementano questa interfaccia, in modo che possano definire la logica specifica per il recupero dei dati in base all'identificatore fornito.
 - *AuthenticationController*: implementazione dell'interfaccia AuthenticationPort. Essenzialmente, funge da intermediario tra le richieste provenienti dall'esterno dell'applicazione rigurdanti l'autenticazione e la logica di business sottostante, gestendo quindi la parte di application logic relativa. Al suo interno si esegue dunque una prima validazione delle richieste di questo tipo, in modo da evitare di arrivare alla business logic nel caso in cui il formato della richiesta non fosse conforme allo standard.
-  - _Proprietà_:
-    \ \- authenticationLogic: AuthenticationLogic - Un'istanza di AuthenticationLogic utilizzata per gestire la logica di business riguardante l'autenticazione degli utenti.
+  - _Attributi_:
+    \ \- ```java authenticationLogic: AuthenticationLogic ```- Un'istanza di AuthenticationLogic utilizzata per gestire la logica di business riguardante l'autenticazione degli utenti.
   - _Operazioni_:
-    \ \+ ```java authenticate(auth: String): boolean ```- Implementa il metodo authenticate dell'interfaccia AuthenticationPort. Esegue una prima validazione della richiesta prima di passarla alla classe di business relativa.
+    \ \+ ```java authenticate(auth: String): boolean ```- Implementa il metodo authenticate dell'interfaccia AuthenticationPort. Esegue una prima validazione della richiesta prima di passarla alla classe di business relativa, la quale si occuperà di verificare effettivamente l'autenticazione dell'utente.
 - *SessionController*: implementazione dell'interfaccia SessionPort. Essenzialmente, funge da intermediario tra le richieste provenienti dall'esterno dell'applicazione rigurdanti la sessione e la logica di business sottostante, gestendo quindi la parte di application logic relativa. Al suo interno si esegue dunque una prima validazione delle richieste di questo tipo, in modo da evitare di arrivare alla business logic nel caso in cui il formato della richiesta non fosse conforme allo standard.
-  - _Proprietà_:
-    \ \- gson: Gson - Un'istanza di Gson utilizzata per serializzare gli oggetti in formato JSON;
-    \ \- sessionLogic: SessionLogic - Un'istanza di SessionLogic utilizzata per gestire la logica di business riguardante la sessione.
+  - _Attributi_:
+    \ \- ```java gson: Gson ```- Un'istanza di Gson utilizzata per serializzare gli oggetti in formato JSON;
+    \ \- ```java sessionLogic: SessionLogic ```- Un'istanza di SessionLogic utilizzata per gestire la logica di business riguardante la sessione.
   - _Operazioni_:
     \ \+ ```java get(auth: String): String ```- Implementa il metodo get dell'interfaccia SessionPort. Prende in input una stringa che contiene le credenziali di autenticazione, estrae il token di autenticazione e decodifica quest'ultimo utilizzando Base64 per ottenere il nome utente e la password, validando la parte di application logic. Successivamente passa il nome utente estratto all'istanza di SessionLogic posseduta, la quale si occuperà di gestire la business logic, e serializza l'oggetto restituito da quest'ultima in formato JSON utilizzando l'istanza di Gson, restituendo infine il JSON risultante dalle operazioni eseguite.
 - *MethodController*: implementazione dell'interfaccia MethodPort. Essenzialmente, funge da intermediario tra le richieste provenienti dall'esterno dell'applicazione rigurdanti i vari metodi del protocollo JMAP e la logica di business sottostante, gestendo quindi la parte di application logic relativa. Al suo interno si esegue dunque una prima validazione delle richieste di questo tipo, in modo da evitare di arrivare alla business logic nel caso in cui il formato della richiesta non fosse conforme allo standard. Riceve le richieste in arrivo e in base al tipo di richiesta e ai dati associati, determina come instradarla all'interno dell'applicazione.
-  - _Proprietà_:
-    \ \- gson: Gson - Un'istanza di Gson utilizzata per serializzare gli oggetti in formato JSON;
-    \ \- echo: EchoLogic - Un'istanza di EchoLogic utilizzata per gestire la logica di business riguardante le richieste di eco;
-    \ \- email: EmailLogic - Un'istanza di EmailLogic utilizzata per gestire la logica di business riguardante le operazioni relative alle email;
-    \ \- submission: EmailSubmissionLogic - Un'istanza di EmailSubmissionLogic utilizzata per gestire la logica di business riguardante le operazioni relative all'invio di email;
-    \ \- identity: IdentityLogic - Un'istanza di IdentityLogic utilizzata per gestire la logica di business riguardante le operazioni relative all'identità;
-    \ \- mailbox: MailboxLogic - Un'istanza di MailboxLogic utilizzata per gestire la logica di business riguardante le operazioni relative alle caselle di posta;
-    \ \- thread: ThreadLogic - Un'istanza di ThreadLogic utilizzata per gestire la logica di business riguardante le operazioni relative ai thread di email.
+  - _Attributi_:
+    \ \- ```java gson: Gson ```- Un'istanza di Gson utilizzata per serializzare gli oggetti in formato JSON;
+    \ \- ```java echo: EchoLogic ```- Un'istanza di EchoLogic utilizzata per gestire la logica di business riguardante le richieste di eco;
+    \ \- ```java email: EmailLogic ```- Un'istanza di EmailLogic utilizzata per gestire la logica di business riguardante le operazioni relative alle email;
+    \ \- ```java submission: EmailSubmissionLogic ```- Un'istanza di EmailSubmissionLogic utilizzata per gestire la logica di business riguardante le operazioni relative all'invio di email;
+    \ \- ```java identity: IdentityLogic ```- Un'istanza di IdentityLogic utilizzata per gestire la logica di business riguardante le operazioni relative all'identità;
+    \ \- ```java mailbox: MailboxLogic ```- Un'istanza di MailboxLogic utilizzata per gestire la logica di business riguardante le operazioni relative alle caselle di posta;
+    \ \- ```java thread: ThreadLogic ```- Un'istanza di ThreadLogic utilizzata per gestire la logica di business riguardante le operazioni relative ai thread di email.
   - _Operazioni_:
-    \ \# ```java dispatch(in: String): String ```- Implementa il metodo dispatch dell'interfaccia MethodPort. Prende in input una stringa contenente una richiesta JMAP, estrae le chiamate di metodo dalla richiesta, esegue una prima validazione di quest'ultime e determina come instradarle all'interno dell'applicazione utilizzando il metodo privato pick. Infine aggrega le risposte ottenute dalle classi di business in una risposta JMAP complessiva e restituisce la rappresentazione JSON di quest'ultima;
-    \ \- ```java pick(methodCall: MethodCall, prevResponses: ListMultimap\<String, Response.Invocation>): MethodResponse[] ```- Prende in input una MethodCall e una mappa delle risposte precedenti in modo da determinare quale metodo della logica di business corrispondente chiamare per poter elaborare la richiesta ed infine restituisce la risposta corrispondente. Se il tipo di MethodCall è sconosciuto, restituisce una risposta di errore.
+    \ \+ ```java dispatch(in: String): String ```- Implementa il metodo dispatch dell'interfaccia MethodPort. Prende in input una stringa contenente una richiesta JMAP, estrae le chiamate di metodo dalla richiesta, esegue una prima validazione di quest'ultime e determina come instradarle all'interno dell'applicazione utilizzando il metodo privato pick. Infine aggrega le risposte ottenute dalle classi di business in una risposta JMAP complessiva e restituisce la rappresentazione JSON di quest'ultima sotto forma di stringa;
+    \ \# ```java pick(methodCall: MethodCall, prevResponses: ListMultimap<String, Response.Invocation>): MethodResponse[] ```- Prende in input una MethodCall e una mappa delle risposte precedenti in modo da determinare quale metodo della logica di business corrispondente chiamare per poter elaborare la richiesta ed infine restituisce la risposta corrispondente. Se il tipo di MethodCall è sconosciuto, restituisce una risposta di errore.
 - *AttachmentController*: implementazione delle interfacce UploadPort e DownloadPort. Essenzialmente, funge da intermediario tra le richieste provenienti dall'esterno dell'applicazione rigurdanti l'upload o il download degli allegati e la logica di business sottostante, gestendo quindi la parte di application logic relativa. Al suo interno si esegue dunque una prima validazione delle richieste di questo tipo, in modo da evitare di arrivare alla business logic nel caso in cui il formato della richiesta non fosse conforme allo standard.
-  - _Proprietà_:
-    \ \- gson: Gson - Un'istanza di Gson utilizzata per serializzare gli oggetti in formato JSON;
-    \ \- attachmentLogic: AttachmentLogic - Un'istanza di AttachmentLogic utilizzata per gestire la logica di business riguardante la gestione degli allegati nell'applicazione.
+  - _Attributi_:
+    \ \- ```java gson: Gson ```- Un'istanza di Gson utilizzata per serializzare gli oggetti in formato JSON;
+    \ \- ```java attachmentLogic: AttachmentLogic ```- Un'istanza di AttachmentLogic utilizzata per gestire la logica di business riguardante la gestione degli allegati nell'applicazione.
   - _Operazioni_:
     \ \+ ```java pull(id: String): byte[] ```- Implementa il metodo pull dell'interfaccia DownloadPort. Prende in input un identificatore e utilizza l'istanza di AttachmentLogic per scaricare l'allegato corrispondente. Restituisce quindi i dati dell'allegato sotto forma di array di byte;
-    \ \+ ```java push(data: byte[]): String ```- Implementa il metodo push dell'interfaccia UploadPort. Prende in input un array di byte rappresentante i dati dell'allegato da caricare e utilizza l'istanza di AttachmentLogic per eseguire il caricamento dell'allegato e ottenere una risposta, corrispondente ad un identificatore univoco assegnato al dato. Questa risposta viene quindi serializzata in formato JSON utilizzando l'istanza di Gson e restituita come una stringa JSON.
+    \ \+ ```java push(data: byte[], type: String, size: Long): String ```- Implementa il metodo push dell'interfaccia UploadPort. Prende in input un array di byte rappresentante i dati dell'allegato da caricare e utilizza l'istanza di AttachmentLogic per eseguire il caricamento dell'allegato e ottenere una risposta, corrispondente ad un identificatore univoco assegnato al dato. Questa risposta viene quindi serializzata in formato JSON utilizzando l'istanza di Gson e restituita come una stringa JSON.
 
 #pagebreak()
 
 === Gestione delle richieste
-#figure(image("//imgs/Specifica_Tecnica/UML2.png", width: 30%), caption: [Modellazione delle componenti che gestiscono le rischieste all'interno dell'applicazione])
+#figure(image("//imgs/Specifica_Tecnica/uml3.svg", width: 97.2%), caption: [Modellazione delle componenti che gestiscono le rischieste all'interno dell'applicazione])
 
 Le componenti riportate nel frammento di diagramma soprastante sono quelle necessarie per la gestione delle richieste, implementando dunque la business logic del prodotto. Vi si trovano le seguenti classi:
 - *AuthenticationLogic*: componente responsabile della gestione dell'autenticazione all'interno del sistema. Si occupa quindi di tutte le operazioni relative alla business logic di questo tipo.
-  - _Proprietà_:
-    \ \- account: AccountPort - Un'istanza di AccountPort utilizzata per operare con gli account degli utenti all'interno del database.
+  - _Attributi_:
+    \ \- ```java account: AccountPort ```- Un'istanza di AccountPort utilizzata per operare con gli account degli utenti all'interno del database.
   - _Operazioni_:
-    \ \# ```java authenticate(username: String, password: String): boolean ```- Riceve in input un nome utente e una password e verifica se le credenziali fornite corrispondono a quelle memorizzate nel sistema utilizzando l'istanza di AccountPort.
+    \ \+ ```java authenticate(username: String, password: String): Boolean ```- Riceve in input un nome utente e una password e verifica se le credenziali fornite corrispondono a quelle memorizzate nel sistema utilizzando l'istanza di AccountPort.
 - *SessionLogic*: componente responsabile della gestione delle sessioni all'interno del sistema. Si occupa quindi di tutte le operazioni relative alla business logic di questo tipo.
-  - _Proprietà_:
-    \ \- account: AccountPort - Un'istanza di AccountPort utilizzata per operare con gli account degli utenti all'interno del database;
-    \ \- statePort: StatePort - Un'istanza di StatePort utilizzata per svolgere operazioni riguardanti lo stato dei client all'interno del database.
+  - _Attributi_:
+    \ \- ```java account: AccountPort ```- Un'istanza di AccountPort utilizzata per operare con gli account degli utenti all'interno del database;
+    \ \- ```java statePort: StatePort ```- Un'istanza di StatePort utilizzata per svolgere operazioni riguardanti lo stato dei client all'interno del database.
   - _Operazioni_:
-    \ \# ```java get(username: String): SessionResource ```- Riceve in input un nome utente e crea una risorsa JMAP Session associata a quell'utente. La risorsa di sessione contiene informazioni quali URL dell'API, URL di upload e download, stato dell'account, elenco delle capacità supportate e altre informazioni relative alla sessione. Restituisce infine la risorsa di sessione creata.
+    \ \+ ```java get(username: String): SessionResource ```- Riceve in input un nome utente e crea una risorsa JMAP Session associata a quell'utente. La risorsa di sessione contiene informazioni quali URL dell'API, URL di upload e download, stato dell'account, elenco delle capacità supportate e altre informazioni relative alla sessione. Restituisce infine la risorsa di sessione creata.
 - *IdentityLogic*: componente responsabile della gestione delle identità all'interno del sistema. Si occupa quindi di tutte le operazioni relative alla business logic di questo tipo.
-  - _Proprietà_:
-    \ \- identityPort: IdentityPort - Un'istanza di IdentityPort utilizzata per l'accesso alle informazioni sulle identità, nonché per svolgere operazioni su quest'ultime all'interno del database;
+  - _Attributi_:
+    \ \- ```java identityPort: IdentityPort ```- Un'istanza di IdentityPort utilizzata per l'accesso alle informazioni sulle identità, nonché per svolgere operazioni su quest'ultime all'interno del database;
   - _Operazioni_:
-    \ \# ```java get(methodCall: GetIdentityMethodCall, previousResponses: ListMultimap\<String, Response.Invocation>): MethodResponse[] ```- Riceve in input una chiamata di metodo GetIdentityMethodCall e una mappa di risposte precedenti. Restituisce un array di MethodResponse che contiene le informazioni richieste sull'identità dell'utente. Quest'ultime includono l'id dell'account e altre informazioni aggiuntive che possono essere recuperate attraverso l'istanza di IdentityPort.
+    \ \+ ```java get(methodCall: GetIdentityMethodCall): MethodResponse[] ```- Riceve in input una chiamata di metodo GetIdentityMethodCall e una mappa di risposte precedenti. Restituisce un array di MethodResponse che contiene le informazioni richieste sull'identità dell'utente. Quest'ultime includono l'id dell'account e altre informazioni aggiuntive che possono essere recuperate attraverso l'istanza di IdentityPort.
 - *EmailLogic*: componente responsabile della gestione delle email all'interno del sistema. Si occupa quindi di tutte le operazioni relative alla business logic di questo tipo, tra cui anche l’implementazione di un sistema di sincronizzazione che permetta ad un client di mantenersi aggiornato con gli ultimi aggiornamenti della casella di posta visualizzata per quanto riguarda le email.
-  - _Proprietà_:
-    \ \- mailboxPort: MailboxPort - Un'istanza di MailboxPort utilizzata per svolgere operazioni sulle caselle di posta all'interno del database;
-    \ \- emailPort: EmailPort - Un'istanza di EmailPort utilizzata per svolgere operazioni sulle email all'interno del database;
-    \ \- statePort: StatePort - Un'istanza di StatePort utilizzata per svolgere operazioni riguardanti lo stato dei client all'interno del database;
-    - mailboxUpdatePort: MailboxUpdatePort - Un'istanza di MailboxUpdatePort utilizzata per svolgere operazioni sui cambiamenti avvenuti alle caselle di posta all'interno del database.
+  - _Attributi_:
+    \ \- ```java mailboxPort: MailboxPort ```- Un'istanza di MailboxPort utilizzata per svolgere operazioni sulle caselle di posta all'interno del database;
+    \ \- ```java emailPort: EmailPort ```- Un'istanza di EmailPort utilizzata per svolgere operazioni sulle email all'interno del database;
+    \ \- ```java statePort: StatePort ```- Un'istanza di StatePort utilizzata per svolgere operazioni riguardanti lo stato dei client all'interno del database;
+    \ \- ```java updatePort: UpdatePort ```- Un'istanza di UpdatePort utilizzata per svolgere operazioni sui cambiamenti avvenuti alle email all'interno del database.
   - _Operazioni_:
-    \ \# ```java get(methodCall: GetEmailMethodCall, previousResponses: ListMultimap<String, Response.Invocation>): MethodResponse[] ```-  Riceve una richiesta GetEmailMethodCall e restituisce una lista di risposte di tipo MethodResponse. Recupera un insieme di email in base a una specifica richiesta GetEmailMethodCall, la quale contiene gli identificativi delle email da reperire. Riceve informazioni sulle chiamate precedenti per ragioni di efficienza, in modo che la risposta ad una richiesta precedente possa essere utilizzata in input per la richiesta corrente. Se vengono specificate proprietà specifiche da recuperare, vengono recuperate solo quelle proprietà per le email restituite;
-    \ \# ```java query(methodCall: QueryEmailMethodCall, previousResponses: ListMultimap<String, Response.Invocation>): MethodResponse[] ```- Riceve una richiesta QueryEmailMethodCall e restituisce una lista di risposte di tipo MethodResponse. Esegue una query sulle email corrispondenti ai criteri specificati nella richiesta. La query può essere filtrata in base a diversi criteri come la casella di posta, l'oggetto, i destinatari, e così via. Riceve informazioni sulle chiamate precedenti per ragioni di efficienza, in modo che la risposta ad una richiesta precedente possa essere utilizzata in input per la richiesta corrente;
-    \ \# ```java set(methodCall: SetEmailMethodCall, previousResponses: ListMultimap<String, Response.Invocation>): MethodResponse[] ```-  Riceve una richiesta SetEmailMethodCall e restituisce una lista di risposte di tipo MethodResponse. La richiesta può contenere un elenco di email da aggiornare, creare o eliminare. Utilizza l'EmailPort per eseguire le modifiche richieste, ad esempio aggiornando le proprietà delle email esistenti o creandone di nuove. Riceve un elenco di risposte di invocazione precedenti per ragioni di efficienza, in modo che la risposta ad una richiesta precedente possa essere utilizzata in input per la richiesta corrente, e restituisce una lista di risposte che indicano lo stato delle operazioni eseguite;
-    \ \# ```java changes(methodCall: ChangesEmailMethodCall, previousResponses: ListMultimap<String, Response.Invocation>): MethodResponse[] ```- Riceve una richiesta ChangesEmailMethodCall e restituisce una lista di risposte di tipo MethodResponse. Consente di ottenere i cambiamenti avvenuti nelle email da un certo punto temporale in poi, in base all'ultimo stato noto contenuto nella richiesta fornita;
-    \ \- ```java patchEmail(String, Map<String, Object>, ListMultimap<String, Response.Invocation>): Email ```- Riceve le modifiche da applicare sotto forma di una mappa di chiavi e valori, e restituisce l'email modificata;
-    \ \- ```java processCreateEmail(Map<String, Email>, SetEmailMethodResponse.SetEmailMethodResponseBuilder, ListMultimap<String, Response.Invocation>, String): void ```- Gestisce la creazione di nuove email. Prende in input una mappa di email da creare, le elabora e le inserisce nel database attraverso l'EmailPort associando le email all'account specificato. Se è presente un identificativo di creazione, viene utilizzato quest'ultimo per associare la risposta di creazione all'identificativo specificato;
-    \ \- ```java getAccumulatedUpdateSince(String, String): Update ```- Restituisce gli aggiornamenti accumulati per un account riguardanti le email a partire dalla versione specificata;
-    \ \- ```java injectId(Attachment): EmailBodyPart ```- Inietta un nuovo identificativo in un allegato email. Riceve un oggetto Attachment e restituisce un oggetto EmailBodyPart con un identificativo generato casualmente, utilizzato per identificare l'allegato;
-    \ \- ```java applyFilter(Filter<Email>, Stream<Email>): Stream<Email> ```- Applica un filtro agli oggetti Email all'interno dello stream fornito;
-    \ \- ```java distinctByKey(Function<? super T, ?>): Predicate<T> ```- Restituisce un predicato che filtra gli oggetti in base a una chiave estratta da ognuno di essi, garantendo che siano distinti in base alla chiave.
+    \ \+ ```java get(methodCall: GetEmailMethodCall, previousResponses: ListMultimap<String, Response.Invocation>): MethodResponse[] ```-  Riceve una richiesta GetEmailMethodCall e restituisce una lista di risposte di tipo MethodResponse. Recupera un insieme di email in base a una specifica richiesta GetEmailMethodCall, la quale contiene gli identificativi delle email da reperire. Riceve informazioni sulle chiamate precedenti per ragioni di efficienza, in modo che la risposta ad una richiesta precedente possa essere utilizzata in input per la richiesta corrente. Se vengono specificate proprietà specifiche da recuperare, vengono recuperate solo quelle proprietà per le email restituite;
+    \ \+ ```java query(methodCall: QueryEmailMethodCall, previousResponses: ListMultimap<String, Response.Invocation>): MethodResponse[] ```- Riceve una richiesta QueryEmailMethodCall e restituisce una lista di risposte di tipo MethodResponse. Esegue una query sulle email corrispondenti ai criteri specificati nella richiesta. La query può essere filtrata in base a diversi criteri come la casella di posta, l'oggetto, i destinatari, e così via. Riceve informazioni sulle chiamate precedenti per ragioni di efficienza, in modo che la risposta ad una richiesta precedente possa essere utilizzata in input per la richiesta corrente;
+    \ \+ ```java set(methodCall: SetEmailMethodCall, previousResponses: ListMultimap<String, Response.Invocation>): MethodResponse[] ```-  Riceve una richiesta SetEmailMethodCall e restituisce una lista di risposte di tipo MethodResponse. La richiesta può contenere un elenco di email da aggiornare, creare o eliminare. Utilizza l'EmailPort per eseguire le modifiche richieste, ad esempio aggiornando le proprietà delle email esistenti o creandone di nuove. Riceve un elenco di risposte di invocazione precedenti per ragioni di efficienza, in modo che la risposta ad una richiesta precedente possa essere utilizzata in input per la richiesta corrente, e restituisce una lista di risposte che indicano lo stato delle operazioni eseguite;
+    \ \+ ```java changes(methodCall: ChangesEmailMethodCall, previousResponses: ListMultimap<String, Response.Invocation>): MethodResponse[] ```- Riceve una richiesta ChangesEmailMethodCall e restituisce una lista di risposte di tipo MethodResponse. Consente di ottenere i cambiamenti avvenuti nelle email da un certo punto temporale in poi, in base all'ultimo stato noto contenuto nella richiesta fornita;
+    \ \# ```java patchEmail(id: String, patches: Map<String, Object>, previousResponses: ListMultimap<String, Response.Invocation>): Email ```- Riceve le modifiche da applicare sotto forma di una mappa di chiavi e valori e restituisce l'email modificata;
+    \ \# ```java processCreateEmail(create: Map<String, Email>, responseBuilder: SetEmailMethodResponse.SetEmailMethodResponseBuilder, previousResponses: ListMultimap<String, Response.Invocation>, accountid: String): void ```- Gestisce la creazione di nuove email. Prende in input una mappa di email da creare, le elabora e le inserisce nel database attraverso l'EmailPort associando le email all'account specificato. Se è presente un identificativo di creazione, viene utilizzato quest'ultimo per associare la risposta di creazione all'identificativo specificato;
+    \ \# ```java getAccumulatedUpdateSince(oldVersion: String, accountid: String): Update ```- Restituisce gli aggiornamenti accumulati per un account riguardanti le email a partire dalla versione specificata;
+    \ \# ```java injectId(attachment: Attachment): EmailBodyPart ```- Inietta un nuovo identificativo in un allegato email. Riceve un oggetto Attachment e restituisce un oggetto EmailBodyPart con un identificativo generato casualmente, utilizzato per identificare l'allegato;
+    \ \# ```java applyFilter(filter: Filter<Email>, emailStream: Stream<Email>): Stream<Email> ```- Applica un filtro agli oggetti Email all'interno dello stream fornito;
+    \ \# ```java distinctByKey(keyExtractor: Function<? super T, ?>): Predicate<T> ```- Restituisce un predicato che filtra gli oggetti in base a una chiave estratta da ognuno di essi, garantendo che siano distinti in base alla chiave.
 - *MailboxLogic*: componente responsabile della gestione delle caselle di posta all'interno del sistema. Si occupa quindi di tutte le operazioni relative alla business logic di questo tipo, tra cui anche l’implementazione di un sistema di sincronizzazione che permetta ad un client di mantenersi aggiornato con gli ultimi aggiornamenti della casella di posta visualizzata per quanto riguarda le cartelle.
-  - _Proprietà_:
-    \ \- emailPort: EmailPort - Un'istanza di EmailPort utilizzata per svolgere operazioni sulle email all'interno del database;
-    \ \- mailboxPort: MailboxPort - Un'istanza di MailboxPort utilizzata per svolgere operazioni sulle caselle di posta all'interno del database;
-    \ \- statePort: StatePort - Un'istanza di StatePort utilizzata per svolgere operazioni riguardanti lo stato dei client all'interno del database;
-    \ \- mailboxUpdatePort: MailboxUpdatePort - Un'istanza di MailboxUpdatePort utilizzata per svolgere operazioni sui cambiamenti avvenuti alle cartelle all'interno del database.
+  - _Attributi_:
+    \ \- ```java emailPort: EmailPort ```- Un'istanza di EmailPort utilizzata per svolgere operazioni sulle email all'interno del database;
+    \ \- ```java mailboxPort: MailboxPort ```- Un'istanza di MailboxPort utilizzata per svolgere operazioni sulle caselle di posta all'interno del database;
+    \ \- ```java statePort: StatePort ```- Un'istanza di StatePort utilizzata per svolgere operazioni riguardanti lo stato dei client all'interno del database;
+    \ \- ```java updatePort: UpdatePort ```- Un'istanza di UpdatePort utilizzata per svolgere operazioni sui cambiamenti avvenuti alle cartelle all'interno del database.
   - _Operazioni_:
-    \ \# ```java get(GetMailboxMethodCall, ListMultimap<String, Response.Invocation>): MethodResponse[] ```- Ottiene le informazioni delle caselle di posta specificate nella richiesta. Riceve una chiamata GetMailboxMethodCall, che specifica le caselle di posta di interesse, e restituisce una serie di risposte che includono le informazioni richieste e lo stato aggiornato;
-    \ \# ```java set(SetMailboxMethodCall, ListMultimap<String, Response.Invocation>): MethodResponse[] ```-  Gestisce le richieste di impostazione delle caselle di posta, inclusa la creazione e la modifica. Riceve una chiamata SetMailboxMethodCall, che contiene le informazioni sulla creazione o la modifica delle cartelle, e restituisce una serie di risposte che includono lo stato aggiornato delle caselle di posta in risposta alle richieste;
-    \ \# ```java changes(ChangesMailboxMethodCall, ListMultimap<String, Response.Invocation>): MethodResponse[] ```- Riceve una richiesta ChangesMailboxMethodCall e restituisce una lista di risposte di tipo MethodResponse. Consente di ottenere i cambiamenti avvenuti nelle cartelle da un certo punto temporale in poi, in base all'ultimo stato noto contenuto nella richiesta fornita;
-    \ \- ```java getAccumulatedUpdateSince(String, String): Update ```- Restituisce gli aggiornamenti accumulati per un account riguardanti le cartelle a partire dalla versione specificata;
-    \ \- ```java toMailbox(MailboxInfo, String): Mailbox ```- Converte un oggetto MailboxInfo nel formato richiesto per la risposta del metodo get, includendo le informazioni aggiuntive sul numero di email e thread nelle caselle di posta;
-    \ \- ```java processCreateMailbox(Map<String, Mailbox>, SetMailboxMethodResponse.SetMailboxMethodResponseBuilder, String): void ```- Gestisce la creazione di nuove caselle di posta, controllando se esistono caselle di posta con lo stesso nome e aggiornando di conseguenza la risposta;
-    \ \- ```java processUpdateMailbox(Map<String, Map<String, Object>>, SetMailboxMethodResponse.SetMailboxMethodResponseBuilder, ListMultimap<String, Response.Invocation>, String): void ```- Gestisce la modifica delle caselle di posta esistenti e aggiorna di conseguenza la risposta, controllando le modifiche e applicandole ai valori esistenti delle caselle di posta;
-    \ \- ```java patchMailbox(String, Map<String, Object>, ListMultimap<String, Response.Invocation>, String): MailboxInfo ```- Applica le modifiche specificate a una casella di posta esistente, come la modifica del ruolo della casella di posta, e restituisce le informazioni aggiornate della casella di posta.
+    \ \+ ```java get(methodCall: GetMailboxMethodCall, previousResponses: ListMultimap<String, Response.Invocation>): MethodResponse[] ```- Ottiene le informazioni delle caselle di posta specificate nella richiesta. Riceve una chiamata GetMailboxMethodCall, che specifica le caselle di posta di interesse da reperire, e restituisce una serie di risposte che includono le informazioni richieste e lo stato aggiornato;
+    \ \+ ```java set(methodCall: SetMailboxMethodCall, previousResponses: ListMultimap<String, Response.Invocation>): MethodResponse[] ```-  Gestisce le richieste di impostazione delle caselle di posta. Riceve una chiamata SetMailboxMethodCall, che contiene le informazioni sulla creazione, eliminazione o modifica delle cartelle, e restituisce una serie di risposte che includono lo stato aggiornato delle caselle di posta in risposta alle richieste;
+    \ \+ ```java changes(methodCall: ChangesMailboxMethodCall, previousResponses: ListMultimap<String, Response.Invocation>): MethodResponse[] ```- Riceve una richiesta ChangesMailboxMethodCall e restituisce una lista di risposte di tipo MethodResponse. Consente di ottenere i cambiamenti avvenuti nelle cartelle da un certo punto temporale in poi, in base all'ultimo stato noto contenuto nella richiesta fornita;
+    \ \# ```java getAccumulatedUpdateSince(oldVersion: String, accountid: String): Update ```- Restituisce gli aggiornamenti accumulati per un account riguardanti le cartelle a partire dalla versione specificata;
+    \ \# ```java toMailbox(mailboxInfo: MailboxInfo, accountid: String): Mailbox ```- Converte un oggetto MailboxInfo nel formato richiesto per la risposta del metodo get, includendo le informazioni aggiuntive sul numero di email e thread nelle caselle di posta;
+    \ \# ```java processCreateMailbox(create: Map<String, Mailbox>, responseBuilder: SetMailboxMethodResponse.SetMailboxMethodResponseBuilder, accountid: String): void ```- Gestisce la creazione di nuove caselle di posta, controllando se esistono caselle di posta con lo stesso nome e aggiornando di conseguenza la risposta;
+    \ \# ```java processUpdateMailbox(update: Map<String, Map<String, Object>>, responseBuilder: SetMailboxMethodResponse.SetMailboxMethodResponseBuilder, previousResponses: ListMultimap<String, Response.Invocation>, accountid: String): void ```- Gestisce la modifica delle caselle di posta esistenti e aggiorna di conseguenza la risposta, controllando le modifiche e applicandole ai valori esistenti delle caselle di posta;
+    \ \# ```java patchMailbox(id: String, patches: Map<String, Object>, previousResponses: ListMultimap<String, Response.Invocation>, accountid: String): MailboxInfo ```- Applica le modifiche specificate a una casella di posta esistente, come la modifica del ruolo della casella di posta, e restituisce le informazioni aggiornate della casella di posta in questione.
 - *EmailSubmissionLogic*: componente responsabile della gestione dell'invio di un'email per la consegna a uno o più destinatari all'interno del sistema. Si occupa quindi di tutte le operazioni relative alla business logic di questo tipo.
-  - _Proprietà_:
-    //TODO
+  - _Attributi_: 
+    \ \- ```java emailSubmissionPort: EmailSubmissionPort ```- Un'istanza di EmailSubmissionPort utilizzata per svolgere operazioni sull'invio di un'email per la consegna a uno o più destinatari all'interno del database;
+    \ \- ```java emailPort: EmailPort ```- Un'istanza di EmailPort utilizzata per svolgere operazioni sulle email all'interno del database;
+    \ \- ```java statePort: StatePort ```- Un'istanza di StatePort utilizzata per svolgere operazioni riguardanti lo stato dei client all'interno del database;
+    \ \- ```java updatePort: UpdatePort ```- Un'istanza di UpdatePort utilizzata per svolgere operazioni sui cambiamenti avvenuti all'invio di un'email per la consegna a uno o più destinatari all'interno del database;
+    \ \- ```java gson: Gson ```- Un'istanza di Gson utilizzata per serializzare gli oggetti in formato JSON.
   - _Operazioni_:
-    //TODO
+    \ \+ ```java set(methodCall: SetEmailSubmissionMethodCall, previousResponses: ListMultimap<String, Response.Invocation>): MethodResponse[] ```-  Riceve una richiesta SetEmailSubmissionMethodCall e restituisce una lista di risposte di tipo MethodResponse. Gestisce le richieste di inserimento delle sottomissioni di email, creandole ed aggiornando le email corrispondenti, per poi inserire quindi le modifiche nel database attraverso le apposite porte, registrando gli aggiornamenti di stato. Riceve un elenco di risposte di invocazione precedenti per ragioni di efficienza, in modo che la risposta ad una richiesta precedente possa essere utilizzata in input per la richiesta corrente, e restituisce una lista di risposte che indicano lo stato delle operazioni eseguite.
 - *ThreadLogic*: componente responsabile della gestione dei thread all'interno del sistema. Si occupa quindi di tutte le operazioni relative alla business logic di questo tipo.
-  - _Proprietà_:
-    \ \- threadPort: ThreadPort - Un'istanza di ThreadPort utilizzata per svolgere operazioni sui thread all'interno del database;
-    \ \- threadUpdatePort: ThreadUpdatePort - Un'istanza di ThreadUpdatePort utilizzata per l'accesso alle informazioni sugli aggiornamenti dei thread e per svolgere operazioni su di essi all'interno del database;
-    \ \- statePort: StatePort - Un'istanza di StatePort utilizzata per svolgere operazioni riguardanti lo stato dei client all'interno del database;
-    \ \- emailPort: EmailPort - Un'istanza di EmailPort utilizzata per svolgere operazioni sulle email all'interno del database.
+  - _Attributi_:
+    \ \- ```java threadPort: ThreadPort ```- Un'istanza di ThreadPort utilizzata per svolgere operazioni sui thread all'interno del database;
+    \ \- ```java updatePort: UpdatePort ```- Un'istanza di UpdatePort utilizzata per l'accesso alle informazioni sugli aggiornamenti dei thread e per svolgere operazioni su di essi all'interno del database;
+    \ \- ```java statePort: StatePort ```- Un'istanza di StatePort utilizzata per svolgere operazioni riguardanti lo stato dei client all'interno del database.
   - _Operazioni_:
-    \ \# ```java changes(methodCall: ChangesThreadMethodCall, previousResponses: ListMultimap\<String, Response.Invocation>): MethodResponse[] ```- Riceve una richiesta ChangesThreadMethodCall e restituisce una lista di risposte di tipo MethodResponse. Consente di ottenere i cambiamenti avvenuti nei thread da un certo punto temporale in poi, in base all'ultimo stato noto contenuto nella richiesta fornita;
-    \ \# ```java get(methodCall: GetThreadMethodCall, previousResponses: ListMultimap\<String, Response.Invocation>): MethodResponse[] ```- Ottiene le informazioni sui thread delle email specificati nella richiesta. Riceve una chiamata GetThreadMethodCall, che specifica i thread di interesse, e restituisce una serie di risposte che includono le informazioni richieste e lo stato aggiornato;
-    \ \- ```java getAccumulatedUpdateSince(oldVersion: String, accountid: String): Update ```- Restituisce gli aggiornamenti accumulati per un account riguardanti i thread a partire dalla versione specificata.
+    \ \+ ```java changes(methodCall: ChangesThreadMethodCall, previousResponses: ListMultimap<String, Response.Invocation>): MethodResponse[] ```- Riceve una richiesta ChangesThreadMethodCall e restituisce una lista di risposte di tipo MethodResponse. Consente di ottenere i cambiamenti avvenuti nei thread da un certo punto temporale in poi, in base all'ultimo stato noto contenuto nella richiesta fornita;
+    \ \+ ```java get(methodCall: GetThreadMethodCall, previousResponses: ListMultimap<String, Response.Invocation>): MethodResponse[] ```- Ottiene le informazioni sui thread delle email specificati nella richiesta. Riceve una chiamata GetThreadMethodCall, che specifica i thread di interesse, e restituisce una serie di risposte che includono le informazioni richieste e lo stato aggiornato;
+    \ \# ```java getAccumulatedUpdateSince(oldVersion: String, accountid: String): Update ```- Restituisce gli aggiornamenti accumulati per un account riguardanti i thread a partire dalla versione specificata.
 - *EchoLogic*: componente responsabile della gestione degli echo per testare la connettività all'interno del sistema. Si occupa quindi di tutte le operazioni relative alla business logic di questo tipo.
   - _Operazioni_:
-    \ \# ```java echo(methodCall: EchoMethodCall, previousResponses: ListMultimap\<String, Response.Invocation>): MethodResponse[]```- Gestisce la logica di esecuzione della chiamata EchoMethodCall. Restituisce un array contenente la risposta di echo.
+    \ \+ ```java echo(methodCall: EchoMethodCall): MethodResponse[]``` - Gestisce la logica di esecuzione della chiamata EchoMethodCall. Restituisce un array contenente la risposta di echo.
 - *AttachmentLogic*: componente responsabile della gestione degli allegati all'interno del sistema. Si occupa quindi di tutte le operazioni relative alla business logic di questo tipo.
-  - _Proprietà_:
-    \ \- attachmentPort: AttachmentPort - Un'istanza di AttachmentPort utilizzata per svolgere operazioni sugli allegati all'interno del database.
+  - _Attributi_:
+    \ \- ```java attachmentPort: AttachmentPort ```- Un'istanza di AttachmentPort utilizzata per svolgere operazioni sugli allegati all'interno del database.
   - _Operazioni_:
-    \ \# ```java upload(data: byte[]): Upload ```- Carica i dati dell'allegato forniti utilizzando la porta attachmentPort e restituisce un oggetto Upload contenente l'identificativo del blob caricato;
-    \ \# ```java download(id: String): byte[] ```- Scarica i dati dell'allegato con l'identificativo fornito utilizzando la porta attachmentPort e restituisce i dati come array di byte.
+    \ \+ ```java upload(data: byte[], contentType: String, size: Long): Upload``` - Carica i dati dell'allegato forniti utilizzando la porta attachmentPort e restituisce un oggetto Upload contenente l'identificativo del blob caricato;
+    \ \+ ```java download(id: String): byte[] ```- Scarica i dati dell'allegato con l'identificativo fornito utilizzando la porta attachmentPort e restituisce i dati come array di byte.
 
 #pagebreak()
 
 === Interfacciamento al database
-#figure(image("//imgs/Specifica_Tecnica/UML3.png", width: 55%), caption: [Modellazione delle componenti che gestiscono l'interfacciamento al database])
+#figure(image("//imgs/Specifica_Tecnica/uml4.svg", width: 63.5%), caption: [Modellazione delle componenti che gestiscono l'interfacciamento al database]) 
+
 
 Nell'ultima parte del diagramma delle classi si trovano le componenti dedicate alla gestione dell'interfacciamento con il database. Qui si incontrano, quindi, tutte le porte in uscita dall'esagono contenente la business logic e le classi concrete che svolgono operazioni specifiche su vari tipi di dati con il database. Nello specifico queste sono le seguenti:
 - *AccountPort*: porta in uscita che definisce una serie di metodi per operare con gli account degli utenti all'interno del database. 
   - _Operazioni_:
-      \ \# ```java getId(username: String): String ```- Prende in input un parametro che rappresenta lo username dell'account di cui si desidera ottenere l'identificativo. Restituisce una stringa che rappresenta l'identificativo associato all'account specificato. L'implementazione concreta è lasciata alle classi che implementano questa interfaccia;
-      \ \# ```java getPassword(id: String): String ```- Prende in input un parametro che rappresenta l'identificatore dell'account di cui si desidera ottenere la password. Restituisce una stringa che rappresenta la password corrente associata all'account specificato. L'implementazione concreta è lasciata alle classi che implementano questa interfaccia.
+      \ \+ ```java getId(username: String): String ```- Prende in input un parametro che rappresenta lo username dell'account di cui si desidera ottenere l'identificativo. Restituisce una stringa che rappresenta l'identificativo associato all'account specificato. L'implementazione concreta è lasciata alle classi che implementano questa interfaccia;
+      \ \+ ```java getPassword(id: String): String ```- Prende in input un parametro che rappresenta l'identificatore dell'account di cui si desidera ottenere la password. Restituisce una stringa che rappresenta la password corrente associata all'account specificato. L'implementazione concreta è lasciata alle classi che implementano questa interfaccia.
 - *StatePort*: porta in uscita che definisce una serie di metodi per svolgere operazioni riguardanti lo stato dei client all'interno del database.
   - _Operazioni_:
-    \ \# ```java getState(accountid: String): String ```- Prende in input un parametro che rappresenta l'identificatore dell'account di cui si desidera ottenere lo stato. Restituisce una stringa che rappresenta lo stato corrente associato all'account specificato. L'implementazione concreta di questo metodo è lasciata alle classi che implementano questa interfaccia;
-    \ \# ```java incrementState(accountid: String): void ```- Prende in input un parametro che rappresenta l'identificatore dell'account di cui si desidera incrementare lo stato e lo aggiorna.  L'implementazione concreta di questo metodo è lasciata alle classi che implementano questa interfaccia.
+    \ \+ ```java get(accountid: String): String ```- Prende in input un parametro che rappresenta l'identificatore dell'account di cui si desidera ottenere lo stato del client. Restituisce una stringa che rappresenta lo stato corrente associato al client dell'account specificato. L'implementazione concreta di questo metodo è lasciata alle classi che implementano questa interfaccia;
+    \ \+ ```java increment(accountid: String): void ```- Prende in input un parametro che rappresenta l'identificatore dell'account di cui si desidera incrementare lo stato del client e lo aggiorna.  L'implementazione concreta di questo metodo è lasciata alle classi che implementano questa interfaccia.
 - *IdentityPort*: porta in uscita che definisce una serie di metodi per l'accesso alle informazioni sulle identità, nonché per svolgere operazioni su quest'ultime all'interno del database.
   - _Operazioni_:
-    \ \# ```java getOf(accountid: String): Identity[] ```- Prende in input un parametro che rappresenta l'identificatore dell'account di cui si desidera ottenere le informazioni sulle identità associate. Restituisce un array di oggetti Identity che rappresentano le identità associate all'account specificato. L'implementazione concreta è lasciata alle classi che implementano questa interfaccia.
-- *EmailPort*: porta in uscita che definisce una serie di metodi per svolgere operazioni sulle email all'interno del database;
+    \ \+ ```java getOf(accountid: String): Identity[] ```- Prende in input un parametro che rappresenta l'identificatore dell'account di cui si desidera ottenere le informazioni sulle identità associate. Restituisce un array di oggetti Identity che rappresentano le identità associate all'account specificato. L'implementazione concreta è lasciata alle classi che implementano questa interfaccia.
+- *EmailPort*: porta in uscita che definisce una serie di metodi per svolgere operazioni sulle email all'interno del database.
   - _Operazioni_:
-    \ \# ```java get(id: String): Email ```- Prende in input un parametro che rappresenta l'identificativo univoco di un'email e restituisce l'oggetto Email corrispondente. L'implementazione concreta è lasciata alle classi che implementano questa interfaccia;
-    \ \# ```java getOf(accountid: String): Map<String, Email> ```- Prende in input un parametro che rappresenta l'identificatore dell'account di cui si desiderano ottenere le email associate e restituisce una mappa che associa gli identificatori univoci delle email ai rispettivi oggetti Email. L'implementazione concreta è lasciata alle classi che implementano questa interfaccia;
-    \ \# ```java insert(accountid: String, email: Email): void ```- Prende in input due parametri, l'identificatore dell'account e un oggetto Email da inserire, e aggiunge l'email associata all'account specificato nel database. L'implementazione concreta è lasciata alle classi che implementano questa interfaccia;
-    \ \# ```java delete(id: String): void ```- Prende in input un parametro che rappresenta l'identificativo univoco di un'email e elimina l'email corrispondente dal database. L'implementazione concreta è lasciata alle classi che implementano questa interfaccia.
-- *EmailUpdatePort*: porta in uscita che definisce una serie di metodi per svolgere operazioni sui cambiamenti avvenuti alle email all'interno del database;
+    \ \+ ```java get(id: String): Email ```- Prende in input un parametro che rappresenta l'identificativo univoco di un'email e restituisce l'oggetto Email corrispondente. L'implementazione concreta è lasciata alle classi che implementano questa interfaccia;
+    \ \+ ```java getOf(accountid: String): Map<String, Email> ```- Prende in input un parametro che rappresenta l'identificatore dell'account di cui si desiderano ottenere le email associate e restituisce una mappa che associa gli identificatori univoci delle email ai rispettivi oggetti Email. L'implementazione concreta è lasciata alle classi che implementano questa interfaccia;
+    \ \+ ```java insert(accountid: String, email: Email): void ```- Prende in input due parametri, l'identificatore dell'account e un oggetto Email da inserire, e aggiunge l'email associata all'account specificato nel database. L'implementazione concreta è lasciata alle classi che implementano questa interfaccia;
+    \ \+ ```java delete(id: String): void ```- Prende in input un parametro che rappresenta l'identificativo univoco di un'email e elimina l'email corrispondente dal database. L'implementazione concreta è lasciata alle classi che implementano questa interfaccia.
+- *MailboxPort*: porta in uscita che definisce una serie di metodi per svolgere operazioni sulle caselle di posta all'interno del database.
   - _Operazioni_:
-    \ \# ```java get(accountid: String, state: String): Update ```- Prende in input due parametri, l'identificatore dell'account e lo stato corrente delle email, e restituisce l'oggetto Update relativo alle modifiche apportate alle email associate all'account specificato. L'implementazione concreta è lasciata alle classi che implementano questa interfaccia;
-    \ \# ```java getOf(accountid: String): Map<String, Update> ```- Prende in input un parametro che rappresenta l'identificatore dell'account di cui si desiderano ottenere gli aggiornamenti delle email e restituisce una mappa che associa gli identificatori univoci delle email agli oggetti Update corrispondenti. L'implementazione concreta è lasciata alle classi che implementano questa interfaccia;
-    \ \# ```java insert(accountid: String, oldstate: String, update: Update): String ```- Prende in input tre parametri, l'identificatore dell'account, lo stato precedente delle email e un oggetto Update rappresentante le modifiche apportate alle email, e restituisce una stringa che rappresenta un identificativo univoco dell'operazione di aggiornamento delle email inserita nel database. L'implementazione concreta è lasciata alle classi che implementano questa interfaccia.
-- *MailboxUpdatePort*: porta in uscita che definisce una serie di metodi per svolgere operazioni sui cambiamenti avvenuti alle cartelle all'interno del database;
+    \ \+ ```java get(id: String): MailboxInfo ```- Prende in input un parametro che rappresenta l'identificativo univoco di una casella di posta elettronica e restituisce l'oggetto MailboxInfo corrispondente. L'implementazione concreta è lasciata alle classi che implementano questa interfaccia;
+    \ \+ ```java getOf(accountid: String): Map<String, MailboxInfo> ```- Prende in input un parametro che rappresenta l'identificatore dell'account di cui si desiderano ottenere le caselle di posta elettronica associate e restituisce una mappa che associa gli identificatori univoci delle caselle di posta ai rispettivi oggetti MailboxInfo. L'implementazione concreta è lasciata alle classi che implementano questa interfaccia;
+    \ \+ ```java insert(accountid: String, mailbox: MailboxInfo): void ```- Prende in input due parametri, l'identificatore dell'account e un oggetto MailboxInfo da inserire, e restituisce una stringa che rappresenta l'identificativo univoco della casella di posta inserita nel database. L'implementazione concreta è lasciata alle classi che implementano questa interfaccia;
+    \ \+ ```java delete(id: String): void ```- Prende in input un parametro che rappresenta l'identificativo univoco di una casella di posta elettronica e elimina la casella di posta corrispondente dal database. L'implementazione concreta è lasciata alle classi che implementano questa interfaccia.
+- *EmailSubmissionPort*: porta in uscita che definisce una serie di metodi per svolgere operazioni sull'invio di un'email per la consegna a uno o più destinatari all'interno del database.
   - _Operazioni_:
-    \ \#```java  get(accountid: String, state: String): Update ```- Prende in input due parametri, l'identificatore dell'account e lo stato corrente delle caselle di posta elettronica, e restituisce l'oggetto Update relativo alle modifiche apportate alle caselle di posta associate all'account specificato. L'implementazione concreta è lasciata alle classi che implementano questa interfaccia;
-    \ \# ```java getOf(accountid: String): Map<String, Update> ```- Prende in input un parametro che rappresenta l'identificatore dell'account di cui si desiderano ottenere gli aggiornamenti delle caselle di posta elettronica e restituisce una mappa che associa gli identificatori univoci delle caselle di posta agli oggetti Update corrispondenti. L'implementazione concreta è lasciata alle classi che implementano questa interfaccia;
-    \ \# ```java insert(accountid: String, oldstate: String, update: Update): String ```- Prende in input tre parametri, l'identificatore dell'account, lo stato precedente delle caselle di posta elettronica e un oggetto Update rappresentante le modifiche apportate alle caselle di posta, e restituisce una stringa che rappresenta un identificativo univoco dell'operazione di aggiornamento delle caselle di posta inserita nel database. L'implementazione concreta è lasciata alle classi che implementano questa interfaccia.
-- *MailboxPort*: porta in uscita che definisce una serie di metodi per svolgere operazioni sulle caselle di posta all'interno del database;
+    \ \+ ```java get(id: String): EmailSubmission ```- Prende in input un parametro che rappresenta l'identificatore univoco di una mail inviata e restituisce l'oggetto EmailSubmission corrispondente. L'implementazione concreta è lasciata alle classi che implementano questa interfaccia.
+    \ \+ ```java insert(accountid: String, id: String, submission: EmailSubmission): void ```- Prende in input tre parametri: l'identificatore dell'account, l'identificatore di un oggetto EmailSubmission e l'oggetto EmailSubmission da inserire nel database. L'implementazione concreta è lasciata alle classi che implementano questa interfaccia.
+- *ThreadPort*: porta in uscita che definisce una serie di metodi per svolgere operazioni sui thread all'interno del database.
   - _Operazioni_:
-    \ \# ```java get(id: String): MailboxInfo ```- Prende in input un parametro che rappresenta l'identificativo univoco di una casella di posta elettronica e restituisce l'oggetto MailboxInfo corrispondente. L'implementazione concreta è lasciata alle classi che implementano questa interfaccia;
-    \ \# ```java getOf(accountid: String): Map<String, MailboxInfo> ```- Prende in input un parametro che rappresenta l'identificatore dell'account di cui si desiderano ottenere le caselle di posta elettronica associate e restituisce una mappa che associa gli identificatori univoci delle caselle di posta ai rispettivi oggetti MailboxInfo. L'implementazione concreta è lasciata alle classi che implementano questa interfaccia;
-    \ \# ```java insert(accountid: String, mailbox: MailboxInfo): String ```- Prende in input due parametri, l'identificatore dell'account e un oggetto MailboxInfo da inserire, e restituisce una stringa che rappresenta l'identificativo univoco della casella di posta inserita nel database. L'implementazione concreta è lasciata alle classi che implementano questa interfaccia;
-    \ \# ```java delete(id: String): void ```- Prende in input un parametro che rappresenta l'identificativo univoco di una casella di posta elettronica e elimina la casella di posta corrispondente dal database. L'implementazione concreta è lasciata alle classi che implementano questa interfaccia.
-- *EmailSubmissionPort*: porta in uscita che definisce una serie di metodi per svolgere operazioni sull'invio di un'email per la consegna a uno o più destinatari all'interno del database;
+    \ \+ ```java getOf(accountId: String, threadId: String): List<String> ```- Consente di ottenere le informazioni sui thread relativi a un account specificato dal parametro accountId e al thread specificato dal parametro threadId. L'implementazione concreta è lasciata alle classi che implementano questa interfaccia.
+- *UpdatePort*: porta in uscita che definisce una serie di metodi per gestire gli aggiornamenti nel sistema in relazione con il database.
   - _Operazioni_:
-    \ \# ```java insert(accountid: String, submission: EmailSubmission): String ```- Prende in input due parametri, l'identificatore dell'account e un oggetto EmailSubmission da inserire, e restituisce una stringa che rappresenta l'identificativo univoco della sottomissione di email inserita nel database. L'implementazione concreta è lasciata alle classi che implementano questa interfaccia.
-- *ThreadPort*: porta in uscita che definisce una serie di metodi per svolgere operazioni sui thread all'interno del database;
+    \ \+ ```java get(accountid: String, state: String): Update ```- Prende in input due parametri, l'identificatore dell'account e lo stato corrente e restituisce l'oggetto Update corrispondente contenente gli aggiornamenti. L'implementazione concreta è lasciata alle classi che implementano questa interfaccia;
+    \ \+ ```java getOf(accountid: String): Map<String, Update> ```- Prende in input un parametro che rappresenta l'identificatore dell'account di cui si desiderano ottenere gli aggiornamenti e restituisce una mappa che associa gli identificatori univoci degli aggiornamenti agli oggetti Update corrispondenti. L'implementazione concreta è lasciata alle classi che implementano questa interfaccia;
+    \ \+ ```java insert(accountid: String, oldstate: String, update: Update): void ```- Inserisce un nuovo aggiornamento per un account specifico identificato da accountid, utilizzando il vecchio stato oldstate. Restituisce il nuovo stato dell'account dopo l'inserimento dell'aggiornamento. L'implementazione concreta è lasciata alle classi che implementano questa interfaccia.
+- *AttachmentPort*: porta in uscita che definisce una serie di metodi per svolgere operazioni sugli allegati all'interno del database.
   - _Operazioni_:
-    \ \# ```java get(id: String): Thread ```- Prende in input un parametro che rappresenta l'identificativo univoco di un thread e restituisce l'oggetto Thread corrispondente. L'implementazione concreta è lasciata alle classi che implementano questa interfaccia;
-    \ \# ```java insert(account: String, id: Thread): String ```- Prende in input due parametri, l'identificatore dell'account e un oggetto Thread da inserire, e restituisce una stringa che rappresenta l'identificativo univoco del thread inserito nel database. L'implementazione concreta è lasciata alle classi che implementano questa interfaccia.
-- *ThreadUpdatePort*: porta in uscita che definisce una serie di metodi per l'accesso alle informazioni sugli aggiornamenti dei thread e per svolgere operazioni su di essi all'interno del database.
+    \ \+ ```java get(id: String): byte[] ```- Prende in input un parametro che rappresenta l'identificativo univoco di un allegato e restituisce un array di byte che rappresenta i dati dell'allegato corrispondente. L'implementazione concreta è lasciata alle classi che implementano questa interfaccia;
+    \ \+ ```java insert(data: byte[], contentType: String, size: Long): String ```- Prende in input un array di byte che rappresenta i dati di un allegato e inserisce l'allegato nel database. Restituisce una stringa che rappresenta l'identificativo univoco dell'allegato inserito. L'implementazione concreta è lasciata alle classi che implementano questa interfaccia;
+    \ \+ ```java delete(id: String): boolean ``` - Prende in input un parametro che rappresenta l'identificativo univoco di un allegato e elimina l'allegato corrispondente dal database. Restituisce true se l'operazione di eliminazione è avvenuta con successo, altrimenti restituisce false. L'implementazione concreta è lasciata alle classi che implementano questa interfaccia.
+- *AccountRepository*: implementazione dell'interfaccia AccountPort che realizza i metodi necessari per operare con gli account degli utenti all'interno del database.
+  - _Attributi_:
+    \ \- ```java r: RethinkDB ```- Un'istanza di RethinkDB utilizzata per accedere ai metodi forniti dalla libreria RethinkDB Java;
+    \ \- ```java conn: Connection ```- La connessione al database RethinkDB.
   - _Operazioni_:
-    \ \# ```java get(accountid: String, state: String): Update ```- Prende in input due parametri, l'identificatore dell'account e lo stato corrente dei thread, e restituisce l'oggetto Update relativo alle modifiche apportate ai thread associati all'account specificato. L'implementazione concreta è lasciata alle classi che implementano questa interfaccia;
-    \ \# ```java getOf(accountid: String): Map<String, Update> ```- Prende in input un parametro che rappresenta l'identificatore dell'account di cui si desiderano ottenere gli aggiornamenti dei thread e restituisce una mappa che associa gli identificatori univoci dei thread agli oggetti Update corrispondenti. L'implementazione concreta è lasciata alle classi che implementano questa interfaccia;
-    \ \# ```java insert(accountid: String, oldstate: String, update: Update): String ```- Prende in input tre parametri, l'identificatore dell'account, lo stato precedente dei thread e un oggetto Update rappresentante le modifiche apportate ai thread, e restituisce una stringa che rappresenta un identificativo univoco dell'operazione di aggiornamento dei thread inserita nel database. L'implementazione concreta è lasciata alle classi che implementano questa interfaccia.
-- *UpdatePort*: porta in uscita che definisce una serie di metodi per gestire gli aggiornamenti nel sistema.
-  - _Operazioni_:
-    \ \# ```java get(id: String): Update ```- Prende in input un parametro che rappresenta l'identificativo univoco di un aggiornamento e restituisce l'oggetto Update corrispondente. L'implementazione concreta è lasciata alle classi che implementano questa interfaccia;
-    \ \# ```java getOf(accountid: String): Map<String, Update> ```- Prende in input un parametro che rappresenta l'identificatore dell'account di cui si desiderano ottenere gli aggiornamenti e restituisce una mappa che associa gli identificatori univoci degli aggiornamenti agli oggetti Update corrispondenti. L'implementazione concreta è lasciata alle classi che implementano questa interfaccia;
-    \ \# ```java insert(id: String, update: Update): String ```- Prende in input due parametri, l'identificativo univoco dell'aggiornamento e un oggetto Update da inserire, e restituisce una stringa che rappresenta l'identificativo univoco dell'aggiornamento inserito nel database. L'implementazione concreta è lasciata alle classi che implementano questa interfaccia;
-    \ \# ```java java delete(id: String): void ```- Prende in input un parametro che rappresenta l'identificativo univoco di un aggiornamento e lo elimina dal database. L'implementazione concreta è lasciata alle classi che implementano questa interfaccia.
-- *AttachmentPort*: porta in uscita che definisce una serie di metodi per svolgere operazioni sugli allegati all'interno del database;
-  - _Operazioni_:
-    \ \# ```java get(id: String): byte[] ```- Prende in input un parametro che rappresenta l'identificativo univoco di un allegato e restituisce un array di byte che rappresenta i dati dell'allegato corrispondente. L'implementazione concreta è lasciata alle classi che implementano questa interfaccia;
-    \ \# ```java insert(data: byte[]): String ```- Prende in input un array di byte che rappresenta i dati di un allegato e inserisce l'allegato nel database. Restituisce una stringa che rappresenta l'identificativo univoco dell'allegato inserito. L'implementazione concreta è lasciata alle classi che implementano questa interfaccia;
-    \ \# ```java delete(id: String): boolean - ```Prende in input un parametro che rappresenta l'identificativo univoco di un allegato e elimina l'allegato corrispondente dal database. Restituisce true se l'operazione di eliminazione è avvenuta con successo, altrimenti restituisce false. L'implementazione concreta è lasciata alle classi che implementano questa interfaccia.
-- *AccountRepository*: implementazione dell'interfaccia AccountPort che realizza i metodi necessari per operare con gli account degli utenti all'interno del database;
-  - _Operazioni_:
-    \ \+ ```java getId(username: String): String``` Implementa il metodo getId dell'interfaccia AccountPort;
-    \ \+ ```java getPassword(id: String): String``` Implementa il metodo getPassword dell'interfaccia AccountPort.
-- *StateRepository*: implementazione dell'interfaccia StatePort che realizza i metodi necessari per svolgere operazioni riguardanti lo stato dei client all'interno del database;
-  - _Operazioni_:
-    \ \+ ```java getId(username: String): String``` Implementa il metodo getId dell'interfaccia AccountPort;
-    \ \+ ```java getPassword(id: String): String``` Implementa il metodo getPassword dell'interfaccia AccountPort.
-- *IdentityRepository*: implementazione dell'interfaccia IdentityPort che realizza i metodi necessari per l'accesso alle informazioni sulle identità, nonché per svolgere operazioni su quest'ultime all'interno del database;
-  - _Operazioni_:
-    \ \+ ```java getOf(accountid: String): Identity[]``` Implementa il metodo getOf dell'interfaccia IdentityPort;
-- *EmailRepository*: implementazione dell'interfaccia EmailPort che realizza i metodi necessari per svolgere operazioni sulle email all'interno del database;
-  - _Operazioni_:
-    \ \+ ```java get(id: String): Email``` Implementa il metodo get dell'interfaccia EmailPort;
-    \ \+ ```java getOf(accountid: String): Map<String, Email>``` Implementa il metodo getOf dell'interfaccia EmailPort;
-    \ \+ ```java insert(accountid: String, email: Email): void``` Implementa il metodo insert dell'interfaccia EmailPort;
-    \ \+ ```java delete(id: String): void``` Implementa il metodo delete dell'interfaccia EmailPort.
-- *EmailChangesRepository*: implementazione dell'interfaccia EmailChangesPort che realizza i metodi necessari per svolgere operazioni sui cambiamenti avvenuti alle email all'interno del database;
-- *MailboxChangesRepository*: implementazione dell'interfaccia MailboxChangesPort che realizza i metodi necessari per svolgere operazioni sui cambiamenti avvenuti alle cartelle all'interno del database;
-- *MailboxRepository*: implementazione dell'interfaccia MailboxPort che realizza i metodi necessari per svolgere operazioni sulle caselle di posta all'interno del database;
-- *EmailSubmissionRepository*: implementazione dell'interfaccia EmailSubmissionPort che realizza i metodi necessari per svolgere operazioni sull'invio di un'email per la consegna a uno o più destinatari all'interno del database;
-  - _Operazioni_:
-    \ \+ ```java insert(accountid: String, email: EmailSubmission): String``` Implementa il metodo insert dell'interfaccia EmailSubmissionPort. TO DO nel codice?
-- *EmailUpdateRepository*: implementazione dell'interfaccia EmailUpdatePort che realizza i metodi necessari per svolgere operazioni sui cambiamenti avvenuti alle email all'interno del database;
-  - _Operazioni_:
-    \ \+ ```java get(accountid: String, state: String): Update``` Implementa il metodo get dell'interfaccia EmailUpdatePort;
-    \ \+ ```java getOf(accountid: String): Map<String, Update>``` Implementa il metodo getOf dell'interfaccia EmailUpdatePort;
-    \ \+ ```java delete(accountid: String): void``` Implementa il metodo delete dell'interfaccia EmailUpdatePort. TO DO nel codice? è commentato
-- *ThreadRepository*: implementazione dell'interfaccia ThreadPort che realizza i metodi necessari per svolgere operazioni sui thread all'interno del database;
+    \ \+ ```java getId(username: String): String``` - Implementa il metodo getId dell'interfaccia AccountPort. Prende in input un stringa che rappresenta l'username di un utente e cerca l'id dell'account corrispondente eseguendo una query sul database. Restituisce il risultato sotto forma di stringa;
+    \ \+ ```java getPassword(id: String): String``` - Implementa il metodo getPassword dell'interfaccia AccountPort. Prende in input un parametro che rappresenta l'identificativo univoco associato ad un account e cerca la password corrispondente eseguendo una query sul database. Restituisce il risultato sotto forma di stringa. 
 - *AttachmentRepository*: implementazione dell'interfaccia AttachmentPort che realizza i metodi necessari per svolgere operazioni sugli allegati all'interno del database.
+  - _Attributi_:
+    \ \- ```java conn: MinioClient ```- Un'istanza di MinioClient utilizzata per interagire con il servizio di archiviazione degli oggetti Minio;
+    \ \- ```java bucket: String  ```- Rappresenta il nome del bucket Minio in cui vengono memorizzati gli allegati.
   - _Operazioni_:
-    \ \+ ```java get(id: String): byte[]``` Implementa il metodo get dell'interfaccia AttachmentPort;
-    \ \+ ```java delete(id: String): boolean``` Implementa il metodo delete dell'interfaccia AttachmentPort;
-    \ \+ ```java insert(data: byte[]): String``` Implementa il metodo delete dell'interfaccia AttachmentPort.
-
+    \ \+ ```java get(id: String): byte[]``` - Implementa il metodo get dell'interfaccia AttachmentPort. Prende in inupt un parametro che rappresenta l'identificativo univoco di un allegato e, tramite un'istanza di MinIoClient, esegue una query sul database per ottenere l'allegato corrispondente. Restituisce l'allegato come un array di byte;
+    \ \+ ```java delete(id: String): boolean``` - Implementa il metodo delete dell'interfaccia AttachmentPort. Prende in inupt un parametro che rappresenta l'identificativo univoco di un allegato e, tramite un'istanza di MinIoClient, esegue una query sul database nel tentativo di rimuovere l'allegato corrispondente. Restituisce un booleano che indica se l'eliminazione è avvenuta con successo o meno;
+    \ \+ ```java insert(data: byte[], contentType: String, size: Long): String``` - Implementa il metodo insert dell'interfaccia AttachmentPort. Prende in input un array di byte rappresentante i dati di un allegato e, tramite un'istanza di MinIoClient, tenta di inserire l'allegato nel database. Restituisce il nome dell'allegato inserito se l'operazione ha successo, altrimenti null.
+- *StateRepository*: implementazione dell'interfaccia StatePort che realizza i metodi necessari per svolgere operazioni riguardanti lo stato dei client all'interno del database.
+  - _Attributi_:
+    \ \- ```java r: RethinkDB ```- Un'istanza di RethinkDB utilizzata per accedere ai metodi forniti dalla libreria RethinkDB Java;
+    \ \- ```java conn: Connection ```- La connessione al database RethinkDB.
+  - _Operazioni_:
+    \ \+ ```java get(accountid: String): String``` - Implementa il metodo get dell'interfaccia StatePort. Prende in input l'identificativo univoco associato ad un account ed esegue una query sul database per recuperarne lo stato associato al client. Restituisce il risultato come stringa;
+    \ \+ ```java increment(accountid: String): void``` - Implementa il metodo increment dell'interfaccia StatePort. Prende in input l'identificativo univoco associato ad un account ed esegue una query per incrementare di 1 lo stato associato.
+- *IdentityRepository*: implementazione dell'interfaccia IdentityPort che realizza i metodi necessari per l'accesso alle informazioni sulle identità, nonché per svolgere operazioni su quest'ultime all'interno del database.
+  - _Attributi_:
+    \ \- ```java gson: Gson ```- Un'istanza di Gson utilizzata per serializzare gli oggetti in formato JSON;
+    \ \- ```java r: RethinkDB ```- Un'istanza di RethinkDB utilizzata per accedere ai metodi forniti dalla libreria RethinkDB Java;
+    \ \- ```java conn: Connection ```- La connessione al database RethinkDB.
+  - _Operazioni_:
+    \ \+ ```java getOf(accountid: String): Identity[]``` - Implementa il metodo getOf dell'interfaccia IdentityPort. Prende in input l'identificativo univoco di un account e tramite una query sul database ne recupera le identità associate. Ottiene il risultato come stringa JSON e lo converte in un array di oggetti Identity utilizzando l'istanza di Gson. Restituisce l'array di identità recuperate.
+- *EmailRepository*: implementazione dell'interfaccia EmailPort che realizza i metodi necessari per svolgere operazioni sulle email all'interno del database.
+  - _Attributi_:
+    \ \- ```java gson: Gson ```- Un'istanza di Gson utilizzata per serializzare gli oggetti in formato JSON;
+    \ \- ```java r: RethinkDB ```- Un'istanza di RethinkDB utilizzata per accedere ai metodi forniti dalla libreria RethinkDB Java;
+    \ \- ```java conn: Connection ```- La connessione al database RethinkDB.
+  - _Operazioni_:
+    \ \+ ```java get(id: String): Email``` - Implementa il metodo get dell'interfaccia EmailPort. Prende in input l'identificativo univoco corrispondente ad un'email ed esegue una query sul database per recuperarla. Il risultato viene convertito in formato JSON, quindi viene deserializzato in un oggetto Email utilizzando l'istanza di Gson;
+    \ \+ ```java getOf(accountid: String): Map<String, Email>``` - Implementa il metodo getOf dell'interfaccia EmailPort. Prende in input l'identificativo univoco dell'account di un utente ed esegue una query sul database per recuperare tutte le email associate all'account specificato. I risultati vengono iterati e convertiti in oggetti Email utilizzando l'istanza di Gson, quindi vengono memorizzati in una mappa dove la chiave è l'id dell'email;
+    \ \+ ```java insert(accountid: String, email: Email): void``` - Implementa il metodo insert dell'interfaccia EmailPort. Prende in input l'identificativo univoco di un account e un oggetto Email da inserire, associandolo a tale account, e tenta di inserire l'email nel database;
+    \ \+ ```java delete(id: String): void``` - Implementa il metodo delete dell'interfaccia EmailPort. Prende in input l'identificativo univoco di un'email ed esegue una query per eliminarla dal database.
+- *MailboxRepository*: implementazione dell'interfaccia MailboxPort che realizza i metodi necessari per svolgere operazioni sulle caselle di posta all'interno del database.
+  - _Attributi_:
+    \ \- ```java gson: Gson ```- Un'istanza di Gson utilizzata per serializzare gli oggetti in formato JSON;
+    \ \- ```java r: RethinkDB ```- Un'istanza di RethinkDB utilizzata per accedere ai metodi forniti dalla libreria RethinkDB Java;
+    \ \- ```java conn: Connection ```- La connessione al database RethinkDB.
+  - _Operazioni_:
+    \ \+ ```java get(id: String): MailboxInfo``` - Implementa il metodo get dell'interfaccia MailboxPort. Prende in input l'identificativo univoco di una mailbox ed esegue una query sul database per recuperarla. Utilizza l'oggetto Gson per deserializzare il risultato della query in un oggetto MailboxInfo e lo restituisce;
+    \ \+ ```java getOf(accountid: String): Map<String, MailboxInfo>``` - Implementa il metodo getOf dell'interfaccia MailboxPort. Restituisce tutte le caselle di posta associate a un determinato account;
+    \ \+ ```java insert(accountid: String, mailbox: Mailbox): void``` - Implementa il metodo insert dell'interfaccia MailboxPort. Prende in input l'identificativo univoco di un account e la mailbox da inserire nel database. Dopo aver completato l'inserimento, restituisce l'ID generato per la nuova mailbox inserita;
+    \ \+ ```java delete(id: String): void``` - Implementa il metodo delete dell'interfaccia MailboxPort. Prende in input l'dentificativo univoco di una mailbox ed esegue una query per eliminarla dal database.
+- *EmailSubmissionRepository*: implementazione dell'interfaccia EmailSubmissionPort che realizza i metodi necessari per svolgere operazioni sull'invio di un'email per la consegna a uno o più destinatari all'interno del database.
+  - _Attributi_:
+    \ \- ```java gson: Gson ```- Un'istanza di Gson utilizzata per serializzare gli oggetti in formato JSON;
+    \ \- ```java r: RethinkDB ```- Un'istanza di RethinkDB utilizzata per accedere ai metodi forniti dalla libreria RethinkDB Java;
+    \ \- ```java conn: Connection ```- La connessione al database RethinkDB;
+  - _Operazioni_: 
+    \ \+ ```java insert(accountid: String, id: String, email: EmailSubmission): void``` - Implementa il metodo insert dell'interfaccia EmailSubmissionPort. Prende in input un parametro corrispondente all'identificativo univoco di un account, l'id della submission (server-set) ed un oggetto di tipo EmailSubmission contenente l'email inviata a uno o più destinatari da inserire nel database. L'email viene convertita in formato JSON utilizzando l'istanza di Gson e inserita nella tabella. Restituisce l'id dell'email generato dall'inserimento.
+    \ \+ ```java get(id: String): EmailSubmission``` - Implementa il metodo get dell'interfaccia EmailSubmissionPort. Prende in input l'identificativo univoco di una mail inviata e restituisce l'oggetto EmailSubmission corrispondente.
+- *ThreadRepository*: implementazione dell'interfaccia ThreadPort che realizza i metodi necessari per svolgere operazioni sui thread all'interno del database.
+  - _Attributi_:
+    \ \- ```java r: RethinkDB ```- Un'istanza di RethinkDB utilizzata per accedere ai metodi forniti dalla libreria RethinkDB Java;
+    \ \- ```java conn: Connection ```- La connessione al database RethinkDB.
+  - _Operazioni_:
+    \ \- ```java getOf(accountid: String, threadid: String): List<String>``` - Implementa il metodo getOf dell'interfaccia ThreadPort. Prende in input un parametro corrispondente all'identificativo univoco di un account e l'identificativo di un thread. Restituisce una lista contente gli id dell'email appartenenti al thread specificato.
+- *UpdateRepository*: implementazione dell'interfaccia UpdatePort che realizza i metodi necessari per gestire gli aggiornamenti nel sistema in relazione con il database.
+  - _Attributi_:
+    \ \- ```java gson: Gson ```- Un'istanza di Gson utilizzata per serializzare gli oggetti in formato JSON;
+    \ \- ```java r: RethinkDB ```- Un'istanza di RethinkDB utilizzata per accedere ai metodi forniti dalla libreria RethinkDB Java;
+    \ \- ```java conn: Connection ```- La connessione al database RethinkDB;
+  - _Operazioni_:
+    \ \+ ```java get(accountid: String, state: String): Update ```- Implementa il metodo get dell'interfaccia UpdatePort. Restituisce l'aggiornamento associato all'account e allo stato specificati;
+    \ \+ ```java getOf(accountid: String): Map<String, Update> ```- Implementa il metodo getOf dell'interfaccia UpdatePort. Restituisce tutti gli aggiornamenti associati a un determinato account;
+    \ \+ ```java insert(accountid: String, oldstate: String,  update: Update): void ```- Implementa il metodo insert dell'interfaccia UpdatePort. Inserisce un nuovo aggiornamento nel database associato all'account specificato e restituisce l'id generato per il nuovo aggiornamento.
 #pagebreak()
 
 == Database
-Come già citato nella sezione #link(<Tech>)[*Tecnologie*] del documento, il nostro prodotto utilizza RethinkDB come database NoSQL principale per la gestione dei dati. Il database viene inizializzato con la creazione delle collezioni richieste (account, email, mailbox...) e l'inserimento di dati di esempio. Successivamente, viene utilizzato per l'aggiunta di nuovi dati o la sostituzione di quelli esistenti. \
+Come già citato nella sezione #link(<Tech>)[*Tecnologie*] del documento, il nostro prodotto utilizza RethinkDB come database #glossary("NoSQL") principale per la gestione dei dati. Il database viene inizializzato con la creazione delle collezioni richieste (account, email, mailbox...) e l'inserimento di dati di esempio. Successivamente, viene utilizzato per l'aggiunta di nuovi dati o la sostituzione di quelli esistenti. \
 Inoltre, per la gestione degli allegati abbiamo scelto di utilizzare una tecnologia diversa, affidandoci a MinIO. Questa scelta è stata fatta principalmente per dimostrare le potenzialità della nostra architettura che, operando tramite porte, ci permette di utilizzare sistemi di persistenza differenti con estrema facilità.
 
 === Scelta di RethinkDB
@@ -902,158 +1044,13 @@ RethinkDB offre, inoltre, un potente sistema di query che semplifica l'accesso e
 - *Subqueries*: sono query annidate all'interno di altre query e consentono agli sviluppatori di scrivere query più complesse e efficienti per soddisfare le esigenze specifiche delle loro applicazioni;
 - *Changefeeds*: permettono agli sviluppatori di tracciare le modifiche nei dati e di ricevere notifiche istantanee quando avvengono cambiamenti nel database, facilitando lo sviluppo di applicazioni reattive.
 
-=== Utilizzo di RethinkDb nel nostro progetto
-In questa sezione andremo ad analizzare (come abbiamo fatto con tutte le tecnologie viste fino ad ora) un caso di utilizzo vero e proprio di RethinkDB nel nostro progetto. Come prima cosa, andremo a vedere la procedura necessaria per creare la connessione al database, quindi il collegamento tra il nostro server e il database. In secondo luogo andremo ad approfondire una classe Java all'interno del nostro progetto per mostrare le procedure di base per inserire o prelevare dati dal nostro db.
-
-==== Creazione di una connessione, quindi collegamento al database
-Per effettuare una connessione con il Database, vista la nostra architettura, abbiamo creato una classe apposita: `RethinkDBConnection.java`.
-
-```java
-
-public class RethinkDBConnection {
-  private Connection conn;
-
-  public RethinkDBConnection(String host, Integer port, String db) {
-    this.conn = RethinkDB.r.connection().hostname(host).port(port).connect().use(db);
-  }
-
-  @Provides
-  public Connection provideConnection() {
-    return conn;
-  }
-}
-
-```
-
-Questa classe viene istanziata nel metodo main, dove le vengono fornite tutte le informazioni per poter effettuare il collegamento al Database.
-
-```java
-
-new RethinkDBConnection(
-    System.getenv("RETHINKDB_HOST"),
-    Integer.parseInt(System.getenv("RETHINKDB_PORT")),
-    System.getenv("RETHINKDB_DB")
-);
-
-```
-
-==== Operazioni sui dati del database
-Eseguiti questi step preliminari, possiamo mostrare un utilizzo vero e proprio del database nella classe: `EmailRepository`. Qui troviamo il metodo `get` che data una stringa id, trova nel database l'oggetto Email serializzato sottoforma di json con quel determinato id e lo resistituisce al metodo che successivamente farà un cast per trasformarlo in un oggetto Email.
-
-Di seguito il metodo in questione.
-
-```java
-
-public class EmailRepository implements EmailPort {
-  private final RethinkDB r = RethinkDB.r;
-  // private final TypeReference<Map<String, Object>> stringObjectMap = Types.mapOf(String.class, Object.class);
-  private Connection conn;
-  private Gson gson;
-
-  @Inject
-  EmailRepository(Connection conn, Gson gson) {
-    this.conn = conn;
-    this.gson = gson;
-  }
-
-  @Override
-  public Email get(String id) {
-    String res = r.table("email")
-                   .get(id)
-                   .toJson()
-                   .run(conn)
-                   .single()
-                   .toString();
-    return gson.fromJson(res, Email.class);
-  }
-
-
-```
-
-
-
-
 === Utilizzo di MinIO
-MinIO è un sistema open-source di archiviazione di oggetti ideale per archiviare grandi quanittà di dati non strutturati (anche immagini, video e grandi backup sono inclusi). È compatibile con lo standard S3 (Simple Storage Service) di Amazon Web Services (AWS) ed è progettato per fornire una soluzione di storage di oggetti ad alte prestazioni. Gli oggetti in MinIO sono archiviati in modo distribuito su nodi multipli, consentendo una rapida accessibilità e un'alta disponibilità, questo fa si che le performance di MinIO consentano di supportare un carico di lavoro che i tradizionali sistemi di archiviazione di oggetti non possono supportare.\
+MinIO è un sistema open-source di archiviazione di oggetti ideale per archiviare grandi quanittà di dati non strutturati (anche immagini, video e grandi backup sono inclusi). È compatibile con lo standard S3 (Simple Storage Service) di Amazon Web Services (AWS) ed è progettato per fornire una soluzione di storage di oggetti ad alte prestazioni. Gli oggetti in MinIO sono archiviati in modo distribuito su nodi multipli, consentendo una rapida accessibilità e un'alta disponibilità, questo fa si che le performance di MinIO consentano di supportare un carico di lavoro che i tradizionali sistemi di archiviazione di oggetti non possono supportare.
 
-==== Implementazione di MinIO sul nostro progetto
-In questa sezione andremo ad approfondire come abbiamo utilizzato MinIO all'interno del nostro progetto analizzando la classe `AttachmentRepository.java`.\
-
-In questa prima parte avviene la connessione a MinIO.
-
-```java
-
-public class AttachmentRepository implements AttachmentPort {
-  private MinioClient conn;
-  private BucketName buck;
-
-  @Inject
-  AttachmentRepository(MinioClient conn, BucketName buck) {
-    this.conn = conn;
-    this.buck = buck;
-  }
-
-```
-
-Si dichiara un campo `MinIO conn` per rappresentare la connessione al servizio MinIO. Questa connessione viene iniettata nel costruttore della classe attraverso l'annotazione $at$Inject di Guice.
-Si dichiara anche un campo che è un'istanza della classe `BucketName` per rappresentare il nome del bucket MinIO e l'hai iniettata anch'essa nel costruttore della classe.
-
-In questa seconda parte avviene l'implementazione delle operazioni di base:
-
-```java
-
-@Override
-  public byte[] getAttachment(String id) {
-    try {
-      return conn.getObject(
-        GetObjectArgs.builder()
-          .bucket(buck.getName())
-          .object(id)
-          .build()).readAllBytes();
-    } catch (Exception e) {
-    }
-    return null;
-  }
-
-  @Override
-  public boolean deleteAttachment(String id) {
-    try {
-      conn.removeObject(
-        RemoveObjectArgs.builder()
-          .bucket(buck.getName())
-          .object(id)
-          .build());
-      return true;
-    } catch (Exception e) {
-    }
-    return false;
-  }
-
-  @Override
-  public String insertAttachment(byte[] data) {
-    try {
-      var name = UUID.randomUUID().toString();
-      conn.putObject(
-        PutObjectArgs.builder()
-          .bucket(buck.getName())
-          .object(name)
-          .stream(new ByteArrayInputStream(data), 0, -1)
-          .build());
-        return name;
-    } catch (Exception e) {
-    }
-    return null;
-  }
-
-```
-
-Il recupero di un allegato avviene tramite il metodo `getAttachment`,  utilizzando conn.getObject con un oggetto GetObjectArgs.\
-Per inserire un nuovo allegato si utilizza il metodo `insertAttachment` che genera un nome univoco usando `UUID.randomUUID()` e successivamente usato `conn.putObject` con un oggetto `PutObjectArgs`.\
-Per rimuovere un allegato invece si utilizza il metodo `deleteAttachment`, che utilizza `conn.removeObject` con un oggetto `RemoveObjectArgs`.
-
+#pagebreak()
 
 === Conclusioni
-L'adozione di RethinkDB nel nostro server di posta elettronica rappresenta un elemento chiave nella nostra strategia di gestione dei dati. Grazie alla sua flessibilità, scalabilità e capacità di query avanzate, siamo in grado di offrire un servizio di posta elettronica affidabile, efficiente e altamente performante. Questo ci permette di ottenere i migliori risultati possibili durante i test di carico (stress test) richiesti dal proponente. \
+L'adozione di RethinkDB nel nostro server di posta elettronica rappresenta un elemento chiave nella nostra strategia di gestione dei dati. Grazie alla sua flessibilità, scalabilità e capacità di query avanzate, siamo in grado di offrire un servizio di posta elettronica affidabile, efficiente e altamente performante. Questo ci permette di ottenere i migliori risultati possibili durante i #glossary("test") di carico (stress test) richiesti dal #glossary("proponente"). \
 Inoltre l'uso di MinIO per la gestione degli allegati delle email non solo ci permette di dar prova dei vantaggi della nostra scelta architetturale, bensì offre anch'esso prestazioni elevate, scalabilità, affidabilità, flessibilità e sicurezza, contribuendo a ottimizzare il processo di gestione delle email e migliorando l'esperienza degli utenti finali.
 
 #pagebreak()
@@ -1063,8 +1060,7 @@ Vengono di seguito riportati i requisiti funzionali individuati durante la fase 
 - *Codice*: identificativo;
 - *Tipo*: priorità;
 - *Descrizione*;
-- *Stato*: soddisfatto/non soddisfatto;
-- *Riferimento*: classe del prodotto in cui il requisito è stato realizzato.
+- *Stato*: soddisfatto/non soddisfatto.
 Per maggiori dettagli su Codice e Tipo si rimanda alla sezione `Requisiti` del documento `Analisi dei Requisiti v2.0.0`.
 #figure(
   requisitiSoddisfatti(
