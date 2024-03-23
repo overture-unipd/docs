@@ -62,7 +62,7 @@ La presenza di un termine all'interno del `Glossario` viene indicata applicando 
 
 == Riferimenti
 === Riferimenti normativi
-- `Norme di Progetto v2.0.0`: \ https://overture-unipd.github.io/docs/rtb/interni/norme_di_progetto_v2.0.0.pdf
+- `Norme di Progetto v2.0.0`: \ https://overture-unipd.github.io/docs/pb/interni/norme_di_progetto_v2.0.0.pdf
 - *PD2 - Regolamento del progetto didattico* (data di ultimo accesso: 2024-03-22)\
   https://www.math.unipd.it/~tullio/IS-1/2023/Dispense/PD2.pdf
 - *Capitolato d'appalto C8*: JMAP, il nuovo protocollo standard per la comunicazione email (data di ultimo accesso: 2024-03-22)\
@@ -73,7 +73,7 @@ La presenza di un termine all'interno del `Glossario` viene indicata applicando 
   https://www.math.unipd.it/~tullio/IS-1/2023/Dispense/T2.pdf
 - *T4 - Gestione di progetto* (data di ultimo accesso: 2024-03-22)\
   https://www.math.unipd.it/~tullio/IS-1/2023/Dispense/T4.pdf
-- `Glossario v2.0.0`: \ https://overture-unipd.github.io/docs/rtb/interni/glossario_v2.0.0.pdf
+- `Glossario v2.0.0`: \ https://overture-unipd.github.io/docs/pb/interni/glossario_v2.0.0.pdf
 
 == Preventivo iniziale
 Il preventivo iniziale presentato in fase di candidatura è reperibile al seguente link: #link("https://github.com/overture-unipd/docs/blob/master/documents/candidatura/dichiarazione_impegni_v1.1.pdf")[Preventivo iniziale].\
@@ -108,10 +108,10 @@ Per questo motivo si è deciso di adottare la seguente convenzione `R[Tipologia]
 
 *RT2 - Problemi legati all'utilizzo della libreria esterna* <RT2>
 #figure(risks((
-  [Per lo sviluppo del progetto, il team ha scelto di adottare una libreria esterna per implementare lo standard JMAP. La presenza di malfunzionamenti o problematiche interne a questa libreria è al di fuori del controllo del team e potrebbe influire sulla velocità e sui costi del progetto],
+  [Per lo sviluppo del progetto, il team ha scelto di adottare una libreria esterna per implementare lo standard #glossary("JMAP"). La presenza di malfunzionamenti o problematiche interne a questa libreria è al di fuori del controllo del team e potrebbe influire sulla velocità e sui costi del progetto],
   [Bassa],
   [Alta],
-  [La presenza di problemi può essere identificata solo attraverso il test della libreria durante lo sviluppo del progetto o mediante il monitoraggio delle prestazioni durante il suo utilizzo],
+  [La presenza di problemi può essere identificata solo attraverso il #glossary("test") della libreria durante lo sviluppo del progetto o mediante il monitoraggio delle prestazioni durante il suo utilizzo],
   [Nel caso vengano identificati problemi legati al software o ai servizi di terze parti, i membri del team sono tenuti a segnalarli al Responsabile di progetto. Quest'ultimo dovrà prevedere, nel caso peggiore, la sostituzione della soluzione in uso con un'alternativa il più simile possibile al software adottato],
 )),caption: "Rischio tecnologico \"Problemi legati all'utilizzo della libreria esterna\"")
 
@@ -495,7 +495,7 @@ Fine attuale: 2024-01-09\
 Giorni di ritardo: #neg("+2")
 
 ==== Pianificazione
-Nel corso del terzo periodo il gruppo ha completato le `Norme di Progetto`, descrivendo tutti i processi che caratterizzano il nostro way of working seguendo lo standard, ed il `Glossario`; attualmente non prevediamo ulteriori modifiche per questi documenti.\
+Nel corso del terzo periodo il gruppo ha completato le `Norme di Progetto`, descrivendo tutti i processi che caratterizzano il nostro #glossary("way of working") seguendo lo standard, ed il `Glossario`; attualmente non prevediamo ulteriori modifiche per questi documenti.\
  Il `Piano di Qualifica` e il `Piano di Progetto` verranno aggiornati come di consuetudine per ogni periodo.\
 Il PoC, nonostante le numerose avversità emerse durante il terzo periodo, dove la complessità sembrava essere cresciuta nettamente a causa di qualche intoppo dovuto allo scambio dati tra il client e il server, prevediamo raggiungerà una versione stabile e pronta per l'RTB al termine di questo periodo.\
 Prevediamo inoltre di raggiungere una versione stabile anche per l'`Analisi dei Requisiti`, il documento che ha rivelato più criticità durante lo scorso periodo, e per tutto il resto della documentazione entro la fine di questo periodo di lavoro; pertanto provvederemo a fissare in primo luogo un colloquio con il #p.cardin, al fine di chiarire i restanti dubbi sull'`Analisi dei Requisiti` e sul PoC, e successivamente a candidarci per l'RTB.\
@@ -578,7 +578,7 @@ Infine l'aspetto fondamentale su cui concentrarsi nel corso del prossimo periodo
 
 ==== Punto di avanzamento raggiunto e prospettive di completamento
 Durante il quarto periodo, il gruppo ha rallentato leggermente la velocità di avanzamento del progetto, principalmente a causa delle vacanze di Natale. Tuttavia, poiché gran parte del lavoro era già stato completato, ciò non ha rappresentato un problema significativo. L'`Analisi dei Requisiti` è stata finalmente considerata come completa dal gruppo, raggiungendo così il resto della documentazione. Rimangono ancora da completare le ultime attività relative al Proof of Concept (PoC), ma una volta fatto ciò saremo ormai pronti per candidarci a sostenere la revisione RTB. \
-Il nuovo preventivo a finire aumenta un po' rispetto allo scorso periodo, ammontando a 12.630€, vista l'impossibilità di confrontarsi direttamente con il #p.cardin, la quale comporta delle incertezze che potrebbero richiedere più ore da Analista del previsto, ma la data di consegna del prodotto resta al momento confermata per il 2024-03-15.
+Il nuovo preventivo a finire aumenta un po' rispetto allo scorso periodo, ammontando a 12.630€, vista l'impossibilità di confrontarsi direttamente con il #p.cardin, la quale comporta delle incertezze che potrebbero richiedere più ore da #glossary("analista") del previsto, ma la data di consegna del prodotto resta al momento confermata per il 2024-03-15.
 #progress(6.6,"IV")
 
 === Periodo V
@@ -597,7 +597,7 @@ I dettagli che intediamo rifinire per essere pronti alla candidatura RTB sono:
 - assicurarsi che non ci siano errori nel `Glossario`;
 - risolvere tutti i problemi emersi con il PoC negli scorsi periodi.
 
-Infine prevediamo di fissare un incontro con il proponente #p.zextras, che ci servirà per avere una discussione sul PoC e, in seguito, generare un verbale esterno dove accetteranno in maniera formale la rinuncia della parte dei contatti, della rubrica, dei calendari e degli appuntamenti nel prodotto software che stiamo modellando.
+Infine prevediamo di fissare un incontro con il #glossary("proponente") #p.zextras, che ci servirà per avere una discussione sul PoC e, in seguito, generare un verbale esterno dove accetteranno in maniera formale la rinuncia della parte dei contatti, della rubrica, dei calendari e degli appuntamenti nel prodotto software che stiamo modellando.
 
 ===== Rischi attesi
 
@@ -660,7 +660,7 @@ Come si può notare dal confronto tra preventivo e consuntivo:
 
 ===== Rischi occorsi, impatto e loro mitigazione
 Il quinto periodo del progetto è stato caratterizzato da sfide significative per il gruppo. Infatti, il raggiungimento e la conclusione delle ultime task per la candidatura alla Requirements and Technology Baseline ha rischiato di essere ostacolata dalla concomittanza con gli esami della sessione invernale per praticamente tutti i membri del gruppo.\
-Tuttavia, il fatto che ogni membro del gruppo riconoscesse che il successo del nostro progetto è essenziale per il percorso accademico, ci ha spinti e motivati a compiere qualche sforzo aggiuntivo. Ci siamo quindi organizzati per gestire e bilanciare le risorse e il tempo nel modo più efficente possibile così da perseguire la candidatura per la RTB e mantenere un alto standard di qualità nel nostro progetto, senza togliere tempo e attenzione agli imminenti esami che dovremmo affrontare tra pochi giorni, andando a mitigare quindi questo rischio.
+Tuttavia, il fatto che ogni membro del gruppo riconoscesse che il successo del nostro progetto è essenziale per il percorso accademico, ci ha spinti e motivati a compiere qualche sforzo aggiuntivo. Ci siamo quindi organizzati per gestire e bilanciare le risorse e il tempo nel modo più efficente possibile così da perseguire la candidatura per la RTB e mantenere un alto standard di #glossary("qualità") nel nostro progetto, senza togliere tempo e attenzione agli imminenti esami che dovremmo affrontare tra pochi giorni, andando a mitigare quindi questo rischio.
 
 ==== Retrospettiva
 Per quanto riguarda il quinto periodo, il gruppo di progetto ha deciso di attuare in maniera del tutto straordinaria la scelta strategica di organizzare una fase concentrata della durata di una sola settimana.\
@@ -675,7 +675,7 @@ Il nuovo preventivo a finire ammonta a 12.615€ e la data di consegna del prodo
 
 === Sommario finale
 Dopo svariate intense settimane di lavoro, iniziato in data 2023-11-06, il gruppo si ritiene pronto a sostenere la prima revisione del prodotto che, come da accordi con il #p.cardin, inizierà il *2024-01-19* e continuerà poi con il colloquio con il #p.vardanega.\
-Gran parte della documentazione necessaria all'intero progetto è stata stilata durante questa fase, in particolare quella relativa all'`Analisi dei Requisiti` e alle `Norme di Progetto`. Per questo motivo riteniamo che, rispetto a quanto preventivato in fase di candidatura,  le ore da destinare allo studio delle funzionalità del prodotto siano leggermente eccessive. Al contrario, pensiamo di necessitare di più tempo per lo sviluppo del software per via delle tecnologie da utilizzare e la nostra poca esperienza con quest'ultime. Sono stati effettuati, quindi, dei leggeri cambiamenti alle ore da destinare ad ogni singolo ruolo ed è stato ricalcolato il costo totale.\
+Gran parte della documentazione necessaria all'intero progetto è stata stilata durante questa fase, in particolare quella relativa all'`Analisi dei Requisiti` e alle `Norme di Progetto`. Per questo motivo riteniamo che, rispetto a quanto preventivato in fase di candidatura,  le ore da destinare allo studio delle #glossary("funzionalità") del prodotto siano leggermente eccessive. Al contrario, pensiamo di necessitare di più tempo per lo sviluppo del software per via delle tecnologie da utilizzare e la nostra poca esperienza con quest'ultime. Sono stati effettuati, quindi, dei leggeri cambiamenti alle ore da destinare ad ogni singolo ruolo ed è stato ricalcolato il costo totale.\
 Il nuovo preventivo del progetto equivale a _*12615€*_, mentre la consegna finale del prodotto slitta di una settimana, per via del tempo da dedicare allo studio per gli esami, ed è prevista per la data _*2024-03-22*_.
 
 ==== Riepilogo prospetto orario
@@ -808,7 +808,7 @@ Giorni di ritardo: #pos("0")
 
 ==== Pianificazione
 All'interno del settimo periodo, il quale nasce contestualmente al passaggio della revisione RTB da parte del gruppo, dovremo affacciarci per la prima volta alla fase di progettazione (design) del prodotto software che andremo a realizzare. In queste due settimane sarà quindi essenziale condurre uno studio approfondito della documentazione pertinente, con l'obiettivo di definirne la struttura di base ed iniziare ad arricchirla con i contenuti principali. Inoltre è fondamentale aggiornare costantemente la documentazione esistente, in modo da non trascurarla, e proprio per questo prevediamo soprattutto un arricchimento delle `Norme di Progetto`. \
-Per facilitare la transizione verso questa nuova fase del progetto, sarà utile organizzare un colloquio con l'azienda proponente #p.zextras al fine di ottenere supporto e chiarimenti. \
+Per facilitare la transizione verso questa nuova fase del progetto, sarà utile organizzare un colloquio con l'azienda #glossary("proponente") #p.zextras al fine di ottenere supporto e chiarimenti. \
 Inoltre, in questo periodo prevediamo di risolvere tutte le problematiche emerse dalla valutazione seguente alla revisione RTB il prima possibile, in modo da poter operare su una baseline pulita. \
 Infine, non va dimenticato lo sviluppo del prodotto software effettivo, il quale però non potrà essere il focus principale di questo periodo, dato che per poter passare alla codifica sarà necessario prima aver definito almeno una base di progettazione. Tuttavia, finché quest'ultima non sarà almeno parzialmente pronta, intendiamo comunque assegnare ai programmatori il compito di completare l'esplorazione delle funzionalità mancanti nel Proof of Concept (PoC) e condurre test sui client che ci serviranno in futuro per dimostrare le funzionalità del nostro prodotto software.\
 Le attività previste durante questo periodo sono quindi le seguenti:

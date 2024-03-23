@@ -168,27 +168,27 @@ La presenza di un termine all'interno del `Glossario` viene indicata applicando 
 
 == Riferimenti
 === Riferimenti normativi
-- `Norme di Progetto v2.0.0`: \ https://overture-unipd.github.io/docs/rtb/interni/norme_di_progetto_v2.0.0.pdf
+- `Norme di Progetto v2.0.0`: \ https://overture-unipd.github.io/docs/pb/interni/norme_di_progetto_v2.0.0.pdf
 
-- Capitolato d'appalto C8: JMAP, il nuovo protocollo standard per la comunicazione email \
+- Capitolato d'appalto C8: JMAP, il nuovo protocollo standard per la comunicazione email (data di ultimo accesso: 2024-03-22)\
   https://www.math.unipd.it/~tullio/IS-1/2023/Progetto/C8.pdf
 
 === Riferimenti informativi
-- T5 - Analisi dei requisiti \
+- T5 - Analisi dei requisiti (data di ultimo accesso: 2024-03-22)\
   https://www.math.unipd.it/~tullio/IS-1/2023/Dispense/T5.pdf
-- P2 - I Diagrammi dei Casi d'Uso (UML) \ https://www.math.unipd.it/~rcardin/swea/2022/Diagrammi%20Use%20Case.pdf
+- P2 - I Diagrammi dei Casi d'Uso (UML) (data di ultimo accesso: 2024-03-22)\ https://www.math.unipd.it/~rcardin/swea/2022/Diagrammi%20Use%20Case.pdf
   
-- Documentazione JMAP: the core protocol \ https://jmap.io/spec-core.html
+- Documentazione JMAP (data di ultimo accesso: 2024-03-22): the core protocol \ https://jmap.io/spec-core.html
 
-- Documentazione JMAP: email \ https://jmap.io/spec-mail.html
+- Documentazione JMAP (data di ultimo accesso: 2024-03-22): email \ https://jmap.io/spec-mail.html
 
-- Documentazione JMAP: sharing \ https://jmap.io/spec-sharing.html
+- Documentazione JMAP (data di ultimo accesso: 2024-03-22): sharing \ https://jmap.io/spec-sharing.html
 
-- RFC8620: \ https://datatracker.ietf.org/doc/html/rfc8620
+- RFC8620 (data di ultimo accesso: 2024-03-22): \ https://datatracker.ietf.org/doc/html/rfc8620
 
-- RFC8621: \ https://datatracker.ietf.org/doc/html/rfc8621
+- RFC8621 (data di ultimo accesso: 2024-03-22): \ https://datatracker.ietf.org/doc/html/rfc8621
 
-- `Glossario v2.0.0`: \ https://overture-unipd.github.io/docs/rtb/interni/glossario_v2.0.0.pdf
+- `Glossario v2.0.0`: \ https://overture-unipd.github.io/docs/pb/interni/glossario_v2.0.0.pdf
 
 #pagebreak()
 
@@ -3530,7 +3530,7 @@ requirements("#bbfabe", (
   [La codifica dell'intera soluzione informativa deve essere conforme con quanto riportato nella sezione Obiettivi metrici di qualità del documento `Piano di Qualifica v1.0.0`.],
   [Interno],
   [R-007-Q-1],
-  [Nello creazione del prodotto software devono essere rispettate tutte le norme definite nelle sezioni Sviluppo, Verifica e Validazione del documento `Norme di progetto v1.0.0`.],
+  [Nella creazione del prodotto software devono essere rispettate tutte le norme definite nelle sezioni Sviluppo, Verifica e Validazione del documento `Norme di progetto v1.0.0`.],
   [Interno],
 ))
 ,caption: [requisiti di qualità])
